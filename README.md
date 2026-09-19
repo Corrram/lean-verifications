@@ -9,6 +9,21 @@ have been formalized.
 up. No article is claimed to be fully verified. A successful build checks the
 included Lean code; the article's coverage map describes its mathematical scope.
 
+## Handbook and Lean reference
+
+Read the [mathematical handbook](https://corrram.github.io/lean-verifications/)
+for definitions, conventions, and article coverage maps. The
+[Lean API reference](https://corrram.github.io/lean-verifications/api/) is generated
+with a pinned version of [doc-gen4](https://github.com/leanprover/doc-gen4).
+[Search](https://corrram.github.io/lean-verifications/search/) covers the handbook,
+papers, and generated declarations. Each paper also has a stable web address:
+`https://corrram.github.io/lean-verifications/papers/<PaperId>/`.
+
+GitHub Pages rebuilds both parts after a successful proof and documentation
+build on `main`. The website reflects the latest deployed source; cite a full
+commit permalink when identifying a publication's exact supplement.
+See [website authoring and reproduction](docs/WEBSITE.md).
+
 ## Articles
 
 | Article | Supplement | Status |

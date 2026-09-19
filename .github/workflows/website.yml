@@ -1,0 +1,73 @@
+name: Handbook and Lean reference
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SITE_BASE: /lean-verifications/
+      SOURCE_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: leanprover/lean-action@v1
+        with:
+          build: 'true'
+          test: 'false'
+          use-mathlib-cache: 'true'
+      - name: Include all project modules in the reference
+        run: python scripts/prepare_docs.py
+      - name: Build the pinned doc-gen4 reference
+        working-directory: docbuild
+        run: lake build Handbook:docs
+      - name: Build and check the handbook and API links
+        working-directory: website
+        run: |
+          npm ci
+          npm run build
+          npm run check
+      - name: Check that dependency pins are unchanged
+        run: git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json docbuild/lean-toolchain docbuild/lakefile.toml docbuild/lake-manifest.json website/package-lock.json
+      - name: Configure GitHub Pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+      - name: Upload the complete website
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish on GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

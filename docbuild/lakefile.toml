@@ -1,0 +1,18 @@
+name = "verification-docs"
+version = "0.1.0"
+reservoir = false
+packagesDir = "../.lake/packages"
+defaultTargets = ["Handbook"]
+
+[[require]]
+name = "lean-verifications"
+path = ".."
+
+[[require]]
+name = "doc-gen4"
+git = "https://github.com/leanprover/doc-gen4.git"
+# doc-gen4 v4.34.0, matching the proof project's Lean toolchain.
+rev = "a6521b2d0c93dcdf2d640089f95548df5dd8bf46"
+
+[[lean_lib]]
+name = "Handbook"

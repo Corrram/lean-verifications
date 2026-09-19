@@ -35,6 +35,11 @@ if Lean accepts the declarations.
 
 ## Status conventions
 
+The website discovers completed paper metadata automatically. Its paper page
+uses `paper.toml`, `COVERAGE.md`, and `references.bib`; new Lean modules enter
+the doc-gen4 import index on the next build. See [WEBSITE.md](WEBSITE.md) for
+preview and publication commands.
+
 `paper.toml` records the supplement's overall `verification_status`:
 
 | Status | Meaning |
