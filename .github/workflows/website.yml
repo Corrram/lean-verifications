@@ -37,9 +37,33 @@ jobs:
           use-mathlib-cache: 'true'
       - name: Include all project modules in the reference
         run: python scripts/prepare_docs.py
+      - name: Restore documentation build cache
+        id: docs-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            docbuild/.lake
+            .lake/packages/doc-gen4/.lake
+            .lake/packages/leansqlite/.lake
+            .lake/packages/UnicodeBasic/.lake
+            .lake/packages/BibtexQuery/.lake
+            .lake/packages/MD4Lean/.lake
+          key: docs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'docbuild/lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: docs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'docbuild/lake-manifest.json') }}-
       - name: Build the pinned doc-gen4 reference
         working-directory: docbuild
         run: lake build Handbook:docs
+      - name: Save documentation build cache
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            docbuild/.lake
+            .lake/packages/doc-gen4/.lake
+            .lake/packages/leansqlite/.lake
+            .lake/packages/UnicodeBasic/.lake
+            .lake/packages/BibtexQuery/.lake
+            .lake/packages/MD4Lean/.lake
+          key: ${{ steps.docs-cache.outputs.cache-primary-key }}
       - name: Build and check the handbook and API links
         working-directory: website
         run: |

@@ -38,6 +38,9 @@ const papers = fs.readdirSync(path.join(root, 'Papers'), { withFileTypes: true }
 const status = (p) => ({ scaffold: 'Scaffold', 'in-progress': 'In progress', 'complete-for-scope': 'Complete for stated scope' }[p.verification_status]);
 const badge = (p) => `<span class="badge ${p.verification_status}">${esc(status(p))}</span>`;
 const api = (module) => url(`api/${module.replaceAll('.', '/')}.html`);
+// dist is generated output owned by this builder. Resolve and check before removal.
+if (path.resolve(out) !== path.join(path.resolve(root), 'dist')) throw new Error('Unsafe output directory');
+fs.rmSync(out, { recursive: true, force: true });
 const searchIndex = [];
 const nav = (active) => `<aside class="sidebar" id="navigation">
   <a class="brand" href="${url()}"><span class="brand-mark" aria-hidden="true">∂</span><span>lean-verifications<small>Mathematical handbook</small></span></a>
@@ -128,7 +131,7 @@ lake build</code></pre><h2>Cite this supplement</h2><p>Use the <a href="${repo}/
   searchIndex.push({ title: p.title, kind: 'Article supplement', url: url(`papers/${p.id}/`), text: `${p.authors.join(' ')} ${p.id} ${p.doi} ${p.arxiv} ${p.scope} ${coverage}` });
 }
 
-page('search/', 'Search the collection', `<div class="eyebrow">Handbook & formal library</div><h1>Search the collection</h1><p class="lead">Find an article, a mathematical concept, or a Lean declaration.</p><form class="search-form" id="collection-search" role="search"><label for="search-query">Search terms</label><div><input id="search-query" name="q" type="search" placeholder="Try copula, xi rho, or cdf_one" autocomplete="off"><button class="button" type="submit">Search</button></div></form><p class="search-status" id="search-status" aria-live="polite">Enter a term to search the handbook and generated Lean reference.</p><div id="search-results"></div><p class="native-search">You can also use <a id="native-search-link" href="${url('api/search.html')}">doc-gen4’s full declaration search →</a></p><noscript><p>Interactive search requires JavaScript. Browse the <a href="${url('papers/')}">article index</a> or <a href="${url('api/')} ">Lean module index</a>.</p></noscript>`, { active: 'search', label: 'Search', sourcePath: 'website/build.mjs' });
+page('search/', 'Search the collection', `<div class="eyebrow">Handbook & formal library</div><h1>Search the collection</h1><p class="lead">Find an article, a mathematical concept, or a Lean declaration.</p><form class="search-form" id="collection-search" role="search"><label for="search-query">Search terms</label><div><input id="search-query" name="q" type="search" placeholder="Try copula, xi rho, or cdf_one" autocomplete="off"><button class="button" type="submit">Search</button></div></form><p class="search-status" id="search-status" aria-live="polite">Enter a term to search the handbook and generated Lean reference.</p><div id="search-results"></div><p class="native-search">You can also use <a id="native-search-link" href="${url('api/search.html')}">doc-gen4’s full declaration search →</a></p><noscript><p>Interactive search requires JavaScript. Browse the <a href="${url('papers/')}">article index</a> or <a href="${url('api/')}">Lean module index</a>.</p></noscript>`, { active: 'search', label: 'Search', sourcePath: 'website/build.mjs' });
 
 page('404/', 'Page not found', `<div class="eyebrow">404</div><h1>This page could not be found.</h1><p class="lead">Return to the handbook or search for the article or declaration.</p><a class="button" href="${url()}">Open the handbook →</a>`, { label: 'Page not found' });
 fs.copyFileSync(path.join(out, '404/index.html'), path.join(out, '404.html'));
