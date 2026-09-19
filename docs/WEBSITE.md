@@ -50,6 +50,11 @@ committed dependency manifests. No dependency update is needed for reproduction.
 The doc-gen4 Lake project shares `.lake/packages` with the proof project, while
 its own build artifacts remain under `docbuild/.lake`.
 
+CI caches compiled tools and reference data under the dependency pins. The
+preparation script refreshes HTML and this project's declarations and source
+links. Retiring a project module also clears the reference database, so removed
+modules do not survive in cached navigation, search, or tactic indexes.
+
 The default URL prefix is `/lean-verifications/`. For an HTTP preview at `/`,
 set `SITE_BASE=/` for both build and check, then serve `dist`:
 

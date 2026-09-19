@@ -35,8 +35,6 @@ jobs:
           build: 'true'
           test: 'false'
           use-mathlib-cache: 'true'
-      - name: Include all project modules in the reference
-        run: python scripts/prepare_docs.py
       - name: Restore documentation build cache
         id: docs-cache
         uses: actions/cache/restore@v5
@@ -50,6 +48,8 @@ jobs:
             .lake/packages/MD4Lean/.lake
           key: docs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'docbuild/lake-manifest.json') }}-${{ github.sha }}
           restore-keys: docs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'docbuild/lake-manifest.json') }}-
+      - name: Include all project modules and refresh rendered documentation
+        run: python scripts/prepare_docs.py
       - name: Build the pinned doc-gen4 reference
         working-directory: docbuild
         run: lake build Handbook:docs

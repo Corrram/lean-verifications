@@ -40,7 +40,12 @@ const badge = (p) => `<span class="badge ${p.verification_status}">${esc(status(
 const api = (module) => url(`api/${module.replaceAll('.', '/')}.html`);
 // dist is generated output owned by this builder. Resolve and check before removal.
 if (path.resolve(out) !== path.join(path.resolve(root), 'dist')) throw new Error('Unsafe output directory');
-fs.rmSync(out, { recursive: true, force: true });
+fs.mkdirSync(out, { recursive: true });
+for (const entry of fs.readdirSync(out)) {
+  const target = path.resolve(out, entry);
+  if (path.dirname(target) !== out) throw new Error('Unsafe generated output path');
+  fs.rmSync(target, { recursive: true, force: true });
+}
 const searchIndex = [];
 const nav = (active) => `<aside class="sidebar" id="navigation">
   <a class="brand" href="${url()}"><span class="brand-mark" aria-hidden="true">∂</span><span>lean-verifications<small>Mathematical handbook</small></span></a>
@@ -128,7 +133,7 @@ cd lean-verifications
 git checkout --detach ${sha}
 lake exe cache get
 lake build</code></pre><h2>Cite this supplement</h2><p>Use the <a href="${repo}/tree/${sha}/${dir}">permanent folder at commit ${sha.slice(0, 7)}</a> to identify the exact software snapshot. Cite the original article separately. This handbook follows the latest deployed commit.</p><details><summary>Article bibliography (BibTeX)</summary><pre><code>${esc(bib)}</code></pre></details></article>`, { active: `paper:${p.id}`, label: 'Articles', description: p.scope, sourcePath: dir + 'paper.toml' });
-  searchIndex.push({ title: p.title, kind: 'Article supplement', url: url(`papers/${p.id}/`), text: `${p.authors.join(' ')} ${p.id} ${p.doi} ${p.arxiv} ${p.scope} ${coverage}` });
+  searchIndex.push({ title: p.title, kind: 'Article supplement', url: url(`papers/${p.id}/`), keywords: p.id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'), text: `${p.authors.join(' ')} ${p.id} ${p.doi} ${p.arxiv} ${p.scope} ${coverage}` });
 }
 
 page('search/', 'Search the collection', `<div class="eyebrow">Handbook & formal library</div><h1>Search the collection</h1><p class="lead">Find an article, a mathematical concept, or a Lean declaration.</p><form class="search-form" id="collection-search" role="search"><label for="search-query">Search terms</label><div><input id="search-query" name="q" type="search" placeholder="Try copula, xi rho, or cdf_one" autocomplete="off"><button class="button" type="submit">Search</button></div></form><p class="search-status" id="search-status" aria-live="polite">Enter a term to search the handbook and generated Lean reference.</p><div id="search-results"></div><p class="native-search">You can also use <a id="native-search-link" href="${url('api/search.html')}">doc-gen4’s full declaration search →</a></p><noscript><p>Interactive search requires JavaScript. Browse the <a href="${url('papers/')}">article index</a> or <a href="${url('api/')}">Lean module index</a>.</p></noscript>`, { active: 'search', label: 'Search', sourcePath: 'website/build.mjs' });
@@ -137,6 +142,7 @@ page('404/', 'Page not found', `<div class="eyebrow">404</div><h1>This page coul
 fs.copyFileSync(path.join(out, '404/index.html'), path.join(out, '404.html'));
 fs.cpSync(path.join(here, 'assets'), path.join(out, 'assets'), { recursive: true });
 fs.cpSync(path.join(here, 'node_modules/katex/dist'), path.join(out, 'assets/katex'), { recursive: true });
+fs.copyFileSync(path.join(here, 'node_modules/katex/LICENSE'), path.join(out, 'assets/katex/LICENSE'));
 write('search-index.json', JSON.stringify(searchIndex));
 write('.nojekyll', '');
 write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', articles: papers.map(({ id, verification_status }) => ({ id, verification_status })) }, null, 2));

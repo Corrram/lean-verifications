@@ -1,6 +1,8 @@
 """Import every project module so doc-gen4 includes even non-entrypoint files."""
 
 from pathlib import Path
+import json
+import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -19,6 +21,40 @@ def main() -> None:
         + "\n",
         encoding="utf-8",
     )
+    # doc-gen4 merges HTML/search data already on disk. Regenerate the rendered
+    # site so a removed module cannot linger in the published navigation/index.
+    build = (ROOT / "docbuild" / ".lake" / "build").resolve()
+    html = (build / "doc").resolve()
+    if html.parent != build or not build.is_relative_to(ROOT.resolve()):
+        raise ValueError("Refusing to remove documentation outside the project")
+    data = build / "doc-data"
+    old_index = html / "declarations" / "declaration-data.bmp"
+    if old_index.exists():
+        old_modules = json.loads(old_index.read_text(encoding="utf-8"))["modules"]
+        removed = {
+            name for name in old_modules
+            if (name in {"Papers", "Verification"}
+                or name.startswith(("Papers.", "Verification.")))
+            and name not in modules
+        }
+        if removed:
+            # Removed modules must not survive in the cached database's tactic
+            # index either. Rebuild reference data after a module is retired.
+            if data.resolve().parent != build:
+                raise ValueError("Unsafe documentation data directory")
+            if data.exists():
+                shutil.rmtree(data)
+            for suffix in ("", "-shm", "-wal"):
+                (build / f"api-docs.db{suffix}").unlink(missing_ok=True)
+    if html.exists():
+        shutil.rmtree(html)
+    if data.exists():
+        for marker in data.glob("*.docs_built"):
+            marker.unlink()
+        (data / "references.json").unlink(missing_ok=True)
+        # Refresh this repository's source permalinks at the current commit.
+        for module in modules | {"Handbook"}:
+            (data / f"{module}.doc").unlink(missing_ok=True)
     print(f"Prepared doc-gen4 imports for {len(modules)} modules.")
 
 

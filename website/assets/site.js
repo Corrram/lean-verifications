@@ -17,7 +17,7 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-const normalize = (text) => text.toLowerCase().normalize('NFKD').replace(/ξ/g, ' xi ').replace(/ρ/g, ' rho ').replace(/β/g, ' beta ').replace(/τ/g, ' tau ').replace(/φ/g, ' phi ').replace(/γ/g, ' gamma ').replace(/[’']/g, '');
+const normalize = (text) => text.toLowerCase().normalize('NFKD').replace(/ξ/g, ' xi ').replace(/ρ/g, ' rho ').replace(/β/g, ' beta ').replace(/τ/g, ' tau ').replace(/φ/g, ' phi ').replace(/γ/g, ' gamma ').replace(/[’']/g, '').replace(/[–—_-]/g, ' ');
 const filter = document.querySelector('#paper-filter');
 const publication = document.querySelector('#publication-filter');
 function filterPapers() {
@@ -73,7 +73,7 @@ if (searchForm) {
     if (run !== generation) return;
     let count = 0;
     if (handbook.status === 'fulfilled') {
-      const ranked = handbook.value.map((item) => ({ ...item, score: words.reduce((n, word) => n + (normalize(item.title).includes(word) ? 3 : 0), 0) })).filter((item) => words.every((word) => normalize(`${item.title} ${item.text}`).includes(word))).sort((a, b) => b.score - a.score).slice(0, 12);
+      const ranked = handbook.value.map((item) => ({ ...item, score: words.reduce((n, word) => n + (normalize(item.title).includes(word) ? 3 : normalize(item.keywords || '').includes(word) ? 2 : 0), 0) })).filter((item) => words.every((word) => normalize(`${item.title} ${item.text}`).includes(word))).sort((a, b) => b.score - a.score).slice(0, 12);
       for (const item of ranked) { addResult(item); count++; }
     }
     if (lean.status === 'fulfilled') {
