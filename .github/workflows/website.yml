@@ -53,7 +53,9 @@ jobs:
         run: python scripts/prepare_docs.py
       - name: Build the pinned doc-gen4 reference
         working-directory: docbuild
-        run: lake build Handbook:docs
+        env:
+          LEAN_NUM_THREADS: '2'
+        run: /usr/bin/time -v lake build Handbook:docs
       - name: Save documentation build cache
         uses: actions/cache/save@v5
         with:
