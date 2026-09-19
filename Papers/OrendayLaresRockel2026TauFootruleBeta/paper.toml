@@ -1,0 +1,15 @@
+schema_version = 1
+id = "OrendayLaresRockel2026TauFootruleBeta"
+title = "The exact region determined by Kendall's tau, Spearman's footrule and Blomqvist's beta"
+authors = ["Jacob Israel Orenday Lares", "Marcus Rockel"]
+publication_status = "preprint"
+year = "2026"
+journal = ""
+doi = ""
+arxiv = "2607.12841"
+arxiv_version = "v1"
+source_for_numbering = "arXiv:2607.12841v1"
+verification_status = "scaffold"
+scope = "The joint tau-footrule-beta region, constructive attainment, and its geometric properties. No results verified yet."
+entrypoint = "Papers.OrendayLaresRockel2026TauFootruleBeta.Main"
+coverage = "COVERAGE.md"

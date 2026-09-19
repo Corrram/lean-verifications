@@ -1,0 +1,15 @@
+schema_version = 1
+id = "AnsariRockel2024"
+title = "Dependence properties of bivariate copula families"
+authors = ["Jonathan Ansari", "Marcus Rockel"]
+publication_status = "published"
+year = "2024"
+journal = "Dependence Modeling"
+doi = "10.1515/demo-2024-0002"
+arxiv = "2310.17307"
+arxiv_version = "v3"
+source_for_numbering = "arXiv:2310.17307v3; correspondence with journal version pending"
+verification_status = "scaffold"
+scope = "Planned: map dependence, ordering, and association results to Lean; precise verified scope remains empty."
+entrypoint = "Papers.AnsariRockel2024.Main"
+coverage = "COVERAGE.md"

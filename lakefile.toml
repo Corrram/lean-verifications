@@ -1,0 +1,25 @@
+name = "lean-verifications"
+version = "0.1.0"
+description = "Paper-specific Lean 4 formalizations and reproducible research supplements"
+license = "Apache-2.0"
+defaultTargets = ["Verification", "Papers"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+warningAsError = true
+
+[[require]]
+name = "copula"
+git = "https://github.com/Corrram/copula.git"
+# v0.1.0; use the immutable commit so this also works before Reservoir indexing.
+rev = "f3594c079d205f717fc17a6563e7200251d37f30"
+
+[[lean_lib]]
+name = "Verification"
+globs = ["Verification.*"]
+
+[[lean_lib]]
+name = "Papers"
+# Compile every paper module, including ones not yet imported by its Main file.
+globs = ["Papers.*"]

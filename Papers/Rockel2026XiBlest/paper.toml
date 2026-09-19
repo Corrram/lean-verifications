@@ -1,0 +1,15 @@
+schema_version = 1
+id = "Rockel2026XiBlest"
+title = "The exact region between Chatterjee's and Blest's rank correlations"
+authors = ["Marcus Rockel"]
+publication_status = "published"
+year = "2026"
+journal = "International Journal of Approximate Reasoning"
+doi = "10.1016/j.ijar.2026.109744"
+arxiv = "2603.09768"
+arxiv_version = "v1"
+source_for_numbering = "arXiv:2603.09768v1; correspondence with journal version pending"
+verification_status = "scaffold"
+scope = "The xi-Blest region, its extremal copula family, coefficient formulas, and constrained optimization argument. No results verified yet."
+entrypoint = "Papers.Rockel2026XiBlest.Main"
+coverage = "COVERAGE.md"

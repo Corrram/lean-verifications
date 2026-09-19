@@ -1,0 +1,16 @@
+schema_version = 1
+id = "__PAPER_ID__"
+title = ""
+authors = []
+publication_status = "unspecified"
+year = ""
+journal = ""
+doi = ""
+arxiv = ""
+# Include the version, e.g. v3, once the source has been selected.
+arxiv_version = ""
+source_for_numbering = ""
+verification_status = "scaffold"
+scope = "Not yet specified."
+entrypoint = "Papers.__PAPER_ID__.Main"
+coverage = "COVERAGE.md"

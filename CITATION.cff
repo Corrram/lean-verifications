@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Cite the relevant paper folder at the exact commit used, as well as its associated article."
+type: software
+title: "lean-verifications: Lean formalizations accompanying research articles"
+authors:
+  - family-names: Rockel
+    given-names: Marcus
+repository-code: "https://github.com/Corrram/lean-verifications"
+url: "https://github.com/Corrram/lean-verifications"
+license: Apache-2.0
+keywords:
+  - Lean
+  - mathlib
+  - formal verification
+  - reproducible research
+  - copulas

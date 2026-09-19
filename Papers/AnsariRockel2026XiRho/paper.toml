@@ -1,0 +1,15 @@
+schema_version = 1
+id = "AnsariRockel2026XiRho"
+title = "The exact region and an inequality between Chatterjee's and Spearman's rank correlations"
+authors = ["Jonathan Ansari", "Marcus Rockel"]
+publication_status = "published"
+year = "2026"
+journal = "Journal of Multivariate Analysis"
+doi = "10.1016/j.jmva.2026.105630"
+arxiv = "2506.15897"
+arxiv_version = "v3"
+source_for_numbering = "arXiv:2506.15897v3; correspondence with journal version pending"
+verification_status = "scaffold"
+scope = "Exact xi-rho region, diagonal-band extremizers, and the inequality under stochastic monotonicity. No results verified yet."
+entrypoint = "Papers.AnsariRockel2026XiRho.Main"
+coverage = "COVERAGE.md"

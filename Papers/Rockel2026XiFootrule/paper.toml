@@ -1,0 +1,15 @@
+schema_version = 1
+id = "Rockel2026XiFootrule"
+title = "On the exact region between Chatterjee's rank correlation and Spearman's footrule"
+authors = ["Marcus Rockel"]
+publication_status = "published"
+year = "2026"
+journal = "Journal of Computational and Applied Mathematics"
+doi = "10.1016/j.cam.2026.117466"
+arxiv = "2509.07232"
+arxiv_version = "v1"
+source_for_numbering = "arXiv:2509.07232v1; correspondence with journal version pending"
+verification_status = "scaffold"
+scope = "Upper boundary and equality cases, the stochastically increasing subregion, and lower bounds for the xi-footrule region. No results verified yet."
+entrypoint = "Papers.Rockel2026XiFootrule.Main"
+coverage = "COVERAGE.md"

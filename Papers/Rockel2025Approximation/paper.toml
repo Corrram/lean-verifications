@@ -1,0 +1,15 @@
+schema_version = 1
+id = "Rockel2025Approximation"
+title = "Measures of association for approximating copulas"
+authors = ["Marcus Rockel"]
+publication_status = "preprint"
+year = "2025"
+journal = ""
+doi = ""
+arxiv = "2505.08045"
+arxiv_version = "v2"
+source_for_numbering = "arXiv:2505.08045v2"
+verification_status = "scaffold"
+scope = "Association formulas for approximating copulas and checkerboard approximation results under the source hypotheses. No results verified yet."
+entrypoint = "Papers.Rockel2025Approximation.Main"
+coverage = "COVERAGE.md"

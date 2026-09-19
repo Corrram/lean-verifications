@@ -1,0 +1,15 @@
+schema_version = 1
+id = "AnsariRockelSteinmassl2026RhoGamma"
+title = "The exact region determined by Spearman's rho and Gini's gamma"
+authors = ["Jonathan Ansari", "Marcus Rockel", "Stefanie Steinmaßl"]
+publication_status = "preprint"
+year = "2026"
+journal = ""
+doi = ""
+arxiv = "2609.19890"
+arxiv_version = "v1"
+source_for_numbering = "arXiv:2609.19890v1"
+verification_status = "scaffold"
+scope = "The rho-gamma region, its boundary constructions, and the optimal transport argument. No results verified yet."
+entrypoint = "Papers.AnsariRockelSteinmassl2026RhoGamma.Main"
+coverage = "COVERAGE.md"

@@ -1,0 +1,8 @@
+/.lake/
+/lake-packages/
+*.olean
+*.ilean
+*.trace
+__pycache__/
+.DS_Store
+Thumbs.db
