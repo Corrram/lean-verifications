@@ -51,7 +51,12 @@ def main() -> None:
     if data.exists():
         for marker in data.glob("*.docs_built"):
             marker.unlink()
-        (data / "references.json").unlink(missing_ok=True)
+        # These rendered per-module files are merged into the next search and
+        # bibliography indexes. Keep cached analysis markers, but regenerate
+        # all rendered data from the current import graph.
+        for pattern in ("declaration-data-*.bmp", "backrefs-*.json", "header-data.bmp"):
+            for rendered in data.glob(pattern):
+                rendered.unlink()
         # Refresh this repository's source permalinks at the current commit.
         for module in modules | {"Handbook"}:
             (data / f"{module}.doc").unlink(missing_ok=True)
