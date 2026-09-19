@@ -57,6 +57,9 @@ def main() -> None:
         for pattern in ("declaration-data-*.bmp", "backrefs-*.json", "header-data.bmp"):
             for rendered in data.glob(pattern):
                 rendered.unlink()
+        # The bibliography prepass also writes doc/references.bib. Its cached
+        # JSON must be invalidated whenever the rendered directory is cleared.
+        (data / "references.json").unlink(missing_ok=True)
         # Refresh this repository's source permalinks at the current commit.
         for module in modules | {"Handbook"}:
             (data / f"{module}.doc").unlink(missing_ok=True)
