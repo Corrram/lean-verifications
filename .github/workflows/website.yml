@@ -11,7 +11,8 @@ permissions:
 
 concurrency:
   group: website-${{ github.ref }}
-  cancel-in-progress: true
+  # Let a running build/deployment finish and populate its reusable cache.
+  cancel-in-progress: false
 
 jobs:
   build:
