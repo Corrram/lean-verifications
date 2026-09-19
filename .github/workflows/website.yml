@@ -36,6 +36,11 @@ jobs:
           build: 'true'
           test: 'false'
           use-mathlib-cache: 'true'
+      - name: Fetch the pinned documentation dependencies
+        # Clone sources before restoring their .lake directories, otherwise
+        # Lake treats a cache-only directory as an invalid Git checkout.
+        working-directory: docbuild
+        run: lake env lean --version
       - name: Restore documentation build cache
         id: docs-cache
         uses: actions/cache/restore@v5
