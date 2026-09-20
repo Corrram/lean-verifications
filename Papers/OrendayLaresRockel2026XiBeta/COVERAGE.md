@@ -1,18 +1,19 @@
 # Coverage
 
-**Status: in progress.** Theorem 1 is checked: the exact xi-beta region, both attaining boundaries, and uniqueness of the lower boundary. Density and further structural properties of the tent family, classical rank formulas, and Section 6 subclasses remain pending.
+**Status: in progress.** Theorem 1, Proposition 6, Corollaries 7-8, and Remark 9 are checked, including the exact radially symmetric and quadrant-dependent regions. The tent kernel, quadrant masses, reflections, stochastic monotonicity, and the SI/SD inner intervals are also checked. Density, reverse stochastic monotonicity, total positivity, exchangeability of the tent family, rho/tau formulas, and SI/SD right-boundary rigidity remain pending.
 
 ## Source and conventions
 
 Source: [arXiv:2606.30033v1](https://arxiv.org/abs/2606.30033v1), 29 June 2026.
 
-Beta is 4 C(1/2,1/2)-1, and xi conditions coordinate 1 on coordinate 0. The universal bound is proved with regular conditional distributions, without a density assumption. The left boundary is the source's signed tent family. The right boundary uses an alternative deterministic witness: the ordinal sum of two countermonotonic copulas, split at (1+b)/4. Its existence proves the right-boundary assertion in Theorem 1; it does not establish the radial-symmetry or quadrant-dependence properties of the particular shuffle in Proposition 6. Fixed-beta mixtures of these explicitly constructed endpoints prove every attainable pair. Uniqueness of the lower boundary follows from strict convexity of xi. Both parameter endpoints are included.
+Beta is 4 C(1/2,1/2)-1, and xi conditions coordinate 1 on coordinate 0. The universal bound is proved with regular conditional distributions, without a density assumption. The left boundary is the source's signed tent family. The right boundary uses an alternative deterministic witness: the ordinal sum of two countermonotonic copulas, split at (1+b)/4. A second witness places W in a central block of width (1-b)/2 and M outside. This proves all existential conclusions of Proposition 6: xi=1, beta=b, radial symmetry, exchangeability, and PQD for b>=0. Neither construction is identified with the particular interval exchange in the source proof. Fixed-beta mixtures of these explicitly constructed endpoints prove every attainable pair. Uniqueness of the lower boundary follows from strict convexity of xi. Both parameter endpoints are included.
 
 ## Result map
 
 Proofs are in [SharpBound.lean](SharpBound.lean), [LeftBoundary.lean](LeftBoundary.lean),
 [RightBoundary.lean](RightBoundary.lean), [Mixtures.lean](Mixtures.lean), and
-[Region.lean](Region.lean), imported by
+[Region.lean](Region.lean), [LeftProperties.lean](LeftProperties.lean), and
+[Subclasses.lean](Subclasses.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -31,9 +32,21 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 5: equality characterization | `Papers.OrendayLaresRockel2026XiBeta.xi_eq_lower_iff` | verified | At fixed beta=b, equality holds if and only if the copula is the signed tent copula L_b. |
 | Theorem 1: deterministic right-boundary witness | `Papers.OrendayLaresRockel2026XiBeta.xi_twoBlockFlip`; `Papers.OrendayLaresRockel2026XiBeta.rightBoundary_beta`; `Papers.OrendayLaresRockel2026XiBeta.rightBoundary_xi`; `Papers.OrendayLaresRockel2026XiBeta.right_boundary_attained` | verified | Alternative two-block decreasing shuffle attains xi=1 at every b in [-1,1]; no subclass claims. |
 | Theorem 1: exact attainable region | `Papers.OrendayLaresRockel2026XiBeta.exact_xi_beta_region` | verified | A pair (x,b) is attained iff 0<=x<=1, -1<=b<=1, and abs(b)^3<=2x. Both directions and all boundary cases are proved. |
-| Proposition 2 and Proposition 3(ii)-(ix) beyond the boundary values | — | pending | Density, quadrant masses, reflection/radial symmetry, stochastic and total positivity properties, exchangeability, and rho/tau formulas. |
-| Proposition 6: the source's particular shuffle and its subclass properties | — | pending | Theorem 1 right-boundary existence is proved above with a different witness. |
-| Section 6: exact regions for subclasses | — | pending | Radially symmetric, quadrant-dependent and other restricted classes require separate witnesses and constraints. |
+| Proposition 2, equation (8): conditional distributions | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_conditionalCDF` | verified | Every b in [-1,1] and response threshold; the regular conditional CDF equals the displayed two-strip kernel almost everywhere in the conditioning variable. This does not claim the density formula. |
+| Proposition 3(ii): quadrant masses | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_quadrant_masses` | verified | All four median quadrants: (1+b)/4 on the diagonal and (1-b)/4 off the diagonal. Half-open rectangles; uniform marginals make their faces null. |
+| Proposition 3(iii)-(iv): reflections and radial symmetry | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_reflect_first`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_reflect_second`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_radiallySymmetric` | verified | All b in [-1,1]; reflection in either coordinate replaces b by -b. |
+| Proposition 3(v): stochastic monotonicity and quadrant dependence | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_zero`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_si_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_sd_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_pqd_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_nqd_iff` | verified | Independence at b=0; SI and PQD iff b>=0, SD and NQD iff b<=0. Coordinate 1 is conditioned on coordinate 0. |
+| Proposition 6: symmetric right-boundary construction | `Papers.OrendayLaresRockel2026XiBeta.symmetricRightBoundary_xi`; `Papers.OrendayLaresRockel2026XiBeta.symmetricRightBoundary_beta`; `Papers.OrendayLaresRockel2026XiBeta.symmetricRightBoundary_radiallySymmetric`; `Papers.OrendayLaresRockel2026XiBeta.symmetricRightBoundary_exchangeable`; `Papers.OrendayLaresRockel2026XiBeta.symmetricRightBoundary_pqd`; `Papers.OrendayLaresRockel2026XiBeta.symmetric_right_boundary_attained` | verified | All existential claims, using the alternative centered W witness described above. PQD is asserted for b>=0; every b in [-1,1] is radially symmetric and exchangeable. |
+| Section 6: interpolation within a subclass | `Papers.OrendayLaresRockel2026XiBeta.fixed_beta_intermediate_in_class` | verified | Any class closed under constant convex mixtures; endpoints share beta and bracket the target xi. |
+| Corollary 7: exact radially symmetric region | `Papers.OrendayLaresRockel2026XiBeta.exact_radiallySymmetric_xi_beta_region` | verified | The unrestricted region is unchanged by radial symmetry, including every boundary point. |
+| Corollary 8: exact PQD regions | `Papers.OrendayLaresRockel2026XiBeta.exact_pqd_xi_beta_region`; `Papers.OrendayLaresRockel2026XiBeta.exact_pqd_radiallySymmetric_xi_beta_region` | verified | Both PQD and PQD with radial symmetry attain exactly 0<=x<=1, 0<=b<=1, b^3<=2x. |
+| Remark 9: exact NQD region | `Papers.OrendayLaresRockel2026XiBeta.exact_nqd_xi_beta_region` | verified | Exactly 0<=x<=1, -1<=b<=0, abs(b)^3<=2x; proved by reflection in coordinate 1. |
+| Remark 10: SI comparison family | `Papers.OrendayLaresRockel2026XiBeta.stochasticUpper_isSI`; `Papers.OrendayLaresRockel2026XiBeta.stochasticUpper_beta`; `Papers.OrendayLaresRockel2026XiBeta.stochasticUpper_xi` | verified | For b in [0,1], bM+(1-b)Pi is SI, has beta=b and xi=b^2. |
+| Remark 10: attained SI/SD inner intervals | `Papers.OrendayLaresRockel2026XiBeta.si_inner_region_attained`; `Papers.OrendayLaresRockel2026XiBeta.sd_inner_region_attained` | verified | Constructs every abs(b)^3/2<=x<=b^2, in SI for b in [0,1] and SD for b in [-1,0]. No exact upper-envelope claim. |
+| Remark 10: SI/SD outer bounds | `Papers.OrendayLaresRockel2026XiBeta.si_region_outer_bound`; `Papers.OrendayLaresRockel2026XiBeta.sd_region_outer_bound` | verified | SI pairs lie in the PQD region; SD pairs lie in the NQD region. |
+| Proposition 2: density and absolute continuity | — | pending | The conditional kernel is checked above; identifying the density and its values 0, 1, 2 still requires a measure-density proof. |
+| Proposition 3(vi)-(ix) | — | pending | Reverse stochastic monotonicity, density TP2/RR2, exchangeability of the tent family, and rho/tau formulas. |
+| Remark 10: rigidity at xi=1 | — | pending | SI attains xi=1 only at M, and SD only at W. The inner intervals and outer bounds are checked above. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical

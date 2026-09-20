@@ -1,4 +1,4 @@
-import Papers.OrendayLaresRockel2026XiBeta.Region
+import Papers.OrendayLaresRockel2026XiBeta.Subclasses
 
 /-! # OrendayLaresRockel2026XiBeta: public results
 
