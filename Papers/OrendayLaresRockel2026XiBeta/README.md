@@ -5,8 +5,8 @@
 - Source version: [arXiv:2606.30033v1](https://arxiv.org/abs/2606.30033v1), 29 June 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The exact unrestricted, radially symmetric and quadrant-dependent regions are checked. The tent density, absolute continuity, forward and reverse stochastic monotonicity, exchangeability, rho/tau formulas and SI/SD inner intervals are also checked. Density TP2/RR2 and SI/SD rigidity at xi=1 remain pending.
-See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
+**Verification status: complete for stated scope.** Theorem 1, Propositions 2-3 and 5-6, Corollaries 7-8, and the region and rigidity claims in Remarks 9-10 are checked. This includes the exact regions, all listed tent-copula properties, density TP2/RR2 under arbitrary nonnegative measurable versions, and SI/SD rigidity at xi=1. Alternative witnesses establish Proposition 6; the particular interval-exchange formula in its proof is not identified.
+See [COVERAGE.md](COVERAGE.md) for the exact declared scope and construction conventions.
 
 The permanent folder identifier is `OrendayLaresRockel2026XiBeta`.
 
@@ -23,6 +23,8 @@ The permanent folder identifier is `OrendayLaresRockel2026XiBeta`.
 - [TentDensity.lean](TentDensity.lean): explicit density, absolute continuity and its three possible values.
 - [TentTranspose.lean](TentTranspose.lean): reverse stochastic monotonicity and exchangeability classifications.
 - [TentRank.lean](TentRank.lean): rho and tau of the signed tent family.
+- [TentTotalPositivity.lean](TentTotalPositivity.lean): TP2/RR2 classifications, independent of density version.
+- [StochasticRigidity.lean](StochasticRigidity.lean): maximal xi forces M in SI and W in SD.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

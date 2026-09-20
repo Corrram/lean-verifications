@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** The exact unrestricted, radially symmetric and quadrant-dependent regions are checked. The tent density, absolute continuity, forward and reverse stochastic monotonicity, exchangeability, rho/tau formulas and SI/SD inner intervals are also checked. Density TP2/RR2 and SI/SD rigidity at xi=1 remain pending.
+**Status: complete for stated scope.** Theorem 1, Propositions 2-3 and 5-6, Corollaries 7-8, and the region and rigidity claims in Remarks 9-10 are checked. This includes the exact regions, all listed tent-copula properties, density TP2/RR2 under arbitrary nonnegative measurable versions, and SI/SD rigidity at xi=1. Alternative witnesses establish Proposition 6; the particular interval-exchange formula in its proof is not identified.
 
 ## Source and conventions
 
@@ -48,11 +48,11 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3(vi): reverse stochastic monotonicity | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_transpose_isSI_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_transpose_isSD_iff` | verified | The transposed tent copula is SI iff b=0 or b=1, and SD iff b=0 or b=-1. |
 | Proposition 3(viii): exchangeability | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_exchangeable_iff` | verified | Exchangeable iff b is -1, 0 or 1, with both directions proved. |
 | Proposition 3(ix): rank coefficients | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_rho`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_tau` | verified | Rho=3 b abs(b)/4 and tau=b abs(b)/2 on the full signed interval. |
-| Proposition 3(vii): density TP2/RR2 | — | pending | Classify total positivity and reverse regularity of the density, with the almost-everywhere version convention made explicit. |
-| Remark 10: rigidity at xi=1 | — | pending | SI attains xi=1 only at M, and SD only at W. The inner intervals and outer bounds are checked above. |
+| Proposition 3(vii): almost-everywhere density minors | `Papers.OrendayLaresRockel2026XiBeta.tentDensity_ae_tp2_iff`; `Papers.OrendayLaresRockel2026XiBeta.tentDensity_ae_rr2_iff` | verified | TP2 iff b is 0 or 1; RR2 iff b is 0 or -1. Ordered minors are quantified almost everywhere in all four coordinates. Necessity uses intervals of positive length, including parameter endpoints. |
+| Proposition 3(vii): pointwise density versions | `Papers.OrendayLaresRockel2026XiBeta.tentDensity_tp2_iff`; `Papers.OrendayLaresRockel2026XiBeta.tentDensity_rr2_iff` | verified | The explicit tentDensity version satisfies the corresponding pointwise TP2/RR2 inequality exactly at those parameter values. |
+| Proposition 3(vii): independence of the density version | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_density_version_ae_minors_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_hasMTP2Density_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_hasRR2Density_iff` | verified | Every nonnegative measurable version of the actual copula density has the same almost-everywhere minor property. Existence of any pointwise TP2 or RR2 density version has the same exact classification. |
+| Remark 10: SI/SD rigidity at xi=1 | `Papers.OrendayLaresRockel2026XiBeta.si_xi_one_iff`; `Papers.OrendayLaresRockel2026XiBeta.sd_xi_one_iff`; `Papers.OrendayLaresRockel2026XiBeta.si_xi_one_beta`; `Papers.OrendayLaresRockel2026XiBeta.sd_xi_one_beta` | verified | For every copula, including singular laws, SI and xi=1 force M and beta=1; SD and xi=1 force W and beta=-1. Both copula characterizations are equivalences. |
 
-The verified subset consists only of the explicitly mapped statements and
-proof steps. Pending rows are not implied by a successful build. Numerical
-experiments and plots are not counted as formal proofs.
+There are no pending rows within the declared scope. The scope is the numbered results and region/rigidity claims listed above; it does not certify every intermediate expression in the source proof. Proposition 6 uses alternative witnesses, as explained in the conventions. The exact SI/SD upper envelopes and the higher-dimensional regions proposed for future work are not claimed by this supplement or resolved by the paper. Numerical experiments and plots are not formal proofs.
 
-Additional proof modules: [TentDensity.lean](TentDensity.lean), [TentTranspose.lean](TentTranspose.lean), [TentRank.lean](TentRank.lean).
+Additional proof modules: [TentDensity.lean](TentDensity.lean), [TentTranspose.lean](TentTranspose.lean), [TentRank.lean](TentRank.lean), [TentTotalPositivity.lean](TentTotalPositivity.lean), [StochasticRigidity.lean](StochasticRigidity.lean).

@@ -5,8 +5,8 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** all nine supplements contain checked statements or proof steps
-and are **in progress**. No article is fully verified. Coverage includes the exact
+**Current status:** the xi-beta supplement is **complete for its stated scope**;
+the other eight supplements remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the xi-footrule upper and bottom
 boundaries; the full xi=1 slices for rho and Blest; all three pairwise
 tau/footrule/beta regions and the joint lower tau face; rho-footrule contact
@@ -39,7 +39,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; sharp upper boundary, unique checkerboard minimum and bottom boundary |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; all equal diagonal grids: rho/tau, deterministic xi and tails |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries and full xi=1 boundary |
-| ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | In progress; exact regions and tent density, transpose, exchangeability and rank formulas |
+| ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; all pairwise regions, joint outer bounds and entire lower tau face |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; quadratic equality criterion and all discrete sharp contact points |
 | ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; full sign-magnitude converse, attained transport reduction and half-shift optimality |
