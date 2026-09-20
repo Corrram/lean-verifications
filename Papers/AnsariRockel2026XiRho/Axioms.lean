@@ -1,10 +1,22 @@
 import Papers.AnsariRockel2026XiRho.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for AnsariRockel2026XiRho
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.AnsariRockel2026XiRho.xi_derivative_formula
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.xi_derivative_formula
+
+#print axioms Papers.AnsariRockel2026XiRho.xi_zero_slice
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.xi_zero_slice
+
+#print axioms Papers.AnsariRockel2026XiRho.rho_extreme_implies_xi_one
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.rho_extreme_implies_xi_one
+
+#print axioms Papers.AnsariRockel2026XiRho.fgm_stochastically_monotone
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.fgm_stochastically_monotone
+
+#print axioms Papers.AnsariRockel2026XiRho.fgm_xi_le_abs_rho
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.fgm_xi_le_abs_rho
+
+#print axioms Papers.AnsariRockel2026XiRho.fgm_xi_eq_abs_rho_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.fgm_xi_eq_abs_rho_iff

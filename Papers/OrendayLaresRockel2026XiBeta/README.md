@@ -5,15 +5,15 @@
 - Source version: [arXiv:2606.30033v1](https://arxiv.org/abs/2606.30033v1), 29 June 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: scaffold.** No article result is claimed verified yet.
-Planned scope: The xi-beta region, the two-strip boundary family, attainment, and selected subclasses.
-See [COVERAGE.md](COVERAGE.md) for the starting roadmap and remaining work.
+**Verification status: in progress.** The derivative convention and the fixed-beta interpolation step of Theorem 1 are checked. The sharp inequality and the left/right boundary constructions remain pending.
+See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `OrendayLaresRockel2026XiBeta`.
 
 ## Contents
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
+- [Mixtures.lean](Mixtures.lean): checked statements and proof steps.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
@@ -26,11 +26,12 @@ From the **repository root**, using the commit cited in the article:
 lake exe cache get
 lake build Papers.OrendayLaresRockel2026XiBeta.Main
 lake build
+python scripts/check_verification.py
 lake env lean Papers/OrendayLaresRockel2026XiBeta/Axioms.lean
 ```
 
 The full build checks all paper files. The final command prints the axiom
-reports once declarations have been added to `Axioms.lean`. A successful build
+reports and rejects nonstandard transitive axioms. A successful build
 does not mean that every statement in the article has been formalized.
 
 ## Citation

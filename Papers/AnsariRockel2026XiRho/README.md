@@ -6,11 +6,10 @@
 - Source version: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: scaffold.** No article result is claimed verified yet.
-Planned scope: Exact xi-rho region, diagonal-band extremizers, and the inequality under stochastic monotonicity.
-See [COVERAGE.md](COVERAGE.md) for the starting roadmap and remaining work.
+**Verification status: in progress.** The derivative convention, endpoint cases, and Theorem 2 restricted to the signed FGM family are checked. The diagonal-band region and the general SI/SD theorem remain pending.
+See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
-The roadmap uses the arXiv version above; correspondence with the journal
+The coverage map uses the arXiv version above; correspondence with the journal
 version remains to be checked.
 
 The permanent folder identifier is `AnsariRockel2026XiRho`.
@@ -18,6 +17,7 @@ The permanent folder identifier is `AnsariRockel2026XiRho`.
 ## Contents
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
+- [SelectedResults.lean](SelectedResults.lean): checked statements and proof steps.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
@@ -30,11 +30,12 @@ From the **repository root**, using the commit cited in the article:
 lake exe cache get
 lake build Papers.AnsariRockel2026XiRho.Main
 lake build
+python scripts/check_verification.py
 lake env lean Papers/AnsariRockel2026XiRho/Axioms.lean
 ```
 
 The full build checks all paper files. The final command prints the axiom
-reports once declarations have been added to `Axioms.lean`. A successful build
+reports and rejects nonstandard transitive axioms. A successful build
 does not mean that every statement in the article has been formalized.
 
 ## Citation

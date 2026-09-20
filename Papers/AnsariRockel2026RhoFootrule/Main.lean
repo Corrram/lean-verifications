@@ -1,8 +1,6 @@
-import Papers.AnsariRockel2026RhoFootrule.Definitions
+import Papers.AnsariRockel2026RhoFootrule.Moments
 
-/-!
-# AnsariRockel2026RhoFootrule: public results
+/-! # AnsariRockel2026RhoFootrule: public results
 
-Import each completed result module here. The correspondence with the source
-article is recorded in `COVERAGE.md`. No results have been added yet.
+See `COVERAGE.md` for the exact verified subset and remaining obligations.
 -/

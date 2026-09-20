@@ -1,10 +1,25 @@
 import Papers.Rockel2026XiBlest.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for Rockel2026XiBlest
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.Rockel2026XiBlest.blest_integrable
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_integrable
+
+#print axioms Papers.Rockel2026XiBlest.blest_integral_formula
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_integral_formula
+
+#print axioms Papers.Rockel2026XiBlest.xi_derivative_formula
+#assert_standard_axioms Papers.Rockel2026XiBlest.xi_derivative_formula
+
+#print axioms Papers.Rockel2026XiBlest.blest_mono
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_mono
+
+#print axioms Papers.Rockel2026XiBlest.blest_mix
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_mix
+
+#print axioms Papers.Rockel2026XiBlest.blest_independence
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_independence
+
+#print axioms Papers.Rockel2026XiBlest.xi_zero_slice
+#assert_standard_axioms Papers.Rockel2026XiBlest.xi_zero_slice

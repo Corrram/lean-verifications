@@ -1,32 +1,29 @@
 # Coverage
 
-**Status: scaffold.** No article result is claimed verified yet.
+**Status: in progress.** Biaffinity of concordance and the fixed-footrule, fixed-beta interpolation step of Theorem 1.1 are checked. Boundary shuffles, ordinal spreading, and the full joint region remain pending.
 
-## Source and scope
+## Source and conventions
 
 Source: [arXiv:2607.12841v1](https://arxiv.org/abs/2607.12841v1), 14 July 2026.
 
-Planned scope: The joint tau-footrule-beta region, constructive attainment, and its geometric properties.
-The verified scope is currently empty.
+Tau=4 integral C dC-1, footrule=6 integral C(t,t) dt-2, and beta=4 C(1/2,1/2)-1. The library writes Q(C,D)=4 integral C dD-1; symmetry of Q matches the argument order of equation (6). The two endpoint copulas in the interpolation theorem must already have the same footrule and beta. Pairwise bounds alone are not treated as joint attainability. Tau along a mixture is quadratic, not affine.
 
-## Initial roadmap
+## Result map
 
-This initial roadmap follows the arXiv abstract; exact result numbering is pending. Pairwise bounds alone do not establish joint attainability.
+Proofs are in [Mixtures.lean](Mixtures.lean), imported by
+[Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
+standard transitive axiom allowlist for every declaration below.
 
-| Source target (v1) | Lean declaration | Status | Work needed |
+| Source result | Lean declaration | Status | Hypotheses and scope |
 | --- | --- | --- | --- |
-| Boundary constructions | — | pending | Formalize the shuffle families and their coefficient values. |
-| Joint region | — | pending | Establish the inequalities, ordinal-sum construction, and filling of fibres. |
-| Geometry | — | pending | Treat convexity, symmetry, and volume as separate coverage items. |
+| Section 2, equation (6): biaffinity of Q | `Papers.OrendayLaresRockel2026TauFootruleBeta.concordance_mixture` | verified | Any four copulas and two closed-interval mixture weights; source argument order agrees by Q symmetry. |
+| Section 4, proof of Theorem 1.1: continuity of tau | `Papers.OrendayLaresRockel2026TauFootruleBeta.tau_mixture_continuous` | verified | Any pair of copulas, including singular ones. |
+| Section 4, proof of Theorem 1.1: fill a vertical fibre | `Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_footrule_beta_intermediate` | verified | Supplied copulas share both footrule and beta and bracket the requested tau. No boundary existence is assumed implicitly. |
+| Proposition 2.1 and equation (9) | — | pending | Known pairwise bounds and the centered ordinal-sum transformation formulas. |
+| Lemma 3.1 and Section 3 shuffle families | — | pending | General shuffle tau formula and simultaneous boundary coefficient values. |
+| Theorem 1.1 as a whole | — | pending | Construct the simultaneous endpoints and prove all region inequalities. |
+| Corollaries 4.1-4.2 and Section 5 | — | pending | Joint-region geometry, projection and volume. |
 
-Replace broad targets with individual numbered results as work proceeds.
-Every `verified` row needs a checked declaration, explicit hypotheses, and an
-axiom report in [Axioms.lean](Axioms.lean). Pending targets belong in this map,
-not in incomplete Lean declarations.
-
-## Source correspondence
-
-Record normalization choices, direction conventions, parameter endpoints, and
-any additional hypotheses before claiming a source result is covered.
-Generic copula lemmas should be reused from or contributed to the upstream
-library; this folder records their precise application to this article.
+The verified subset consists only of the explicitly mapped statements and
+proof steps. Pending rows are not implied by a successful build. Numerical
+experiments and plots are not counted as formal proofs.

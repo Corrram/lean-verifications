@@ -1,10 +1,22 @@
 import Papers.Rockel2025Approximation.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for Rockel2025Approximation
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.Rockel2025Approximation.dyadicBlocks_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.dyadicBlocks_cdf
+
+#print axioms Papers.Rockel2025Approximation.dyadicBlocks_rho
+#assert_standard_axioms Papers.Rockel2025Approximation.dyadicBlocks_rho
+
+#print axioms Papers.Rockel2025Approximation.dyadicBlocks_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.dyadicBlocks_tau
+
+#print axioms Papers.Rockel2025Approximation.checkerboard_rho_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.checkerboard_rho_tau
+
+#print axioms Papers.Rockel2025Approximation.checkMin_corrections
+#assert_standard_axioms Papers.Rockel2025Approximation.checkMin_corrections
+
+#print axioms Papers.Rockel2025Approximation.checkW_corrections
+#assert_standard_axioms Papers.Rockel2025Approximation.checkW_corrections

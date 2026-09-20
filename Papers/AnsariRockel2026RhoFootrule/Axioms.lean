@@ -1,10 +1,13 @@
 import Papers.AnsariRockel2026RhoFootrule.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for AnsariRockel2026RhoFootrule
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.AnsariRockel2026RhoFootrule.moment_representation
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.moment_representation
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.quadratic_upper_bound
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.quadratic_upper_bound
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.fixed_footrule_intermediate
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.fixed_footrule_intermediate
