@@ -20,3 +20,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.checkW_corrections
 #assert_standard_axioms Papers.Rockel2025Approximation.checkW_corrections
+
+#print axioms Papers.Rockel2025Approximation.equalGrid_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.equalGrid_cdf
+
+#print axioms Papers.Rockel2025Approximation.equalGrid_rho_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.equalGrid_rho_tau
+
+#print axioms Papers.Rockel2025Approximation.equal_checkerboard_rho_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.equal_checkerboard_rho_tau
+
+#print axioms Papers.Rockel2025Approximation.equal_checkMin_coefficients
+#assert_standard_axioms Papers.Rockel2025Approximation.equal_checkMin_coefficients
+
+#print axioms Papers.Rockel2025Approximation.equal_checkW_coefficients
+#assert_standard_axioms Papers.Rockel2025Approximation.equal_checkW_coefficients
+
+#print axioms Papers.Rockel2025Approximation.equal_checkerboard_tails
+#assert_standard_axioms Papers.Rockel2025Approximation.equal_checkerboard_tails
+
+#print axioms Papers.Rockel2025Approximation.equal_checkMin_tails
+#assert_standard_axioms Papers.Rockel2025Approximation.equal_checkMin_tails
+
+#print axioms Papers.Rockel2025Approximation.equal_checkW_tails
+#assert_standard_axioms Papers.Rockel2025Approximation.equal_checkW_tails

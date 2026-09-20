@@ -103,4 +103,12 @@ theorem centeredOrdinal_beta (C : Copula 2) (α : I) :
   rw [Copula.blomqvistBeta, hc, Copula.blomqvistBeta]
   ring
 
+theorem centeredOrdinal_rho (C : Copula 2) (α : I) :
+    (centeredOrdinal C α).spearmanRho = (α : ℝ) ^ 3 * C.spearmanRho + 1 - (α : ℝ) ^ 3 := by
+  simp only [centeredOrdinal, Copula.spearmanRho_ordinalSum, Copula.spearmanRho_comonotonic]
+  have hw := central_weight α
+  calc
+    _ = 1 - ((1 - (centralMargin α : ℝ)) * centralSplit α) ^ 3 * (1 - C.spearmanRho) := by ring
+    _ = _ := by rw [hw]; ring
+
 end Verification

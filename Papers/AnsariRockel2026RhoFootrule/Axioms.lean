@@ -11,3 +11,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026RhoFootrule.fixed_footrule_intermediate
 #assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.fixed_footrule_intermediate
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.quadratic_defect
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.quadratic_defect
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.quadratic_equality_iff
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.quadratic_equality_iff
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.halfTurn_rho
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.halfTurn_rho
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.halfTurn_footrule
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.halfTurn_footrule
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.contactCopula_coefficients
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.contactCopula_coefficients
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.contactCopula_maximizes_rho
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.contactCopula_maximizes_rho
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.contactCopula_constant_displacement
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.contactCopula_constant_displacement

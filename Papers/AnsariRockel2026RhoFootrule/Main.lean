@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2026RhoFootrule.Touchpoints
 import Papers.AnsariRockel2026RhoFootrule.Moments
 
 /-! # AnsariRockel2026RhoFootrule: public results
