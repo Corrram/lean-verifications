@@ -33,8 +33,13 @@ foundational axioms and an unproved article-specific assumption have different
 roles; the report should be read alongside the statement and scope.
 
 The project treats warnings as errors, including Lean’s warnings for
-unfinished `sorry` proofs. Pending statements remain in the coverage map
-until a proof is ready.
+unfinished `sorry` proofs. Every verified declaration also has a
+`#assert_standard_axioms` check that rejects any transitive axiom outside
+`propext`, `Classical.choice`, and `Quot.sound`. CI compares the coverage maps
+with these assertions and the printed reports, and requires each advertised
+theorem to appear in the generated Lean reference. Pending statements remain
+in the coverage map until a proof is ready. The mathematical match to the
+source statement still requires review.
 
 ## Reproduce the source snapshot
 

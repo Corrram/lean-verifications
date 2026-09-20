@@ -33,11 +33,25 @@ const papers = fs.readdirSync(path.join(root, 'Papers'), { withFileTypes: true }
     const p = parse(read(`Papers/${d.name}/paper.toml`));
     if (p.id !== d.name || !/^[A-Za-z][A-Za-z0-9]*$/.test(p.id)) throw new Error(`Invalid paper identifier: ${d.name}`);
     if (!['scaffold', 'in-progress', 'complete-for-scope'].includes(p.verification_status)) throw new Error(`Unknown verification status: ${p.id}`);
+    p.verified_declarations = [...new Set(read(`Papers/${p.id}/${p.coverage}`).split('\n')
+      .filter((line) => /^\|.*\|\s*verified\s*\|/.test(line))
+      .flatMap((line) => [...line.matchAll(/`(Papers\.[A-Za-z0-9_.]+)`/g)].map((m) => m[1])))];
     return p;
   }).sort((a, b) => (a.arxiv || '').localeCompare(b.arxiv || '') || a.id.localeCompare(b.id));
 const status = (p) => ({ scaffold: 'Scaffold', 'in-progress': 'In progress', 'complete-for-scope': 'Complete for stated scope' }[p.verification_status]);
 const badge = (p) => `<span class="badge ${p.verification_status}">${esc(status(p))}</span>`;
 const api = (module) => url(`api/${module.replaceAll('.', '/')}.html`);
+const declarationIndexPath = path.join(root, 'docbuild/.lake/build/doc/declarations/declaration-data.bmp');
+const declarations = fs.existsSync(declarationIndexPath)
+  ? JSON.parse(fs.readFileSync(declarationIndexPath, 'utf8')).declarations : {};
+const renderCode = md.renderer.rules.code_inline;
+md.renderer.rules.code_inline = (tokens, idx, options, env, renderer) => {
+  const name = tokens[idx].content;
+  const code = renderCode(tokens, idx, options, env, renderer);
+  const target = declarations[name]?.docLink?.replace(/^\//, '');
+  if (!name.startsWith('Papers.') || !target || /^[a-z]+:/i.test(target) || target.includes('..')) return code;
+  return `<a href="${esc(url(`api/${target}`))}">${code}</a>`;
+};
 // dist is generated output owned by this builder. Resolve and check before removal.
 if (path.resolve(out) !== path.join(path.resolve(root), 'dist')) throw new Error('Unsafe output directory');
 fs.mkdirSync(out, { recursive: true });
@@ -145,7 +159,7 @@ fs.cpSync(path.join(here, 'node_modules/katex/dist'), path.join(out, 'assets/kat
 fs.copyFileSync(path.join(here, 'node_modules/katex/LICENSE'), path.join(out, 'assets/katex/LICENSE'));
 write('search-index.json', JSON.stringify(searchIndex));
 write('.nojekyll', '');
-write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', articles: papers.map(({ id, verification_status }) => ({ id, verification_status })) }, null, 2));
+write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', articles: papers.map(({ id, verification_status, verified_declarations }) => ({ id, verification_status, verified_declarations })) }, null, 2));
 const docs = path.join(root, 'docbuild/.lake/build/doc');
 if (fs.existsSync(path.join(docs, 'index.html'))) {
   fs.cpSync(docs, path.join(out, 'api'), { recursive: true });

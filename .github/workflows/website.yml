@@ -36,6 +36,10 @@ jobs:
           build: 'true'
           test: 'false'
           use-mathlib-cache: 'true'
+      - name: Check advertised verification coverage and axiom audits
+        run: |
+          python scripts/test_check_verification.py
+          python scripts/check_verification.py
       - name: Fetch the pinned documentation dependencies
         # Clone sources before restoring their .lake directories, otherwise
         # Lake treats a cache-only directory as an invalid Git checkout.

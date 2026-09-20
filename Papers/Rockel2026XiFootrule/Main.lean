@@ -1,8 +1,8 @@
-import Papers.Rockel2026XiFootrule.Definitions
+import Papers.Rockel2026XiFootrule.UpperBoundary
 
 /-!
 # Rockel2026XiFootrule: public results
 
-Import each completed result module here. The correspondence with the source
-article is recorded in `COVERAGE.md`. No results have been added yet.
+The upper boundary, attainment, and uniqueness from Theorem 2.1 are proved
+in the conditional-CDF formulation. Remaining scope is recorded in `COVERAGE.md`.
 -/

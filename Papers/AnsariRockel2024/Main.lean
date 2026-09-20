@@ -1,8 +1,9 @@
-import Papers.AnsariRockel2024.Definitions
+import Papers.AnsariRockel2024.Association
+import Papers.AnsariRockel2024.Dependence
 
 /-!
 # AnsariRockel2024: public results
 
-Import each completed result module here. The correspondence with the source
-article is recorded in `COVERAGE.md`. No results have been added yet.
+Selected FGM, Fréchet and Mardia results from Tables 5 and 6 are checked here.
+The exact correspondence, conventions, and remaining gaps are in `COVERAGE.md`.
 -/

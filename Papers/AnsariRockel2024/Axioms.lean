@@ -1,10 +1,58 @@
 import Papers.AnsariRockel2024.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for AnsariRockel2024
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.AnsariRockel2024.classical_representation
+#assert_standard_axioms Papers.AnsariRockel2024.classical_representation
+
+#print axioms Papers.AnsariRockel2024.fgm_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_cdf
+
+#print axioms Papers.AnsariRockel2024.xi_derivative_formula
+#assert_standard_axioms Papers.AnsariRockel2024.xi_derivative_formula
+
+#print axioms Papers.AnsariRockel2024.fgm_rho
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_rho
+
+#print axioms Papers.AnsariRockel2024.fgm_tau
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_tau
+
+#print axioms Papers.AnsariRockel2024.fgm_xi
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_xi
+
+#print axioms Papers.AnsariRockel2024.frechet_rho
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_rho
+
+#print axioms Papers.AnsariRockel2024.frechet_tau
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_tau
+
+#print axioms Papers.AnsariRockel2024.frechet_xi
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_xi
+
+#print axioms Papers.AnsariRockel2024.mardia_rho
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_rho
+
+#print axioms Papers.AnsariRockel2024.mardia_tau
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_tau
+
+#print axioms Papers.AnsariRockel2024.mardia_xi
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_xi
+
+#print axioms Papers.AnsariRockel2024.fgm_ci
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_ci
+
+#print axioms Papers.AnsariRockel2024.fgm_cd
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_cd
+
+#print axioms Papers.AnsariRockel2024.fgm_lowerOrthant
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_lowerOrthant
+
+#print axioms Papers.AnsariRockel2024.fgm_tails
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_tails
+
+#print axioms Papers.AnsariRockel2024.frechet_tails
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_tails
+
+#print axioms Papers.AnsariRockel2024.mardia_tails
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_tails
