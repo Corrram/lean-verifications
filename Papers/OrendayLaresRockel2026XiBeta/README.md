@@ -5,7 +5,7 @@
 - Source version: [arXiv:2606.30033v1](https://arxiv.org/abs/2606.30033v1), 29 June 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Theorem 1 is checked: the exact xi-beta region, both attaining boundaries, and uniqueness of the lower boundary. Density and further structural properties of the tent family, classical rank formulas, and Section 6 subclasses remain pending.
+**Verification status: in progress.** Theorem 1, Proposition 6, Corollaries 7-8, and Remark 9 are checked, including the exact radially symmetric and quadrant-dependent regions. The tent kernel, quadrant masses, reflections, stochastic monotonicity, and the SI/SD inner intervals are also checked. Density, reverse stochastic monotonicity, total positivity, exchangeability of the tent family, rho/tau formulas, and SI/SD right-boundary rigidity remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `OrendayLaresRockel2026XiBeta`.
@@ -15,6 +15,8 @@ The permanent folder identifier is `OrendayLaresRockel2026XiBeta`.
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [SharpBound.lean](SharpBound.lean): the universal cubic inequality, including singular copulas.
 - [LeftBoundary.lean](LeftBoundary.lean): the signed tent copulas, exact coefficients, and uniqueness.
+- [LeftProperties.lean](LeftProperties.lean): the conditional kernel, quadrant masses, reflections, symmetry and dependence.
+- [Subclasses.lean](Subclasses.lean): symmetric right endpoints, exact subclass regions, and SI/SD inner intervals.
 - [RightBoundary.lean](RightBoundary.lean): deterministic copulas with xi=1 at every beta.
 - [Mixtures.lean](Mixtures.lean): fixed-beta interpolation.
 - [Region.lean](Region.lean): the full exact-region theorem.

@@ -8,7 +8,8 @@ have been formalized.
 **Current status:** all nine supplements contain checked statements or proof
 steps and are **in progress**. No article is fully verified. Coverage includes
 selected copula-family results, the exact xi-beta region with its unique
-lower boundary, and the xi-footrule upper boundary, plus
+lower boundary and symmetric/quadrant-dependent regions, and the xi-footrule
+upper boundary, plus
 restricted FGM and dyadic-grid formulas, moment identities, and region
 interpolation and symmetry results. Each coverage map specifies its exact
 scope and pending work. CI checks the maps and rejects nonstandard axioms
@@ -38,7 +39,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; Theorem 2.1 and maximal gap verified |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; rho and tau on diagonal dyadic grids |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; Blest normalization, range and reflection symmetry |
-| ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | In progress; Theorem 1 exact region and unique lower boundary verified |
+| ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | In progress; exact full, symmetric and quadrant-dependent xi-beta regions |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; centered ordinal sums and joint-fibre interpolation |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; moment identities and quadratic upper bound |
 | ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; moments, convexity and symmetry |
