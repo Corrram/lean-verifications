@@ -41,3 +41,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.xi_blest_reflection
 #assert_standard_axioms Papers.Rockel2026XiBlest.xi_blest_reflection
+
+#print axioms Papers.Rockel2026XiBlest.blest_eq_rho_of_radiallySymmetric
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_eq_rho_of_radiallySymmetric
+
+#print axioms Papers.Rockel2026XiBlest.xi_one_slice
+#assert_standard_axioms Papers.Rockel2026XiBlest.xi_one_slice

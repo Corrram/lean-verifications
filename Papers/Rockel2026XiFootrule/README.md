@@ -6,12 +6,8 @@
 - Source version: [arXiv:2509.07232v1](https://arxiv.org/abs/2509.07232v1), 8 September 2025.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Theorem 2.1's upper bound, attainment,
-and unique maximizer are verified for every xi in [0,1], including singular
-copulas. The sharp maximal gap is verified too. The proof uses squared
-distance between conditional CDFs, with a proved bridge to the source's
-derivative convention. See [COVERAGE.md](COVERAGE.md) for the remaining SI
-region and lower-bound results.
+**Verification status: in progress.** Theorem 2.1 and the maximal gap are checked, together with Theorem 3.4: the unique checkerboard minimizer at footrule=-1/2 and the entire bottom boundary for xi in [1/2,1]. The SI region and remaining lower-bound results are pending.
+See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The roadmap uses the arXiv version above; correspondence with the journal
 version remains to be checked.
@@ -21,6 +17,7 @@ The permanent folder identifier is `Rockel2026XiFootrule`.
 ## Contents
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
+- [LowerEndpoint.lean](LowerEndpoint.lean): the unique checkerboard minimum and full bottom boundary.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [UpperBoundary.lean](UpperBoundary.lean): upper boundary and maximal gap proofs.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.

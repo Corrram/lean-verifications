@@ -1,3 +1,4 @@
+import Papers.Rockel2025Approximation.EqualGrids
 import Papers.Rockel2025Approximation.DyadicBlocks
 
 /-! # Rockel2025Approximation: public results

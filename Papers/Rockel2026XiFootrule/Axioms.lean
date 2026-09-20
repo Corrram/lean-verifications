@@ -17,3 +17,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.footrule_sub_xi_eq_iff
 #assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_sub_xi_eq_iff
+
+#print axioms Papers.Rockel2026XiFootrule.antiCheckerboard_cdf
+#assert_standard_axioms Papers.Rockel2026XiFootrule.antiCheckerboard_cdf
+
+#print axioms Papers.Rockel2026XiFootrule.antiCheckerboard_xi
+#assert_standard_axioms Papers.Rockel2026XiFootrule.antiCheckerboard_xi
+
+#print axioms Papers.Rockel2026XiFootrule.antiCheckerboard_footrule
+#assert_standard_axioms Papers.Rockel2026XiFootrule.antiCheckerboard_footrule
+
+#print axioms Papers.Rockel2026XiFootrule.xi_lower_bound_at_minimal_footrule
+#assert_standard_axioms Papers.Rockel2026XiFootrule.xi_lower_bound_at_minimal_footrule
+
+#print axioms Papers.Rockel2026XiFootrule.xi_minimum_at_minimal_footrule_iff
+#assert_standard_axioms Papers.Rockel2026XiFootrule.xi_minimum_at_minimal_footrule_iff
+
+#print axioms Papers.Rockel2026XiFootrule.exact_bottom_boundary
+#assert_standard_axioms Papers.Rockel2026XiFootrule.exact_bottom_boundary

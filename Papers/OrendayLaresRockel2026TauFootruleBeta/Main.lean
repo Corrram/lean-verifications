@@ -1,3 +1,4 @@
+import Papers.OrendayLaresRockel2026TauFootruleBeta.FootruleBeta
 import Papers.OrendayLaresRockel2026TauFootruleBeta.Mixtures
 import Papers.OrendayLaresRockel2026TauFootruleBeta.CenteredOrdinal
 

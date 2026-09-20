@@ -20,3 +20,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026XiRho.fgm_xi_eq_abs_rho_iff
 #assert_standard_axioms Papers.AnsariRockel2026XiRho.fgm_xi_eq_abs_rho_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.xi_one_slice
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.xi_one_slice
+
+#print axioms Papers.AnsariRockel2026XiRho.symmetric_xi_one_attained
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.symmetric_xi_one_attained

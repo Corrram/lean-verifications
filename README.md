@@ -7,13 +7,12 @@ have been formalized.
 
 **Current status:** all nine supplements contain checked statements or proof
 steps and are **in progress**. No article is fully verified. Coverage includes
-selected copula-family results, the exact xi-beta region with its unique
-lower boundary and symmetric/quadrant-dependent regions, and the xi-footrule
-upper boundary, plus
-restricted FGM and dyadic-grid formulas, moment identities, and region
-interpolation and symmetry results. Each coverage map specifies its exact
-scope and pending work. CI checks the maps and rejects nonstandard axioms
-behind every declaration advertised as verified.
+the exact xi-beta region and several subclasses; the xi-footrule upper and
+bottom boundaries; the full xi=1 slices for rho and Blest; the sharp upper
+footrule-beta boundary; rho-footrule contact points; and rank/tail formulas
+on all equal diagonal grids. Each coverage map specifies its exact scope
+and pending work. CI checks the maps and rejects nonstandard axioms behind
+every declaration advertised as verified.
 
 ## Handbook and Lean reference
 
@@ -35,13 +34,13 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | Article | Supplement | Status |
 | --- | --- | --- |
 | Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected Tables 5–6 results verified |
-| ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; endpoint cases and restricted FGM inequality |
-| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; Theorem 2.1 and maximal gap verified |
-| Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; rho and tau on diagonal dyadic grids |
-| ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; Blest normalization, range and reflection symmetry |
+| ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full xi=1 boundary, endpoint cases and FGM inequality |
+| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; sharp upper boundary, unique checkerboard minimum and bottom boundary |
+| Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; all equal diagonal grids: rho/tau, deterministic xi and tails |
+| ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries and full xi=1 boundary |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | In progress; exact full, symmetric and quadrant-dependent xi-beta regions |
-| τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; centered ordinal sums and joint-fibre interpolation |
-| ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; moment identities and quadratic upper bound |
+| τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; sharp upper footrule-beta bound, ordinal sums and interpolation |
+| ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; quadratic equality criterion and all discrete sharp contact points |
 | ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; moments, convexity and symmetry |
 
 ## Reproduce the build

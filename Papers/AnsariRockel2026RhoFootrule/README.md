@@ -5,7 +5,7 @@
 - Source version: [arXiv:2608.20176v1](https://arxiv.org/abs/2608.20176v1), 20 August 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Lemma 3.2, the classical quadratic upper envelope, and the fixed-footrule interpolation step of Corollary 1.2 are checked. The sharp transport correction and boundary construction remain pending.
+**Verification status: in progress.** Moment identities, the classical quadratic bound and its constant-displacement equality criterion, all discrete upper-bound contact points, and fixed-footrule interpolation are checked. The sharp correction between contact points, uniqueness, full boundary and applications remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockel2026RhoFootrule`.
@@ -14,6 +14,7 @@ The permanent folder identifier is `AnsariRockel2026RhoFootrule`.
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [Moments.lean](Moments.lean): checked statements and proof steps.
+- [Touchpoints.lean](Touchpoints.lean): the variance equality criterion and all discrete sharp contact points.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
