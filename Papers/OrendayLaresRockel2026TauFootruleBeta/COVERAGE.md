@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Biaffinity of concordance and the fixed-footrule, fixed-beta interpolation step of Theorem 1.1 are checked. Boundary shuffles, ordinal spreading, and the full joint region remain pending.
+**Status: in progress.** Biaffinity, fixed-footrule/fixed-beta interpolation, and all centered ordinal-sum identities in equation (9) are checked. Pairwise bounds, simultaneous boundary shuffles, and the full joint region remain pending.
 
 ## Source and conventions
 
@@ -10,7 +10,7 @@ Tau=4 integral C dC-1, footrule=6 integral C(t,t) dt-2, and beta=4 C(1/2,1/2)-1.
 
 ## Result map
 
-Proofs are in [Mixtures.lean](Mixtures.lean), imported by
+Proofs are in [Mixtures.lean](Mixtures.lean) and [CenteredOrdinal.lean](CenteredOrdinal.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -19,7 +19,10 @@ standard transitive axiom allowlist for every declaration below.
 | Section 2, equation (6): biaffinity of Q | `Papers.OrendayLaresRockel2026TauFootruleBeta.concordance_mixture` | verified | Any four copulas and two closed-interval mixture weights; source argument order agrees by Q symmetry. |
 | Section 4, proof of Theorem 1.1: continuity of tau | `Papers.OrendayLaresRockel2026TauFootruleBeta.tau_mixture_continuous` | verified | Any pair of copulas, including singular ones. |
 | Section 4, proof of Theorem 1.1: fill a vertical fibre | `Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_footrule_beta_intermediate` | verified | Supplied copulas share both footrule and beta and bracket the requested tau. No boundary existence is assumed implicitly. |
-| Proposition 2.1 and equation (9) | — | pending | Known pairwise bounds and the centered ordinal-sum transformation formulas. |
+| Equation (9): construction and central-square CDF | `Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_cdf` | verified | Parameter alpha is the central width 1-2a; the central CDF is a+alpha C, including alpha=0. |
+| Equation (9): degenerate and full-width endpoints | `Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_zero`; `Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_one` | verified | Width zero gives M; width one recovers the supplied copula. |
+| Equation (9): tau, footrule and beta transformations | `Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_tau`; `Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_footrule`; `Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_beta` | verified | Tau and footrule transform with alpha squared; beta transforms with alpha. No density assumption. |
+| Proposition 2.1 | — | pending | Known sharp pairwise bounds and their attainment. |
 | Lemma 3.1 and Section 3 shuffle families | — | pending | General shuffle tau formula and simultaneous boundary coefficient values. |
 | Theorem 1.1 as a whole | — | pending | Construct the simultaneous endpoints and prove all region inequalities. |
 | Corollaries 4.1-4.2 and Section 5 | — | pending | Joint-region geometry, projection and volume. |

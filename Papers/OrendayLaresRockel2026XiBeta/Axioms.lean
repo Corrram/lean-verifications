@@ -14,3 +14,48 @@ import Verification.AxiomAudit
 
 #print axioms Papers.OrendayLaresRockel2026XiBeta.fixed_beta_intermediate
 #assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.fixed_beta_intermediate
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.medianDisplacement_lipschitz
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.medianDisplacement_lipschitz
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.median_strip_energy
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.median_strip_energy
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.median_energy_le_xi
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.median_energy_le_xi
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.medianTent_le_abs_displacement
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.medianTent_le_abs_displacement
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.beta_cubic_le_two_xi
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.beta_cubic_le_two_xi
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.leftBoundary_cdf
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.leftBoundary_cdf
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.leftBoundary_beta
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.leftBoundary_beta
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.leftBoundary_xi
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.leftBoundary_xi
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.left_boundary_attained
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.left_boundary_attained
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.xi_eq_lower_iff
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.xi_eq_lower_iff
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.xi_twoBlockFlip
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.xi_twoBlockFlip
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.rightBoundary_beta
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.rightBoundary_beta
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.rightBoundary_xi
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.rightBoundary_xi
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.right_boundary_attained
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.right_boundary_attained
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.exact_xi_beta_region
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.exact_xi_beta_region

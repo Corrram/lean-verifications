@@ -5,7 +5,7 @@
 - Source version: [arXiv:2607.12841v1](https://arxiv.org/abs/2607.12841v1), 14 July 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Biaffinity of concordance and the fixed-footrule, fixed-beta interpolation step of Theorem 1.1 are checked. Boundary shuffles, ordinal spreading, and the full joint region remain pending.
+**Verification status: in progress.** Biaffinity, fixed-footrule/fixed-beta interpolation, and all centered ordinal-sum identities in equation (9) are checked. Pairwise bounds, simultaneous boundary shuffles, and the full joint region remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `OrendayLaresRockel2026TauFootruleBeta`.
@@ -14,6 +14,7 @@ The permanent folder identifier is `OrendayLaresRockel2026TauFootruleBeta`.
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [Mixtures.lean](Mixtures.lean): checked statements and proof steps.
+- [CenteredOrdinal.lean](CenteredOrdinal.lean): the centered copula construction and equation (9).
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
