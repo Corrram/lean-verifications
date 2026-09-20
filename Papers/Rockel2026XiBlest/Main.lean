@@ -1,4 +1,4 @@
-import Papers.Rockel2026XiBlest.Blest
+import Papers.Rockel2026XiBlest.Normalization
 
 /-! # Rockel2026XiBlest: public results
 

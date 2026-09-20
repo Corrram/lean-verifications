@@ -6,7 +6,7 @@
 - Source version: [arXiv:2603.09768v1](https://arxiv.org/abs/2603.09768v1), 10 March 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Blest's weighted-CDF convention, monotonicity, affine mixtures, independence normalization, and the xi=0 endpoint are checked. The extremal family and exact region remain pending.
+**Verification status: in progress.** Blest's integral convention, mixtures, Pi/M/W normalization, global range, joint xi/Blest reflection symmetry, and the xi=0 endpoint are checked. The extremal family and exact region remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The coverage map uses the arXiv version above; correspondence with the journal
@@ -17,7 +17,8 @@ The permanent folder identifier is `Rockel2026XiBlest`.
 ## Contents
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
-- [Blest.lean](Blest.lean): checked statements and proof steps.
+- [Blest.lean](Blest.lean): the weighted CDF functional and mixture identities.
+- [Normalization.lean](Normalization.lean): M/W normalization, range and joint reflection symmetry.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
