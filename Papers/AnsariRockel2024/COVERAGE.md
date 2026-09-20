@@ -1,8 +1,6 @@
 # Coverage
 
-**Status: in progress.** Selected results from Tables 5 and 6 are checked on
-their full stated parameter domains. This is not a verification of all 38
-families or of the entire article.
+**Status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Other family entries, general order correspondences and journal comparison remain pending.
 
 ## Source and conventions
 
@@ -50,8 +48,14 @@ and checked against the standard axiom allowlist in [Axioms.lean](Axioms.lean).
 | Table 5 / Appendix A.4.3: FGM lower and upper tails | `Papers.AnsariRockel2024.fgm_tails` | verified | Full signed interval, including zero and both endpoints. |
 | Table 5 / Appendix A.4.3: Frechet tails | `Papers.AnsariRockel2024.frechet_tails` | verified | Full weight simplex, including singular endpoints. |
 | Table 5 / Appendix A.4.3: Mardia tails | `Papers.AnsariRockel2024.mardia_tails` | verified | Full signed interval; nonnegative W-weight as specified above. |
+| Table 5 / Appendix A.4.1: FGM density | `Papers.AnsariRockel2024.fgm_density` | verified | Actual copula measure equals Lebesgue measure with the displayed continuous density; all signed parameters. |
+| Table 5 / Appendix A.4.1: FGM density TP2 | `Papers.AnsariRockel2024.fgm_density_tp2_iff`; `Papers.AnsariRockel2024.fgm_has_tp2_density` | verified | The displayed density is TP2 iff theta>=0; for nonnegative theta it supplies a HasMTP2Density witness. No claim about TP2 of the CDF is substituted for density TP2. |
+| Tables 1-2: Nelsen 7 CDF and endpoints | `Papers.AnsariRockel2024.nelsen7_cdf`; `Papers.AnsariRockel2024.nelsen7_endpoints` | verified | Entire square and theta in [0,1], including W at zero and independence at one. |
+| Table 3 / Appendix A.1.1: Nelsen 7 CD | `Papers.AnsariRockel2024.nelsen7_cd` | verified | Conditional decreasingness in both directions for every theta in [0,1]. |
+| Table 3 / Appendix A.1.2: Nelsen 7 lower orthant order | `Papers.AnsariRockel2024.nelsen7_lowerOrthant_iff` | verified | Comparison holds iff the parameters are ordered; full closed parameter interval. |
+| Table 3: Nelsen 7 tail dependence | `Papers.AnsariRockel2024.nelsen7_tails` | verified | Both limits exist and equal zero, including both parameter endpoints. |
 | Remaining family constructors and table entries | — | pending | Unlisted cells are not covered by the results above. |
-| General dependence/order equivalences and their applications | — | pending | Density TP2 and rearrangement-based Schur order need separate correspondence checks. |
+| General dependence/order equivalences and their applications | — | pending | Unlisted density properties and rearrangement-based Schur order need separate correspondence checks. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
 
 Proof sources: [Definitions.lean](Definitions.lean),
@@ -68,3 +72,5 @@ Other discrepancies documented in the pinned library's
 [coverage audit](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/docs/ansari-rockel.md)
 remain outside this verified subset. Numerical plots, grid searches, and
 numerical-only table observations are excluded from the formal claims.
+
+Additional proof modules: [FamilyExtensions.lean](FamilyExtensions.lean).

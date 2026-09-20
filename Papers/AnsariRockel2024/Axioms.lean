@@ -56,3 +56,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.mardia_tails
 #assert_standard_axioms Papers.AnsariRockel2024.mardia_tails
+
+#print axioms Papers.AnsariRockel2024.fgm_density
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_density
+
+#print axioms Papers.AnsariRockel2024.fgm_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.fgm_has_tp2_density
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_has_tp2_density
+
+#print axioms Papers.AnsariRockel2024.nelsen7_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_cdf
+
+#print axioms Papers.AnsariRockel2024.nelsen7_endpoints
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_endpoints
+
+#print axioms Papers.AnsariRockel2024.nelsen7_cd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_cd
+
+#print axioms Papers.AnsariRockel2024.nelsen7_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen7_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_tails

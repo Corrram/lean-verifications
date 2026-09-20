@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorem 1, Proposition 6, Corollaries 7-8, and Remark 9 are checked, including the exact radially symmetric and quadrant-dependent regions. The tent kernel, quadrant masses, reflections, stochastic monotonicity, and the SI/SD inner intervals are also checked. Density, reverse stochastic monotonicity, total positivity, exchangeability of the tent family, rho/tau formulas, and SI/SD right-boundary rigidity remain pending.
+**Status: in progress.** The exact unrestricted, radially symmetric and quadrant-dependent regions are checked. The tent density, absolute continuity, forward and reverse stochastic monotonicity, exchangeability, rho/tau formulas and SI/SD inner intervals are also checked. Density TP2/RR2 and SI/SD rigidity at xi=1 remain pending.
 
 ## Source and conventions
 
@@ -32,7 +32,7 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 5: equality characterization | `Papers.OrendayLaresRockel2026XiBeta.xi_eq_lower_iff` | verified | At fixed beta=b, equality holds if and only if the copula is the signed tent copula L_b. |
 | Theorem 1: deterministic right-boundary witness | `Papers.OrendayLaresRockel2026XiBeta.xi_twoBlockFlip`; `Papers.OrendayLaresRockel2026XiBeta.rightBoundary_beta`; `Papers.OrendayLaresRockel2026XiBeta.rightBoundary_xi`; `Papers.OrendayLaresRockel2026XiBeta.right_boundary_attained` | verified | Alternative two-block decreasing shuffle attains xi=1 at every b in [-1,1]; no subclass claims. |
 | Theorem 1: exact attainable region | `Papers.OrendayLaresRockel2026XiBeta.exact_xi_beta_region` | verified | A pair (x,b) is attained iff 0<=x<=1, -1<=b<=1, and abs(b)^3<=2x. Both directions and all boundary cases are proved. |
-| Proposition 2, equation (8): conditional distributions | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_conditionalCDF` | verified | Every b in [-1,1] and response threshold; the regular conditional CDF equals the displayed two-strip kernel almost everywhere in the conditioning variable. This does not claim the density formula. |
+| Proposition 2, equation (8): conditional distributions | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_conditionalCDF` | verified | Every b in [-1,1] and response threshold; the regular conditional CDF equals the displayed two-strip kernel almost everywhere in the conditioning variable. The density identification is a separate verified row below. |
 | Proposition 3(ii): quadrant masses | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_quadrant_masses` | verified | All four median quadrants: (1+b)/4 on the diagonal and (1-b)/4 off the diagonal. Half-open rectangles; uniform marginals make their faces null. |
 | Proposition 3(iii)-(iv): reflections and radial symmetry | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_reflect_first`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_reflect_second`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_radiallySymmetric` | verified | All b in [-1,1]; reflection in either coordinate replaces b by -b. |
 | Proposition 3(v): stochastic monotonicity and quadrant dependence | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_zero`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_si_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_sd_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_pqd_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_nqd_iff` | verified | Independence at b=0; SI and PQD iff b>=0, SD and NQD iff b<=0. Coordinate 1 is conditioned on coordinate 0. |
@@ -44,10 +44,15 @@ standard transitive axiom allowlist for every declaration below.
 | Remark 10: SI comparison family | `Papers.OrendayLaresRockel2026XiBeta.stochasticUpper_isSI`; `Papers.OrendayLaresRockel2026XiBeta.stochasticUpper_beta`; `Papers.OrendayLaresRockel2026XiBeta.stochasticUpper_xi` | verified | For b in [0,1], bM+(1-b)Pi is SI, has beta=b and xi=b^2. |
 | Remark 10: attained SI/SD inner intervals | `Papers.OrendayLaresRockel2026XiBeta.si_inner_region_attained`; `Papers.OrendayLaresRockel2026XiBeta.sd_inner_region_attained` | verified | Constructs every abs(b)^3/2<=x<=b^2, in SI for b in [0,1] and SD for b in [-1,0]. No exact upper-envelope claim. |
 | Remark 10: SI/SD outer bounds | `Papers.OrendayLaresRockel2026XiBeta.si_region_outer_bound`; `Papers.OrendayLaresRockel2026XiBeta.sd_region_outer_bound` | verified | SI pairs lie in the PQD region; SD pairs lie in the NQD region. |
-| Proposition 2: density and absolute continuity | — | pending | The conditional kernel is checked above; identifying the density and its values 0, 1, 2 still requires a measure-density proof. |
-| Proposition 3(vi)-(ix) | — | pending | Reverse stochastic monotonicity, density TP2/RR2, exchangeability of the tent family, and rho/tau formulas. |
+| Proposition 2: density and absolute continuity | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_density`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_absolutelyContinuous`; `Papers.OrendayLaresRockel2026XiBeta.tentDensity_values` | verified | Every b in [-1,1]. The actual measure is identified with the displayed step density; its pointwise values are 0, 1 or 2. Values on jump lines specify a version and do not change the measure. |
+| Proposition 3(vi): reverse stochastic monotonicity | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_transpose_isSI_iff`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_transpose_isSD_iff` | verified | The transposed tent copula is SI iff b=0 or b=1, and SD iff b=0 or b=-1. |
+| Proposition 3(viii): exchangeability | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_exchangeable_iff` | verified | Exchangeable iff b is -1, 0 or 1, with both directions proved. |
+| Proposition 3(ix): rank coefficients | `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_rho`; `Papers.OrendayLaresRockel2026XiBeta.leftBoundary_tau` | verified | Rho=3 b abs(b)/4 and tau=b abs(b)/2 on the full signed interval. |
+| Proposition 3(vii): density TP2/RR2 | — | pending | Classify total positivity and reverse regularity of the density, with the almost-everywhere version convention made explicit. |
 | Remark 10: rigidity at xi=1 | — | pending | SI attains xi=1 only at M, and SD only at W. The inner intervals and outer bounds are checked above. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
 experiments and plots are not counted as formal proofs.
+
+Additional proof modules: [TentDensity.lean](TentDensity.lean), [TentTranspose.lean](TentTranspose.lean), [TentRank.lean](TentRank.lean).
