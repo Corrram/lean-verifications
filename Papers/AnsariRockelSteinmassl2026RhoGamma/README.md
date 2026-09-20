@@ -5,7 +5,7 @@
 - Source version: [arXiv:2609.19890v1](https://arxiv.org/abs/2609.19890v1), 17 September 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The forward sign-magnitude representation, uniform magnitude laws, supporting-functional bound, weak duality and contact-set optimality criterion are checked. The half-shift optimizer has a checked feasible dual potential, contact equality and regularity for s>=1. The converse sign construction, remaining optimizer branches, glued potential and exact boundary remain pending.
+**Verification status: in progress.** The full sign-magnitude representation, arbitrary-law converse, sign-bound attainment and equality of the attained support and transport maxima are checked. Weak duality, contact certificates and the half-shift optimizer for s>=1 are checked. The remaining optimizer branches, glued potential, general strong duality and exact boundary remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockelSteinmassl2026RhoGamma`.
@@ -15,6 +15,8 @@ The permanent folder identifier is `AnsariRockelSteinmassl2026RhoGamma`.
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [Moments.lean](Moments.lean): checked statements and proof steps.
 - [SignMagnitude.lean](SignMagnitude.lean): uniform magnitudes and both sign-moment identities.
+- [SignConverse.lean](SignConverse.lean): recovery of arbitrary joint magnitude/sign laws.
+- [SignAttainment.lean](SignAttainment.lean): sign-bound attainment and equality of the attained maxima.
 - [Transport.lean](Transport.lean): supporting inequality, weak duality and contact-set optimality.
 - [HalfShift.lean](HalfShift.lean): the half-shift optimizer and dual certificate for s>=1.
 - [Main.lean](Main.lean): entry point importing the final result modules.

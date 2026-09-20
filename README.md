@@ -42,7 +42,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | In progress; exact regions and tent density, transpose, exchangeability and rank formulas |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; all pairwise regions, joint outer bounds and entire lower tau face |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; quadratic equality criterion and all discrete sharp contact points |
-| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; sign-magnitude reduction, weak duality and half-shift optimality |
+| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; full sign-magnitude converse, attained transport reduction and half-shift optimality |
 
 ## Reproduce the build
 
