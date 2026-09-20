@@ -6,7 +6,7 @@
 - Source version: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The derivative convention, endpoint cases, the entire xi=1 boundary, and Theorem 2 restricted to signed FGM are checked. The curved diagonal-band boundary, interior region, and general SI/SD theorem remain pending.
+**Verification status: in progress.** The derivative conventions, endpoint cases, entire xi=1 boundary, and the general SI/SD inequality xi<=abs(rho) are checked. Theorem 2 equality cases outside FGM, the curved diagonal-band boundary, and the full interior region remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The coverage map uses the arXiv version above; correspondence with the journal
@@ -19,6 +19,7 @@ The permanent folder identifier is `AnsariRockel2026XiRho`.
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [SelectedResults.lean](SelectedResults.lean): checked statements and proof steps.
 - [RightBoundary.lean](RightBoundary.lean): the complete xi=1 boundary, with radially symmetric witnesses.
+- [StochasticBounds.lean](StochasticBounds.lean): general SI/SD rho bounds and the weighted derivative formula.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

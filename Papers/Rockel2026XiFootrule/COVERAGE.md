@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorem 2.1 and the maximal gap are checked, together with Theorem 3.4: the unique checkerboard minimizer at footrule=-1/2 and the entire bottom boundary for xi in [1/2,1]. The SI region and remaining lower-bound results are pending.
+**Status: in progress.** Theorem 2.1 and the maximal gap, the exact SI region in Theorem 2.4, Corollary 2.5, and Theorem 3.4 with the entire bottom boundary are checked. Proposition 2.2 equality classification and the remaining lower-bound results and constructions are pending.
 
 ## Source and proof scope
 
@@ -37,7 +37,7 @@ The lower endpoint has an independent proof through the sharp xi-beta theorem in
 ## Result map
 
 All source references use arXiv v1. Proofs are in
-[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), and [LowerEndpoint.lean](LowerEndpoint.lean).
+[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), and [SIRegion.lean](SIRegion.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
@@ -51,7 +51,11 @@ All source references use arXiv v1. Proofs are in
 | Theorem 3.4: checkerboard construction and values | `Papers.Rockel2026XiFootrule.antiCheckerboard_cdf`; `Papers.Rockel2026XiFootrule.antiCheckerboard_xi`; `Papers.Rockel2026XiFootrule.antiCheckerboard_footrule` | verified | CDF on the full square equals the integral of density two on the two off-diagonal median cells; xi=1/2 and footrule=-1/2. |
 | Theorem 3.4: sharp minimum and unique minimizer | `Papers.Rockel2026XiFootrule.xi_lower_bound_at_minimal_footrule`; `Papers.Rockel2026XiFootrule.xi_minimum_at_minimal_footrule_iff` | verified | Every copula with footrule=-1/2 has xi>=1/2, with equality exactly at the checkerboard. Alternative proof using the verified xi-beta bound and equality theorem. |
 | Section 3.1: complete bottom boundary | `Papers.Rockel2026XiFootrule.exact_bottom_boundary` | verified | A pair (x,-1/2) is attained if and only if x is in [1/2,1]. Attainment uses fixed-footrule mixtures of the checkerboard and W. |
-| Proposition 2.2 and Theorem 2.4: SI equality characterization and exact SI region | — | pending | Need the SI lower bound, its equality cases, and interior attainment. |
+| Theorem 2.4: SI lower bound | `Papers.Rockel2026XiFootrule.si_xi_le_footrule` | verified | Every SI copula, including singular laws. An antitone version of each conditional CDF gives its squared integral below C(v,v); integrating proves xi<=footrule. |
+| Theorem 2.4: lower-boundary witnesses | `Papers.Rockel2026XiFootrule.diagonalBoundary_cdf`; `Papers.Rockel2026XiFootrule.diagonalBoundary_isSI`; `Papers.Rockel2026XiFootrule.diagonalBoundary_coefficients` | verified | The ordinal sum of independence below a and M above a is SI and has xi=footrule=1-a^2. The full-square CDF and the closed parameter interval, including a=0 and a=1, are proved. |
+| Theorem 2.4: upper witnesses and entire SI region | `Papers.Rockel2026XiFootrule.upperBoundary_isSI`; `Papers.Rockel2026XiFootrule.exact_si_xi_footrule_region` | verified | A pair (x,y) is attained by an SI copula iff x,y are in [0,1] and x<=y<=sqrt(x). Mixtures with equal footrule remain SI and a proved continuous xi path attains every interior point. |
+| Corollary 2.5: Kendall bound | `Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau` | verified | Every SI copula satisfies xi<=3 tau/4+1/4, combining the new SI lower bound with the verified universal tau-footrule bound. |
+| Proposition 2.2: full SI equality classification | — | pending | The lower bound and enough witnesses for the entire SI region are proved above. Necessity and sufficiency of the source's measurable three-level conditional-CDF representation remain pending. |
 | Section 3.1 outside Theorem 3.4 | — | pending | The remaining Jensen lower-bound curve and its piecewise optimization formulas. The checkerboard minimum and the entire bottom boundary are checked above. |
 | Section 3.2: two-parameter copula construction | — | pending | Need the marginal and parameter-endpoint proofs. |
 | Numerical optimization and plotted lower-bound candidates | — | excluded | Numerical evidence is not advertised as a Lean proof. |

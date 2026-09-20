@@ -35,3 +35,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.exact_bottom_boundary
 #assert_standard_axioms Papers.Rockel2026XiFootrule.exact_bottom_boundary
+
+#print axioms Papers.Rockel2026XiFootrule.diagonalBoundary_cdf
+#assert_standard_axioms Papers.Rockel2026XiFootrule.diagonalBoundary_cdf
+
+#print axioms Papers.Rockel2026XiFootrule.diagonalBoundary_isSI
+#assert_standard_axioms Papers.Rockel2026XiFootrule.diagonalBoundary_isSI
+
+#print axioms Papers.Rockel2026XiFootrule.diagonalBoundary_coefficients
+#assert_standard_axioms Papers.Rockel2026XiFootrule.diagonalBoundary_coefficients
+
+#print axioms Papers.Rockel2026XiFootrule.si_xi_le_footrule
+#assert_standard_axioms Papers.Rockel2026XiFootrule.si_xi_le_footrule
+
+#print axioms Papers.Rockel2026XiFootrule.upperBoundary_isSI
+#assert_standard_axioms Papers.Rockel2026XiFootrule.upperBoundary_isSI
+
+#print axioms Papers.Rockel2026XiFootrule.exact_si_xi_footrule_region
+#assert_standard_axioms Papers.Rockel2026XiFootrule.exact_si_xi_footrule_region
+
+#print axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
+#assert_standard_axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
