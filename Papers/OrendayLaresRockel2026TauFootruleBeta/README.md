@@ -5,7 +5,7 @@
 - Source version: [arXiv:2607.12841v1](https://arxiv.org/abs/2607.12841v1), 14 July 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Biaffinity, fixed-fibre interpolation, equation (9), and the sharp upper footrule-beta bound with attainment are checked. The lower footrule-beta bound, tau-footrule bounds, simultaneous boundary shuffles, and full joint region remain pending.
+**Verification status: in progress.** All three pairwise regions, all necessary joint inequalities and the entire lower tau face are checked, with actual attaining copulas. The general shuffle formula, upper tau face, remaining joint attainment and joint-region geometry remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `OrendayLaresRockel2026TauFootruleBeta`.
@@ -16,6 +16,9 @@ The permanent folder identifier is `OrendayLaresRockel2026TauFootruleBeta`.
 - [Mixtures.lean](Mixtures.lean): checked statements and proof steps.
 - [CenteredOrdinal.lean](CenteredOrdinal.lean): the centered copula construction and equation (9).
 - [FootruleBeta.lean](FootruleBeta.lean): the sharp upper footrule-beta bound and its attaining family.
+- [FootruleBetaLower.lean](FootruleBetaLower.lean): the lower footrule-beta bound, its seed and exact pairwise region.
+- [PairwiseRegions.lean](PairwiseRegions.lean): tau-footrule and tau-beta inequalities and exact regions.
+- [LowerJointFace.lean](LowerJointFace.lean): all joint outer bounds and simultaneous attainment of the entire lower tau face.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

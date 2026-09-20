@@ -5,14 +5,15 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** all nine supplements contain checked statements or proof
-steps and are **in progress**. No article is fully verified. Coverage includes
-the exact xi-beta region and several subclasses; the xi-footrule upper and
-bottom boundaries; the full xi=1 slices for rho and Blest; the sharp upper
-footrule-beta boundary; rho-footrule contact points; and rank/tail formulas
-on all equal diagonal grids. Each coverage map specifies its exact scope
-and pending work. CI checks the maps and rejects nonstandard axioms behind
-every declaration advertised as verified.
+**Current status:** all nine supplements contain checked statements or proof steps
+and are **in progress**. No article is fully verified. Coverage includes the exact
+xi-beta region and several subclasses; the xi-footrule upper and bottom
+boundaries; the full xi=1 slices for rho and Blest; all three pairwise
+tau/footrule/beta regions and the joint lower tau face; rho-footrule contact
+points; sign-magnitude and transport certificates for rho-gamma; and rank/tail
+formulas on all equal diagonal grids. Each coverage map specifies its exact scope
+and pending work. CI checks the maps and rejects nonstandard axioms behind every
+declaration advertised as verified.
 
 ## Handbook and Lean reference
 
@@ -33,15 +34,15 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 
 | Article | Supplement | Status |
 | --- | --- | --- |
-| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected Tables 5–6 results verified |
+| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; FGM density and selected FGM/Frechet/Mardia/Nelsen 7 table results |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full xi=1 boundary, endpoint cases and FGM inequality |
 | ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; sharp upper boundary, unique checkerboard minimum and bottom boundary |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; all equal diagonal grids: rho/tau, deterministic xi and tails |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries and full xi=1 boundary |
-| ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | In progress; exact full, symmetric and quadrant-dependent xi-beta regions |
-| τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; sharp upper footrule-beta bound, ordinal sums and interpolation |
+| ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | In progress; exact regions and tent density, transpose, exchangeability and rank formulas |
+| τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; all pairwise regions, joint outer bounds and entire lower tau face |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; quadratic equality criterion and all discrete sharp contact points |
-| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; moments, convexity and symmetry |
+| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; sign-magnitude reduction, weak duality and half-shift optimality |
 
 ## Reproduce the build
 

@@ -7,15 +7,11 @@
   revised 6 April 2024.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Selected FGM, Fréchet and Mardia
-coefficient and tail formulas, and FGM CI/CD and lower orthant ordering are
-mapped to checked declarations. The classical representation and the derivative
-convention for xi are checked too. This is partial coverage of arXiv v3;
-remaining families, properties, and journal-version correspondence are listed
-in [COVERAGE.md](COVERAGE.md).
+**Verification status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Other family entries, general order correspondences and journal comparison remain pending.
+See [COVERAGE.md](COVERAGE.md) for exact statements and remaining work.
 
 The pinned `copula` library already contains relevant results and a detailed
-[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/f3594c079d205f717fc17a6563e7200251d37f30/docs/ansari-rockel.md).
+[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/docs/ansari-rockel.md).
 That index is a starting point for matching definitions, hypotheses, and
 individual table entries. It is not a claim of complete formalization of the
 article. General library results remain upstream; this folder records
@@ -24,6 +20,7 @@ their precise correspondence to the paper and any article-specific proofs.
 ## Contents
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
+- [FamilyExtensions.lean](FamilyExtensions.lean): FGM density and Nelsen 7 dependence, order and tail results.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Association.lean](Association.lean): nine Table 6 coefficient formulas.
 - [Dependence.lean](Dependence.lean): selected Table 5 properties.

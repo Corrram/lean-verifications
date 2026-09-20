@@ -5,7 +5,7 @@
 - Source version: [arXiv:2609.19890v1](https://arxiv.org/abs/2609.19890v1), 17 September 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The moment identities in equation (28), reflection symmetry, convexity, and fixed-gamma interpolation are checked. The sign/magnitude construction and optimal boundary remain pending.
+**Verification status: in progress.** The forward sign-magnitude representation, uniform magnitude laws, supporting-functional bound, weak duality and contact-set optimality criterion are checked. The half-shift optimizer has a checked feasible dual potential, contact equality and regularity for s>=1. The converse sign construction, remaining optimizer branches, glued potential and exact boundary remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockelSteinmassl2026RhoGamma`.
@@ -14,6 +14,9 @@ The permanent folder identifier is `AnsariRockelSteinmassl2026RhoGamma`.
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [Moments.lean](Moments.lean): checked statements and proof steps.
+- [SignMagnitude.lean](SignMagnitude.lean): uniform magnitudes and both sign-moment identities.
+- [Transport.lean](Transport.lean): supporting inequality, weak duality and contact-set optimality.
+- [HalfShift.lean](HalfShift.lean): the half-shift optimizer and dual certificate for s>=1.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
