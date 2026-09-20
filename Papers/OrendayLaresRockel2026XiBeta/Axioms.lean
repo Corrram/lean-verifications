@@ -1,10 +1,16 @@
 import Papers.OrendayLaresRockel2026XiBeta.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for OrendayLaresRockel2026XiBeta
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.OrendayLaresRockel2026XiBeta.xi_derivative_formula
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.xi_derivative_formula
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.xi_mixture_continuous
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.xi_mixture_continuous
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.beta_mixture_fixed
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.beta_mixture_fixed
+
+#print axioms Papers.OrendayLaresRockel2026XiBeta.fixed_beta_intermediate
+#assert_standard_axioms Papers.OrendayLaresRockel2026XiBeta.fixed_beta_intermediate

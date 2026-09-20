@@ -1,8 +1,6 @@
-import Papers.Rockel2026XiBlest.Definitions
+import Papers.Rockel2026XiBlest.Blest
 
-/-!
-# Rockel2026XiBlest: public results
+/-! # Rockel2026XiBlest: public results
 
-Import each completed result module here. The correspondence with the source
-article is recorded in `COVERAGE.md`. No results have been added yet.
+See `COVERAGE.md` for the exact verified subset and remaining obligations.
 -/

@@ -1,10 +1,13 @@
 import Papers.OrendayLaresRockel2026TauFootruleBeta.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for OrendayLaresRockel2026TauFootruleBeta
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.OrendayLaresRockel2026TauFootruleBeta.concordance_mixture
+#assert_standard_axioms Papers.OrendayLaresRockel2026TauFootruleBeta.concordance_mixture
+
+#print axioms Papers.OrendayLaresRockel2026TauFootruleBeta.tau_mixture_continuous
+#assert_standard_axioms Papers.OrendayLaresRockel2026TauFootruleBeta.tau_mixture_continuous
+
+#print axioms Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_footrule_beta_intermediate
+#assert_standard_axioms Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_footrule_beta_intermediate

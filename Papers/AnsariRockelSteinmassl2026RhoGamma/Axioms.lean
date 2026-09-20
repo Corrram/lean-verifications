@@ -1,10 +1,19 @@
 import Papers.AnsariRockelSteinmassl2026RhoGamma.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for AnsariRockelSteinmassl2026RhoGamma
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.AnsariRockelSteinmassl2026RhoGamma.moment_representation
+#assert_standard_axioms Papers.AnsariRockelSteinmassl2026RhoGamma.moment_representation
+
+#print axioms Papers.AnsariRockelSteinmassl2026RhoGamma.reflection_pair
+#assert_standard_axioms Papers.AnsariRockelSteinmassl2026RhoGamma.reflection_pair
+
+#print axioms Papers.AnsariRockelSteinmassl2026RhoGamma.fixed_gamma_intermediate
+#assert_standard_axioms Papers.AnsariRockelSteinmassl2026RhoGamma.fixed_gamma_intermediate
+
+#print axioms Papers.AnsariRockelSteinmassl2026RhoGamma.region_convex
+#assert_standard_axioms Papers.AnsariRockelSteinmassl2026RhoGamma.region_convex
+
+#print axioms Papers.AnsariRockelSteinmassl2026RhoGamma.region_centrally_symmetric
+#assert_standard_axioms Papers.AnsariRockelSteinmassl2026RhoGamma.region_centrally_symmetric
