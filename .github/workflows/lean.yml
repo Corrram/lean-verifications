@@ -18,5 +18,12 @@ jobs:
           build: "true"
           test: "false"
           use-mathlib-cache: "true"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Check advertised verification coverage and axiom audits
+        run: |
+          python scripts/test_check_verification.py
+          python scripts/check_verification.py
       - name: Check that the build preserves dependency pins
         run: git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json

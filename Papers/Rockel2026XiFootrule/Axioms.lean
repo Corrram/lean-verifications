@@ -1,10 +1,19 @@
 import Papers.Rockel2026XiFootrule.Main
+import Verification.AxiomAudit
 
-/-!
-# Axiom reports for Rockel2026XiFootrule
+/-! Transitive axiom reports and enforced standard-foundation checks. -/
 
-Add a `#print axioms` command for every final declaration claimed in COVERAGE.md.
-Review the output before publication. This file is compiled by the full build;
-the reports themselves do not enforce an axiom allowlist.
-There are no final declarations to audit in the initial scaffold.
--/
+#print axioms Papers.Rockel2026XiFootrule.xi_derivative_formula
+#assert_standard_axioms Papers.Rockel2026XiFootrule.xi_derivative_formula
+
+#print axioms Papers.Rockel2026XiFootrule.cdf_upperBoundary
+#assert_standard_axioms Papers.Rockel2026XiFootrule.cdf_upperBoundary
+
+#print axioms Papers.Rockel2026XiFootrule.maximal_footrule
+#assert_standard_axioms Papers.Rockel2026XiFootrule.maximal_footrule
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_sub_xi_le
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_sub_xi_le
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_sub_xi_eq_iff
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_sub_xi_eq_iff

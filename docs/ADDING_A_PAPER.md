@@ -19,7 +19,9 @@
 6. Map each source result to a fully qualified Lean declaration in
    `COVERAGE.md`. Record source version, parameter range, extra assumptions,
    equivalences of definitions, and anything excluded. Add `#print axioms`
-   commands to `Axioms.lean` for the claimed final results.
+   commands to `Axioms.lean` for the claimed final results. Import
+   `Verification.AxiomAudit` and add `#assert_standard_axioms` for each of
+   those same fully qualified theorem names. Keep one command per line.
 7. Run `lake build`, review the axiom reports, and follow the
    [publication guide](PUBLISHING.md) when the selected scope is ready.
 
@@ -27,11 +29,16 @@ To inspect the axiom reports explicitly, run:
 
 ```sh
 lake env lean Papers/Author2026ShortTitle/Axioms.lean
+python scripts/check_verification.py
 ```
 
-The axiom reports aid review; a build does not automatically compare them with
-an allowlist. New axioms and nonstandard proof shortcuts require attention even
-if Lean accepts the declarations.
+The Lean assertions fail the build unless each declaration is a theorem whose
+transitive axioms are limited to `propext`, `Classical.choice`, and `Quot.sound`.
+The coverage checker requires every `verified` row to contain fully qualified
+theorem names in backticks and checks that the assertions and printed reports
+match those names exactly. CI runs both checks before publication. These checks
+enforce the proof audit; authors must still review the mathematical correspondence
+between the formal statement and the cited source.
 
 ## Status conventions
 

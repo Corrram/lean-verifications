@@ -32,6 +32,11 @@ if (!preview) {
   const data = JSON.parse(fs.readFileSync(path.join(out, 'api/declarations/declaration-data.bmp')));
   for (const name of ['ProbabilityTheory.Copula', 'ProbabilityTheory.Copula.cdf_one', 'ProbabilityTheory.Copula.cdf_nonneg']) assert(data.declarations[name], `Missing generated declaration: ${name}`);
   for (const article of metadata.articles) for (const module of ['Main', 'Definitions', 'Axioms']) assert(fs.existsSync(path.join(out, 'api/Papers', article.id, `${module}.html`)), `Missing API module: ${article.id}.${module}`);
+  for (const article of metadata.articles) for (const name of article.verified_declarations) {
+    assert(data.declarations[name], `Verified theorem missing from generated Lean API: ${name}`);
+    const docLink = data.declarations[name].docLink.replace(/^\//, '');
+    assert(fs.existsSync(path.join(out, 'api', docLink.split('#')[0])), `Verified theorem page missing: ${name}`);
+  }
   assert(fs.readFileSync(path.join(out, 'api/index.html'), 'utf8').includes('Mathematical handbook'), 'API back link missing');
 }
 assert.equal(errors.length, 0, `Broken local links:\n${errors.join('\n')}`);

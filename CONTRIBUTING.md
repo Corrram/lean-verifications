@@ -24,6 +24,7 @@ Before submitting:
 ```sh
 lake exe cache get
 lake build
+python scripts/check_verification.py
 ```
 
 Update article metadata and coverage alongside the code. When changing

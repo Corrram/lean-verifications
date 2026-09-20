@@ -5,9 +5,12 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** the project infrastructure and article folders are set
-up. No article is claimed to be fully verified. A successful build checks the
-included Lean code; the article's coverage map describes its mathematical scope.
+**Current status:** selected results have checked proofs in two supplements:
+FGM, Fréchet and Mardia results in Ansari–Rockel (2024), and the upper boundary
+with its unique maximizer in the ξ–footrule article. No article is fully
+verified; the seven other supplements remain scaffolds. Coverage maps list
+exact theorem declarations and remaining gaps. CI checks the maps and rejects
+nonstandard axioms behind every result advertised as verified.
 
 ## Handbook and Lean reference
 
@@ -28,9 +31,9 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 
 | Article | Supplement | Status |
 | --- | --- | --- |
-| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | Scaffold; result mapping pending |
+| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected Tables 5–6 results verified |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | Scaffold; result mapping pending |
-| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | Scaffold; result mapping pending |
+| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; Theorem 2.1 and maximal gap verified |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | Scaffold; result mapping pending |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | Scaffold; result mapping pending |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Scaffold; result mapping pending |
@@ -47,10 +50,11 @@ git clone https://github.com/Corrram/lean-verifications.git
 cd lean-verifications
 lake exe cache get
 lake build
+python scripts/check_verification.py
 ```
 
 Lean is pinned to **4.34.0**. The `copula` dependency is pinned to the commit
-underlying **v0.1.0**, and `lake-manifest.json` records all transitive revisions,
+`5d7fba65b37e50b86194e0a9938f42513e4403be`, and `lake-manifest.json` records all transitive revisions,
 including mathlib. The Git dependency works before and after Reservoir indexing;
 indexing is not required for this build. Do not run `lake update` when reproducing
 a published supplement.
