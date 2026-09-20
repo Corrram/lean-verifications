@@ -26,3 +26,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026XiRho.symmetric_xi_one_attained
 #assert_standard_axioms Papers.AnsariRockel2026XiRho.symmetric_xi_one_attained
+
+#print axioms Papers.AnsariRockel2026XiRho.rho_conditionalCDF_formula
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.rho_conditionalCDF_formula
+
+#print axioms Papers.AnsariRockel2026XiRho.rho_derivative_formula
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.rho_derivative_formula
+
+#print axioms Papers.AnsariRockel2026XiRho.si_xi_le_rho
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.si_xi_le_rho
+
+#print axioms Papers.AnsariRockel2026XiRho.sd_xi_le_neg_rho
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.sd_xi_le_neg_rho
+
+#print axioms Papers.AnsariRockel2026XiRho.stochastic_xi_le_abs_rho
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.stochastic_xi_le_abs_rho
+
+#print axioms Papers.AnsariRockel2026XiRho.not_stochastically_monotone_of_abs_rho_lt_xi
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.not_stochastically_monotone_of_abs_rho_lt_xi

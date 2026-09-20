@@ -6,7 +6,7 @@
 - Source version: [arXiv:2509.07232v1](https://arxiv.org/abs/2509.07232v1), 8 September 2025.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Theorem 2.1 and the maximal gap are checked, together with Theorem 3.4: the unique checkerboard minimizer at footrule=-1/2 and the entire bottom boundary for xi in [1/2,1]. The SI region and remaining lower-bound results are pending.
+**Verification status: in progress.** Theorem 2.1 and the maximal gap, the exact SI region in Theorem 2.4, Corollary 2.5, and Theorem 3.4 with the entire bottom boundary are checked. Proposition 2.2 equality classification and the remaining lower-bound results and constructions are pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The roadmap uses the arXiv version above; correspondence with the journal
@@ -18,6 +18,7 @@ The permanent folder identifier is `Rockel2026XiFootrule`.
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [LowerEndpoint.lean](LowerEndpoint.lean): the unique checkerboard minimum and full bottom boundary.
+- [SIRegion.lean](SIRegion.lean): the exact SI region, explicit boundary witnesses, and the Kendall bound.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [UpperBoundary.lean](UpperBoundary.lean): upper boundary and maximal gap proofs.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
