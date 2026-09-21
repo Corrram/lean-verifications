@@ -1,3 +1,5 @@
+import Papers.OrendayLaresRockel2026TauFootruleBeta.ShuffleFormula
+import Papers.OrendayLaresRockel2026TauFootruleBeta.JointVolume
 import Papers.OrendayLaresRockel2026TauFootruleBeta.FootruleBetaLower
 import Papers.OrendayLaresRockel2026TauFootruleBeta.PairwiseRegions
 import Papers.OrendayLaresRockel2026TauFootruleBeta.LowerJointFace
@@ -7,5 +9,5 @@ import Papers.OrendayLaresRockel2026TauFootruleBeta.CenteredOrdinal
 
 /-! # OrendayLaresRockel2026TauFootruleBeta: public results
 
-See `COVERAGE.md` for the exact verified subset and remaining obligations.
+See `COVERAGE.md` for the exact statements, conventions and source correspondence.
 -/

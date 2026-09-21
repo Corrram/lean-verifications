@@ -78,6 +78,20 @@ prove the exact portion 0<=footrule<=1 and footrule^2<=xi<=1, including
 attainment throughout. At negative footrule, the proved Jensen bound
 remains an outer estimate; convexity does not make it an attaining curve.
 
+## A complete three-coefficient region
+
+The [tau–footrule–beta supplement](site:papers/OrendayLaresRockel2026TauFootruleBeta/)
+now verifies both directions of the full joint-region theorem. Explicit signed
+shuffles supply both tau endpoints at every admissible footrule/beta pair;
+continuous mixtures then attain every intermediate tau. The general signed
+shuffle formula includes zero-width strips and singular copulas.
+
+The actual attained region is compact and convex, with the exact rectangular
+fixed-footrule sections and the affine fibre symmetry stated in the article.
+Its Lebesgue volume is 31/40. The fixed-beta section areas, their derivative,
+and their unique attained maximum are checked as well. The coverage map has
+no remaining pending results in its stated scope.
+
 ## A picture is a guide, not a coverage claim
 
 Plots and numerical optimizers can suggest extremizers. A machine-checked

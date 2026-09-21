@@ -5,11 +5,11 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** the xi-beta supplement is **complete for its stated scope**;
-the other eight supplements remain **in progress**. Coverage includes the exact
+**Current status:** the xi-beta and tau-footrule-beta supplements are
+**complete for their stated scopes**; the other seven remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the exact SI xi-footrule region and full equality classification, universal
 upper and explicit Jensen lower bounds, admissible cubic inversion, and entire bottom boundary; the full SI/SD xi-rho theorem with all equality cases;
-the full xi=1 slices for footrule, rho and Blest, and convexity of all three xi regions; all three pairwise tau/footrule/beta regions and the joint lower tau face; rho-footrule contact
+the full xi=1 slices for footrule, rho and Blest, and convexity of all three xi regions; the exact joint tau/footrule/beta region, signed shuffles, geometry and volume; rho-footrule contact
 points; sign-magnitude and transport certificates for rho-gamma; and rank/tail
 formulas on all equal diagonal grids. Each coverage map specifies its exact scope
 and pending work. CI checks the maps and rejects nonstandard axioms behind every
@@ -40,7 +40,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; all equal diagonal grids: rho/tau, deterministic xi and tails |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, and full-region convexity |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
-| τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; all pairwise regions, joint outer bounds and entire lower tau face |
+| τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | Complete for stated scope; exact joint region, signed shuffles, geometry and volume |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; quadratic equality criterion and all discrete sharp contact points |
 | ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; full sign-magnitude converse, attained transport reduction and half-shift optimality |
 

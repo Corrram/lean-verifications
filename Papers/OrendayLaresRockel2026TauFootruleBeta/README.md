@@ -5,8 +5,8 @@
 - Source version: [arXiv:2607.12841v1](https://arxiv.org/abs/2607.12841v1), 14 July 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** All three pairwise regions, all necessary joint inequalities and the entire lower tau face are checked, with actual attaining copulas. The general shuffle formula, upper tau face, remaining joint attainment and joint-region geometry remain pending.
-See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
+**Verification status: complete for stated scope.** Theorem 1.1, Proposition 2.1, Lemma 3.1, Propositions 3.2-3.3, Corollaries 4.1-4.2, the boundary-edge and fibre-symmetry claims, and Section 5's area, unique maximum and volume are checked. This includes arbitrary signed shuffles with zero-width strips, both joint faces, and actual copula attainment of every admissible triple.
+See [COVERAGE.md](COVERAGE.md) for exact statements and conventions.
 
 The permanent folder identifier is `OrendayLaresRockel2026TauFootruleBeta`.
 
@@ -19,9 +19,14 @@ The permanent folder identifier is `OrendayLaresRockel2026TauFootruleBeta`.
 - [FootruleBetaLower.lean](FootruleBetaLower.lean): the lower footrule-beta bound, its seed and exact pairwise region.
 - [PairwiseRegions.lean](PairwiseRegions.lean): tau-footrule and tau-beta inequalities and exact regions.
 - [LowerJointFace.lean](LowerJointFace.lean): all joint outer bounds and simultaneous attainment of the entire lower tau face.
+- [ShuffleFormula.lean](ShuffleFormula.lean): the general signed shuffle tau identity, including degenerate strips.
+- [UpperSeed.lean](UpperSeed.lean): the exact six-strip upper seed and all three coefficients.
+- [JointRegion.lean](JointRegion.lean): the upper face and both directions of Theorem 1.1.
+- [JointGeometry.lean](JointGeometry.lean): compactness, convexity, rectangular sections and fibre symmetry.
+- [JointVolume.lean](JointVolume.lean): section areas, their unique maximum and the region volume 31/40.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
-- [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
+- [COVERAGE.md](COVERAGE.md): source-result correspondence and precise scope.
 
 ## Reproduce
 
