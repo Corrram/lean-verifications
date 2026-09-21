@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** The full exact region, both attained boundaries, the radical upper-boundary formulas, and the sharp minimal variance with its exact zero set are checked. Optimizer uniqueness, finite-ranking inequalities, and the xi/correlation-ratio applications remain pending.
+**Status: in progress.** The exact rho-footrule and mean-variance regions, sharp finite-ranking inequalities, attained mixability infimum, and xi/correlation-ratio outer bounds are checked. Optimizer uniqueness, discrete equality/asymptotics, and the conditional-iid examples and inner enclosure remain pending.
 
 ## Source and conventions
 
@@ -34,8 +34,21 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 1.6, equation (18): evaluated variance correction | `Papers.AnsariRockel2026RhoFootrule.right_variance_closed`; `Papers.AnsariRockel2026RhoFootrule.left_variance_closed` | verified | Both arc halves give 2*delta*sqrt(delta)/(3*sqrt(N(N+1)))-delta^2. |
 | Proposition 1.6(iii): nonnegativity and exact zero set | `Papers.AnsariRockel2026RhoFootrule.minimum_variance_nonneg`; `Papers.AnsariRockel2026RhoFootrule.minimum_variance_zero_iff` | verified | Exactly m=0 or m=1/(2N) for a positive integer N. |
 | Theorem 2.4: attainable constant magnitudes | `Papers.AnsariRockel2026RhoFootrule.constant_displacement_iff` | verified | Copula-law formulation: abs(U-V) is constant exactly at the stated means. The source centered-sum coordinates are Uprime=U-1/2 and Vprime=1/2-V. |
+| Corollary 1.7: admissible means and variance identity | `Papers.AnsariRockel2026RhoFootrule.meanDistance_mem`; `Papers.AnsariRockel2026RhoFootrule.distanceVariance_eq` | verified | Every copula; variance is the actual integral of squared centered absolute displacement. |
+| Corollary 1.7: both variance bounds and maximum attainment | `Papers.AnsariRockel2026RhoFootrule.sharp_variance_bounds`; `Papers.AnsariRockel2026RhoFootrule.minimumVariance_le_maximumVariance`; `Papers.AnsariRockel2026RhoFootrule.maximum_variance_attained` | verified | Every mean in [0,1/2]; maximum variance is (1-(sqrt(1-2m))^3)/3-m^2, attained by an actual copula. |
+| Remark 1.8(a): the exact mean-variance region | `Papers.AnsariRockel2026RhoFootrule.exact_mean_variance_region` | verified | Necessary and sufficient conditions; every intermediate variance is attained. |
+| Remark 1.8(c): the universal variance maximum | `Papers.AnsariRockel2026RhoFootrule.maximumVariance_global_bound`; `Papers.AnsariRockel2026RhoFootrule.universal_variance_bounds`; `Papers.AnsariRockel2026RhoFootrule.maximumVariance_at_maximizer`; `Papers.AnsariRockel2026RhoFootrule.universal_variance_maximum_attained` | verified | The exact maximum 5(3-sqrt(5))/24 is attained at footrule (7-3sqrt(5))/4. |
+| Theorem 2.1: finite-ranking normalization and inequalities | `Papers.AnsariRockel2026RhoFootrule.ranking_mean`; `Papers.AnsariRockel2026RhoFootrule.ranking_second_moment`; `Papers.AnsariRockel2026RhoFootrule.finite_ranking_bounds` | verified | Every permutation of n+1 items; actual shuffle moments are D/(n+1)^2 and S/(n+1)^3, yielding both corrected bounds. |
+| Remark 2.2: unnormalized Cauchy-Schwarz correction | `Papers.AnsariRockel2026RhoFootrule.finite_ranking_cauchy_correction` | verified | S >= D^2/(n+1) + (n+1)^3 Vmin(D/(n+1)^2). Discrete equality and asymptotic sharpness remain separate obligations. |
+| Theorem 2.4: centered-sum law and statistics | `Papers.AnsariRockel2026RhoFootrule.centered_sum_law`; `Papers.AnsariRockel2026RhoFootrule.centered_sum_statistics` | verified | Reflection identifies all continuous test-function integrals and both optimization statistics for centered uniforms. |
+| Theorem 2.4: attained generalized mixability infimum | `Papers.AnsariRockel2026RhoFootrule.mixability_minimum`; `Papers.AnsariRockel2026RhoFootrule.mixability_infimum`; `Papers.AnsariRockel2026RhoFootrule.mixability_zero_iff` | verified | The constrained infimum equals Vmin(m), is attained, and is zero exactly at zero and reciprocal positive even integers. |
+| Proposition 1.6 / Theorem 2.4: arbitrary probability spaces | `Papers.AnsariRockel2026RhoFootrule.centered_sum_variance_bound` | verified | Any measurable random vector with uniform coordinate laws; both centered uniforms are represented explicitly by subtracting 1/2. |
+| Section 2.3, equations (38)-(40): conditional-copy copula | `Papers.AnsariRockel2026RhoFootrule.conditional_copies_cdf`; `Papers.AnsariRockel2026RhoFootrule.conditional_copies_coefficients` | verified | Constructs the genuine copula with CDF integral F(t,u)F(t,v); its footrule is xi and its rho is 12 times the conditional-mean variance. |
+| Theorem 2.6: xi/correlation-ratio outer bounds | `Papers.AnsariRockel2026RhoFootrule.xi_correlationRatio_bounds` | verified | All copulas, including singular laws. Both exact rho-footrule bounds and eta <= 2 xi are proved without monotonicity assumptions. |
+| Example 2.9: strictness of the conditional Cauchy-Schwarz bound | `Papers.AnsariRockel2026RhoFootrule.correlationRatio_equality_iff`; `Papers.AnsariRockel2026RhoFootrule.quarter_xi_strict_bound` | verified | Equality eta=2xi occurs iff xi=0; in particular every copula with xi=1/4 has eta<1/2. Compactness and a strictly separated maximum are not claimed here. |
 | Theorem 1.1: uniqueness of the optimizing copula | — | pending | The exact value and attainment are proved, but the contact-set rigidity needed to identify every optimizer is not yet checked. |
-| Section 2 applications beyond the mapped dispersion/constant-value statements | — | pending | Finite-ranking inequalities and their discrete normalization; the full generalized-mixability optimization formulation; conditional-iid/Markov-product representations and xi/correlation-ratio consequences. |
+| Remark 1.4 and Remark 2.2: comparison and discrete sharpness | — | pending | Exact comparison with the earlier attainable curve; constant-distance permutation divisibility and asymptotic finite-ranking sharpness. |
+| Section 2.3: conditional-copy examples and inner enclosure | — | pending | Examples 2.8-2.9, Proposition 2.10, and the constructive inner-bound formulas, including strictness and compactness. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
@@ -44,7 +57,7 @@ experiments and plots are not counted as formal proofs.
 ## Latest package integration
 
 The dependency is pinned to copula commit
-`5926399c46f83d307127fd34b3aa2e416c940786`. New proof modules: [ExactRegion.lean](ExactRegion.lean), [BoundaryFormula.lean](BoundaryFormula.lean), [Dispersion.lean](Dispersion.lean).
+`5926399c46f83d307127fd34b3aa2e416c940786`. New application modules: [MeanVariance.lean](MeanVariance.lean), [VarianceMaximum.lean](VarianceMaximum.lean), [FiniteRankings.lean](FiniteRankings.lean), [CorrelationRatio.lean](CorrelationRatio.lean), [Mixability.lean](Mixability.lean).
 Every mapped declaration is compiled and transitively audited against the standard
 Lean axiom allowlist. Uniqueness of a numerical boundary value does not imply
 uniqueness of its copula witness.
