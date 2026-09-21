@@ -1,19 +1,21 @@
 # Coverage
 
-**Status: in progress.** The derivative conventions, endpoint cases, entire xi=1 boundary, and the general SI/SD inequality xi<=abs(rho) are checked. Theorem 2 equality cases outside FGM, the curved diagonal-band boundary, and the full interior region remain pending.
+**Status: in progress.** The derivative conventions, endpoint cases, entire xi=1 boundary, and full SI/SD Theorem 2 with all equality cases are checked. Lemma 8 is checked with almost-everywhere function equality. The curved diagonal-band boundary, full interior region, and sharp global gap remain pending.
 
 ## Source and conventions
 
 Source: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
 Journal reference: [DOI 10.1016/j.jmva.2026.105630](https://doi.org/10.1016/j.jmva.2026.105630); version comparison pending.
 
-Xi conditions coordinate 1 on coordinate 0. Equation (3) is matched to the conditional-CDF definition by the almost-everywhere derivative theorem, without a density assumption. FGM uses the full signed parameter interval [-1,1]. CI and CD in the FGM classification assert conditional monotonicity in both directions, so in particular include the direction used by the source. Within this family the equality case is exactly parameter zero. The general SI/SD inequality is proved separately in StochasticBounds.lean; its full equality classification remains pending. The proof constructs an antitone conditional-CDF version from concavity and compares squared differences with absolute differences. This is an alternative to the source maximum-principle proof, without a density assumption.
+Xi conditions coordinate 1 on coordinate 0. Equation (3) is matched to the conditional-CDF definition by the almost-everywhere derivative theorem, without a density assumption. FGM uses the full signed parameter interval [-1,1]. CI and CD in the FGM classification assert conditional monotonicity in both directions, so in particular include the direction used by the source. Within this family the equality case is exactly parameter zero. The general SI/SD inequality and its complete equality classification are proved in StochasticBounds.lean and StochasticEquality.lean. The proof constructs an antitone conditional-CDF version from concavity and compares squared differences with absolute differences. Equality makes almost every conditional CDF either constant or binary; monotonicity in the response threshold excludes mixing the two types at interior thresholds. This is an alternative to the source maximum-principle proof, without a density assumption. The source maximum-principle and extreme-point intermediate assertions are not separately claimed verified.
+
+Lemma 8 is formalized modulo null sets: equality holds exactly when the decreasing function is almost everywhere constant v or the indicator of [0,v]. The source phrases its alternatives pointwise, but changes on null sets cannot affect the integral. Endpoint values and the choice between closed and open cut intervals therefore do not affect our statement. The formal version also includes means v=0 and v=1.
 
 For the vertical boundary, a centered countermonotonic block with identity outside has xi=1 and rho=1-2 alpha^3. Varying alpha over [0,1] realizes the entire rho interval. This does not assert the source's diagonal-band formulas for 0<xi<1.
 
 ## Result map
 
-Proofs are in [SelectedResults.lean](SelectedResults.lean), [RightBoundary.lean](RightBoundary.lean), and [StochasticBounds.lean](StochasticBounds.lean), imported by
+Proofs are in [SelectedResults.lean](SelectedResults.lean), [RightBoundary.lean](RightBoundary.lean), [StochasticBounds.lean](StochasticBounds.lean), and [StochasticEquality.lean](StochasticEquality.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -24,14 +26,17 @@ standard transitive axiom allowlist for every declaration below.
 | Theorem 1: rho=+1 or -1 endpoints | `Papers.AnsariRockel2026XiRho.rho_extreme_implies_xi_one` | verified | All bivariate copulas; extremal rho implies xi=1. |
 | Theorem 2: FGM subclass correspondence | `Papers.AnsariRockel2026XiRho.fgm_stochastically_monotone` | verified | Every FGM copula with abs(theta)<=1 is CI or CD. |
 | Theorem 2: inequality restricted to FGM | `Papers.AnsariRockel2026XiRho.fgm_xi_le_abs_rho` | verified | Only the signed FGM family, including both parameter endpoints. |
-| Theorem 2: equality restricted to FGM | `Papers.AnsariRockel2026XiRho.fgm_xi_eq_abs_rho_iff` | verified | Within FGM, xi=abs(rho) iff theta=0. The general equality characterization is pending. |
+| Theorem 2: equality restricted to FGM | `Papers.AnsariRockel2026XiRho.fgm_xi_eq_abs_rho_iff` | verified | Within FGM, xi=abs(rho) iff theta=0. The unrestricted SI/SD equality characterization is checked below. |
 | Theorem 1: entire vertical boundary at xi=1 | `Papers.AnsariRockel2026XiRho.xi_one_slice`; `Papers.AnsariRockel2026XiRho.symmetric_xi_one_attained` | verified | Every rho in [-1,1] is attained with xi=1, even by a radially symmetric copula. Constructed centered W blocks and a proved continuous rho path supply all witnesses. |
 | Theorem 1: curved boundary and interior region | — | pending | Construct the diagonal-band family, prove its coefficient formulas, global bounds, uniqueness and interior attainment. The full xi=1 slice is checked above. |
 | Corollary 1: sharp global gap 0.4 | — | pending | Prove the universal bound and unique maximizer. |
 | Equation (7): weighted conditional-CDF and derivative formulas | `Papers.AnsariRockel2026XiRho.rho_conditionalCDF_formula`; `Papers.AnsariRockel2026XiRho.rho_derivative_formula` | verified | Every bivariate copula, including singular laws; rho=12 times the integral of (1-u) times the first conditional CDF or CDF-section derivative, minus 3. |
 | Theorem 2: general SI/SD inequality | `Papers.AnsariRockel2026XiRho.si_xi_le_rho`; `Papers.AnsariRockel2026XiRho.sd_xi_le_neg_rho`; `Papers.AnsariRockel2026XiRho.stochastic_xi_le_abs_rho` | verified | For every SI copula xi<=rho, and for every SD copula xi<=-rho; either class satisfies xi<=abs(rho). No family or density restriction. |
 | Remark 1(d): obstruction to stochastic monotonicity | `Papers.AnsariRockel2026XiRho.not_stochastically_monotone_of_abs_rho_lt_xi` | verified | If xi>abs(rho), the copula is neither SI nor SD. The separate regression-model interpretation is not formalized. |
-| Theorem 2: full equality classification | — | pending | The inequality is proved above. Characterizing equality as exactly W, independence, or M for arbitrary SI/SD copulas remains pending; the FGM equality case is checked. |
+| Lemma 8: decreasing-function bound | `Papers.AnsariRockel2026XiRho.lemma8_bound` | verified | Every antitone function into [0,1] with mean v, including v=0 and v=1; its functional is at least v(1-v). |
+| Lemma 8: equality modulo null sets | `Papers.AnsariRockel2026XiRho.lemma8_equality` | verified | Equality iff the function is almost everywhere constant v or the indicator of [0,v]. This is the integral-invariant version of the source's pointwise wording; see the convention above. |
+| Theorem 2: full equality classification | `Papers.AnsariRockel2026XiRho.si_xi_eq_rho_iff`; `Papers.AnsariRockel2026XiRho.sd_xi_eq_neg_rho_iff`; `Papers.AnsariRockel2026XiRho.stochastic_xi_eq_abs_rho_iff` | verified | Every SI or SD copula, including singular laws: equality in xi<=abs(rho) iff the copula is W, independence, or M. SI equality gives independence or M; SD equality gives independence or W. No family restriction. |
+| Theorem 2: strictness away from equality copulas | `Papers.AnsariRockel2026XiRho.stochastic_xi_lt_abs_rho` | verified | Every SI or SD copula other than W, independence, and M has xi<abs(rho). |
 | Journal/preprint correspondence | — | pending | Only arXiv v3 is mapped. |
 
 The verified subset consists only of the explicitly mapped statements and

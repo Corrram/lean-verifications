@@ -8,7 +8,8 @@ import Copula.Dependence.ConditionalMonotonicity
 /-! # Endpoint cases and a restricted instance of Theorem 2
 
 The general SI/SD inequality is proved in `StochasticBounds.lean`.
-The full equality classification and diagonal-band boundary remain pending.
+The full equality classification is proved in `StochasticEquality.lean`.
+The curved diagonal-band boundary remains pending.
 The FGM result below has the explicit restriction `abs θ ≤ 1` and is not
 advertised as the general stochastic-monotonicity theorem.
 -/
