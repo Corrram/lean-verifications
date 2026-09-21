@@ -101,3 +101,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frechet_order_counterexample
 #assert_standard_axioms Papers.AnsariRockel2024.frechet_order_counterexample
+
+#print axioms Papers.AnsariRockel2024.frechet_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_ci_iff
+
+#print axioms Papers.AnsariRockel2024.frechet_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_cd_iff
+
+#print axioms Papers.AnsariRockel2024.frechet_absolutelyContinuous_iff
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_absolutelyContinuous_iff
+
+#print axioms Papers.AnsariRockel2024.frechet_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.mardia_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_ci_iff
+
+#print axioms Papers.AnsariRockel2024.mardia_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_cd_iff
+
+#print axioms Papers.AnsariRockel2024.mardia_absolutelyContinuous_iff
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_absolutelyContinuous_iff
+
+#print axioms Papers.AnsariRockel2024.mardia_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.mardia_not_lowerOrthant_ordered
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_not_lowerOrthant_ordered

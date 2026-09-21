@@ -34,7 +34,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 
 | Article | Supplement | Status |
 | --- | --- | --- |
-| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas, four extreme-value tail pairs, FGM Schur and corrected Frechet order |
+| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas and tails, exact Frechet/Mardia dependence classifications and parameter orders |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full SI/SD theorem with equality cases, xi=1 boundary, and region convexity |
 | ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region and asymmetric equality example, Jensen bound and partial full-region geometry |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; full Proposition 3.2 for permutation shuffles; equal diagonal grid formulas |

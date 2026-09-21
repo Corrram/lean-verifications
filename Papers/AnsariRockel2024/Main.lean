@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2024.FrechetMardiaDependence
 import Papers.AnsariRockel2024.TailsAndOrders
 import Papers.AnsariRockel2024.FamilyExtensions
 import Papers.AnsariRockel2024.Association
