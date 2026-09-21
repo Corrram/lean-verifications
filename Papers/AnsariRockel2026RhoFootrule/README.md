@@ -5,7 +5,7 @@
 - Source version: [arXiv:2608.20176v1](https://arxiv.org/abs/2608.20176v1), 20 August 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The full exact region, both attained boundaries, the radical upper-boundary formulas, and the sharp minimal variance with its exact zero set are checked. Optimizer uniqueness, finite-ranking inequalities, and the xi/correlation-ratio applications remain pending.
+**Verification status: in progress.** The exact rho-footrule and mean-variance regions, sharp finite-ranking inequalities, attained mixability infimum, and xi/correlation-ratio outer bounds are checked. Optimizer uniqueness, discrete equality/asymptotics, and the conditional-iid examples and inner enclosure remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockel2026RhoFootrule`.
@@ -47,3 +47,10 @@ No supplement release or software DOI has been assigned yet.
 - [ExactRegion.lean](ExactRegion.lean).
 - [BoundaryFormula.lean](BoundaryFormula.lean).
 - [Dispersion.lean](Dispersion.lean).
+
+## Verified applications
+
+- [MeanVariance.lean](MeanVariance.lean) and [VarianceMaximum.lean](VarianceMaximum.lean): exact mean–variance region and its universal maximum.
+- [FiniteRankings.lean](FiniteRankings.lean): normalized and unnormalized ranking inequalities.
+- [Mixability.lean](Mixability.lean): the attained centered-sum optimization problem.
+- [CorrelationRatio.lean](CorrelationRatio.lean): conditional-copy construction, xi–eta outer bounds and strictness.
