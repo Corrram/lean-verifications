@@ -40,6 +40,16 @@ functions interpreted almost everywhere.
 See [the versioned article](https://arxiv.org/html/2506.15897v3) for the exact
 statements and equality cases.
 
+## Equality in the SI xi–footrule region
+
+The [xi–footrule supplement](site:papers/Rockel2026XiFootrule/) verifies the
+entire SI region and Proposition 2.2's full equality criterion for its lower
+boundary. Equality holds precisely when the conditional CDF has the source's
+three-level representation with measurable, nondecreasing cut functions.
+Both directions and the derivative convention are checked, including singular
+copulas. The remaining lower-bound formulas and constructions retain their
+pending entries in the coverage map.
+
 ## A picture is a guide, not a coverage claim
 
 Plots and numerical optimizers can suggest extremizers. A machine-checked
