@@ -133,5 +133,7 @@ integers N. Optimizer uniqueness and the remaining applications are still pendin
 The [rho–gamma supplement](site:papers/AnsariRockelSteinmassl2026RhoGamma/)
 proves the full exact region, compactness, and continuity, concavity and strict
 increase of the upper boundary. The elementary arc, exact largest discrepancy,
-and both sharp sign thresholds are checked. Its coverage map retains the
-remaining source-parameter, asymptotic, graph-identification and general-duality claims.
+and both sharp sign thresholds are checked. The supplement is now complete for
+its stated scope: the original theta family, all junctions and endpoint limits,
+full parameter coverage, exact five-piece graph laws, the uniform cubic endpoint
+expansion and attained strong duality for every positive multiplier are verified.

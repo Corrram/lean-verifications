@@ -5,7 +5,7 @@
 - Source version: [arXiv:2609.19890v1](https://arxiv.org/abs/2609.19890v1), 17 September 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The full exact region, attained boundaries, compactness, boundary continuity/concavity/strict increase, elementary arc, sharp largest discrepancy and both sign thresholds are checked using the latest copula exact-region proofs. Remaining source-parameter, asymptotic, shuffle-identification and general-duality claims are listed explicitly.
+**Verification status: complete for stated scope.** Theorem 1.1, Corollaries 2.1 and 2.4, Remark 2.2, Proposition 2.3, Lemmas 3.1-3.7, Definition 3.8, Proposition 3.9, Example 3.10, Lemma 4.1 and Theorem 4.2 are checked. This includes the original theta formulas, all junctions and endpoint limits, full parameter coverage, exact shuffle graph laws, the uniform cubic asymptotic and attained strong duality for every positive multiplier.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockelSteinmassl2026RhoGamma`.
@@ -53,3 +53,17 @@ No supplement release or software DOI has been assigned yet.
 - [SharpDiscrepancy.lean](SharpDiscrepancy.lean).
 - [SignThresholds.lean](SignThresholds.lean).
 - [ElementaryArc.lean](ElementaryArc.lean).
+
+## Completed source details
+
+- [StrongDuality.lean](StrongDuality.lean).
+- [ThetaBoundary.lean](ThetaBoundary.lean).
+- [ThetaEndpoints.lean](ThetaEndpoints.lean).
+- [ThetaJunctions.lean](ThetaJunctions.lean).
+- [ThetaPotential.lean](ThetaPotential.lean).
+- [ThetaDistanceLaw.lean](ThetaDistanceLaw.lean).
+- [GluedLaw.lean](GluedLaw.lean).
+- [ThetaSupporting.lean](ThetaSupporting.lean).
+- [ShuffleGraph.lean](ShuffleGraph.lean).
+- [ElementaryEndpoints.lean](ElementaryEndpoints.lean).
+- [BoundaryAsymptotic.lean](BoundaryAsymptotic.lean).
