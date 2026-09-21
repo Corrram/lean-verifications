@@ -6,7 +6,7 @@
 - Source version: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The full SI/SD Theorem 2 and Corollary 1's sharp global gap 2/5 are verified, including every equality case. The unit-slope diagonal-band copula is constructed with exact xi=3/10 and rho=7/10; the entire xi=3/10 slice is checked. Normalized clamped copulas are constructed for every nonnegative slope, with SI and unique global support optimality. The xi=1 boundary and full-region convexity remain checked. The general explicit intercept and coefficient formulas, inverse boundary parameter, full explicit region, further family properties, and journal-version comparison remain pending.
+**Verification status: in progress.** The full explicit xi-rho region (Theorem 1), SI/SD inequality (Theorem 2), and sharp global gap 2/5 (Corollary 1) are verified, with every boundary and equality case. The original diagonal-band family has checked piecewise intercepts, xi/rho coefficients, both explicit inverse branches, parameter ordering, radial symmetry, and all uniform limiting cases. Example 1's PLOD shuffle is checked with xi=1 and rho=13/16. Absolute continuity, density/support and MTP2, the Kendall tau formula, and journal-version comparison remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The coverage map uses the arXiv version above; correspondence with the journal
@@ -26,6 +26,14 @@ The permanent folder identifier is `AnsariRockel2026XiRho`.
 - [SharpGap.lean](SharpGap.lean): Corollary 1, with exact coefficients, the universal bound, and unique attainment.
 - [SharpSlice.lean](SharpSlice.lean): both gap signs and the exact xi=3/10 slice.
 - [BandOptimization.lean](BandOptimization.lean): all nonnegative normalized slopes and their unique global optimality.
+- [SourceBand.lean](SourceBand.lean): the source piecewise intercept, actual copula, and derivative correspondence.
+- [BandCoefficients.lean](BandCoefficients.lean): exact xi and rho on both parameter ranges.
+- [BoundaryInverse.lean](BoundaryInverse.lean): the displayed trigonometric and radical inverse formulas.
+- [ExactRegion.lean](ExactRegion.lean): the full explicit region and unique interior boundary copulas.
+- [BandSymmetry.lean](BandSymmetry.lean): radial symmetry and negative-parameter correspondence.
+- [BandOrder.lean](BandOrder.lean): pointwise parameter ordering.
+- [BandLimits.lean](BandLimits.lean): uniform limiting cases with quantitative error bounds.
+- [PlodExample.lean](PlodExample.lean): the four-strip PLOD counterexample.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
