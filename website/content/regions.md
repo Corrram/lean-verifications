@@ -28,8 +28,8 @@ The [xi–rho supplement](site:papers/AnsariRockel2026XiRho/) tracks three
 targets from arXiv v3: the attainable region (Theorem 1), the sharp maximum
 of $\rho-\xi$ (Corollary 1), and the inequality under stochastic monotonicity
 (Theorem 2). Theorem 2 is now verified in full, including all equality
-cases. The curved region boundary, full interior attainment, and sharp
-global gap remain pending; the entire xi=1 boundary and full-region convexity are verified.
+cases. The sharp global gap is also verified, including its unique optimizer. The full curved
+region boundary and general interior attainment remain pending; the entire xi=1 boundary and full-region convexity are verified.
 
 The paper proves $\xi(C)\leq|\rho(C)|$ for the stated stochastically increasing
 or decreasing classes. Keeping this class restriction attached to the
@@ -118,3 +118,20 @@ not follow merely by mixing two copulas.
 
 Read each coverage map for its actual scope. In particular, an article title
 containing “exact region” is not a claim that its full result is verified here.
+
+## Full rho–footrule and rho–gamma regions
+
+The latest exact-region additions in the copula package are now integrated
+into both article supplements, including singular copulas and all endpoints.
+
+The [rho–footrule supplement](site:papers/AnsariRockel2026RhoFootrule/)
+proves both sharp boundaries and every intervening point, converts the upper
+arcs to the source radical formulas, and proves the sharp attained variance
+correction. Its zero set is exactly zero and the means 1/(2N) for positive
+integers N. Optimizer uniqueness and the remaining applications are still pending.
+
+The [rho–gamma supplement](site:papers/AnsariRockelSteinmassl2026RhoGamma/)
+proves the full exact region, compactness, and continuity, concavity and strict
+increase of the upper boundary. The elementary arc, exact largest discrepancy,
+and both sharp sign thresholds are checked. Its coverage map retains the
+remaining source-parameter, asymptotic, graph-identification and general-duality claims.

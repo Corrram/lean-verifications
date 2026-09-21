@@ -1,12 +1,12 @@
 # Coverage
 
-**Status: in progress.** Proposition 3.2 is fully checked for every equal-width straight permutation shuffle: rho, tau, xi, and both tail limits. Proposition 3.3 is checked on all equal diagonal grids for rho/tau, deterministic xi and tails. Arbitrary matrices, checkerboard xi, Bernstein formulas, and statistical convergence remain pending.
+**Status: in progress.** Proposition 3.2 is fully checked for equal-width straight permutation shuffles, and equal diagonal grid coefficient/tail formulas are checked. Bernstein and arbitrary rectangular checkerboard/check-min/check-W constructors, grid interpolation, and deterministic uniform CDF convergence are now checked. General rank formulas, xi approximation bounds and statistical convergence remain pending.
 
 ## Source and conventions
 
 Source: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 
-The recursive construction has N=2^n equal diagonal cells, each with mass 1/N, and zero off-diagonal masses. The CDF recurrence uses clipped rescaling and holds on cell boundaries as well. Independence in each cell gives the checkerboard, M gives check-min, and W gives check-w. Thus the source matrix is Delta=I_N/N, 1/N^2=(1/4)^n, and tr(Delta^T Delta)=1/N=(1/2)^n. The proofs below include n=0 (one cell). The newer equalGrid construction covers every N=n+1 and also checks xi for the deterministic variants and tails for all three families. Arbitrary matrices and checkerboard xi remain outside this subset.
+The recursive construction has N=2^n equal diagonal cells, each with mass 1/N, and zero off-diagonal masses. The CDF recurrence uses clipped rescaling and holds on cell boundaries as well. Independence in each cell gives the checkerboard, M gives check-min, and W gives check-w. Thus the source matrix is Delta=I_N/N, 1/N^2=(1/4)^n, and tr(Delta^T Delta)=1/N=(1/2)^n. The proofs below include n=0 (one cell). The newer equalGrid construction covers every N=n+1 and also checks xi for the deterministic variants and tails for all three families. General-matrix coefficient formulas and checkerboard xi remain outside this subset; the arbitrary-matrix constructors are checked below.
 
 The original dyadic declarations remain available. The equalGrid index n represents N=n+1 cells: recursively split off width 1/N and rescale the remaining N-1 equal cells. All formulas below state their diagonal-matrix restriction explicitly.
 
@@ -44,10 +44,23 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.2: Chatterjee's xi | `Papers.Rockel2025Approximation.permutationShuffle_xi` | verified | xi=1, via an explicit measurable functional witness for the constructed copula. |
 | Proposition 3.2: lower tail | `Papers.Rockel2025Approximation.permutationShuffle_lower_tail` | verified | The lower tail limit exists and equals 1 exactly when the first strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.2: upper tail | `Papers.Rockel2025Approximation.permutationShuffle_upper_tail` | verified | The upper tail limit exists and equals 1 exactly when the last strip is fixed, and 0 otherwise. Includes N=1. |
-| Proposition 3.1: Bernstein copulas | — | pending | Construct the family and establish the full coefficient and tail formulas. |
-| Proposition 3.3 outside the mapped equal diagonal case | — | pending | Arbitrary rectangular matrices, the checkerboard xi formula, and coefficient/tail formulas outside Delta=I_N/N remain unproved here. |
+| Proposition 3.1: Bernstein copulas | — | pending | The actual family and CDF are checked below; full rank-coefficient and tail formulas remain pending. |
+| Proposition 3.3 outside the mapped equal diagonal case | — | pending | Arbitrary rectangular constructors are checked below. The checkerboard xi formula and coefficient/tail formulas outside Delta=I_N/N remain unproved here. |
 | Corollary 3.4 and Theorems 4.2, 4.5 | — | pending | Xi approximation bounds and statistical convergence; preserve the revised source hypotheses. |
+| Section 2 / Proposition 3.1: actual Bernstein construction | `Papers.Rockel2025Approximation.bernstein_cdf` | verified | Every source copula and positive rectangular degrees m,n; exact tensor Bernstein CDF on the whole square, including endpoints. |
+| Section 2: Bernstein uniform approximation | `Papers.Rockel2025Approximation.bernstein_uniform_error`; `Papers.Rockel2025Approximation.bernstein_uniform_convergence` | verified | Explicit uniform error sqrt(1/(4m))+sqrt(1/(4n)) and uniform CDF convergence. This does not assert xi or statistical convergence. |
+| Section 2.2 / Proposition 3.3: arbitrary rectangular constructors | `Papers.Rockel2025Approximation.rectangular_checkerboard_cdf`; `Papers.Rockel2025Approximation.rectangular_checkMin_cdf`; `Papers.Rockel2025Approximation.rectangular_checkW_cdf` | verified | Any admissible nonnegative cell matrix on positive, possibly nonuniform partitions. Actual measure-based copulas with the displayed CDFs; no diagonal restriction. |
+| Section 2.2: exact grid interpolation | `Papers.Rockel2025Approximation.patchwork_grid_interpolation` | verified | Every grid vertex agrees with the source copula for arbitrary local copula fillings. |
+| Section 2.2: deterministic uniform convergence | `Papers.Rockel2025Approximation.patchwork_uniform_convergence` | verified | Every local filling on refining uniform grids, simultaneously including checkerboard, check-min and check-W. Rank coefficient convergence requires separate arguments. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
 experiments and plots are not counted as formal proofs.
+
+## Latest package integration
+
+The dependency is pinned to copula commit
+`5926399c46f83d307127fd34b3aa2e416c940786`. New proof modules: [Constructors.lean](Constructors.lean).
+Every mapped declaration is compiled and transitively audited against the standard
+Lean axiom allowlist. Uniqueness of a numerical boundary value does not imply
+uniqueness of its copula witness.

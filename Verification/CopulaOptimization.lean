@@ -51,4 +51,26 @@ theorem exists_copula_minimizer {d : ℕ} {f : (Fin d → I) → ℝ} (hf : Cont
   simp only [Pi.neg_apply, integral_neg, neg_le_neg_iff] at h
   exact h
 
+/-- Any finite pair of continuous costs has a compact attainable set. -/
+theorem isCompact_copula_integral_pair {f g : (Fin 2 → I) → ℝ}
+    (hf : Continuous f) (hg : Continuous g) :
+    IsCompact (Set.range (fun C : Copula 2 =>
+      ((∫ x, f x ∂C.toMeasure), (∫ x, g x ∂C.toMeasure)))) := by
+  let F : ProbabilityMeasure (Fin 2 → I) → ℝ × ℝ := fun μ =>
+    ((∫ x, f x ∂μ.toMeasure), (∫ x, g x ∂μ.toMeasure))
+  have hc : Continuous F :=
+    (ProbabilityMeasure.continuous_integral_continuousMap (⟨f, hf⟩ : C(Fin 2 → I, ℝ))).prodMk
+      (ProbabilityMeasure.continuous_integral_continuousMap (⟨g, hg⟩ : C(Fin 2 → I, ℝ)))
+  have he : Set.range (fun C : Copula 2 =>
+      ((∫ x, f x ∂C.toMeasure), (∫ x, g x ∂C.toMeasure))) =
+      F '' uniformMarginalMeasures 2 := by
+    ext y
+    constructor
+    · rintro ⟨C, rfl⟩
+      exact ⟨C.measure, measure_mem_uniformMarginalMeasures C, rfl⟩
+    · rintro ⟨μ, hμ, rfl⟩
+      exact ⟨{ measure := μ, marginal_eq := fun i => congrArg Subtype.val (hμ i) }, rfl⟩
+  rw [he]
+  exact (isCompact_uniformMarginalMeasures 2).image hc
+
 end Verification

@@ -5,7 +5,7 @@
 - Source version: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Proposition 3.2 is fully checked for every equal-width straight permutation shuffle: rho, tau, xi, and both tail limits. Proposition 3.3 is checked on all equal diagonal grids for rho/tau, deterministic xi and tails. Arbitrary matrices, checkerboard xi, Bernstein formulas, and statistical convergence remain pending.
+**Verification status: in progress.** Proposition 3.2 is fully checked for equal-width straight permutation shuffles, and equal diagonal grid coefficient/tail formulas are checked. Bernstein and arbitrary rectangular checkerboard/check-min/check-W constructors, grid interpolation, and deterministic uniform CDF convergence are now checked. General rank formulas, xi approximation bounds and statistical convergence remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `Rockel2025Approximation`.
@@ -42,3 +42,7 @@ This folder is the supplement's stable landing page. Cite its full commit
 permalink, the associated article, and any future software archive DOI as
 described in [the publication guide](../../docs/PUBLISHING.md).
 No supplement release or software DOI has been assigned yet.
+
+## Exact-region package integration
+
+- [Constructors.lean](Constructors.lean).
