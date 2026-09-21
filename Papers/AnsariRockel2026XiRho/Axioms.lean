@@ -68,3 +68,66 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026XiRho.attainable_region_convex
 #assert_standard_axioms Papers.AnsariRockel2026XiRho.attainable_region_convex
+
+#print axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_cdf
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_cdf
+
+#print axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_conditionalCDF
+
+#print axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_derivative
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_derivative
+
+#print axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_isSI
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_isSI
+
+#print axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_xi
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_xi
+
+#print axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_rho
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.unitDiagonalBand_rho
+
+#print axioms Papers.AnsariRockel2026XiRho.rho_sub_xi_le
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.rho_sub_xi_le
+
+#print axioms Papers.AnsariRockel2026XiRho.rho_sub_xi_eq_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.rho_sub_xi_eq_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.sharp_gap_attained
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.sharp_gap_attained
+
+#print axioms Papers.AnsariRockel2026XiRho.abs_rho_sub_xi_le
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.abs_rho_sub_xi_le
+
+#print axioms Papers.AnsariRockel2026XiRho.abs_rho_sub_xi_eq_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.abs_rho_sub_xi_eq_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.xi_three_tenths_slice
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.xi_three_tenths_slice
+
+#print axioms Papers.AnsariRockel2026XiRho.xi_three_tenths_rho_max_eq_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.xi_three_tenths_rho_max_eq_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_conditionalCDF
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_isSI
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_isSI
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_support
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_support
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_support_eq_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_support_eq_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_maximal_rho
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_maximal_rho
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_maximal_rho_eq_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_maximal_rho_eq_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_zero
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_zero
+
+#print axioms Papers.AnsariRockel2026XiRho.normalizedBand_one
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.normalizedBand_one
