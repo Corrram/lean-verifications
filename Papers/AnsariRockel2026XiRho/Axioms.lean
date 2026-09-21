@@ -44,3 +44,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026XiRho.not_stochastically_monotone_of_abs_rho_lt_xi
 #assert_standard_axioms Papers.AnsariRockel2026XiRho.not_stochastically_monotone_of_abs_rho_lt_xi
+
+#print axioms Papers.AnsariRockel2026XiRho.lemma8_bound
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.lemma8_bound
+
+#print axioms Papers.AnsariRockel2026XiRho.lemma8_equality
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.lemma8_equality
+
+#print axioms Papers.AnsariRockel2026XiRho.si_xi_eq_rho_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.si_xi_eq_rho_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.sd_xi_eq_neg_rho_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.sd_xi_eq_neg_rho_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.stochastic_xi_eq_abs_rho_iff
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.stochastic_xi_eq_abs_rho_iff
+
+#print axioms Papers.AnsariRockel2026XiRho.stochastic_xi_lt_abs_rho
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.stochastic_xi_lt_abs_rho

@@ -4,7 +4,7 @@ import Verification.StochasticRho
 /-! # The general SI/SD inequality and the conditional representation of rho
 
 These results apply to all bivariate copulas, including singular laws.
-The full equality classification in Theorem 2 is a separate remaining gap.
+The full equality classification in Theorem 2 is proved in `StochasticEquality.lean`.
 -/
 
 open MeasureTheory ProbabilityTheory

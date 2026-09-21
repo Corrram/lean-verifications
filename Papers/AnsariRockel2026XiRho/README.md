@@ -6,7 +6,7 @@
 - Source version: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The derivative conventions, endpoint cases, entire xi=1 boundary, and the general SI/SD inequality xi<=abs(rho) are checked. Theorem 2 equality cases outside FGM, the curved diagonal-band boundary, and the full interior region remain pending.
+**Verification status: in progress.** The derivative conventions, endpoint cases, entire xi=1 boundary, and full SI/SD Theorem 2 with all equality cases are checked. Lemma 8 is checked with almost-everywhere function equality. The curved diagonal-band boundary, full interior region, and sharp global gap remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The coverage map uses the arXiv version above; correspondence with the journal
@@ -20,6 +20,7 @@ The permanent folder identifier is `AnsariRockel2026XiRho`.
 - [SelectedResults.lean](SelectedResults.lean): checked statements and proof steps.
 - [RightBoundary.lean](RightBoundary.lean): the complete xi=1 boundary, with radially symmetric witnesses.
 - [StochasticBounds.lean](StochasticBounds.lean): general SI/SD rho bounds and the weighted derivative formula.
+- [StochasticEquality.lean](StochasticEquality.lean): all SI/SD equality cases and Lemma 8 modulo null sets.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

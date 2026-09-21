@@ -27,11 +27,16 @@ still needs proof.
 The [xi–rho supplement](site:papers/AnsariRockel2026XiRho/) tracks three
 targets from arXiv v3: the attainable region (Theorem 1), the sharp maximum
 of $\rho-\xi$ (Corollary 1), and the inequality under stochastic monotonicity
-(Theorem 2). Each is currently pending.
+(Theorem 2). Theorem 2 is now verified in full, including all equality
+cases. The curved region boundary, full interior attainment, and sharp
+global gap remain pending; the entire xi=1 boundary is verified.
 
 The paper proves $\xi(C)\leq|\rho(C)|$ for the stated stochastically increasing
 or decreasing classes. Keeping this class restriction attached to the
-inequality is essential.
+inequality is essential. The verification proves that equality holds exactly
+at countermonotonicity, independence, or comonotonicity, without a density
+assumption. The supporting scalar Lemma 8 is checked with equality of
+functions interpreted almost everywhere.
 See [the versioned article](https://arxiv.org/html/2506.15897v3) for the exact
 statements and equality cases.
 
