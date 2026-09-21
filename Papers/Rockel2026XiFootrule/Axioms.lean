@@ -98,3 +98,33 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.relaxed_family_not_copula
 #assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_family_not_copula
+
+#print axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_closed
+#assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_closed
+
+#print axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_continuous
+#assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_continuous
+
+#print axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_strict_monotonicity
+#assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_strict_monotonicity
+
+#print axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_endpoints
+#assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_coefficients_endpoints
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_inverse_unique
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_inverse_unique
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_cubic_equivalence
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_cubic_equivalence
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_cubic_unique_admissible
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_cubic_unique_admissible
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_cubic_not_unique_real
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_cubic_not_unique_real
+
+#print axioms Papers.Rockel2026XiFootrule.weighted_lower_bound_closed
+#assert_standard_axioms Papers.Rockel2026XiFootrule.weighted_lower_bound_closed
+
+#print axioms Papers.Rockel2026XiFootrule.negative_footrule_lower_bound
+#assert_standard_axioms Papers.Rockel2026XiFootrule.negative_footrule_lower_bound

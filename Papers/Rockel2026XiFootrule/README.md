@@ -6,7 +6,7 @@
 - Source version: [arXiv:2509.07232v1](https://arxiv.org/abs/2509.07232v1), 8 September 2025.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Theorems 2.1, 2.4, and 3.4, Proposition 2.2, and Corollary 2.5 are checked, including the full SI region and bottom boundary. Theorem 3.2 is checked in exact integral form with the piecewise optimizer and Jensen equality criterion. Closed-form relaxed coefficients, global region geometry and parameter inversion, Remark 2.3 refinements, remaining constructions, and journal-version comparison are pending.
+**Verification status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2 and 3.1, and Corollary 2.5 are checked, including the full SI region, bottom boundary, and explicit Jensen lower bound. Theorem 3.3's inverse parameter and lower estimate are checked for footrule in [-1/2,0], with uniqueness restricted to the admissible interval [0,2]. Global region geometry, Remark 2.3 refinements, remaining constructions, and journal-version comparison are pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The roadmap uses the arXiv version above; correspondence with the journal
@@ -21,6 +21,7 @@ The permanent folder identifier is `Rockel2026XiFootrule`.
 - [SIRegion.lean](SIRegion.lean): the exact SI region, explicit boundary witnesses, and the Kendall bound.
 - [SIEquality.lean](SIEquality.lean): Proposition 2.2, with measurable cut functions and both conditional-CDF and derivative formulations.
 - [LowerBound.lean](LowerBound.lean): Theorem 3.2 in exact integral form, the piecewise optimizer, and the Jensen equality criterion.
+- [ClosedCoefficients.lean](ClosedCoefficients.lean): Proposition 3.1, the admissible cubic inverse, and the explicit lower estimate.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [UpperBoundary.lean](UpperBoundary.lean): upper boundary and maximal gap proofs.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
