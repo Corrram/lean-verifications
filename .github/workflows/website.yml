@@ -56,8 +56,15 @@ jobs:
             .lake/packages/UnicodeBasic/.lake
             .lake/packages/BibtexQuery/.lake
             .lake/packages/MD4Lean/.lake
-          key: docs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'docbuild/lake-manifest.json') }}-${{ github.sha }}
-          restore-keys: docs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'docbuild/lake-manifest.json') }}-
+          # Lake revalidates module dependency traces. Reuse artifacts across copula
+          # revisions while keeping the Lean toolchain and doc-gen configuration fixed.
+          key: docs-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'docbuild/lakefile.toml') }}-${{ hashFiles('lake-manifest.json', 'docbuild/lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            docs-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'docbuild/lakefile.toml') }}-${{ hashFiles('lake-manifest.json', 'docbuild/lake-manifest.json') }}-
+            docs-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'docbuild/lakefile.toml') }}-
+            docs-${{ runner.os }}-${{ runner.arch }}-b2255670b35a6c7ef5f21588af4db3ba09b332e6cd176a4bf1dc782182556209-
+          # The final fallback migrates the verified Lean 4.34.0/doc-gen4 cache
+          # from the preceding copula pin. Exact source pins and build checks stay enforced.
       - name: Include all project modules and refresh rendered documentation
         run: python scripts/prepare_docs.py
       - name: Build the pinned doc-gen4 reference
