@@ -5,7 +5,7 @@ import Verification.FootruleJensen
 
 The source profile is a relaxation and is not declared to be a copula.
 The rank-like values are defined by exact integrals; their logarithmic
-closed forms from Proposition 3.1 are a separate remaining obligation.
+closed forms from Proposition 3.1 are evaluated in `ClosedCoefficients`.
 -/
 
 open MeasureTheory ProbabilityTheory Set Verification
