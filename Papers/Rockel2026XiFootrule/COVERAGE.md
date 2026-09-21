@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorem 2.1 and the maximal gap, the exact SI region in Theorem 2.4, Corollary 2.5, and Theorem 3.4 with the entire bottom boundary are checked. Proposition 2.2 equality classification and the remaining lower-bound results and constructions are pending.
+**Status: in progress.** Theorem 2.1 and the maximal gap, Proposition 2.2 with measurable equality witnesses, the exact SI region in Theorem 2.4, Corollary 2.5, and Theorem 3.4 with the entire bottom boundary are checked. The refinements in Remark 2.3, remaining lower-bound results and constructions, and journal-version comparison are pending.
 
 ## Source and proof scope
 
@@ -34,10 +34,12 @@ the two endpoints have zero measure.
 
 The lower endpoint has an independent proof through the sharp xi-beta theorem in the companion supplement; the source checkerboard is identified by its explicit CDF. This avoids assuming a general checkerboard approximation inequality.
 
+For Proposition 2.2, the equality case of the scalar diagonal moment bound is proved by a nonnegative algebraic defect. At almost every response threshold, it forces the antitone conditional-CDF section to take only the values 1, one intermediate level, and 0 almost everywhere. The canonical cut functions are the lengths of its one and positive level sets. Monotonicity in the response threshold proves that both cuts are nondecreasing and hence measurable. The uniform marginal determines the measurable middle level, with coincident cuts handled separately. The representation uses precisely the source's open intervals and nested almost-everywhere quantifiers. Both necessity and sufficiency are proved, including the first-partial-derivative formulation. No density assumption is imposed. The source's Lebesgue-Stieltjes integration-by-parts argument is not separately claimed verified.
+
 ## Result map
 
 All source references use arXiv v1. Proofs are in
-[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), and [SIRegion.lean](SIRegion.lean).
+[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), and [SIEquality.lean](SIEquality.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
@@ -55,7 +57,10 @@ All source references use arXiv v1. Proofs are in
 | Theorem 2.4: lower-boundary witnesses | `Papers.Rockel2026XiFootrule.diagonalBoundary_cdf`; `Papers.Rockel2026XiFootrule.diagonalBoundary_isSI`; `Papers.Rockel2026XiFootrule.diagonalBoundary_coefficients` | verified | The ordinal sum of independence below a and M above a is SI and has xi=footrule=1-a^2. The full-square CDF and the closed parameter interval, including a=0 and a=1, are proved. |
 | Theorem 2.4: upper witnesses and entire SI region | `Papers.Rockel2026XiFootrule.upperBoundary_isSI`; `Papers.Rockel2026XiFootrule.exact_si_xi_footrule_region` | verified | A pair (x,y) is attained by an SI copula iff x,y are in [0,1] and x<=y<=sqrt(x). Mixtures with equal footrule remain SI and a proved continuous xi path attains every interior point. |
 | Corollary 2.5: Kendall bound | `Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau` | verified | Every SI copula satisfies xi<=3 tau/4+1/4, combining the new SI lower bound with the verified universal tau-footrule bound. |
-| Proposition 2.2: full SI equality classification | — | pending | The lower bound and enough witnesses for the entire SI region are proved above. Necessity and sufficiency of the source's measurable three-level conditional-CDF representation remain pending. |
+| Proposition 2.2, equation (12): equality of section moments | `Papers.Rockel2026XiFootrule.si_equality_iff_diagonal_moments` | verified | For every SI copula, xi=footrule iff the squared conditional-CDF integral equals C(v,v) for almost every threshold v. |
+| Proposition 2.2: explicit measurable equality witnesses | `Papers.Rockel2026XiFootrule.si_equality_canonical_parameters` | verified | Canonical nondecreasing, measurable cuts A(v)<=v<=B(v), and measurable middle level in [0,1], give the source's three-level representation almost everywhere. Includes coincident cuts and parameter endpoints. |
+| Proposition 2.2: full SI equality classification | `Papers.Rockel2026XiFootrule.si_equality_iff_conditional_threeLevel`; `Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel` | verified | Necessity and sufficiency of the source's measurable three-level representation, in both conditional-CDF and first-partial-derivative conventions. A and B are nondecreasing; all parameters take values in [0,1]. Every SI copula is covered, including singular laws; no family restriction. |
+| Remark 2.3: symmetric refinement and asymmetric example | — | pending | The further characterization of symmetric equality copulas as general countable ordinal sums of independence, and the specific asymmetric example, are not formalized. The full unrestricted SI equality criterion is verified above. |
 | Section 3.1 outside Theorem 3.4 | — | pending | The remaining Jensen lower-bound curve and its piecewise optimization formulas. The checkerboard minimum and the entire bottom boundary are checked above. |
 | Section 3.2: two-parameter copula construction | — | pending | Need the marginal and parameter-endpoint proofs. |
 | Numerical optimization and plotted lower-bound candidates | — | excluded | Numerical evidence is not advertised as a Lean proof. |

@@ -56,3 +56,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 #assert_standard_axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
+
+#print axioms Papers.Rockel2026XiFootrule.si_equality_iff_diagonal_moments
+#assert_standard_axioms Papers.Rockel2026XiFootrule.si_equality_iff_diagonal_moments
+
+#print axioms Papers.Rockel2026XiFootrule.si_equality_canonical_parameters
+#assert_standard_axioms Papers.Rockel2026XiFootrule.si_equality_canonical_parameters
+
+#print axioms Papers.Rockel2026XiFootrule.si_equality_iff_conditional_threeLevel
+#assert_standard_axioms Papers.Rockel2026XiFootrule.si_equality_iff_conditional_threeLevel
+
+#print axioms Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel
+#assert_standard_axioms Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel
