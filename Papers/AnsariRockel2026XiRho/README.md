@@ -6,7 +6,7 @@
 - Source version: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The full SI/SD Theorem 2 and Corollary 1's sharp global gap 2/5 are verified, including every equality case. The unit-slope diagonal-band copula is constructed with exact xi=3/10 and rho=7/10; the entire xi=3/10 slice is checked. Normalized clamped copulas are constructed for every nonnegative slope, with SI and unique global support optimality. The xi=1 boundary and full-region convexity remain checked. The general explicit intercept and coefficient formulas, inverse boundary parameter, full explicit region, and journal-version comparison remain pending.
+**Verification status: in progress.** The full SI/SD Theorem 2 and Corollary 1's sharp global gap 2/5 are verified, including every equality case. The unit-slope diagonal-band copula is constructed with exact xi=3/10 and rho=7/10; the entire xi=3/10 slice is checked. Normalized clamped copulas are constructed for every nonnegative slope, with SI and unique global support optimality. The xi=1 boundary and full-region convexity remain checked. The general explicit intercept and coefficient formulas, inverse boundary parameter, full explicit region, further family properties, and journal-version comparison remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The coverage map uses the arXiv version above; correspondence with the journal
