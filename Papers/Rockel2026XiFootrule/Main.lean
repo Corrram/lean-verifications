@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiFootrule.LowerBound
 import Papers.Rockel2026XiFootrule.SIEquality
 import Papers.Rockel2026XiFootrule.SIRegion
 import Papers.Rockel2026XiFootrule.LowerEndpoint

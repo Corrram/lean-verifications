@@ -8,7 +8,7 @@ have been formalized.
 **Current status:** the xi-beta supplement is **complete for its stated scope**;
 the other eight supplements remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the exact SI xi-footrule region and full equality classification, universal
-upper boundary and entire bottom boundary; the full SI/SD xi-rho theorem with all equality cases;
+upper and Jensen lower bounds, and entire bottom boundary; the full SI/SD xi-rho theorem with all equality cases;
 the full xi=1 slices for rho and Blest; all three pairwise tau/footrule/beta regions and the joint lower tau face; rho-footrule contact
 points; sign-magnitude and transport certificates for rho-gamma; and rank/tail
 formulas on all equal diagonal grids. Each coverage map specifies its exact scope
@@ -36,7 +36,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | --- | --- | --- |
 | Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; FGM density and selected FGM/Frechet/Mardia/Nelsen 7 table results |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full SI/SD theorem with equality cases and xi=1 boundary |
-| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region and equality classification, upper and bottom boundaries |
+| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, equality classification, and universal upper/Jensen lower bounds |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; all equal diagonal grids: rho/tau, deterministic xi and tails |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries and full xi=1 boundary |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
