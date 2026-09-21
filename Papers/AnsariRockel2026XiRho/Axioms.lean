@@ -62,3 +62,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026XiRho.stochastic_xi_lt_abs_rho
 #assert_standard_axioms Papers.AnsariRockel2026XiRho.stochastic_xi_lt_abs_rho
+
+#print axioms Papers.AnsariRockel2026XiRho.fixed_coefficient_upward
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.fixed_coefficient_upward
+
+#print axioms Papers.AnsariRockel2026XiRho.attainable_region_convex
+#assert_standard_axioms Papers.AnsariRockel2026XiRho.attainable_region_convex

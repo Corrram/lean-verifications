@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2 and 3.1, and Corollary 2.5 are checked, including the full SI region, bottom boundary, and explicit Jensen lower bound. Theorem 3.3's inverse parameter and lower estimate are checked for footrule in [-1/2,0], with uniqueness restricted to the admissible interval [0,2]. Global region geometry, Remark 2.3 refinements, remaining constructions, and journal-version comparison are pending.
+**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2 and 3.1, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Closedness, remaining negative-boundary attainment, Remark 2.3 refinements, further constructions, and journal-version comparison are pending.
 
 ## Source and proof scope
 
@@ -42,10 +42,12 @@ The relaxed primitive is deliberately a real-valued function rather than a copul
 
 The parameter inversion in Theorem 3.3 is proved for footrule y in [-1/2,0], with a unique parameter mu in [0,2]. This restriction matters: at y=-1/2 the cubic factors as (mu-2)^2(mu+1), so its real roots are not globally unique. The formal counterexample below records the correction to the source wording. The inverse estimate does not assert that the relaxed profile attains the copula boundary.
 
+Convexity is proved independently of the curved boundary formulas. A first copula mixture preserves the desired affine coefficient and gives xi no larger than the target convex combination. A second mixture with a proved xi=1 witness at the same coefficient reaches the target xi by continuity. Both steps construct actual copulas, including singular laws and endpoint weights. This also proves attainment of every xi between an existing point and 1 at fixed coefficient; it does not assert that the infimum of a slice is attained or that the full region is closed.
+
 ## Result map
 
 All source references use arXiv v1. Proofs are in
-[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [LowerBound.lean](LowerBound.lean), and [ClosedCoefficients.lean](ClosedCoefficients.lean).
+[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), and [RegionGeometry.lean](RegionGeometry.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
@@ -82,7 +84,12 @@ All source references use arXiv v1. Proofs are in
 | Theorem 3.3: cubic equation and unique admissible root | `Papers.Rockel2026XiFootrule.footrule_cubic_equivalence`; `Papers.Rockel2026XiFootrule.footrule_cubic_unique_admissible` | verified | The prescribed footrule equation is equivalent to mu^3-(4+2y)mu^2-(4+8y)mu-8y=0 on [0,2]. Its root in that interval is unique for y in [-1/2,0]. |
 | Theorem 3.3: nonpositive-footrule lower estimate | `Papers.Rockel2026XiFootrule.negative_footrule_lower_bound` | verified | Every copula with footrule in [-1/2,0] satisfies the explicit xi lower bound at its unique admissible cubic parameter. No copula-attainment assertion is added. |
 | Theorem 3.3: correction to unrestricted real-root uniqueness | `Papers.Rockel2026XiFootrule.footrule_cubic_not_unique_real` | verified | At y=-1/2 the cubic has the distinct real roots 2 and -1. Thus the source's phrase "unique real solution" must be restricted to the admissible interval [0,2]. |
-| Theorem 3.3: remaining region geometry and full-statement correspondence | — | pending | Convexity, closure, and remaining boundary-attainment arguments. The explicit inverse estimate is proved on the nonpositive-footrule range; the source statement over the full footrule interval is not claimed verified. |
+| Theorem 3.3: deterministic witnesses at xi=1 | `Papers.Rockel2026XiFootrule.rightBoundary_coefficients` | verified | A central W block of width a with identity outside has xi=1 and footrule=1-3a^2/2, for all a in [0,1]. The shared ordinal-sum construction proves it is a copula. |
+| Theorem 3.3: entire xi=1 boundary | `Papers.Rockel2026XiFootrule.xi_one_slice` | verified | A pair (1,y) is attainable iff y lies in [-1/2,1]. The inverse width sqrt(2(1-y)/3) supplies an explicit witness, including both endpoints. |
+| Theorem 3.3, equation (26): interval property and extension to xi=1 | `Papers.Rockel2026XiFootrule.fixed_footrule_intermediate`; `Papers.Rockel2026XiFootrule.fixed_footrule_upward` | verified | Every xi between two attained points at the same footrule is attained; every attained point extends to all xi up to 1 at the same footrule. No closed-slice or minimum-attainment assertion is included. |
+| Theorem 3.3: convexity of the entire attainable region | `Papers.Rockel2026XiFootrule.attainable_region_convex` | verified | Any convex combination of two attainable coefficient pairs is attained by an actual copula. Independent two-mixture proof using the entire xi=1 boundary; no unproved lower-boundary formula, compactness, or closedness assumption. |
+| Theorems 2.1 and 3.3: exact nonnegative-footrule part of the region | `Papers.Rockel2026XiFootrule.exact_nonnegative_footrule_region` | verified | For y>=0, (x,y) is attainable iff y<=1 and y^2<=x<=1. The Frechet witness attains the lower xi endpoint and fixed-footrule interpolation attains the full interval. |
+| Theorem 3.3: closedness and remaining negative-boundary attainment | — | pending | Full closedness, attainment of the unresolved negative-footrule lower boundary, and the source's SD compactness and rearrangement route. The explicit inverse estimate applies on [-1/2,0]; the nonnegative-footrule part is separately characterized exactly above. |
 | Section 3.2: two-parameter copula construction | — | pending | Need the marginal and parameter-endpoint proofs. |
 | Numerical optimization and plotted lower-bound candidates | — | excluded | Numerical evidence is not advertised as a Lean proof. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |

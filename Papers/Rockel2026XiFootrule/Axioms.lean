@@ -128,3 +128,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.negative_footrule_lower_bound
 #assert_standard_axioms Papers.Rockel2026XiFootrule.negative_footrule_lower_bound
+
+#print axioms Papers.Rockel2026XiFootrule.rightBoundary_coefficients
+#assert_standard_axioms Papers.Rockel2026XiFootrule.rightBoundary_coefficients
+
+#print axioms Papers.Rockel2026XiFootrule.xi_one_slice
+#assert_standard_axioms Papers.Rockel2026XiFootrule.xi_one_slice
+
+#print axioms Papers.Rockel2026XiFootrule.fixed_footrule_intermediate
+#assert_standard_axioms Papers.Rockel2026XiFootrule.fixed_footrule_intermediate
+
+#print axioms Papers.Rockel2026XiFootrule.fixed_footrule_upward
+#assert_standard_axioms Papers.Rockel2026XiFootrule.fixed_footrule_upward
+
+#print axioms Papers.Rockel2026XiFootrule.attainable_region_convex
+#assert_standard_axioms Papers.Rockel2026XiFootrule.attainable_region_convex
+
+#print axioms Papers.Rockel2026XiFootrule.exact_nonnegative_footrule_region
+#assert_standard_axioms Papers.Rockel2026XiFootrule.exact_nonnegative_footrule_region
