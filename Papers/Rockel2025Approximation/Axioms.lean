@@ -62,3 +62,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.permutationShuffle_upper_tail
 #assert_standard_axioms Papers.Rockel2025Approximation.permutationShuffle_upper_tail
+
+#print axioms Papers.Rockel2025Approximation.bernstein_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_cdf
+
+#print axioms Papers.Rockel2025Approximation.bernstein_uniform_error
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_uniform_error
+
+#print axioms Papers.Rockel2025Approximation.bernstein_uniform_convergence
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_uniform_convergence
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkerboard_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkerboard_cdf
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkMin_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkMin_cdf
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkW_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkW_cdf
+
+#print axioms Papers.Rockel2025Approximation.patchwork_grid_interpolation
+#assert_standard_axioms Papers.Rockel2025Approximation.patchwork_grid_interpolation
+
+#print axioms Papers.Rockel2025Approximation.patchwork_uniform_convergence
+#assert_standard_axioms Papers.Rockel2025Approximation.patchwork_uniform_convergence

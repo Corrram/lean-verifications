@@ -37,12 +37,12 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas and tails, exact Frechet/Mardia dependence and Nelsen 7 xi/Schur classifications and parameter orders |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full SI/SD theorem, sharp global gap 2/5 with unique maximizer, normalized-band optimization and exact xi=3/10 slice |
 | ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region and asymmetric equality example, Jensen bound and partial full-region geometry |
-| Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; full Proposition 3.2 for permutation shuffles; equal diagonal grid formulas |
+| Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; shuffle formulas, rectangular and Bernstein constructors, uniform CDF convergence |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, and full-region convexity |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | Complete for stated scope; exact joint region, signed shuffles, geometry and volume |
-| ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; quadratic equality criterion and all discrete sharp contact points |
-| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; full sign-magnitude converse, attained transport reduction and half-shift optimality |
+| ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; full exact region, radical boundary formulas and sharp dispersion |
+| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; full exact region, continuous boundary, discrepancy and sign thresholds |
 
 ## Reproduce the build
 
@@ -57,7 +57,7 @@ python scripts/check_verification.py
 ```
 
 Lean is pinned to **4.34.0**. The `copula` dependency is pinned to the commit
-`765dfec9bdd19c41414738718e818f25e2fe825f`, and `lake-manifest.json` records all transitive revisions,
+`5926399c46f83d307127fd34b3aa2e416c940786`, and `lake-manifest.json` records all transitive revisions,
 including mathlib. The Git dependency works before and after Reservoir indexing;
 indexing is not required for this build. Do not run `lake update` when reproducing
 a published supplement.

@@ -5,7 +5,7 @@
 - Source version: [arXiv:2609.19890v1](https://arxiv.org/abs/2609.19890v1), 17 September 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The full sign-magnitude representation, arbitrary-law converse, sign-bound attainment and equality of the attained support and transport maxima are checked. Weak duality, contact certificates and the half-shift optimizer for s>=1 are checked. The remaining optimizer branches, glued potential, general strong duality and exact boundary remain pending.
+**Verification status: in progress.** The full exact region, attained boundaries, compactness, boundary continuity/concavity/strict increase, elementary arc, sharp largest discrepancy and both sign thresholds are checked using the latest copula exact-region proofs. Remaining source-parameter, asymptotic, shuffle-identification and general-duality claims are listed explicitly.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockelSteinmassl2026RhoGamma`.
@@ -45,3 +45,11 @@ This folder is the supplement's stable landing page. Cite its full commit
 permalink, the associated article, and any future software archive DOI as
 described in [the publication guide](../../docs/PUBLISHING.md).
 No supplement release or software DOI has been assigned yet.
+
+## Exact-region package integration
+
+- [ExactRegion.lean](ExactRegion.lean).
+- [BoundaryGeometry.lean](BoundaryGeometry.lean).
+- [SharpDiscrepancy.lean](SharpDiscrepancy.lean).
+- [SignThresholds.lean](SignThresholds.lean).
+- [ElementaryArc.lean](ElementaryArc.lean).
