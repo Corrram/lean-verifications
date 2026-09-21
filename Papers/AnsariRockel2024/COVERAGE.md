@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Other family entries, general order correspondences and journal comparison remain pending.
+**Status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. Other family entries, general order correspondences and journal comparison remain pending.
 
 ## Source and conventions
 
@@ -22,6 +22,13 @@ The library defines xi using a regular conditional CDF. The bridge to the
 source's almost-everywhere partial derivative is proved in
 [ConditionalDerivative.lean](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/Copula/Rank/ConditionalDerivative.lean),
 without assuming an absolutely continuous copula.
+
+The additional extreme-value tails use actual copula constructors and the
+power-diagonal limit proofs in the pinned library. The parameters are finite:
+Gumbel and Tawn have theta>=1; Marshall-Olkin, Cuadras-Auge and Tawn weights
+include their closed unit intervals. The lower tail at M is treated separately.
+These tail results do not establish the families' remaining dependence or
+association-coefficient table cells.
 
 ## Result map
 
@@ -54,6 +61,13 @@ and checked against the standard axiom allowlist in [Axioms.lean](Axioms.lean).
 | Table 3 / Appendix A.1.1: Nelsen 7 CD | `Papers.AnsariRockel2024.nelsen7_cd` | verified | Conditional decreasingness in both directions for every theta in [0,1]. |
 | Table 3 / Appendix A.1.2: Nelsen 7 lower orthant order | `Papers.AnsariRockel2024.nelsen7_lowerOrthant_iff` | verified | Comparison holds iff the parameters are ordered; full closed parameter interval. |
 | Table 3: Nelsen 7 tail dependence | `Papers.AnsariRockel2024.nelsen7_tails` | verified | Both limits exist and equal zero, including both parameter endpoints. |
+| Table 3 / Appendix A.1.3: Gumbel-Hougaard tails | `Papers.AnsariRockel2024.gumbel_tails` | verified | Both limits exist for every finite theta>=1: lower=0, upper=2-2^(1/theta). Includes theta=1. |
+| Table 5 / Appendix A.2.3: Marshall-Olkin tails | `Papers.AnsariRockel2024.marshallOlkin_tails` | verified | Both limits for all alpha,beta in [0,1]: upper=min(alpha,beta), lower=1 exactly at alpha=beta=1, otherwise 0. Singular and zero-weight parameters included. |
+| Table 5 / Appendix A.2.3: Cuadras-Auge tails | `Papers.AnsariRockel2024.cuadrasAuge_tails` | verified | Both limits for every delta in [0,1]: upper=delta; lower=1 at delta=1 (M), otherwise 0. |
+| Table 5 / Appendix A.2.3: Tawn tails | `Papers.AnsariRockel2024.tawn_tails` | verified | Both limits for finite theta>=1 and alpha,beta in [0,1]: lower=0, upper=alpha+beta-(alpha^theta+beta^theta)^(1/theta). All zero weights and theta=1 included; no infinite-parameter substitution. |
+| Table 5 / Appendix A.4.2: exact FGM Schur order | `Papers.AnsariRockel2024.fgm_schur_iff` | verified | Schur comparison in both directions iff abs(theta)<=abs(eta), on the full signed parameter interval [-1,1]. The order uses the continuous convex-test characterization of conditional-CDF majorization. |
+| Table 5 / Appendix A.4.2: corrected Frechet parameter order | `Papers.AnsariRockel2024.frechet_parameter_order` | verified | On the full valid weight simplex, increasing the M weight and decreasing the W weight increases the copula in lower orthant order. This corrects the printed direction for the W weight; no characterization of all comparable weight pairs is claimed. |
+| Table 5 / Appendix A.4.2: counterexample to printed Frechet order | `Papers.AnsariRockel2024.frechet_order_counterexample` | verified | At fixed M weight zero, raising W's weight from zero to one gives independence then W; independence is not below W in lower orthant order. |
 | Remaining family constructors and table entries | — | pending | Unlisted cells are not covered by the results above. |
 | General dependence/order equivalences and their applications | — | pending | Unlisted density properties and rearrangement-based Schur order need separate correspondence checks. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
@@ -66,11 +80,13 @@ Proof sources: [Definitions.lean](Definitions.lean),
 The Fréchet simplex and Mardia W-weight above follow the valid copula
 mixtures. The reversed simplex inequality and negative W-weight printed in
 Appendix A.4.1 / equation (23) are not asserted as theorems. Table 6's
-coefficient formulas are checked with the valid family definitions.
+coefficient formulas are checked with the valid family definitions. The corrected
+Frechet lower orthant order and an explicit counterexample to the printed
+increasing-in-W-weight direction are also mapped above.
 
 Other discrepancies documented in the pinned library's
 [coverage audit](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/docs/ansari-rockel.md)
 remain outside this verified subset. Numerical plots, grid searches, and
 numerical-only table observations are excluded from the formal claims.
 
-Additional proof modules: [FamilyExtensions.lean](FamilyExtensions.lean).
+Additional proof modules: [FamilyExtensions.lean](FamilyExtensions.lean) and [TailsAndOrders.lean](TailsAndOrders.lean).

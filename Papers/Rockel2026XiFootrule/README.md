@@ -6,7 +6,7 @@
 - Source version: [arXiv:2509.07232v1](https://arxiv.org/abs/2509.07232v1), 8 September 2025.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2 and 3.1, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Closedness, remaining negative-boundary attainment, Remark 2.3 refinements, further constructions, and journal-version comparison are pending.
+**Verification status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2 and 3.1, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. Closedness, remaining negative-boundary attainment, the symmetric ordinal-sum classification, further constructions, and journal-version comparison are pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The roadmap uses the arXiv version above; correspondence with the journal
@@ -23,6 +23,7 @@ The permanent folder identifier is `Rockel2026XiFootrule`.
 - [LowerBound.lean](LowerBound.lean): Theorem 3.2 in exact integral form, the piecewise optimizer, and the Jensen equality criterion.
 - [ClosedCoefficients.lean](ClosedCoefficients.lean): Proposition 3.1, the admissible cubic inverse, and the explicit lower estimate.
 - [RegionGeometry.lean](RegionGeometry.lean): convexity and attainment at fixed coefficient.
+- [AsymmetricEquality.lean](AsymmetricEquality.lean): the actual asymmetric SI equality copula in Remark 2.3.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [UpperBoundary.lean](UpperBoundary.lean): upper boundary and maximal gap proofs.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.

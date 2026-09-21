@@ -80,3 +80,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen7_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_tails
+
+#print axioms Papers.AnsariRockel2024.gumbel_tails
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_tails
+
+#print axioms Papers.AnsariRockel2024.marshallOlkin_tails
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_tails
+
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_tails
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_tails
+
+#print axioms Papers.AnsariRockel2024.tawn_tails
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_tails
+
+#print axioms Papers.AnsariRockel2024.fgm_schur_iff
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_schur_iff
+
+#print axioms Papers.AnsariRockel2024.frechet_parameter_order
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_parameter_order
+
+#print axioms Papers.AnsariRockel2024.frechet_order_counterexample
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_order_counterexample

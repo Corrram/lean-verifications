@@ -34,9 +34,9 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 
 | Article | Supplement | Status |
 | --- | --- | --- |
-| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; FGM density and selected FGM/Frechet/Mardia/Nelsen 7 table results |
+| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas, four extreme-value tail pairs, FGM Schur and corrected Frechet order |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full SI/SD theorem with equality cases, xi=1 boundary, and region convexity |
-| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, explicit Jensen bound, full-region convexity, and nonnegative-footrule region |
+| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region and asymmetric equality example, Jensen bound and partial full-region geometry |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; full Proposition 3.2 for permutation shuffles; equal diagonal grid formulas |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, and full-region convexity |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
