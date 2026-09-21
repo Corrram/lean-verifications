@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2026XiRho.RegionGeometry
 import Papers.AnsariRockel2026XiRho.StochasticEquality
 import Papers.AnsariRockel2026XiRho.StochasticBounds
 import Papers.AnsariRockel2026XiRho.RightBoundary

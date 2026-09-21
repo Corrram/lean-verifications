@@ -9,7 +9,7 @@ have been formalized.
 the other eight supplements remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the exact SI xi-footrule region and full equality classification, universal
 upper and explicit Jensen lower bounds, admissible cubic inversion, and entire bottom boundary; the full SI/SD xi-rho theorem with all equality cases;
-the full xi=1 slices for rho and Blest; all three pairwise tau/footrule/beta regions and the joint lower tau face; rho-footrule contact
+the full xi=1 slices for footrule, rho and Blest, and convexity of all three xi regions; all three pairwise tau/footrule/beta regions and the joint lower tau face; rho-footrule contact
 points; sign-magnitude and transport certificates for rho-gamma; and rank/tail
 formulas on all equal diagonal grids. Each coverage map specifies its exact scope
 and pending work. CI checks the maps and rejects nonstandard axioms behind every
@@ -35,10 +35,10 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | Article | Supplement | Status |
 | --- | --- | --- |
 | Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; FGM density and selected FGM/Frechet/Mardia/Nelsen 7 table results |
-| ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full SI/SD theorem with equality cases and xi=1 boundary |
-| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, equality classification, explicit Jensen bound, and admissible cubic inverse |
+| ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full SI/SD theorem with equality cases, xi=1 boundary, and region convexity |
+| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, explicit Jensen bound, full-region convexity, and nonnegative-footrule region |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; all equal diagonal grids: rho/tau, deterministic xi and tails |
-| ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries and full xi=1 boundary |
+| ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, and full-region convexity |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | In progress; all pairwise regions, joint outer bounds and entire lower tau face |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; quadratic equality criterion and all discrete sharp contact points |

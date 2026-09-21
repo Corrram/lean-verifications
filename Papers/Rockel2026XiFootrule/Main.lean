@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiFootrule.RegionGeometry
 import Papers.Rockel2026XiFootrule.ClosedCoefficients
 import Papers.Rockel2026XiFootrule.SIEquality
 import Papers.Rockel2026XiFootrule.SIRegion

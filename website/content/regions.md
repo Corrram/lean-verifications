@@ -29,7 +29,7 @@ targets from arXiv v3: the attainable region (Theorem 1), the sharp maximum
 of $\rho-\xi$ (Corollary 1), and the inequality under stochastic monotonicity
 (Theorem 2). Theorem 2 is now verified in full, including all equality
 cases. The curved region boundary, full interior attainment, and sharp
-global gap remain pending; the entire xi=1 boundary is verified.
+global gap remain pending; the entire xi=1 boundary and full-region convexity are verified.
 
 The paper proves $\xi(C)\leq|\rho(C)|$ for the stated stochastically increasing
 or decreasing classes. Keeping this class restriction attached to the
@@ -60,6 +60,23 @@ The coverage map records this correction to the source's global uniqueness
 wording. The relaxed profile also fails copula monotonicity, so no copula
 attainment is asserted for this estimate. Remaining region geometry and
 copula constructions retain their pending entries.
+
+## Convexity in three xi regions
+
+The xi-footrule, xi-rho, and xi-Blest supplements now verify convexity of
+their full attainable regions. The proof constructs a copula for every
+convex combination of two attained pairs: first mix the given copulas,
+then mix with a xi=1 witness at the same second coefficient to reach the
+desired xi. The continuous xi path and affine second coefficient justify
+both steps. Closedness and the remaining curved-boundary formulas are
+separate obligations.
+
+For xi-footrule, the entire xi=1 boundary is now checked as well. Centered
+countermonotonic blocks give every footrule value in [-1/2,1]. Together
+with the Frechet lower-xi endpoint at nonnegative footrule, these witnesses
+prove the exact portion 0<=footrule<=1 and footrule^2<=xi<=1, including
+attainment throughout. At negative footrule, the proved Jensen bound
+remains an outer estimate; convexity does not make it an attaining curve.
 
 ## A picture is a guide, not a coverage claim
 

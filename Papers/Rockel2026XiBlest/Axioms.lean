@@ -47,3 +47,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.xi_one_slice
 #assert_standard_axioms Papers.Rockel2026XiBlest.xi_one_slice
+
+#print axioms Papers.Rockel2026XiBlest.fixed_coefficient_upward
+#assert_standard_axioms Papers.Rockel2026XiBlest.fixed_coefficient_upward
+
+#print axioms Papers.Rockel2026XiBlest.attainable_region_convex
+#assert_standard_axioms Papers.Rockel2026XiBlest.attainable_region_convex
