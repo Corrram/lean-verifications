@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. The exact Frechet and Mardia CI/CD and absolute-continuity/density-TP2 classifications, and an incomparable Mardia pair, are checked as well. Other family entries, general order correspondences and journal comparison remain pending.
+**Status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. The exact Frechet and Mardia CI/CD and absolute-continuity/density-TP2 classifications, and an incomparable Mardia pair, are checked as well. Nelsen 7 now also has its exact conditional CDF, xi=1-theta formula, CI region and Schur parameter order checked. Other family entries, general order correspondences and journal comparison remain pending.
 
 ## Source and conventions
 
@@ -20,7 +20,7 @@ use the source population normalizations; xi is coordinate 1 given coordinate 0.
 
 The library defines xi using a regular conditional CDF. The bridge to the
 source's almost-everywhere partial derivative is proved in
-[ConditionalDerivative.lean](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/Copula/Rank/ConditionalDerivative.lean),
+[ConditionalDerivative.lean](https://github.com/Corrram/copula/blob/765dfec9bdd19c41414738718e818f25e2fe825f/Copula/Rank/ConditionalDerivative.lean),
 without assuming an absolutely continuous copula.
 
 The additional extreme-value tails use actual copula constructors and the
@@ -77,6 +77,11 @@ and checked against the standard axiom allowlist in [Axioms.lean](Axioms.lean).
 | Support for the density-TP2 correction: Mardia absolute continuity | `Papers.AnsariRockel2024.mardia_absolutelyContinuous_iff` | verified | Full signed interval: the actual copula measure is absolutely continuous with respect to square Lebesgue measure iff theta=0. |
 | Correction to Table 5 / Appendix A.4.1: Mardia density TP2 | `Papers.AnsariRockel2024.mardia_density_tp2_iff` | verified | Full signed interval: HasMTP2Density iff theta=0 (independence), with the valid nonnegative W weight. |
 | Table 5 / Appendix A.4.2: Mardia lack of parameter ordering | `Papers.AnsariRockel2024.mardia_not_lowerOrthant_ordered` | verified | The copulas at theta=0 and theta=1/2 are incomparable in lower orthant order. Explicit CDF witnesses at (1/8,1/8) and (1/8,7/8) rule out the two directions. |
+| Table 6 / Appendix A.5.1: Nelsen 7 conditional CDF | `Papers.AnsariRockel2024.nelsen7_conditionalCDF` | verified | For every theta,v in [0,1], the actual conditional CDF equals the step with height theta*v+1-theta and cutoff (1-theta)*(1-v)/(theta*v+1-theta), almost everywhere in the conditioning coordinate. The zero-height case is included. |
+| Table 6 / Appendix A.5.1: Nelsen 7 derivative correspondence | `Papers.AnsariRockel2024.nelsen7_derivative` | verified | The same step equals the first partial derivative almost everywhere, using the general conditional-CDF bridge; no density hypothesis. |
+| Table 6: Nelsen 7 Chatterjee xi | `Papers.AnsariRockel2024.nelsen7_xi` | verified | Xi=1-theta for the entire closed parameter interval, including W at zero and independence at one. |
+| Table 3 / Appendix A.1.1: Nelsen 7 exact CI region | `Papers.AnsariRockel2024.nelsen7_ci_iff` | verified | CI iff theta=1. Complements the existing full-interval CD theorem; no interior or positivity restriction. |
+| Table 3 / Appendix A.1.2: exact Nelsen 7 Schur order | `Papers.AnsariRockel2024.nelsen7_schur_iff` | verified | Schur comparison in both directions holds iff the parameters are reversely ordered: C_theta precedes C_eta iff eta<=theta, including both endpoints. Uses continuous convex tests of conditional CDFs. |
 | Remaining family constructors and table entries | — | pending | Unlisted cells are not covered by the results above. |
 | General dependence/order equivalences and their applications | — | pending | Unlisted density properties and rearrangement-based Schur order need separate correspondence checks. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
@@ -103,8 +108,10 @@ are corrected, not asserted. This does not classify alternative notions of
 total positivity for singular measures or for the CDF.
 
 Other discrepancies documented in the pinned library's
-[coverage audit](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/docs/ansari-rockel.md)
+[coverage audit](https://github.com/Corrram/copula/blob/765dfec9bdd19c41414738718e818f25e2fe825f/docs/ansari-rockel.md)
 remain outside this verified subset. Numerical plots, grid searches, and
 numerical-only table observations are excluded from the formal claims.
 
 Additional proof modules: [FamilyExtensions.lean](FamilyExtensions.lean), [TailsAndOrders.lean](TailsAndOrders.lean), and [FrechetMardiaDependence.lean](FrechetMardiaDependence.lean). Shared measure and dependence proofs are in [Verification/FrechetDependence.lean](../../Verification/FrechetDependence.lean).
+
+[Nelsen7Results.lean](Nelsen7Results.lean) maps the new pinned-library results. The Frechet/Mardia proof modules now delegate to the upstream package; their existing public declarations and audits are preserved.

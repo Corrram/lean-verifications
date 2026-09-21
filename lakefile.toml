@@ -12,8 +12,8 @@ warningAsError = true
 [[require]]
 name = "copula"
 git = "https://github.com/Corrram/copula.git"
-# Includes the derivative/conditional-CDF bridge and polarized mixture identity.
-rev = "5d7fba65b37e50b86194e0a9938f42513e4403be"
+# Includes exact family dependence, Nelsen 7 xi/Schur, and Frechet optimization proofs.
+rev = "765dfec9bdd19c41414738718e818f25e2fe825f"
 
 [[lean_lib]]
 name = "Verification"

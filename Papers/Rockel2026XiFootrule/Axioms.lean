@@ -170,3 +170,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.asymmetricEquality_not_exchangeable
 #assert_standard_axioms Papers.Rockel2026XiFootrule.asymmetricEquality_not_exchangeable
+
+#print axioms Papers.Rockel2026XiFootrule.frechet_coefficients
+#assert_standard_axioms Papers.Rockel2026XiFootrule.frechet_coefficients
+
+#print axioms Papers.Rockel2026XiFootrule.frechet_objective_lower
+#assert_standard_axioms Papers.Rockel2026XiFootrule.frechet_objective_lower
+
+#print axioms Papers.Rockel2026XiFootrule.frechet_objective_eq_iff
+#assert_standard_axioms Papers.Rockel2026XiFootrule.frechet_objective_eq_iff
+
+#print axioms Papers.Rockel2026XiFootrule.frechet_minimizer_coefficients
+#assert_standard_axioms Papers.Rockel2026XiFootrule.frechet_minimizer_coefficients

@@ -95,5 +95,20 @@ All source references use arXiv v1. Proofs are in
 | Theorems 2.1 and 3.3: exact nonnegative-footrule part of the region | `Papers.Rockel2026XiFootrule.exact_nonnegative_footrule_region` | verified | For y>=0, (x,y) is attainable iff y<=1 and y^2<=x<=1. The Frechet witness attains the lower xi endpoint and fixed-footrule interpolation attains the full interval. |
 | Theorem 3.3: closedness and remaining negative-boundary attainment | — | pending | Full closedness, attainment of the unresolved negative-footrule lower boundary, and the source's SD compactness and rearrangement route. The explicit inverse estimate applies on [-1/2,0]; the nonnegative-footrule part is separately characterized exactly above. |
 | Section 3.2: two-parameter copula construction | — | pending | Need the marginal and parameter-endpoint proofs. |
+| Table 2, Frechet row: exact coefficient formulas | `Papers.Rockel2026XiFootrule.frechet_coefficients` | verified | Xi=(a-b)^2+ab and footrule=a-b/2 over the full valid Frechet simplex, including all boundary parameters. The lower Frechet family has a=0. |
+| Table 2, Frechet row: exact objective minimum | `Papers.Rockel2026XiFootrule.frechet_objective_lower` | verified | Xi+footrule>=-1/16 for the entire Frechet family. This is stronger than restriction to mixtures of W and independence, and is not asserted for arbitrary copulas. |
+| Table 2, Frechet row: unique minimizing parameters | `Papers.Rockel2026XiFootrule.frechet_objective_eq_iff` | verified | Equality holds iff the M weight a=0 and W weight b=1/4. The independence weight is therefore 3/4; see the parameter correction below. |
+| Table 2, Frechet row: exact attaining values | `Papers.Rockel2026XiFootrule.frechet_minimizer_coefficients` | verified | The actual copula (3/4)Pi+(1/4)W attains xi=1/16 and footrule=-1/8, hence sum=-1/16; no grid search or numerical integration. |
 | Numerical optimization and plotted lower-bound candidates | — | excluded | Numerical evidence is not advertised as a Lean proof. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
+
+## Exact Frechet optimization and the Table 2 parameter convention
+
+[FrechetMinimum.lean](FrechetMinimum.lean) proves the analytic Frechet row of
+Table 2 exactly, and strengthens its minimum to the full Frechet simplex.
+The minimizing copula is (3/4)Pi+(1/4)W, with xi=1/16 and footrule=-1/8.
+The printed parameter 0.25 therefore denotes the W weight. In the prose
+convention lambda*Pi+(1-lambda)*W, the corresponding parameter is lambda=3/4.
+The other numerical table rows and plotted candidate boundaries remain
+excluded from verified claims. This family minimum does not establish the
+global negative-footrule boundary or the two-parameter construction.

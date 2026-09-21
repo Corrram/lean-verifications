@@ -52,3 +52,5 @@ This folder is the supplement's stable landing page. Cite its full commit
 permalink, the associated article, and any future software archive DOI as
 described in [the publication guide](../../docs/PUBLISHING.md).
 No supplement release or software DOI has been assigned yet.
+
+Additional checked results: [FrechetMinimum.lean](FrechetMinimum.lean) gives exact xi-plus-footrule minimum and unique minimizer over the full Frechet family, with the Table 2 parameter convention clarified.
