@@ -5,8 +5,8 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** the xi-beta and tau-footrule-beta supplements are
-**complete for their stated scopes**; the other seven remain **in progress**. Coverage includes the exact
+**Current status:** the xi-beta, tau-footrule-beta and rho-gamma supplements are
+**complete for their stated scopes**; the other six remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the exact SI xi-footrule region and full equality classification, universal
 upper and explicit Jensen lower bounds, admissible cubic inversion, and entire bottom boundary; the full SI/SD xi-rho theorem and sharp rho-minus-xi maximum 2/5 with unique attainment;
 the full xi=1 slices for footrule, rho and Blest, and convexity of all three xi regions; the exact joint tau/footrule/beta region, signed shuffles, geometry and volume; rho-footrule contact
@@ -42,7 +42,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | Complete for stated scope; exact joint region, signed shuffles, geometry and volume |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; full exact region, radical boundary formulas and sharp dispersion |
-| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | In progress; full exact region, continuous boundary, discrepancy and sign thresholds |
+| ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | Complete for stated scope; original theta family, exact region, shuffle laws, endpoint asymptotics and attained duality |
 
 ## Reproduce the build
 
