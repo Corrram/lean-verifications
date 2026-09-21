@@ -68,3 +68,33 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel
 #assert_standard_axioms Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel
+
+#print axioms Papers.Rockel2026XiFootrule.jensen_profile_formula
+#assert_standard_axioms Papers.Rockel2026XiFootrule.jensen_profile_formula
+
+#print axioms Papers.Rockel2026XiFootrule.jensen_profile_feasible
+#assert_standard_axioms Papers.Rockel2026XiFootrule.jensen_profile_feasible
+
+#print axioms Papers.Rockel2026XiFootrule.scalar_optimizer_minimum
+#assert_standard_axioms Papers.Rockel2026XiFootrule.scalar_optimizer_minimum
+
+#print axioms Papers.Rockel2026XiFootrule.scalar_optimizer_unique
+#assert_standard_axioms Papers.Rockel2026XiFootrule.scalar_optimizer_unique
+
+#print axioms Papers.Rockel2026XiFootrule.conditional_jensen_bound
+#assert_standard_axioms Papers.Rockel2026XiFootrule.conditional_jensen_bound
+
+#print axioms Papers.Rockel2026XiFootrule.conditional_jensen_equality
+#assert_standard_axioms Papers.Rockel2026XiFootrule.conditional_jensen_equality
+
+#print axioms Papers.Rockel2026XiFootrule.relaxed_values_integral_form
+#assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_values_integral_form
+
+#print axioms Papers.Rockel2026XiFootrule.weighted_lower_bound
+#assert_standard_axioms Papers.Rockel2026XiFootrule.weighted_lower_bound
+
+#print axioms Papers.Rockel2026XiFootrule.xi_lower_bound_at_relaxed_footrule
+#assert_standard_axioms Papers.Rockel2026XiFootrule.xi_lower_bound_at_relaxed_footrule
+
+#print axioms Papers.Rockel2026XiFootrule.relaxed_family_not_copula
+#assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_family_not_copula

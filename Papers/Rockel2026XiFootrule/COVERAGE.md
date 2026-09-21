@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorem 2.1 and the maximal gap, Proposition 2.2 with measurable equality witnesses, the exact SI region in Theorem 2.4, Corollary 2.5, and Theorem 3.4 with the entire bottom boundary are checked. The refinements in Remark 2.3, remaining lower-bound results and constructions, and journal-version comparison are pending.
+**Status: in progress.** Theorems 2.1, 2.4, and 3.4, Proposition 2.2, and Corollary 2.5 are checked, including the full SI region and bottom boundary. Theorem 3.2 is checked in exact integral form with the piecewise optimizer and Jensen equality criterion. Closed-form relaxed coefficients, global region geometry and parameter inversion, Remark 2.3 refinements, remaining constructions, and journal-version comparison are pending.
 
 ## Source and proof scope
 
@@ -36,10 +36,14 @@ The lower endpoint has an independent proof through the sharp xi-beta theorem in
 
 For Proposition 2.2, the equality case of the scalar diagonal moment bound is proved by a nonnegative algebraic defect. At almost every response threshold, it forces the antitone conditional-CDF section to take only the values 1, one intermediate level, and 0 almost everywhere. The canonical cut functions are the lengths of its one and positive level sets. Monotonicity in the response threshold proves that both cuts are nondecreasing and hence measurable. The uniform marginal determines the measurable middle level, with coincident cuts handled separately. The representation uses precisely the source's open intervals and nested almost-everywhere quantifiers. Both necessity and sufficiency are proved, including the first-partial-derivative formulation. No density assumption is imposed. The source's Lebesgue-Stieltjes integration-by-parts argument is not separately claimed verified.
 
+For Theorem 3.2, a two-bin squared-distance identity proves the Jensen bound and its almost-everywhere equality criterion. An exact quadratic remainder proves that the source's piecewise pair is the global minimizer of the relaxed scalar problem, uniquely at every interior response threshold. The profile is measurable and feasible for all mu in [0,2], including the cutoff and parameter endpoints. Integrating the estimate proves the universal weighted bound for arbitrary copulas. The relaxed coefficients are defined by the exact kernel/CDF integrals with the source's normalization; the logarithmic closed forms in Proposition 3.1 are not yet evaluated. This independent proof does not assert the source KKT argument separately.
+
+The relaxed primitive is deliberately a real-valued function rather than a copula. A formal counterexample at mu=2 proves that it decreases in the second coordinate: its values at (3/10,1/5) and (3/10,3/10) are respectively 1/40 and 0. Thus the proved relaxed lower bound does not claim copula attainment.
+
 ## Result map
 
 All source references use arXiv v1. Proofs are in
-[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), and [SIEquality.lean](SIEquality.lean).
+[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), and [LowerBound.lean](LowerBound.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
@@ -61,7 +65,15 @@ All source references use arXiv v1. Proofs are in
 | Proposition 2.2: explicit measurable equality witnesses | `Papers.Rockel2026XiFootrule.si_equality_canonical_parameters` | verified | Canonical nondecreasing, measurable cuts A(v)<=v<=B(v), and measurable middle level in [0,1], give the source's three-level representation almost everywhere. Includes coincident cuts and parameter endpoints. |
 | Proposition 2.2: full SI equality classification | `Papers.Rockel2026XiFootrule.si_equality_iff_conditional_threeLevel`; `Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel` | verified | Necessity and sufficiency of the source's measurable three-level representation, in both conditional-CDF and first-partial-derivative conventions. A and B are nondecreasing; all parameters take values in [0,1]. Every SI copula is covered, including singular laws; no family restriction. |
 | Remark 2.3: symmetric refinement and asymmetric example | — | pending | The further characterization of symmetric equality copulas as general countable ordinal sums of independence, and the specific asymmetric example, are not formalized. The full unrestricted SI equality criterion is verified above. |
-| Section 3.1 outside Theorem 3.4 | — | pending | The remaining Jensen lower-bound curve and its piecewise optimization formulas. The checkerboard minimum and the entire bottom boundary are checked above. |
+| Equations (18) and (23): piecewise relaxed profile and feasibility | `Papers.Rockel2026XiFootrule.jensen_profile_formula`; `Papers.Rockel2026XiFootrule.jensen_profile_feasible` | verified | The source's exact cutoffs and formulas; both levels lie in [0,1] and have weighted mean v. Every mu in [0,2] and v in [0,1], including all junctions and endpoints. |
+| Equation (22): scalar minimum and uniqueness | `Papers.Rockel2026XiFootrule.scalar_optimizer_minimum`; `Papers.Rockel2026XiFootrule.scalar_optimizer_unique` | verified | Global minimum over every feasible pair; unique for 0<v<1. An explicit quadratic remainder replaces the KKT proof. No uniqueness is claimed for the zero-weight coordinate at v=0 or v=1. |
+| Equation (20): Jensen bound and equality | `Papers.Rockel2026XiFootrule.conditional_jensen_bound`; `Papers.Rockel2026XiFootrule.conditional_jensen_equality` | verified | Every copula and 0<v<1. Equality iff the conditional CDF is almost everywhere equal to its two bin averages. Singular copulas are included. |
+| Equations (17)-(18): extended coefficient normalization | `Papers.Rockel2026XiFootrule.relaxed_values_integral_form` | verified | The relaxed primitive and kernel yield exactly the source's footrule and xi integral normalizations. They are real-valued functions; no copula assumption is introduced. |
+| Theorem 3.2: universal weighted lower bound | `Papers.Rockel2026XiFootrule.weighted_lower_bound` | verified | Every copula and mu in [0,2]: mu times footrule plus xi is bounded below by the corresponding relaxed-profile value. The relaxed coefficients are specified by exact integrals; closed-form evaluation remains pending. |
+| Theorem 3.3: parameterized fixed-footrule consequence | `Papers.Rockel2026XiFootrule.xi_lower_bound_at_relaxed_footrule` | verified | If a copula's footrule equals the relaxed value at a supplied mu in [0,2], its xi is at least the relaxed xi. Existence and inversion of a matching parameter for every target footrule remain pending. |
+| After equation (18): the relaxed family is not a copula family | `Papers.Rockel2026XiFootrule.relaxed_family_not_copula` | verified | At mu=2 the primitive fails CDF monotonicity in the second coordinate. The relaxation is not advertised as an attaining copula family. |
+| Proposition 3.1: closed coefficient formulas and monotonicity | — | pending | Evaluate the relaxed coefficient integrals, including the logarithm, endpoint values and strict parameter monotonicity. The piecewise kernel and integral normalizations are checked above. |
+| Theorem 3.3: remaining region geometry and explicit parameterization | — | pending | Convexity, closure, boundary attainment, the admissible inverse parameter, and the cubic relation. The universal weighted bound and supplied-parameter consequence are checked above. |
 | Section 3.2: two-parameter copula construction | — | pending | Need the marginal and parameter-endpoint proofs. |
 | Numerical optimization and plotted lower-bound candidates | — | excluded | Numerical evidence is not advertised as a Lean proof. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
