@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Proposition 3.3 rho/tau formulas are checked for every equal diagonal grid size, with check-min/check-w xi=1 and all three families' tail values. Arbitrary matrices, checkerboard xi, Bernstein formulas, and statistical convergence remain pending.
+**Status: in progress.** Proposition 3.2 is fully checked for every equal-width straight permutation shuffle: rho, tau, xi, and both tail limits. Proposition 3.3 is checked on all equal diagonal grids for rho/tau, deterministic xi and tails. Arbitrary matrices, checkerboard xi, Bernstein formulas, and statistical convergence remain pending.
 
 ## Source and conventions
 
@@ -10,9 +10,19 @@ The recursive construction has N=2^n equal diagonal cells, each with mass 1/N, a
 
 The original dyadic declarations remain available. The equalGrid index n represents N=n+1 cells: recursively split off width 1/N and rescale the remaining N-1 equal cells. All formulas below state their diagonal-matrix restriction explicitly.
 
+For Proposition 3.2, permutationShuffle n pi has N=n+1 equal-width increasing
+segments, one in each row and column prescribed by pi. The finite-sum CDF
+identifies the constructed copula on the entire closed square. Indices are
+zero-based; the source conditions pi(1)=1 and pi(N)=N become pi(0)=0 and
+pi(Fin.last n)=Fin.last n. The inversion count counts j<i with pi(j)>pi(i),
+equivalent to the source after renaming the pair. No symmetry or involution
+assumption is used. Functional dependence is proved with a measurable graph
+map, and both tail statements establish existence as well as the limit value.
+
 ## Result map
 
-Proofs are in [DyadicBlocks.lean](DyadicBlocks.lean) and [EqualGrids.lean](EqualGrids.lean), imported by
+Proofs are in [DyadicBlocks.lean](DyadicBlocks.lean), [EqualGrids.lean](EqualGrids.lean),
+and [PermutationShuffles.lean](PermutationShuffles.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -28,7 +38,13 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.3(i)-(ii): checkerboard values for all N | `Papers.Rockel2025Approximation.equal_checkerboard_rho_tau` | verified | On Delta=I_N/N: rho=1-1/N^2 and tau=1-1/N, including N=1. |
 | Proposition 3.3(i)-(iii): check-min and check-w | `Papers.Rockel2025Approximation.equal_checkMin_coefficients`; `Papers.Rockel2025Approximation.equal_checkW_coefficients` | verified | On Delta=I_N/N: corrections +/-1/N^2 for rho and +/-1/N for tau; both deterministic variants have xi=1. |
 | Proposition 3.3(iv): tails on equal diagonal grids | `Papers.Rockel2025Approximation.equal_checkerboard_tails`; `Papers.Rockel2025Approximation.equal_checkMin_tails`; `Papers.Rockel2025Approximation.equal_checkW_tails` | verified | Both tail limits exist; checkerboard and check-w have zero tails, check-min has tails one, for every N>=1. |
-| Propositions 3.1-3.2: Bernstein and general straight shuffles | — | pending | Construct the families and establish the full coefficient and tail formulas. |
+| Section 3.2: actual straight-shuffle copula | `Papers.Rockel2025Approximation.permutationShuffle_cdf` | verified | Uniform segment law with equal width 1/N, N=n+1, for every permutation; exact finite-sum CDF, including strip boundaries. |
+| Proposition 3.2: Spearman's rho | `Papers.Rockel2025Approximation.permutationShuffle_rho` | verified | rho=1-6 sum_i (pi(i)-i)^2/N^3, for every positive N and every permutation. |
+| Proposition 3.2: Kendall's tau | `Papers.Rockel2025Approximation.permutationShuffle_tau` | verified | tau=1-4 N_inv(pi)/N^2; no symmetry assumption on pi. |
+| Proposition 3.2: Chatterjee's xi | `Papers.Rockel2025Approximation.permutationShuffle_xi` | verified | xi=1, via an explicit measurable functional witness for the constructed copula. |
+| Proposition 3.2: lower tail | `Papers.Rockel2025Approximation.permutationShuffle_lower_tail` | verified | The lower tail limit exists and equals 1 exactly when the first strip is fixed, and 0 otherwise. Includes N=1. |
+| Proposition 3.2: upper tail | `Papers.Rockel2025Approximation.permutationShuffle_upper_tail` | verified | The upper tail limit exists and equals 1 exactly when the last strip is fixed, and 0 otherwise. Includes N=1. |
+| Proposition 3.1: Bernstein copulas | — | pending | Construct the family and establish the full coefficient and tail formulas. |
 | Proposition 3.3 outside the mapped equal diagonal case | — | pending | Arbitrary rectangular matrices, the checkerboard xi formula, and coefficient/tail formulas outside Delta=I_N/N remain unproved here. |
 | Corollary 3.4 and Theorems 4.2, 4.5 | — | pending | Xi approximation bounds and statistical convergence; preserve the revised source hypotheses. |
 

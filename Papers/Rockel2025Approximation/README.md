@@ -5,7 +5,7 @@
 - Source version: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Proposition 3.3 rho/tau formulas are checked for every equal diagonal grid size, with check-min/check-w xi=1 and all three families' tail values. Arbitrary matrices, checkerboard xi, Bernstein formulas, and statistical convergence remain pending.
+**Verification status: in progress.** Proposition 3.2 is fully checked for every equal-width straight permutation shuffle: rho, tau, xi, and both tail limits. Proposition 3.3 is checked on all equal diagonal grids for rho/tau, deterministic xi and tails. Arbitrary matrices, checkerboard xi, Bernstein formulas, and statistical convergence remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `Rockel2025Approximation`.
@@ -14,6 +14,7 @@ The permanent folder identifier is `Rockel2025Approximation`.
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [DyadicBlocks.lean](DyadicBlocks.lean): checked statements and proof steps.
+- [PermutationShuffles.lean](PermutationShuffles.lean): complete Proposition 3.2 for all positive orders and permutations.
 - [EqualGrids.lean](EqualGrids.lean): rho, tau, deterministic xi and tails for every equal diagonal grid size.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
