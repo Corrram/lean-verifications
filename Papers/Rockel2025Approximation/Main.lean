@@ -1,3 +1,4 @@
+import Papers.Rockel2025Approximation.PermutationShuffles
 import Papers.Rockel2025Approximation.EqualGrids
 import Papers.Rockel2025Approximation.DyadicBlocks
 

@@ -44,3 +44,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.equal_checkW_tails
 #assert_standard_axioms Papers.Rockel2025Approximation.equal_checkW_tails
+
+#print axioms Papers.Rockel2025Approximation.permutationShuffle_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.permutationShuffle_cdf
+
+#print axioms Papers.Rockel2025Approximation.permutationShuffle_rho
+#assert_standard_axioms Papers.Rockel2025Approximation.permutationShuffle_rho
+
+#print axioms Papers.Rockel2025Approximation.permutationShuffle_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.permutationShuffle_tau
+
+#print axioms Papers.Rockel2025Approximation.permutationShuffle_xi
+#assert_standard_axioms Papers.Rockel2025Approximation.permutationShuffle_xi
+
+#print axioms Papers.Rockel2025Approximation.permutationShuffle_lower_tail
+#assert_standard_axioms Papers.Rockel2025Approximation.permutationShuffle_lower_tail
+
+#print axioms Papers.Rockel2025Approximation.permutationShuffle_upper_tail
+#assert_standard_axioms Papers.Rockel2025Approximation.permutationShuffle_upper_tail
