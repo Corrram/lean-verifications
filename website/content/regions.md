@@ -27,9 +27,12 @@ still needs proof.
 The [xi–rho supplement](site:papers/AnsariRockel2026XiRho/) tracks three
 targets from arXiv v3: the attainable region (Theorem 1), the sharp maximum
 of $\rho-\xi$ (Corollary 1), and the inequality under stochastic monotonicity
-(Theorem 2). Theorem 2 is now verified in full, including all equality
-cases. The sharp global gap is also verified, including its unique optimizer. The full curved
-region boundary and general interior attainment remain pending; the entire xi=1 boundary and full-region convexity are verified.
+(Theorem 2). All three targets are now verified, including every equality case.
+The full curved boundary uses the source's explicit trigonometric and radical
+inverse formulas; every interior point is attained by an actual copula,
+and every interior boundary copula is unique. The source family's symmetry,
+parameter ordering, and uniform limits are checked. Density/support, MTP2,
+Kendall tau, and journal-version comparison remain pending.
 
 The paper proves $\xi(C)\leq|\rho(C)|$ for the stated stochastically increasing
 or decreasing classes. Keeping this class restriction attached to the
