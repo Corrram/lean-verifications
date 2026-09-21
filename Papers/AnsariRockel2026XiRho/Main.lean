@@ -1,3 +1,5 @@
+import Papers.AnsariRockel2026XiRho.BandOptimization
+import Papers.AnsariRockel2026XiRho.SharpSlice
 import Papers.AnsariRockel2026XiRho.RegionGeometry
 import Papers.AnsariRockel2026XiRho.StochasticEquality
 import Papers.AnsariRockel2026XiRho.StochasticBounds
