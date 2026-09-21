@@ -7,7 +7,7 @@
   revised 6 April 2024.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Other family entries, general order correspondences and journal comparison remain pending.
+**Verification status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. Other family entries, general order correspondences and journal comparison remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements and remaining work.
 
 The pinned `copula` library already contains relevant results and a detailed
@@ -21,6 +21,7 @@ their precise correspondence to the paper and any article-specific proofs.
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [FamilyExtensions.lean](FamilyExtensions.lean): FGM density and Nelsen 7 dependence, order and tail results.
+- [TailsAndOrders.lean](TailsAndOrders.lean): four extreme-value tail pairs, exact FGM Schur order and corrected Frechet order.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Association.lean](Association.lean): nine Table 6 coefficient formulas.
 - [Dependence.lean](Dependence.lean): selected Table 5 properties.
