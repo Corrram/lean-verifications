@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. Other family entries, general order correspondences and journal comparison remain pending.
+**Status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. The exact Frechet and Mardia CI/CD and absolute-continuity/density-TP2 classifications, and an incomparable Mardia pair, are checked as well. Other family entries, general order correspondences and journal comparison remain pending.
 
 ## Source and conventions
 
@@ -68,6 +68,15 @@ and checked against the standard axiom allowlist in [Axioms.lean](Axioms.lean).
 | Table 5 / Appendix A.4.2: exact FGM Schur order | `Papers.AnsariRockel2024.fgm_schur_iff` | verified | Schur comparison in both directions iff abs(theta)<=abs(eta), on the full signed parameter interval [-1,1]. The order uses the continuous convex-test characterization of conditional-CDF majorization. |
 | Table 5 / Appendix A.4.2: corrected Frechet parameter order | `Papers.AnsariRockel2024.frechet_parameter_order` | verified | On the full valid weight simplex, increasing the M weight and decreasing the W weight increases the copula in lower orthant order. This corrects the printed direction for the W weight; no characterization of all comparable weight pairs is claimed. |
 | Table 5 / Appendix A.4.2: counterexample to printed Frechet order | `Papers.AnsariRockel2024.frechet_order_counterexample` | verified | At fixed M weight zero, raising W's weight from zero to one gives independence then W; independence is not below W in lower orthant order. |
+| Table 5 / Appendix A.4.1: Frechet CI | `Papers.AnsariRockel2024.frechet_ci_iff` | verified | Full valid weight simplex: CI iff the W weight b is zero; both conditioning directions and all endpoints. |
+| Table 5 / Appendix A.4.1: Frechet CD | `Papers.AnsariRockel2024.frechet_cd_iff` | verified | Full valid weight simplex: CD iff the M weight a is zero; both conditioning directions and all endpoints. |
+| Support for the density-TP2 correction: Frechet absolute continuity | `Papers.AnsariRockel2024.frechet_absolutelyContinuous_iff` | verified | The actual copula measure is absolutely continuous with respect to square Lebesgue measure iff a=b=0. Positive M or W weight charges a Lebesgue-null diagonal. |
+| Correction to Table 5 / Appendix A.4.1: Frechet density TP2 | `Papers.AnsariRockel2024.frechet_density_tp2_iff` | verified | Under the literal Lebesgue-density definition, HasMTP2Density iff a=b=0 (independence). The singular M endpoint has no Lebesgue density. |
+| Correction to Table 5 / Appendix A.4.1: Mardia CI | `Papers.AnsariRockel2024.mardia_ci_iff` | verified | Full signed interval [-1,1]: CI iff theta=0 or theta=1. Includes the independence case omitted in the printed classification. |
+| Correction to Table 5 / Appendix A.4.1: Mardia CD | `Papers.AnsariRockel2024.mardia_cd_iff` | verified | Full signed interval [-1,1]: CD iff theta=0 or theta=-1. Includes the independence case omitted in the printed classification. |
+| Support for the density-TP2 correction: Mardia absolute continuity | `Papers.AnsariRockel2024.mardia_absolutelyContinuous_iff` | verified | Full signed interval: the actual copula measure is absolutely continuous with respect to square Lebesgue measure iff theta=0. |
+| Correction to Table 5 / Appendix A.4.1: Mardia density TP2 | `Papers.AnsariRockel2024.mardia_density_tp2_iff` | verified | Full signed interval: HasMTP2Density iff theta=0 (independence), with the valid nonnegative W weight. |
+| Table 5 / Appendix A.4.2: Mardia lack of parameter ordering | `Papers.AnsariRockel2024.mardia_not_lowerOrthant_ordered` | verified | The copulas at theta=0 and theta=1/2 are incomparable in lower orthant order. Explicit CDF witnesses at (1/8,1/8) and (1/8,7/8) rule out the two directions. |
 | Remaining family constructors and table entries | — | pending | Unlisted cells are not covered by the results above. |
 | General dependence/order equivalences and their applications | — | pending | Unlisted density properties and rearrangement-based Schur order need separate correspondence checks. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
@@ -84,9 +93,18 @@ coefficient formulas are checked with the valid family definitions. The correcte
 Frechet lower orthant order and an explicit counterexample to the printed
 increasing-in-W-weight direction are also mapped above.
 
+The Mardia CI/CD classifications include independence at theta=0, which is
+omitted in the printed endpoint classifications. Density TP2 here means
+existence of a TP2 density with respect to square Lebesgue measure, as in
+the source's density definition. Both families have such a density exactly
+at independence: every nonzero M or W weight puts positive mass on a
+Lebesgue-null diagonal. Thus the printed TP2 claims at singular endpoints
+are corrected, not asserted. This does not classify alternative notions of
+total positivity for singular measures or for the CDF.
+
 Other discrepancies documented in the pinned library's
 [coverage audit](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/docs/ansari-rockel.md)
 remain outside this verified subset. Numerical plots, grid searches, and
 numerical-only table observations are excluded from the formal claims.
 
-Additional proof modules: [FamilyExtensions.lean](FamilyExtensions.lean) and [TailsAndOrders.lean](TailsAndOrders.lean).
+Additional proof modules: [FamilyExtensions.lean](FamilyExtensions.lean), [TailsAndOrders.lean](TailsAndOrders.lean), and [FrechetMardiaDependence.lean](FrechetMardiaDependence.lean). Shared measure and dependence proofs are in [Verification/FrechetDependence.lean](../../Verification/FrechetDependence.lean).
