@@ -7,11 +7,11 @@
   revised 6 April 2024.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. The exact Frechet and Mardia CI/CD and absolute-continuity/density-TP2 classifications, and an incomparable Mardia pair, are checked as well. Other family entries, general order correspondences and journal comparison remain pending.
+**Verification status: in progress.** Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. The exact Frechet and Mardia CI/CD and absolute-continuity/density-TP2 classifications, and an incomparable Mardia pair, are checked as well. Nelsen 7 now also has its exact conditional CDF, xi=1-theta formula, CI region and Schur parameter order checked. Other family entries, general order correspondences and journal comparison remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements and remaining work.
 
 The pinned `copula` library already contains relevant results and a detailed
-[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/5d7fba65b37e50b86194e0a9938f42513e4403be/docs/ansari-rockel.md).
+[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/765dfec9bdd19c41414738718e818f25e2fe825f/docs/ansari-rockel.md).
 That index is a starting point for matching definitions, hypotheses, and
 individual table entries. It is not a claim of complete formalization of the
 article. General library results remain upstream; this folder records
@@ -23,6 +23,7 @@ their precise correspondence to the paper and any article-specific proofs.
 - [FamilyExtensions.lean](FamilyExtensions.lean): FGM density and Nelsen 7 dependence, order and tail results.
 - [TailsAndOrders.lean](TailsAndOrders.lean): four extreme-value tail pairs, exact FGM Schur order and corrected Frechet order.
 - [FrechetMardiaDependence.lean](FrechetMardiaDependence.lean): exact CI/CD and density classifications, source corrections and Mardia incomparability.
+- [Nelsen7Results.lean](Nelsen7Results.lean): full-interval conditional CDF, derivative, xi, exact CI and Schur order.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Association.lean](Association.lean): nine Table 6 coefficient formulas.
 - [Dependence.lean](Dependence.lean): selected Table 5 properties.

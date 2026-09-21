@@ -34,7 +34,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 
 | Article | Supplement | Status |
 | --- | --- | --- |
-| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas and tails, exact Frechet/Mardia dependence classifications and parameter orders |
+| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas and tails, exact Frechet/Mardia dependence and Nelsen 7 xi/Schur classifications and parameter orders |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | In progress; full SI/SD theorem with equality cases, xi=1 boundary, and region convexity |
 | ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region and asymmetric equality example, Jensen bound and partial full-region geometry |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; full Proposition 3.2 for permutation shuffles; equal diagonal grid formulas |
@@ -57,7 +57,7 @@ python scripts/check_verification.py
 ```
 
 Lean is pinned to **4.34.0**. The `copula` dependency is pinned to the commit
-`5d7fba65b37e50b86194e0a9938f42513e4403be`, and `lake-manifest.json` records all transitive revisions,
+`765dfec9bdd19c41414738718e818f25e2fe825f`, and `lake-manifest.json` records all transitive revisions,
 including mathlib. The Git dependency works before and after Reservoir indexing;
 indexing is not required for this build. Do not run `lake update` when reproducing
 a published supplement.

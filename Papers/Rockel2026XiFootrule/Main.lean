@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiFootrule.FrechetMinimum
 import Papers.Rockel2026XiFootrule.AsymmetricEquality
 import Papers.Rockel2026XiFootrule.RegionGeometry
 import Papers.Rockel2026XiFootrule.ClosedCoefficients

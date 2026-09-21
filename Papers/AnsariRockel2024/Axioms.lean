@@ -128,3 +128,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.mardia_not_lowerOrthant_ordered
 #assert_standard_axioms Papers.AnsariRockel2024.mardia_not_lowerOrthant_ordered
+
+#print axioms Papers.AnsariRockel2024.nelsen7_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_conditionalCDF
+
+#print axioms Papers.AnsariRockel2024.nelsen7_derivative
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_derivative
+
+#print axioms Papers.AnsariRockel2024.nelsen7_xi
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_xi
+
+#print axioms Papers.AnsariRockel2024.nelsen7_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_ci_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen7_schur_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_schur_iff
