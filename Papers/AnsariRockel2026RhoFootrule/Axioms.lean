@@ -305,3 +305,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026RhoFootrule.finite_ranking_strict_correction
 #assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.finite_ranking_strict_correction
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.ranking_moment_limits
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.ranking_moment_limits
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.ranking_lower_asymptotic_sharp
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.ranking_lower_asymptotic_sharp
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.ranking_upper_asymptotic_sharp
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.ranking_upper_asymptotic_sharp
