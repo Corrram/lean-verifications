@@ -175,3 +175,22 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.cis_schur_iff_orthant
 #print axioms Papers.AnsariRockel2024.cds_schur_iff_reverse_orthant
 #assert_standard_axioms Papers.AnsariRockel2024.cds_schur_iff_reverse_orthant
+
+#print axioms Papers.AnsariRockel2024.extremeValue_pickands_order
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_order
+#print axioms Papers.AnsariRockel2024.extremeValue_pickands_representation
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_representation
+#print axioms Papers.AnsariRockel2024.marshallOlkin_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_cdf
+#print axioms Papers.AnsariRockel2024.marshallOlkin_ci
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_ci
+#print axioms Papers.AnsariRockel2024.marshallOlkin_orthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_orthant_mono
+#print axioms Papers.AnsariRockel2024.marshallOlkin_schur_mono
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_schur_mono
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_ci
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_ci
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_orthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_orthant_mono
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_schur_mono
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_schur_mono
