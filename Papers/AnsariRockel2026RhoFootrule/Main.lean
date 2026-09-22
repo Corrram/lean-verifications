@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2026RhoFootrule.EarlierCurve
 import Papers.AnsariRockel2026RhoFootrule.AsymptoticRankings
 import Papers.AnsariRockel2026RhoFootrule.DiscreteEquality
 import Papers.AnsariRockel2026RhoFootrule.UpperLocalizedCurves

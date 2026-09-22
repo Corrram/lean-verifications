@@ -314,3 +314,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026RhoFootrule.ranking_upper_asymptotic_sharp
 #assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.ranking_upper_asymptotic_sharp
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.upperRho_concave
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.upperRho_concave
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.oldContactRho_eq_quadratic
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.oldContactRho_eq_quadratic
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.earlier_first_radical
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.earlier_first_radical
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.earlier_second_radical
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.earlier_second_radical
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.earlier_contact
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.earlier_contact
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.earlier_endpoint
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.earlier_endpoint
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.earlier_left_strict
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.earlier_left_strict
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.earlier_right_strict
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.earlier_right_strict
