@@ -1,3 +1,4 @@
+import Papers.Rockel2025Approximation.RectangularRanks
 import Papers.Rockel2025Approximation.BernsteinExact
 import Papers.Rockel2025Approximation.BernsteinKendall
 import Papers.Rockel2025Approximation.BernsteinRank
