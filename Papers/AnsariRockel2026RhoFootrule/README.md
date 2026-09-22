@@ -5,7 +5,7 @@
 - Source version: [arXiv:2608.20176v1](https://arxiv.org/abs/2608.20176v1), 20 August 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The exact rho-footrule and mean-variance regions, sharp finite-ranking inequalities, attained mixability infimum, and xi/correlation-ratio outer bounds are checked. Optimizer uniqueness, discrete equality/asymptotics, and the conditional-iid examples and inner enclosure remain pending.
+**Verification status: in progress.** The exact rho-footrule and mean-variance regions, finite-ranking inequalities, mixability infimum, and xi/correlation-ratio outer bounds are checked. Example 2.8 has its exact folded-uniform law, xi=1/4 and eta=0. Example 2.9 has a uniform quantitative gap; the inner eta=0 segment is attained for xi in [0,1/4]. Optimizer uniqueness, discrete equality/asymptotics, compactness and the rest of the inner enclosure remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockel2026RhoFootrule`.
@@ -15,6 +15,8 @@ The permanent folder identifier is `AnsariRockel2026RhoFootrule`.
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [Moments.lean](Moments.lean): checked statements and proof steps.
 - [Touchpoints.lean](Touchpoints.lean): the variance equality criterion and all discrete sharp contact points.
+- [FoldedExample.lean](FoldedExample.lean): the source folded-uniform law, coefficients, and the horizontal inner segment.
+- [QuantitativeRatio.lean](QuantitativeRatio.lean): a uniform gap below the outer bound at xi=1/4.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

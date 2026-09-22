@@ -32,7 +32,7 @@ private theorem centered_abs_le (C : Copula 2) (u t : I) :
   constructor <;> linarith [C.conditionalCDF_nonneg t u, C.conditionalCDF_le_one t u,
     u.property.1, u.property.2]
 
-private theorem centered_sq_integrable (C : Copula 2) :
+theorem centered_sq_integrable (C : Copula 2) :
     Integrable (fun p : I × I => (C.conditionalCDF p.2 p.1 - (p.1 : ℝ)) ^ 2)
       ((volume : Measure I).prod volume) := by
   refine (integrable_const (1 : ℝ)).mono' ((centered_measurable C).pow_const 2).aestronglyMeasurable ?_
@@ -41,7 +41,7 @@ private theorem centered_sq_integrable (C : Copula 2) :
     have h := centered_abs_le C p.1 p.2
     nlinarith [sq_abs (C.conditionalCDF p.2 p.1 - (p.1 : ℝ)), abs_nonneg (C.conditionalCDF p.2 p.1 - (p.1 : ℝ))]
 
-private theorem centered_section (C : Copula 2) (t : I) :
+theorem centered_section (C : Copula 2) (t : I) :
     Integrable (fun u : I => C.conditionalCDF t u - (u : ℝ)) ∧
     Integrable (fun u : I => (C.conditionalCDF t u - (u : ℝ)) ^ 2) := by
   have hm := (centered_measurable C).comp (show Measurable (fun u : I => (u, t)) by fun_prop)
@@ -55,7 +55,7 @@ private theorem centered_section (C : Copula 2) (t : I) :
       have h := centered_abs_le C u t
       nlinarith [sq_abs (C.conditionalCDF t u - (u : ℝ)), abs_nonneg (C.conditionalCDF t u - (u : ℝ))]
 
-private theorem centered_mean (C : Copula 2) (t : I) :
+theorem centered_mean (C : Copula 2) (t : I) :
     (∫ u : I, C.conditionalCDF t u - (u : ℝ)) = 1 / 2 - conditionalMean C t := by
   have hi : Integrable (fun u : I => C.conditionalCDF t u) := by
     have h := (centered_section C t).1.add (Copula.integrable_continuous_unit volume continuous_subtype_val)
@@ -86,7 +86,7 @@ theorem correlationRatio_le_twice_xi (C : Copula 2) :
   rw [correlationRatio, C.chatterjeeXi_eq_integral_centered_sq]
   linarith only [h]
 
-private theorem centered_square_identity {f : I → ℝ} (hi : Integrable f)
+theorem centered_square_identity {f : I → ℝ} (hi : Integrable f)
     (hs : Integrable (fun u => f u ^ 2)) :
     (∫ u : I, (f u - ∫ v : I, f v) ^ 2) = (∫ u : I, f u ^ 2) - (∫ u : I, f u) ^ 2 := by
   let m := ∫ u : I, f u
