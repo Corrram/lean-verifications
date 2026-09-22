@@ -1,3 +1,7 @@
+import Papers.AnsariRockel2026RhoFootrule.UpperLocalizedCurves
+import Papers.AnsariRockel2026RhoFootrule.UpperSeedsCompact
+import Papers.AnsariRockel2026RhoFootrule.UpperSeedsProjection
+import Papers.AnsariRockel2026RhoFootrule.UpperInnerEnvelope
 import Papers.AnsariRockel2026RhoFootrule.LowerInnerCurve
 import Papers.AnsariRockel2026RhoFootrule.InnerConvexity
 import Papers.AnsariRockel2026RhoFootrule.UpperBinaryCurve
