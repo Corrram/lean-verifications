@@ -131,3 +131,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.bernstein_tau_trace
 #assert_standard_axioms Papers.Rockel2025Approximation.bernstein_tau_trace
+
+#print axioms Papers.Rockel2025Approximation.bernstein_upsilon_matrix
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_upsilon_matrix
+
+#print axioms Papers.Rockel2025Approximation.bernstein_lambda_matrix
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_lambda_matrix
+
+#print axioms Papers.Rockel2025Approximation.bernstein_xi_trace
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_xi_trace
+
+#print axioms Papers.Rockel2025Approximation.bernstein_all_coefficients
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_all_coefficients
