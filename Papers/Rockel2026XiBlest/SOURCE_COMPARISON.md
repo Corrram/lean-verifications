@@ -16,5 +16,6 @@ in COVERAGE.md. This manuscript has not been identified with the publisher's
 final version; final journal comparison remains pending.
 
 FamilyOrder.lean and UniformLimits.lean now verify the full signed CDF order,
-negative-parameter SD and all three uniform copula limits. The MTP2 density
-assertion is the remaining additional mathematical claim.
+negative-parameter SD and all three uniform copula limits. DensityTP2.lean also verifies the MTP2 density assertion via an actual
+standardized band law, completing this additional proposition. Final published
+text correspondence remains pending.

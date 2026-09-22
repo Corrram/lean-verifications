@@ -260,3 +260,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
+
+#print axioms Papers.Rockel2026XiBlest.extremal_hasMTP2Density
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_hasMTP2Density
+
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_hasMTP2Density
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_hasMTP2Density
