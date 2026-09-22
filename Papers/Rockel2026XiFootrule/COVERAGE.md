@@ -46,7 +46,7 @@ Convexity is proved independently of the curved boundary formulas. A first copul
 
 ## Result map
 
-All source references use arXiv v1. Proofs are in
+Source references use arXiv v1 unless explicitly marked JCAM resubmission; see [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md). Proofs are in
 [Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), [RegionGeometry.lean](RegionGeometry.lean), [TwoParameter.lean](TwoParameter.lean), [ClosedRegion.lean](ClosedRegion.lean), and [LTDExample.lean](LTDExample.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
@@ -114,6 +114,9 @@ All source references use arXiv v1. Proofs are in
 | Table 2, Frechet row: unique minimizing parameters | `Papers.Rockel2026XiFootrule.frechet_objective_eq_iff` | verified | Equality holds iff the M weight a=0 and W weight b=1/4. The independence weight is therefore 3/4; see the parameter correction below. |
 | Table 2, Frechet row: exact attaining values | `Papers.Rockel2026XiFootrule.frechet_minimizer_coefficients` | verified | The actual copula (3/4)Pi+(1/4)W attains xi=1/16 and footrule=-1/8, hence sum=-1/16; no grid search or numerical integration. |
 | Numerical optimization and plotted lower-bound candidates | — | excluded | Numerical evidence is not advertised as a Lean proof. |
+| JCAM resubmission Proposition 3.4: strict mirrored relaxed bound | `Papers.Rockel2026XiFootrule.relaxed_mirrored_bound` | verified | Every mu in (0,2]; differentiate the exact squared defect and prove strict monotonicity, including the mu=2 endpoint. |
+| JCAM resubmission Corollary 3.5: absolute bound and equality | `Papers.Rockel2026XiFootrule.negative_footrule_strict`; `Papers.Rockel2026XiFootrule.abs_footrule_le_sqrt_xi`; `Papers.Rockel2026XiFootrule.abs_footrule_eq_sqrt_xi_iff` | verified | Every copula satisfies abs(footrule)<=sqrt(xi). Equality iff the copula is a nonnegative Frechet mixture of Pi and M; strict for negative footrule. |
+| JCAM resubmission Corollary 3.6: strict containment in xi-rho region | `Papers.Rockel2026XiFootrule.footrule_pair_attained_as_rho`; `Papers.Rockel2026XiFootrule.footrule_region_ssubset_rho_region` | verified | Construct a rho witness for each footrule pair using Frechet mixtures, reflection and fixed-rho interpolation. The pair (1,-1), attained by W for rho, proves strictness. |
 | Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
 
 ## Exact Frechet optimization and the Table 2 parameter convention

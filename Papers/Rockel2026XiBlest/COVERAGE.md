@@ -93,3 +93,14 @@ whereas the printed expression gives 43/480. The two Lean declarations above
 prove the corrected identity and disprove the printed polynomial. The final
 Xi and N formulas and all region statements are proved from the actual copulas.
 The literal erroneous intermediate line is not claimed verified.
+
+## Additional revision obligations
+
+The local author revision adds family properties beyond arXiv v1;
+see [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md).
+
+| Source result | Lean declaration | Status | Hypotheses and scope |
+| --- | --- | --- | --- |
+| Revised Proposition basic_properties_cb(i): MTP2 and SD | — | pending | Positive-parameter MTP2 density and negative-parameter SD; positive SI is already mapped above. |
+| Revised Proposition basic_properties_cb(ii): concordance order | — | pending | Actual CDF ordering for all signed nonzero parameters, not merely monotonicity of coefficients. |
+| Revised Proposition basic_properties_cb(iv): uniform endpoint limits | — | pending | Uniform copula limits for the real parameter at zero and both infinities; strengthen the existing cofinal positive sequence result. |

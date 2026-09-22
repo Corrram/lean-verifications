@@ -254,3 +254,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si
 #assert_standard_axioms Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si
+
+#print axioms Papers.Rockel2026XiFootrule.relaxed_mirrored_bound
+#assert_standard_axioms Papers.Rockel2026XiFootrule.relaxed_mirrored_bound
+
+#print axioms Papers.Rockel2026XiFootrule.negative_footrule_strict
+#assert_standard_axioms Papers.Rockel2026XiFootrule.negative_footrule_strict
+
+#print axioms Papers.Rockel2026XiFootrule.abs_footrule_le_sqrt_xi
+#assert_standard_axioms Papers.Rockel2026XiFootrule.abs_footrule_le_sqrt_xi
+
+#print axioms Papers.Rockel2026XiFootrule.abs_footrule_eq_sqrt_xi_iff
+#assert_standard_axioms Papers.Rockel2026XiFootrule.abs_footrule_eq_sqrt_xi_iff
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_pair_attained_as_rho
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_pair_attained_as_rho
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_region_ssubset_rho_region
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_region_ssubset_rho_region
