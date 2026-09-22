@@ -194,3 +194,10 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_orthant_mono
 #print axioms Papers.AnsariRockel2024.cuadrasAuge_schur_mono
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_schur_mono
+
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_conditionalCDF
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_rho
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_rho
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_xi
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_xi
