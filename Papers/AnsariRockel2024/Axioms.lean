@@ -143,3 +143,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen7_schur_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_schur_iff
+
+#print axioms Papers.AnsariRockel2024.survival_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.survival_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.survival_cis_iff
+#assert_standard_axioms Papers.AnsariRockel2024.survival_cis_iff
+
+#print axioms Papers.AnsariRockel2024.survival_schur_iff
+#assert_standard_axioms Papers.AnsariRockel2024.survival_schur_iff
+
+#print axioms Papers.AnsariRockel2024.concordance_coefficients_mono
+#assert_standard_axioms Papers.AnsariRockel2024.concordance_coefficients_mono
+
+#print axioms Papers.AnsariRockel2024.schur_xi_mono
+#assert_standard_axioms Papers.AnsariRockel2024.schur_xi_mono
+
+#print axioms Papers.AnsariRockel2024.lower_tail_mono
+#assert_standard_axioms Papers.AnsariRockel2024.lower_tail_mono
+
+#print axioms Papers.AnsariRockel2024.upper_tail_mono
+#assert_standard_axioms Papers.AnsariRockel2024.upper_tail_mono
+
+#print axioms Papers.AnsariRockel2024.schur_below_cis
+#assert_standard_axioms Papers.AnsariRockel2024.schur_below_cis
+
+#print axioms Papers.AnsariRockel2024.schur_below_cds
+#assert_standard_axioms Papers.AnsariRockel2024.schur_below_cds
