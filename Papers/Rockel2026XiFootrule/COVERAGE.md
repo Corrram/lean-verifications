@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The printed LTD example is proved not LTD; a corrected LTD example with exact ranks is supplied. The symmetric ordinal-sum classification, the lower-semilinear region, and journal-version comparison are pending.
+**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The printed LTD example is proved not LTD; a corrected LTD example with exact ranks is supplied. The exact lower-semilinear region is proved independently of stochastic increase. The symmetric ordinal-sum classification and journal-version comparison remain pending.
 
 ## Source and proof scope
 
@@ -97,7 +97,9 @@ All source references use arXiv v1. Proofs are in
 | Theorem 3.3: closedness and compactness of the full region | `Papers.Rockel2026XiFootrule.attainable_region_closed`; `Papers.Rockel2026XiFootrule.attainable_region_compact` | verified | The entire attained region, including negative footrule. A weak copula limit, proved lower semicontinuity of xi, and fixed-footrule upward interpolation give an independent proof. |
 | Theorem 3.3: boundary attainment in every slice | `Papers.Rockel2026XiFootrule.minimal_footrule_attained`; `Papers.Rockel2026XiFootrule.minimal_xi_attained` | verified | Every xi in [0,1] has a copula minimizing footrule; every footrule in [-1/2,1] has a copula minimizing xi. This is existence, not an explicit formula for the open negative boundary problem. |
 | Theorem 3.3: cited SD compactness and rearrangement proof route | — | excluded | The actual closedness and attainment results above have an independent approximation and compactness proof. |
-| Remark 2.6(c): exact lower-semilinear region | — | pending | The LSL subclass characterization is a separate obligation beyond the proved SI region. |
+| Remark 2.6(c): lower-semilinear boundary witnesses | `Papers.Rockel2026XiFootrule.upperBoundary_isLowerSemilinear`; `Papers.Rockel2026XiFootrule.diagonalBoundary_isLowerSemilinear` | verified | Both boundary families have the standard representation min(u,v) q(max(u,v)), with q(t)/t nonincreasing on positive t. Includes all parameter endpoints. |
+| Remark 2.6(c): universal lower-semilinear bound | `Papers.Rockel2026XiFootrule.lowerSemilinear_xi_le_footrule` | verified | Every lower-semilinear copula satisfies xi<=footrule; no SI hypothesis. A section Lipschitz bound gives the conditional-CDF square integral bound. |
+| Remark 2.6(c): exact lower-semilinear region | `Papers.Rockel2026XiFootrule.exact_lowerSemilinear_xi_footrule_region`; `Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si` | verified | A pair (x,y) is attained in the LSL class iff x,y lie in [0,1] and x<=y<=sqrt(x), exactly the SI region. Mixtures at fixed footrule remain LSL and fill the entire region. |
 | Remark 2.6(d): printed matrix and rank values | `Papers.Rockel2026XiFootrule.printed_ltd_matrix`; `Papers.Rockel2026XiFootrule.printed_ltd_coefficients` | verified | The exact printed mass matrix defines a copula with xi=1/2 and footrule=1/3. The LTD assertion is false, as checked separately below. |
 | Remark 2.6(d): formal counterexample to the printed LTD assertion | `Papers.Rockel2026XiFootrule.printed_ltd_claim_false` | verified | At (2/3,2/3), the printed checkerboard has CDF 5/12 < 4/9. It fails PQD, hence cannot be LTD. |
 | Remark 2.6(d): corrected LTD counterexample | `Papers.Rockel2026XiFootrule.corrected_ltd_matrix`; `Papers.Rockel2026XiFootrule.corrected_ltd_counterexample`; `Papers.Rockel2026XiFootrule.corrected_ltd_not_si` | verified | Replacement mass matrix (1/9)*[[3,0,0],[0,1,2],[0,2,1]] is LTD on the full square, has xi=38/81 > 10/27=footrule, and is not SI. It proves the intended failure of xi<=footrule for LTD. |
@@ -160,3 +162,14 @@ The replacement `(1/9)*[[3,0,0],[0,1,2],[0,2,1]]` is proved LTD and has
 counterexample. The proof checks the LTD inequality for all thresholds and
 computes both coefficients exactly. The printed false LTD assertion is not
 advertised as verified.
+
+## Lower-semilinear region
+
+[LowerSemilinearRegion.lean](LowerSemilinearRegion.lean) proves Remark 2.6(c).
+The shared definition uses the usual diagonal representation: q(t)=delta(t)/t
+for positive t, and q(t)/t=delta(t)/t^2 is nonincreasing. The value at zero
+is immaterial. Copula margins and monotonicity supply the remaining diagonal
+constraints. The proof bounds each conditional CDF by q(v), then integrates
+its square to obtain xi<=footrule. This applies to LSL copulas without an SI
+assumption. Both extremal families are LSL, and their mixtures at fixed footrule
+attain every point between the two boundaries.

@@ -239,3 +239,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.corrected_ltd_not_si
 #assert_standard_axioms Papers.Rockel2026XiFootrule.corrected_ltd_not_si
+
+#print axioms Papers.Rockel2026XiFootrule.upperBoundary_isLowerSemilinear
+#assert_standard_axioms Papers.Rockel2026XiFootrule.upperBoundary_isLowerSemilinear
+
+#print axioms Papers.Rockel2026XiFootrule.diagonalBoundary_isLowerSemilinear
+#assert_standard_axioms Papers.Rockel2026XiFootrule.diagonalBoundary_isLowerSemilinear
+
+#print axioms Papers.Rockel2026XiFootrule.lowerSemilinear_xi_le_footrule
+#assert_standard_axioms Papers.Rockel2026XiFootrule.lowerSemilinear_xi_le_footrule
+
+#print axioms Papers.Rockel2026XiFootrule.exact_lowerSemilinear_xi_footrule_region
+#assert_standard_axioms Papers.Rockel2026XiFootrule.exact_lowerSemilinear_xi_footrule_region
+
+#print axioms Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si
+#assert_standard_axioms Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si
