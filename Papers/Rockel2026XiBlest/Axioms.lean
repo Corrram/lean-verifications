@@ -209,3 +209,33 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.relaxed_solution
 #assert_standard_axioms Papers.Rockel2026XiBlest.relaxed_solution
+
+#print axioms Papers.Rockel2026XiBlest.section_formulas
+#assert_standard_axioms Papers.Rockel2026XiBlest.section_formulas
+
+#print axioms Papers.Rockel2026XiBlest.normalizationMean_hasDerivAt
+#assert_standard_axioms Papers.Rockel2026XiBlest.normalizationMean_hasDerivAt
+
+#print axioms Papers.Rockel2026XiBlest.normalization_substitution
+#assert_standard_axioms Papers.Rockel2026XiBlest.normalization_substitution
+
+#print axioms Papers.Rockel2026XiBlest.one_dimensional_coefficients
+#assert_standard_axioms Papers.Rockel2026XiBlest.one_dimensional_coefficients
+
+#print axioms Papers.Rockel2026XiBlest.substitution_upper
+#assert_standard_axioms Papers.Rockel2026XiBlest.substitution_upper
+
+#print axioms Papers.Rockel2026XiBlest.substitution_unclamped
+#assert_standard_axioms Papers.Rockel2026XiBlest.substitution_unclamped
+
+#print axioms Papers.Rockel2026XiBlest.substitution_double
+#assert_standard_axioms Papers.Rockel2026XiBlest.substitution_double
+
+#print axioms Papers.Rockel2026XiBlest.substitution_lower
+#assert_standard_axioms Papers.Rockel2026XiBlest.substitution_lower
+
+#print axioms Papers.Rockel2026XiBlest.lower_square_polynomial
+#assert_standard_axioms Papers.Rockel2026XiBlest.lower_square_polynomial
+
+#print axioms Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false
+#assert_standard_axioms Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false

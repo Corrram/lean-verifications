@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. The auxiliary section/substitution formulas in Lemmas 4.1-4.2 and comparison with the journal version remain pending.
+**Status: in progress.** The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. All main and auxiliary results specific to arXiv v1 are checked, including Lemmas 4.1-4.2. A displayed intermediate polynomial is formally refuted and corrected; the final coefficient formulas are verified independently. Comparison with the journal version remains pending.
 
 ## Source and conventions
 
@@ -20,7 +20,7 @@ prints and enforces the standard transitive axiom allowlist for every declaratio
 
 The coefficient computation uses a uniform sampling representation, exact clamp-noise
 moments, and radical integrals. This is an independent derivation of Theorem 2.3;
-it does not yet verify the source's separate section and substitution formulas.
+the separate section and substitution formulas are also verified below.
 The relaxed optimization theorem covers all measurable representatives satisfying
 the box and marginal constraints almost everywhere, without a monotonicity assumption.
 Uniqueness is equality almost everywhere, as appropriate for L2.
@@ -72,10 +72,24 @@ Uniqueness is equality almost everywhere, as appropriate for L2.
 | Lemma 2.1: normalization-map properties | `Papers.Rockel2026XiBlest.normalizationMean_properties`; `Papers.Rockel2026XiBlest.extremalQ_continuous`; `Papers.Rockel2026XiBlest.extremal_kernel_continuous` | verified | Continuous, strictly decreasing normalization map on [-1/b,1], correct endpoints and range, continuous inverse parameter, and jointly continuous kernel. |
 | Lemma 4.4: mixture-path continuity | `Papers.Rockel2026XiBlest.xi_mixture_continuous` | verified | All copulas, including singular laws and endpoint mixture weights. |
 | Theorem 3.4: relaxed optimization and uniqueness | `Papers.Rockel2026XiBlest.relaxed_distance_bound`; `Papers.Rockel2026XiBlest.relaxed_solution` | verified | All admissible measurable kernels, including those not defining copulas. Every c in (0,1) has a unique positive parameter and a unique optimizer modulo almost-everywhere equality. |
-| Lemmas 4.1-4.2: section and substitution formulas | — | pending | The main coefficient theorem is independently proved; these separate auxiliary source statements still need their own audit. |
+| Lemma 4.1: equations (20)-(22) | `Papers.Rockel2026XiBlest.section_formulas` | verified | All admissible section parameters, including clamp-switching endpoints; exact ordinary, squared, and weighted moments. |
+| Lemma 4.1: differentiability and change of variables | `Papers.Rockel2026XiBlest.normalizationMean_hasDerivAt`; `Papers.Rockel2026XiBlest.normalization_substitution` | verified | Differentiation under the integral is justified by a uniform Lipschitz bound and null switching sets. The substitution holds for every continuous section functional. |
+| Lemma 4.1: equations (23)-(24) | `Papers.Rockel2026XiBlest.one_dimensional_coefficients` | verified | The one-dimensional integrals equal the actual copula coefficients, using the derivative of the actual normalization map. |
+| Lemma 4.2: all four regimes | `Papers.Rockel2026XiBlest.substitution_upper`; `Papers.Rockel2026XiBlest.substitution_unclamped`; `Papers.Rockel2026XiBlest.substitution_double`; `Papers.Rockel2026XiBlest.substitution_lower` | verified | Upper-clamped, unclamped, double-clamped, and lower-clamped substitutions, including shared boundary cases. |
+| Proof of Theorem 2.3: corrected lower-clamped square polynomial | `Papers.Rockel2026XiBlest.lower_square_polynomial`; `Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false` | verified | The correct coefficient of r^5 is -8/15. The printed -1/5 is disproved at r=1/2. The final theorem formulas are unaffected and separately verified. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
 experiments and plots are not counted as formal proofs.
 
 Lemma 3.1 is quoted external KKT theory; Lemmas 3.2 and 4.3 are quoted from the xi-rho paper. The independent proofs here do not rely on the KKT or shuffling lemmas. Numerical Table 1 and plots are excluded from the formal theorem scope.
+
+## Corrected intermediate calculation
+
+In the proof of Theorem 2.3, the displayed lower-clamped expression G_iv
+subtracts r^5/5. Expanding the preceding definition F(r;r^2) instead gives
+8r^5/15. At b=1 and r=1/2, the correct squared section integral is 19/240,
+whereas the printed expression gives 43/480. The two Lean declarations above
+prove the corrected identity and disprove the printed polynomial. The final
+Xi and N formulas and all region statements are proved from the actual copulas.
+The literal erroneous intermediate line is not claimed verified.
