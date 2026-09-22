@@ -5,7 +5,7 @@
 - Source version: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Propositions 3.1 and 3.2 are fully checked: all Bernstein rank formulas and both tails for every positive rectangular degree, and all equal-width straight permutation-shuffle formulas. The printed piecewise Upsilon matrix and the exceptional Theta corner convention are included. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. Proposition 3.3(i)-(ii) is checked for arbitrary rectangular cell matrices: exact checkerboard rho and tau formulas, check-min/check-W corrections, and general local-copula corrections. Proposition 3.3(iii) and Corollary 3.4 are checked: the exact checkerboard xi matrix formula, arbitrary local perfect-dependence corrections and the rectangular xi error bound (also valid for arbitrary fillings). General patchwork tails and Theorems 4.2 and 4.5 remain pending.
+**Verification status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. The MTP2 comparison in Theorem 4.2 and the sampled-checkerboard consistency and complexity claims in Theorem 4.5 remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `Rockel2025Approximation`.
@@ -21,6 +21,8 @@ The permanent folder identifier is `Rockel2025Approximation`.
 - [BernsteinExact.lean](BernsteinExact.lean): complete Proposition 3.1, including the printed piecewise xi matrix.
 - [RectangularRanks.lean](RectangularRanks.lean): complete rho and tau formulas for arbitrary rectangular matrices.
 - [RectangularXi.lean](RectangularXi.lean): complete rectangular xi formulas and Corollary 3.4.
+- [RectangularTails.lean](RectangularTails.lean): all six rectangular tail limits in Proposition 3.3.
+- [ConvergenceSteps.lean](ConvergenceSteps.lean): quadratic majorization, estimator range and vanishing correction.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

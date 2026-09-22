@@ -1,3 +1,5 @@
+import Papers.Rockel2025Approximation.ConvergenceSteps
+import Papers.Rockel2025Approximation.RectangularTails
 import Papers.Rockel2025Approximation.RectangularXi
 import Papers.Rockel2025Approximation.RectangularRanks
 import Papers.Rockel2025Approximation.BernsteinExact

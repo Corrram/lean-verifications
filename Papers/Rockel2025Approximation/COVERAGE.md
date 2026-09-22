@@ -1,12 +1,12 @@
 # Coverage
 
-**Status: in progress.** Propositions 3.1 and 3.2 are fully checked: all Bernstein rank formulas and both tails for every positive rectangular degree, and all equal-width straight permutation-shuffle formulas. The printed piecewise Upsilon matrix and the exceptional Theta corner convention are included. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. Proposition 3.3(i)-(ii) is checked for arbitrary rectangular cell matrices: exact checkerboard rho and tau formulas, check-min/check-W corrections, and general local-copula corrections. Proposition 3.3(iii) and Corollary 3.4 are checked: the exact checkerboard xi matrix formula, arbitrary local perfect-dependence corrections and the rectangular xi error bound (also valid for arbitrary fillings). General patchwork tails and Theorems 4.2 and 4.5 remain pending.
+**Status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. The MTP2 comparison in Theorem 4.2 and the sampled-checkerboard consistency and complexity claims in Theorem 4.5 remain pending.
 
 ## Source and conventions
 
 Source: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 
-The recursive construction has N=2^n equal diagonal cells, each with mass 1/N, and zero off-diagonal masses. The CDF recurrence uses clipped rescaling and holds on cell boundaries as well. Independence in each cell gives the checkerboard, M gives check-min, and W gives check-w. Thus the source matrix is Delta=I_N/N, 1/N^2=(1/4)^n, and tr(Delta^T Delta)=1/N=(1/2)^n. The proofs below include n=0 (one cell). The newer equalGrid construction covers every N=n+1 and also checks xi for the deterministic variants and tails for all three families. RectangularRanks and RectangularXi remove the diagonal restriction for all three rank coefficients and the xi error bound. General-matrix tail formulas remain pending.
+The recursive construction has N=2^n equal diagonal cells, each with mass 1/N, and zero off-diagonal masses. The CDF recurrence uses clipped rescaling and holds on cell boundaries as well. Independence in each cell gives the checkerboard, M gives check-min, and W gives check-w. Thus the source matrix is Delta=I_N/N, 1/N^2=(1/4)^n, and tr(Delta^T Delta)=1/N=(1/2)^n. The proofs below include n=0 (one cell). The newer equalGrid construction covers every N=n+1 and also checks xi for the deterministic variants and tails for all three families. RectangularRanks and RectangularXi remove the diagonal restriction for all three rank coefficients and the xi error bound. RectangularTails also checks every general-matrix tail formula.
 
 The original dyadic declarations remain available. The equalGrid index n represents N=n+1 cells: recursively split off width 1/N and rescale the remaining N-1 equal cells. All formulas below state their diagonal-matrix restriction explicitly.
 
@@ -23,7 +23,7 @@ map, and both tail statements establish existence as well as the limit value.
 
 Proofs are in [DyadicBlocks.lean](DyadicBlocks.lean), [EqualGrids.lean](EqualGrids.lean),
 [BernsteinRho.lean](BernsteinRho.lean), [BernsteinRank.lean](BernsteinRank.lean), [BernsteinKendall.lean](BernsteinKendall.lean), [BernsteinExact.lean](BernsteinExact.lean),
-[RectangularRanks.lean](RectangularRanks.lean), [RectangularXi.lean](RectangularXi.lean), and [PermutationShuffles.lean](PermutationShuffles.lean), imported by
+[RectangularRanks.lean](RectangularRanks.lean), [RectangularXi.lean](RectangularXi.lean), [RectangularTails.lean](RectangularTails.lean), [ConvergenceSteps.lean](ConvergenceSteps.lean), and [PermutationShuffles.lean](PermutationShuffles.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -46,7 +46,6 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.2: lower tail | `Papers.Rockel2025Approximation.permutationShuffle_lower_tail` | verified | The lower tail limit exists and equals 1 exactly when the first strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.2: upper tail | `Papers.Rockel2025Approximation.permutationShuffle_upper_tail` | verified | The upper tail limit exists and equals 1 exactly when the last strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.1: complete Bernstein formulas | `Papers.Rockel2025Approximation.bernstein_all_coefficients` | verified | Rho, the exact tau and xi trace formulas, and both zero tail limits in one theorem, for every source copula and all positive rectangular degrees. Includes the printed piecewise Upsilon entries and Theta corner convention. |
-| Proposition 3.3: tails outside the mapped equal diagonal case | — | pending | All rectangular rank formulas are checked below. General rectangular tail formulas remain pending. |
 | Theorems 4.2, 4.5 | — | pending | MTP2 checkerboard lower bound, statistical convergence and computational complexity; preserve the revised source hypotheses. |
 | Section 2 / Proposition 3.1: actual Bernstein construction | `Papers.Rockel2025Approximation.bernstein_cdf` | verified | Every source copula and positive rectangular degrees m,n; exact tensor Bernstein CDF on the whole square, including endpoints. |
 | Section 2: Bernstein uniform approximation | `Papers.Rockel2025Approximation.bernstein_uniform_error`; `Papers.Rockel2025Approximation.bernstein_uniform_convergence` | verified | Explicit uniform error sqrt(1/(4m))+sqrt(1/(4n)) and uniform CDF convergence. This does not assert xi or statistical convergence. |
@@ -80,6 +79,15 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.3(iii): local perfect-dependence correction | `Papers.Rockel2025Approximation.uniform_patchwork_xi_correction`; `Papers.Rockel2025Approximation.rectangular_perfect_xi` | verified | Correction (m/n) tr(Delta^T Delta) when every local xi is one. The local copulas may differ across cells. Also proves the general local-xi weighted formula. |
 | Proposition 3.3(iii): check-min/check-W xi | `Papers.Rockel2025Approximation.rectangular_checkMin_xi`; `Papers.Rockel2025Approximation.rectangular_checkW_xi` | verified | Both corrections equal (m/n) tr(Delta^T Delta), without diagonal or symmetry restrictions. |
 | Corollary 3.4: rectangular xi error bound | `Papers.Rockel2025Approximation.rectangular_xi_error_bound` | verified | Absolute error at most m/n^2 for m<=n and 1/n otherwise; proved for every local copula filling, hence in particular every local perfect-dependence filling. |
+
+| Proposition 3.3: both rectangular checkerboard tails | `Papers.Rockel2025Approximation.rectangular_checkerboard_lower_tail`; `Papers.Rockel2025Approximation.rectangular_checkerboard_upper_tail` | verified | Both limits exist and equal zero, for every positive rectangular grid and every admissible cell matrix. |
+| Proposition 3.3: both rectangular check-min tails | `Papers.Rockel2025Approximation.rectangular_checkMin_lower_tail`; `Papers.Rockel2025Approximation.rectangular_checkMin_upper_tail` | verified | Both limits exist; coefficients are respectively the first and last corner masses times min(m,n). Lean natural indices encode all positive dimensions as m+1,n+1. |
+| Proposition 3.3: both rectangular check-W tails | `Papers.Rockel2025Approximation.rectangular_checkW_lower_tail`; `Papers.Rockel2025Approximation.rectangular_checkW_upper_tail` | verified | Both limits exist and equal zero for every admissible rectangular matrix, with no diagonal or symmetry restriction. |
+
+| Lemma 4.1: quadratic instance used in Theorem 4.2 | `Papers.Rockel2025Approximation.majorization_sum_sq` | verified | Finite decreasing comparison vector, dominance of all partial sums and equal total sums imply the square-sum inequality, by summation by parts. This row does not claim Karamata for arbitrary convex functions. |
+| Equation (30): estimator as average and range | `Papers.Rockel2025Approximation.checkerboardEstimator_eq_average`; `Papers.Rockel2025Approximation.checkerboardEstimator_mem` | verified | The exact square-matrix estimator equals the mean of actual checkerboard and check-min xi values, and lies in [0,1], for every positive order. |
+| Theorem 4.5 proof step: deterministic correction bound | `Papers.Rockel2025Approximation.checkerboardEstimator_correction_bounds` | verified | Estimator minus checkerboard xi lies between zero and 1/(2K), for every admissible K-by-K matrix. |
+| Theorem 4.5 proof step: vanishing correction | `Papers.Rockel2025Approximation.checkerboardEstimator_correction_tendsto`; `Papers.Rockel2025Approximation.checkerboardEstimator_tendsto_iff` | verified | For any sequence of admissible matrices with order tending to infinity, the correction tends to zero, and estimator convergence is equivalent to checkerboard-xi convergence. This is a deterministic transfer theorem: sampled-checkerboard almost-sure consistency is not assumed proved. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
