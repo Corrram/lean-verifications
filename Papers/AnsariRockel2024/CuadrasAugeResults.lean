@@ -1,6 +1,6 @@
-import Verification.CuadrasAugeXi
+import Verification.CuadrasAugeTau
 
-/-! # Exact Cuadras–Augé conditional law, rho, and xi -/
+/-! # Exact Cuadras–Augé conditional law and all three Table 6 coefficients -/
 
 open MeasureTheory ProbabilityTheory Verification
 open scoped unitInterval
@@ -20,5 +20,9 @@ theorem cuadrasAuge_rho (δ : I) :
 /-- Table 6 and Appendix A.5: Chatterjee xi on all of [0,1]. -/
 theorem cuadrasAuge_xi (δ : I) :
     (Copula.cuadrasAuge δ).chatterjeeXi=(δ:ℝ)^2/(2-(δ:ℝ)) := cuadrasAuge_chatterjeeXi δ
+
+/-- Table 6: Kendall tau, including the singular comonotonic endpoint. -/
+theorem cuadrasAuge_tau (δ : I) :
+    (Copula.cuadrasAuge δ).kendallTau=(δ:ℝ)/(2-(δ:ℝ)) := cuadrasAuge_kendallTau δ
 
 end Papers.AnsariRockel2024

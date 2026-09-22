@@ -201,3 +201,6 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_rho
 #print axioms Papers.AnsariRockel2024.cuadrasAuge_xi
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_xi
+
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_tau
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_tau
