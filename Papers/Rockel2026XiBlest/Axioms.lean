@@ -68,3 +68,42 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.minimal_xi_attained
 #assert_standard_axioms Papers.Rockel2026XiBlest.minimal_xi_attained
+
+#print axioms Papers.Rockel2026XiBlest.blest_conditional_formula
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_conditional_formula
+
+#print axioms Papers.Rockel2026XiBlest.extremal_normalization
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_normalization
+
+#print axioms Papers.Rockel2026XiBlest.extremalQ_antitone
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQ_antitone
+
+#print axioms Papers.Rockel2026XiBlest.extremal_kernel_measurable
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_kernel_measurable
+
+#print axioms Papers.Rockel2026XiBlest.extremal_cdf
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_cdf
+
+#print axioms Papers.Rockel2026XiBlest.extremal_conditionalCDF
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_conditionalCDF
+
+#print axioms Papers.Rockel2026XiBlest.extremal_isSI
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_isSI
+
+#print axioms Papers.Rockel2026XiBlest.clamped_blest_distance_bound
+#assert_standard_axioms Papers.Rockel2026XiBlest.clamped_blest_distance_bound
+
+#print axioms Papers.Rockel2026XiBlest.extremal_support
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_support
+
+#print axioms Papers.Rockel2026XiBlest.extremal_support_eq_iff
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_support_eq_iff
+
+#print axioms Papers.Rockel2026XiBlest.extremal_maximal_blest
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_maximal_blest
+
+#print axioms Papers.Rockel2026XiBlest.extremal_maximal_blest_eq_iff
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_maximal_blest_eq_iff
+
+#print axioms Papers.Rockel2026XiBlest.extremal_zero
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_zero
