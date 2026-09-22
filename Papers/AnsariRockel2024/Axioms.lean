@@ -204,3 +204,14 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.cuadrasAuge_tau
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_tau
+
+#print axioms Papers.AnsariRockel2024.marshallOlkin_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_density_tp2
+#print axioms Papers.AnsariRockel2024.marshallOlkin_absolutelyContinuous
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_absolutelyContinuous
+#print axioms Papers.AnsariRockel2024.marshallOlkin_independence_axes
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_independence_axes
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_density_tp2
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_absolutelyContinuous
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_absolutelyContinuous

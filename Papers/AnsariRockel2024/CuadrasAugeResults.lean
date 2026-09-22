@@ -1,4 +1,5 @@
 import Verification.CuadrasAugeTau
+import Verification.CuadrasAugeSingular
 
 /-! # Exact Cuadras–Augé conditional law and all three Table 6 coefficients -/
 
@@ -24,5 +25,14 @@ theorem cuadrasAuge_xi (δ : I) :
 /-- Table 6: Kendall tau, including the singular comonotonic endpoint. -/
 theorem cuadrasAuge_tau (δ : I) :
     (Copula.cuadrasAuge δ).kendallTau=(δ:ℝ)/(2-(δ:ℝ)) := cuadrasAuge_kendallTau δ
+
+/-- Table 5: the exact TP2-density domain, including the singular endpoint. -/
+theorem cuadrasAuge_density_tp2 (δ : I) :
+    (Copula.cuadrasAuge δ).HasMTP2Density ↔ δ=0 := cuadrasAuge_density_tp2_iff δ
+
+/-- Positive parameters charge the diagonal, so absolute continuity holds only at independence. -/
+theorem cuadrasAuge_absolutelyContinuous (δ : I) :
+    (Copula.cuadrasAuge δ).toMeasure ≪ (volume : Measure (Fin 2 → I)) ↔ δ=0 :=
+  cuadrasAuge_absolutelyContinuous_iff δ
 
 end Papers.AnsariRockel2024

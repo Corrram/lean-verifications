@@ -1,5 +1,5 @@
 import Verification.ExtremeValuePickands
-import Verification.MarshallOlkinOrder
+import Verification.MarshallOlkinSingular
 
 /-! # Extreme-value CDF order and explicit monotone families -/
 
@@ -51,5 +51,19 @@ theorem cuadrasAuge_orthant_mono {δ η : I} (h : δ≤η) :
 
 theorem cuadrasAuge_schur_mono {δ η : I} (h : δ≤η) :
     (Copula.cuadrasAuge δ).SchurBothLE (Copula.cuadrasAuge η) := marshallOlkin_schurBoth_mono h h
+
+/-- Table 5: a genuine Lebesgue TP2 density exists exactly on the independence axes. -/
+theorem marshallOlkin_density_tp2 (α β : I) :
+    (Copula.marshallOlkin α β).HasMTP2Density ↔ α=0 ∨ β=0 := marshallOlkin_density_tp2_iff α β
+
+/-- The singular component rules out any Lebesgue density off those axes. -/
+theorem marshallOlkin_absolutelyContinuous (α β : I) :
+    (Copula.marshallOlkin α β).toMeasure ≪ (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)) ↔ α=0 ∨ β=0 :=
+  marshallOlkin_absolutelyContinuous_iff α β
+
+/-- Every zero-weight axis is independence, not only the origin. -/
+theorem marshallOlkin_independence_axes (α : I) :
+    Copula.marshallOlkin 0 α=Copula.independence 2 ∧ Copula.marshallOlkin α 0=Copula.independence 2 :=
+  ⟨marshallOlkin_zero_left α,marshallOlkin_zero_right α⟩
 
 end Papers.AnsariRockel2024
