@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiBlest.ParametricRegion
 import Papers.Rockel2026XiBlest.ExtremalFamily
 import Papers.Rockel2026XiBlest.ClosedRegion
 import Papers.Rockel2026XiBlest.RegionGeometry

@@ -107,3 +107,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.extremal_zero
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremal_zero
+
+#print axioms Papers.Rockel2026XiBlest.extremal_coefficients_monotone
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_coefficients_monotone
+
+#print axioms Papers.Rockel2026XiBlest.extremal_xi_continuous
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_xi_continuous
+
+#print axioms Papers.Rockel2026XiBlest.extremalSequence_cdf
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalSequence_cdf
+
+#print axioms Papers.Rockel2026XiBlest.extremalSequence_xi
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalSequence_xi
+
+#print axioms Papers.Rockel2026XiBlest.extremalSequence_blest
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalSequence_blest
+
+#print axioms Papers.Rockel2026XiBlest.extremal_parameter_exists
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_parameter_exists
+
+#print axioms Papers.Rockel2026XiBlest.extremal_slice_iff
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_slice_iff
+
+#print axioms Papers.Rockel2026XiBlest.intermediate_slice_characterization
+#assert_standard_axioms Papers.Rockel2026XiBlest.intermediate_slice_characterization
