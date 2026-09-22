@@ -131,3 +131,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.intermediate_slice_characterization
 #assert_standard_axioms Papers.Rockel2026XiBlest.intermediate_slice_characterization
+
+#print axioms Papers.Rockel2026XiBlest.extremal_coefficients_polynomial
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_coefficients_polynomial
+
+#print axioms Papers.Rockel2026XiBlest.extremal_one_coefficients
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_one_coefficients
+
+#print axioms Papers.Rockel2026XiBlest.maximal_signed_gap
+#assert_standard_axioms Papers.Rockel2026XiBlest.maximal_signed_gap
+
+#print axioms Papers.Rockel2026XiBlest.maximal_signed_gap_eq_iff
+#assert_standard_axioms Papers.Rockel2026XiBlest.maximal_signed_gap_eq_iff
+
+#print axioms Papers.Rockel2026XiBlest.maximal_absolute_gap
+#assert_standard_axioms Papers.Rockel2026XiBlest.maximal_absolute_gap
+
+#print axioms Papers.Rockel2026XiBlest.maximal_absolute_gap_eq_iff
+#assert_standard_axioms Papers.Rockel2026XiBlest.maximal_absolute_gap_eq_iff
