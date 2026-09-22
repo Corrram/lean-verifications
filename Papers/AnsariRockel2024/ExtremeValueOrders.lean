@@ -3,7 +3,7 @@ import Verification.MarshallOlkinSingular
 
 /-! # Extreme-value CDF order and explicit monotone families -/
 
-open ProbabilityTheory Verification
+open MeasureTheory ProbabilityTheory Verification
 open scoped unitInterval
 
 namespace Papers.AnsariRockel2024
