@@ -53,3 +53,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.attainable_region_convex
 #assert_standard_axioms Papers.Rockel2026XiBlest.attainable_region_convex
+
+#print axioms Papers.Rockel2026XiBlest.blest_tendsto_of_cdf
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_tendsto_of_cdf
+
+#print axioms Papers.Rockel2026XiBlest.attainable_region_closed
+#assert_standard_axioms Papers.Rockel2026XiBlest.attainable_region_closed
+
+#print axioms Papers.Rockel2026XiBlest.attainable_region_compact
+#assert_standard_axioms Papers.Rockel2026XiBlest.attainable_region_compact
+
+#print axioms Papers.Rockel2026XiBlest.blest_extrema_attained
+#assert_standard_axioms Papers.Rockel2026XiBlest.blest_extrema_attained
+
+#print axioms Papers.Rockel2026XiBlest.minimal_xi_attained
+#assert_standard_axioms Papers.Rockel2026XiBlest.minimal_xi_attained

@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Blest normalization, range, mixtures, reflection symmetry, the xi=0 endpoint, entire xi=1 boundary, convexity of the full region, and attainment from any existing point up to xi=1 at fixed Blest value are checked. The curved extremal family, coefficient formulas, closedness, full explicit region, and maximal gap remain pending.
+**Status: in progress.** Blest normalization, range, mixtures, reflection symmetry, the xi=0 endpoint, entire xi=1 boundary, convexity of the full region, and attainment from any existing point up to xi=1 at fixed Blest value are checked. Closedness, compactness, and attainment of both Blest extrema at each xi and the least xi at each Blest value are now checked. The curved extremal family, coefficient formulas, full explicit region, maximal gap, and journal comparison remain pending.
 
 ## Source and conventions
 
@@ -11,11 +11,11 @@ Blest weights the first coordinate by 1-u, exactly as in equation (3). The produ
 
 The vertical boundary is obtained using the proved identity nu=rho for radially symmetric copulas and centered deterministic witnesses with rho=1-2 alpha^3. The curved extremal family is still a separate obligation.
 
-Convexity is proved independently of the curved boundary formulas. A first copula mixture preserves the desired affine coefficient and gives xi no larger than the target convex combination. A second mixture with a proved xi=1 witness at the same coefficient reaches the target xi by continuity. Both steps construct actual copulas, including singular laws and endpoint weights. This also proves attainment of every xi between an existing point and 1 at fixed coefficient; it does not assert that the infimum of a slice is attained or that the full region is closed.
+Convexity is proved independently of the curved boundary formulas. A first copula mixture preserves the desired affine coefficient and gives xi no larger than the target convex combination. A second mixture with a proved xi=1 witness at the same coefficient reaches the target xi by continuity. Both steps construct actual copulas, including singular laws and endpoint weights. This also proves attainment of every xi between an existing point and 1 at fixed coefficient; closedness and attainment of slice extrema are proved separately below.
 
 ## Result map
 
-Proofs are in [Blest.lean](Blest.lean), [Normalization.lean](Normalization.lean), [RightBoundary.lean](RightBoundary.lean), and [RegionGeometry.lean](RegionGeometry.lean), imported by
+Proofs are in [Blest.lean](Blest.lean), [Normalization.lean](Normalization.lean), [RightBoundary.lean](RightBoundary.lean), [RegionGeometry.lean](RegionGeometry.lean), and [ClosedRegion.lean](ClosedRegion.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -34,10 +34,13 @@ standard transitive axiom allowlist for every declaration below.
 | Theorem 1.1: convexity of the entire attainable region | `Papers.Rockel2026XiBlest.attainable_region_convex` | verified | Every convex combination of attainable pairs is attained. Independent two-mixture proof; no assumed curved-boundary formula or full-region characterization. |
 | Lemma 2.1 and the extremal copula family | — | pending | Construct the clamped conditional distributions and prove their marginal identities. |
 | Theorem 2.3 and Section 4 coefficient formulas | — | pending | Derive the piecewise xi/Blest expressions and endpoint limits. |
-| Theorem 1.1: remaining boundary and full region | — | pending | Prove the curved optimization bound, boundary attainment and uniqueness, closedness, the full explicit region, and maximal gap. Convexity and fixed-Blest upward attainment are verified above. |
+| Theorem 1.1: remaining boundary and full region | — | pending | Prove the curved optimization bound, identify the attaining copulas and their uniqueness, the full explicit region, and maximal gap. Closedness and abstract attainment of all slice extrema are separately verified below. |
 | Equation (3): reversed integration order | `Papers.Rockel2026XiBlest.blest_integral_formula_swapped` | verified | Fubini and integrability for the weighted CDF of every copula. |
 | After equation (3): M/W normalization and range | `Papers.Rockel2026XiBlest.blest_comonotonic`; `Papers.Rockel2026XiBlest.blest_countermonotonic`; `Papers.Rockel2026XiBlest.blest_mem_Icc` | verified | Nu(M)=1, nu(W)=-1, and -1<=nu(C)<=1 for every copula. |
 | Equation (13) and the following xi calculation | `Papers.Rockel2026XiBlest.blest_reflect_second`; `Papers.Rockel2026XiBlest.xi_blest_reflection` | verified | Reflecting coordinate 1 preserves xi and negates Blest's nu, including singular copulas. |
+| Theorem 1.1: continuity of Blest under CDF convergence | `Papers.Rockel2026XiBlest.blest_tendsto_of_cdf` | verified | Pointwise CDF convergence of arbitrary copulas implies convergence of the exact weighted functional. |
+| Theorem 1.1: closedness and compactness | `Papers.Rockel2026XiBlest.attainable_region_closed`; `Papers.Rockel2026XiBlest.attainable_region_compact` | verified | Entire attained region. Independent proof using weak compactness, lower semicontinuity of xi, and fixed-Blest upward interpolation. |
+| Theorem 1.1: attained slice extrema | `Papers.Rockel2026XiBlest.blest_extrema_attained`; `Papers.Rockel2026XiBlest.minimal_xi_attained` | verified | Both Blest extrema exist for each xi in [0,1]; the least xi exists for every Blest value in [-1,1]. Does not yet identify the extremal family, prove its formulas, or assert uniqueness. |
 | Journal/preprint correspondence | — | pending | Only arXiv v1 is mapped. |
 
 The verified subset consists only of the explicitly mapped statements and

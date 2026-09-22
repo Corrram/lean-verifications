@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiFootrule.ClosedRegion
 import Papers.Rockel2026XiFootrule.TwoParameter
 import Papers.Rockel2026XiFootrule.FrechetMinimum
 import Papers.Rockel2026XiFootrule.AsymmetricEquality

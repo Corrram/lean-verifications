@@ -37,9 +37,9 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | --- | --- | --- |
 | Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas and tails, exact Frechet/Mardia dependence and Nelsen 7 xi/Schur classifications and parameter orders |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | Complete for corrected scope; full region, SI/SD theorem, sharp gap, density/support/MTP2, all ranks, asymmetry, and formal journal correction |
-| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, Jensen bound, partial full-region geometry, and two-parameter density with endpoints |
+| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, Jensen bound, closed full region and boundary attainment, and two-parameter density with endpoints |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | Complete for stated scope; arbitrary-partition ranks, MTP2 monotonicity, counterexamples, population and iid estimator consistency, and unit-cost complexity |
-| ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, and full-region convexity |
+| ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, full-region convexity/compactness and attained slice extrema |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | Complete for stated scope; exact joint region, signed shuffles, geometry and volume |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; exact regions, finite-ranking, mixability and xi/correlation-ratio bounds |

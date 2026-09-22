@@ -6,7 +6,7 @@
 - Source version: [arXiv:2509.07232v1](https://arxiv.org/abs/2509.07232v1), 8 September 2025.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. Closedness, remaining negative-boundary attainment, the symmetric ordinal-sum classification, and journal-version comparison are pending.
+**Verification status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The symmetric ordinal-sum classification, remaining Remark 2.6 subclass claims, and journal-version comparison are pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The roadmap uses the arXiv version above; correspondence with the journal
@@ -25,6 +25,7 @@ The permanent folder identifier is `Rockel2026XiFootrule`.
 - [RegionGeometry.lean](RegionGeometry.lean): convexity and attainment at fixed coefficient.
 - [AsymmetricEquality.lean](AsymmetricEquality.lean): the actual asymmetric SI equality copula in Remark 2.3.
 - [TwoParameter.lean](TwoParameter.lean): Proposition 3.5, the exact density, finite-mu path, and independence/checkerboard endpoints.
+- [ClosedRegion.lean](ClosedRegion.lean): closedness, compactness, and attainment of slice extrema.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [UpperBoundary.lean](UpperBoundary.lean): upper boundary and maximal gap proofs.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.

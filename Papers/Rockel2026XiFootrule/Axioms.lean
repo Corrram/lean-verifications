@@ -206,3 +206,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.twoParameter_path_zero
 #assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_path_zero
+
+#print axioms Papers.Rockel2026XiFootrule.footrule_tendsto_of_cdf
+#assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_tendsto_of_cdf
+
+#print axioms Papers.Rockel2026XiFootrule.attainable_region_closed
+#assert_standard_axioms Papers.Rockel2026XiFootrule.attainable_region_closed
+
+#print axioms Papers.Rockel2026XiFootrule.attainable_region_compact
+#assert_standard_axioms Papers.Rockel2026XiFootrule.attainable_region_compact
+
+#print axioms Papers.Rockel2026XiFootrule.minimal_footrule_attained
+#assert_standard_axioms Papers.Rockel2026XiFootrule.minimal_footrule_attained
+
+#print axioms Papers.Rockel2026XiFootrule.minimal_xi_attained
+#assert_standard_axioms Papers.Rockel2026XiFootrule.minimal_xi_attained

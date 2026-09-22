@@ -6,7 +6,7 @@
 - Source version: [arXiv:2603.09768v1](https://arxiv.org/abs/2603.09768v1), 10 March 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Blest normalization, range, mixtures, reflection symmetry, the xi=0 endpoint, entire xi=1 boundary, convexity of the full region, and attainment from any existing point up to xi=1 at fixed Blest value are checked. The curved extremal family, coefficient formulas, closedness, full explicit region, and maximal gap remain pending.
+**Verification status: in progress.** Blest normalization, range, mixtures, reflection symmetry, the xi=0 endpoint, entire xi=1 boundary, convexity of the full region, and attainment from any existing point up to xi=1 at fixed Blest value are checked. Closedness, compactness, and attainment of both Blest extrema at each xi and the least xi at each Blest value are now checked. The curved extremal family, coefficient formulas, full explicit region, maximal gap, and journal comparison remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The coverage map uses the arXiv version above; correspondence with the journal
@@ -21,6 +21,7 @@ The permanent folder identifier is `Rockel2026XiBlest`.
 - [Normalization.lean](Normalization.lean): M/W normalization, range and joint reflection symmetry.
 - [RightBoundary.lean](RightBoundary.lean): the Blest-rho identity under radial symmetry and complete xi=1 boundary.
 - [RegionGeometry.lean](RegionGeometry.lean): convexity and attainment at fixed coefficient.
+- [ClosedRegion.lean](ClosedRegion.lean): closedness, compactness, and attainment of slice extrema.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

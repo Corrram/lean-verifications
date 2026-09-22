@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. Closedness, remaining negative-boundary attainment, the symmetric ordinal-sum classification, and journal-version comparison are pending.
+**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The symmetric ordinal-sum classification, remaining Remark 2.6 subclass claims, and journal-version comparison are pending.
 
 ## Source and proof scope
 
@@ -42,12 +42,12 @@ The relaxed primitive is deliberately a real-valued function rather than a copul
 
 The parameter inversion in Theorem 3.3 is proved for footrule y in [-1/2,0], with a unique parameter mu in [0,2]. This restriction matters: at y=-1/2 the cubic factors as (mu-2)^2(mu+1), so its real roots are not globally unique. The formal counterexample below records the correction to the source wording. The inverse estimate does not assert that the relaxed profile attains the copula boundary.
 
-Convexity is proved independently of the curved boundary formulas. A first copula mixture preserves the desired affine coefficient and gives xi no larger than the target convex combination. A second mixture with a proved xi=1 witness at the same coefficient reaches the target xi by continuity. Both steps construct actual copulas, including singular laws and endpoint weights. This also proves attainment of every xi between an existing point and 1 at fixed coefficient; it does not assert that the infimum of a slice is attained or that the full region is closed.
+Convexity is proved independently of the curved boundary formulas. A first copula mixture preserves the desired affine coefficient and gives xi no larger than the target convex combination. A second mixture with a proved xi=1 witness at the same coefficient reaches the target xi by continuity. Both steps construct actual copulas, including singular laws and endpoint weights. This also proves attainment of every xi between an existing point and 1 at fixed coefficient; closedness and attainment of slice extrema are proved separately below.
 
 ## Result map
 
 All source references use arXiv v1. Proofs are in
-[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), [RegionGeometry.lean](RegionGeometry.lean), and [TwoParameter.lean](TwoParameter.lean).
+[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), [RegionGeometry.lean](RegionGeometry.lean), [TwoParameter.lean](TwoParameter.lean), and [ClosedRegion.lean](ClosedRegion.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
@@ -93,7 +93,13 @@ All source references use arXiv v1. Proofs are in
 | Theorem 3.3, equation (26): interval property and extension to xi=1 | `Papers.Rockel2026XiFootrule.fixed_footrule_intermediate`; `Papers.Rockel2026XiFootrule.fixed_footrule_upward` | verified | Every xi between two attained points at the same footrule is attained; every attained point extends to all xi up to 1 at the same footrule. No closed-slice or minimum-attainment assertion is included. |
 | Theorem 3.3: convexity of the entire attainable region | `Papers.Rockel2026XiFootrule.attainable_region_convex` | verified | Any convex combination of two attainable coefficient pairs is attained by an actual copula. Independent two-mixture proof using the entire xi=1 boundary; no unproved lower-boundary formula, compactness, or closedness assumption. |
 | Theorems 2.1 and 3.3: exact nonnegative-footrule part of the region | `Papers.Rockel2026XiFootrule.exact_nonnegative_footrule_region` | verified | For y>=0, (x,y) is attainable iff y<=1 and y^2<=x<=1. The Frechet witness attains the lower xi endpoint and fixed-footrule interpolation attains the full interval. |
-| Theorem 3.3: closedness and remaining negative-boundary attainment | — | pending | Full closedness, attainment of the unresolved negative-footrule lower boundary, and the source's SD compactness and rearrangement route. The explicit inverse estimate applies on [-1/2,0]; the nonnegative-footrule part is separately characterized exactly above. |
+| Theorem 3.3: continuity of footrule used in the closure proof | `Papers.Rockel2026XiFootrule.footrule_tendsto_of_cdf` | verified | Pointwise CDF convergence of arbitrary copulas implies convergence of footrule. Dominated convergence includes singular laws. |
+| Theorem 3.3: closedness and compactness of the full region | `Papers.Rockel2026XiFootrule.attainable_region_closed`; `Papers.Rockel2026XiFootrule.attainable_region_compact` | verified | The entire attained region, including negative footrule. A weak copula limit, proved lower semicontinuity of xi, and fixed-footrule upward interpolation give an independent proof. |
+| Theorem 3.3: boundary attainment in every slice | `Papers.Rockel2026XiFootrule.minimal_footrule_attained`; `Papers.Rockel2026XiFootrule.minimal_xi_attained` | verified | Every xi in [0,1] has a copula minimizing footrule; every footrule in [-1/2,1] has a copula minimizing xi. This is existence, not an explicit formula for the open negative boundary problem. |
+| Theorem 3.3: cited SD compactness and rearrangement proof route | — | excluded | The actual closedness and attainment results above have an independent approximation and compactness proof. |
+| Remark 2.6(c): exact lower-semilinear region | — | pending | The LSL subclass characterization is a separate obligation beyond the proved SI region. |
+| Remark 2.6(d): LTD checkerboard counterexample | — | pending | Verify the displayed 3 by 3 matrix is LTD, with xi=1/2 and footrule=1/3. |
+| Remark 2.6(a),(e): open questions | — | excluded | The SI xi<=tau conjecture and explicit negative/SD boundary formulas are not claimed proved by the source. |
 | Section 3.2, equation (31): actual pre-standardization marginals | `Papers.Rockel2026XiFootrule.twoParameter_raw_marginals`; `Papers.Rockel2026XiFootrule.twoParameter_marginal_density` | verified | The density outside the hole has uniform first marginal and second density (1-L(t))/(1-beta). Every alpha,beta in [0,1/2], including all edges. |
 | Proposition 3.5, equation (32): actual copula density | `Papers.Rockel2026XiFootrule.twoParameter_density` | verified | Exact measure equality with the displayed quantile density on the closed parameter square. The proof handles flat marginal-CDF intervals through almost-everywhere quantile inversion; division by zero uses the zero version on null fibers. At alpha=1/2 the unused affine middle branch is replaced by the natural step-function extension. |
 | Section 3.2: zero-width and checkerboard parameter endpoints | `Papers.Rockel2026XiFootrule.twoParameter_zero_width`; `Papers.Rockel2026XiFootrule.twoParameter_corner`; `Papers.Rockel2026XiFootrule.twoParameter_corner_coefficients` | verified | Every beta=0 copula is independence. The corner alpha=beta=1/2 is exactly the off-diagonal checkerboard of Theorem 3.4, with xi=1/2 and footrule=-1/2. |
@@ -128,3 +134,13 @@ inverse. Density values on null fibers are immaterial to the measure, so the
 proof does not claim the paper's pointwise marginal-density cancellation at
 zero denominators. The finite-mu path is admissible; its numerical objective
 values and suggested near-optimality remain numerical evidence.
+
+## Closedness and attained slice extrema
+
+[ClosedRegion.lean](ClosedRegion.lean) gives an independent proof of closedness.
+Finite predictor-bin averages give lower xi approximations that converge to xi
+for every copula and are continuous under pointwise CDF convergence. This proves
+lower semicontinuity. A weakly convergent copula subsequence preserves uniform
+marginals and footrule, and fixed-footrule interpolation raises xi to the desired
+limit. Compactness then proves that every vertical and horizontal slice attains
+its lower endpoint. No explicit negative-boundary formula is inferred.
