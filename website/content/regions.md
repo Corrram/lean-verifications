@@ -135,8 +135,10 @@ arcs to the source radical formulas, and proves the sharp attained variance
 correction. Its zero set is exactly zero and the means 1/(2N) for positive
 integers N. The exact mean–variance region and its universal maximum, finite-ranking
 inequalities, attained generalized mixability infimum, and xi/correlation-ratio
-outer bounds are also checked. Optimizer uniqueness, discrete sharpness and the
-conditional-copy examples and inner enclosure remain pending.
+outer bounds are also checked. The finite-ranking equality criterion and asymptotic
+sharpness, conditional-copy examples, full inner enclosure, and compactness and
+attained upper maxima of the entire xi-eta region are verified. Uniqueness of the
+rho-footrule optimizing copula remains pending.
 
 The [rho–gamma supplement](site:papers/AnsariRockelSteinmassl2026RhoGamma/)
 proves the full exact region, compactness, and continuity, concavity and strict

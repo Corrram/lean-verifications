@@ -338,3 +338,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026RhoFootrule.earlier_right_strict
 #assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.earlier_right_strict
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.directional_region_compact
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.directional_region_compact
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.upperRatio_isGreatest
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.upperRatio_isGreatest
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.upper_ratio_attained
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.upper_ratio_attained
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.quarter_xi_maximum
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.quarter_xi_maximum
