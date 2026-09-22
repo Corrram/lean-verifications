@@ -14,3 +14,7 @@ and a cofinal uniform CDF limit. Those results alone do not prove all parts of
 this additional proposition. Its remaining assertions are tracked explicitly
 in COVERAGE.md. This manuscript has not been identified with the publisher's
 final version; final journal comparison remains pending.
+
+FamilyOrder.lean and UniformLimits.lean now verify the full signed CDF order,
+negative-parameter SD and all three uniform copula limits. The MTP2 density
+assertion is the remaining additional mathematical claim.

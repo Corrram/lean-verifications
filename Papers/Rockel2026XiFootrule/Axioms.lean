@@ -272,3 +272,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.footrule_region_ssubset_rho_region
 #assert_standard_axioms Papers.Rockel2026XiFootrule.footrule_region_ssubset_rho_region
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_parameters_continuous
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_parameters_continuous
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_parameters_limit
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_parameters_limit

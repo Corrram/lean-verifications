@@ -30,5 +30,5 @@ the older printed matrix only.
 
 The symmetric ordinal-sum classification remains open in this supplement.
 The source's explicit parameter path continuity and limiting parameter endpoint
-are being checked separately. Final publisher correspondence remains pending;
+are checked in ParameterPath.lean. Final publisher correspondence remains pending;
 this local comparison does not mark the published article complete.

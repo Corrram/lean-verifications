@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. All main and auxiliary results specific to arXiv v1 are checked, including Lemmas 4.1-4.2. A displayed intermediate polynomial is formally refuted and corrected; the final coefficient formulas are verified independently. Comparison with the journal version remains pending.
+**Status: in progress.** The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. All main and auxiliary results specific to arXiv v1 are checked, including Lemmas 4.1-4.2. A displayed intermediate polynomial is formally refuted and corrected; the final coefficient formulas are verified independently. The author revision's full signed-family concordance ordering, negative-parameter SD, and uniform copula limits at zero and both infinities are also checked. Its MTP2 density claim and final journal-version correspondence remain pending.
 
 ## Source and conventions
 
@@ -101,6 +101,7 @@ see [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md).
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
 | --- | --- | --- | --- |
-| Revised Proposition basic_properties_cb(i): MTP2 and SD | — | pending | Positive-parameter MTP2 density and negative-parameter SD; positive SI is already mapped above. |
-| Revised Proposition basic_properties_cb(ii): concordance order | — | pending | Actual CDF ordering for all signed nonzero parameters, not merely monotonicity of coefficients. |
-| Revised Proposition basic_properties_cb(iv): uniform endpoint limits | — | pending | Uniform copula limits for the real parameter at zero and both infinities; strengthen the existing cofinal positive sequence result. |
+| Revised Proposition basic_properties_cb(i): MTP2 | — | pending | Positive-parameter MTP2 density; positive SI is already mapped above. |
+| Revised Proposition basic_properties_cb(i): negative-parameter SD | `Papers.Rockel2026XiBlest.signed_extremal_isSD` | verified | Every negative parameter gives an SD copula, using the source response reflection and the positive SI theorem. |
+| Revised Proposition basic_properties_cb(ii): concordance order | `Papers.Rockel2026XiBlest.extremal_cdf_monotone`; `Papers.Rockel2026XiBlest.signed_extremal_concordance` | verified | Actual CDF ordering for all signed parameters, including the independence extension at zero. Equal section means and the single crossing of affine quadratic profiles prove the positive ordering; reflection proves the negative branch. |
+| Revised Proposition basic_properties_cb(iv): uniform endpoint limits | `Papers.Rockel2026XiBlest.signed_extremal_independence_error`; `Papers.Rockel2026XiBlest.signed_extremal_uniform_zero`; `Papers.Rockel2026XiBlest.signed_extremal_uniform_top`; `Papers.Rockel2026XiBlest.signed_extremal_uniform_bot` | verified | Uniform convergence of the actual copula CDFs on the entire closed square to Pi, M and W as the real parameter tends to zero, positive infinity and negative infinity. The zero limit holds from both sides, with error at most 2 abs(b). |

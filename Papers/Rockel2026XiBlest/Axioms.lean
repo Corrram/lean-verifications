@@ -239,3 +239,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false
 #assert_standard_axioms Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false
+
+#print axioms Papers.Rockel2026XiBlest.extremal_cdf_monotone
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_cdf_monotone
+
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_concordance
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_concordance
+
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_isSD
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_isSD
+
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_independence_error
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_independence_error
+
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_zero
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_zero
+
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_top
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_top
+
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot

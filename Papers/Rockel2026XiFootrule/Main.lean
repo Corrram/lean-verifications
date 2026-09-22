@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiFootrule.ParameterPath
 import Papers.Rockel2026XiFootrule.AbsoluteBound
 import Papers.Rockel2026XiFootrule.LowerSemilinearRegion
 import Papers.Rockel2026XiFootrule.LTDExample
