@@ -230,3 +230,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.majorization_sum_sq
 #assert_standard_axioms Papers.Rockel2025Approximation.majorization_sum_sq
+
+#print axioms Papers.Rockel2025Approximation.mtp2_isCI
+#assert_standard_axioms Papers.Rockel2025Approximation.mtp2_isCI
+
+#print axioms Papers.Rockel2025Approximation.checkerboard_xi_le_of_isCI
+#assert_standard_axioms Papers.Rockel2025Approximation.checkerboard_xi_le_of_isCI
+
+#print axioms Papers.Rockel2025Approximation.checkerboard_xi_le_of_mtp2
+#assert_standard_axioms Papers.Rockel2025Approximation.checkerboard_xi_le_of_mtp2

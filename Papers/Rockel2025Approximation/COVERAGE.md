@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. The MTP2 comparison in Theorem 4.2 and the sampled-checkerboard consistency and complexity claims in Theorem 4.5 remain pending.
+**Status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. Theorem 4.2 is fully checked, including the MTP2-density implication and the actual checkerboard conditional integrals. The sampled-checkerboard almost-sure consistency and complexity claims in Theorem 4.5 remain pending.
 
 ## Source and conventions
 
@@ -46,7 +46,7 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.2: lower tail | `Papers.Rockel2025Approximation.permutationShuffle_lower_tail` | verified | The lower tail limit exists and equals 1 exactly when the first strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.2: upper tail | `Papers.Rockel2025Approximation.permutationShuffle_upper_tail` | verified | The upper tail limit exists and equals 1 exactly when the last strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.1: complete Bernstein formulas | `Papers.Rockel2025Approximation.bernstein_all_coefficients` | verified | Rho, the exact tau and xi trace formulas, and both zero tail limits in one theorem, for every source copula and all positive rectangular degrees. Includes the printed piecewise Upsilon entries and Theta corner convention. |
-| Theorems 4.2, 4.5 | — | pending | MTP2 checkerboard lower bound, statistical convergence and computational complexity; preserve the revised source hypotheses. |
+| Theorem 4.5 | — | pending | Sampled-checkerboard almost-sure consistency and computational complexity; preserve the revised source hypotheses. |
 | Section 2 / Proposition 3.1: actual Bernstein construction | `Papers.Rockel2025Approximation.bernstein_cdf` | verified | Every source copula and positive rectangular degrees m,n; exact tensor Bernstein CDF on the whole square, including endpoints. |
 | Section 2: Bernstein uniform approximation | `Papers.Rockel2025Approximation.bernstein_uniform_error`; `Papers.Rockel2025Approximation.bernstein_uniform_convergence` | verified | Explicit uniform error sqrt(1/(4m))+sqrt(1/(4n)) and uniform CDF convergence. This does not assert xi or statistical convergence. |
 | Section 2.2 / Proposition 3.3: arbitrary rectangular constructors | `Papers.Rockel2025Approximation.rectangular_checkerboard_cdf`; `Papers.Rockel2025Approximation.rectangular_checkMin_cdf`; `Papers.Rockel2025Approximation.rectangular_checkW_cdf` | verified | Any admissible nonnegative cell matrix on positive, possibly nonuniform partitions. Actual measure-based copulas with the displayed CDFs; no diagonal restriction. |
@@ -88,6 +88,10 @@ standard transitive axiom allowlist for every declaration below.
 | Equation (30): estimator as average and range | `Papers.Rockel2025Approximation.checkerboardEstimator_eq_average`; `Papers.Rockel2025Approximation.checkerboardEstimator_mem` | verified | The exact square-matrix estimator equals the mean of actual checkerboard and check-min xi values, and lies in [0,1], for every positive order. |
 | Theorem 4.5 proof step: deterministic correction bound | `Papers.Rockel2025Approximation.checkerboardEstimator_correction_bounds` | verified | Estimator minus checkerboard xi lies between zero and 1/(2K), for every admissible K-by-K matrix. |
 | Theorem 4.5 proof step: vanishing correction | `Papers.Rockel2025Approximation.checkerboardEstimator_correction_tendsto`; `Papers.Rockel2025Approximation.checkerboardEstimator_tendsto_iff` | verified | For any sequence of admissible matrices with order tending to infinity, the correction tends to zero, and estimator convergence is equivalent to checkerboard-xi convergence. This is a deterministic transfer theorem: sampled-checkerboard almost-sure consistency is not assumed proved. |
+
+| Theorem 4.2: MTP2 checkerboard xi bound | `Papers.Rockel2025Approximation.checkerboard_xi_le_of_mtp2` | verified | Every positive rectangular grid, the actual cell masses of the source copula, and its MTP2 density. Establishes xi(checkerboard)<=xi(C) without assuming conditional increase or the integral inequality. |
+| Theorem 4.2: stronger CI comparison | `Papers.Rockel2025Approximation.checkerboard_xi_le_of_isCI` | verified | All conditionally increasing copulas, including singular laws, with uniform predictor bins and arbitrary response partitions. Uses row-average Jensen, finite majorization and the actual checkerboard conditional CDF. |
+| Theorem 4.2: density-to-order implication | `Papers.Rockel2025Approximation.mtp2_isCI` | verified | Integration of the MTP2 density over ordered rectangles proves conditional increase in both directions. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
