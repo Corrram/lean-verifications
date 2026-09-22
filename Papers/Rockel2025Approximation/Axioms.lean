@@ -143,3 +143,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.bernstein_all_coefficients
 #assert_standard_axioms Papers.Rockel2025Approximation.bernstein_all_coefficients
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkerboard_rho
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkerboard_rho
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkMin_rho
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkMin_rho
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkW_rho
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkW_rho
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkerboard_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkerboard_tau
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkMin_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkMin_tau
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkW_tau
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkW_tau
+
+#print axioms Papers.Rockel2025Approximation.patchwork_rho_correction
+#assert_standard_axioms Papers.Rockel2025Approximation.patchwork_rho_correction
+
+#print axioms Papers.Rockel2025Approximation.patchwork_tau_correction
+#assert_standard_axioms Papers.Rockel2025Approximation.patchwork_tau_correction

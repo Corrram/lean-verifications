@@ -5,7 +5,7 @@
 - Source version: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Propositions 3.1 and 3.2 are fully checked: all Bernstein rank formulas and both tails for every positive rectangular degree, and all equal-width straight permutation-shuffle formulas. The printed piecewise Upsilon matrix and the exceptional Theta corner convention are included. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. General patchwork rank formulas, xi approximation bounds and statistical convergence remain pending.
+**Verification status: in progress.** Propositions 3.1 and 3.2 are fully checked: all Bernstein rank formulas and both tails for every positive rectangular degree, and all equal-width straight permutation-shuffle formulas. The printed piecewise Upsilon matrix and the exceptional Theta corner convention are included. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. Proposition 3.3(i)-(ii) is checked for arbitrary rectangular cell matrices: exact checkerboard rho and tau formulas, check-min/check-W corrections, and general local-copula corrections. Patchwork xi and general tails, xi approximation bounds and statistical convergence remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `Rockel2025Approximation`.
@@ -19,6 +19,7 @@ The permanent folder identifier is `Rockel2025Approximation`.
 - [BernsteinRank.lean](BernsteinRank.lean): rectangular Bernstein rho, finite-sum xi, conditional CDF, basis integrals and both tails.
 - [BernsteinKendall.lean](BernsteinKendall.lean): actual Bernstein density and the exact Kendall tau trace formula.
 - [BernsteinExact.lean](BernsteinExact.lean): complete Proposition 3.1, including the printed piecewise xi matrix.
+- [RectangularRanks.lean](RectangularRanks.lean): complete rho and tau formulas for arbitrary rectangular matrices.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
