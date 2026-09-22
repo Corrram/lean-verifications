@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Blest normalization, range, mixtures, reflection symmetry, the xi=0 endpoint, entire xi=1 boundary, convexity of the full region, and attainment from any existing point up to xi=1 at fixed Blest value are checked. Closedness, compactness, and attainment of both Blest extrema at each xi and the least xi at each Blest value are now checked. The clamped extremal family, its unique normalization, and unique Blest maximality at each constructed positive-slope point are checked. Every intermediate xi value is reached, and the full region is characterized by the constructed family with unique upper boundary copulas. The coefficient formulas for 0<=b<=1 and the exact maximal gap 44/105, including all equality cases, are checked. Coefficient formulas for b>1, strict parameter monotonicity, and journal comparison remain pending.
+**Status: in progress.** Blest normalization, range, mixtures, reflection symmetry, the xi=0 endpoint, entire xi=1 boundary, convexity of the full region, and attainment from any existing point up to xi=1 at fixed Blest value are checked. Closedness, compactness, and attainment of both Blest extrema at each xi and the least xi at each Blest value are now checked. The clamped extremal family, its unique normalization, and unique Blest maximality at each constructed positive-slope point are checked. Every intermediate xi value is reached, and the full region is characterized by the constructed family with unique upper boundary copulas. The coefficient formulas for 0<=b<=1 and the exact maximal gap 44/105, including all equality cases, are checked. Strict monotonicity and uniqueness of every interior parameter are also checked. Coefficient formulas for b>1 and journal comparison remain pending.
 
 ## Source and conventions
 
@@ -15,7 +15,7 @@ Convexity is proved independently of the curved boundary formulas. A first copul
 
 ## Result map
 
-Proofs are in [Blest.lean](Blest.lean), [Normalization.lean](Normalization.lean), [RightBoundary.lean](RightBoundary.lean), [RegionGeometry.lean](RegionGeometry.lean),, [ClosedRegion.lean](ClosedRegion.lean), [ConditionalFormula.lean](ConditionalFormula.lean), [Optimization.lean](Optimization.lean),, [ExtremalFamily.lean](ExtremalFamily.lean), [ParameterCoverage.lean](ParameterCoverage.lean),, [ParametricRegion.lean](ParametricRegion.lean), and [PolynomialCoefficients.lean](PolynomialCoefficients.lean), imported by
+Proofs are in [Blest.lean](Blest.lean), [Normalization.lean](Normalization.lean), [RightBoundary.lean](RightBoundary.lean), [RegionGeometry.lean](RegionGeometry.lean),, [ClosedRegion.lean](ClosedRegion.lean), [ConditionalFormula.lean](ConditionalFormula.lean), [Optimization.lean](Optimization.lean),, [ExtremalFamily.lean](ExtremalFamily.lean), [ParameterCoverage.lean](ParameterCoverage.lean),, [ParametricRegion.lean](ParametricRegion.lean),, [PolynomialCoefficients.lean](PolynomialCoefficients.lean), and [StrictParameters.lean](StrictParameters.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -33,7 +33,7 @@ standard transitive axiom allowlist for every declaration below.
 | Theorem 1.1: attainment up to xi=1 at fixed Blest nu | `Papers.Rockel2026XiBlest.fixed_coefficient_upward` | verified | Every attained (x,y) extends to all (z,y) with x<=z<=1. Uses an actual xi=1 witness at the same coefficient and a continuous copula-mixture path. |
 | Theorem 1.1: convexity of the entire attainable region | `Papers.Rockel2026XiBlest.attainable_region_convex` | verified | Every convex combination of attainable pairs is attained. Independent two-mixture proof; no assumed curved-boundary formula or full-region characterization. |
 | Theorem 2.3 and Section 4 coefficient formulas | — | pending | The b>1 branch involving acosh remains pending. The b<=1 polynomial branch and endpoint limits are checked below. |
-| Theorem 1.1: remaining boundary and full region | — | pending | Derive the b>1 coefficient formulas and strict parameter monotonicity. The numerical maximal gap and equality cases are checked below. Parameter exhaustion and the exact region in terms of constructed copulas are checked below. Closedness and abstract attainment of all slice extrema are separately verified below. |
+| Theorem 1.1: remaining boundary and full region | — | pending | Derive the b>1 coefficient formulas. The numerical maximal gap and equality cases are checked below. Parameter exhaustion and the exact region in terms of constructed copulas are checked below. Closedness and abstract attainment of all slice extrema are separately verified below. |
 | Equation (3): reversed integration order | `Papers.Rockel2026XiBlest.blest_integral_formula_swapped` | verified | Fubini and integrability for the weighted CDF of every copula. |
 | After equation (3): M/W normalization and range | `Papers.Rockel2026XiBlest.blest_comonotonic`; `Papers.Rockel2026XiBlest.blest_countermonotonic`; `Papers.Rockel2026XiBlest.blest_mem_Icc` | verified | Nu(M)=1, nu(W)=-1, and -1<=nu(C)<=1 for every copula. |
 | Equation (13) and the following xi calculation | `Papers.Rockel2026XiBlest.blest_reflect_second`; `Papers.Rockel2026XiBlest.xi_blest_reflection` | verified | Reflecting coordinate 1 preserves xi and negates Blest's nu, including singular copulas. |
@@ -50,7 +50,7 @@ standard transitive axiom allowlist for every declaration below.
 | Theorem 1.1: unique maximum at every constructed positive-slope point | `Papers.Rockel2026XiBlest.extremal_maximal_blest`; `Papers.Rockel2026XiBlest.extremal_maximal_blest_eq_iff` | verified | Blest maximality for xi no greater than the constructed point; equality characterization at the same xi. Exhaustion of all intermediate xi values is proved below. |
 | Theorem 1.1: independence endpoint of the constructed family | `Papers.Rockel2026XiBlest.extremal_zero` | verified | The b=0 extension is exactly the independence copula. |
 
-| Theorem 1.1: monotonicity of the extremal coefficients | `Papers.Rockel2026XiBlest.extremal_coefficients_monotone` | verified | Both xi and Blest are nondecreasing in the nonnegative slope; strict parameter monotonicity remains separate. |
+| Theorem 1.1: monotonicity of the extremal coefficients | `Papers.Rockel2026XiBlest.extremal_coefficients_monotone` | verified | Both xi and Blest are nondecreasing in the nonnegative slope; strict parameter monotonicity is verified below. |
 | Theorem 1.1: continuous xi parameter | `Papers.Rockel2026XiBlest.extremal_xi_continuous` | verified | The entire nonnegative parameter interval, including zero; proved with the quantitative bound |xi(b)-xi(d)|<=24|b-d|. |
 | Theorem 1.1: comonotonic endpoint | `Papers.Rockel2026XiBlest.extremalSequence_cdf`; `Papers.Rockel2026XiBlest.extremalSequence_xi`; `Papers.Rockel2026XiBlest.extremalSequence_blest` | verified | The cofinal sequence b=(n+1)^2 converges in CDF, xi, and Blest to the comonotonic endpoint. The uniform CDF error is at most 1/(n+1). |
 | Theorem 1.1: all intermediate xi parameters are attained | `Papers.Rockel2026XiBlest.extremal_parameter_exists` | verified | Every x in (0,1) is the xi of an actual positive-slope member; proved by continuity and the checked endpoint limit. |
@@ -60,6 +60,9 @@ standard transitive axiom allowlist for every declaration below.
 | Theorem 2.3: joining point of the two branches | `Papers.Rockel2026XiBlest.extremal_one_coefficients` | verified | At b=1, xi=32/105 and nu=76/105. |
 | Theorem 1.1: maximal signed gap and uniqueness | `Papers.Rockel2026XiBlest.maximal_signed_gap`; `Papers.Rockel2026XiBlest.maximal_signed_gap_eq_iff` | verified | For every copula, nu-xi<=44/105; equality holds exactly at the constructed b=1 copula. |
 | Theorem 1.1: maximal absolute gap and all equality cases | `Papers.Rockel2026XiBlest.maximal_absolute_gap`; `Papers.Rockel2026XiBlest.maximal_absolute_gap_eq_iff` | verified | For every copula, |nu|-xi<=44/105; equality holds exactly at the b=1 copula or its response reflection. |
+
+| Lemma 4.5 and Theorem 1.1: strict coefficient monotonicity | `Papers.Rockel2026XiBlest.extremal_coefficients_strictMono` | verified | Both xi and Blest strictly increase with the nonnegative slope. Proved from slope identifiability and the sharp optimization certificate, independently of the b>1 formulas. |
+| Theorem 1.1: finite parameters and unique xi parameter | `Papers.Rockel2026XiBlest.extremal_finite_xi`; `Papers.Rockel2026XiBlest.extremal_positive_xi`; `Papers.Rockel2026XiBlest.extremal_parameter_unique` | verified | Every positive finite slope has xi strictly between 0 and 1; every such xi has exactly one positive parameter. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical

@@ -149,3 +149,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.maximal_absolute_gap_eq_iff
 #assert_standard_axioms Papers.Rockel2026XiBlest.maximal_absolute_gap_eq_iff
+
+#print axioms Papers.Rockel2026XiBlest.extremal_coefficients_strictMono
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_coefficients_strictMono
+
+#print axioms Papers.Rockel2026XiBlest.extremal_finite_xi
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_finite_xi
+
+#print axioms Papers.Rockel2026XiBlest.extremal_positive_xi
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_positive_xi
+
+#print axioms Papers.Rockel2026XiBlest.extremal_parameter_unique
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_parameter_unique
