@@ -5,7 +5,7 @@
 - Source version: [arXiv:2608.20176v1](https://arxiv.org/abs/2608.20176v1), 20 August 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The exact rho-footrule and mean-variance regions, finite-ranking inequalities, mixability infimum, and xi/correlation-ratio outer bounds are checked. Example 2.8 has its exact folded-uniform law, xi=1/4 and eta=0. Example 2.9 has a uniform quantitative gap. Proposition 2.10 has the full lower inner curve, the binary upper branch, and convexity of the attainable xi-eta region via tagged copula constructions. Optimizer uniqueness, discrete equality/asymptotics, compactness, and the localized upper branches and their envelope remain pending.
+**Verification status: in progress.** The exact rho-footrule and mean-variance regions, finite-ranking inequalities, mixability infimum, and xi/correlation-ratio outer bounds are checked. Example 2.8 has its exact folded-uniform law, xi=1/4 and eta=0. Example 2.9 has a uniform quantitative gap. Proposition 2.10 is checked in full: the lower curve, every localized upper branch, compactness and full projection of the seed set, the attained concave upper envelope, and the entire inner enclosure. Optimizer uniqueness, comparison with the earlier rho-footrule curve, discrete equality/asymptotics, and compactness and upper-maximum attainment for the full xi-eta region remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `AnsariRockel2026RhoFootrule`.
@@ -20,6 +20,10 @@ The permanent folder identifier is `AnsariRockel2026RhoFootrule`.
 - [LowerInnerCurve.lean](LowerInnerCurve.lean): the full attained lower inner curve.
 - [InnerConvexity.lean](InnerConvexity.lean): tagged constructions and xi-eta convexity.
 - [UpperBinaryCurve.lean](UpperBinaryCurve.lean): the first upper inner branch and its conditional distributions.
+- [UpperLocalizedCurves.lean](UpperLocalizedCurves.lean): every positive equal-block upper branch.
+- [UpperSeedsCompact.lean](UpperSeedsCompact.lean): compactness of the upper seeds and their convex hull.
+- [UpperSeedsProjection.lean](UpperSeedsProjection.lean): coverage of every horizontal coordinate.
+- [UpperInnerEnvelope.lean](UpperInnerEnvelope.lean): attainment, concavity, and the complete inner enclosure.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
