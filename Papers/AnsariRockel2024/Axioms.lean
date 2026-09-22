@@ -170,3 +170,8 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.schur_below_cds
 #assert_standard_axioms Papers.AnsariRockel2024.schur_below_cds
+
+#print axioms Papers.AnsariRockel2024.cis_schur_iff_orthant
+#assert_standard_axioms Papers.AnsariRockel2024.cis_schur_iff_orthant
+#print axioms Papers.AnsariRockel2024.cds_schur_iff_reverse_orthant
+#assert_standard_axioms Papers.AnsariRockel2024.cds_schur_iff_reverse_orthant

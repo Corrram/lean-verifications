@@ -1,4 +1,4 @@
-import Verification.SchurOrthantBound
+import Verification.SchurOrthantEquivalence
 import Copula.Order.Rank
 import Copula.TailDependence.Basic
 
@@ -48,5 +48,13 @@ theorem schur_below_cis (C D : Copula 2) (h : C.SchurLE D) (hD : D.IsSI) :
 /-- Lemma 2.8(i): Schur comparison with a CDS copula reverses the orthant direction. -/
 theorem schur_below_cds (C D : Copula 2) (h : C.SchurLE D) (hD : D.IsSD) :
     D.LowerOrthantLE C := lowerOrthantLE_of_schurLE_isSD C D h hD
+
+/-- Lemma 2.6(ii): exact equivalence on the CIS class, without density assumptions. -/
+theorem cis_schur_iff_orthant (C D : Copula 2) (hC : C.IsSI) (hD : D.IsSI) :
+    C.SchurLE D ↔ C.LowerOrthantLE D := schurLE_iff_lowerOrthantLE_isSI C D hC hD
+
+/-- Lemma 2.8(ii): exact equivalence on the CDS class, with reversed orthant order. -/
+theorem cds_schur_iff_reverse_orthant (C D : Copula 2) (hC : C.IsSD) (hD : D.IsSD) :
+    C.SchurLE D ↔ D.LowerOrthantLE C := schurLE_iff_lowerOrthantLE_isSD C D hC hD
 
 end Papers.AnsariRockel2024
