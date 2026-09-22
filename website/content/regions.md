@@ -137,8 +137,9 @@ integers N. The exact mean–variance region and its universal maximum, finite-r
 inequalities, attained generalized mixability infimum, and xi/correlation-ratio
 outer bounds are also checked. The finite-ranking equality criterion and asymptotic
 sharpness, conditional-copy examples, full inner enclosure, and compactness and
-attained upper maxima of the entire xi-eta region are verified. Uniqueness of the
-rho-footrule optimizing copula remains pending.
+attained upper maxima of the entire xi-eta region are verified. Every upper-boundary
+point has a unique optimizing copula, including all junctions and the endpoint.
+The supplement is complete for its stated main-result scope.
 
 The [rho–gamma supplement](site:papers/AnsariRockelSteinmassl2026RhoGamma/)
 proves the full exact region, compactness, and continuity, concavity and strict

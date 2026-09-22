@@ -350,3 +350,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2026RhoFootrule.quarter_xi_maximum
 #assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.quarter_xi_maximum
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.boundary_optimizer_unique
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.boundary_optimizer_unique
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.upper_boundary_exists_unique
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.upper_boundary_exists_unique
+
+#print axioms Papers.AnsariRockel2026RhoFootrule.boundary_copula_junction
+#assert_standard_axioms Papers.AnsariRockel2026RhoFootrule.boundary_copula_junction

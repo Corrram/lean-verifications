@@ -5,7 +5,7 @@ import Papers.AnsariRockel2026RhoFootrule.Moments
 
 The package supplies arithmetic boundary parameters, actual attaining copulas,
 and global inequalities. The coefficient order here matches the article.
-Uniqueness of the boundary value does not assert uniqueness of the copula.
+Uniqueness of the optimizing copula is proved in `OptimizerUniqueness.lean`.
 -/
 
 open MeasureTheory ProbabilityTheory

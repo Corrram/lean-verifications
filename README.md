@@ -5,9 +5,9 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** five supplements are **complete for their stated scopes**:
-xi-beta, tau-footrule-beta, rho-gamma, corrected xi-rho, and copula approximation.
-The other four remain **in progress**. Coverage includes the exact
+**Current status:** six supplements are **complete for their stated scopes**:
+xi-beta, tau-footrule-beta, rho-gamma, corrected xi-rho, copula approximation, and rho-footrule.
+The other three remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the exact SI xi-footrule region and full equality classification, universal
 upper and explicit Jensen lower bounds, admissible cubic inversion, and entire bottom boundary; the full SI/SD xi-rho theorem and sharp rho-minus-xi maximum 2/5 with unique attainment;
 the full xi=1 slices for footrule, rho and Blest, and convexity of all three xi regions; the exact joint tau/footrule/beta region, signed shuffles, geometry and volume; rho-footrule contact
@@ -42,7 +42,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, full-region convexity/compactness and attained slice extrema |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | Complete for stated scope; exact joint region, signed shuffles, geometry and volume |
-| ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | In progress; exact regions, finite-ranking, mixability and xi/correlation-ratio bounds |
+| ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | Complete for stated scope; exact regions, unique optimizers, finite-ranking sharpness, mixability and compact xi-eta region with attained maxima |
 | ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | Complete for stated scope; original theta family, exact region, shuffle laws, endpoint asymptotics and attained duality |
 
 ## Reproduce the build

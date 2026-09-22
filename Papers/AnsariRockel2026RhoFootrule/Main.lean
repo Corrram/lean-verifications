@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2026RhoFootrule.OptimizerUniqueness
 import Papers.AnsariRockel2026RhoFootrule.DirectionalCompactness
 import Papers.AnsariRockel2026RhoFootrule.EarlierCurve
 import Papers.AnsariRockel2026RhoFootrule.AsymptoticRankings
