@@ -221,3 +221,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.minimal_xi_attained
 #assert_standard_axioms Papers.Rockel2026XiFootrule.minimal_xi_attained
+
+#print axioms Papers.Rockel2026XiFootrule.printed_ltd_matrix
+#assert_standard_axioms Papers.Rockel2026XiFootrule.printed_ltd_matrix
+
+#print axioms Papers.Rockel2026XiFootrule.printed_ltd_coefficients
+#assert_standard_axioms Papers.Rockel2026XiFootrule.printed_ltd_coefficients
+
+#print axioms Papers.Rockel2026XiFootrule.printed_ltd_claim_false
+#assert_standard_axioms Papers.Rockel2026XiFootrule.printed_ltd_claim_false
+
+#print axioms Papers.Rockel2026XiFootrule.corrected_ltd_matrix
+#assert_standard_axioms Papers.Rockel2026XiFootrule.corrected_ltd_matrix
+
+#print axioms Papers.Rockel2026XiFootrule.corrected_ltd_counterexample
+#assert_standard_axioms Papers.Rockel2026XiFootrule.corrected_ltd_counterexample
+
+#print axioms Papers.Rockel2026XiFootrule.corrected_ltd_not_si
+#assert_standard_axioms Papers.Rockel2026XiFootrule.corrected_ltd_not_si

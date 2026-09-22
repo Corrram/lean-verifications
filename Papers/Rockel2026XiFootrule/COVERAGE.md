@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The symmetric ordinal-sum classification, remaining Remark 2.6 subclass claims, and journal-version comparison are pending.
+**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The printed LTD example is proved not LTD; a corrected LTD example with exact ranks is supplied. The symmetric ordinal-sum classification, the lower-semilinear region, and journal-version comparison are pending.
 
 ## Source and proof scope
 
@@ -47,7 +47,7 @@ Convexity is proved independently of the curved boundary formulas. A first copul
 ## Result map
 
 All source references use arXiv v1. Proofs are in
-[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), [RegionGeometry.lean](RegionGeometry.lean), [TwoParameter.lean](TwoParameter.lean), and [ClosedRegion.lean](ClosedRegion.lean).
+[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), [RegionGeometry.lean](RegionGeometry.lean), [TwoParameter.lean](TwoParameter.lean), [ClosedRegion.lean](ClosedRegion.lean), and [LTDExample.lean](LTDExample.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
@@ -98,7 +98,10 @@ All source references use arXiv v1. Proofs are in
 | Theorem 3.3: boundary attainment in every slice | `Papers.Rockel2026XiFootrule.minimal_footrule_attained`; `Papers.Rockel2026XiFootrule.minimal_xi_attained` | verified | Every xi in [0,1] has a copula minimizing footrule; every footrule in [-1/2,1] has a copula minimizing xi. This is existence, not an explicit formula for the open negative boundary problem. |
 | Theorem 3.3: cited SD compactness and rearrangement proof route | — | excluded | The actual closedness and attainment results above have an independent approximation and compactness proof. |
 | Remark 2.6(c): exact lower-semilinear region | — | pending | The LSL subclass characterization is a separate obligation beyond the proved SI region. |
-| Remark 2.6(d): LTD checkerboard counterexample | — | pending | Verify the displayed 3 by 3 matrix is LTD, with xi=1/2 and footrule=1/3. |
+| Remark 2.6(d): printed matrix and rank values | `Papers.Rockel2026XiFootrule.printed_ltd_matrix`; `Papers.Rockel2026XiFootrule.printed_ltd_coefficients` | verified | The exact printed mass matrix defines a copula with xi=1/2 and footrule=1/3. The LTD assertion is false, as checked separately below. |
+| Remark 2.6(d): formal counterexample to the printed LTD assertion | `Papers.Rockel2026XiFootrule.printed_ltd_claim_false` | verified | At (2/3,2/3), the printed checkerboard has CDF 5/12 < 4/9. It fails PQD, hence cannot be LTD. |
+| Remark 2.6(d): corrected LTD counterexample | `Papers.Rockel2026XiFootrule.corrected_ltd_matrix`; `Papers.Rockel2026XiFootrule.corrected_ltd_counterexample`; `Papers.Rockel2026XiFootrule.corrected_ltd_not_si` | verified | Replacement mass matrix (1/9)*[[3,0,0],[0,1,2],[0,2,1]] is LTD on the full square, has xi=38/81 > 10/27=footrule, and is not SI. It proves the intended failure of xi<=footrule for LTD. |
+| Remark 2.6(d): literal assertion that the printed matrix is LTD | — | excluded | False for the printed coefficients. The formal disproof and corrected witness above replace this assertion. |
 | Remark 2.6(a),(e): open questions | — | excluded | The SI xi<=tau conjecture and explicit negative/SD boundary formulas are not claimed proved by the source. |
 | Section 3.2, equation (31): actual pre-standardization marginals | `Papers.Rockel2026XiFootrule.twoParameter_raw_marginals`; `Papers.Rockel2026XiFootrule.twoParameter_marginal_density` | verified | The density outside the hole has uniform first marginal and second density (1-L(t))/(1-beta). Every alpha,beta in [0,1/2], including all edges. |
 | Proposition 3.5, equation (32): actual copula density | `Papers.Rockel2026XiFootrule.twoParameter_density` | verified | Exact measure equality with the displayed quantile density on the closed parameter square. The proof handles flat marginal-CDF intervals through almost-everywhere quantile inversion; division by zero uses the zero version on null fibers. At alpha=1/2 the unused affine middle branch is replaced by the natural step-function extension. |
@@ -144,3 +147,16 @@ lower semicontinuity. A weakly convergent copula subsequence preserves uniform
 marginals and footrule, and fixed-footrule interpolation raises xi to the desired
 limit. Compactness then proves that every vertical and horizontal slice attains
 its lower endpoint. No explicit negative-boundary formula is inferred.
+
+## Correction to Remark 2.6(d)
+
+The source's printed matrix `(1/12)*[[4,0,0],[0,1,3],[0,3,1]]`
+has the advertised ranks but is not LTD. Its CDF at `(2/3,2/3)` is `5/12`,
+which is strictly below `(2/3)*(2/3)=4/9`, contradicting the PQD condition
+implied by LTD. This discrepancy is proved in Lean, not inferred from a plot.
+
+The replacement `(1/9)*[[3,0,0],[0,1,2],[0,2,1]]` is proved LTD and has
+`xi=38/81` and `footrule=10/27`, so it establishes the intended strict
+counterexample. The proof checks the LTD inequality for all thresholds and
+computes both coefficients exactly. The printed false LTD assertion is not
+advertised as verified.
