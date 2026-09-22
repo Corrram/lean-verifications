@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** The exact rho-footrule and mean-variance regions, sharp finite-ranking inequalities, attained mixability infimum, and xi/correlation-ratio outer bounds are checked. Optimizer uniqueness, discrete equality/asymptotics, and the conditional-iid examples and inner enclosure remain pending.
+**Status: in progress.** The exact rho-footrule and mean-variance regions, finite-ranking inequalities, mixability infimum, and xi/correlation-ratio outer bounds are checked. Example 2.8 has its exact folded-uniform law, xi=1/4 and eta=0. Example 2.9 has a uniform quantitative gap; the inner eta=0 segment is attained for xi in [0,1/4]. Optimizer uniqueness, discrete equality/asymptotics, compactness and the rest of the inner enclosure remain pending.
 
 ## Source and conventions
 
@@ -45,10 +45,14 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 1.6 / Theorem 2.4: arbitrary probability spaces | `Papers.AnsariRockel2026RhoFootrule.centered_sum_variance_bound` | verified | Any measurable random vector with uniform coordinate laws; both centered uniforms are represented explicitly by subtracting 1/2. |
 | Section 2.3, equations (38)-(40): conditional-copy copula | `Papers.AnsariRockel2026RhoFootrule.conditional_copies_cdf`; `Papers.AnsariRockel2026RhoFootrule.conditional_copies_coefficients` | verified | Constructs the genuine copula with CDF integral F(t,u)F(t,v); its footrule is xi and its rho is 12 times the conditional-mean variance. |
 | Theorem 2.6: xi/correlation-ratio outer bounds | `Papers.AnsariRockel2026RhoFootrule.xi_correlationRatio_bounds` | verified | All copulas, including singular laws. Both exact rho-footrule bounds and eta <= 2 xi are proved without monotonicity assumptions. |
-| Example 2.9: strictness of the conditional Cauchy-Schwarz bound | `Papers.AnsariRockel2026RhoFootrule.correlationRatio_equality_iff`; `Papers.AnsariRockel2026RhoFootrule.quarter_xi_strict_bound` | verified | Equality eta=2xi occurs iff xi=0; in particular every copula with xi=1/4 has eta<1/2. Compactness and a strictly separated maximum are not claimed here. |
+| Example 2.9: strictness of the conditional Cauchy-Schwarz bound | `Papers.AnsariRockel2026RhoFootrule.correlationRatio_equality_iff`; `Papers.AnsariRockel2026RhoFootrule.quarter_xi_strict_bound` | verified | Equality eta=2xi occurs iff xi=0; in particular every copula with xi=1/4 has eta<1/2. Uniform separation is proved below; compactness and attainment of the upper maximum remain separate obligations. |
+| Example 2.8: the stated folded-uniform law | `Papers.AnsariRockel2026RhoFootrule.foldedExample_joint_law`; `Papers.AnsariRockel2026RhoFootrule.foldedExample_uniform_predictor`; `Papers.AnsariRockel2026RhoFootrule.foldedExample_conditionalCDF`; `Papers.AnsariRockel2026RhoFootrule.foldedExample_conditionalMean` | verified | The copula is exactly the law of (abs(2U-1), U), both margins are uniform, and the conditional law is equally supported at (1-r)/2 and (1+r)/2 with mean 1/2. |
+| Example 2.8: exact coefficients and attainment | `Papers.AnsariRockel2026RhoFootrule.foldedExample_coefficients`; `Papers.AnsariRockel2026RhoFootrule.quarter_xi_zero_ratio_attained` | verified | The original folded example has xi=1/4 and eta=0; xi is evaluated from its actual conditional distribution. |
+| Example 2.9: uniform non-sharpness certificate | `Papers.AnsariRockel2026RhoFootrule.correlationRatio_uniform_improvement`; `Papers.AnsariRockel2026RhoFootrule.quarter_xi_uniform_gap`; `Papers.AnsariRockel2026RhoFootrule.quarter_xi_uniform_separation` | verified | Every copula satisfies (21/20)eta <= 2xi+3/250. At xi=1/4, eta <= 256/525, leaving a uniform gap 13/1050 below 1/2. This proves strictness even for the supremum without a compactness premise. |
+| Proposition 2.10 / equation (44): horizontal inner segment | `Papers.AnsariRockel2026RhoFootrule.zero_ratio_interval_attained` | verified | For every xi in [0,1/4], an explicit mixture of the folded example with independence attains eta=0, including both endpoints. |
 | Theorem 1.1: uniqueness of the optimizing copula | — | pending | The exact value and attainment are proved, but the contact-set rigidity needed to identify every optimizer is not yet checked. |
 | Remark 1.4 and Remark 2.2: comparison and discrete sharpness | — | pending | Exact comparison with the earlier attainable curve; constant-distance permutation divisibility and asymptotic finite-ranking sharpness. |
-| Section 2.3: conditional-copy examples and inner enclosure | — | pending | Examples 2.8-2.9, Proposition 2.10, and the constructive inner-bound formulas, including strictness and compactness. |
+| Section 2.3: compactness and remaining inner enclosure | — | pending | Compactness and upper-maximum attainment in Example 2.9; Proposition 2.10 above xi=1/4 on the lower curve and the full upper convexified curve. The folded example and uniform non-sharpness are verified. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
@@ -61,3 +65,5 @@ The dependency is pinned to copula commit
 Every mapped declaration is compiled and transitively audited against the standard
 Lean axiom allowlist. Uniqueness of a numerical boundary value does not imply
 uniqueness of its copula witness.
+
+The folded model is proved by an explicit two-uniform sampler and then identified with the stated single-uniform graph law. Exact conditional-CDF integration gives xi=1/4; the constant conditional mean gives eta=0. The quantitative gap uses the endpoint bounds of every conditional CDF, so it does not assume compactness of the attainable set. Independence mixtures scale both xi and eta quadratically and supply the entire horizontal inner segment.
