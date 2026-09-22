@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Propositions 3.1-3.3, Corollary 3.4, Lemma 4.1 and Theorem 4.2 are checked. Theorem 4.5 almost-sure consistency is checked for iid real observations with continuous marginal CDFs and 0<kappa<=1/3, using their actual ranks and the exact fractional binning matrix. The O(N log N) bound is checked for the specified unit-cost sparse-update and matrix-arithmetic schedule. The illustrative counterexamples in Examples 4.3-4.4 remain to be checked.
+**Status: complete for scope.** Propositions 3.1-3.3, Corollary 3.4, Lemma 4.1 and Theorem 4.2 are checked. Theorem 4.5 almost-sure consistency is checked for iid real observations with continuous marginal CDFs and 0<kappa<=1/3, using their actual ranks and the exact fractional binning matrix. The O(N log N) bound is checked for the specified unit-cost sparse-update and matrix-arithmetic schedule. Examples 4.3-4.4 and the intervening permutation counterexample are checked, including the dependence properties, actual coarse matrices and exact xi values. Numerical experiments and externally cited estimator results are outside this formal scope.
 
 ## Source and conventions
 
@@ -23,7 +23,7 @@ map, and both tail statements establish existence as well as the limit value.
 
 Proofs are in [DyadicBlocks.lean](DyadicBlocks.lean), [EqualGrids.lean](EqualGrids.lean),
 [BernsteinRho.lean](BernsteinRho.lean), [BernsteinRank.lean](BernsteinRank.lean), [BernsteinKendall.lean](BernsteinKendall.lean), [BernsteinExact.lean](BernsteinExact.lean),
-[RectangularRanks.lean](RectangularRanks.lean), [RectangularXi.lean](RectangularXi.lean), [RectangularTails.lean](RectangularTails.lean), [ConvergenceSteps.lean](ConvergenceSteps.lean), [StatisticalConsistency.lean](StatisticalConsistency.lean), and [PermutationShuffles.lean](PermutationShuffles.lean), imported by
+[RectangularRanks.lean](RectangularRanks.lean), [RectangularXi.lean](RectangularXi.lean), [RectangularTails.lean](RectangularTails.lean), [ConvergenceSteps.lean](ConvergenceSteps.lean), [StatisticalConsistency.lean](StatisticalConsistency.lean), [Counterexamples.lean](Counterexamples.lean), and [PermutationShuffles.lean](PermutationShuffles.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
 
@@ -46,7 +46,9 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.2: lower tail | `Papers.Rockel2025Approximation.permutationShuffle_lower_tail` | verified | The lower tail limit exists and equals 1 exactly when the first strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.2: upper tail | `Papers.Rockel2025Approximation.permutationShuffle_upper_tail` | verified | The upper tail limit exists and equals 1 exactly when the last strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.1: complete Bernstein formulas | `Papers.Rockel2025Approximation.bernstein_all_coefficients` | verified | Rho, the exact tau and xi trace formulas, and both zero tail limits in one theorem, for every source copula and all positive rectangular degrees. Includes the printed piecewise Upsilon entries and Theta corner convention. |
-| Examples 4.3-4.4 | — | pending | The actual SI and MTP2 counterexamples and their re-binned coefficient values. |
+| Example 4.3: SI lower-bound counterexample | `Papers.Rockel2025Approximation.example43` | verified | The displayed 2-by-4 matrix constructs an SI copula with xi=1/16; its actual 2-by-2 coarsening has xi=1/8. SI is proved from the exact CDF sections. |
+| Example 4.4: MTP2 upper-bound counterexample | `Papers.Rockel2025Approximation.example44` | verified | The displayed 4-by-4 matrix has a genuine MTP2 Lebesgue density and xi=5/8; check-min filling of its actual 2-by-2 coarsening has xi=7/16. A general TP2-matrix-to-MTP2-density theorem handles zero entries and arbitrary partitions. |
+| Section 4.1: intervening permutation counterexample | `Papers.Rockel2025Approximation.permutation_counterexample` | verified | The printed four-strip check-min copula has xi=1; its actual 2-by-2 coarse matrix is the product matrix and the corresponding check-min copula has xi=1/4. |
 | Section 2 / Proposition 3.1: actual Bernstein construction | `Papers.Rockel2025Approximation.bernstein_cdf` | verified | Every source copula and positive rectangular degrees m,n; exact tensor Bernstein CDF on the whole square, including endpoints. |
 | Section 2: Bernstein uniform approximation | `Papers.Rockel2025Approximation.bernstein_uniform_error`; `Papers.Rockel2025Approximation.bernstein_uniform_convergence` | verified | Explicit uniform error sqrt(1/(4m))+sqrt(1/(4n)) and uniform CDF convergence. This does not assert xi or statistical convergence. |
 | Section 2.2 / Proposition 3.3: arbitrary rectangular constructors | `Papers.Rockel2025Approximation.rectangular_checkerboard_cdf`; `Papers.Rockel2025Approximation.rectangular_checkMin_cdf`; `Papers.Rockel2025Approximation.rectangular_checkW_cdf` | verified | Any admissible nonnegative cell matrix on positive, possibly nonuniform partitions. Actual measure-based copulas with the displayed CDFs; no diagonal restriction. |

@@ -272,3 +272,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.checkerboardEstimatorWork_isBigO
 #assert_standard_axioms Papers.Rockel2025Approximation.checkerboardEstimatorWork_isBigO
+
+#print axioms Papers.Rockel2025Approximation.example43
+#assert_standard_axioms Papers.Rockel2025Approximation.example43
+
+#print axioms Papers.Rockel2025Approximation.example44
+#assert_standard_axioms Papers.Rockel2025Approximation.example44
+
+#print axioms Papers.Rockel2025Approximation.permutation_counterexample
+#assert_standard_axioms Papers.Rockel2025Approximation.permutation_counterexample
