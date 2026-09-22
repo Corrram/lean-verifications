@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2026RhoFootrule.DiscreteEquality
 import Papers.AnsariRockel2026RhoFootrule.UpperLocalizedCurves
 import Papers.AnsariRockel2026RhoFootrule.UpperSeedsCompact
 import Papers.AnsariRockel2026RhoFootrule.UpperSeedsProjection
