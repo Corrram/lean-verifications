@@ -182,3 +182,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.frechet_minimizer_coefficients
 #assert_standard_axioms Papers.Rockel2026XiFootrule.frechet_minimizer_coefficients
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_raw_marginals
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_raw_marginals
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_marginal_density
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_marginal_density
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_density
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_density
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_zero_width
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_zero_width
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_corner
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_corner
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_corner_coefficients
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_corner_coefficients
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_path_admissible
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_path_admissible
+
+#print axioms Papers.Rockel2026XiFootrule.twoParameter_path_zero
+#assert_standard_axioms Papers.Rockel2026XiFootrule.twoParameter_path_zero

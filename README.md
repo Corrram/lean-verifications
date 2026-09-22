@@ -5,8 +5,9 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** the xi-beta, tau-footrule-beta and rho-gamma supplements are
-**complete for their stated scopes**; the other six remain **in progress**. Coverage includes the exact
+**Current status:** five supplements are **complete for their stated scopes**:
+xi-beta, tau-footrule-beta, rho-gamma, corrected xi-rho, and copula approximation.
+The other four remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the exact SI xi-footrule region and full equality classification, universal
 upper and explicit Jensen lower bounds, admissible cubic inversion, and entire bottom boundary; the full SI/SD xi-rho theorem and sharp rho-minus-xi maximum 2/5 with unique attainment;
 the full xi=1 slices for footrule, rho and Blest, and convexity of all three xi regions; the exact joint tau/footrule/beta region, signed shuffles, geometry and volume; rho-footrule contact
@@ -36,8 +37,8 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | --- | --- | --- |
 | Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas and tails, exact Frechet/Mardia dependence and Nelsen 7 xi/Schur classifications and parameter orders |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | Complete for corrected scope; full region, SI/SD theorem, sharp gap, density/support/MTP2, all ranks, asymmetry, and formal journal correction |
-| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region and asymmetric equality example, Jensen bound and partial full-region geometry |
-| Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | In progress; shuffle formulas, rectangular and Bernstein constructors, uniform CDF convergence |
+| ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, Jensen bound, partial full-region geometry, and two-parameter density with endpoints |
+| Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | Complete for stated scope; arbitrary-partition ranks, MTP2 monotonicity, counterexamples, population and iid estimator consistency, and unit-cost complexity |
 | ξ–Blest region (2026) | [Rockel2026XiBlest](Papers/Rockel2026XiBlest/README.md) | In progress; normalization, symmetries, xi=1 boundary, and full-region convexity |
 | ξ–β region (2026) | [OrendayLaresRockel2026XiBeta](Papers/OrendayLaresRockel2026XiBeta/README.md) | Complete for stated scope; exact regions, tent properties and SI/SD rigidity |
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | Complete for stated scope; exact joint region, signed shuffles, geometry and volume |

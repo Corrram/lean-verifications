@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2 and 3.1, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. Closedness, remaining negative-boundary attainment, the symmetric ordinal-sum classification, further constructions, and journal-version comparison are pending.
+**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. Closedness, remaining negative-boundary attainment, the symmetric ordinal-sum classification, and journal-version comparison are pending.
 
 ## Source and proof scope
 
@@ -47,7 +47,7 @@ Convexity is proved independently of the curved boundary formulas. A first copul
 ## Result map
 
 All source references use arXiv v1. Proofs are in
-[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), and [RegionGeometry.lean](RegionGeometry.lean).
+[Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), [RegionGeometry.lean](RegionGeometry.lean), and [TwoParameter.lean](TwoParameter.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
 | Source result | Lean declaration | Status | Hypotheses and scope |
@@ -94,7 +94,10 @@ All source references use arXiv v1. Proofs are in
 | Theorem 3.3: convexity of the entire attainable region | `Papers.Rockel2026XiFootrule.attainable_region_convex` | verified | Any convex combination of two attainable coefficient pairs is attained by an actual copula. Independent two-mixture proof using the entire xi=1 boundary; no unproved lower-boundary formula, compactness, or closedness assumption. |
 | Theorems 2.1 and 3.3: exact nonnegative-footrule part of the region | `Papers.Rockel2026XiFootrule.exact_nonnegative_footrule_region` | verified | For y>=0, (x,y) is attainable iff y<=1 and y^2<=x<=1. The Frechet witness attains the lower xi endpoint and fixed-footrule interpolation attains the full interval. |
 | Theorem 3.3: closedness and remaining negative-boundary attainment | — | pending | Full closedness, attainment of the unresolved negative-footrule lower boundary, and the source's SD compactness and rearrangement route. The explicit inverse estimate applies on [-1/2,0]; the nonnegative-footrule part is separately characterized exactly above. |
-| Section 3.2: two-parameter copula construction | — | pending | Need the marginal and parameter-endpoint proofs. |
+| Section 3.2, equation (31): actual pre-standardization marginals | `Papers.Rockel2026XiFootrule.twoParameter_raw_marginals`; `Papers.Rockel2026XiFootrule.twoParameter_marginal_density` | verified | The density outside the hole has uniform first marginal and second density (1-L(t))/(1-beta). Every alpha,beta in [0,1/2], including all edges. |
+| Proposition 3.5, equation (32): actual copula density | `Papers.Rockel2026XiFootrule.twoParameter_density` | verified | Exact measure equality with the displayed quantile density on the closed parameter square. The proof handles flat marginal-CDF intervals through almost-everywhere quantile inversion; division by zero uses the zero version on null fibers. At alpha=1/2 the unused affine middle branch is replaced by the natural step-function extension. |
+| Section 3.2: zero-width and checkerboard parameter endpoints | `Papers.Rockel2026XiFootrule.twoParameter_zero_width`; `Papers.Rockel2026XiFootrule.twoParameter_corner`; `Papers.Rockel2026XiFootrule.twoParameter_corner_coefficients` | verified | Every beta=0 copula is independence. The corner alpha=beta=1/2 is exactly the off-diagonal checkerboard of Theorem 3.4, with xi=1/2 and footrule=-1/2. |
+| Equation (33): finite-parameter path and initial endpoint | `Papers.Rockel2026XiFootrule.twoParameter_path_admissible`; `Papers.Rockel2026XiFootrule.twoParameter_path_zero` | verified | The exact piecewise alpha(mu),beta(mu) lies in the proved parameter square for every finite mu>=0 and defines an actual copula; mu=0 is independence. Numerical boundary optimality is not asserted. |
 | Table 2, Frechet row: exact coefficient formulas | `Papers.Rockel2026XiFootrule.frechet_coefficients` | verified | Xi=(a-b)^2+ab and footrule=a-b/2 over the full valid Frechet simplex, including all boundary parameters. The lower Frechet family has a=0. |
 | Table 2, Frechet row: exact objective minimum | `Papers.Rockel2026XiFootrule.frechet_objective_lower` | verified | Xi+footrule>=-1/16 for the entire Frechet family. This is stronger than restriction to mixtures of W and independence, and is not asserted for arbitrary copulas. |
 | Table 2, Frechet row: unique minimizing parameters | `Papers.Rockel2026XiFootrule.frechet_objective_eq_iff` | verified | Equality holds iff the M weight a=0 and W weight b=1/4. The independence weight is therefore 3/4; see the parameter correction below. |
@@ -111,4 +114,17 @@ The printed parameter 0.25 therefore denotes the W weight. In the prose
 convention lambda*Pi+(1-lambda)*W, the corresponding parameter is lambda=3/4.
 The other numerical table rows and plotted candidate boundaries remain
 excluded from verified claims. This family minimum does not establish the
-global negative-footrule boundary or the two-parameter construction.
+global negative-footrule boundary. The two-parameter construction is separately proved above.
+
+## Two-parameter density and null fibers
+
+[TwoParameter.lean](TwoParameter.lean) proves Proposition 3.5 from the actual
+probability law with uniform density outside the exclusion band. Its first
+marginal is uniform; its second marginal is atomless with the density in
+equation (31). Applying that marginal's CDF gives a copula, and a proved
+almost-everywhere quantile inverse identifies its density with equation (32).
+This avoids assuming a strictly positive marginal density or differentiable
+inverse. Density values on null fibers are immaterial to the measure, so the
+proof does not claim the paper's pointwise marginal-density cancellation at
+zero denominators. The finite-mu path is admissible; its numerical objective
+values and suggested near-optimality remain numerical evidence.
