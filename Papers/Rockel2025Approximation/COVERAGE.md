@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Proposition 3.2 is fully checked for equal-width straight permutation shuffles. Bernstein rho, both zero tail limits and an explicit finite-sum xi formula are checked for all positive rectangular degrees. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. Bernstein tau, equivalence with the printed piecewise xi matrix entries, general patchwork rank formulas, xi approximation bounds and statistical convergence remain pending.
+**Status: in progress.** Proposition 3.2 is fully checked for equal-width straight permutation shuffles. Bernstein rho, the exact Kendall tau trace formula, both zero tail limits and an explicit finite-sum xi formula are checked for all positive rectangular degrees. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. Equivalence with the printed piecewise xi matrix entries, general patchwork rank formulas, xi approximation bounds and statistical convergence remain pending.
 
 ## Source and conventions
 
@@ -22,7 +22,7 @@ map, and both tail statements establish existence as well as the limit value.
 ## Result map
 
 Proofs are in [DyadicBlocks.lean](DyadicBlocks.lean), [EqualGrids.lean](EqualGrids.lean),
-[BernsteinRho.lean](BernsteinRho.lean), [BernsteinRank.lean](BernsteinRank.lean),
+[BernsteinRho.lean](BernsteinRho.lean), [BernsteinRank.lean](BernsteinRank.lean), [BernsteinKendall.lean](BernsteinKendall.lean),
 and [PermutationShuffles.lean](PermutationShuffles.lean), imported by
 [Main.lean](Main.lean). [Axioms.lean](Axioms.lean) prints and enforces the
 standard transitive axiom allowlist for every declaration below.
@@ -45,7 +45,7 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.2: Chatterjee's xi | `Papers.Rockel2025Approximation.permutationShuffle_xi` | verified | xi=1, via an explicit measurable functional witness for the constructed copula. |
 | Proposition 3.2: lower tail | `Papers.Rockel2025Approximation.permutationShuffle_lower_tail` | verified | The lower tail limit exists and equals 1 exactly when the first strip is fixed, and 0 otherwise. Includes N=1. |
 | Proposition 3.2: upper tail | `Papers.Rockel2025Approximation.permutationShuffle_upper_tail` | verified | The upper tail limit exists and equals 1 exactly when the last strip is fixed, and 0 otherwise. Includes N=1. |
-| Proposition 3.1: remaining Bernstein formulas | — | pending | Kendall tau and equivalence of the checked finite-difference derivative Gram entries with the printed piecewise Upsilon formula. Rho, finite-sum xi and both tail limits are checked below. |
+| Proposition 3.1: remaining Bernstein formulas | — | pending | Equivalence of the checked finite-difference derivative Gram entries with the printed piecewise Upsilon formula. Rho, the exact Kendall trace formula, finite-sum xi and both tail limits are checked below. |
 | Proposition 3.3 outside the mapped equal diagonal case | — | pending | Arbitrary rectangular constructors are checked below. The checkerboard xi formula and coefficient/tail formulas outside Delta=I_N/N remain unproved here. |
 | Corollary 3.4 and Theorems 4.2, 4.5 | — | pending | Xi approximation bounds and statistical convergence; preserve the revised source hypotheses. |
 | Section 2 / Proposition 3.1: actual Bernstein construction | `Papers.Rockel2025Approximation.bernstein_cdf` | verified | Every source copula and positive rectangular degrees m,n; exact tensor Bernstein CDF on the whole square, including endpoints. |
@@ -60,6 +60,10 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3.1: actual Bernstein conditional CDF | `Papers.Rockel2025Approximation.bernstein_conditional_cdf` | verified | The finite polynomial derivative sum equals the actual conditional CDF almost everywhere in the conditioning coordinate, for every threshold. |
 | Proposition 3.1: explicit rectangular Bernstein xi | `Papers.Rockel2025Approximation.bernstein_xi_finite_sum` | verified | Full finite contraction of grid-CDF entries and explicitly evaluated binomial Gram entries, for every positive m,n and every source copula. Uses uniform finite-difference Upsilon entries rather than the printed case split. |
 | Proposition 3.1: both Bernstein tails | `Papers.Rockel2025Approximation.bernstein_lower_tail`; `Papers.Rockel2025Approximation.bernstein_upper_tail` | verified | Both limits exist and equal zero, for every source copula and every positive rectangular degree, via endpoint derivatives of the actual diagonal. |
+| Proposition 3.1: Bernstein density | `Papers.Rockel2025Approximation.bernstein_density_nonnegative`; `Papers.Rockel2025Approximation.bernstein_density` | verified | Explicit mixed polynomial derivative, pointwise nonnegative, and equality of the actual copula measure to its density-weighted Lebesgue measure; arbitrary source copulas and positive rectangular degrees. |
+| Proposition 3.1: conditional CDF monotonicity | `Papers.Rockel2025Approximation.bernstein_kernel_monotone` | verified | The continuous polynomial conditional CDF is monotone in the response threshold for every conditioning point, including endpoints. |
+| Proposition 3.1: exact Theta entries | `Papers.Rockel2025Approximation.bernstein_theta_integral` | verified | The printed rational Theta entries equal twice the mixed derivative-basis integral. The last diagonal entry is exactly 1 under the source 0/0=1 convention. |
+| Proposition 3.1: Bernstein Kendall tau | `Papers.Rockel2025Approximation.bernstein_tau_finite_sum`; `Papers.Rockel2025Approximation.bernstein_tau_trace` | verified | Both an evaluated finite sum and the exact source formula 1-tr(Theta_m D Theta_n D^T). Trace theorem indexes all positive degrees as m+1,n+1; no source-density or symmetry assumption. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
