@@ -31,8 +31,10 @@ of $\rho-\xi$ (Corollary 1), and the inequality under stochastic monotonicity
 The full curved boundary uses the source's explicit trigonometric and radical
 inverse formulas; every interior point is attained by an actual copula,
 and every interior boundary copula is unique. The source family's symmetry,
-parameter ordering, and uniform limits are checked. Density/support, MTP2,
-Kendall tau, and journal-version comparison remain pending.
+parameter ordering, uniform limits, density, convex support, MTP2, asymmetry,
+and all three rank formulas are checked. This completes its corrected stated scope.
+The journal equation (19) omits a boundary term restored in arXiv v3; Lean proves
+both the corrected formula and a counterexample to the literal journal expression.
 
 The paper proves $\xi(C)\leq|\rho(C)|$ for the stated stochastically increasing
 or decreasing classes. Keeping this class restriction attached to the

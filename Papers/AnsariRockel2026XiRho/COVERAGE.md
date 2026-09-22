@@ -1,11 +1,11 @@
 # Coverage
 
-**Status: in progress.** The full explicit xi-rho region (Theorem 1), SI/SD inequality (Theorem 2), and sharp global gap 2/5 (Corollary 1) are verified, with every boundary and equality case. The original diagonal-band family has checked piecewise intercepts, xi/rho coefficients, both explicit inverse branches, parameter ordering, radial symmetry, and all uniform limiting cases. Example 1's PLOD shuffle is checked with xi=1 and rho=13/16. Absolute continuity, density/support and MTP2, the Kendall tau formula, and journal-version comparison remain pending.
+**Status: complete for stated scope.** Theorems 1-3, Corollary 1, Propositions 1-5, and Example 1 are checked for the corrected arXiv v3 copula, including all boundary and equality cases. The family has an explicit density, convex topological support, MTP2, asymmetry, all three rank formulas, ordering and uniform limits. Journal equation (19) lacks a necessary boundary term; its literal formula is disproved in Lean. Lemma 8 uses equality almost everywhere. Alternative proofs replace unused optimization and rearrangement intermediates.
 
 ## Source and conventions
 
 Source: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
-Journal reference: [DOI 10.1016/j.jmva.2026.105630](https://doi.org/10.1016/j.jmva.2026.105630); version comparison pending.
+Journal reference: [DOI 10.1016/j.jmva.2026.105630](https://doi.org/10.1016/j.jmva.2026.105630); statement comparison and corrections are recorded below.
 
 Xi conditions coordinate 1 on coordinate 0. Equation (3) is matched to the conditional-CDF definition by the almost-everywhere derivative theorem, without a density assumption. FGM uses the full signed parameter interval [-1,1]. CI and CD in the FGM classification assert conditional monotonicity in both directions, so in particular include the direction used by the source. Within this family the equality case is exactly parameter zero. The general SI/SD inequality and its complete equality classification are proved in StochasticBounds.lean and StochasticEquality.lean. The proof constructs an antitone conditional-CDF version from concavity and compares squared differences with absolute differences. Equality makes almost every conditional CDF either constant or binary; monotonicity in the response threshold excludes mixing the two types at interior thresholds. This is an alternative to the source maximum-principle proof, without a density assumption. The source maximum-principle and extreme-point intermediate assertions are not separately claimed verified.
 
@@ -14,6 +14,14 @@ Lemma 8 is formalized modulo null sets: equality holds exactly when the decreasi
 For the vertical boundary, a centered countermonotonic block with identity outside has xi=1 and rho=1-2 alpha^3. Varying alpha over [0,1] realizes the entire rho interval. The interior boundary and its explicit formulas are now proved separately below.
 
 Convexity is proved independently of the curved boundary formulas. A first copula mixture preserves the desired affine coefficient and gives xi no larger than the target convex combination. A second mixture with a proved xi=1 witness at the same coefficient reaches the target xi by continuity. Both steps construct actual copulas, including singular laws and endpoint weights. This also proves attainment of every xi between an existing point and 1 at fixed coefficient; the full explicit region is now established separately below.
+
+## Journal comparison and precise conventions
+
+The [author-posted journal text](https://www.researchgate.net/publication/401673479_The_exact_region_and_an_inequality_between_Chatterjee%27s_and_Spearman%27s_rank_correlations), uploaded by Marcus Rockel on 14 April 2026, was compared with arXiv v3. The region, optimization, SI/SD and rank statements retain their numbering. MTP2 is Proposition 4(ii).
+
+Journal equation (19) omits the term $b\min(a_v,0)^2/2$ present in arXiv v3. At $b=1$, $u=0$, $v=1/8$, its literal expression is $-1/8$. The Lean counterexample proves it cannot be a copula CDF; the corrected formula is proved at every point. Thus completion refers to the corrected arXiv statements, not literal verification of the uncorrected journal formula.
+
+The density uses the open band in equation (23); changing values on its null boundary preserves the law. Topological support includes the boundary, unlike the source's identification with the density's positive set. Both its exact closed band and convexity are proved. Lemma 8's equality alternatives are interpreted almost everywhere.
 
 ## Result map
 
@@ -52,8 +60,6 @@ standard transitive axiom allowlist for every declaration below.
 | Lemma 8: equality modulo null sets | `Papers.AnsariRockel2026XiRho.lemma8_equality` | verified | Equality iff the function is almost everywhere constant v or the indicator of [0,v]. This is the integral-invariant version of the source's pointwise wording; see the convention above. |
 | Theorem 2: full equality classification | `Papers.AnsariRockel2026XiRho.si_xi_eq_rho_iff`; `Papers.AnsariRockel2026XiRho.sd_xi_eq_neg_rho_iff`; `Papers.AnsariRockel2026XiRho.stochastic_xi_eq_abs_rho_iff` | verified | Every SI or SD copula, including singular laws: equality in xi<=abs(rho) iff the copula is W, independence, or M. SI equality gives independence or M; SD equality gives independence or W. No family restriction. |
 | Theorem 2: strictness away from equality copulas | `Papers.AnsariRockel2026XiRho.stochastic_xi_lt_abs_rho` | verified | Every SI or SD copula other than W, independence, and M has xi<abs(rho). |
-| Propositions 2 and 4(iii): remaining family properties | — | pending | Absolute continuity and the explicit density/support, and MTP2. SI, parameter ordering, symmetry, reflection, and all uniform limits are verified. |
-| Proposition 5(iii): Kendall tau of the diagonal-band family | — | pending | The general tau formula and its endpoint values, including tau=1/2 at b=1. The exact rho and xi values at b=1 are verified separately. |
 | Equations (19)-(20): explicit source normalization | `Papers.AnsariRockel2026XiRho.sourceBandIntercept_mean`; `Papers.AnsariRockel2026XiRho.sourceBand_eq_normalizedBand` | verified | Every b>0, both parameter regimes and all junctions/endpoints; the piecewise square-root intercept constructs the actual normalized optimizer. |
 | Equation (19) / Proposition 1: CDF and derivative | `Papers.AnsariRockel2026XiRho.sourceBand_cdf`; `Papers.AnsariRockel2026XiRho.sourceBand_conditionalCDF`; `Papers.AnsariRockel2026XiRho.sourceBand_derivative` | verified | The explicit source copula has the displayed clamped conditional CDF and first derivative almost everywhere, at every response threshold. |
 | Proposition 5(i)-(ii): full xi and rho formulas | `Papers.AnsariRockel2026XiRho.sourceBand_xi`; `Papers.AnsariRockel2026XiRho.sourceBand_rho`; `Papers.AnsariRockel2026XiRho.normalizedBand_coefficients` | verified | Exact piecewise coefficients for all b>0, with the independence endpoint b=0 in the normalized family. Evaluated from actual conditional distributions. |
@@ -67,11 +73,20 @@ standard transitive axiom allowlist for every declaration below.
 | Proposition 3: quantitative uniform estimates | `Papers.AnsariRockel2026XiRho.sourceBand_independence_error`; `Papers.AnsariRockel2026XiRho.sourceBand_comonotonic_error`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_independence_error`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_countermonotonic_error` | verified | CDF error is at most b near independence and 1/b near the corresponding Frechet endpoint, simultaneously at every point. |
 | Proposition 3: all uniform limiting cases | `Papers.AnsariRockel2026XiRho.sourceBand_tendstoUniformly_zero`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_tendstoUniformly_zero`; `Papers.AnsariRockel2026XiRho.sourceBand_tendstoUniformly_atTop`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_tendstoUniformly_atTop` | verified | Every positive parameter net tending to zero or infinity, with the negative branch represented by its positive magnitude; limits are independence, M, and W. |
 | Example 1: the displayed middle-quarter shuffle | `Papers.AnsariRockel2026XiRho.plodShuffle_cdf`; `Papers.AnsariRockel2026XiRho.plodShuffle_isPQD`; `Papers.AnsariRockel2026XiRho.plodShuffle_xi`; `Papers.AnsariRockel2026XiRho.plodShuffle_rho`; `Papers.AnsariRockel2026XiRho.plod_counterexample` | verified | Four actual increasing strips in order 0,2,1,3; PLOD at every point, xi=1 and rho=13/16. Thus PLOD does not imply xi<=rho. |
-| Journal/preprint correspondence | — | pending | Only arXiv v3 is mapped. |
+| Equation (19): complete corrected CDF | `Papers.AnsariRockel2026XiRho.sourceBand_cdf_positive_parts`; `Papers.AnsariRockel2026XiRho.sourceBand_cdf_piecewise` | verified | Every b>0 and every point of the closed square. The piecewise formula includes the boundary correction present in arXiv v3. |
+| Journal equation (19): formal counterexample | `Papers.AnsariRockel2026XiRho.journalBandExpression_negative`; `Papers.AnsariRockel2026XiRho.journalBandExpression_not_copula` | verified | The literal journal formula gives -1/8 at b=1, u=0, v=1/8, violating CDF nonnegativity. This verifies the discrepancy, not the false formula. |
+| Proposition 2 / equations (23)-(24): actual density | `Papers.AnsariRockel2026XiRho.sourceBand_toMeasure_density`; `Papers.AnsariRockel2026XiRho.sourceBand_absolutelyContinuous`; `Papers.AnsariRockel2026XiRho.sourceBand_toMeasure_densityOpen`; `Papers.AnsariRockel2026XiRho.sourceBandDensityOpen_formula` | verified | Every positive slope. An equality of measures proves the explicitly integrated density describes the actual copula, including the exact open-band convention. |
+| Proposition 2: density boundary convention | `Papers.AnsariRockel2026XiRho.sourceBandDensityOpen_ae_eq` | verified | Open and half-open density versions agree almost everywhere; each boundary fiber has measure zero. |
+| Proposition 2: exact support and convexity | `Papers.AnsariRockel2026XiRho.sourceBand_support_set`; `Papers.AnsariRockel2026XiRho.sourceBand_support_iff`; `Papers.AnsariRockel2026XiRho.sourceBand_support_convex` | verified | The topological support of the actual probability measure, embedded in the real square, is precisely the displayed closed convex band. |
+| Proposition 4(ii): total positivity | `Papers.AnsariRockel2026XiRho.sourceBandDensity_isMTP2`; `Papers.AnsariRockel2026XiRho.sourceBand_hasMTP2Density`; `Papers.AnsariRockel2026XiRho.sourceBand_isSI` | verified | Every positive slope has a nonnegative measurable MTP2 Lebesgue density and is SI. No density hypothesis is assumed. |
+| Proposition 4(i): ordering across zero | `Papers.AnsariRockel2026XiRho.sourceBand_independence_order`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_independence_order`; `Papers.AnsariRockel2026XiRho.sourceBand_cross_sign_order` | verified | The negative branch lies below independence and the positive branch above it. Together with same-sign ordering, this covers all signed parameter pairs. |
+| Proposition 5(iii): complete Kendall formula | `Papers.AnsariRockel2026XiRho.sourceBand_tau`; `Papers.AnsariRockel2026XiRho.normalizedBand_tau`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_tau`; `Papers.AnsariRockel2026XiRho.unitDiagonalBand_tau`; `Papers.AnsariRockel2026XiRho.sourceBand_rank_triple` | verified | Both parameter regimes and signs, b=1, and the normalized independence endpoint. Kendall tau is evaluated against the actual copula law, with tau=1/2 at b=1. |
+| Proposition 5: sampling representation used in integration | `Papers.AnsariRockel2026XiRho.sourceBand_sampling` | verified | The map (u,z) to (u, mean_b(b*u+z)) pushes two independent uniforms to exactly the source copula measure. |
+| Remark 2 / family asymmetry | `Papers.AnsariRockel2026XiRho.sourceBand_not_exchangeable`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_not_exchangeable` | verified | Every nonzero parameter on either branch. An asymmetric support point rules out exchangeability. |
+| Remark 3(c): negative conditional distribution | `Papers.AnsariRockel2026XiRho.negativeSourceBand_isSD`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_conditionalCDF` | verified | Every negative parameter, represented by positive magnitude; SD and the explicit clamped conditional CDF are checked. |
+| Remark 3(c): negative density | `Papers.AnsariRockel2026XiRho.negativeSourceBand_toMeasure_density`; `Papers.AnsariRockel2026XiRho.negativeSourceBand_absolutelyContinuous`; `Papers.AnsariRockel2026XiRho.negativeSourceBandDensity_formula` | verified | The reflected explicit open-band density gives the actual negative-branch probability measure. |
 
-The verified subset consists only of the explicitly mapped statements and
-proof steps. Pending rows are not implied by a successful build. Numerical
-experiments and plots are not counted as formal proofs.
+Completion covers the explicitly mapped corrected statements. Unused proof intermediates, the separate regression-model and measure-inducing interpretations, numerical experiments and plots are not claimed as formal proofs.
 
 ## Sharp gap and normalized diagonal-band optimization
 
@@ -107,5 +122,4 @@ Parameter ordering follows from equal means and ordered slopes of clamped
 sections. Radial symmetry follows from uniqueness of the support optimizer.
 Uniform convergence is quantitative: CDF errors are bounded by b at
 independence and by 1/b at M or W. These results do not assume a density.
-Absolute continuity, explicit density/support, MTP2, and Kendall tau remain
-separate proof obligations.
+The remaining family properties are now proved independently: an exact sampling law evaluates Kendall tau and identifies the topological support; integrating an explicit density gives equality with the source measure. Ordered band endpoints prove MTP2. The support also proves asymmetry for both parameter signs.
