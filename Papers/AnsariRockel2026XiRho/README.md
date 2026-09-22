@@ -6,11 +6,10 @@
 - Source version: [arXiv:2506.15897v3](https://arxiv.org/abs/2506.15897v3), 19 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** The full explicit xi-rho region (Theorem 1), SI/SD inequality (Theorem 2), and sharp global gap 2/5 (Corollary 1) are verified, with every boundary and equality case. The original diagonal-band family has checked piecewise intercepts, xi/rho coefficients, both explicit inverse branches, parameter ordering, radial symmetry, and all uniform limiting cases. Example 1's PLOD shuffle is checked with xi=1 and rho=13/16. Absolute continuity, density/support and MTP2, the Kendall tau formula, and journal-version comparison remain pending.
-See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
+**Verification status: complete for stated scope.** Theorems 1-3, Corollary 1, Propositions 1-5, and Example 1 are checked for the corrected arXiv v3 copula, including all boundary and equality cases. The family has an explicit density, convex topological support, MTP2, asymmetry, all three rank formulas, ordering and uniform limits. Journal equation (19) lacks a necessary boundary term; its literal formula is disproved in Lean. Lemma 8 uses equality almost everywhere. Alternative proofs replace unused optimization and rearrangement intermediates.
+See [COVERAGE.md](COVERAGE.md) for exact statements and source corrections.
 
-The coverage map uses the arXiv version above; correspondence with the journal
-version remains to be checked.
+The coverage map uses corrected arXiv v3. The journal equation (19) discrepancy is documented and has a formal counterexample.
 
 The permanent folder identifier is `AnsariRockel2026XiRho`.
 
@@ -34,6 +33,14 @@ The permanent folder identifier is `AnsariRockel2026XiRho`.
 - [BandOrder.lean](BandOrder.lean): pointwise parameter ordering.
 - [BandLimits.lean](BandLimits.lean): uniform limiting cases with quantitative error bounds.
 - [PlodExample.lean](PlodExample.lean): the four-strip PLOD counterexample.
+- [BandCDF.lean](BandCDF.lean): the corrected piecewise CDF and journal counterexample.
+- [BandKendall.lean](BandKendall.lean): Kendall tau for all parameters, derived from the actual sampling law.
+- [BandDensity.lean](BandDensity.lean): absolute continuity and MTP2.
+- [BandDensityOpen.lean](BandDensityOpen.lean): the exact open-band density convention.
+- [BandSupport.lean](BandSupport.lean): exact convex topological support.
+- [BandAsymmetry.lean](BandAsymmetry.lean): non-exchangeability for both signs.
+- [NegativeBandDensity.lean](NegativeBandDensity.lean): the reflected density and absolute continuity.
+- [SignedBand.lean](SignedBand.lean): cross-zero ordering and negative conditional distributions.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

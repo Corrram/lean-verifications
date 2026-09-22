@@ -1,3 +1,7 @@
+import Papers.AnsariRockel2026XiRho.BandCDF
+import Papers.AnsariRockel2026XiRho.BandAsymmetry
+import Papers.AnsariRockel2026XiRho.NegativeBandDensity
+import Papers.AnsariRockel2026XiRho.SignedBand
 import Papers.AnsariRockel2026XiRho.ExactRegion
 import Papers.AnsariRockel2026XiRho.BandOrder
 import Papers.AnsariRockel2026XiRho.BandLimits
@@ -12,5 +16,5 @@ import Papers.AnsariRockel2026XiRho.SelectedResults
 
 /-! # AnsariRockel2026XiRho: public results
 
-See `COVERAGE.md` for the exact verified subset and remaining obligations.
+See `COVERAGE.md` for the exact corrected scope and source-version conventions.
 -/
