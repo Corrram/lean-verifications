@@ -239,3 +239,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.checkerboard_xi_le_of_mtp2
 #assert_standard_axioms Papers.Rockel2025Approximation.checkerboard_xi_le_of_mtp2
+
+#print axioms Papers.Rockel2025Approximation.checkerboard_xi_stability
+#assert_standard_axioms Papers.Rockel2025Approximation.checkerboard_xi_stability
+
+#print axioms Papers.Rockel2025Approximation.checkerboard_xi_tendsto
+#assert_standard_axioms Papers.Rockel2025Approximation.checkerboard_xi_tendsto
+
+#print axioms Papers.Rockel2025Approximation.checkerboard_xi_tendsto_of_cdf_error
+#assert_standard_axioms Papers.Rockel2025Approximation.checkerboard_xi_tendsto_of_cdf_error
+
+#print axioms Papers.Rockel2025Approximation.checkerboardEstimator_tendsto_of_cdf_error
+#assert_standard_axioms Papers.Rockel2025Approximation.checkerboardEstimator_tendsto_of_cdf_error

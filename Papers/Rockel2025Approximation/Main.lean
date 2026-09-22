@@ -1,3 +1,4 @@
+import Papers.Rockel2025Approximation.PopulationConvergence
 import Papers.Rockel2025Approximation.CheckerboardMTP2
 import Papers.Rockel2025Approximation.ConvergenceSteps
 import Papers.Rockel2025Approximation.RectangularTails

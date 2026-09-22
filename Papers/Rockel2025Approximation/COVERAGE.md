@@ -1,6 +1,6 @@
 # Coverage
 
-**Status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. Theorem 4.2 is fully checked, including the MTP2-density implication and the actual checkerboard conditional integrals. The sampled-checkerboard almost-sure consistency and complexity claims in Theorem 4.5 remain pending.
+**Status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. Theorem 4.2 is fully checked, including the MTP2-density implication and the actual checkerboard conditional integrals. Population checkerboard xi convergence and a quantitative CDF-error consistency criterion are checked for arbitrary copulas. The sampled-checkerboard almost-sure consistency and complexity claims in Theorem 4.5 remain pending.
 
 ## Source and conventions
 
@@ -92,6 +92,10 @@ standard transitive axiom allowlist for every declaration below.
 | Theorem 4.2: MTP2 checkerboard xi bound | `Papers.Rockel2025Approximation.checkerboard_xi_le_of_mtp2` | verified | Every positive rectangular grid, the actual cell masses of the source copula, and its MTP2 density. Establishes xi(checkerboard)<=xi(C) without assuming conditional increase or the integral inequality. |
 | Theorem 4.2: stronger CI comparison | `Papers.Rockel2025Approximation.checkerboard_xi_le_of_isCI` | verified | All conditionally increasing copulas, including singular laws, with uniform predictor bins and arbitrary response partitions. Uses row-average Jensen, finite majorization and the actual checkerboard conditional CDF. |
 | Theorem 4.2: density-to-order implication | `Papers.Rockel2025Approximation.mtp2_isCI` | verified | Integration of the MTP2 density over ordered rectangles proves conditional increase in both directions. |
+
+| Theorem 4.5 proof step: population checkerboard convergence | `Papers.Rockel2025Approximation.checkerboard_xi_tendsto` | verified | Every copula, including singular laws, has xi convergence along its square uniform checkerboards. Proves L1 convergence of predictor-cell averages by continuous approximation, controls response interpolation, and applies dominated convergence. |
+| Theorem 4.5 proof step: CDF stability | `Papers.Rockel2025Approximation.checkerboard_xi_stability` | verified | Uniform CDF error epsilon changes checkerboard xi by at most 24*m*epsilon, for arbitrary predictor and response partitions with m predictor cells. |
+| Theorem 4.5 proof step: quantitative consistency criterion | `Papers.Rockel2025Approximation.checkerboard_xi_tendsto_of_cdf_error`; `Papers.Rockel2025Approximation.checkerboardEstimator_tendsto_of_cdf_error` | verified | If the grid order tends to infinity and order times an eventual uniform CDF error tends to zero, both re-binned xi and the corrected estimator converge. The almost-sure CDF rate for the rank-sample construction remains to be proved. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical

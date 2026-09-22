@@ -5,7 +5,7 @@
 - Source version: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. Theorem 4.2 is fully checked, including the MTP2-density implication and the actual checkerboard conditional integrals. The sampled-checkerboard almost-sure consistency and complexity claims in Theorem 4.5 remain pending.
+**Verification status: in progress.** Propositions 3.1-3.3 and Corollary 3.4 are fully checked: Bernstein formulas, permutation shuffles, all rectangular patchwork ranks and tails, and xi approximation bounds. Constructors and uniform CDF approximation are checked. The quadratic majorization step, estimator range and vanishing correction are checked. Theorem 4.2 is fully checked, including the MTP2-density implication and the actual checkerboard conditional integrals. Population checkerboard xi convergence and a quantitative CDF-error consistency criterion are checked for arbitrary copulas. The sampled-checkerboard almost-sure consistency and complexity claims in Theorem 4.5 remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `Rockel2025Approximation`.
@@ -23,6 +23,7 @@ The permanent folder identifier is `Rockel2025Approximation`.
 - [RectangularXi.lean](RectangularXi.lean): complete rectangular xi formulas and Corollary 3.4.
 - [RectangularTails.lean](RectangularTails.lean): all six rectangular tail limits in Proposition 3.3.
 - [CheckerboardMTP2.lean](CheckerboardMTP2.lean): full Theorem 4.2 and its stronger CI version.
+- [PopulationConvergence.lean](PopulationConvergence.lean): population convergence, CDF stability and an explicit consistency criterion.
 - [ConvergenceSteps.lean](ConvergenceSteps.lean): quadratic majorization, estimator range and vanishing correction.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
