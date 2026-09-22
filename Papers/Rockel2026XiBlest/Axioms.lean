@@ -161,3 +161,51 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.extremal_parameter_unique
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremal_parameter_unique
+
+#print axioms Papers.Rockel2026XiBlest.extremal_coefficients_hyperbolic
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_coefficients_hyperbolic
+
+#print axioms Papers.Rockel2026XiBlest.extremal_coefficients
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_coefficients
+
+#print axioms Papers.Rockel2026XiBlest.exact_region
+#assert_standard_axioms Papers.Rockel2026XiBlest.exact_region
+
+#print axioms Papers.Rockel2026XiBlest.upper_boundary_unique
+#assert_standard_axioms Papers.Rockel2026XiBlest.upper_boundary_unique
+
+#print axioms Papers.Rockel2026XiBlest.lower_boundary_unique
+#assert_standard_axioms Papers.Rockel2026XiBlest.lower_boundary_unique
+
+#print axioms Papers.Rockel2026XiBlest.formula_zero
+#assert_standard_axioms Papers.Rockel2026XiBlest.formula_zero
+
+#print axioms Papers.Rockel2026XiBlest.formula_zero_limits
+#assert_standard_axioms Papers.Rockel2026XiBlest.formula_zero_limits
+
+#print axioms Papers.Rockel2026XiBlest.formula_infinity_limits
+#assert_standard_axioms Papers.Rockel2026XiBlest.formula_infinity_limits
+
+#print axioms Papers.Rockel2026XiBlest.formula_hasDerivAt
+#assert_standard_axioms Papers.Rockel2026XiBlest.formula_hasDerivAt
+
+#print axioms Papers.Rockel2026XiBlest.formula_derivative_identity
+#assert_standard_axioms Papers.Rockel2026XiBlest.formula_derivative_identity
+
+#print axioms Papers.Rockel2026XiBlest.normalizationMean_properties
+#assert_standard_axioms Papers.Rockel2026XiBlest.normalizationMean_properties
+
+#print axioms Papers.Rockel2026XiBlest.extremalQ_continuous
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQ_continuous
+
+#print axioms Papers.Rockel2026XiBlest.extremal_kernel_continuous
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_kernel_continuous
+
+#print axioms Papers.Rockel2026XiBlest.xi_mixture_continuous
+#assert_standard_axioms Papers.Rockel2026XiBlest.xi_mixture_continuous
+
+#print axioms Papers.Rockel2026XiBlest.relaxed_distance_bound
+#assert_standard_axioms Papers.Rockel2026XiBlest.relaxed_distance_bound
+
+#print axioms Papers.Rockel2026XiBlest.relaxed_solution
+#assert_standard_axioms Papers.Rockel2026XiBlest.relaxed_solution

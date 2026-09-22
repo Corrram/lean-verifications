@@ -1,3 +1,5 @@
+import Papers.Rockel2026XiBlest.RelaxedOptimization
+import Papers.Rockel2026XiBlest.NormalizationContinuity
 import Papers.Rockel2026XiBlest.StrictParameters
 import Papers.Rockel2026XiBlest.PolynomialCoefficients
 import Papers.Rockel2026XiBlest.ParametricRegion

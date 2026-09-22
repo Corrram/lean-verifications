@@ -6,7 +6,7 @@
 - Source version: [arXiv:2603.09768v1](https://arxiv.org/abs/2603.09768v1), 10 March 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Blest normalization, range, mixtures, reflection symmetry, the xi=0 endpoint, entire xi=1 boundary, convexity of the full region, and attainment from any existing point up to xi=1 at fixed Blest value are checked. Closedness, compactness, and attainment of both Blest extrema at each xi and the least xi at each Blest value are now checked. The clamped extremal family, its unique normalization, and unique Blest maximality at each constructed positive-slope point are checked. Every intermediate xi value is reached, and the full region is characterized by the constructed family with unique upper boundary copulas. The coefficient formulas for 0<=b<=1 and the exact maximal gap 44/105, including all equality cases, are checked. Strict monotonicity and uniqueness of every interior parameter are also checked. Coefficient formulas for b>1 and journal comparison remain pending.
+**Verification status: in progress.** The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. The auxiliary section/substitution formulas in Lemmas 4.1-4.2 and comparison with the journal version remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The coverage map uses the arXiv version above; correspondence with the journal
@@ -22,6 +22,11 @@ The permanent folder identifier is `Rockel2026XiBlest`.
 - [RightBoundary.lean](RightBoundary.lean): the Blest-rho identity under radial symmetry and complete xi=1 boundary.
 - [RegionGeometry.lean](RegionGeometry.lean): convexity and attainment at fixed coefficient.
 - [ClosedRegion.lean](ClosedRegion.lean): closedness, compactness, and attainment of slice extrema.
+- [HyperbolicCoefficients.lean](HyperbolicCoefficients.lean): both explicit coefficient branches for actual copulas.
+- [ExactRegion.lean](ExactRegion.lean): the full explicit region and unique boundary copulas.
+- [Derivatives.lean](Derivatives.lean): the derivative identity across the joining point.
+- [RelaxedOptimization.lean](RelaxedOptimization.lean): the full measurable-kernel optimization problem.
+- [NormalizationContinuity.lean](NormalizationContinuity.lean): continuous normalization and mixture paths.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
