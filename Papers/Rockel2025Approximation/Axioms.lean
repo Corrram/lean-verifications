@@ -86,3 +86,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.patchwork_uniform_convergence
 #assert_standard_axioms Papers.Rockel2025Approximation.patchwork_uniform_convergence
+
+#print axioms Papers.Rockel2025Approximation.bernstein_rho_grid
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_rho_grid
+
+#print axioms Papers.Rockel2025Approximation.bernstein_rho_frobenius
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_rho_frobenius
+
+#print axioms Papers.Rockel2025Approximation.bernstein_basis_integral
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_basis_integral
+
+#print axioms Papers.Rockel2025Approximation.bernstein_lambda_entry
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_lambda_entry
+
+#print axioms Papers.Rockel2025Approximation.bernstein_upsilon_entry
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_upsilon_entry
+
+#print axioms Papers.Rockel2025Approximation.bernstein_conditional_cdf
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_conditional_cdf
+
+#print axioms Papers.Rockel2025Approximation.bernstein_xi_finite_sum
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_xi_finite_sum
+
+#print axioms Papers.Rockel2025Approximation.bernstein_lower_tail
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_lower_tail
+
+#print axioms Papers.Rockel2025Approximation.bernstein_upper_tail
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_upper_tail
