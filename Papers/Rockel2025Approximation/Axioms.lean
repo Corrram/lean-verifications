@@ -167,3 +167,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.patchwork_tau_correction
 #assert_standard_axioms Papers.Rockel2025Approximation.patchwork_tau_correction
+
+#print axioms Papers.Rockel2025Approximation.patchwork_conditionalCDF
+#assert_standard_axioms Papers.Rockel2025Approximation.patchwork_conditionalCDF
+
+#print axioms Papers.Rockel2025Approximation.patchwork_xi_formula
+#assert_standard_axioms Papers.Rockel2025Approximation.patchwork_xi_formula
+
+#print axioms Papers.Rockel2025Approximation.patchwork_xi_correction
+#assert_standard_axioms Papers.Rockel2025Approximation.patchwork_xi_correction
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkerboard_xi
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkerboard_xi
+
+#print axioms Papers.Rockel2025Approximation.uniform_patchwork_xi_correction
+#assert_standard_axioms Papers.Rockel2025Approximation.uniform_patchwork_xi_correction
+
+#print axioms Papers.Rockel2025Approximation.rectangular_perfect_xi
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_perfect_xi
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkMin_xi
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkMin_xi
+
+#print axioms Papers.Rockel2025Approximation.rectangular_checkW_xi
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_checkW_xi
+
+#print axioms Papers.Rockel2025Approximation.rectangular_xi_error_bound
+#assert_standard_axioms Papers.Rockel2025Approximation.rectangular_xi_error_bound
