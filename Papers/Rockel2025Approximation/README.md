@@ -5,7 +5,7 @@
 - Source version: [arXiv:2505.08045v2](https://arxiv.org/abs/2505.08045v2), 22 May 2026.
 - Bibliography: [references.bib](references.bib); metadata: [paper.toml](paper.toml).
 
-**Verification status: in progress.** Proposition 3.2 is fully checked for equal-width straight permutation shuffles. Bernstein rho, both zero tail limits and an explicit finite-sum xi formula are checked for all positive rectangular degrees. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. Bernstein tau, equivalence with the printed piecewise xi matrix entries, general patchwork rank formulas, xi approximation bounds and statistical convergence remain pending.
+**Verification status: in progress.** Proposition 3.2 is fully checked for equal-width straight permutation shuffles. Bernstein rho, the exact Kendall tau trace formula, both zero tail limits and an explicit finite-sum xi formula are checked for all positive rectangular degrees. Constructors and uniform CDF approximation are checked for Bernstein and rectangular patchwork copulas. Equivalence with the printed piecewise xi matrix entries, general patchwork rank formulas, xi approximation bounds and statistical convergence remain pending.
 See [COVERAGE.md](COVERAGE.md) for exact statements, restrictions and remaining work.
 
 The permanent folder identifier is `Rockel2025Approximation`.
@@ -17,6 +17,7 @@ The permanent folder identifier is `Rockel2025Approximation`.
 - [PermutationShuffles.lean](PermutationShuffles.lean): complete Proposition 3.2 for all positive orders and permutations.
 - [EqualGrids.lean](EqualGrids.lean): rho, tau, deterministic xi and tails for every equal diagonal grid size.
 - [BernsteinRank.lean](BernsteinRank.lean): rectangular Bernstein rho, finite-sum xi, conditional CDF, basis integrals and both tails.
+- [BernsteinKendall.lean](BernsteinKendall.lean): actual Bernstein density and the exact Kendall tau trace formula.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.

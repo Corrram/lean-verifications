@@ -113,3 +113,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2025Approximation.bernstein_upper_tail
 #assert_standard_axioms Papers.Rockel2025Approximation.bernstein_upper_tail
+
+#print axioms Papers.Rockel2025Approximation.bernstein_density_nonnegative
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_density_nonnegative
+
+#print axioms Papers.Rockel2025Approximation.bernstein_density
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_density
+
+#print axioms Papers.Rockel2025Approximation.bernstein_kernel_monotone
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_kernel_monotone
+
+#print axioms Papers.Rockel2025Approximation.bernstein_theta_integral
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_theta_integral
+
+#print axioms Papers.Rockel2025Approximation.bernstein_tau_finite_sum
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_tau_finite_sum
+
+#print axioms Papers.Rockel2025Approximation.bernstein_tau_trace
+#assert_standard_axioms Papers.Rockel2025Approximation.bernstein_tau_trace
