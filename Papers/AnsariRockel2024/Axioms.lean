@@ -448,6 +448,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_zero_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.frank_zero_cdf
+#print axioms Papers.AnsariRockel2024.nelsen2_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_tails
+
 #print axioms Papers.AnsariRockel2024.nelsen2_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_cdf_full
 #print axioms Papers.AnsariRockel2024.genestGhoudi_cdf_full

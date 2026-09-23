@@ -1,5 +1,6 @@
 import Papers.AnsariRockel2024.Definitions
 import Copula.TailDependence.ExtremeValue
+import Copula.TailDependence.Nelsen2
 import Copula.Order.FGMSchur
 import Copula.Order.Frechet
 
@@ -20,6 +21,12 @@ theorem gumbel_tails (θ : ℝ) (hθ : 1 ≤ θ) :
       (Copula.gumbel θ hθ).HasUpperTailDependence (2 - (2 : ℝ) ^ θ⁻¹) :=
   ⟨Copula.hasLowerTailDependence_gumbel θ hθ, Copula.hasUpperTailDependence_gumbel θ hθ⟩
 
+/-- Table 3: Nelsen 2 has the stated lower and upper tail coefficients. -/
+theorem nelsen2_tails (θ : ℝ) (hθ : 1 ≤ θ) :
+    (Copula.nelsen2 θ hθ).HasLowerTailDependence 0 ∧
+      (Copula.nelsen2 θ hθ).HasUpperTailDependence (2 - (2 : ℝ) ^ θ⁻¹) :=
+  ⟨Copula.hasLowerTailDependence_nelsen2 θ hθ,
+    Copula.hasUpperTailDependence_nelsen2 θ hθ⟩
 theorem marshallOlkin_tails (α β : I) :
     (Copula.marshallOlkin α β).HasLowerTailDependence (if α = 1 ∧ β = 1 then 1 else 0) ∧
       (Copula.marshallOlkin α β).HasUpperTailDependence (min (α : ℝ) (β : ℝ)) :=
