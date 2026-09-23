@@ -1,6 +1,7 @@
 import Papers.AnsariRockel2024.Definitions
 import Copula.TailDependence.ExtremeValue
 import Copula.TailDependence.Nelsen2
+import Copula.TailDependence.Nelsen8
 import Copula.TailDependence.Joe
 import Copula.Order.FGMSchur
 import Copula.Order.Frechet
@@ -28,6 +29,13 @@ theorem joe_tails (θ : ℝ) (hθ : 1 ≤ θ) :
       (Copula.joe θ hθ).HasUpperTailDependence (2 - (2 : ℝ) ^ θ⁻¹) :=
   ⟨Copula.hasLowerTailDependence_joe θ hθ,
     Copula.hasUpperTailDependence_joe θ hθ⟩
+
+/-- Table 3: Nelsen 8 has zero lower and upper tail coefficients. -/
+theorem nelsen8_tails (θ : ℝ) (hθ : 1 ≤ θ) :
+    (Copula.nelsen8 θ hθ).HasLowerTailDependence 0 ∧
+      (Copula.nelsen8 θ hθ).HasUpperTailDependence 0 :=
+  ⟨Copula.hasLowerTailDependence_nelsen8 θ hθ,
+    Copula.hasUpperTailDependence_nelsen8 θ hθ⟩
 
 /-- Table 3: Nelsen 2 has the stated lower and upper tail coefficients. -/
 theorem nelsen2_tails (θ : ℝ) (hθ : 1 ≤ θ) :
