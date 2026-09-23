@@ -189,6 +189,9 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.marshallOlkin_xi
 #assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_xi
 
+#print axioms Papers.AnsariRockel2024.marshallOlkin_tau
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_tau
+
 #print axioms Papers.AnsariRockel2024.marshallOlkin_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_cdf
 #print axioms Papers.AnsariRockel2024.marshallOlkin_ci

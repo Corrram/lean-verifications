@@ -2,6 +2,7 @@ import Verification.ExtremeValuePickands
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
 import Verification.MarshallOlkinXi
+import Verification.MarshallOlkinTau
 
 /-! # Extreme-value CDF order and explicit monotone families -/
 
@@ -87,5 +88,12 @@ theorem marshallOlkin_xi (α β : I) :
       2 * (α : ℝ) ^ 2 * (β : ℝ) /
         (3 * (α : ℝ) + (β : ℝ) - 2 * (α : ℝ) * (β : ℝ)) :=
   Verification.marshallOlkin_chatterjeeXi α β
+
+/-- Table 6: Kendall tau for the full two-parameter Marshall–Olkin family. -/
+theorem marshallOlkin_tau (α β : I) :
+    (Copula.marshallOlkin α β).kendallTau =
+      (α : ℝ) * (β : ℝ) /
+        ((α : ℝ) + (β : ℝ) - (α : ℝ) * (β : ℝ)) :=
+  Verification.marshallOlkin_kendallTau α β
 
 end Papers.AnsariRockel2024
