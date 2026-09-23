@@ -414,3 +414,10 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_printed_xi_identity_false_half
 #print axioms Papers.AnsariRockel2024.nelsen7_printed_xi_identity_false
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_printed_xi_identity_false
+
+#print axioms Papers.AnsariRockel2024.gumbel_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_cdf_full
+#print axioms Papers.AnsariRockel2024.tawn_cdf_positive
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_cdf_positive
+#print axioms Papers.AnsariRockel2024.tawn_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_cdf_full
