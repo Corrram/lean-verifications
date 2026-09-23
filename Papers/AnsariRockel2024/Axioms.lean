@@ -439,6 +439,15 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.joe_one
 #print axioms Papers.AnsariRockel2024.frank_positive_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.frank_positive_cdf_full
+
+#print axioms Papers.AnsariRockel2024.frank_negative_cdf_reflected
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_cdf_reflected
+
+#print axioms Papers.AnsariRockel2024.frank_negative_cdf_source
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_cdf_source
+
+#print axioms Papers.AnsariRockel2024.frank_zero_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.frank_zero_cdf
 #print axioms Papers.AnsariRockel2024.nelsen2_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_cdf_full
 #print axioms Papers.AnsariRockel2024.genestGhoudi_cdf_full
