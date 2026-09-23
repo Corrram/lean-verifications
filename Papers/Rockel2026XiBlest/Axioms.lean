@@ -365,3 +365,33 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed_copula
 #assert_standard_axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed_copula
+
+#print axioms Papers.Rockel2026XiBlest.copula_measureReal_conditional_set
+#assert_standard_axioms Papers.Rockel2026XiBlest.copula_measureReal_conditional_set
+
+#print axioms Papers.Rockel2026XiBlest.shuffle_setIntegral
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffle_setIntegral
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_conditionalCDF_ae
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_conditionalCDF_ae
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_xi
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_xi
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_below_cut
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_below_cut
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_above_cut
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_above_cut
+
+#print axioms Papers.Rockel2026XiBlest.si_cdf_cross
+#assert_standard_axioms Papers.Rockel2026XiBlest.si_cdf_cross
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_concordance
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_concordance
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_bound
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_bound
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_uniformCDF_continuous
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_uniformCDF_continuous

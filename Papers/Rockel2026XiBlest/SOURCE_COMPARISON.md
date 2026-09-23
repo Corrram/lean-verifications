@@ -30,8 +30,10 @@ and C_1=W, so arXiv v1 would imply M <=_co W. The Lean theorem
 at the midpoint. The endpoint-safe transformation in ShufflePath.lean differs from the printed
 map only at the null split point. Lean proves that it preserves the uniform
 marginal, yields an actual copula for every p, and has the two stated endpoint
-copulas. Xi invariance, corrected concordance monotonicity, and uniform path
-continuity remain pending; the verified exact-region proof uses a different
+copulas. It also proves xi invariance for arbitrary copulas, the corrected
+concordance direction for SI copulas, and uniform CDF continuity via the
+pointwise bound 2 abs(p-p'). Thus all four claims of the local revision's
+shuffling lemma are checked. The exact-region proof also has an independent
 construction.
 
 The local revision also explicitly states the almost-everywhere density
