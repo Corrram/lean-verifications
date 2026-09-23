@@ -176,6 +176,8 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.cds_schur_iff_reverse_orthant
 #assert_standard_axioms Papers.AnsariRockel2024.cds_schur_iff_reverse_orthant
 
+#print axioms Papers.AnsariRockel2024.extremeValue_schur_iff_pickands_of_ci
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_schur_iff_pickands_of_ci
 #print axioms Papers.AnsariRockel2024.extremeValue_pickands_order
 #assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_order
 #print axioms Papers.AnsariRockel2024.extremeValue_pickands_representation

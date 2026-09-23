@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2024.GeneralOrders
 import Verification.ExtremeValuePickands
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
@@ -17,6 +18,31 @@ theorem extremeValue_pickands_order (C D : Copula 2)
     (hC : C.IsExtremeValue) (hD : D.IsExtremeValue) :
     C.LowerOrthantLE D ↔ ∀ t : I, 0<t → t<1 → copulaPickands D t ≤ copulaPickands C t :=
   extremeValue_lowerOrthant_iff_pickands_interior C D hC hD
+
+private theorem lowerOrthantLE_transpose {C D : Copula 2}
+    (h : C.LowerOrthantLE D) : C.transpose.LowerOrthantLE D.transpose := by
+  intro z
+  have hz : z = ![z 0, z 1] := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  simpa only [Copula.cdf_transpose] using h ![z 1, z 0]
+
+/-- The Schur part of Theorem 3.4 under the independently required CI premise. -/
+theorem extremeValue_schur_iff_pickands_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI) :
+    C.SchurBothLE D ↔
+      ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t := by
+  rw [← extremeValue_pickands_order C D hC hD]
+  constructor
+  · intro h
+    exact (cis_schur_iff_orthant C D hCI.1 hDI.1).mp h.1
+  · intro h
+    constructor
+    · exact (cis_schur_iff_orthant C D hCI.1 hDI.1).mpr h
+    · exact (cis_schur_iff_orthant C.transpose D.transpose hCI.2 hDI.2).mpr
+        (lowerOrthantLE_transpose h)
 
 /-- The logarithmic-ray representation identifies the canonical function with
  the Pickands function in equation (3), including the axes. -/
