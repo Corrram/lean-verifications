@@ -39,3 +39,13 @@ intermediate equality throughout the closed parameter interval. The final Table 
 verified independently from the actual conditional CDF. This comparison
 is pinned to arXiv v3; it does not assert that the journal version contains
 the same intermediate error.
+
+## arXiv v3 AMH lower-tail endpoint
+
+[Table 3 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3)
+prints lower-tail coefficient zero for the Ali–Mikhail–Haq family without
+excluding θ=1. The Lean theorems `amh_tails_lt_one` and `amh_tails_one`
+prove the pair (0,0) for −1≤θ<1 and (1/2,0) at θ=1. The endpoint copula
+is Clayton(1), so the printed zero at that endpoint is false. This finding
+is pinned to arXiv v3; the corresponding journal table cell has not been
+compared.
