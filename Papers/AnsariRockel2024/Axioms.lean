@@ -471,6 +471,20 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.nelsen8_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen8_tails
 
+#print axioms Papers.AnsariRockel2024.nelsen2_not_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_not_pqd
+#print axioms Papers.AnsariRockel2024.nelsen2_not_ci
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_not_ci
+#print axioms Papers.AnsariRockel2024.nelsen2_not_cd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_not_cd
+#print axioms Papers.AnsariRockel2024.nelsen2_cd_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_cd_one
+#print axioms Papers.AnsariRockel2024.nelsen2_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_cd_iff
+#print axioms Papers.AnsariRockel2024.nelsen2_not_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_not_tp2_cdf
+#print axioms Papers.AnsariRockel2024.nelsen2_not_mtp2_density
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_not_mtp2_density
 #print axioms Papers.AnsariRockel2024.nelsen2_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_tails
 
