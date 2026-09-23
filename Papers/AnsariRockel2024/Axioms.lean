@@ -5,6 +5,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.clayton_positive_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_cdf
+#print axioms Papers.AnsariRockel2024.clayton_cdf_positive_eq_analytic
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_cdf_positive_eq_analytic
+
+#print axioms Papers.AnsariRockel2024.clayton_cdf_formula_hasDerivAt_first
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_cdf_formula_hasDerivAt_first
+
+#print axioms Papers.AnsariRockel2024.clayton_cdf_formula_hasDerivAt_second
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_cdf_formula_hasDerivAt_second
+
+#print axioms Papers.AnsariRockel2024.clayton_mixed_derivative_eq_densityFormula
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_mixed_derivative_eq_densityFormula
+
 #print axioms Papers.AnsariRockel2024.clayton_negative_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_cdf
 #print axioms Papers.AnsariRockel2024.clayton_positive_zero_axes
