@@ -443,6 +443,9 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.frank_negative_cdf_reflected
 #assert_standard_axioms Papers.AnsariRockel2024.frank_negative_cdf_reflected
 
+#print axioms Papers.AnsariRockel2024.frank_negative_cdf_source
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_cdf_source
+
 #print axioms Papers.AnsariRockel2024.frank_zero_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.frank_zero_cdf
 #print axioms Papers.AnsariRockel2024.nelsen2_cdf_full

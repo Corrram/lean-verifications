@@ -23,7 +23,7 @@ theorem joe_one : Copula.joe 1 le_rfl = Copula.independence 2 := Copula.joe_one
 
 
 /-- Table 1's Frank CDF for the positive parameter branch, including grounded zero axes.
-The printed negative logarithmic rewriting remains separate; its reflected construction and the zero case are proved below. -/
+The negative branch and zero case are proved below. -/
 theorem frank_positive_cdf_full (θ : ℝ) (hθ : 0 < θ) (u v : I) :
     (Copula.frank θ hθ).cdf ![u, v] =
       if u = 0 ∨ v = 0 then 0 else
@@ -32,8 +32,7 @@ theorem frank_positive_cdf_full (θ : ℝ) (hθ : 0 < θ) (u v : I) :
   Copula.frank_cdf_full θ hθ u v
 
 /-- The negative Frank branch as an exact reflected CDF on the closed square.
-The algebraic equality with Table 1's alternative logarithmic expression is
-not claimed by this theorem. -/
+The printed logarithmic form is proved separately below. -/
 theorem frank_negative_cdf_reflected (θ : ℝ) (hθ : θ < 0) (u v : I) :
     (Copula.frankNegative θ hθ).cdf ![u, v] =
       (u : ℝ) - (if u = 0 ∨ unitInterval.symm v = 0 then 0 else
@@ -42,6 +41,12 @@ theorem frank_negative_cdf_reflected (θ : ℝ) (hθ : θ < 0) (u v : I) :
           (1 - Real.exp θ)) / (-θ)) :=
   Copula.frankNegative_cdf_full θ hθ u v
 
+/-- Table 1's printed negative-parameter Frank CDF, including every boundary point. -/
+theorem frank_negative_cdf_source (θ : ℝ) (hθ : θ < 0) (u v : I) :
+    (Copula.frankNegative θ hθ).cdf ![u, v] =
+      -Real.log (1 + (Real.exp (-θ * (u : ℝ)) - 1) *
+        (Real.exp (-θ * (v : ℝ)) - 1) / (Real.exp (-θ) - 1)) / θ :=
+  Copula.frankNegative_cdf_source θ hθ u v
 /-- Table 1's Frank family at its zero parameter is independence. -/
 theorem frank_zero_cdf (u v : I) :
     (Copula.independence 2).cdf ![u, v] = (u : ℝ) * (v : ℝ) := by
