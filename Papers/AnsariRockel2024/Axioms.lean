@@ -511,6 +511,9 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen8_cdf_full
 #print axioms Papers.AnsariRockel2024.genestGhoudi_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_cdf_full
+
+#print axioms Papers.AnsariRockel2024.genestGhoudi_tails
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_tails
 #print axioms Papers.AnsariRockel2024.nelsen12_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_cdf_full
 
