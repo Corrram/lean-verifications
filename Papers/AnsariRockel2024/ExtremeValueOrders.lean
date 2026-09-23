@@ -1,5 +1,6 @@
 import Papers.AnsariRockel2024.GeneralOrders
 import Verification.ExtremeValuePickands
+import Copula.ExtremeValue.Diagonal
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
 import Verification.MarshallOlkinXi
@@ -86,6 +87,18 @@ theorem extremeValue_pickands_xi_mono_of_ci (C D : Copula 2)
     ((extremeValue_schur_first_iff_pickands_of_ci C D hC hD hCI hDI).mpr h),
     schur_xi_mono C.transpose D.transpose
       ((extremeValue_schur_second_iff_pickands_of_ci C D hC hD hCI hDI).mpr h)⟩
+
+/-- Remark 3.5: both tail limits are ordered for max-stable copulas. -/
+theorem extremeValue_pickands_tail_mono (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (h : ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t) :
+    (if C.extremalCoefficient = 1 then (1 : ℝ) else 0) ≤
+      (if D.extremalCoefficient = 1 then (1 : ℝ) else 0) ∧
+    2 - C.extremalCoefficient ≤ 2 - D.extremalCoefficient := by
+  have ho := (extremeValue_pickands_order C D hC hD).mpr h
+  exact ⟨ho.lowerTailDependence_le hC.hasPowerDiagonal.hasLowerTailDependence
+    hD.hasPowerDiagonal.hasLowerTailDependence,
+    ho.upperTailDependence_le hC.hasUpperTailDependence hD.hasUpperTailDependence⟩
 
 /-- The logarithmic-ray representation identifies the canonical function with
  the Pickands function in equation (3), including the axes. -/
