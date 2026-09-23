@@ -1,5 +1,6 @@
 import Papers.AnsariRockel2024.Definitions
 import Copula.Dependence.ConditionalMonotonicity
+import Copula.Dependence.AMH
 import Copula.Order.FGM
 import Copula.TailDependence.Examples
 
@@ -7,6 +8,16 @@ open ProbabilityTheory
 open scoped unitInterval
 
 namespace Papers.AnsariRockel2024
+
+/-- Table 3: AMH is positively quadrant dependent exactly for nonnegative θ. -/
+theorem amh_pqd_iff (θ : ℝ) (hmin : -1 ≤ θ) (hmax : θ ≤ 1) :
+    (Copula.amh θ hmin hmax).IsPQD ↔ 0 ≤ θ :=
+  Copula.isPQD_amh_iff θ hmin hmax
+
+/-- Table 3: AMH is negatively quadrant dependent exactly for nonpositive θ. -/
+theorem amh_nqd_iff (θ : ℝ) (hmin : -1 ≤ θ) (hmax : θ ≤ 1) :
+    (Copula.amh θ hmin hmax).IsNQD ↔ θ ≤ 0 :=
+  Copula.isNQD_amh_iff θ hmin hmax
 
 /-- arXiv:2310.17307v3, Table 5 / Appendix A.4.1: FGM CI. See COVERAGE.md for conventions. -/
 theorem fgm_ci (θ : ℝ) (hθ : |θ| ≤ 1) :
