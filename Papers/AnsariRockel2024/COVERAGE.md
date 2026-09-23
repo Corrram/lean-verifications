@@ -106,7 +106,7 @@ and checked against the standard axiom allowlist in [Axioms.lean](Axioms.lean).
 | Table 5: Cuadras-Auge density TP2 and absolute continuity | `Papers.AnsariRockel2024.cuadrasAuge_density_tp2`; `Papers.AnsariRockel2024.cuadrasAuge_absolutelyContinuous` | verified | Both hold exactly at delta=0. Every positive parameter charges the diagonal, including the delta=1 endpoint. |
 | Remaining family constructors and table entries | — | pending | Unlisted cells are not covered by the results above. |
 | General dependence/order equivalences and their applications | — | pending | Unlisted density properties and rearrangement-based Schur order need separate correspondence checks. |
-| Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
+| Journal/preprint correspondence | — | pending | Selected named results and four printed discrepancies are compared with the open-access published PDF in SOURCE_COMPARISON.md. The remaining family cells and full version correspondence are not yet checked. |
 
 Proof sources: [Definitions.lean](Definitions.lean),
 [Association.lean](Association.lean), and [Dependence.lean](Dependence.lean).
