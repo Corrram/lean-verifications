@@ -288,4 +288,39 @@ theorem clayton_density_formula_positive_rectangle_eq_measure
     clayton_cdf_positive_eq_analytic θ hθ b c (ha.trans_le hab) hc,
     clayton_cdf_positive_eq_analytic θ hθ a c ha hc]
 
+/-- The candidate's mass on the positive square with lower cutoff `r`
+reaches the Clayton copula's corresponding square mass. -/
+theorem clayton_density_formula_cutoff_square
+    (θ : ℝ) (hθ : 0 < θ) (r : I) (hr : 0 < (r : ℝ)) :
+    (∫ x in (r : ℝ)..1, ∫ y in (r : ℝ)..1,
+      (1 + θ) * x ^ (-θ - 1) * y ^ (-θ - 1) *
+        (claytonBaseReal θ x y) ^ (-2 - 1 / θ)) =
+      1 - 2 * (r : ℝ) + (Copula.clayton 2 θ hθ).cdf ![r, r] := by
+  have h := clayton_density_formula_positive_rectangle_eq_measure θ hθ
+    r 1 r 1 hr (unitInterval.le_one _) hr (unitInterval.le_one _)
+  rw [(Copula.clayton 2 θ hθ).measureReal_rectangle_two
+    ![r, r] ![1, 1] (by simp [Pi.le_def, Fin.forall_fin_two, unitInterval.le_one'])] at h
+  simp only [Matrix.cons_val_zero, Matrix.cons_val_one,
+    Copula.cdf_two_one_left, Copula.cdf_two_one_right] at h
+  norm_num at h
+  convert h using 1 <;> ring_nf
+
+/-- The positive cutoff-square mass lies between `1 - 2r` and `1 - r`.
+This quantitative estimate is a boundary-control step for the density. -/
+theorem clayton_density_formula_cutoff_square_bounds
+    (θ : ℝ) (hθ : 0 < θ) (r : I) (hr : 0 < (r : ℝ)) :
+    1 - 2 * (r : ℝ) ≤
+      (∫ x in (r : ℝ)..1, ∫ y in (r : ℝ)..1,
+        (1 + θ) * x ^ (-θ - 1) * y ^ (-θ - 1) *
+          (claytonBaseReal θ x y) ^ (-2 - 1 / θ)) ∧
+      (∫ x in (r : ℝ)..1, ∫ y in (r : ℝ)..1,
+        (1 + θ) * x ^ (-θ - 1) * y ^ (-θ - 1) *
+          (claytonBaseReal θ x y) ^ (-2 - 1 / θ)) ≤ 1 - (r : ℝ) := by
+  rw [clayton_density_formula_cutoff_square θ hθ r hr]
+  constructor
+  · exact le_add_of_nonneg_right ((Copula.clayton 2 θ hθ).cdf_nonneg ![r, r])
+  · have h := (Copula.clayton 2 θ hθ).cdf_le_coord ![r, r] 0
+    simp only [Matrix.cons_val_zero] at h
+    linarith
+
 end Papers.AnsariRockel2024

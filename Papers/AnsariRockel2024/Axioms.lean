@@ -29,6 +29,12 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.clayton_density_formula_positive_rectangle_eq_measure
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_density_formula_positive_rectangle_eq_measure
 
+#print axioms Papers.AnsariRockel2024.clayton_density_formula_cutoff_square
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_density_formula_cutoff_square
+
+#print axioms Papers.AnsariRockel2024.clayton_density_formula_cutoff_square_bounds
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_density_formula_cutoff_square_bounds
+
 #print axioms Papers.AnsariRockel2024.clayton_negative_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_cdf
 #print axioms Papers.AnsariRockel2024.clayton_positive_zero_axes
