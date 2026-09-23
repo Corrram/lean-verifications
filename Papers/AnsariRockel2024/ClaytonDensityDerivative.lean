@@ -344,4 +344,68 @@ theorem clayton_density_formula_cutoff_square_tendsto_one
   · exact fun n => (clayton_density_formula_cutoff_square_bounds θ hθ (r n) (hr n)).1
   · exact fun n => (clayton_density_formula_cutoff_square_bounds θ hθ (r n) (hr n)).2
 
+/-- A positive rectangle's density integral approximates the upper-corner
+CDF to within the sum of its two lower-edge cutoffs. -/
+theorem clayton_density_formula_positive_rectangle_cdf_bounds
+    (θ : ℝ) (hθ : 0 < θ) (a b c d : I)
+    (ha : 0 < (a : ℝ)) (hab : a ≤ b)
+    (hc : 0 < (c : ℝ)) (hcd : c ≤ d) :
+    (Copula.clayton 2 θ hθ).cdf ![b, d] - (a : ℝ) - (c : ℝ) ≤
+      (∫ x in (a : ℝ)..(b : ℝ), ∫ y in (c : ℝ)..(d : ℝ),
+        (1 + θ) * x ^ (-θ - 1) * y ^ (-θ - 1) *
+          (claytonBaseReal θ x y) ^ (-2 - 1 / θ)) ∧
+      (∫ x in (a : ℝ)..(b : ℝ), ∫ y in (c : ℝ)..(d : ℝ),
+        (1 + θ) * x ^ (-θ - 1) * y ^ (-θ - 1) *
+          (claytonBaseReal θ x y) ^ (-2 - 1 / θ)) ≤
+      (Copula.clayton 2 θ hθ).cdf ![b, d] := by
+  let C := Copula.clayton 2 θ hθ
+  have hrect := clayton_density_formula_positive_rectangle_eq_measure θ hθ
+    a b c d ha hab hc hcd
+  have hcorners := C.measureReal_rectangle_two ![a, c] ![b, d]
+    (by simpa [Pi.le_def, Fin.forall_fin_two] using And.intro hab hcd)
+  have ha' : C.cdf ![a, d] ≤ (a : ℝ) := by
+    simpa using C.cdf_le_coord ![a, d] 0
+  have hc' : C.cdf ![b, c] ≤ (c : ℝ) := by
+    simpa using C.cdf_le_coord ![b, c] 1
+  have hn : 0 ≤ C.cdf ![a, c] := C.cdf_nonneg _
+  have hupper : C.toMeasure.real
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))) ≤
+      C.cdf ![b, d] := by
+    change C.toMeasure.real _ ≤ C.toMeasure.real (Set.Iic ![b, d])
+    apply measureReal_mono (h₂ := measure_ne_top C.toMeasure _)
+    intro x hx
+    simp only [Set.mem_pi, Set.mem_univ, forall_const, Set.mem_Ioc,
+      Set.mem_Iic, Pi.le_def] at hx ⊢
+    exact fun i => (hx i).2
+  constructor
+  · rw [hrect, hcorners]
+    simp only [Matrix.cons_val_zero, Matrix.cons_val_one]
+    dsimp [C] at ha' hc' hn
+    linarith
+  · exact hrect.trans_le hupper
+
+/-- Integrating the candidate density from a vanishing positive cutoff
+to any fixed positive upper corner converges to that Clayton CDF value. -/
+theorem clayton_density_formula_cutoff_rectangle_tendsto_cdf
+    (θ : ℝ) (hθ : 0 < θ) (b d : I) (r : ℕ → I)
+    (hr : ∀ n, 0 < (r n : ℝ) ∧ r n ≤ b ∧ r n ≤ d)
+    (h0 : Filter.Tendsto (fun n => (r n : ℝ)) Filter.atTop (nhds 0)) :
+    Filter.Tendsto (fun n =>
+      ∫ x in (r n : ℝ)..(b : ℝ), ∫ y in (r n : ℝ)..(d : ℝ),
+        (1 + θ) * x ^ (-θ - 1) * y ^ (-θ - 1) *
+          (claytonBaseReal θ x y) ^ (-2 - 1 / θ))
+      Filter.atTop (nhds ((Copula.clayton 2 θ hθ).cdf ![b, d])) := by
+  have hlow : Filter.Tendsto
+      (fun n => (Copula.clayton 2 θ hθ).cdf ![b, d] -
+        (r n : ℝ) - (r n : ℝ)) Filter.atTop
+      (nhds ((Copula.clayton 2 θ hθ).cdf ![b, d])) := by
+    convert (tendsto_const_nhds.sub h0).sub h0 using 1; norm_num
+  apply tendsto_of_tendsto_of_tendsto_of_le_of_le hlow tendsto_const_nhds
+  · intro n
+    exact (clayton_density_formula_positive_rectangle_cdf_bounds θ hθ
+      (r n) b (r n) d (hr n).1 (hr n).2.1 (hr n).1 (hr n).2.2).1
+  · intro n
+    exact (clayton_density_formula_positive_rectangle_cdf_bounds θ hθ
+      (r n) b (r n) d (hr n).1 (hr n).2.1 (hr n).1 (hr n).2.2).2
+
 end Papers.AnsariRockel2024
