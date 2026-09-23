@@ -418,6 +418,9 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.gumbel_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.gumbel_cdf_full
 
+#print axioms Papers.AnsariRockel2024.gumbel_one
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_one
+
 #print axioms Papers.AnsariRockel2024.gumbel_tendsto_atTop
 #assert_standard_axioms Papers.AnsariRockel2024.gumbel_tendsto_atTop
 

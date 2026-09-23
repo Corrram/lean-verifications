@@ -17,6 +17,10 @@ theorem gumbel_cdf_full (θ : ℝ) (hθ : 1 ≤ θ) (u v : I) :
         Real.exp (-(((-Real.log u) ^ θ + (-Real.log v) ^ θ) ^ θ⁻¹)) := by
   exact Copula.gumbel_cdf_full θ hθ u v
 
+/-- Table 2's independence endpoint for Gumbel–Hougaard. -/
+theorem gumbel_one : Copula.gumbel 1 le_rfl = Copula.independence 2 :=
+  Copula.gumbel_one
+
 /-- Table 1's Tawn CDF at positive coordinates, with all finite shape and
 weight endpoints included. -/
 theorem tawn_cdf_positive (θ : ℝ) (hθ : 1 ≤ θ) (α β u v : I)
