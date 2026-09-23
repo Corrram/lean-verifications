@@ -1,6 +1,7 @@
 import Verification.ExtremeValuePickands
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
+import Verification.MarshallOlkinXi
 
 /-! # Extreme-value CDF order and explicit monotone families -/
 
@@ -73,4 +74,18 @@ theorem marshallOlkin_rho (α β : I) :
       3 * (α : ℝ) * (β : ℝ) /
         (2 * (α : ℝ) + 2 * (β : ℝ) - (α : ℝ) * (β : ℝ)) :=
   Verification.marshallOlkin_spearmanRho α β
+
+/-- Appendix A.5: the two-parameter conditional CDF, away from the shock curve. -/
+theorem marshallOlkin_conditionalCDF (α β v : I) (ha : 0 < (α : ℝ)) :
+    (fun u => (Copula.marshallOlkin α β).conditionalCDF u v) =ᵐ[volume]
+      fun u => marshallOlkinConditional α β u v :=
+  conditionalCDF_marshallOlkin α β v ha
+
+/-- Table 6: Chatterjee xi for all Marshall–Olkin parameters, including singular laws. -/
+theorem marshallOlkin_xi (α β : I) :
+    (Copula.marshallOlkin α β).chatterjeeXi =
+      2 * (α : ℝ) ^ 2 * (β : ℝ) /
+        (3 * (α : ℝ) + (β : ℝ) - 2 * (α : ℝ) * (β : ℝ)) :=
+  Verification.marshallOlkin_chatterjeeXi α β
+
 end Papers.AnsariRockel2024
