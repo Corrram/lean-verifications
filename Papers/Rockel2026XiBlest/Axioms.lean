@@ -246,6 +246,12 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_concordance
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_concordance
 
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_reflection_coefficients
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_reflection_coefficients
+
+#print axioms Papers.Rockel2026XiBlest.not_comonotonic_concordanceLE_countermonotonic
+#assert_standard_axioms Papers.Rockel2026XiBlest.not_comonotonic_concordanceLE_countermonotonic
+
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_isSD
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_isSD
 
@@ -260,6 +266,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
+
+#print axioms Papers.Rockel2026XiBlest.extremal_standardized_density
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_standardized_density
 
 #print axioms Papers.Rockel2026XiBlest.extremal_hasMTP2Density
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremal_hasMTP2Density
