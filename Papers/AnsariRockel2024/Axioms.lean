@@ -603,3 +603,8 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.amh_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.amh_cdf_full
+
+#print axioms Papers.AnsariRockel2024.amh_pqd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.amh_pqd_iff
+#print axioms Papers.AnsariRockel2024.amh_nqd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.amh_nqd_iff
