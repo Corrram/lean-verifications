@@ -28,7 +28,10 @@ The resubmission's Remark 2.6(d) uses the corrected matrix
 proved in LTDExample.lean. The formal disproof in the arXiv coverage concerns
 the older printed matrix only.
 
-The symmetric ordinal-sum classification remains open in this supplement.
+Finite nested ordinal sums of independence and comonotonic blocks are proved
+symmetric with xi=footrule, and interior binary sums of SI components satisfy
+an equality iff criterion. The general countable ordinal-sum classification
+remains open in this supplement.
 The source's explicit parameter path continuity and limiting parameter endpoint
 are checked in ParameterPath.lean. Final publisher correspondence remains pending;
 this local comparison does not mark the published article complete.

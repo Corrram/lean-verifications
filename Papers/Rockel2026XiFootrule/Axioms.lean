@@ -54,6 +54,14 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiFootrule.exact_si_xi_footrule_region
 #assert_standard_axioms Papers.Rockel2026XiFootrule.exact_si_xi_footrule_region
 
+#print axioms Papers.Rockel2026XiFootrule.ordinalSum_xi_eq_footrule_of_components
+#assert_standard_axioms Papers.Rockel2026XiFootrule.ordinalSum_xi_eq_footrule_of_components
+
+#print axioms Papers.Rockel2026XiFootrule.ordinalSum_xi_eq_footrule_iff
+#assert_standard_axioms Papers.Rockel2026XiFootrule.ordinalSum_xi_eq_footrule_iff
+
+#print axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_rank_equality
+#assert_standard_axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_rank_equality
 #print axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 #assert_standard_axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 
