@@ -3,6 +3,27 @@ import Verification.AxiomAudit
 
 /-! Transitive axiom reports and enforced standard-foundation checks. -/
 
+#print axioms Papers.AnsariRockel2024.clayton_positive_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_cdf
+#print axioms Papers.AnsariRockel2024.clayton_negative_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_cdf
+#print axioms Papers.AnsariRockel2024.clayton_positive_zero_axes
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_zero_axes
+#print axioms Papers.AnsariRockel2024.clayton_negative_zero_axes
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_zero_axes
+#print axioms Papers.AnsariRockel2024.clayton_one_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_one_cdf
+
+#print axioms Papers.AnsariRockel2024.clayton_positive_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_pqd
+
+#print axioms Papers.AnsariRockel2024.clayton_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_one
+#print axioms Papers.AnsariRockel2024.clayton_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_tendsto_zero
+#print axioms Papers.AnsariRockel2024.clayton_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_tendsto_atTop
+
 #print axioms Papers.AnsariRockel2024.classical_representation
 #assert_standard_axioms Papers.AnsariRockel2024.classical_representation
 
