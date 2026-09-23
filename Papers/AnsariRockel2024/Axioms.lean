@@ -544,6 +544,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen14_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_tails
+
+#print axioms Papers.AnsariRockel2024.nelsen14_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.genestGhoudi_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_tendsto_atTop
 #print axioms Papers.AnsariRockel2024.nelsen2_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_one
 #print axioms Papers.AnsariRockel2024.nelsen8_one
