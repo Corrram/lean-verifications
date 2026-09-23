@@ -12,7 +12,7 @@ See [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md) for the inspected publisher sta
 See [COVERAGE.md](COVERAGE.md) for exact statements and remaining work.
 
 The pinned `copula` library already contains relevant results and a detailed
-[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/765dfec9bdd19c41414738718e818f25e2fe825f/docs/ansari-rockel.md).
+[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/603c4c2b541ce4afc032a581b0622cef5492d60a/docs/ansari-rockel.md).
 That index is a starting point for matching definitions, hypotheses, and
 individual table entries. It is not a claim of complete formalization of the
 article. General library results remain upstream; this folder records
@@ -21,7 +21,7 @@ their precise correspondence to the paper and any article-specific proofs.
 ## Contents
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
-- [ClaytonResults.lean](ClaytonResults.lean): both CDF branches, special/limiting cases, exact signed CI/CD classification, quadrant dependence, and both tail coefficients.
+- [ClaytonResults.lean](ClaytonResults.lean): both CDF branches, special/limiting cases, exact signed CI/CD classification, quadrant dependence, CDF-level TP2 classification, and both tail coefficients.
 - [FamilyExtensions.lean](FamilyExtensions.lean): FGM density and Nelsen 7 dependence, order and tail results.
 - [TailsAndOrders.lean](TailsAndOrders.lean): four extreme-value tail pairs, exact FGM Schur order and corrected Frechet order.
 - [FrechetMardiaDependence.lean](FrechetMardiaDependence.lean): exact CI/CD and density classifications, source corrections and Mardia incomparability.

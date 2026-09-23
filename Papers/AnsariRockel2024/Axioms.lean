@@ -295,3 +295,10 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_density_tp2
 #print axioms Papers.AnsariRockel2024.cuadrasAuge_absolutelyContinuous
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_absolutelyContinuous
+
+#print axioms Papers.AnsariRockel2024.clayton_positive_cdf_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_cdf_tp2
+#print axioms Papers.AnsariRockel2024.clayton_zero_cdf_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_zero_cdf_tp2
+#print axioms Papers.AnsariRockel2024.clayton_negative_not_cdf_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_not_cdf_tp2

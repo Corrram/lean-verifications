@@ -4,6 +4,7 @@ import Copula.Families.Clayton.Limits
 import Copula.Dependence.Clayton
 import Copula.Dependence.ClaytonNegative
 import Copula.Dependence.ClaytonClassification
+import Copula.Dependence.ClaytonTotalPositivity
 import Copula.TailDependence.Clayton
 
 /-! # Clayton family: full bivariate CDF branches and limiting cases -/
@@ -103,6 +104,20 @@ theorem clayton_negative_not_ci (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
 theorem clayton_negative_nqd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
     (Copula.claytonNegative θ hθ hn).IsNQD :=
   Copula.isNQD_clayton_negative θ hθ hn
+
+/-- Additional CDF-level result: every positive Clayton CDF is TP2. This is not density TP2. -/
+theorem clayton_positive_cdf_tp2 (θ : ℝ) (hθ : 0 < θ) :
+    (Copula.clayton 2 θ hθ).IsTP2CDF :=
+  Copula.isTP2CDF_clayton_positive θ hθ
+
+/-- At the zero parameter, independence has a TP2 CDF. -/
+theorem clayton_zero_cdf_tp2 : (Copula.independence 2).IsTP2CDF :=
+  Copula.isTP2CDF_independence
+
+/-- Additional CDF-level result: every admissible negative Clayton CDF fails TP2. -/
+theorem clayton_negative_not_cdf_tp2 (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
+    ¬(Copula.claytonNegative θ hθ hn).IsTP2CDF :=
+  Copula.not_isTP2CDF_clayton_negative θ hθ hn
 
 /-- Table 3: positive Clayton has exact lower-tail coefficient `2 ^ (-1 / θ)`. -/
 theorem clayton_positive_lower_tail (θ : ℝ) (hθ : 0 < θ) :
