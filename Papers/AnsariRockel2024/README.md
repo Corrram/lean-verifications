@@ -28,6 +28,7 @@ their precise correspondence to the paper and any article-specific proofs.
 - [NamedArchimedeanCDF.lean](NamedArchimedeanCDF.lean): Joe, both signed Frank constructors and the zero case, Nelsen 2, Nelsen 8, Nelsen 12, Nelsen 14 and Genest-Ghoudi Table 1 CDFs on the closed square and their Table 2 endpoints.
 - [NamedExtremeValueCDF.lean](NamedExtremeValueCDF.lean): Gumbel-Hougaard and Tawn Table 1 CDFs on the full closed square, including exact Tawn shape and weight-axis reductions.
 - [FrechetMardiaDependence.lean](FrechetMardiaDependence.lean): exact CI/CD and density classifications, source corrections and Mardia incomparability.
+- [AMHSchur.lean](AMHSchur.lean): exact two-direction Schur parameter order on both same-sign AMH regions.
 - [Nelsen7Results.lean](Nelsen7Results.lean): full-interval conditional CDF, derivative, xi, exact CI and Schur order.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Association.lean](Association.lean): nine Table 6 coefficient formulas.
