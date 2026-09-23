@@ -519,6 +519,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen12_lowerOrthant
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_lowerOrthant
+
+#print axioms Papers.AnsariRockel2024.nelsen12_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_tails
 #print axioms Papers.AnsariRockel2024.nelsen14_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_cdf_full
 #print axioms Papers.AnsariRockel2024.nelsen2_one

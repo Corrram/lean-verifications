@@ -15,6 +15,7 @@ import Papers.AnsariRockel2024.Nelsen8Dependence
 import Papers.AnsariRockel2024.Nelsen8Limits
 import Papers.AnsariRockel2024.Nelsen12Limits
 import Papers.AnsariRockel2024.Nelsen12Order
+import Papers.AnsariRockel2024.Nelsen12Tails
 import Papers.AnsariRockel2024.Nelsen7Rho
 import Papers.AnsariRockel2024.Nelsen7Tau
 import Papers.AnsariRockel2024.Nelsen7SourceCorrection
