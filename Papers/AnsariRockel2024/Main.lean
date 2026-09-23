@@ -19,6 +19,7 @@ import Papers.AnsariRockel2024.Nelsen12Tails
 import Papers.AnsariRockel2024.Nelsen14Tails
 import Papers.AnsariRockel2024.GenestGhoudiTails
 import Papers.AnsariRockel2024.GenestGhoudiDependence
+import Papers.AnsariRockel2024.PowerFamilyLimits
 import Papers.AnsariRockel2024.Nelsen7Rho
 import Papers.AnsariRockel2024.Nelsen7Tau
 import Papers.AnsariRockel2024.Nelsen7SourceCorrection
