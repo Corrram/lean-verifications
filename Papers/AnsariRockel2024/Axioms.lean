@@ -514,6 +514,17 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.genestGhoudi_tails
 #assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_tails
+
+#print axioms Papers.AnsariRockel2024.genestGhoudi_not_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_not_pqd
+#print axioms Papers.AnsariRockel2024.genestGhoudi_not_ci
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_not_ci
+#print axioms Papers.AnsariRockel2024.genestGhoudi_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_cd_iff
+#print axioms Papers.AnsariRockel2024.genestGhoudi_not_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_not_tp2_cdf
+#print axioms Papers.AnsariRockel2024.genestGhoudi_not_mtp2_density
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_not_mtp2_density
 #print axioms Papers.AnsariRockel2024.nelsen12_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_cdf_full
 
