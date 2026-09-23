@@ -380,3 +380,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen7_density_tp2_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.fgm_hasMTP2Density_iff
+#assert_standard_axioms Papers.AnsariRockel2024.fgm_hasMTP2Density_iff
