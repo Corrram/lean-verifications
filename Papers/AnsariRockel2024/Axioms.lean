@@ -504,6 +504,9 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_cdf_full
 #print axioms Papers.AnsariRockel2024.nelsen12_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_cdf_full
+
+#print axioms Papers.AnsariRockel2024.nelsen12_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_tendsto_atTop
 #print axioms Papers.AnsariRockel2024.nelsen14_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_cdf_full
 #print axioms Papers.AnsariRockel2024.nelsen2_one
