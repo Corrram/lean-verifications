@@ -459,6 +459,10 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen8_not_tp2_cdf
 #print axioms Papers.AnsariRockel2024.nelsen8_not_mtp2_density
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen8_not_mtp2_density
+#print axioms Papers.AnsariRockel2024.nelsen8_not_cd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen8_not_cd
+#print axioms Papers.AnsariRockel2024.nelsen8_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen8_cd_iff
 #print axioms Papers.AnsariRockel2024.nelsen8_cd_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen8_cd_one
 #print axioms Papers.AnsariRockel2024.nelsen8_lowerOrthant
