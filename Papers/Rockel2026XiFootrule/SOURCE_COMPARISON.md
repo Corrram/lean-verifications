@@ -29,7 +29,7 @@ proved in LTDExample.lean. The formal disproof in the arXiv coverage concerns
 the older printed matrix only.
 
 Finite nested ordinal sums of independence and comonotonic blocks are proved
-symmetric with xi=footrule, and interior binary sums of SI components satisfy
+SI and symmetric with xi=footrule, and interior binary sums of SI components satisfy
 an equality iff criterion. The general countable ordinal-sum classification
 remains open in this supplement.
 The source's explicit parameter path continuity and limiting parameter endpoint

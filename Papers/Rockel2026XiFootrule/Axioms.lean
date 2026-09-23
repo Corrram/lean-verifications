@@ -62,6 +62,14 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_rank_equality
 #assert_standard_axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_rank_equality
+#print axioms Papers.Rockel2026XiFootrule.ordinalSum_isSI
+#assert_standard_axioms Papers.Rockel2026XiFootrule.ordinalSum_isSI
+
+#print axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.isSI
+#assert_standard_axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.isSI
+
+#print axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_si_rank_equality
+#assert_standard_axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_si_rank_equality
 #print axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 #assert_standard_axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 
