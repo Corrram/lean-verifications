@@ -1,4 +1,5 @@
 import Papers.AnsariRockel2024.ClaytonDensityDerivative
+import Papers.AnsariRockel2024.DensityTP2Consequences
 import Papers.AnsariRockel2024.CuadrasAugeResults
 import Papers.AnsariRockel2024.ExtremeValueOrders
 import Papers.AnsariRockel2024.GeneralOrders

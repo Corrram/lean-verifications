@@ -368,3 +368,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.clayton_negative_one_not_density_tp2
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_one_not_density_tp2
+
+#print axioms Papers.AnsariRockel2024.hasMTP2Density_isPQD
+#assert_standard_axioms Papers.AnsariRockel2024.hasMTP2Density_isPQD
+
+#print axioms Papers.AnsariRockel2024.clayton_negative_not_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_not_density_tp2
