@@ -25,6 +25,11 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.clayton_negative_nqd
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_nqd
 
+#print axioms Papers.AnsariRockel2024.clayton_positive_not_cd
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_not_cd
+#print axioms Papers.AnsariRockel2024.clayton_negative_not_ci
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_not_ci
+
 #print axioms Papers.AnsariRockel2024.clayton_positive_ci
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_ci
 

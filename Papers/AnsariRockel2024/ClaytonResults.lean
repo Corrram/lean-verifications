@@ -3,6 +3,7 @@ import Copula.Families.Clayton.Negative
 import Copula.Families.Clayton.Limits
 import Copula.Dependence.Clayton
 import Copula.Dependence.ClaytonNegative
+import Copula.Dependence.ClaytonClassification
 
 /-! # Clayton family: full bivariate CDF branches and limiting cases -/
 
@@ -70,6 +71,10 @@ theorem clayton_negative_one :
 theorem clayton_positive_ci (θ : ℝ) (hθ : 0 < θ) :
     (Copula.clayton 2 θ hθ).IsCI :=
   Copula.isCI_clayton_positive θ hθ
+/-- Table 3: no positive Clayton parameter is conditionally decreasing. -/
+theorem clayton_positive_not_cd (θ : ℝ) (hθ : 0 < θ) :
+    ¬(Copula.clayton 2 θ hθ).IsCD :=
+  Copula.not_isCD_clayton_positive θ hθ
 /-- Table 3: the quadrant-dependence consequence of the positive Clayton CI entry. -/
 theorem clayton_positive_pqd (θ : ℝ) (hθ : 0 < θ) :
     (Copula.clayton 2 θ hθ).IsPQD :=
@@ -89,6 +94,10 @@ theorem clayton_negative_one_cd :
 theorem clayton_negative_cd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
     (Copula.claytonNegative θ hθ hn).IsCD :=
   Copula.isCD_clayton_negative θ hθ hn
+/-- Table 3: no admissible negative Clayton parameter is conditionally increasing. -/
+theorem clayton_negative_not_ci (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
+    ¬(Copula.claytonNegative θ hθ hn).IsCI :=
+  Copula.not_isCI_clayton_negative θ hθ hn
 /-- Table 3: negative Clayton parameters are negatively quadrant dependent. -/
 theorem clayton_negative_nqd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
     (Copula.claytonNegative θ hθ hn).IsNQD :=
