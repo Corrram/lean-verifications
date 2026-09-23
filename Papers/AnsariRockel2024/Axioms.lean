@@ -584,3 +584,6 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_not_cd
 #print axioms Papers.AnsariRockel2024.nelsen14_not_cd
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_not_cd
+
+#print axioms Papers.AnsariRockel2024.nelsen14_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_pqd

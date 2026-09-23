@@ -35,6 +35,11 @@ theorem nelsen12_pqd (θ : ℝ) (hθ : 1 ≤ θ) :
     (Copula.nelsen12 θ hθ).IsPQD :=
   Copula.isPQD_nelsen12 θ hθ
 
+/-- Nelsen 14 is PQD throughout its full finite parameter range. -/
+theorem nelsen14_pqd (θ : ℝ) (hθ : 1 ≤ θ) :
+    (Copula.nelsen14 θ hθ).IsPQD :=
+  Copula.isPQD_nelsen14 θ hθ
+
 /-- Nelsen 12 is never conditionally decreasing. -/
 theorem nelsen12_not_cd (θ : ℝ) (hθ : 1 ≤ θ) :
     ¬(Copula.nelsen12 θ hθ).IsCD :=
