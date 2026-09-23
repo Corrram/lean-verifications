@@ -40,4 +40,9 @@ theorem nelsen2_not_mtp2_density (θ : ℝ) (hθ : 1 ≤ θ) :
     ¬(Copula.nelsen2 θ hθ).HasMTP2Density :=
   Copula.not_hasMTP2Density_nelsen2 θ hθ
 
+/-- Table 3: Nelsen 2 increases in lower-orthant order over its full parameter range. -/
+theorem nelsen2_lowerOrthant {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η)
+    (hθη : θ ≤ η) :
+    (Copula.nelsen2 θ hθ).LowerOrthantLE (Copula.nelsen2 η hη) :=
+  Copula.lowerOrthantLE_nelsen2 hθ hη hθη
 end Papers.AnsariRockel2024
