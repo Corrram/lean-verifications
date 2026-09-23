@@ -51,7 +51,7 @@ theorem majorization_sum_convex_interior (a b : ℕ → ℝ) (n : ℕ)
   linarith
 
 /-- Karamata's inequality on the full closed interval, including endpoint singularities of slopes. -/
-theorem majorization_sum_convex (a b : ℕ → ℝ) (n : ℕ)
+theorem majorization_sum_convex_unitInterval (a b : ℕ → ℝ) (n : ℕ)
     (hb : ∀ i, i<n-1 → b (i+1) ≤ b i)
     (hp : ∀ k, k≤n → (∑ i ∈ Finset.range k,b i) ≤ ∑ i ∈ Finset.range k,a i)
     (ht : (∑ i ∈ Finset.range n,a i) = ∑ i ∈ Finset.range n,b i)
@@ -95,7 +95,7 @@ theorem majorization_fin_sum_convex {n : ℕ} (a b : Fin n → ℝ) (hb : Antito
     (ha : ∀ i, a i ∈ Icc 0 1) (hbi : ∀ i, b i ∈ Icc 0 1)
     (φ : ℝ → ℝ) (hc : Continuous φ) (hφ : ConvexOn ℝ (Icc 0 1) φ) :
     (∑ i, φ (b i)) ≤ ∑ i, φ (a i) := by
-  have h := majorization_sum_convex (extendFin a) (extendFin b) n (by
+  have h := majorization_sum_convex_unitInterval (extendFin a) (extendFin b) n (by
     intro i hi
     have hi0 : i < n := by omega
     have hi1 : i+1 < n := by omega
