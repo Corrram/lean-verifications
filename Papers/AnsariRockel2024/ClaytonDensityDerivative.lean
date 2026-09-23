@@ -1,5 +1,6 @@
 import Papers.AnsariRockel2024.ClaytonResults
 import Copula.Dependence.ClaytonDensityFormula
+import Copula.Dependence.Density
 import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
 import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 
@@ -230,6 +231,158 @@ private theorem clayton_first_derivative_intervalIntegrable
     simpa [Set.uIcc_of_le hab] using hg
   exact hg'.intervalIntegrable (μ := (volume : MeasureTheory.Measure ℝ))
 
+private theorem integral_fin_two_unit (f : (Fin 2 → I) → ℝ)
+    (hf : Integrable f) :
+    (∫ x, f x) = ∫ u : I, ∫ v : I, f ![u, v] := by
+  let e : (Fin 2 → I) ≃ᵐ I × I := MeasurableEquiv.finTwoArrow
+  have hp : MeasurePreserving e (volume : Measure (Fin 2 → I))
+      (volume : Measure (I × I)) := volume_preserving_finTwoArrow I
+  have hi : Integrable (fun p : I × I => f (e.symm p)) :=
+    hp.symm.integrable_comp_of_integrable hf
+  have h := hp.integral_comp' (fun p : I × I => f (e.symm p))
+  rw [Measure.volume_eq_prod I I] at hi h
+  rw [integral_prod _ hi] at h
+  have heta (x : Fin 2 → I) : ![x 0, x 1] = x := by
+    ext i
+    fin_cases i <;> simp
+  simpa [e, MeasurableEquiv.finTwoArrow, heta] using h
+
+private theorem integral_unit_Ioc_real (f : ℝ → ℝ) (a b : I) (hab : a ≤ b) :
+    (∫ t in Set.Ioc a b, f (t : ℝ)) =
+      ∫ t in (a : ℝ)..(b : ℝ), f t := by
+  classical
+  rw [← integral_indicator measurableSet_Ioc]
+  have he : (Set.Ioc a b).indicator (fun t : I => f (t : ℝ)) =
+      fun t : I => (Set.Ioc (a : ℝ) (b : ℝ)).indicator f (t : ℝ) := rfl
+  rw [he, Copula.integral_unitInterval, intervalIntegral.integral_of_le zero_le_one,
+    setIntegral_indicator measurableSet_Ioc, intervalIntegral.integral_of_le hab]
+  have hs : Set.Ioc (0 : ℝ) 1 ∩ Set.Ioc (a : ℝ) (b : ℝ) =
+      Set.Ioc (a : ℝ) (b : ℝ) := by
+    ext t
+    simp only [Set.mem_inter_iff, Set.mem_Ioc]
+    constructor
+    · exact fun h => h.2
+    · exact fun h => ⟨⟨lt_of_le_of_lt a.property.1 h.1,
+        h.2.trans b.property.2⟩, h⟩
+  rw [hs]
+
+private theorem integral_cube_Ioc_two (f : (Fin 2 → I) → ℝ)
+    (a b c d : I)
+    (hf : IntegrableOn f
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i)))) :
+    (∫ x in Set.pi Set.univ
+      (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i)), f x) =
+      ∫ u in Set.Ioc a b, ∫ v in Set.Ioc c d, f ![u, v] := by
+  classical
+  let s : Set (Fin 2 → I) :=
+    Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))
+  have hs : MeasurableSet s := by
+    dsimp [s]
+    exact MeasurableSet.pi Set.countable_univ (fun i _ => by fin_cases i <;> simp)
+  change (∫ x in s, f x) = _
+  rw [← integral_indicator hs, integral_fin_two_unit _ (hf.integrable_indicator hs)]
+  have he (u v : I) : s.indicator f ![u, v] =
+      (Set.Ioc a b).indicator
+        (fun u : I => (Set.Ioc c d).indicator (fun v : I => f ![u, v]) v) u := by
+    have hmem : (![u, v] ∈ s) ↔ u ∈ Set.Ioc a b ∧ v ∈ Set.Ioc c d := by
+      simp [s, Set.mem_pi, Fin.forall_fin_two]
+    by_cases hu : u ∈ Set.Ioc a b <;> by_cases hv : v ∈ Set.Ioc c d
+    all_goals simp [Set.indicator, hmem, hu, hv]
+  change (∫ u : I, ∫ v : I, s.indicator f ![u, v]) = _
+  simp_rw [he]
+  simp_rw [integral_indicator₂]
+  rw [integral_indicator measurableSet_Ioc]
+  simp_rw [integral_indicator measurableSet_Ioc]
+
+private theorem integral_cube_Ioc_two_real (F : ℝ → ℝ → ℝ)
+    (a b c d : I) (hab : a ≤ b) (hcd : c ≤ d)
+    (hF : IntegrableOn
+      (fun x : Fin 2 → I => F (x 0 : ℝ) (x 1 : ℝ))
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i)))) :
+    (∫ x in Set.pi Set.univ
+      (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i)),
+      F (x 0 : ℝ) (x 1 : ℝ)) =
+      ∫ u in (a : ℝ)..(b : ℝ), ∫ v in (c : ℝ)..(d : ℝ), F u v := by
+  calc
+    _ = ∫ u in Set.Ioc a b, ∫ v in Set.Ioc c d,
+        F (u : ℝ) (v : ℝ) := integral_cube_Ioc_two _ a b c d hF
+    _ = ∫ u in Set.Ioc a b, ∫ v in (c : ℝ)..(d : ℝ),
+        F (u : ℝ) v := by
+      apply setIntegral_congr_fun measurableSet_Ioc
+      intro u _
+      exact integral_unit_Ioc_real (fun v => F (u : ℝ) v) c d hcd
+    _ = _ := integral_unit_Ioc_real
+      (fun u => ∫ v in (c : ℝ)..(d : ℝ), F u v) a b hab
+
+private theorem clayton_density_real_continuousOn_rectangle
+    (θ : ℝ) (hθ : 0 < θ) (a b c d : I)
+    (ha : 0 < (a : ℝ)) (hc : 0 < (c : ℝ)) :
+    ContinuousOn (fun x : Fin 2 → I =>
+      (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+        (claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) ^ (-2 - 1 / θ))
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Icc (![a, c] i) (![b, d] i))) := by
+  let t : Set (Fin 2 → I) :=
+    Set.pi Set.univ (fun i : Fin 2 => Set.Icc (![a, c] i) (![b, d] i))
+  have hpos0 (x : Fin 2 → I) (hx : x ∈ t) : 0 < (x 0 : ℝ) := by
+    have hx0 := (Set.mem_pi.mp hx) 0 (by simp)
+    have hx0' : a ≤ x 0 := by simpa using hx0.1
+    exact ha.trans_le hx0'
+  have hpos1 (x : Fin 2 → I) (hx : x ∈ t) : 0 < (x 1 : ℝ) := by
+    have hx1 := (Set.mem_pi.mp hx) 1 (by simp)
+    have hx1' : c ≤ x 1 := by simpa using hx1.1
+    exact hc.trans_le hx1'
+  have hcoord0 : Continuous (fun x : Fin 2 → I => (x 0 : ℝ)) := by fun_prop
+  have hcoord1 : Continuous (fun x : Fin 2 → I => (x 1 : ℝ)) := by fun_prop
+  have hpow0 : ContinuousOn (fun x : Fin 2 → I => (x 0 : ℝ) ^ (-θ)) t :=
+    hcoord0.continuousOn.rpow_const (fun x hx => Or.inl (ne_of_gt (hpos0 x hx)))
+  have hpow1 : ContinuousOn (fun x : Fin 2 → I => (x 1 : ℝ) ^ (-θ)) t :=
+    hcoord1.continuousOn.rpow_const (fun x hx => Or.inl (ne_of_gt (hpos1 x hx)))
+  have hbase : ContinuousOn (fun x : Fin 2 → I =>
+      claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) t := by
+    have hconst : ContinuousOn (fun _ : Fin 2 → I => (1 : ℝ)) t :=
+      continuousOn_const
+    convert (hpow0.add hpow1).sub hconst using 1
+    funext x
+    simp [claytonBaseReal]
+  have hpow0' : ContinuousOn (fun x : Fin 2 → I =>
+      (x 0 : ℝ) ^ (-θ - 1)) t :=
+    hcoord0.continuousOn.rpow_const (fun x hx => Or.inl (ne_of_gt (hpos0 x hx)))
+  have hpow1' : ContinuousOn (fun x : Fin 2 → I =>
+      (x 1 : ℝ) ^ (-θ - 1)) t :=
+    hcoord1.continuousOn.rpow_const (fun x hx => Or.inl (ne_of_gt (hpos1 x hx)))
+  have hbasepow : ContinuousOn (fun x : Fin 2 → I =>
+      (claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) ^ (-2 - 1 / θ)) t :=
+    hbase.rpow_const (fun x hx => Or.inl
+      ((claytonBaseReal_pos θ (x 0 : ℝ) (x 1 : ℝ) hθ
+        (hpos0 x hx) (hpos1 x hx) (x 0).property.2 (x 1).property.2).ne'))
+  change ContinuousOn _ t
+  exact ((continuousOn_const.mul hpow0').mul hpow1').mul hbasepow
+
+private theorem clayton_density_real_integrableOn_positive_rectangle
+    (θ : ℝ) (hθ : 0 < θ) (a b c d : I)
+    (ha : 0 < (a : ℝ)) (hc : 0 < (c : ℝ)) :
+    IntegrableOn (fun x : Fin 2 → I =>
+      (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+        (claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) ^ (-2 - 1 / θ))
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))) := by
+  let t : Set (Fin 2 → I) :=
+    Set.pi Set.univ (fun i : Fin 2 => Set.Icc (![a, c] i) (![b, d] i))
+  have ht : IsCompact t := by
+    dsimp [t]
+    apply isCompact_univ_pi
+    intro i
+    fin_cases i <;> exact isCompact_Icc
+  have hi : IntegrableOn (fun x : Fin 2 → I =>
+      (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+        (claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) ^ (-2 - 1 / θ))
+      t := (clayton_density_real_continuousOn_rectangle θ hθ a b c d ha hc)
+        |>.integrableOn_compact (μ := (volume : Measure (Fin 2 → I))) ht
+  apply hi.mono_set
+  intro x hx
+  apply Set.mem_pi.mpr
+  intro i hi'
+  exact Set.Ioc_subset_Icc_self ((Set.mem_pi.mp hx) i hi')
+
 /-- The analytic Clayton density integrates to the exact CDF rectangle
 increment on every rectangle bounded away from both axes. -/
 theorem clayton_density_formula_positive_rectangle
@@ -287,6 +440,58 @@ theorem clayton_density_formula_positive_rectangle_eq_measure
     clayton_cdf_positive_eq_analytic θ hθ a d ha (hc.trans_le hcd),
     clayton_cdf_positive_eq_analytic θ hθ b c (ha.trans_le hab) hc,
     clayton_cdf_positive_eq_analytic θ hθ a c ha hc]
+
+/-- The package's Clayton density candidate has exactly the actual copula
+measure on every positive half-open rectangle in the unit square. -/
+theorem clayton_densityFormula_positive_rectangle_eq_measure
+    (θ : ℝ) (hθ : 0 < θ) (a b c d : I)
+    (ha : 0 < (a : ℝ)) (hab : a ≤ b)
+    (hc : 0 < (c : ℝ)) (hcd : c ≤ d) :
+    (∫ x in Set.pi Set.univ
+      (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i)),
+      Copula.claytonDensityFormula θ x) =
+      (Copula.clayton 2 θ hθ).toMeasure.real
+        (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))) := by
+  let s : Set (Fin 2 → I) :=
+    Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))
+  have hs : MeasurableSet s := by
+    dsimp [s]
+    exact MeasurableSet.pi Set.countable_univ (fun i _ => by fin_cases i <;> simp)
+  have hpoint (x : Fin 2 → I) (hx : x ∈ s) :
+      Copula.claytonDensityFormula θ x =
+        (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+          (claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) ^ (-2 - 1 / θ) := by
+    have hx0 := (Set.mem_pi.mp hx) 0 (by simp)
+    have hx1 := (Set.mem_pi.mp hx) 1 (by simp)
+    have hx0' : a < x 0 := by simpa using hx0.1
+    have hx1' : c < x 1 := by simpa using hx1.1
+    have hx0pos : 0 < (x 0 : ℝ) := ha.trans hx0'
+    have hx1pos : 0 < (x 1 : ℝ) := hc.trans hx1'
+    have hx0ne : x 0 ≠ 0 := by
+      intro he
+      exact (ne_of_gt hx0pos) (congrArg Subtype.val he)
+    have hx1ne : x 1 ≠ 0 := by
+      intro he
+      exact (ne_of_gt hx1pos) (congrArg Subtype.val he)
+    change (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+      (if x 0 = 0 ∨ x 1 = 0 then 0 else
+        ((x 0 : ℝ) ^ (-θ) + (x 1 : ℝ) ^ (-θ) - 1) ^ (-2 - 1 / θ)) = _
+    simp [hx0ne, hx1ne, claytonBaseReal]
+  change (∫ x in s, Copula.claytonDensityFormula θ x) = _
+  calc
+    _ = ∫ x in s,
+        (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+          (claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) ^ (-2 - 1 / θ) := by
+      exact setIntegral_congr_fun hs hpoint
+    _ = ∫ u in (a : ℝ)..(b : ℝ), ∫ v in (c : ℝ)..(d : ℝ),
+        (1 + θ) * u ^ (-θ - 1) * v ^ (-θ - 1) *
+          (claytonBaseReal θ u v) ^ (-2 - 1 / θ) := by
+      exact integral_cube_Ioc_two_real
+        (fun u v => (1 + θ) * u ^ (-θ - 1) * v ^ (-θ - 1) *
+          (claytonBaseReal θ u v) ^ (-2 - 1 / θ)) a b c d hab hcd
+        (clayton_density_real_integrableOn_positive_rectangle θ hθ a b c d ha hc)
+    _ = _ := clayton_density_formula_positive_rectangle_eq_measure
+      θ hθ a b c d ha hab hc hcd
 
 /-- The candidate's mass on the positive square with lower cutoff `r`
 reaches the Clayton copula's corresponding square mass. -/
