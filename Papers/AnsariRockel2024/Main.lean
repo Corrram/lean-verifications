@@ -6,6 +6,7 @@ import Papers.AnsariRockel2024.NamedExtremeValueCDF
 import Papers.AnsariRockel2024.NamedArchimedeanCDF
 import Papers.AnsariRockel2024.GeneralOrders
 import Papers.AnsariRockel2024.Nelsen7Results
+import Papers.AnsariRockel2024.Nelsen2Dependence
 import Papers.AnsariRockel2024.Nelsen8Dependence
 import Papers.AnsariRockel2024.Nelsen7Rho
 import Papers.AnsariRockel2024.Nelsen7Tau
