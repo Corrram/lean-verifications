@@ -2,6 +2,7 @@ import Copula.Families.Clayton.CDF
 import Copula.Families.Clayton.Negative
 import Copula.Families.Clayton.Limits
 import Copula.Dependence.Clayton
+import Copula.Dependence.ClaytonNegative
 
 /-! # Clayton family: full bivariate CDF branches and limiting cases -/
 
@@ -84,6 +85,10 @@ theorem clayton_negative_one_cd :
     (Copula.claytonNegative (-1) le_rfl (by norm_num)).IsCD := by
   rw [Copula.claytonNegative_neg_one]
   exact Copula.isCD_countermonotonic
+/-- Table 3: every admissible negative Clayton copula is conditionally decreasing in both directions. -/
+theorem clayton_negative_cd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
+    (Copula.claytonNegative θ hθ hn).IsCD :=
+  Copula.isCD_clayton_negative θ hθ hn
 /-- Table 3: negative Clayton parameters are negatively quadrant dependent. -/
 theorem clayton_negative_nqd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
     (Copula.claytonNegative θ hθ hn).IsNQD :=
