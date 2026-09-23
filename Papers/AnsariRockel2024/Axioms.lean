@@ -432,3 +432,8 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.tawn_zero_right
 #print axioms Papers.AnsariRockel2024.tawn_shape_one
 #assert_standard_axioms Papers.AnsariRockel2024.tawn_shape_one
+
+#print axioms Papers.AnsariRockel2024.joe_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.joe_cdf_full
+#print axioms Papers.AnsariRockel2024.joe_one
+#assert_standard_axioms Papers.AnsariRockel2024.joe_one
