@@ -1,58 +1,52 @@
-# Additional author manuscript
+# Published-version comparison
 
-Inspected locally on 22 September 2026:
+The inspected final PDF is Marcus Rockel, *International Journal of Approximate
+Reasoning* 197 (2026), 109744, DOI
+[10.1016/j.ijar.2026.109744](https://doi.org/10.1016/j.ijar.2026.109744).
+Its SHA-256 is
+`281d852284692cd23d311bbd104e502177b204d519ffd5eb819bd300ed3c315a`.
+The primary result map in [COVERAGE.md](COVERAGE.md) retains the numbering of
+[arXiv:2603.09768v1](https://arxiv.org/abs/2603.09768v1).
+Every original named final-PDF result in the stated scope was compared with
+that map. This result-level comparison does not claim that every line
+of the published proof has been formalized.
 
-- File: `xi-nu-region/ijar/xi-nu-region-ijar-rev2.tex` in the author's `robust-portfolio-choices` checkout.
-- SHA-256: `3d525cc0eb7ee7644bf6713addfa823161460fa83d1d830e791ba0cf6eeb215e`.
-- Title: The exact region between Chatterjee's and Blest's rank correlations.
+| arXiv v1 map | Final IJAR PDF | Comparison |
+| --- | --- | --- |
+| Theorem 1.1 | Theorem 1 | The exact region, two coefficient branches, endpoint conventions, and unique curved-boundary family are covered by the mapped Lean results. |
+| Lemmas 2.1-2.2; revised family proposition | Lemmas 1 and 3; Proposition 2.1 | Normalization, the actual copula and density, and the signed-family dependence properties are mapped. |
+| Theorem 2.3 | Theorem 2 | Both exact coefficient branches and their joining point are proved. |
+| Theorem 3.4 | Theorem 3 | The relaxed measurable-kernel optimum and almost-everywhere uniqueness are proved independently of the printed KKT route. |
+| Lemma 4.3 | Lemma 5 | The final PDF prints the corrected decreasing concordance order for p >= p'; all four corrected shuffle claims are proved. |
+| Lemma 4.4; Lemma 4.5 | Lemma 6; Lemma 7 | Mixture-path continuity and the derivative identity are proved. |
+| Lemmas 4.1-4.2 | Lemmas 8-9 | Section moments, one-dimensional forms, and substitution regimes are mapped. |
 
-The revised manuscript adds Proposition `prop:basic_properties_cb`, including
-MTP2 for positive parameters, SD for negative parameters, concordance ordering
-across signed parameters, and uniform copula limits at zero and both infinities.
-The arXiv map already checks SI, reflection of coefficients, coefficient limits,
-and a cofinal uniform CDF limit. Those results alone do not prove all parts of
-this additional proposition. Its remaining assertions are tracked explicitly
-in COVERAGE.md. This manuscript has not been identified with the publisher's
-final version; final journal comparison remains pending.
+Two **arXiv v1** intermediate statements are false, and the final IJAR PDF
+corrects both. Its Lemma 5(iii), PDF p. 12, says `C_p <=_co C_p'` for
+`p >= p'`; arXiv v1 Lemma 4.3(iii) had the direction reversed.
+`shuffledCopula_concordance` proves the journal direction, while
+`not_comonotonic_concordanceLE_countermonotonic` refutes the arXiv one.
+The final PDF's Appendix A, p. 19, displays
+`G_iv(r) = b^2(1/5 - 2r^2/3 + r^4 - 8r^5/15)`.
+The coefficient `-8/15` agrees with `lower_square_polynomial`;
+the arXiv v1 coefficient `-1/5` is refuted by
+`printed_lower_square_polynomial_false`.
+Neither correction should be attributed as an error in the final journal
+article.
 
-FamilyOrder.lean and UniformLimits.lean now verify the full signed CDF order,
-negative-parameter SD and all three uniform copula limits. DensityTP2.lean also verifies the MTP2 density assertion via an actual
-standardized band law, completing this additional proposition. Final published
-text correspondence remains pending.
+An earlier local author manuscript was inspected on 22 September 2026:
+`xi-nu-region/ijar/xi-nu-region-ijar-rev2.tex` in the author's
+`robust-portfolio-choices` checkout, SHA-256
+`3d525cc0eb7ee7644bf6713addfa823161460fa83d1d830e791ba0cf6eeb215e`.
+It adds the signed-family property proposition: positive-parameter MTP2,
+negative-parameter SD, concordance ordering, and uniform limits at zero
+and both infinities. `DensityTP2.lean`, `FamilyOrder.lean`, and
+`UniformLimits.lean` prove those assertions for actual copulas. The
+published PDF includes the corresponding signed-family proposition on
+p. 6 (printed there as Proposition 2.1). `ShufflePath.lean` also
+checks the endpoint-safe shuffle, which agrees almost everywhere with
+the printed transformation at the split point.
 
-## Comparison with arXiv v1 and earlier local revision
-
-The arXiv v1 statement of Lemma 4.3(iii) says that, for p >= p', the
-shuffled copulas satisfy C_p >=_co C_p'. The local author revision reverses
-this inequality. With C=M, the printed endpoint transformations give C_0=M
-and C_1=W, so arXiv v1 would imply M <=_co W. The Lean theorem
-`not_comonotonic_concordanceLE_countermonotonic` disproves that consequence
-at the midpoint. The endpoint-safe transformation in ShufflePath.lean differs from the printed
-map only at the null split point. Lean proves that it preserves the uniform
-marginal, yields an actual copula for every p, and has the two stated endpoint
-copulas. It also proves xi invariance for arbitrary copulas, the corrected
-concordance direction for SI copulas, and uniform CDF continuity via the
-pointwise bound 2 abs(p-p'). Thus all four claims of the local revision's
-shuffling lemma are checked. The exact-region proof also has an independent
-construction.
-
-The local revision also explicitly states the almost-everywhere density
-formula for the positive extremal copulas. The normalization inverse is
-proved differentiable at every interior response threshold, and its density
-coefficient -b q'(v) is identified with the reciprocal active-band width.
-The raw-band marginal quantile has intercept -b q(v), its column density
-is (b+1) times the active width, and its closed support strip agrees almost
-everywhere with the revision's open switching interval. The theorem
-`extremal_toMeasure_derivativeDensity` identifies the displayed
-derivative-form expression with the actual copula measure for every b>0.
-Together with `extremal_hasMTP2Density`, this verifies the revised lemma's
-density formula and the revised proposition's MTP2 assertion. The exact
-published text correspondence remains pending.
-
-An earlier local author resubmission, `xi-nu-region-ijar-resubmission.tex`
-(SHA-256 `fe9fc5291dd448672d92599c7913c09f30ad2f0ac540c53a68a7d80870556cb0`),
-has the same 13 named result environments as the inspected rev2 file.
-Five named statements have textual changes between those two local files;
-the changes include formatting and inverse-hyperbolic-cosine notation in
-the main region theorem. This comparison does not establish that either
-local file matches the final publisher version.
+The quoted copula-characterization Lemma 2 and KKT-framework Lemma 4 are
+external results; the Lean supplement constructs the copula and proves
+the optimizer independently. Numerical Table 1 and plotted figures are outside the formal scope. All original named results in the stated scope have Lean counterparts.

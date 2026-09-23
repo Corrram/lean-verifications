@@ -8,22 +8,22 @@ journal = "International Journal of Approximate Reasoning"
 doi = "10.1016/j.ijar.2026.109744"
 arxiv = "2603.09768"
 arxiv_version = "v1"
-source_for_numbering = "arXiv:2603.09768v1; correspondence with journal version pending"
-verification_status = "in-progress"
-scope = "The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. Mapped arXiv v1 auxiliary results include Lemmas 4.1-4.2. Two printed arXiv v1 errors are formally refuted: an intermediate polynomial and the direction of the shuffling lemma's concordance order. The corrected polynomial is verified. The author revision's signed-family concordance ordering, coefficient reflection, negative-parameter SD, uniform copula limits, positive-parameter MTP2 density existence, and the source density candidate's switch points and inverse-normalization coefficient are checked. The revised lemma's displayed derivative-form density is identified with the actual copula measure for every positive parameter. The corrected four-part shuffling lemma is verified, including its xi invariance, decreasing concordance order and quantitative uniform CDF continuity. Final journal-version correspondence remains pending."
+source_for_numbering = "arXiv:2603.09768v1; selected final IJAR statements compared in SOURCE_COMPARISON.md"
+verification_status = "complete-for-scope"
+scope = "The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. Mapped arXiv v1 auxiliary results include Lemmas 4.1-4.2. Two printed arXiv v1 errors are formally refuted: an intermediate polynomial and the direction of the shuffling lemma's concordance order. The corrected polynomial is verified. The author revision's signed-family concordance ordering, coefficient reflection, negative-parameter SD, uniform copula limits, positive-parameter MTP2 density existence, and the source density candidate's switch points and inverse-normalization coefficient are checked. The revised lemma's displayed derivative-form density is identified with the actual copula measure for every positive parameter. The corrected four-part shuffling lemma is verified, including its xi invariance, decreasing concordance order and quantitative uniform CDF continuity. All original named results in the stated scope are matched to the final IJAR PDF in SOURCE_COMPARISON.md; externally cited lemmas, numerical tables, and figures are outside the formal scope."
 entrypoint = "Papers.Rockel2026XiBlest.Main"
 coverage = "COVERAGE.md"
 
-version_warning = "The final publisher version has not been compared. Verified rows refer to arXiv v1 and the identified local author revision."
+version_warning = "The map retains arXiv v1 numbering, with final IJAR numbering matched in SOURCE_COMPARISON.md. The published PDF corrects both arXiv v1 intermediate errors listed below."
 
 [[source_discrepancies]]
 version = "arXiv v1, proof of Theorem 2.3"
 unverified_claim = "The displayed lower-clamped square polynomial has coefficient -1/5 on r^5."
 evidence = "Lean disproves that intermediate expression at r=1/2."
-verified_instead = "The corrected coefficient is -8/15; the final coefficient and region theorems are proved independently."
+verified_instead = "The final IJAR PDF prints the corrected -8/15 coefficient. Lean verifies it and independently proves the final coefficient and region theorems."
 
 [[source_discrepancies]]
 version = "arXiv v1, Lemma 4.3(iii) (shuffling lemma)"
 unverified_claim = "For p >= p', the shuffled copulas satisfy C_p >=_co C_p'."
 evidence = "At the endpoints with C=M, the printed transformation gives C_0=M and C_1=W. Lean proves M is not concordance-below W, refuting the printed direction."
-verified_instead = "The local author revision reverses the order. Lean verifies all four claims of the corrected shuffling path; the exact region also has an independent proof."
+verified_instead = "The final IJAR PDF Lemma 5(iii) reverses the order. Lean verifies all four claims of that corrected shuffling path; the exact region also has an independent proof."
