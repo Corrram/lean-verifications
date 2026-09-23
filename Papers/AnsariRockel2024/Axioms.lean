@@ -389,3 +389,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.fgm_hasMTP2Density_iff
 #assert_standard_axioms Papers.AnsariRockel2024.fgm_hasMTP2Density_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen7_integral_cdf_first
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_integral_cdf_first
+#print axioms Papers.AnsariRockel2024.nelsen7_rho_integral
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_rho_integral
+#print axioms Papers.AnsariRockel2024.nelsen7_rho_interior
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_rho_interior
+#print axioms Papers.AnsariRockel2024.nelsen7_rho
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_rho
