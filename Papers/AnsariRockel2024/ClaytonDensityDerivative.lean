@@ -441,6 +441,44 @@ theorem clayton_density_formula_positive_rectangle_eq_measure
     clayton_cdf_positive_eq_analytic θ hθ b c (ha.trans_le hab) hc,
     clayton_cdf_positive_eq_analytic θ hθ a c ha hc]
 
+private theorem clayton_densityFormula_eq_real_of_pos
+    (θ : ℝ) (x : Fin 2 → I)
+    (hx0 : 0 < (x 0 : ℝ)) (hx1 : 0 < (x 1 : ℝ)) :
+    Copula.claytonDensityFormula θ x =
+      (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+        (claytonBaseReal θ (x 0 : ℝ) (x 1 : ℝ)) ^ (-2 - 1 / θ) := by
+  have hx0ne : x 0 ≠ 0 := by
+    intro he
+    exact (ne_of_gt hx0) (congrArg Subtype.val he)
+  have hx1ne : x 1 ≠ 0 := by
+    intro he
+    exact (ne_of_gt hx1) (congrArg Subtype.val he)
+  change (1 + θ) * (x 0 : ℝ) ^ (-θ - 1) * (x 1 : ℝ) ^ (-θ - 1) *
+    (if x 0 = 0 ∨ x 1 = 0 then 0 else
+      ((x 0 : ℝ) ^ (-θ) + (x 1 : ℝ) ^ (-θ) - 1) ^ (-2 - 1 / θ)) = _
+  simp [hx0ne, hx1ne, claytonBaseReal]
+
+private theorem clayton_densityFormula_integrableOn_positive_rectangle
+    (θ : ℝ) (hθ : 0 < θ) (a b c d : I)
+    (ha : 0 < (a : ℝ)) (hc : 0 < (c : ℝ)) :
+    IntegrableOn (Copula.claytonDensityFormula θ)
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))) := by
+  let s : Set (Fin 2 → I) :=
+    Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))
+  have hs : MeasurableSet s := by
+    dsimp [s]
+    exact MeasurableSet.pi Set.countable_univ (fun i _ => by fin_cases i <;> simp)
+  have hi := clayton_density_real_integrableOn_positive_rectangle
+    θ hθ a b c d ha hc
+  apply hi.congr_fun _ hs
+  intro x hx
+  have hx0 := (Set.mem_pi.mp hx) 0 (by simp)
+  have hx1 := (Set.mem_pi.mp hx) 1 (by simp)
+  have hx0' : a < x 0 := by simpa using hx0.1
+  have hx1' : c < x 1 := by simpa using hx1.1
+  exact (clayton_densityFormula_eq_real_of_pos θ x
+    (ha.trans hx0') (hc.trans hx1')).symm
+
 /-- The package's Clayton density candidate has exactly the actual copula
 measure on every positive half-open rectangle in the unit square. -/
 theorem clayton_densityFormula_positive_rectangle_eq_measure
@@ -492,6 +530,35 @@ theorem clayton_densityFormula_positive_rectangle_eq_measure
         (clayton_density_real_integrableOn_positive_rectangle θ hθ a b c d ha hc)
     _ = _ := clayton_density_formula_positive_rectangle_eq_measure
       θ hθ a b c d ha hab hc hcd
+
+/-- The measure built from the pinned candidate density agrees with the
+Clayton copula measure on each positive half-open rectangle. -/
+theorem clayton_withDensity_positive_rectangle_eq_measure
+    (θ : ℝ) (hθ : 0 < θ) (a b c d : I)
+    (ha : 0 < (a : ℝ)) (hab : a ≤ b)
+    (hc : 0 < (c : ℝ)) (hcd : c ≤ d) :
+    ((volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x)))
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))) =
+      (Copula.clayton 2 θ hθ).toMeasure
+        (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))) := by
+  let s : Set (Fin 2 → I) :=
+    Set.pi Set.univ (fun i : Fin 2 => Set.Ioc (![a, c] i) (![b, d] i))
+  have hs : MeasurableSet s := by
+    dsimp [s]
+    exact MeasurableSet.pi Set.countable_univ (fun i _ => by fin_cases i <;> simp)
+  have hi := clayton_densityFormula_integrableOn_positive_rectangle
+    θ hθ a b c d ha hc
+  have hn : 0 ≤ᵐ[(volume : Measure (Fin 2 → I)).restrict s]
+      Copula.claytonDensityFormula θ :=
+    Filter.Eventually.of_forall (Copula.claytonDensityFormula_nonneg θ hθ)
+  change ((volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x))) s = _
+  rw [withDensity_apply _ hs,
+    ← ofReal_integral_eq_lintegral_ofReal hi hn,
+    clayton_densityFormula_positive_rectangle_eq_measure θ hθ a b c d
+      ha hab hc hcd]
+  exact ENNReal.ofReal_toReal (measure_ne_top _ _)
 
 /-- The candidate's mass on the positive square with lower cutoff `r`
 reaches the Clayton copula's corresponding square mass. -/
