@@ -2,6 +2,7 @@ import Papers.AnsariRockel2024.Definitions
 import Copula.Dependence.ConditionalMonotonicity
 import Copula.Dependence.AMH
 import Copula.Order.FGM
+import Copula.Order.AMH
 import Copula.TailDependence.Examples
 import Copula.TailDependence.AMH
 
@@ -34,6 +35,14 @@ theorem amh_tails_one :
     (Copula.amh 1 (by norm_num) le_rfl).HasUpperTailDependence 0 :=
   ⟨Copula.hasLowerTailDependence_amh_one,
     Copula.hasUpperTailDependence_amh 1 (by norm_num) le_rfl⟩
+
+/-- Table 3: exact lower-orthant parameter ordering for the AMH family. -/
+theorem amh_lowerOrthant_iff {θ η : ℝ}
+    (hθmin : -1 ≤ θ) (hθmax : θ ≤ 1)
+    (hηmin : -1 ≤ η) (hηmax : η ≤ 1) :
+    (Copula.amh θ hθmin hθmax).LowerOrthantLE
+      (Copula.amh η hηmin hηmax) ↔ θ ≤ η :=
+  Copula.lowerOrthantLE_amh_iff hθmin hθmax hηmin hηmax
 
 /-- arXiv:2310.17307v3, Table 5 / Appendix A.4.1: FGM CI. See COVERAGE.md for conventions. -/
 theorem fgm_ci (θ : ℝ) (hθ : |θ| ≤ 1) :
