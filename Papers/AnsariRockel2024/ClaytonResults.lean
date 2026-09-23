@@ -70,6 +70,11 @@ theorem clayton_positive_pqd (θ : ℝ) (hθ : 0 < θ) :
     (Copula.clayton 2 θ hθ).IsPQD :=
   Copula.isPQD_clayton_positive θ hθ
 
+/-- Table 3: negative Clayton parameters are negatively quadrant dependent. -/
+theorem clayton_negative_nqd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
+    (Copula.claytonNegative θ hθ hn).IsNQD :=
+  Copula.isNQD_clayton_negative θ hθ hn
+
 /-- Table 2: positive Clayton parameters tending to zero give independence. -/
 theorem clayton_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
     (hθ : ∀ a, 0 < θ a) (hlim : Tendsto θ l (𝓝 0)) (u : Fin 2 → I) :
