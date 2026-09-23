@@ -33,7 +33,7 @@ SI and symmetric with xi=footrule, and interior binary sums of SI components sat
 an equality iff criterion. The general countable ordinal-sum classification
 remains open in this supplement. Adjacent countable Pi sums are proved symmetric
 and decomposable at every partition endpoint, with first component Pi.
-The recursive tail decomposition proves xi=footrule equality for this adjacent countable family. The pinned copula package proves its SI property by CDF-section interpolation. The arbitrary-block extension in CountableOrdinalGeneral.lean proves rank equality for adjacent countable sums whenever each block has it, and exchangeability for Pi/M blocks. It does not prove SI for arbitrary component sequences or the source’s converse classification over arbitrary nonadjacent intervals.
+The recursive tail decomposition proves xi=footrule equality for this adjacent countable family. The pinned copula package proves its SI property by CDF-section interpolation. The arbitrary-block extension in CountableOrdinalGeneral.lean proves rank equality for adjacent countable sums whenever each block has it, and SI plus exchangeability for Pi/M blocks. It does not prove SI for arbitrary component sequences or the source’s converse classification over arbitrary nonadjacent intervals.
 The source's explicit parameter path continuity and limiting parameter endpoint
 are checked in ParameterPath.lean. Final publisher correspondence remains pending;
 this local comparison does not mark the published article complete.

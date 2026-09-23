@@ -97,6 +97,15 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiFootrule.countablePiM_symmetric_rank_equality
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePiM_symmetric_rank_equality
 
+#print axioms Papers.Rockel2026XiFootrule.countableOrdinal_cdf_section_eq_of_component_eq
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countableOrdinal_cdf_section_eq_of_component_eq
+
+#print axioms Papers.Rockel2026XiFootrule.countablePiM_isSI
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePiM_isSI
+
+#print axioms Papers.Rockel2026XiFootrule.countablePiM_symmetric_si_rank_equality
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePiM_symmetric_si_rank_equality
+
 #print axioms Papers.Rockel2026XiFootrule.countablePi_exchangeable
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_exchangeable
 
