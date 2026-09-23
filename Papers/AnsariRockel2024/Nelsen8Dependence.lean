@@ -30,4 +30,13 @@ theorem nelsen8_not_mtp2_density (θ : ℝ) (hθ : 1 ≤ θ) :
 theorem nelsen8_cd_one : (Copula.nelsen8 1 le_rfl).IsCD :=
   Copula.isCD_nelsen8_one
 
+/-- Table 3: all Nelsen 8 parameters strictly above one fail CD. -/
+theorem nelsen8_not_cd (θ : ℝ) (hθ : 1 < θ) :
+    ¬(Copula.nelsen8 θ (le_of_lt hθ)).IsCD :=
+  Copula.not_isCD_nelsen8 θ hθ
+
+/-- Table 3: Nelsen 8 is CD exactly at its lower-Fréchet endpoint. -/
+theorem nelsen8_cd_iff (θ : ℝ) (hθ : 1 ≤ θ) :
+    (Copula.nelsen8 θ hθ).IsCD ↔ θ = 1 :=
+  Copula.isCD_nelsen8_iff θ hθ
 end Papers.AnsariRockel2024
