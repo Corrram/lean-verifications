@@ -65,7 +65,11 @@ theorem clayton_negative_one :
     Copula.claytonNegative (-1) le_rfl (by norm_num) = Copula.countermonotonic :=
   Copula.claytonNegative_neg_one
 
-/-- Table 3: a proved necessary consequence of positive Clayton's CI entry. -/
+/-- Table 3: every positive Clayton copula is conditionally increasing in both directions. -/
+theorem clayton_positive_ci (θ : ℝ) (hθ : 0 < θ) :
+    (Copula.clayton 2 θ hθ).IsCI :=
+  Copula.isCI_clayton_positive θ hθ
+/-- Table 3: the quadrant-dependence consequence of the positive Clayton CI entry. -/
 theorem clayton_positive_pqd (θ : ℝ) (hθ : 0 < θ) :
     (Copula.clayton 2 θ hθ).IsPQD :=
   Copula.isPQD_clayton_positive θ hθ
