@@ -347,3 +347,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.extremal_toMeasure_derivativeDensity
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremal_toMeasure_derivativeDensity
+
+#print axioms Papers.Rockel2026XiBlest.shufflePoint_involution
+#assert_standard_axioms Papers.Rockel2026XiBlest.shufflePoint_involution
+
+#print axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed
+
+#print axioms Papers.Rockel2026XiBlest.shufflePoint_measurePreserving
+#assert_standard_axioms Papers.Rockel2026XiBlest.shufflePoint_measurePreserving
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_zero
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_zero
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_one
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_one
+
+#print axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed_copula
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed_copula

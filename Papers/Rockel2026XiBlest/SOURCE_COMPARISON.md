@@ -27,8 +27,12 @@ shuffled copulas satisfy C_p >=_co C_p'. The local author revision reverses
 this inequality. With C=M, the printed endpoint transformations give C_0=M
 and C_1=W, so arXiv v1 would imply M <=_co W. The Lean theorem
 `not_comonotonic_concordanceLE_countermonotonic` disproves that consequence
-at the midpoint. The corrected full shuffling lemma remains pending; the
-verified exact-region proof uses a different construction.
+at the midpoint. The endpoint-safe transformation in ShufflePath.lean differs from the printed
+map only at the null split point. Lean proves that it preserves the uniform
+marginal, yields an actual copula for every p, and has the two stated endpoint
+copulas. Xi invariance, corrected concordance monotonicity, and uniform path
+continuity remain pending; the verified exact-region proof uses a different
+construction.
 
 The local revision also explicitly states the almost-everywhere density
 formula for the positive extremal copulas. The normalization inverse is
