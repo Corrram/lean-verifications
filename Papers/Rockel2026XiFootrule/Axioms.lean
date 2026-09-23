@@ -106,6 +106,18 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiFootrule.countablePiM_symmetric_si_rank_equality
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePiM_symmetric_si_rank_equality
 
+#print axioms Papers.Rockel2026XiFootrule.countableOrdinal_isSI
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countableOrdinal_isSI
+
+#print axioms Papers.Rockel2026XiFootrule.ordinalSum_isSI_components
+#assert_standard_axioms Papers.Rockel2026XiFootrule.ordinalSum_isSI_components
+
+#print axioms Papers.Rockel2026XiFootrule.countableOrdinal_isSI_iff
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countableOrdinal_isSI_iff
+
+#print axioms Papers.Rockel2026XiFootrule.countableOrdinal_symmetric_si_rank_equality
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countableOrdinal_symmetric_si_rank_equality
+
 #print axioms Papers.Rockel2026XiFootrule.countablePi_exchangeable
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_exchangeable
 
