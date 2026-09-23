@@ -13,7 +13,7 @@ warningAsError = true
 name = "copula"
 git = "https://github.com/Corrram/copula.git"
 # Includes all ten exact classical rank regions and approximation constructors.
-rev = "00f40769f019c21d4c00a8d37666ef4d9899a68b"
+rev = "8f6622ca3e71b1f43aeb0230a02ee0f6eb20fa9c"
 
 [[lean_lib]]
 name = "Verification"

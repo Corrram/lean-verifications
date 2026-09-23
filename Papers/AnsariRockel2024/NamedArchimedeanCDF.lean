@@ -1,4 +1,5 @@
 import Copula.Families.Joe
+import Copula.Families.Frank
 import Copula.Families.Nelsen
 
 /-! # Joe source CDF on the closed square -/
@@ -19,6 +20,15 @@ theorem joe_cdf_full (θ : ℝ) (hθ : 1 ≤ θ) (u v : I) :
 /-- Table 2's independence endpoint for Joe. -/
 theorem joe_one : Copula.joe 1 le_rfl = Copula.independence 2 := Copula.joe_one
 
+
+/-- Table 1's Frank CDF for the positive parameter branch, including grounded zero axes.
+The source's negative parameter branch and removable zero case are separate gaps. -/
+theorem frank_positive_cdf_full (θ : ℝ) (hθ : 0 < θ) (u v : I) :
+    (Copula.frank θ hθ).cdf ![u, v] =
+      if u = 0 ∨ v = 0 then 0 else
+        -Real.log (1 - (1 - Real.exp (-θ * (u : ℝ))) *
+          (1 - Real.exp (-θ * (v : ℝ))) / (1 - Real.exp (-θ))) / θ :=
+  Copula.frank_cdf_full θ hθ u v
 
 /-- Table 1's Nelsen 2 CDF on the closed square. -/
 theorem nelsen2_cdf_full (θ : ℝ) (hθ : 1 ≤ θ) (u v : I) :
