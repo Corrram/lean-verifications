@@ -1,6 +1,7 @@
 import Papers.AnsariRockel2024.Definitions
 import Copula.TailDependence.ExtremeValue
 import Copula.TailDependence.Nelsen2
+import Copula.TailDependence.Joe
 import Copula.Order.FGMSchur
 import Copula.Order.Frechet
 
@@ -20,6 +21,13 @@ theorem gumbel_tails (θ : ℝ) (hθ : 1 ≤ θ) :
     (Copula.gumbel θ hθ).HasLowerTailDependence 0 ∧
       (Copula.gumbel θ hθ).HasUpperTailDependence (2 - (2 : ℝ) ^ θ⁻¹) :=
   ⟨Copula.hasLowerTailDependence_gumbel θ hθ, Copula.hasUpperTailDependence_gumbel θ hθ⟩
+
+/-- Table 3: Joe has its stated lower and upper tail coefficients. -/
+theorem joe_tails (θ : ℝ) (hθ : 1 ≤ θ) :
+    (Copula.joe θ hθ).HasLowerTailDependence 0 ∧
+      (Copula.joe θ hθ).HasUpperTailDependence (2 - (2 : ℝ) ^ θ⁻¹) :=
+  ⟨Copula.hasLowerTailDependence_joe θ hθ,
+    Copula.hasUpperTailDependence_joe θ hθ⟩
 
 /-- Table 3: Nelsen 2 has the stated lower and upper tail coefficients. -/
 theorem nelsen2_tails (θ : ℝ) (hθ : 1 ≤ θ) :
