@@ -1,12 +1,11 @@
 # Coverage
 
-**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The printed LTD example is proved not LTD; a corrected LTD example with exact ranks is supplied. The exact lower-semilinear region is proved independently of stochastic increase. Finite nested ordinal sums of independence and comonotonic blocks are now proved SI and symmetric with xi=footrule; SI is also preserved by binary ordinal sums, and the interior equality converse is checked for SI components. Adjacent countable sums of independence blocks are now proved symmetric with binary splits at every partition endpoint, an exact Pi first component, a recursive tail decomposition, stochastic increase, and xi=footrule equality. For arbitrary adjacent countable blocks, SI and exchangeability hold exactly when they hold in each block; in the SI class xi=footrule also holds exactly when it holds in each block. In particular, every adjacent countable Pi/M sum is symmetric, SI and has xi=footrule. The full arbitrary-interval converse classification and final publisher-version comparison remain pending.
+**Status: in progress.** Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The arXiv v1 LTD example is proved not LTD; the corrected example printed in the final JCAM article is verified with exact ranks. The exact lower-semilinear region is proved independently of stochastic increase. Finite nested ordinal sums of independence and comonotonic blocks are now proved SI and symmetric with xi=footrule; SI is also preserved by binary ordinal sums, and the interior equality converse is checked for SI components. Adjacent countable sums of independence blocks are now proved symmetric with binary splits at every partition endpoint, an exact Pi first component, a recursive tail decomposition, stochastic increase, and xi=footrule equality. For arbitrary adjacent countable blocks, SI and exchangeability hold exactly when they hold in each block; in the SI class xi=footrule also holds exactly when it holds in each block. In particular, every adjacent countable Pi/M sum is symmetric, SI and has xi=footrule. The full arbitrary-interval converse classification and full journal-version mapping remain pending.
 
 ## Source and proof scope
 
 Source: [arXiv:2509.07232v1](https://arxiv.org/html/2509.07232v1).
-Comparison with the [journal version](https://doi.org/10.1016/j.cam.2026.117466)
-remains pending.
+Selected final [JCAM](https://doi.org/10.1016/j.cam.2026.117466) statements are compared in [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md).
 
 The proof uses an exact squared-distance identity for conditional CDFs:
 for the Fréchet mixture $D_a=(1-a)\Pi+aM$,
@@ -46,7 +45,7 @@ Convexity is proved independently of the curved boundary formulas. A first copul
 
 ## Result map
 
-Source references use arXiv v1 unless explicitly marked JCAM resubmission; see [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md). Proofs are in
+Source references use arXiv v1 unless explicitly marked as JCAM resubmission or final JCAM; see [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md). Proofs are in
 [Definitions.lean](Definitions.lean), [UpperBoundary.lean](UpperBoundary.lean), [LowerEndpoint.lean](LowerEndpoint.lean), [SIRegion.lean](SIRegion.lean), [SIEquality.lean](SIEquality.lean), [AsymmetricEquality.lean](AsymmetricEquality.lean), [LowerBound.lean](LowerBound.lean), [ClosedCoefficients.lean](ClosedCoefficients.lean), [RegionGeometry.lean](RegionGeometry.lean), [TwoParameter.lean](TwoParameter.lean), [ClosedRegion.lean](ClosedRegion.lean), and [LTDExample.lean](LTDExample.lean).
 [Axioms.lean](Axioms.lean) prints and enforces the transitive axiom allowlist.
 
@@ -91,7 +90,7 @@ Source references use arXiv v1 unless explicitly marked JCAM resubmission; see [
 | Theorem 3.3: existence and uniqueness of the inverse parameter | `Papers.Rockel2026XiFootrule.footrule_inverse_unique` | verified | Every target footrule y in [-1/2,0] has exactly one matching mu in [0,2], including both endpoints. |
 | Theorem 3.3: cubic equation and unique admissible root | `Papers.Rockel2026XiFootrule.footrule_cubic_equivalence`; `Papers.Rockel2026XiFootrule.footrule_cubic_unique_admissible` | verified | The prescribed footrule equation is equivalent to mu^3-(4+2y)mu^2-(4+8y)mu-8y=0 on [0,2]. Its root in that interval is unique for y in [-1/2,0]. |
 | Theorem 3.3: nonpositive-footrule lower estimate | `Papers.Rockel2026XiFootrule.negative_footrule_lower_bound` | verified | Every copula with footrule in [-1/2,0] satisfies the explicit xi lower bound at its unique admissible cubic parameter. No copula-attainment assertion is added. |
-| Theorem 3.3: correction to unrestricted real-root uniqueness | `Papers.Rockel2026XiFootrule.footrule_cubic_not_unique_real` | verified | At y=-1/2 the cubic has the distinct real roots 2 and -1. Thus the source's phrase "unique real solution" must be restricted to the admissible interval [0,2]. |
+| arXiv v1 Theorem 3.3 / final JCAM Theorem 3.2: correction to unrestricted real-root uniqueness | `Papers.Rockel2026XiFootrule.footrule_cubic_not_unique_real` | verified | At y=-1/2 the cubic has the distinct real roots 2 and -1. Thus the "unique real solution" phrase, retained in the final JCAM PDF, must be restricted to the admissible interval [0,2]. |
 | Theorem 3.3: deterministic witnesses at xi=1 | `Papers.Rockel2026XiFootrule.rightBoundary_coefficients` | verified | A central W block of width a with identity outside has xi=1 and footrule=1-3a^2/2, for all a in [0,1]. The shared ordinal-sum construction proves it is a copula. |
 | Theorem 3.3: entire xi=1 boundary | `Papers.Rockel2026XiFootrule.xi_one_slice` | verified | A pair (1,y) is attainable iff y lies in [-1/2,1]. The inverse width sqrt(2(1-y)/3) supplies an explicit witness, including both endpoints. |
 | Theorem 3.3, equation (26): interval property and extension to xi=1 | `Papers.Rockel2026XiFootrule.fixed_footrule_intermediate`; `Papers.Rockel2026XiFootrule.fixed_footrule_upward` | verified | Every xi between two attained points at the same footrule is attained; every attained point extends to all xi up to 1 at the same footrule. No closed-slice or minimum-attainment assertion is included. |
@@ -104,10 +103,10 @@ Source references use arXiv v1 unless explicitly marked JCAM resubmission; see [
 | Remark 2.6(c): lower-semilinear boundary witnesses | `Papers.Rockel2026XiFootrule.upperBoundary_isLowerSemilinear`; `Papers.Rockel2026XiFootrule.diagonalBoundary_isLowerSemilinear` | verified | Both boundary families have the standard representation min(u,v) q(max(u,v)), with q(t)/t nonincreasing on positive t. Includes all parameter endpoints. |
 | Remark 2.6(c): universal lower-semilinear bound | `Papers.Rockel2026XiFootrule.lowerSemilinear_xi_le_footrule` | verified | Every lower-semilinear copula satisfies xi<=footrule; no SI hypothesis. A section Lipschitz bound gives the conditional-CDF square integral bound. |
 | Remark 2.6(c): exact lower-semilinear region | `Papers.Rockel2026XiFootrule.exact_lowerSemilinear_xi_footrule_region`; `Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si` | verified | A pair (x,y) is attained in the LSL class iff x,y lie in [0,1] and x<=y<=sqrt(x), exactly the SI region. Mixtures at fixed footrule remain LSL and fill the entire region. |
-| Remark 2.6(d): printed matrix and rank values | `Papers.Rockel2026XiFootrule.printed_ltd_matrix`; `Papers.Rockel2026XiFootrule.printed_ltd_coefficients` | verified | The exact printed mass matrix defines a copula with xi=1/2 and footrule=1/3. The LTD assertion is false, as checked separately below. |
-| Remark 2.6(d): formal counterexample to the printed LTD assertion | `Papers.Rockel2026XiFootrule.printed_ltd_claim_false` | verified | At (2/3,2/3), the printed checkerboard has CDF 5/12 < 4/9. It fails PQD, hence cannot be LTD. |
-| Remark 2.6(d): corrected LTD counterexample | `Papers.Rockel2026XiFootrule.corrected_ltd_matrix`; `Papers.Rockel2026XiFootrule.corrected_ltd_counterexample`; `Papers.Rockel2026XiFootrule.corrected_ltd_not_si` | verified | Replacement mass matrix (1/9)*[[3,0,0],[0,1,2],[0,2,1]] is LTD on the full square, has xi=38/81 > 10/27=footrule, and is not SI. It proves the intended failure of xi<=footrule for LTD. |
-| Remark 2.6(d): literal assertion that the printed matrix is LTD | — | excluded | False for the printed coefficients. The formal disproof and corrected witness above replace this assertion. |
+| arXiv v1 Remark 2.6(d): printed matrix and rank values | `Papers.Rockel2026XiFootrule.printed_ltd_matrix`; `Papers.Rockel2026XiFootrule.printed_ltd_coefficients` | verified | The exact printed mass matrix defines a copula with xi=1/2 and footrule=1/3. The LTD assertion is false, as checked separately below. |
+| arXiv v1 Remark 2.6(d): formal counterexample to the printed LTD assertion | `Papers.Rockel2026XiFootrule.printed_ltd_claim_false` | verified | At (2/3,2/3), the printed checkerboard has CDF 5/12 < 4/9. It fails PQD, hence cannot be LTD. |
+| final JCAM Remark 2(d): corrected LTD counterexample | `Papers.Rockel2026XiFootrule.corrected_ltd_matrix`; `Papers.Rockel2026XiFootrule.corrected_ltd_counterexample`; `Papers.Rockel2026XiFootrule.corrected_ltd_not_si` | verified | Replacement mass matrix (1/9)*[[3,0,0],[0,1,2],[0,2,1]] is LTD on the full square, has xi=38/81 > 10/27=footrule, and is not SI. It proves the intended failure of xi<=footrule for LTD. |
+| arXiv v1 Remark 2.6(d): literal assertion that the printed matrix is LTD | — | excluded | False for the printed coefficients. The formal disproof and corrected witness above replace this assertion. |
 | Remark 2.6(a),(e): open questions | — | excluded | The SI xi<=tau conjecture and explicit negative/SD boundary formulas are not claimed proved by the source. |
 | Section 3.2, equation (31): actual pre-standardization marginals | `Papers.Rockel2026XiFootrule.twoParameter_raw_marginals`; `Papers.Rockel2026XiFootrule.twoParameter_marginal_density` | verified | The density outside the hole has uniform first marginal and second density (1-L(t))/(1-beta). Every alpha,beta in [0,1/2], including all edges. |
 | Proposition 3.5, equation (32): actual copula density | `Papers.Rockel2026XiFootrule.twoParameter_density` | verified | Exact measure equality with the displayed quantile density on the closed parameter square. The proof handles flat marginal-CDF intervals through almost-everywhere quantile inversion; division by zero uses the zero version on null fibers. At alpha=1/2 the unused affine middle branch is replaced by the natural step-function extension. |
@@ -122,7 +121,7 @@ Source references use arXiv v1 unless explicitly marked JCAM resubmission; see [
 | JCAM resubmission Proposition 3.4: strict mirrored relaxed bound | `Papers.Rockel2026XiFootrule.relaxed_mirrored_bound` | verified | Every mu in (0,2]; differentiate the exact squared defect and prove strict monotonicity, including the mu=2 endpoint. |
 | JCAM resubmission Corollary 3.5: absolute bound and equality | `Papers.Rockel2026XiFootrule.negative_footrule_strict`; `Papers.Rockel2026XiFootrule.abs_footrule_le_sqrt_xi`; `Papers.Rockel2026XiFootrule.abs_footrule_eq_sqrt_xi_iff` | verified | Every copula satisfies abs(footrule)<=sqrt(xi). Equality iff the copula is a nonnegative Frechet mixture of Pi and M; strict for negative footrule. |
 | JCAM resubmission Corollary 3.6: strict containment in xi-rho region | `Papers.Rockel2026XiFootrule.footrule_pair_attained_as_rho`; `Papers.Rockel2026XiFootrule.footrule_region_ssubset_rho_region` | verified | Construct a rho witness for each footrule pair using Frechet mixtures, reflection and fixed-rho interpolation. The pair (1,-1), attained by W for rho, proves strictness. |
-| Journal/preprint correspondence | — | pending | Only the explicitly linked arXiv version is mapped. |
+| Final journal comparison | — | in progress | Selected final JCAM statements are compared in SOURCE_COMPARISON.md. The published Theorem 3.2 still says "unique real solution"; that unrestricted phrase is false, and Lean proves only uniqueness in [0,2]. Full statement-by-statement correspondence remains pending. |
 
 ## Exact Frechet optimization and the Table 2 parameter convention
 
@@ -160,7 +159,7 @@ its lower endpoint. No explicit negative-boundary formula is inferred.
 
 ## Correction to Remark 2.6(d)
 
-The source's printed matrix `(1/12)*[[4,0,0],[0,1,3],[0,3,1]]`
+The arXiv v1 source's printed matrix `(1/12)*[[4,0,0],[0,1,3],[0,3,1]]`
 has the advertised ranks but is not LTD. Its CDF at `(2/3,2/3)` is `5/12`,
 which is strictly below `(2/3)*(2/3)=4/9`, contradicting the PQD condition
 implied by LTD. This discrepancy is proved in Lean, not inferred from a plot.
@@ -168,7 +167,7 @@ implied by LTD. This discrepancy is proved in Lean, not inferred from a plot.
 The replacement `(1/9)*[[3,0,0],[0,1,2],[0,2,1]]` is proved LTD and has
 `xi=38/81` and `footrule=10/27`, so it establishes the intended strict
 counterexample. The proof checks the LTD inequality for all thresholds and
-computes both coefficients exactly. The printed false LTD assertion is not
+computes both coefficients exactly. The arXiv v1 false LTD assertion is not
 advertised as verified.
 
 ## Lower-semilinear region

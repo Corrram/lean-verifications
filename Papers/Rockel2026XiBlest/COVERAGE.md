@@ -1,11 +1,11 @@
 # Coverage
 
-**Status: in progress.** The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. Mapped arXiv v1 auxiliary results include Lemmas 4.1-4.2. Two printed arXiv v1 errors are formally refuted: an intermediate polynomial and the direction of the shuffling lemma's concordance order. The corrected polynomial is verified. The author revision's signed-family concordance ordering, coefficient reflection, negative-parameter SD, uniform copula limits, positive-parameter MTP2 density existence, and the source density candidate's switch points and inverse-normalization coefficient are checked. The revised lemma's displayed derivative-form density is identified with the actual copula measure for every positive parameter. The corrected four-part shuffling lemma is verified, including its xi invariance, decreasing concordance order and quantitative uniform CDF continuity. Final journal-version correspondence remains pending.
+**Status: in progress.** The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. Mapped arXiv v1 auxiliary results include Lemmas 4.1-4.2. Two printed arXiv v1 errors are formally refuted: an intermediate polynomial and the direction of the shuffling lemma's concordance order. The corrected polynomial is verified. The author revision's signed-family concordance ordering, coefficient reflection, negative-parameter SD, uniform copula limits, positive-parameter MTP2 density existence, and the source density candidate's switch points and inverse-normalization coefficient are checked. The revised lemma's displayed derivative-form density is identified with the actual copula measure for every positive parameter. The corrected four-part shuffling lemma is verified, including its xi invariance, decreasing concordance order and quantitative uniform CDF continuity. Selected final-journal statements are compared in SOURCE_COMPARISON.md; full statement-by-statement correspondence remains pending.
 
 ## Source and conventions
 
 Source: [arXiv:2603.09768v1](https://arxiv.org/abs/2603.09768v1), 10 March 2026.
-Journal reference: [DOI 10.1016/j.ijar.2026.109744](https://doi.org/10.1016/j.ijar.2026.109744); version comparison pending.
+Journal reference: [DOI 10.1016/j.ijar.2026.109744](https://doi.org/10.1016/j.ijar.2026.109744). Selected published statements are compared in [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md).
 
 Blest weights the first coordinate by 1-u, exactly as in equation (3). The product uniform measure is proved to give the displayed iterated integral. All integrals exist for arbitrary copulas, including singular ones. Xi conditions coordinate 1 on coordinate 0, with the derivative bridge checked in equation (2). Pi/M/W benchmarks and the full range [-1,1] are checked. Reflection of the second coordinate preserves xi and negates nu. The extremal construction and optimization results are mapped separately below. No sign-reversal claim is made for reflection of the first coordinate.
 
@@ -44,7 +44,7 @@ Uniqueness is equality almost everywhere, as appropriate for L2.
 | Theorem 1.1: continuity of Blest under CDF convergence | `Papers.Rockel2026XiBlest.blest_tendsto_of_cdf` | verified | Pointwise CDF convergence of arbitrary copulas implies convergence of the exact weighted functional. |
 | Theorem 1.1: closedness and compactness | `Papers.Rockel2026XiBlest.attainable_region_closed`; `Papers.Rockel2026XiBlest.attainable_region_compact` | verified | Entire attained region. Independent proof using weak compactness, lower semicontinuity of xi, and fixed-Blest upward interpolation. |
 | Theorem 1.1: attained slice extrema | `Papers.Rockel2026XiBlest.blest_extrema_attained`; `Papers.Rockel2026XiBlest.minimal_xi_attained` | verified | Both Blest extrema exist for each xi in [0,1]; the least xi exists for every Blest value in [-1,1]. The extremal family, formulas, and uniqueness are identified by the separate results below. |
-| Journal/preprint correspondence | — | pending | Only arXiv v1 is mapped. |
+| Final journal comparison | — | in progress | Theorem 1, Theorem 2, Lemma 5 and the Appendix A polynomial are compared with the final PDF in SOURCE_COMPARISON.md. The two refuted intermediate claims belong to arXiv v1 and are corrected in the published PDF. Full statement-by-statement correspondence remains pending. |
 | Equation (16): conditional integral identity | `Papers.Rockel2026XiBlest.blest_conditional_formula` | verified | Every copula, including singular laws; the squared first-coordinate weight is proved by Fubini. |
 | Lemma 2.1: unique normalization | `Papers.Rockel2026XiBlest.extremal_normalization` | verified | Every b>0 and v in [0,1]; unique q in [-1/b,1]. |
 | Lemma 2.1: ordered, measurable conditional sections | `Papers.Rockel2026XiBlest.extremalQ_antitone`; `Papers.Rockel2026XiBlest.extremal_kernel_measurable` | verified | Antitone q and joint measurability of the actual normalized kernel. |
@@ -80,8 +80,8 @@ Uniqueness is equality almost everywhere, as appropriate for L2.
 | Revised Lemma 4.3(ii): xi invariance of the shuffle | `Papers.Rockel2026XiBlest.copula_measureReal_conditional_set`; `Papers.Rockel2026XiBlest.shuffle_setIntegral`; `Papers.Rockel2026XiBlest.shuffledCopula_conditionalCDF_ae`; `Papers.Rockel2026XiBlest.shuffledCopula_xi` | verified | For every copula and every p in [0,1], xi of the actual shuffled copula equals xi of the original. An arbitrary-set disintegration identity and measure-preserving involution identify the transformed conditional CDF almost everywhere; singular copulas are included. |
 | Revised Lemma 4.3(iii): corrected concordance order | `Papers.Rockel2026XiBlest.shuffledCopula_cdf_below_cut`; `Papers.Rockel2026XiBlest.shuffledCopula_cdf_above_cut`; `Papers.Rockel2026XiBlest.si_cdf_cross`; `Papers.Rockel2026XiBlest.shuffledCopula_concordance` | verified | For every SI copula and p>=p', the actual shuffled copulas satisfy C_p<=_co C_p'. Exact CDF formulas on both sides of the split and a four-point SI inequality prove the reversed direction used in the local author revision. |
 | Revised Lemma 4.3(iv): uniform path continuity | `Papers.Rockel2026XiBlest.shuffledCopula_cdf_bound`; `Papers.Rockel2026XiBlest.shuffledCopula_uniformCDF_continuous` | verified | For every copula and p,p' in [0,1], the absolute CDF difference is at most 2 abs(p-p') at every point of the closed square. This gives uniform convergence as p tends to p' with a parameter-independent spatial bound; SI is unnecessary. |
-| Lemma 4.3(iii): refutation of printed shuffling order | `Papers.Rockel2026XiBlest.not_comonotonic_concordanceLE_countermonotonic` | verified | The arXiv v1 direction would give M <=_co W at p=1, p'=0 with C=M. Lean disproves this endpoint case. The local author revision reverses the direction, and the full corrected shuffle path is verified in the three rows above. |
-| Proof of Theorem 2.3: corrected lower-clamped square polynomial | `Papers.Rockel2026XiBlest.lower_square_polynomial`; `Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false` | verified | The correct coefficient of r^5 is -8/15. The printed -1/5 is disproved at r=1/2. The final theorem formulas are unaffected and separately verified. |
+| arXiv v1 Lemma 4.3(iii): refutation of printed shuffling order | `Papers.Rockel2026XiBlest.not_comonotonic_concordanceLE_countermonotonic` | verified | The arXiv v1 direction would give M <=_co W at p=1, p'=0 with C=M. Lean disproves this endpoint case. The local author revision reverses the direction, and the full corrected shuffle path is verified in the three rows above. |
+| arXiv v1 proof of Theorem 2.3: corrected lower-clamped square polynomial | `Papers.Rockel2026XiBlest.lower_square_polynomial`; `Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false` | verified | The correct coefficient of r^5 is -8/15. The printed -1/5 is disproved at r=1/2. The final theorem formulas are unaffected and separately verified. |
 
 The verified subset consists only of the explicitly mapped statements and
 proof steps. Pending rows are not implied by a successful build. Numerical
@@ -91,13 +91,13 @@ Lemma 3.1 is quoted external KKT theory; Lemmas 3.2 and 4.3 are quoted from the 
 
 ## Corrected intermediate calculation
 
-In the proof of Theorem 2.3, the displayed lower-clamped expression G_iv
+In arXiv v1, the lower-clamped expression G_iv in the proof of Theorem 2.3
 subtracts r^5/5. Expanding the preceding definition F(r;r^2) instead gives
 8r^5/15. At b=1 and r=1/2, the correct squared section integral is 19/240,
 whereas the printed expression gives 43/480. The two Lean declarations above
 prove the corrected identity and disprove the printed polynomial. The final
 Xi and N formulas and all region statements are proved from the actual copulas.
-The literal erroneous intermediate line is not claimed verified.
+The literal erroneous arXiv v1 intermediate line is not claimed verified. The final IJAR PDF instead prints the corrected -8r^5/15 term.
 
 ## Additional revision obligations
 
