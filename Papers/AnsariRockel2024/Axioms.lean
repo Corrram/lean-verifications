@@ -524,6 +524,9 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_tails
 #print axioms Papers.AnsariRockel2024.nelsen14_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_cdf_full
+
+#print axioms Papers.AnsariRockel2024.nelsen14_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_tails
 #print axioms Papers.AnsariRockel2024.nelsen2_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_one
 #print axioms Papers.AnsariRockel2024.nelsen8_one
