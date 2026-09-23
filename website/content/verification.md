@@ -11,6 +11,13 @@ checked Lean declaration.
 | In progress | Consult individual coverage rows for completed and pending work. |
 | Complete for stated scope | Every result in the explicitly recorded scope has been checked and matched to its source. |
 
+A source-correction label on the article index means that a literal claim in a
+named source version could not be verified. The article page identifies the
+version, the failed claim, the evidence, and the statement proved instead.
+A paper can be complete for its **corrected stated scope** while a printed
+journal or preprint formula remains false. A separate version warning marks
+journal text that has not yet been compared; it is not counted as verified.
+
 A successful build checks the submitted Lean code. Empty namespaces and
 imports can build successfully too, so build success is not a measure of
 article coverage.

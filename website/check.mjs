@@ -28,6 +28,16 @@ const index = JSON.parse(fs.readFileSync(path.join(out, 'search-index.json')));
 const metadata = JSON.parse(fs.readFileSync(path.join(out, 'build-info.json')));
 assert.equal(index.filter((x) => x.kind === 'Article supplement').length, metadata.articles.length);
 assert.match(metadata.commit, /^[a-f0-9]{40}$/);
+for (const article of metadata.articles) {
+  const html = fs.readFileSync(path.join(out, 'papers', article.id, 'index.html'), 'utf8');
+  const rendered = (html.match(/class="source-discrepancy"/g) || []).length;
+  assert.equal(rendered, article.source_discrepancies.length, `Missing source correction on ${article.id}`);
+  if (article.version_warning) assert(html.includes('class="version-warning"'), `Missing version warning on ${article.id}`);
+}
+const catalog = fs.readFileSync(path.join(out, 'papers', 'index.html'), 'utf8');
+assert.equal((catalog.match(/class="source-flag"/g) || []).length,
+  metadata.articles.filter((article) => article.source_discrepancies.length).length,
+  'Catalog source-correction indicators do not match paper records');
 if (!preview) {
   const data = JSON.parse(fs.readFileSync(path.join(out, 'api/declarations/declaration-data.bmp')));
   for (const name of ['ProbabilityTheory.Copula', 'ProbabilityTheory.Copula.cdf_one', 'ProbabilityTheory.Copula.cdf_nonneg']) assert(data.declarations[name], `Missing generated declaration: ${name}`);

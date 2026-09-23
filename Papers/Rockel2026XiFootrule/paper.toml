@@ -13,3 +13,11 @@ verification_status = "in-progress"
 scope = "Theorems 2.1, 2.4, 3.2, and 3.4, Propositions 2.2, 3.1, and 3.5, and Corollary 2.5 are checked. Theorem 3.3's convexity, entire xi=1 boundary, fixed-footrule interpolation, and exact nonnegative-footrule region are verified. Its inverse lower estimate is checked for footrule in [-1/2,0], with parameter uniqueness on [0,2]. Remark 2.3's asymmetric SI equality example is constructed and checked, including its derivative, xi=footrule=1/2, and asymmetry. The two-parameter density construction is checked on the full closed parameter square, including its independence and checkerboard endpoints. The full region is now proved closed and compact, and every boundary slice attains its extremum. The printed LTD example is proved not LTD; a corrected LTD example with exact ranks is supplied. The exact lower-semilinear region is proved independently of stochastic increase. The symmetric ordinal-sum classification and journal-version comparison remain pending."
 entrypoint = "Papers.Rockel2026XiFootrule.Main"
 coverage = "COVERAGE.md"
+
+version_warning = "The final publisher version has not been compared. Verified rows refer to arXiv v1."
+
+[[source_discrepancies]]
+version = "arXiv v1, Remark 2.6(d)"
+unverified_claim = "The printed 3-by-3 checkerboard matrix is LTD."
+evidence = "Lean proves its CDF at (2/3, 2/3) is 5/12, below 4/9, so the matrix is not LTD."
+verified_instead = "A different checkerboard is proved LTD with xi=38/81 and footrule=10/27, establishing the intended strict example."

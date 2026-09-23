@@ -13,3 +13,11 @@ verification_status = "in-progress"
 scope = "The exact xi-Blest region, both explicit coefficient branches, endpoint limits, unique curved-boundary copulas and parameters, convexity, compactness, and the sharp gap 44/105 are checked. The relaxed measurable-kernel optimization problem, normalization-map continuity, and derivative identity including b=1 are also checked. All main and auxiliary results specific to arXiv v1 are checked, including Lemmas 4.1-4.2. A displayed intermediate polynomial is formally refuted and corrected; the final coefficient formulas are verified independently. The author revision's full signed-family concordance ordering, negative-parameter SD, and uniform copula limits at zero and both infinities are also checked. Its positive-parameter MTP2 density claim is also proved. Final journal-version correspondence remains pending."
 entrypoint = "Papers.Rockel2026XiBlest.Main"
 coverage = "COVERAGE.md"
+
+version_warning = "The final publisher version has not been compared. Verified rows refer to arXiv v1 and the identified local author revision."
+
+[[source_discrepancies]]
+version = "arXiv v1, proof of Theorem 2.3"
+unverified_claim = "The displayed lower-clamped square polynomial has coefficient -1/5 on r^5."
+evidence = "Lean disproves that intermediate expression at r=1/2."
+verified_instead = "The corrected coefficient is -8/15; the final coefficient and region theorems are proved independently."
