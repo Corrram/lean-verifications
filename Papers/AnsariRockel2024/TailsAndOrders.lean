@@ -37,6 +37,11 @@ theorem nelsen8_tails (θ : ℝ) (hθ : 1 ≤ θ) :
   ⟨Copula.hasLowerTailDependence_nelsen8 θ hθ,
     Copula.hasUpperTailDependence_nelsen8 θ hθ⟩
 
+/-- Table 3: Nelsen 8 increases in lower-orthant order for θ ≥ 1. -/
+theorem nelsen8_lowerOrthant {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η)
+    (hθη : θ ≤ η) :
+    (Copula.nelsen8 θ hθ).LowerOrthantLE (Copula.nelsen8 η hη) :=
+  Copula.lowerOrthantLE_nelsen8 hθ hη hθη
 /-- Table 3: Nelsen 2 has the stated lower and upper tail coefficients. -/
 theorem nelsen2_tails (θ : ℝ) (hθ : 1 ≤ θ) :
     (Copula.nelsen2 θ hθ).HasLowerTailDependence 0 ∧
