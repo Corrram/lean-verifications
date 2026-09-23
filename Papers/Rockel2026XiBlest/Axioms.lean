@@ -320,3 +320,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_hasMTP2Density
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_hasMTP2Density
+
+#print axioms Papers.Rockel2026XiBlest.quadratic_active_interval_integral
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_active_interval_integral
+
+#print axioms Papers.Rockel2026XiBlest.quadratic_closed_active_reflected_integral
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_closed_active_reflected_integral
+
+#print axioms Papers.Rockel2026XiBlest.quadratic_active_iff_switch
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_active_iff_switch
+
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_columnDensity
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_columnDensity
+
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_support_ae
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_support_ae
+
+#print axioms Papers.Rockel2026XiBlest.extremal_standardized_eq_width_of_support
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_standardized_eq_width_of_support
+
+#print axioms Papers.Rockel2026XiBlest.extremalWidthDensity_ae_standardized
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalWidthDensity_ae_standardized
+
+#print axioms Papers.Rockel2026XiBlest.extremal_toMeasure_widthDensity
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_toMeasure_widthDensity
+
+#print axioms Papers.Rockel2026XiBlest.extremal_toMeasure_derivativeDensity
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_toMeasure_derivativeDensity

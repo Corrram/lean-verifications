@@ -161,6 +161,118 @@ theorem extremalQExtension_density_coefficient (b : ℝ) (hb : 0 < b)
     extremalQExtension_coe b hb v]
   field_simp
 
+/-- The active set in the clamped-square normalization has exact Lebesgue
+length given by the difference of its switch points. -/
+theorem quadratic_active_interval_integral (b q : ℝ) (hb : 0 < b)
+    (hq : q ∈ Icc (-1/b) 1) :
+    (∫ x : I, if 0 < b*((x : ℝ)^2-q) ∧
+        b*((x : ℝ)^2-q) < 1 then (1 : ℝ) else 0) =
+      quadraticUpper b q - quadraticLower q := by
+  have he := (clampedSquareMean_hasDerivAt_integral b q hb).unique
+    (clampedSquareMean_hasDerivAt b q hb hq)
+  have hf : (fun x : I => if 0 < b*((x : ℝ)^2-q) ∧
+        b*((x : ℝ)^2-q) < 1 then -b else 0) =
+      fun x : I => -b * (if 0 < b*((x : ℝ)^2-q) ∧
+        b*((x : ℝ)^2-q) < 1 then (1 : ℝ) else 0) := by
+    funext x
+    split_ifs <;> ring
+  rw [hf, integral_const_mul] at he
+  exact (mul_left_cancel₀ (by linarith : -b ≠ 0)) he
+
+/-- The reflected closed active strip has the same length: switching
+equalities occur only on two null square-level sets. -/
+theorem quadratic_closed_active_reflected_integral (b q : ℝ) (hb : 0 < b)
+    (hq : q ∈ Icc (-1/b) 1) :
+    (∫ u : I, if 0 ≤ b*((1-(u : ℝ))^2-q) ∧
+        b*((1-(u : ℝ))^2-q) ≤ 1 then (1 : ℝ) else 0) =
+      quadraticUpper b q - quadraticLower q := by
+  have hsq0 := unitInterval.measurePreserving_symm.quasiMeasurePreserving.ae
+    (square_ae_ne q)
+  have hsq1 := unitInterval.measurePreserving_symm.quasiMeasurePreserving.ae
+    (square_ae_ne (q+1/b))
+  have hae : (fun u : I => if 0 ≤ b*((1-(u : ℝ))^2-q) ∧
+        b*((1-(u : ℝ))^2-q) ≤ 1 then (1 : ℝ) else 0) =ᵐ[volume]
+      (fun u : I => if 0 < b*((1-(u : ℝ))^2-q) ∧
+        b*((1-(u : ℝ))^2-q) < 1 then (1 : ℝ) else 0) := by
+    filter_upwards [hsq0, hsq1] with u h0 h1
+    simp only [unitInterval.coe_symm_eq] at h0 h1
+    let z := b*((1-(u : ℝ))^2-q)
+    have hz0 : z ≠ 0 := mul_ne_zero hb.ne' (sub_ne_zero.mpr h0)
+    have hz1 : z ≠ 1 := by
+      intro he
+      apply h1
+      have hdiv : (1-(u : ℝ))^2-q=1/b :=
+        (eq_div_iff hb.ne').mpr (by nlinarith [he])
+      linarith
+    have he : (0 ≤ z ∧ z ≤ 1) ↔ (0 < z ∧ z < 1) := by
+      constructor
+      · rintro ⟨hlo,hhi⟩
+        exact ⟨lt_of_le_of_ne hlo (Ne.symm hz0),
+          lt_of_le_of_ne hhi hz1⟩
+      · rintro ⟨hlo,hhi⟩
+        exact ⟨hlo.le,hhi.le⟩
+    change (if 0 ≤ z ∧ z ≤ 1 then (1 : ℝ) else 0) =
+      (if 0 < z ∧ z < 1 then (1 : ℝ) else 0)
+    simp only [he]
+  rw [integral_congr_ae hae]
+  have hr := integral_unit_reflection
+    (fun x : I => if 0 < b*((x : ℝ)^2-q) ∧
+        b*((x : ℝ)^2-q) < 1 then (1 : ℝ) else 0)
+  simp only [unitInterval.coe_symm_eq] at hr
+  exact hr.trans (quadratic_active_interval_integral b q hb hq)
+
+/-- Away from the unit-square edges, the strict clamped-square active
+condition is precisely the interval between the two switching points. -/
+theorem quadratic_active_iff_switch (b q t : ℝ) (hb : 0 < b)
+    (hq : q ∈ Icc (-1/b) 1) (ht : t ∈ Ioo (0 : ℝ) 1) :
+    (0 < b*(t^2-q) ∧ b*(t^2-q) < 1) ↔
+      (quadraticLower q < t ∧ t < quadraticUpper b q) := by
+  have hR : 0 ≤ q+1/b := by
+    have hqlo : -(1/b) ≤ q := by simpa only [neg_div] using hq.1
+    linarith
+  have hrsq : (quadraticLower q)^2 = max 0 q :=
+    Real.sq_sqrt (le_max_left _ _)
+  have hRsq := Real.sq_sqrt hR
+  have hrnonneg : 0 ≤ quadraticLower q := Real.sqrt_nonneg _
+  constructor
+  · rintro ⟨h0,h1⟩
+    have hqlo : q < t^2 := by nlinarith
+    have hqhi : t^2 < q+1/b := by
+      have hlt : t^2-q < 1/b :=
+        (lt_div_iff₀ hb).mpr (by nlinarith [h1])
+      linarith
+    constructor
+    · rcases le_total 0 q with hq0 | hq0
+      · rw [max_eq_right hq0] at hrsq
+        by_contra h
+        have hle : t ≤ quadraticLower q := le_of_not_gt h
+        nlinarith [mul_nonneg (sub_nonneg.mpr hle)
+          (add_nonneg hrnonneg ht.1.le)]
+      · rw [max_eq_left hq0] at hrsq
+        have hr0 : quadraticLower q = 0 := by nlinarith [sq_nonneg (quadraticLower q)]
+        rw [hr0]
+        exact ht.1
+    · apply lt_min ht.2
+      nlinarith [Real.sqrt_nonneg (q+1/b)]
+  · rintro ⟨h0,h1⟩
+    have htR : t < Real.sqrt (q+1/b) := h1.trans_le (min_le_right _ _)
+    have hsq : (quadraticLower q)^2 < t^2 := by
+      have hprod := mul_pos (sub_pos.mpr h0)
+        (add_pos_of_nonneg_of_pos hrnonneg ht.1)
+      nlinarith [hprod]
+    have hqlo : q < t^2 := by
+      rw [hrsq] at hsq
+      exact (le_max_right (0 : ℝ) q).trans_lt hsq
+    have hqhi : t^2 < q+1/b := by
+      have hprod := mul_pos (sub_pos.mpr htR)
+        (add_pos_of_pos_of_nonneg ht.1 (Real.sqrt_nonneg (q+1/b)))
+      nlinarith [hprod]
+    have hlt : b*(t^2-q) < 1 := by
+      have hh : t^2-q < 1/b := by linarith
+      have hmul := (lt_div_iff₀ hb).mp hh
+      nlinarith [hmul]
+    exact ⟨mul_pos hb (sub_pos.mpr hqlo), hlt⟩
+
 /-- Lemma 4.2(i), including the zero-radius endpoint. -/
 theorem substitution_upper (b q : ℝ) (hb : 0 < b) (hq : q ∈ Icc (-1/b) 1)
     (hqneg : q ≤ 0) (hR : Real.sqrt (q+1/b) ≤ 1) :

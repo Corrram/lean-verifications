@@ -31,20 +31,17 @@ at the midpoint. The corrected full shuffling lemma remains pending; the
 verified exact-region proof uses a different construction.
 
 The local revision also explicitly states the almost-everywhere density
-formula for the positive extremal copulas. The normalization inverse is now
+formula for the positive extremal copulas. The normalization inverse is
 proved differentiable at every interior response threshold, and its density
-coefficient -b q'(v) is identified with the reciprocal active-band width. `DensityTP2.lean` establishes
-existence of an MTP2 density for those copulas. The theorem
-`extremal_standardized_density` gives an exact measure identity for the
-standardized-band witness. The source switch points and the printed
--b q'(v) factor are checked, and that derivative expression agrees almost
-everywhere with a measurable reciprocal-width candidate. The remaining
-identity is between that candidate and the standardized-band witness.
-The latter's raw marginal quantile is now proved to have intercept -b q(v),
-and its closed support strip is identified with the active clamped interval.
-The remaining work includes column-density normalization and null-boundary
-handling for the open support convention. This is tracked as a separate
-pending row in COVERAGE.md.
+coefficient -b q'(v) is identified with the reciprocal active-band width.
+The raw-band marginal quantile has intercept -b q(v), its column density
+is (b+1) times the active width, and its closed support strip agrees almost
+everywhere with the revision's open switching interval. The theorem
+`extremal_toMeasure_derivativeDensity` identifies the displayed
+derivative-form expression with the actual copula measure for every b>0.
+Together with `extremal_hasMTP2Density`, this verifies the revised lemma's
+density formula and the revised proposition's MTP2 assertion. The exact
+published text correspondence remains pending.
 
 An earlier local author resubmission, `xi-nu-region-ijar-resubmission.tex`
 (SHA-256 `fe9fc5291dd448672d92599c7913c09f30ad2f0ac540c53a68a7d80870556cb0`),
