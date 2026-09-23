@@ -600,3 +600,6 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_tp2_cdf
 #print axioms Papers.AnsariRockel2024.cuadrasAuge_tp2_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_tp2_cdf
+
+#print axioms Papers.AnsariRockel2024.amh_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.amh_cdf_full
