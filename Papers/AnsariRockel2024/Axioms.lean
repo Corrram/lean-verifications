@@ -587,3 +587,16 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen14_pqd
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_pqd
+
+#print axioms Papers.AnsariRockel2024.nelsen12_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_tp2_cdf
+#print axioms Papers.AnsariRockel2024.nelsen14_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_tp2_cdf
+#print axioms Papers.AnsariRockel2024.gumbel_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_tp2_cdf
+#print axioms Papers.AnsariRockel2024.tawn_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_tp2_cdf
+#print axioms Papers.AnsariRockel2024.marshallOlkin_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_tp2_cdf
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_tp2_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_tp2_cdf
