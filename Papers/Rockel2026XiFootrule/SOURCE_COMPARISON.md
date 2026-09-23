@@ -7,8 +7,8 @@ Its SHA-256 is
 `5dcbfb0d113c4e2ccc731b337f9dd37a02eb789b91189872fd0c5cfaf641ff6e`.
 The primary result map in [COVERAGE.md](COVERAGE.md) retains the numbering of
 [arXiv:2509.07232v1](https://arxiv.org/abs/2509.07232v1).
-The following final-PDF results were compared directly; full
-statement-by-statement correspondence remains in progress.
+Every original named final-PDF result in the corrected stated scope was compared;
+the table below retains the arXiv v1 numbering alongside the published numbering.
 
 | arXiv v1 map | Final JCAM PDF | Comparison |
 | --- | --- | --- |
@@ -42,6 +42,8 @@ which is the corrected statement proved by
 uniqueness claim is excluded, and no exact negative-footrule
 attainment is inferred from the relaxed bound.
 
+The displayed set in final Theorem 3.2 covers positive footrule values as well, but its proof invokes the relaxed parameter only for y in [-1/2,0]; Proposition 2 likewise gives the closed coefficient formulas only for mu in [0,2]. The Lean supplement proves the exact nonnegative-footrule region by a separate copula construction and does not extend the relaxed formula to y>0.
+
 The earlier local resubmission
 `xi-footrule/jcam/xi-footrule-region-jcam_resubmission.tex`
 (SHA-256 `0b824be25f6231602b90add3d3421a67f78be311e6ebfb69b189bb153a57758b`)
@@ -49,5 +51,5 @@ was inspected on 22 September 2026. Its numbering differs from the
 final PDF, so the table above uses the published numbering. For
 adjacent countable ordinal sums, the Lean supplement proves SI,
 exchangeability and rank equality componentwise, including Pi/M
-blocks. It does not prove the published Remark 1 converse over
-arbitrary nonadjacent intervals and a residual comonotonic part.
+blocks. The final Remark 1 explicitly cites [15, Thm. 5.1] for its converse over
+arbitrary nonadjacent intervals and a residual comonotonic part. That external theorem is excluded from the corrected formal scope; the adjacent countable results do not imply it.
