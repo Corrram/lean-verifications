@@ -613,3 +613,6 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.amh_tails_lt_one
 #print axioms Papers.AnsariRockel2024.amh_tails_one
 #assert_standard_axioms Papers.AnsariRockel2024.amh_tails_one
+
+#print axioms Papers.AnsariRockel2024.amh_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.amh_lowerOrthant_iff
