@@ -560,6 +560,285 @@ theorem clayton_withDensity_positive_rectangle_eq_measure
       ha hab hc hcd]
   exact ENNReal.ofReal_toReal (measure_ne_top _ _)
 
+/-- The candidate-density measure assigns zero mass to either coordinate
+axis, as does every copula measure. -/
+theorem clayton_withDensity_axis_zero (θ : ℝ) (i : Fin 2) :
+    ((volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x)))
+      {x | x i = 0} = 0 := by
+  have hv : (volume : Measure (Fin 2 → I)) {x | x i = 0} = 0 := by
+    change (Copula.independence 2).toMeasure
+      ((fun x : Fin 2 → I => x i) ⁻¹' ({0} : Set I)) = 0
+    rw [(Copula.independence 2).measure_preimage_eval i
+      (measurableSet_singleton (0 : I))]
+    simp
+  exact (withDensity_absolutelyContinuous _ _) hv
+
+private noncomputable def claytonCutoff (u v : I) (n : ℕ) : I := by
+  let q : ℝ := min (u : ℝ) (v : ℝ) / ((n : ℝ) + 1)
+  have hq0 : 0 ≤ q := div_nonneg (le_min u.property.1 v.property.1) (by positivity)
+  have hq1 : q ≤ 1 := by
+    have hmin : min (u : ℝ) (v : ℝ) ≤ 1 :=
+      (min_le_left _ _).trans u.property.2
+    have hden : (1 : ℝ) ≤ (n : ℝ) + 1 := by
+      have hn : (0 : ℝ) ≤ n := Nat.cast_nonneg n
+      linarith
+    exact (div_le_self (le_min u.property.1 v.property.1) hden).trans hmin
+  exact ⟨q, hq0, hq1⟩
+
+private theorem claytonCutoff_pos (u v : I)
+    (hu : 0 < (u : ℝ)) (hv : 0 < (v : ℝ)) (n : ℕ) :
+    0 < (claytonCutoff u v n : ℝ) := by
+  change 0 < min (u : ℝ) (v : ℝ) / ((n : ℝ) + 1)
+  exact div_pos (lt_min hu hv) (by positivity)
+
+private theorem claytonCutoff_le_left (u v : I) (n : ℕ) :
+    claytonCutoff u v n ≤ u := by
+  change min (u : ℝ) (v : ℝ) / ((n : ℝ) + 1) ≤ (u : ℝ)
+  have hden : (1 : ℝ) ≤ (n : ℝ) + 1 := by
+    have hn : (0 : ℝ) ≤ n := Nat.cast_nonneg n
+    linarith
+  exact (div_le_self (le_min u.property.1 v.property.1) hden).trans
+    (min_le_left _ _)
+
+private theorem claytonCutoff_le_right (u v : I) (n : ℕ) :
+    claytonCutoff u v n ≤ v := by
+  change min (u : ℝ) (v : ℝ) / ((n : ℝ) + 1) ≤ (v : ℝ)
+  have hden : (1 : ℝ) ≤ (n : ℝ) + 1 := by
+    have hn : (0 : ℝ) ≤ n := Nat.cast_nonneg n
+    linarith
+  exact (div_le_self (le_min u.property.1 v.property.1) hden).trans
+    (min_le_right _ _)
+
+private theorem claytonCutoff_tendsto_zero (u v : I) :
+    Filter.Tendsto (fun n : ℕ => (claytonCutoff u v n : ℝ))
+      Filter.atTop (nhds 0) := by
+  have h := (tendsto_one_div_add_atTop_nhds_zero_nat (𝕜 := ℝ)).const_mul
+    (min (u : ℝ) (v : ℝ))
+  convert h using 1 <;> simp [claytonCutoff, div_eq_mul_inv]
+
+private theorem claytonCutoff_antitone (u v : I) :
+    Antitone (claytonCutoff u v) := by
+  intro m n hmn
+  change min (u : ℝ) (v : ℝ) / ((n : ℝ) + 1) ≤
+    min (u : ℝ) (v : ℝ) / ((m : ℝ) + 1)
+  have hmn' : (m : ℝ) ≤ n := by exact_mod_cast hmn
+  have hden : (m : ℝ) + 1 ≤ (n : ℝ) + 1 := by linarith
+  have hq : 0 ≤ min (u : ℝ) (v : ℝ) := le_min u.property.1 v.property.1
+  simpa only [div_eq_mul_inv, one_mul] using
+    (mul_le_mul_of_nonneg_left
+      (one_div_le_one_div_of_le (by positivity : 0 < (m : ℝ) + 1) hden) hq)
+
+private def claytonCutoffRect (u v : I) (n : ℕ) : Set (Fin 2 → I) :=
+  Set.pi Set.univ (fun i : Fin 2 =>
+    Set.Ioc (claytonCutoff u v n) (![u, v] i))
+
+private theorem claytonCutoffRect_mono (u v : I) :
+    Monotone (claytonCutoffRect u v) := by
+  intro m n hmn x hx
+  apply Set.mem_pi.mpr
+  intro i hi
+  have hxi := (Set.mem_pi.mp hx) i hi
+  exact ⟨lt_of_le_of_lt (claytonCutoff_antitone u v hmn) hxi.1, hxi.2⟩
+
+private theorem claytonCutoffRect_iUnion (u v : I) :
+    (⋃ n : ℕ, claytonCutoffRect u v n) =
+      Set.pi Set.univ (fun i : Fin 2 => Set.Ioc 0 (![u, v] i)) := by
+  ext x
+  constructor
+  · intro hx
+    obtain ⟨n, hn⟩ := Set.mem_iUnion.mp hx
+    apply Set.mem_pi.mpr
+    intro i hi
+    have hxi := (Set.mem_pi.mp hn) i hi
+    exact ⟨lt_of_le_of_lt (claytonCutoff u v n).property.1 hxi.1, hxi.2⟩
+  · intro hx
+    have hx0 := (Set.mem_pi.mp hx) 0 (by simp)
+    have hx1 := (Set.mem_pi.mp hx) 1 (by simp)
+    have hx0' : 0 < (x 0 : ℝ) := by simpa using hx0.1
+    have hx1' : 0 < (x 1 : ℝ) := by simpa using hx1.1
+    have h0 := (claytonCutoff_tendsto_zero u v).eventually_lt_const hx0'
+    have h1 := (claytonCutoff_tendsto_zero u v).eventually_lt_const hx1'
+    obtain ⟨n, hn0, hn1⟩ := (h0.and h1).exists
+    apply Set.mem_iUnion.mpr
+    refine ⟨n, ?_⟩
+    apply Set.mem_pi.mpr
+    intro i hi
+    fin_cases i
+    · exact ⟨hn0, by simpa using hx0.2⟩
+    · exact ⟨hn1, by simpa using hx1.2⟩
+
+/-- The candidate's `withDensity` measure agrees with the Clayton
+copula measure on every positive lower orthant. -/
+theorem clayton_withDensity_positive_lowerOrthant_eq_measure
+    (θ : ℝ) (hθ : 0 < θ) (u v : I)
+    (hu : 0 < (u : ℝ)) (hv : 0 < (v : ℝ)) :
+    ((volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x)))
+      (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc 0 (![u, v] i))) =
+      (Copula.clayton 2 θ hθ).toMeasure
+        (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc 0 (![u, v] i))) := by
+  let ν : Measure (Fin 2 → I) :=
+    (volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x))
+  let μ : Measure (Fin 2 → I) := (Copula.clayton 2 θ hθ).toMeasure
+  change ν _ = μ _
+  rw [← claytonCutoffRect_iUnion u v,
+    (claytonCutoffRect_mono u v).measure_iUnion (μ := ν),
+    (claytonCutoffRect_mono u v).measure_iUnion (μ := μ)]
+  apply iSup_congr
+  intro n
+  have hset : Set.pi Set.univ (fun i : Fin 2 =>
+      Set.Ioc (![claytonCutoff u v n, claytonCutoff u v n] i) (![u, v] i)) =
+      claytonCutoffRect u v n := by
+    ext x
+    simp [claytonCutoffRect, Set.mem_pi, Fin.forall_fin_two]
+  have h := clayton_withDensity_positive_rectangle_eq_measure θ hθ
+    (claytonCutoff u v n) u (claytonCutoff u v n) v
+    (claytonCutoff_pos u v hu hv n) (claytonCutoff_le_left u v n)
+    (claytonCutoff_pos u v hu hv n) (claytonCutoff_le_right u v n)
+  simpa [ν, μ, hset] using h
+
+private theorem copula_axis_zero (C : Copula 2) (i : Fin 2) :
+    C.toMeasure {x | x i = 0} = 0 := by
+  change C.toMeasure ((fun x : Fin 2 → I => x i) ⁻¹' ({0} : Set I)) = 0
+  rw [C.measure_preimage_eval i (measurableSet_singleton (0 : I))]
+  simp
+
+private theorem measure_Iic_eq_positiveIoc
+    (δ : Measure (Fin 2 → I))
+    (h0 : δ {x | x 0 = 0} = 0)
+    (h1 : δ {x | x 1 = 0} = 0)
+    (u v : I) :
+    δ (Set.Iic ![u, v]) =
+      δ (Set.pi Set.univ (fun i : Fin 2 => Set.Ioc 0 (![u, v] i))) := by
+  let s : Set (Fin 2 → I) :=
+    Set.pi Set.univ (fun i : Fin 2 => Set.Ioc 0 (![u, v] i))
+  have hs : s ⊆ Set.Iic ![u, v] := by
+    intro x hx
+    change x ≤ ![u, v]
+    intro i
+    exact ((Set.mem_pi.mp hx) i (by simp)).2
+  have hdiff : Set.Iic ![u, v] \ s ⊆
+      {x : Fin 2 → I | x 0 = 0} ∪ {x | x 1 = 0} := by
+    intro x hx
+    by_contra haxes
+    have hne : x 0 ≠ 0 ∧ x 1 ≠ 0 := by simpa using haxes
+    have hp0 : (0 : I) < x 0 :=
+      lt_of_le_of_ne (by exact_mod_cast (x 0).property.1) (Ne.symm hne.1)
+    have hp1 : (0 : I) < x 1 :=
+      lt_of_le_of_ne (by exact_mod_cast (x 1).property.1) (Ne.symm hne.2)
+    have hxs : x ∈ s := by
+      apply Set.mem_pi.mpr
+      intro i hi
+      fin_cases i
+      · exact ⟨hp0, hx.1 0⟩
+      · exact ⟨hp1, hx.1 1⟩
+    exact hx.2 hxs
+  have hnull : δ (Set.Iic ![u, v] \ s) = 0 :=
+    measure_mono_null hdiff (measure_union_null h0 h1)
+  exact (measure_eq_measure_of_null_sdiff hs hnull).symm
+
+/-- The candidate's `withDensity` measure and the actual Clayton
+copula measure agree on every closed lower orthant, including the axes. -/
+theorem clayton_withDensity_lowerOrthant_eq_measure
+    (θ : ℝ) (hθ : 0 < θ) (u v : I) :
+    ((volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x)))
+      (Set.Iic ![u, v]) =
+      (Copula.clayton 2 θ hθ).toMeasure (Set.Iic ![u, v]) := by
+  let ν : Measure (Fin 2 → I) :=
+    (volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x))
+  let C := Copula.clayton 2 θ hθ
+  change ν (Set.Iic ![u, v]) = C.toMeasure (Set.Iic ![u, v])
+  rw [measure_Iic_eq_positiveIoc ν
+      (clayton_withDensity_axis_zero θ 0)
+      (clayton_withDensity_axis_zero θ 1) u v,
+    measure_Iic_eq_positiveIoc C.toMeasure
+      (copula_axis_zero C 0) (copula_axis_zero C 1) u v]
+  by_cases hu : 0 < (u : ℝ)
+  · by_cases hv : 0 < (v : ℝ)
+    · exact clayton_withDensity_positive_lowerOrthant_eq_measure θ hθ u v hu hv
+    · have hv0 : v = 0 := by
+        apply Subtype.ext
+        exact le_antisymm (le_of_not_gt hv) v.property.1
+      subst v
+      have hs : Set.pi Set.univ (fun i : Fin 2 =>
+          Set.Ioc 0 (![u, 0] i)) = ∅ := by
+        ext x
+        simp only [Set.mem_empty_iff_false, iff_false]
+        intro hx
+        have h := (Set.mem_pi.mp hx) 1 (by simp)
+        have h' : x 1 ∈ Set.Ioc (0 : I) 0 := h
+        exact (not_lt_of_ge h'.2) h'.1
+      simp [hs]
+  · have hu0 : u = 0 := by
+      apply Subtype.ext
+      exact le_antisymm (le_of_not_gt hu) u.property.1
+    subst u
+    have hs : Set.pi Set.univ (fun i : Fin 2 =>
+        Set.Ioc 0 (![0, v] i)) = ∅ := by
+      ext x
+      simp only [Set.mem_empty_iff_false, iff_false]
+      intro hx
+      have h := (Set.mem_pi.mp hx) 0 (by simp)
+      have h' : x 0 ∈ Set.Ioc (0 : I) 0 := h
+      exact (not_lt_of_ge h'.2) h'.1
+    simp [hs]
+
+/-- The pinned positive-Clayton density candidate generates exactly the
+copula's probability measure on the full unit square. -/
+theorem clayton_toMeasure_eq_withDensity_positive
+    (θ : ℝ) (hθ : 0 < θ) :
+    (Copula.clayton 2 θ hθ).toMeasure =
+      (volume : Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x)) := by
+  let C := Copula.clayton 2 θ hθ
+  let ν : Measure (Fin 2 → I) :=
+    (volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Copula.claytonDensityFormula θ x))
+  have htop : Set.Iic ![(1 : I), 1] = Set.univ := by
+    ext x
+    simp [Set.mem_Iic, Pi.le_def, Fin.forall_fin_two, unitInterval.le_one']
+  have hprob : IsProbabilityMeasure ν := ⟨by
+    have h := clayton_withDensity_lowerOrthant_eq_measure θ hθ 1 1
+    change ν (Set.Iic ![(1 : I), 1]) = C.toMeasure (Set.Iic ![(1 : I), 1]) at h
+    simpa [htop] using h⟩
+  have hμ (u : Fin 2 → I) : ν.real (Set.Iic u) = C.cdf u := by
+    have h := clayton_withDensity_lowerOrthant_eq_measure θ hθ (u 0) (u 1)
+    have heta : ![u 0, u 1] = u := by
+      ext i
+      fin_cases i <;> simp
+    rw [heta] at h
+    change ν.real (Set.Iic u) = C.toMeasure.real (Set.Iic u)
+    exact congrArg ENNReal.toReal h
+  let D := C.isClassical_cdf.ofMeasure ⟨ν, hprob⟩ hμ
+  have he : D = C := Copula.cdf_injective
+    (C.isClassical_cdf.cdf_ofMeasure ⟨ν, hprob⟩ hμ)
+  change C.toMeasure = ν
+  rw [← he]
+  rfl
+
+/-- Positive Clayton has an actual nonnegative MTP2 density, given by the
+pinned copula package's explicit formula. -/
+theorem clayton_positive_density_tp2
+    (θ : ℝ) (hθ : 0 < θ) :
+    (Copula.clayton 2 θ hθ).HasMTP2Density := by
+  refine ⟨Copula.claytonDensityFormula θ,
+    Copula.measurable_claytonDensityFormula θ,
+    Copula.claytonDensityFormula_nonneg θ hθ,
+    Copula.isMTP2_claytonDensityFormula_positive θ hθ, ?_⟩
+  exact clayton_toMeasure_eq_withDensity_positive θ hθ
+
+/-- Positive Clayton is absolutely continuous with respect to uniform
+volume on the unit square. -/
+theorem clayton_positive_absolutelyContinuous
+    (θ : ℝ) (hθ : 0 < θ) :
+    (Copula.clayton 2 θ hθ).toMeasure ≪
+      (volume : Measure (Fin 2 → I)) :=
+  (clayton_positive_density_tp2 θ hθ).absolutelyContinuous
+
 /-- The candidate's mass on the positive square with lower cutoff `r`
 reaches the Clayton copula's corresponding square mass. -/
 theorem clayton_density_formula_cutoff_square
