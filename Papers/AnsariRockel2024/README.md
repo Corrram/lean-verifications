@@ -32,7 +32,7 @@ their precise correspondence to the paper and any article-specific proofs.
 - [Main.lean](Main.lean): entry point importing the final result modules.
 - [Association.lean](Association.lean): nine Table 6 coefficient formulas.
 - [Nelsen2Dependence.lean](Nelsen2Dependence.lean): lower-orthant order, non-PQD, non-CI, exact CD range, and CDF/density TP2 exclusions.
-- [NelsenEndpointDependence.lean](NelsenEndpointDependence.lean): CI, CDF TP2, MTP2 density and non-CD for Nelsen 12 and 14 at the shared Clayton(1) endpoint.
+- [NelsenEndpointDependence.lean](NelsenEndpointDependence.lean): CI, CDF TP2, MTP2 density and non-CD for Nelsen 12 and 14 at the shared Clayton(1) endpoint, plus all-parameter non-CD for both families and PQD for Nelsen 12.
 - [PowerFamilyLimits.lean](PowerFamilyLimits.lean): full-square pointwise comonotonic endpoints for Nelsen 14 and Genest–Ghoudi.
 - [GenestGhoudiDependence.lean](GenestGhoudiDependence.lean): exact CI/CD and CDF/density-TP2 classifications, with a positive diagonal zero-CDF witness.
 - [GenestGhoudiTails.lean](GenestGhoudiTails.lean): exact lower and upper tail coefficients for every finite admissible parameter.
