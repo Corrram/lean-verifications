@@ -1,6 +1,7 @@
 import Papers.AnsariRockel2024.Definitions
 import Copula.Dependence.ConditionalMonotonicity
 import Copula.Dependence.AMH
+import Copula.Dependence.AMHConditional
 import Copula.Order.FGM
 import Copula.Order.AMH
 import Copula.TailDependence.Examples
@@ -43,6 +44,16 @@ theorem amh_lowerOrthant_iff {θ η : ℝ}
     (Copula.amh θ hθmin hθmax).LowerOrthantLE
       (Copula.amh η hηmin hηmax) ↔ θ ≤ η :=
   Copula.lowerOrthantLE_amh_iff hθmin hθmax hηmin hηmax
+
+/-- Table 3: AMH is conditionally increasing exactly for nonnegative θ. -/
+theorem amh_ci_iff (θ : ℝ) (hmin : -1 ≤ θ) (hmax : θ ≤ 1) :
+    (Copula.amh θ hmin hmax).IsCI ↔ 0 ≤ θ :=
+  Copula.isCI_amh_iff θ hmin hmax
+
+/-- Table 3: AMH is conditionally decreasing exactly for nonpositive θ. -/
+theorem amh_cd_iff (θ : ℝ) (hmin : -1 ≤ θ) (hmax : θ ≤ 1) :
+    (Copula.amh θ hmin hmax).IsCD ↔ θ ≤ 0 :=
+  Copula.isCD_amh_iff θ hmin hmax
 
 /-- arXiv:2310.17307v3, Table 5 / Appendix A.4.1: FGM CI. See COVERAGE.md for conventions. -/
 theorem fgm_ci (θ : ℝ) (hθ : |θ| ≤ 1) :
