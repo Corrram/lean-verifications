@@ -222,6 +222,24 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiBlest.one_dimensional_coefficients
 #assert_standard_axioms Papers.Rockel2026XiBlest.one_dimensional_coefficients
 
+#print axioms Papers.Rockel2026XiBlest.quadratic_switch_strict
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_switch_strict
+
+#print axioms Papers.Rockel2026XiBlest.extremalQ_interior
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQ_interior
+
+#print axioms Papers.Rockel2026XiBlest.normalizationMean_deriv_neg_at_extremalQ
+#assert_standard_axioms Papers.Rockel2026XiBlest.normalizationMean_deriv_neg_at_extremalQ
+
+#print axioms Papers.Rockel2026XiBlest.extremalQExtension_coe
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQExtension_coe
+
+#print axioms Papers.Rockel2026XiBlest.extremalQExtension_hasDerivAt
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQExtension_hasDerivAt
+
+#print axioms Papers.Rockel2026XiBlest.extremalQExtension_density_coefficient
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQExtension_density_coefficient
+
 #print axioms Papers.Rockel2026XiBlest.substitution_upper
 #assert_standard_axioms Papers.Rockel2026XiBlest.substitution_upper
 
@@ -266,6 +284,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
+
+#print axioms Papers.Rockel2026XiBlest.extremalLowerSwitch_source
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalLowerSwitch_source
+
+#print axioms Papers.Rockel2026XiBlest.extremalUpperSwitch_source
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalUpperSwitch_source
+
+#print axioms Papers.Rockel2026XiBlest.extremal_switch_support
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_switch_support
+
+#print axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_eq_width_of_interior
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_eq_width_of_interior
+
+#print axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_ae_eq_width
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_ae_eq_width
+
+#print axioms Papers.Rockel2026XiBlest.extremalWidthDensity_nonneg
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalWidthDensity_nonneg
+
+#print axioms Papers.Rockel2026XiBlest.extremalWidthDensity_measurable
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalWidthDensity_measurable
 
 #print axioms Papers.Rockel2026XiBlest.extremal_standardized_density
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremal_standardized_density

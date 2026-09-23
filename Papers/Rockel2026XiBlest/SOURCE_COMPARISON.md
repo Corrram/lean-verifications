@@ -31,11 +31,15 @@ at the midpoint. The corrected full shuffling lemma remains pending; the
 verified exact-region proof uses a different construction.
 
 The local revision also explicitly states the almost-everywhere density
-formula for the positive extremal copulas. `DensityTP2.lean` establishes
+formula for the positive extremal copulas. The normalization inverse is now
+proved differentiable at every interior response threshold, and its density
+coefficient -b q'(v) is identified with the reciprocal active-band width. `DensityTP2.lean` establishes
 existence of an MTP2 density for those copulas. The theorem
 `extremal_standardized_density` gives an exact measure identity for the
-standardized-band witness, but does not yet identify it with the displayed
-derivative formula. This is tracked as a separate
+standardized-band witness. The source switch points and the printed
+-b q'(v) factor are checked, and that derivative expression agrees almost
+everywhere with a measurable reciprocal-width candidate. The remaining
+identity is between that candidate and the standardized-band witness. This is tracked as a separate
 pending row in COVERAGE.md.
 
 An earlier local author resubmission, `xi-nu-region-ijar-resubmission.tex`
