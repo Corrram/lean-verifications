@@ -7,8 +7,8 @@ Its SHA-256 is
 `281d852284692cd23d311bbd104e502177b204d519ffd5eb819bd300ed3c315a`.
 The primary result map in [COVERAGE.md](COVERAGE.md) retains the numbering of
 [arXiv:2603.09768v1](https://arxiv.org/abs/2603.09768v1).
-The following final-PDF statements were compared directly with that map;
-this is a selected statement-level comparison, not a claim that every line
+Every original named final-PDF result in the stated scope was compared with
+that map. This result-level comparison does not claim that every line
 of the published proof has been formalized.
 
 | arXiv v1 map | Final IJAR PDF | Comparison |
@@ -47,6 +47,6 @@ p. 6 (printed there as Proposition 2.1). `ShufflePath.lean` also
 checks the endpoint-safe shuffle, which agrees almost everywhere with
 the printed transformation at the split point.
 
-The remaining in-progress status reflects the result-map scope and
-source-proof obligations listed in [COVERAGE.md](COVERAGE.md); a selected
-PDF comparison does not itself complete those obligations.
+The quoted copula-characterization Lemma 2 and KKT-framework Lemma 4 are
+external results; the Lean supplement constructs the copula and proves
+the optimizer independently. Numerical Table 1 and plotted figures are outside the formal scope. All original named results in the stated scope have Lean counterparts.
