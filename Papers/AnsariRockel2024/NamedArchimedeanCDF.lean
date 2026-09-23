@@ -2,6 +2,7 @@ import Copula.Families.Joe
 import Copula.Families.Frank
 import Copula.Families.FrankNegative
 import Copula.Families.Nelsen
+import Copula.Families.Nelsen8
 
 /-! # Joe source CDF on the closed square -/
 
@@ -60,6 +61,14 @@ theorem nelsen2_cdf_full (θ : ℝ) (hθ : 1 ≤ θ) (u v : I) :
         max 0 (1 - (((1 - (u : ℝ)) ^ θ + (1 - (v : ℝ)) ^ θ) ^ θ⁻¹)) := by
   exact Copula.nelsen2_cdf_full θ hθ u v
 
+/-- Table 1's printed Nelsen 8 rational CDF on the entire closed square. -/
+theorem nelsen8_cdf_full (θ : ℝ) (hθ : 1 ≤ θ) (u v : I) :
+    (Copula.nelsen8 θ hθ).cdf ![u, v] =
+      max 0 ((θ ^ 2 * (u : ℝ) * (v : ℝ) -
+        (1 - (u : ℝ)) * (1 - (v : ℝ))) /
+        (θ ^ 2 - (θ - 1) ^ 2 * (1 - (u : ℝ)) * (1 - (v : ℝ)))) :=
+  Copula.nelsen8_cdf_full θ hθ u v
+
 /-- Table 1's Genest–Ghoudi (Nelsen 15) CDF on the closed square. -/
 theorem genestGhoudi_cdf_full (θ : ℝ) (hθ : 1 ≤ θ) (u v : I) :
     (Copula.genestGhoudi θ hθ).cdf ![u, v] =
@@ -86,6 +95,10 @@ theorem nelsen14_cdf_full (θ : ℝ) (hθ : 1 ≤ θ) (u v : I) :
 /-- Table 2's lower Fréchet endpoint of Nelsen 2. -/
 theorem nelsen2_one : Copula.nelsen2 1 le_rfl = Copula.countermonotonic :=
   Copula.nelsen2_one
+
+/-- Table 2's lower Fréchet endpoint of Nelsen 8. -/
+theorem nelsen8_one : Copula.nelsen8 1 le_rfl = Copula.countermonotonic :=
+  Copula.nelsen8_one
 
 /-- Table 2's lower Fréchet endpoint of Genest–Ghoudi. -/
 theorem genestGhoudi_one : Copula.genestGhoudi 1 le_rfl = Copula.countermonotonic :=
