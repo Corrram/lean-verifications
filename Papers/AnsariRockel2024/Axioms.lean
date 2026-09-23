@@ -16,6 +16,14 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.clayton_zero_ci_cd
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_zero_ci_cd
+#print axioms Papers.AnsariRockel2024.clayton_positive_lower_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_lower_tail
+#print axioms Papers.AnsariRockel2024.clayton_positive_upper_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_upper_tail
+#print axioms Papers.AnsariRockel2024.clayton_negative_lower_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_lower_tail
+#print axioms Papers.AnsariRockel2024.clayton_negative_upper_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_upper_tail
 #print axioms Papers.AnsariRockel2024.clayton_negative_one_cd
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_one_cd
 
@@ -36,6 +44,14 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.clayton_positive_pqd
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_pqd
 
+#print axioms Papers.AnsariRockel2024.clayton_positive_lower_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_lower_tail
+#print axioms Papers.AnsariRockel2024.clayton_positive_upper_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_upper_tail
+#print axioms Papers.AnsariRockel2024.clayton_negative_lower_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_lower_tail
+#print axioms Papers.AnsariRockel2024.clayton_negative_upper_tail
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_upper_tail
 #print axioms Papers.AnsariRockel2024.clayton_negative_one
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_one
 #print axioms Papers.AnsariRockel2024.clayton_tendsto_zero

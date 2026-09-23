@@ -4,6 +4,7 @@ import Copula.Families.Clayton.Limits
 import Copula.Dependence.Clayton
 import Copula.Dependence.ClaytonNegative
 import Copula.Dependence.ClaytonClassification
+import Copula.TailDependence.Clayton
 
 /-! # Clayton family: full bivariate CDF branches and limiting cases -/
 
@@ -103,6 +104,25 @@ theorem clayton_negative_nqd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
     (Copula.claytonNegative θ hθ hn).IsNQD :=
   Copula.isNQD_clayton_negative θ hθ hn
 
+/-- Table 3: positive Clayton has exact lower-tail coefficient `2 ^ (-1 / θ)`. -/
+theorem clayton_positive_lower_tail (θ : ℝ) (hθ : 0 < θ) :
+    (Copula.clayton 2 θ hθ).HasLowerTailDependence (2 ^ (-1 / θ)) :=
+  Copula.hasLowerTailDependence_clayton_positive θ hθ
+
+/-- Table 3: positive Clayton has zero upper-tail coefficient. -/
+theorem clayton_positive_upper_tail (θ : ℝ) (hθ : 0 < θ) :
+    (Copula.clayton 2 θ hθ).HasUpperTailDependence 0 :=
+  Copula.hasUpperTailDependence_clayton_positive θ hθ
+
+/-- Table 3: negative Clayton has zero lower-tail coefficient. -/
+theorem clayton_negative_lower_tail (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
+    (Copula.claytonNegative θ hθ hn).HasLowerTailDependence 0 :=
+  Copula.hasLowerTailDependence_clayton_negative θ hθ hn
+
+/-- Table 3: negative Clayton has zero upper-tail coefficient. -/
+theorem clayton_negative_upper_tail (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
+    (Copula.claytonNegative θ hθ hn).HasUpperTailDependence 0 :=
+  Copula.hasUpperTailDependence_clayton_negative θ hθ hn
 /-- Table 2: positive Clayton parameters tending to zero give independence. -/
 theorem clayton_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
     (hθ : ∀ a, 0 < θ a) (hlim : Tendsto θ l (𝓝 0)) (u : Fin 2 → I) :
