@@ -1,5 +1,5 @@
 import Papers.Rockel2026XiFootrule.SymmetricOrdinalSI
-import Copula.OrdinalSum.Countable
+import Copula.OrdinalSum.CountableSI
 import Copula.OrdinalSum.Decomposition
 
 open ProbabilityTheory
@@ -20,25 +20,8 @@ theorem countablePi_exchangeable (P : Copula.CountableIntervalPartition) :
 /-- Every partition endpoint is a diagonal fixed point of the countable sum. -/
 theorem countablePi_diagonal_fixed (P : Copula.CountableIntervalPartition)
     (n : ℕ) :
-    (Copula.countableOrdinalSumPi P).diagonal (P.point n) = P.point n := by
-  have hc (k : ℕ) :
-      (P.coord k (P.point n) : ℝ) * P.coord k (P.point n) =
-        P.coord k (P.point n) := by
-    by_cases h : k < n
-    · have hkn : k + 1 ≤ n := Nat.succ_le_iff.mpr h
-      have hp : P.point (k + 1) ≤ P.point n := P.strictMono.monotone hkn
-      rw [P.coord_of_ge k (P.point n) hp]
-      norm_num
-    · have hnk : n ≤ k := Nat.le_of_not_gt h
-      have hp : P.point n ≤ P.point k := P.strictMono.monotone hnk
-      rw [P.coord_of_le k (P.point n) hp]
-      norm_num
-  change (Copula.countableOrdinalSumPi P).cdf ![P.point n, P.point n] =
-    (P.point n : ℝ)
-  rw [Copula.cdf_countableOrdinalSumPi]
-  simp_rw [hc]
-  exact (P.hasSum_width_mul_coord (P.point n)).tsum_eq
-
+    (Copula.countableOrdinalSumPi P).diagonal (P.point n) = P.point n :=
+  Copula.countableOrdinalSumPi_diagonal_fixed P n
 /-- Every positive endpoint determines a genuine binary ordinal-sum decomposition. -/
 theorem countablePi_has_binary_split (P : Copula.CountableIntervalPartition)
     (n : ℕ) :

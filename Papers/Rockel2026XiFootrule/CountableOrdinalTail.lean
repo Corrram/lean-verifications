@@ -1,5 +1,4 @@
 import Papers.Rockel2026XiFootrule.CountableOrdinalPartial
-import Copula.OrdinalSum.CountableSI
 
 open ProbabilityTheory Filter
 open scoped unitInterval Topology
