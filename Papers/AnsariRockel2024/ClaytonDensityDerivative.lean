@@ -323,4 +323,25 @@ theorem clayton_density_formula_cutoff_square_bounds
     simp only [Matrix.cons_val_zero] at h
     linarith
 
+/-- Along any positive cutoffs tending to zero, the analytic candidate's
+integral over the cutoff square tends to one. -/
+theorem clayton_density_formula_cutoff_square_tendsto_one
+    (θ : ℝ) (hθ : 0 < θ) (r : ℕ → I)
+    (hr : ∀ n, 0 < (r n : ℝ))
+    (h0 : Filter.Tendsto (fun n => (r n : ℝ)) Filter.atTop (nhds 0)) :
+    Filter.Tendsto (fun n =>
+      ∫ x in (r n : ℝ)..1, ∫ y in (r n : ℝ)..1,
+        (1 + θ) * x ^ (-θ - 1) * y ^ (-θ - 1) *
+          (claytonBaseReal θ x y) ^ (-2 - 1 / θ))
+      Filter.atTop (nhds 1) := by
+  have hlow : Filter.Tendsto (fun n => 1 - 2 * (r n : ℝ))
+      Filter.atTop (nhds 1) := by
+    convert tendsto_const_nhds.sub (h0.const_mul 2) using 1; norm_num
+  have hhigh : Filter.Tendsto (fun n => 1 - (r n : ℝ))
+      Filter.atTop (nhds 1) := by
+    simpa using tendsto_const_nhds.sub h0
+  apply tendsto_of_tendsto_of_tendsto_of_le_of_le hlow hhigh
+  · exact fun n => (clayton_density_formula_cutoff_square_bounds θ hθ (r n) (hr n)).1
+  · exact fun n => (clayton_density_formula_cutoff_square_bounds θ hθ (r n) (hr n)).2
+
 end Papers.AnsariRockel2024

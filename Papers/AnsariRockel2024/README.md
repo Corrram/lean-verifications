@@ -22,7 +22,7 @@ their precise correspondence to the paper and any article-specific proofs.
 
 - [Definitions.lean](Definitions.lean): article-specific definitions and notation.
 - [ClaytonResults.lean](ClaytonResults.lean): both CDF branches, special/limiting cases, exact signed CI/CD classification, quadrant dependence, CDF-level TP2 classification, and both tail coefficients.
-- [ClaytonDensityDerivative.lean](ClaytonDensityDerivative.lean): first and mixed derivatives of the positive Clayton CDF formula and the exact candidate-density integral and equality to actual copula mass on positive rectangles, with quantitative cutoff-square bounds; global measure equality remains open.
+- [ClaytonDensityDerivative.lean](ClaytonDensityDerivative.lean): first and mixed derivatives of the positive Clayton CDF formula and the exact candidate-density integral and equality to actual copula mass on positive rectangles, with quantitative cutoff-square bounds and convergence; global measure equality remains open.
 - [FamilyExtensions.lean](FamilyExtensions.lean): FGM density and Nelsen 7 dependence, order and tail results.
 - [TailsAndOrders.lean](TailsAndOrders.lean): four extreme-value tail pairs, exact FGM Schur order and corrected Frechet order.
 - [FrechetMardiaDependence.lean](FrechetMardiaDependence.lean): exact CI/CD and density classifications, source corrections and Mardia incomparability.
