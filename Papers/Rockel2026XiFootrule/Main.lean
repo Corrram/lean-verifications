@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiFootrule.CountableOrdinalPartial
 import Papers.Rockel2026XiFootrule.SymmetricOrdinalSI
 import Papers.Rockel2026XiFootrule.ParameterPath
 import Papers.Rockel2026XiFootrule.AbsoluteBound

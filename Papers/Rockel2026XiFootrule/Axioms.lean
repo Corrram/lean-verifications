@@ -70,6 +70,16 @@ import Verification.AxiomAudit
 
 #print axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_si_rank_equality
 #assert_standard_axioms Papers.Rockel2026XiFootrule.FinitePiOrdinal.symmetric_si_rank_equality
+#print axioms Papers.Rockel2026XiFootrule.countablePi_exchangeable
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_exchangeable
+
+#print axioms Papers.Rockel2026XiFootrule.countablePi_diagonal_fixed
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_diagonal_fixed
+
+#print axioms Papers.Rockel2026XiFootrule.countablePi_has_binary_split
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_has_binary_split
+#print axioms Papers.Rockel2026XiFootrule.countablePi_first_lower_component
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_first_lower_component
 #print axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 #assert_standard_axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 

@@ -31,7 +31,9 @@ the older printed matrix only.
 Finite nested ordinal sums of independence and comonotonic blocks are proved
 SI and symmetric with xi=footrule, and interior binary sums of SI components satisfy
 an equality iff criterion. The general countable ordinal-sum classification
-remains open in this supplement.
+remains open in this supplement. Adjacent countable Pi sums are proved symmetric
+and decomposable at every partition endpoint, with first component Pi.
+Their SI and rank equality properties are not yet established.
 The source's explicit parameter path continuity and limiting parameter endpoint
 are checked in ParameterPath.lean. Final publisher correspondence remains pending;
 this local comparison does not mark the published article complete.
