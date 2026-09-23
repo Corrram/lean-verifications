@@ -44,6 +44,49 @@ theorem extremeValue_schur_iff_pickands_of_ci (C D : Copula 2)
     · exact (cis_schur_iff_orthant C.transpose D.transpose hCI.2 hDI.2).mpr
         (lowerOrthantLE_transpose h)
 
+/-- Theorem 3.4(iv), in the copula conditional-CDF form, under CI. -/
+theorem extremeValue_schur_first_iff_pickands_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI) :
+    C.SchurLE D ↔
+      ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t := by
+  rw [← extremeValue_pickands_order C D hC hD]
+  exact cis_schur_iff_orthant C D hCI.1 hDI.1
+
+/-- Theorem 3.4(v), with the conditioning coordinates exchanged, under CI. -/
+theorem extremeValue_schur_second_iff_pickands_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI) :
+    C.transpose.SchurLE D.transpose ↔
+      ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t := by
+  rw [← extremeValue_pickands_order C D hC hD]
+  constructor
+  · intro h
+    have ht := (cis_schur_iff_orthant C.transpose D.transpose hCI.2 hDI.2).mp h
+    simpa using (lowerOrthantLE_transpose ht)
+  · intro h
+    exact (cis_schur_iff_orthant C.transpose D.transpose hCI.2 hDI.2).mpr
+      (lowerOrthantLE_transpose h)
+
+/-- Remark 3.5: Pickands order entails both classical concordance comparisons. -/
+theorem extremeValue_pickands_concordance_mono (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (h : ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t) :
+    C.spearmanRho ≤ D.spearmanRho ∧ C.kendallTau ≤ D.kendallTau :=
+  concordance_coefficients_mono C D ((extremeValue_pickands_order C D hC hD).mpr h)
+
+/-- Remark 3.5: Pickands order entails both directional xi comparisons when CI is known. -/
+theorem extremeValue_pickands_xi_mono_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI)
+    (h : ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t) :
+    C.chatterjeeXi ≤ D.chatterjeeXi ∧
+      C.transpose.chatterjeeXi ≤ D.transpose.chatterjeeXi := by
+  exact ⟨schur_xi_mono C D
+    ((extremeValue_schur_first_iff_pickands_of_ci C D hC hD hCI hDI).mpr h),
+    schur_xi_mono C.transpose D.transpose
+      ((extremeValue_schur_second_iff_pickands_of_ci C D hC hD hCI hDI).mpr h)⟩
+
 /-- The logarithmic-ray representation identifies the canonical function with
  the Pickands function in equation (3), including the axes. -/
 theorem extremeValue_pickands_representation (C : Copula 2) (hC : C.IsExtremeValue)
