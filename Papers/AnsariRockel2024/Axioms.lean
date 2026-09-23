@@ -471,6 +471,9 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.nelsen8_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen8_tails
 
+#print axioms Papers.AnsariRockel2024.nelsen8_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen8_tendsto_atTop
+
 #print axioms Papers.AnsariRockel2024.nelsen2_lowerOrthant
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_lowerOrthant
 #print axioms Papers.AnsariRockel2024.nelsen2_not_pqd
