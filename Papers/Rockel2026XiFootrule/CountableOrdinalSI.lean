@@ -174,4 +174,138 @@ theorem countableOrdinal_symmetric_si_rank_equality
     countableOrdinal_exchangeable P C (fun k => (hC k).2.1), ?_⟩
   exact countableOrdinal_xi_eq_footrule P C (fun k => (hC k).2.2)
 
+/-- In the adjacent countable SI class, equality ξ=ψ holds exactly when it
+holds in every component. -/
+theorem countableOrdinal_xi_eq_footrule_iff
+    (P : Copula.CountableIntervalPartition) (C : ℕ → Copula 2)
+    (hSI : ∀ k, (C k).IsSI) :
+    (Copula.countableOrdinalSum P C).chatterjeeXi =
+        (Copula.countableOrdinalSum P C).spearmanFootrule ↔
+      ∀ k, (C k).chatterjeeXi = (C k).spearmanFootrule := by
+  constructor
+  · intro he
+    have hstep (n : ℕ) :
+        (Copula.countableOrdinalSum (tailIter P n) (fun k => C (n + k))).chatterjeeXi =
+          (Copula.countableOrdinalSum (tailIter P n) (fun k => C (n + k))).spearmanFootrule →
+        (C n).chatterjeeXi = (C n).spearmanFootrule ∧
+          (Copula.countableOrdinalSum (tailIter P (n + 1))
+            (fun k => C (n + 1 + k))).chatterjeeXi =
+          (Copula.countableOrdinalSum (tailIter P (n + 1))
+            (fun k => C (n + 1 + k))).spearmanFootrule := by
+      intro htail
+      let Q := tailIter P n
+      have h0 : 0 < Q.point 1 := by
+        simpa [Q.zero] using Q.strictMono (show (0 : ℕ) < 1 by omega)
+      have h1 : Q.point 1 < 1 :=
+        (Q.strictMono (Nat.lt_succ_self 1)).trans_le (Q.point 2).property.2
+      have hupper :
+          (Copula.countableOrdinalSum (countableTailPartition Q)
+            (fun k => C (n + (k + 1)))).IsSI :=
+        countableOrdinal_isSI _ _ (fun k => hSI (n + (k + 1)))
+      have hparts := (ordinalSum_xi_eq_footrule_iff (C n)
+        (Copula.countableOrdinalSum (countableTailPartition Q)
+          (fun k => C (n + (k + 1))))
+        (Q.point 1) h0 h1 (hSI n) hupper).mp (by
+          rw [countableOrdinal_recursive] at htail
+          simpa only [Nat.add_zero] using htail)
+      have hfun : (fun k : ℕ => C (n + (k + 1))) =
+          (fun k => C (n + 1 + k)) := by
+        funext k
+        congr 1
+        omega
+      rw [hfun] at hparts
+      exact hparts
+    have htail (n : ℕ) :
+        (Copula.countableOrdinalSum (tailIter P n) (fun k => C (n + k))).chatterjeeXi =
+          (Copula.countableOrdinalSum (tailIter P n) (fun k => C (n + k))).spearmanFootrule := by
+      induction n with
+      | zero => simpa [tailIter] using he
+      | succ n ih => exact (hstep n ih).2
+    intro n
+    exact (hstep n (htail n)).1
+  · exact countableOrdinal_xi_eq_footrule P C
+
+/-- Exchangeability of an interior binary ordinal sum forces symmetry of both blocks. -/
+theorem ordinalSum_exchangeable_components (C D : Copula 2) (a : I)
+    (ha0 : 0 < a) (ha1 : a < 1)
+    (h : (C.ordinalSum D a).IsExchangeable) :
+    C.IsExchangeable ∧ D.IsExchangeable := by
+  have hp : (a : ℝ) ≠ 0 := ne_of_gt ha0
+  have hqR : (a : ℝ) < 1 := ha1
+  have hq : 1 - (a : ℝ) ≠ 0 := (sub_pos.mpr hqR).ne'
+  constructor
+  · apply (Copula.isExchangeable_iff C).mpr
+    intro u v
+    have hs := (Copula.isExchangeable_iff _).mp h
+      (Copula.OrdinalSum.lowerEmbed a u) (Copula.OrdinalSum.lowerEmbed a v)
+    rw [Copula.cdf_ordinalSum_lowerEmbed C D a u v ha0,
+      Copula.cdf_ordinalSum_lowerEmbed C D a v u ha0] at hs
+    exact mul_left_cancel₀ hp hs
+  · apply (Copula.isExchangeable_iff D).mpr
+    intro u v
+    have hs := (Copula.isExchangeable_iff _).mp h
+      (Copula.OrdinalSum.upperEmbed a u) (Copula.OrdinalSum.upperEmbed a v)
+    rw [Copula.cdf_ordinalSum_upperEmbed C D a u v ha1,
+      Copula.cdf_ordinalSum_upperEmbed C D a v u ha1] at hs
+    exact mul_left_cancel₀ hq (add_left_cancel hs)
+
+/-- Exchangeability of an adjacent countable ordinal sum is equivalent to
+exchangeability of each component. -/
+theorem countableOrdinal_exchangeable_iff
+    (P : Copula.CountableIntervalPartition) (C : ℕ → Copula 2) :
+    (Copula.countableOrdinalSum P C).IsExchangeable ↔
+      ∀ k, (C k).IsExchangeable := by
+  constructor
+  · intro he
+    have hstep (n : ℕ) :
+        (Copula.countableOrdinalSum (tailIter P n) (fun k => C (n + k))).IsExchangeable →
+        (C n).IsExchangeable ∧
+          (Copula.countableOrdinalSum (tailIter P (n + 1))
+            (fun k => C (n + 1 + k))).IsExchangeable := by
+      intro htail
+      let Q := tailIter P n
+      have h0 : 0 < Q.point 1 := by
+        simpa [Q.zero] using Q.strictMono (show (0 : ℕ) < 1 by omega)
+      have h1 : Q.point 1 < 1 :=
+        (Q.strictMono (Nat.lt_succ_self 1)).trans_le (Q.point 2).property.2
+      have hparts := ordinalSum_exchangeable_components (C n)
+        (Copula.countableOrdinalSum (countableTailPartition Q)
+          (fun k => C (n + (k + 1))))
+        (Q.point 1) h0 h1 (by
+          rw [countableOrdinal_recursive] at htail
+          simpa only [Nat.add_zero] using htail)
+      have hfun : (fun k : ℕ => C (n + (k + 1))) =
+          (fun k => C (n + 1 + k)) := by
+        funext k
+        congr 1
+        omega
+      rw [hfun] at hparts
+      exact hparts
+    have htail (n : ℕ) :
+        (Copula.countableOrdinalSum (tailIter P n) (fun k => C (n + k))).IsExchangeable := by
+      induction n with
+      | zero => simpa [tailIter] using he
+      | succ n ih => exact (hstep n ih).2
+    intro n
+    exact (hstep n (htail n)).1
+  · exact countableOrdinal_exchangeable P C
+
+/-- Complete componentwise SI/symmetry/rank-equality criterion for the
+adjacent countable ordinal-sum constructor. -/
+theorem countableOrdinal_symmetric_si_rank_equality_iff
+    (P : Copula.CountableIntervalPartition) (C : ℕ → Copula 2) :
+    ((Copula.countableOrdinalSum P C).IsSI ∧
+      (Copula.countableOrdinalSum P C).IsExchangeable ∧
+      (Copula.countableOrdinalSum P C).chatterjeeXi =
+        (Copula.countableOrdinalSum P C).spearmanFootrule) ↔
+      ∀ k, (C k).IsSI ∧ (C k).IsExchangeable ∧
+        (C k).chatterjeeXi = (C k).spearmanFootrule := by
+  constructor
+  · rintro ⟨hSI, hEx, hEq⟩
+    have hcompSI := (countableOrdinal_isSI_iff P C).mp hSI
+    have hcompEx := (countableOrdinal_exchangeable_iff P C).mp hEx
+    have hcompEq := (countableOrdinal_xi_eq_footrule_iff P C hcompSI).mp hEq
+    exact fun k => ⟨hcompSI k, hcompEx k, hcompEq k⟩
+  · exact countableOrdinal_symmetric_si_rank_equality P C
+
 end Papers.Rockel2026XiFootrule
