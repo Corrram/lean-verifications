@@ -39,7 +39,11 @@ existence of an MTP2 density for those copulas. The theorem
 standardized-band witness. The source switch points and the printed
 -b q'(v) factor are checked, and that derivative expression agrees almost
 everywhere with a measurable reciprocal-width candidate. The remaining
-identity is between that candidate and the standardized-band witness. This is tracked as a separate
+identity is between that candidate and the standardized-band witness.
+The latter's raw marginal quantile is now proved to have intercept -b q(v),
+and its closed support strip is identified with the active clamped interval.
+The remaining work includes column-density normalization and null-boundary
+handling for the open support convention. This is tracked as a separate
 pending row in COVERAGE.md.
 
 An earlier local author resubmission, `xi-nu-region-ijar-resubmission.tex`

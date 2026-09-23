@@ -300,6 +300,12 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_ae_eq_width
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_ae_eq_width
 
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_quantile_parameter
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_quantile_parameter
+
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_band_condition
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_band_condition
+
 #print axioms Papers.Rockel2026XiBlest.extremalWidthDensity_nonneg
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremalWidthDensity_nonneg
 

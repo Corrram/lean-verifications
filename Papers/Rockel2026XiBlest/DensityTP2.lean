@@ -69,6 +69,63 @@ theorem extremal_switch_support (b : ℝ) (hb : 0 < b) (v u : I) :
   unfold extremalLowerSwitch extremalUpperSwitch
   constructor <;> rintro ⟨h₁, h₂⟩ <;> constructor <;> linarith
 
+/-- The quantile used by the already verified standardized-band density
+has exactly the manuscript's normalization parameter. -/
+theorem extremal_raw_quantile_parameter (b : ℝ) (hb : 0 < b) (v : I) :
+    (b+1) * (unitQuantile (quadraticRawBand b hb.le).marginal v : ℝ) - b =
+      -b * extremalQ b hb v := by
+  let t := unitQuantile (quadraticRawBand b hb.le).marginal v
+  have hm : quadraticMean b ((b+1)*(t : ℝ)-b) = (v : ℝ) := by
+    have hh := unitCDF_quantile (quadraticRawBand b hb.le).marginal v
+    rw [quadraticRawBand_marginal] at hh
+    exact congrArg ((↑) : I → ℝ) hh
+  have ha : (b+1)*(t : ℝ)-b = quadraticIntercept b hb.le v := by
+    apply (quadraticMean_strictMonoOn hb.le).injOn
+      (quadraticRawBand_intercept_mem b hb.le t)
+      (quadraticIntercept_mem b hb.le v)
+    rw [hm, quadraticIntercept_mean]
+  rw [ha]
+  unfold extremalQ
+  field_simp
+
+/-- The raw band's closed-strip condition is the clamped quadratic's
+active interval, before switching to the manuscript's open-band version. -/
+theorem extremal_raw_band_condition (b : ℝ) (hb : 0 < b) (v u : I) :
+    let B := quadraticRawBand b hb.le
+    let t := unitQuantile B.marginal v
+    (B.lower u ≤ (t : ℝ) ∧ (t : ℝ) ≤ B.lower u + B.width) ↔
+      (0 ≤ b * ((1-(u : ℝ))^2 - extremalQ b hb v) ∧
+        b * ((1-(u : ℝ))^2 - extremalQ b hb v) ≤ 1) := by
+  dsimp
+  let B := quadraticRawBand b hb.le
+  let t := unitQuantile B.marginal v
+  have hw : 0 < B.width := B.width_pos
+  have hr := quadraticRawBand_ratio b hb.le t u
+  have hp := extremal_raw_quantile_parameter b hb v
+  change ((t : ℝ) - B.lower u) / B.width =
+    ((b+1)*(t : ℝ)-b) + b*(1-(u : ℝ))^2 at hr
+  rw [hp] at hr
+  constructor
+  · rintro ⟨hlo, hhi⟩
+    have hz : 0 ≤ ((t : ℝ) - B.lower u) / B.width :=
+      div_nonneg (sub_nonneg.mpr hlo) hw.le
+    have ho : ((t : ℝ) - B.lower u) / B.width ≤ 1 :=
+      (div_le_one hw).mpr (by linarith)
+    rw [hr] at hz ho
+    constructor <;> nlinarith
+  · rintro ⟨hz, ho⟩
+    have hz' : 0 ≤ ((t : ℝ) - B.lower u) / B.width := by
+      rw [hr]
+      nlinarith
+    have ho' : ((t : ℝ) - B.lower u) / B.width ≤ 1 := by
+      rw [hr]
+      nlinarith
+    constructor
+    · have h := (le_div_iff₀ hw).mp hz'
+      linarith
+    · have h := (div_le_one hw).mp ho'
+      linarith
+
 /-- The nonnegative reciprocal-width form of the density printed in the
 revision. Its equality with the copula's measure is still to be shown. -/
 noncomputable def extremalWidthDensity (b : ℝ) (hb : 0 < b)
