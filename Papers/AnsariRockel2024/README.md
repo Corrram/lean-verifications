@@ -12,7 +12,7 @@ See [SOURCE_COMPARISON.md](SOURCE_COMPARISON.md) for the inspected publisher sta
 See [COVERAGE.md](COVERAGE.md) for exact statements and remaining work.
 
 The pinned `copula` library already contains relevant results and a detailed
-[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/fd414a6775d296368d8e68f861f65006cf1dee4d/docs/ansari-rockel.md).
+[Ansari–Rockel coverage index](https://github.com/Corrram/copula/blob/0f995c83dfd9f07b312015aff0241b38394248f6/docs/ansari-rockel.md).
 That index is a starting point for matching definitions, hypotheses, and
 individual table entries. It is not a claim of complete formalization of the
 article. General library results remain upstream; this folder records
