@@ -119,6 +119,11 @@ theorem clayton_negative_not_cdf_tp2 (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) 
     ¬(Copula.claytonNegative θ hθ hn).IsTP2CDF :=
   Copula.not_isTP2CDF_clayton_negative θ hθ hn
 
+/-- Table 3: at θ = −1, Clayton is W and has no Lebesgue MTP2 density. -/
+theorem clayton_negative_one_not_density_tp2 :
+    ¬(Copula.claytonNegative (-1) le_rfl (by norm_num)).HasMTP2Density :=
+  Copula.not_hasMTP2Density_clayton_negative_one
+
 /-- Table 3: positive Clayton has exact lower-tail coefficient `2 ^ (-1 / θ)`. -/
 theorem clayton_positive_lower_tail (θ : ℝ) (hθ : 0 < θ) :
     (Copula.clayton 2 θ hθ).HasLowerTailDependence (2 ^ (-1 / θ)) :=
