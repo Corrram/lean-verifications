@@ -374,3 +374,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.clayton_negative_not_density_tp2
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_not_density_tp2
+
+#print axioms Papers.AnsariRockel2024.isCD_eq_independence_of_hasMTP2Density
+#assert_standard_axioms Papers.AnsariRockel2024.isCD_eq_independence_of_hasMTP2Density
+
+#print axioms Papers.AnsariRockel2024.nelsen7_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_density_tp2_iff
