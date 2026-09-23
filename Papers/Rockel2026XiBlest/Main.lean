@@ -1,3 +1,4 @@
+import Papers.Rockel2026XiBlest.ShufflePath
 import Papers.Rockel2026XiBlest.DensityTP2
 import Papers.Rockel2026XiBlest.UniformLimits
 import Papers.Rockel2026XiBlest.OneDimensionalCoefficients

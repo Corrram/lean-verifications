@@ -1,4 +1,5 @@
 import Papers.Rockel2026XiBlest.ExtremalFamily
+import Papers.Rockel2026XiBlest.Normalization
 import Verification.QuadraticBandOrder
 import Copula.Dependence.ConditionalMonotonicity
 
@@ -20,6 +21,27 @@ theorem signedExtremal_nonneg (b : ℝ) (hb : 0 ≤ b) :
 theorem signedExtremal_neg (b : ℝ) (hb : b < 0) :
     signedExtremalCopula b = (extremalCopula (-b) (by linarith)).reflect {1} := by
   simp [signedExtremalCopula,not_le.mpr hb]
+
+/-- Revised Proposition basic_properties_cb(iii): response reflection fixes xi and negates Blest nu for the actual signed family. -/
+theorem signed_extremal_reflection_coefficients (b : ℝ) (hb : 0 < b) :
+    (signedExtremalCopula (-b)).chatterjeeXi =
+      (signedExtremalCopula b).chatterjeeXi ∧
+    blestNu (signedExtremalCopula (-b)) = -blestNu (signedExtremalCopula b) := by
+  rw [signedExtremal_neg (-b) (by linarith), signedExtremal_nonneg b hb.le]
+  simpa using xi_blest_reflection (extremalCopula b hb.le)
+
+/-- The reversed concordance direction printed in arXiv v1 Lemma 4.3(iii) fails at the M/W endpoints. -/
+theorem not_comonotonic_concordanceLE_countermonotonic :
+    ¬(Copula.comonotonic 2).ConcordanceLE Copula.countermonotonic := by
+  intro h
+  let mid : I := ⟨1 / 2, by constructor <;> norm_num⟩
+  have hi : (⨅ i : Fin 2, ![mid, mid] i) = mid := by
+    have he : (![mid, mid] : Fin 2 → I) = fun _ => mid := by
+      funext i; fin_cases i <;> rfl
+    rw [he]
+    simp
+  have ht := h.1 ![mid, mid]
+  norm_num [Copula.cdf_comonotonic_two, Copula.cdf_countermonotonic, hi, mid] at ht
 
 /-- The positive branch is ordered as copulas, not just by its rank coefficients. -/
 theorem extremal_cdf_monotone (b d : ℝ) (hb : 0 ≤ b) (hd : 0 ≤ d)

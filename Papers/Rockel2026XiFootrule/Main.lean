@@ -1,3 +1,5 @@
+import Papers.Rockel2026XiFootrule.CountableOrdinalSI
+import Papers.Rockel2026XiFootrule.SymmetricOrdinalSI
 import Papers.Rockel2026XiFootrule.ParameterPath
 import Papers.Rockel2026XiFootrule.AbsoluteBound
 import Papers.Rockel2026XiFootrule.LowerSemilinearRegion

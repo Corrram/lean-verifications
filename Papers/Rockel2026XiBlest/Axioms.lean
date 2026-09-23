@@ -222,6 +222,24 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiBlest.one_dimensional_coefficients
 #assert_standard_axioms Papers.Rockel2026XiBlest.one_dimensional_coefficients
 
+#print axioms Papers.Rockel2026XiBlest.quadratic_switch_strict
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_switch_strict
+
+#print axioms Papers.Rockel2026XiBlest.extremalQ_interior
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQ_interior
+
+#print axioms Papers.Rockel2026XiBlest.normalizationMean_deriv_neg_at_extremalQ
+#assert_standard_axioms Papers.Rockel2026XiBlest.normalizationMean_deriv_neg_at_extremalQ
+
+#print axioms Papers.Rockel2026XiBlest.extremalQExtension_coe
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQExtension_coe
+
+#print axioms Papers.Rockel2026XiBlest.extremalQExtension_hasDerivAt
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQExtension_hasDerivAt
+
+#print axioms Papers.Rockel2026XiBlest.extremalQExtension_density_coefficient
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalQExtension_density_coefficient
+
 #print axioms Papers.Rockel2026XiBlest.substitution_upper
 #assert_standard_axioms Papers.Rockel2026XiBlest.substitution_upper
 
@@ -246,6 +264,12 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_concordance
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_concordance
 
+#print axioms Papers.Rockel2026XiBlest.signed_extremal_reflection_coefficients
+#assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_reflection_coefficients
+
+#print axioms Papers.Rockel2026XiBlest.not_comonotonic_concordanceLE_countermonotonic
+#assert_standard_axioms Papers.Rockel2026XiBlest.not_comonotonic_concordanceLE_countermonotonic
+
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_isSD
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_isSD
 
@@ -261,8 +285,113 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_uniform_bot
 
+#print axioms Papers.Rockel2026XiBlest.extremalLowerSwitch_source
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalLowerSwitch_source
+
+#print axioms Papers.Rockel2026XiBlest.extremalUpperSwitch_source
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalUpperSwitch_source
+
+#print axioms Papers.Rockel2026XiBlest.extremal_switch_support
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_switch_support
+
+#print axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_eq_width_of_interior
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_eq_width_of_interior
+
+#print axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_ae_eq_width
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalDerivativeDensity_ae_eq_width
+
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_quantile_parameter
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_quantile_parameter
+
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_band_condition
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_band_condition
+
+#print axioms Papers.Rockel2026XiBlest.extremalWidthDensity_nonneg
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalWidthDensity_nonneg
+
+#print axioms Papers.Rockel2026XiBlest.extremalWidthDensity_measurable
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalWidthDensity_measurable
+
+#print axioms Papers.Rockel2026XiBlest.extremal_standardized_density
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_standardized_density
+
 #print axioms Papers.Rockel2026XiBlest.extremal_hasMTP2Density
 #assert_standard_axioms Papers.Rockel2026XiBlest.extremal_hasMTP2Density
 
 #print axioms Papers.Rockel2026XiBlest.signed_extremal_hasMTP2Density
 #assert_standard_axioms Papers.Rockel2026XiBlest.signed_extremal_hasMTP2Density
+
+#print axioms Papers.Rockel2026XiBlest.quadratic_active_interval_integral
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_active_interval_integral
+
+#print axioms Papers.Rockel2026XiBlest.quadratic_closed_active_reflected_integral
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_closed_active_reflected_integral
+
+#print axioms Papers.Rockel2026XiBlest.quadratic_active_iff_switch
+#assert_standard_axioms Papers.Rockel2026XiBlest.quadratic_active_iff_switch
+
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_columnDensity
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_columnDensity
+
+#print axioms Papers.Rockel2026XiBlest.extremal_raw_support_ae
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_raw_support_ae
+
+#print axioms Papers.Rockel2026XiBlest.extremal_standardized_eq_width_of_support
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_standardized_eq_width_of_support
+
+#print axioms Papers.Rockel2026XiBlest.extremalWidthDensity_ae_standardized
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremalWidthDensity_ae_standardized
+
+#print axioms Papers.Rockel2026XiBlest.extremal_toMeasure_widthDensity
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_toMeasure_widthDensity
+
+#print axioms Papers.Rockel2026XiBlest.extremal_toMeasure_derivativeDensity
+#assert_standard_axioms Papers.Rockel2026XiBlest.extremal_toMeasure_derivativeDensity
+
+#print axioms Papers.Rockel2026XiBlest.shufflePoint_involution
+#assert_standard_axioms Papers.Rockel2026XiBlest.shufflePoint_involution
+
+#print axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed
+
+#print axioms Papers.Rockel2026XiBlest.shufflePoint_measurePreserving
+#assert_standard_axioms Papers.Rockel2026XiBlest.shufflePoint_measurePreserving
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_zero
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_zero
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_one
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_one
+
+#print axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed_copula
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffleReal_ae_printed_copula
+
+#print axioms Papers.Rockel2026XiBlest.copula_measureReal_conditional_set
+#assert_standard_axioms Papers.Rockel2026XiBlest.copula_measureReal_conditional_set
+
+#print axioms Papers.Rockel2026XiBlest.shuffle_setIntegral
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffle_setIntegral
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_conditionalCDF_ae
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_conditionalCDF_ae
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_xi
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_xi
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_below_cut
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_below_cut
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_above_cut
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_above_cut
+
+#print axioms Papers.Rockel2026XiBlest.si_cdf_cross
+#assert_standard_axioms Papers.Rockel2026XiBlest.si_cdf_cross
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_concordance
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_concordance
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_bound
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_cdf_bound
+
+#print axioms Papers.Rockel2026XiBlest.shuffledCopula_uniformCDF_continuous
+#assert_standard_axioms Papers.Rockel2026XiBlest.shuffledCopula_uniformCDF_continuous

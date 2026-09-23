@@ -33,6 +33,8 @@ const papers = fs.readdirSync(path.join(root, 'Papers'), { withFileTypes: true }
     const p = parse(read(`Papers/${d.name}/paper.toml`));
     if (p.id !== d.name || !/^[A-Za-z][A-Za-z0-9]*$/.test(p.id)) throw new Error(`Invalid paper identifier: ${d.name}`);
     if (!['scaffold', 'in-progress', 'complete-for-scope'].includes(p.verification_status)) throw new Error(`Unknown verification status: ${p.id}`);
+    if (p.version_warning !== undefined && (typeof p.version_warning !== 'string' || !p.version_warning.trim())) throw new Error(`Invalid version warning: ${p.id}`);
+    if (p.source_discrepancies !== undefined && (!Array.isArray(p.source_discrepancies) || p.source_discrepancies.some((d) => ['version', 'unverified_claim', 'evidence', 'verified_instead'].some((key) => typeof d[key] !== 'string' || !d[key].trim())))) throw new Error(`Invalid source discrepancy: ${p.id}`);
     p.verified_declarations = [...new Set(read(`Papers/${p.id}/${p.coverage}`).split('\n')
       .filter((line) => /^\|.*\|\s*verified\s*\|/.test(line))
       .flatMap((line) => [...line.matchAll(/`(Papers\.[A-Za-z0-9_.]+)`/g)].map((m) => m[1])))];
@@ -40,6 +42,11 @@ const papers = fs.readdirSync(path.join(root, 'Papers'), { withFileTypes: true }
   }).sort((a, b) => (a.arxiv || '').localeCompare(b.arxiv || '') || a.id.localeCompare(b.id));
 const status = (p) => ({ scaffold: 'Scaffold', 'in-progress': 'In progress', 'complete-for-scope': 'Complete for stated scope' }[p.verification_status]);
 const badge = (p) => `<span class="badge ${p.verification_status}">${esc(status(p))}</span>`;
+const sourceNotice = (p) => {
+  const discrepancies = p.source_discrepancies || [];
+  if (!p.version_warning && !discrepancies.length) return '';
+  return `<aside class="source-notice" aria-label="Source-version caveats"><h2>Source version and correction notices</h2>${p.version_warning ? `<p class="version-warning">${esc(p.version_warning)}</p>` : ''}${discrepancies.map((d) => `<div class="source-discrepancy"><h3>${esc(d.version)}: literal claim not verified</h3><p><strong>Printed claim:</strong> ${esc(d.unverified_claim)}</p><p><strong>Evidence:</strong> ${esc(d.evidence)}</p><p><strong>Verified replacement:</strong> ${esc(d.verified_instead)}</p></div>`).join('')}<p class="source-notice-link"><a href="#verification-map">Inspect the result-by-result verification map →</a></p></aside>`;
+};
 const api = (module) => url(`api/${module.replaceAll('.', '/')}.html`);
 const declarationIndexPath = path.join(root, 'docbuild/.lake/build/doc/declarations/declaration-data.bmp');
 const declarations = fs.existsSync(declarationIndexPath)
@@ -116,7 +123,7 @@ function render(text, prefix = '') {
   return html;
 }
 
-const paperRows = (items) => items.map((p) => `<article class="paper-row" data-publication="${esc(p.publication_status)}" data-search="${esc(`${p.title} ${p.authors.join(' ')} ${p.id} ${p.arxiv} ${p.doi}`.toLowerCase())}"><div class="paper-year">${esc(p.year)}<small>${p.publication_status === 'published' ? 'Journal article' : 'Preprint'}</small></div><div><h3><a href="${url(`papers/${p.id}/`)}">${esc(p.title)}</a></h3><p>${esc(p.authors.join(' · '))}</p><p class="paper-venue">${esc(p.journal || `arXiv:${p.arxiv}`)}</p></div><div class="paper-status">${badge(p)}<a href="${url(`papers/${p.id}/`)}" aria-label="Read supplement: ${esc(p.title)}">View supplement <span aria-hidden="true">→</span></a></div></article>`).join('');
+const paperRows = (items) => items.map((p) => `<article class="paper-row" data-publication="${esc(p.publication_status)}" data-search="${esc(`${p.title} ${p.authors.join(' ')} ${p.id} ${p.arxiv} ${p.doi}`.toLowerCase())}"><div class="paper-year">${esc(p.year)}<small>${p.publication_status === 'published' ? 'Journal article' : 'Preprint'}</small></div><div><h3><a href="${url(`papers/${p.id}/`)}">${esc(p.title)}</a></h3><p>${esc(p.authors.join(' · '))}</p><p class="paper-venue">${esc(p.journal || `arXiv:${p.arxiv}`)}</p></div><div class="paper-status">${badge(p)}${p.source_discrepancies?.length ? '<span class="source-flag">Printed claim not verified</span>' : ''}<a href="${url(`papers/${p.id}/`)}" aria-label="Read supplement: ${esc(p.title)}">View supplement <span aria-hidden="true">→</span></a></div></article>`).join('');
 
 page('', 'A handbook of copula verification', `
 <div class="eyebrow">Mathematics / Lean 4 / Research supplements</div>
@@ -142,7 +149,7 @@ for (const p of papers) {
   const arxiv = p.arxiv ? `${p.arxiv}${p.arxiv_version || ''}` : '';
   const bib = read(dir + 'references.bib');
   const links = [p.doi && `<a href="https://doi.org/${esc(p.doi)}">Journal article ↗</a>`, arxiv && `<a href="https://arxiv.org/abs/${esc(arxiv)}">arXiv:${esc(arxiv)} ↗</a>`, `<a href="${repo}/tree/${sha}/${dir}">Source folder ↗</a>`, `<a href="${api(p.entrypoint)}">Lean module ↗</a>`].filter(Boolean).join('');
-  page(`papers/${p.id}/`, p.title, `<article class="prose paper-detail"><div class="eyebrow">Article supplement / ${esc(p.year)}</div><h1>${esc(p.title)}</h1><p class="authors">${esc(p.authors.join(' · '))}</p><p class="publication">${esc(p.journal || 'arXiv preprint')}${p.doi ? ` · DOI ${esc(p.doi)}` : ''}</p><div class="paper-links">${links}</div><div class="scope-note"><div>${badge(p)}<p>${esc(p.scope)}</p></div></div><dl class="metadata"><div><dt>Stable identifier</dt><dd><code>${esc(p.id)}</code></dd></div><div><dt>Source for numbering</dt><dd>${esc(p.source_for_numbering)}</dd></div><div><dt>Lean entry point</dt><dd><a href="${api(p.entrypoint)}"><code>${esc(p.entrypoint)}</code></a></dd></div></dl><section class="coverage">${render(coverage.replace(/^# Coverage\s*\n/, '## Verification map\n'), source + dir)}</section><h2>Inspect the formalization</h2><div class="module-links">${['Definitions', 'Main', 'Axioms'].map((m) => `<a href="${api(`Papers.${p.id}.${m}`)}">${m}<span>Generated Lean documentation →</span></a>`).join('')}</div><h2>Reproduce this snapshot</h2><p>Run the full project build to check every source file. The pinned toolchain and dependencies live at the repository root.</p><pre><code>git clone ${repo}.git
+  page(`papers/${p.id}/`, p.title, `<article class="prose paper-detail"><div class="eyebrow">Article supplement / ${esc(p.year)}</div><h1>${esc(p.title)}</h1><p class="authors">${esc(p.authors.join(' · '))}</p><p class="publication">${esc(p.journal || 'arXiv preprint')}${p.doi ? ` · DOI ${esc(p.doi)}` : ''}</p><div class="paper-links">${links}</div><div class="scope-note"><div>${badge(p)}<p>${esc(p.scope)}</p></div></div>${sourceNotice(p)}<dl class="metadata"><div><dt>Stable identifier</dt><dd><code>${esc(p.id)}</code></dd></div><div><dt>Source for numbering</dt><dd>${esc(p.source_for_numbering)}</dd></div><div><dt>Lean entry point</dt><dd><a href="${api(p.entrypoint)}"><code>${esc(p.entrypoint)}</code></a></dd></div></dl><section class="coverage">${render(coverage.replace(/^# Coverage\s*\n/, '## Verification map\n'), source + dir)}</section><h2>Inspect the formalization</h2><div class="module-links">${['Definitions', 'Main', 'Axioms'].map((m) => `<a href="${api(`Papers.${p.id}.${m}`)}">${m}<span>Generated Lean documentation →</span></a>`).join('')}</div><h2>Reproduce this snapshot</h2><p>Run the full project build to check every source file. The pinned toolchain and dependencies live at the repository root.</p><pre><code>git clone ${repo}.git
 cd lean-verifications
 git checkout --detach ${sha}
 lake exe cache get
@@ -159,7 +166,7 @@ fs.cpSync(path.join(here, 'node_modules/katex/dist'), path.join(out, 'assets/kat
 fs.copyFileSync(path.join(here, 'node_modules/katex/LICENSE'), path.join(out, 'assets/katex/LICENSE'));
 write('search-index.json', JSON.stringify(searchIndex));
 write('.nojekyll', '');
-write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', articles: papers.map(({ id, verification_status, verified_declarations }) => ({ id, verification_status, verified_declarations })) }, null, 2));
+write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', articles: papers.map(({ id, verification_status, verified_declarations, version_warning, source_discrepancies }) => ({ id, verification_status, verified_declarations, version_warning: version_warning || null, source_discrepancies: source_discrepancies || [] })) }, null, 2));
 const docs = path.join(root, 'docbuild/.lake/build/doc');
 if (fs.existsSync(path.join(docs, 'index.html'))) {
   fs.cpSync(docs, path.join(out, 'api'), { recursive: true });

@@ -1,9 +1,14 @@
+import Papers.AnsariRockel2024.GeneralOrders
 import Verification.ExtremeValuePickands
+import Copula.ExtremeValue.Diagonal
 import Verification.MarshallOlkinSingular
+import Verification.MarshallOlkinRho
+import Verification.MarshallOlkinXi
+import Verification.MarshallOlkinTau
 
 /-! # Extreme-value CDF order and explicit monotone families -/
 
-open ProbabilityTheory Verification
+open MeasureTheory ProbabilityTheory Verification
 open scoped unitInterval
 
 namespace Papers.AnsariRockel2024
@@ -14,6 +19,86 @@ theorem extremeValue_pickands_order (C D : Copula 2)
     (hC : C.IsExtremeValue) (hD : D.IsExtremeValue) :
     C.LowerOrthantLE D ↔ ∀ t : I, 0<t → t<1 → copulaPickands D t ≤ copulaPickands C t :=
   extremeValue_lowerOrthant_iff_pickands_interior C D hC hD
+
+private theorem lowerOrthantLE_transpose {C D : Copula 2}
+    (h : C.LowerOrthantLE D) : C.transpose.LowerOrthantLE D.transpose := by
+  intro z
+  have hz : z = ![z 0, z 1] := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  simpa only [Copula.cdf_transpose] using h ![z 1, z 0]
+
+/-- The Schur part of Theorem 3.4 under the independently required CI premise. -/
+theorem extremeValue_schur_iff_pickands_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI) :
+    C.SchurBothLE D ↔
+      ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t := by
+  rw [← extremeValue_pickands_order C D hC hD]
+  constructor
+  · intro h
+    exact (cis_schur_iff_orthant C D hCI.1 hDI.1).mp h.1
+  · intro h
+    constructor
+    · exact (cis_schur_iff_orthant C D hCI.1 hDI.1).mpr h
+    · exact (cis_schur_iff_orthant C.transpose D.transpose hCI.2 hDI.2).mpr
+        (lowerOrthantLE_transpose h)
+
+/-- Theorem 3.4(iv), in the copula conditional-CDF form, under CI. -/
+theorem extremeValue_schur_first_iff_pickands_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI) :
+    C.SchurLE D ↔
+      ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t := by
+  rw [← extremeValue_pickands_order C D hC hD]
+  exact cis_schur_iff_orthant C D hCI.1 hDI.1
+
+/-- Theorem 3.4(v), with the conditioning coordinates exchanged, under CI. -/
+theorem extremeValue_schur_second_iff_pickands_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI) :
+    C.transpose.SchurLE D.transpose ↔
+      ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t := by
+  rw [← extremeValue_pickands_order C D hC hD]
+  constructor
+  · intro h
+    have ht := (cis_schur_iff_orthant C.transpose D.transpose hCI.2 hDI.2).mp h
+    simpa using (lowerOrthantLE_transpose ht)
+  · intro h
+    exact (cis_schur_iff_orthant C.transpose D.transpose hCI.2 hDI.2).mpr
+      (lowerOrthantLE_transpose h)
+
+/-- Remark 3.5: Pickands order entails both classical concordance comparisons. -/
+theorem extremeValue_pickands_concordance_mono (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (h : ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t) :
+    C.spearmanRho ≤ D.spearmanRho ∧ C.kendallTau ≤ D.kendallTau :=
+  concordance_coefficients_mono C D ((extremeValue_pickands_order C D hC hD).mpr h)
+
+/-- Remark 3.5: Pickands order entails both directional xi comparisons when CI is known. -/
+theorem extremeValue_pickands_xi_mono_of_ci (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (hCI : C.IsCI) (hDI : D.IsCI)
+    (h : ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t) :
+    C.chatterjeeXi ≤ D.chatterjeeXi ∧
+      C.transpose.chatterjeeXi ≤ D.transpose.chatterjeeXi := by
+  exact ⟨schur_xi_mono C D
+    ((extremeValue_schur_first_iff_pickands_of_ci C D hC hD hCI hDI).mpr h),
+    schur_xi_mono C.transpose D.transpose
+      ((extremeValue_schur_second_iff_pickands_of_ci C D hC hD hCI hDI).mpr h)⟩
+
+/-- Remark 3.5: both tail limits are ordered for max-stable copulas. -/
+theorem extremeValue_pickands_tail_mono (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (h : ∀ t : I, 0 < t → t < 1 → copulaPickands D t ≤ copulaPickands C t) :
+    (if C.extremalCoefficient = 1 then (1 : ℝ) else 0) ≤
+      (if D.extremalCoefficient = 1 then (1 : ℝ) else 0) ∧
+    2 - C.extremalCoefficient ≤ 2 - D.extremalCoefficient := by
+  have ho := (extremeValue_pickands_order C D hC hD).mpr h
+  exact ⟨ho.lowerTailDependence_le hC.hasPowerDiagonal.hasLowerTailDependence
+    hD.hasPowerDiagonal.hasLowerTailDependence,
+    ho.upperTailDependence_le hC.hasUpperTailDependence hD.hasUpperTailDependence⟩
 
 /-- The logarithmic-ray representation identifies the canonical function with
  the Pickands function in equation (3), including the axes. -/
@@ -65,5 +150,32 @@ theorem marshallOlkin_absolutelyContinuous (α β : I) :
 theorem marshallOlkin_independence_axes (α : I) :
     Copula.marshallOlkin 0 α=Copula.independence 2 ∧ Copula.marshallOlkin α 0=Copula.independence 2 :=
   ⟨marshallOlkin_zero_left α,marshallOlkin_zero_right α⟩
+
+/-- Table 6: Spearman rho for the full two-parameter Marshall–Olkin family. -/
+theorem marshallOlkin_rho (α β : I) :
+    (Copula.marshallOlkin α β).spearmanRho =
+      3 * (α : ℝ) * (β : ℝ) /
+        (2 * (α : ℝ) + 2 * (β : ℝ) - (α : ℝ) * (β : ℝ)) :=
+  Verification.marshallOlkin_spearmanRho α β
+
+/-- Appendix A.5: the two-parameter conditional CDF, away from the shock curve. -/
+theorem marshallOlkin_conditionalCDF (α β v : I) (ha : 0 < (α : ℝ)) :
+    (fun u => (Copula.marshallOlkin α β).conditionalCDF u v) =ᵐ[volume]
+      fun u => marshallOlkinConditional α β u v :=
+  conditionalCDF_marshallOlkin α β v ha
+
+/-- Table 6: Chatterjee xi for all Marshall–Olkin parameters, including singular laws. -/
+theorem marshallOlkin_xi (α β : I) :
+    (Copula.marshallOlkin α β).chatterjeeXi =
+      2 * (α : ℝ) ^ 2 * (β : ℝ) /
+        (3 * (α : ℝ) + (β : ℝ) - 2 * (α : ℝ) * (β : ℝ)) :=
+  Verification.marshallOlkin_chatterjeeXi α β
+
+/-- Table 6: Kendall tau for the full two-parameter Marshall–Olkin family. -/
+theorem marshallOlkin_tau (α β : I) :
+    (Copula.marshallOlkin α β).kendallTau =
+      (α : ℝ) * (β : ℝ) /
+        ((α : ℝ) + (β : ℝ) - (α : ℝ) * (β : ℝ)) :=
+  Verification.marshallOlkin_kendallTau α β
 
 end Papers.AnsariRockel2024

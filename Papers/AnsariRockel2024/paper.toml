@@ -8,8 +8,28 @@ journal = "Dependence Modeling"
 doi = "10.1515/demo-2024-0002"
 arxiv = "2310.17307"
 arxiv_version = "v3"
-source_for_numbering = "arXiv:2310.17307v3; correspondence with journal version pending"
+source_for_numbering = "arXiv:2310.17307v3; selected published statements and discrepancies compared in SOURCE_COMPARISON.md"
 verification_status = "in-progress"
-scope = "Selected Tables 1-6 results are checked: FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and its actual density with TP2 classification; Nelsen 7 CDF, endpoints, CD, parameter order and both tail limits. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. Lemmas 2.6 and 2.8 (both directions on the monotone classes) and Proposition 3.2 are fully checked, as are copula-level concordance and xi consistency and both tail-order implications. Theorem 3.4(i)-(ii) is checked from max-stability; Marshall-Olkin and Cuadras-Auge CI, lower orthant and both-direction Schur parameter orders are checked on the full interval. Cuadras-Auge also has its actual conditional CDF and all three exact Table 6 formulas (rho, xi, tau) checked. Exact density-TP2 and absolute-continuity classifications are checked for both common-shock families. Other family entries, remaining general order correspondences and journal comparison remain pending."
+scope = "Selected Tables 1-6 results are checked: both Clayton CDF branches, special and limiting cases, and exact signed Clayton CI/CD classification, quadrant dependence, CDF-level TP2 classification, full signed density-TP2 classification and positive-parameter absolute continuity, and both tail coefficients; FGM, Frechet and Mardia association formulas and tails; FGM conditional monotonicity, lower orthant order and exact MTP2 classification of its actual density; Nelsen 7 CDF, endpoints, CD, exact CDF-TP2 and density-TP2 ranges, parameter order, both tail limits, and exact Spearman rho. Both tail limits for Gumbel, Marshall-Olkin, Cuadras-Auge and Tawn, the exact FGM Schur order, and the corrected Frechet parameter order are also checked. Lemmas 2.6 and 2.8 (both directions on the monotone classes) and Proposition 3.2 are fully checked, as are copula-level concordance and xi consistency and both tail-order implications. Theorem 3.4(i)-(ii) is checked from max-stability, and each directional Schur equivalence and both xi consequences are checked under an explicit CI hypothesis; ordered extreme-value rho, tau and tail limits are also checked; Marshall-Olkin and Cuadras-Auge CI, lower orthant and both-direction Schur parameter orders are checked on the full interval. Cuadras-Auge also has its actual conditional CDF and all three exact Table 6 formulas (rho, xi, tau) checked; Marshall-Olkin has its actual conditional CDF and full two-parameter rho, xi and tau formulas checked. Exact density-TP2 and absolute-continuity classifications are checked for both common-shock families. The positive Clayton analytic mixed derivative is identified with the package density candidate; positive-rectangle and lower-orthant measure equality, full measure identification, actual MTP2 density and absolute continuity are checked. A general MTP2-density-to-PQD theorem excludes every negative Clayton parameter, completing the signed density-TP2 split. Other family entries, remaining general order correspondences and journal comparison remain pending."
 entrypoint = "Papers.AnsariRockel2024.Main"
 coverage = "COVERAGE.md"
+
+version_warning = "Selected journal statements and printed discrepancies have been compared with the publisher PDF; unlisted family cells and complete version correspondence remain pending. Verified rows are anchored to arXiv v3."
+
+[[source_discrepancies]]
+version = "arXiv v3 Appendix A.4.1/equation (23); published DOI 10.1515/demo-2024-0002 Appendix A.4.1/equation (A7)"
+unverified_claim = "The Appendix A.4.1 Fréchet parameter constraint and equation (23) Mardia W weight yield the intended copula mixtures."
+evidence = "The printed Fréchet inequality is reversed and the Mardia W weight can be negative; the literal parameterizations are excluded from the Lean constructors."
+verified_instead = "Theorems use the valid Fréchet simplex and nonnegative Mardia W weight."
+
+[[source_discrepancies]]
+version = "arXiv v3 and published DOI 10.1515/demo-2024-0002, Table 5 and Appendix A.4.2"
+unverified_claim = "Increasing the W weight increases the Fréchet copula in lower orthant order."
+evidence = "Lean gives an explicit independence-to-W counterexample to that direction."
+verified_instead = "The proved order increases with M weight and decreases with W weight."
+
+[[source_discrepancies]]
+version = "arXiv v3 and published DOI 10.1515/demo-2024-0002, Table 5 and Appendix A.4.1"
+unverified_claim = "The printed Mardia CI/CD endpoint classifications omit independence, and singular endpoints have a Lebesgue TP2 density."
+evidence = "Lean proves the missing theta=0 CI/CD cases and shows every nonzero M or W weight has a singular component."
+verified_instead = "The corrected CI/CD classifications include theta=0; a TP2 Lebesgue density exists only at independence."
