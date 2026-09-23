@@ -80,6 +80,17 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_has_binary_split
 #print axioms Papers.Rockel2026XiFootrule.countablePi_first_lower_component
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_first_lower_component
+#print axioms Papers.Rockel2026XiFootrule.countablePi_upper_component_tail
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_upper_component_tail
+
+#print axioms Papers.Rockel2026XiFootrule.countablePi_recursive
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_recursive
+
+#print axioms Papers.Rockel2026XiFootrule.countablePi_gap_recursive
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_gap_recursive
+
+#print axioms Papers.Rockel2026XiFootrule.countablePi_xi_eq_footrule
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_xi_eq_footrule
 #print axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 #assert_standard_axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
 
