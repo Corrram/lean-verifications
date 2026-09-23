@@ -6,6 +6,7 @@ import Papers.AnsariRockel2024.GeneralOrders
 import Papers.AnsariRockel2024.Nelsen7Results
 import Papers.AnsariRockel2024.Nelsen7Rho
 import Papers.AnsariRockel2024.Nelsen7Tau
+import Papers.AnsariRockel2024.Nelsen7SourceCorrection
 import Papers.AnsariRockel2024.FrechetMardiaDependence
 import Papers.AnsariRockel2024.TailsAndOrders
 import Papers.AnsariRockel2024.FamilyExtensions

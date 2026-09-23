@@ -24,3 +24,18 @@ certificate that every table cell in either version has been verified.
 The published text therefore does not resolve these printed discrepancies.
 Other family cells and all uninspected differences between the two versions
 remain outside this comparison. The article stays in progress.
+
+## arXiv v3 Nelsen 7 xi intermediate expression
+
+[Appendix A.5.1 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3)
+prints `6 ∫∫ (θv+1−θ)^2 (θuv+(1−θ)(u+v−1))₊ du dv − 2` as an
+intermediate expression for Nelsen 7's xi. `nelsen7_printed_xi_candidate_expanded`
+identifies this expression with the CDF-weighted integral. `nelsen7_printed_xi_candidate_formula` proves that it equals
+−1−θ/4 for every parameter, while `nelsen7_xi` proves the actual value
+is 1−θ. The interior witness `nelsen7_printed_xi_identity_false_half`
+compares −9/8 with 1/2 at θ=1/2, inside the parameter range of the
+appendix calculation. `nelsen7_printed_xi_identity_false` refutes the
+intermediate equality throughout the closed parameter interval. The final Table 6 identity xi=1−θ is correct and
+verified independently from the actual conditional CDF. This comparison
+is pinned to arXiv v3; it does not assert that the journal version contains
+the same intermediate error.
