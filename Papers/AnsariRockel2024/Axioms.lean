@@ -421,3 +421,14 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.tawn_cdf_positive
 #print axioms Papers.AnsariRockel2024.tawn_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.tawn_cdf_full
+
+#print axioms Papers.AnsariRockel2024.tawn_zero_zero
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_zero_zero
+#print axioms Papers.AnsariRockel2024.tawn_one_one
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_one_one
+#print axioms Papers.AnsariRockel2024.tawn_zero_left
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_zero_left
+#print axioms Papers.AnsariRockel2024.tawn_zero_right
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_zero_right
+#print axioms Papers.AnsariRockel2024.tawn_shape_one
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_shape_one

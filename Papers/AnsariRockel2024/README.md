@@ -25,7 +25,7 @@ their precise correspondence to the paper and any article-specific proofs.
 - [ClaytonDensityDerivative.lean](ClaytonDensityDerivative.lean): first and mixed derivatives of the positive Clayton CDF formula and the exact pinned candidate-density integral and `withDensity` measure equality to actual copula mass on positive unit-square rectangles, with quantitative cutoff bounds and convergence to each upper-corner Clayton CDF; extension across the axes proves global measure equality, MTP2 density, and absolute continuity.
 - [FamilyExtensions.lean](FamilyExtensions.lean): FGM density and Nelsen 7 dependence, order and tail results.
 - [TailsAndOrders.lean](TailsAndOrders.lean): four extreme-value tail pairs, exact FGM Schur order and corrected Frechet order.
-- [NamedExtremeValueCDF.lean](NamedExtremeValueCDF.lean): Gumbel-Hougaard and Tawn Table 1 CDFs on the full closed square.
+- [NamedExtremeValueCDF.lean](NamedExtremeValueCDF.lean): Gumbel-Hougaard and Tawn Table 1 CDFs on the full closed square, including exact Tawn shape and weight-axis reductions.
 - [FrechetMardiaDependence.lean](FrechetMardiaDependence.lean): exact CI/CD and density classifications, source corrections and Mardia incomparability.
 - [Nelsen7Results.lean](Nelsen7Results.lean): full-interval conditional CDF, derivative, xi, exact CI and Schur order.
 - [Main.lean](Main.lean): entry point importing the final result modules.
