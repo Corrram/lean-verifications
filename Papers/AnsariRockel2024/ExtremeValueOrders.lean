@@ -1,5 +1,6 @@
 import Verification.ExtremeValuePickands
 import Verification.MarshallOlkinSingular
+import Verification.MarshallOlkinRho
 
 /-! # Extreme-value CDF order and explicit monotone families -/
 
@@ -66,4 +67,10 @@ theorem marshallOlkin_independence_axes (α : I) :
     Copula.marshallOlkin 0 α=Copula.independence 2 ∧ Copula.marshallOlkin α 0=Copula.independence 2 :=
   ⟨marshallOlkin_zero_left α,marshallOlkin_zero_right α⟩
 
+/-- Table 6: Spearman rho for the full two-parameter Marshall–Olkin family. -/
+theorem marshallOlkin_rho (α β : I) :
+    (Copula.marshallOlkin α β).spearmanRho =
+      3 * (α : ℝ) * (β : ℝ) /
+        (2 * (α : ℝ) + 2 * (β : ℝ) - (α : ℝ) * (β : ℝ)) :=
+  Verification.marshallOlkin_spearmanRho α β
 end Papers.AnsariRockel2024

@@ -180,6 +180,9 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_order
 #print axioms Papers.AnsariRockel2024.extremeValue_pickands_representation
 #assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_representation
+#print axioms Papers.AnsariRockel2024.marshallOlkin_rho
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_rho
+
 #print axioms Papers.AnsariRockel2024.marshallOlkin_cdf
 #assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_cdf
 #print axioms Papers.AnsariRockel2024.marshallOlkin_ci
