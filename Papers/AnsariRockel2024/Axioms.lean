@@ -560,3 +560,20 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_one
 #print axioms Papers.AnsariRockel2024.nelsen14_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_one
+
+#print axioms Papers.AnsariRockel2024.nelsen12_ci_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_ci_one
+#print axioms Papers.AnsariRockel2024.nelsen14_ci_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_ci_one
+#print axioms Papers.AnsariRockel2024.nelsen12_tp2_cdf_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_tp2_cdf_one
+#print axioms Papers.AnsariRockel2024.nelsen14_tp2_cdf_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_tp2_cdf_one
+#print axioms Papers.AnsariRockel2024.nelsen12_mtp2_density_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_mtp2_density_one
+#print axioms Papers.AnsariRockel2024.nelsen14_mtp2_density_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_mtp2_density_one
+#print axioms Papers.AnsariRockel2024.nelsen12_not_cd_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_not_cd_one
+#print axioms Papers.AnsariRockel2024.nelsen14_not_cd_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_not_cd_one
