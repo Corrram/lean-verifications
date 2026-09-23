@@ -1,4 +1,5 @@
 import Papers.Rockel2026XiFootrule.CountableOrdinalPartial
+import Copula.OrdinalSum.CountableSI
 
 open ProbabilityTheory Filter
 open scoped unitInterval Topology
@@ -254,4 +255,8 @@ theorem countablePi_xi_eq_footrule (P : Copula.CountableIntervalPartition) :
   have hzero : |gap| ≤ 0 := ge_of_tendsto' hlim hle
   have : gap = 0 := abs_eq_zero.mp (le_antisymm hzero (abs_nonneg _))
   exact sub_eq_zero.mp this
+/-- Adjacent countable independence-block sums are stochastically increasing. -/
+theorem countablePi_isSI (P : Copula.CountableIntervalPartition) :
+    (Copula.countableOrdinalSumPi P).IsSI :=
+  Copula.countableOrdinalSumPi_isSI P
 end Papers.Rockel2026XiFootrule

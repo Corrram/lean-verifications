@@ -89,6 +89,8 @@ import Verification.AxiomAudit
 #print axioms Papers.Rockel2026XiFootrule.countablePi_gap_recursive
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_gap_recursive
 
+#print axioms Papers.Rockel2026XiFootrule.countablePi_isSI
+#assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_isSI
 #print axioms Papers.Rockel2026XiFootrule.countablePi_xi_eq_footrule
 #assert_standard_axioms Papers.Rockel2026XiFootrule.countablePi_xi_eq_footrule
 #print axioms Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau
