@@ -490,6 +490,9 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.nelsen2_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_tails
 
+#print axioms Papers.AnsariRockel2024.nelsen2_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_tendsto_atTop
+
 #print axioms Papers.AnsariRockel2024.nelsen2_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen2_cdf_full
 #print axioms Papers.AnsariRockel2024.nelsen8_cdf_full
