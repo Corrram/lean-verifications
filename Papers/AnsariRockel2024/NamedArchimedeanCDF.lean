@@ -1,6 +1,7 @@
 import Copula.Families.Joe
 import Copula.Families.Frank
 import Copula.Families.FrankNegative
+import Copula.Families.AMH
 import Copula.Families.Nelsen
 import Copula.Families.Nelsen8
 
@@ -48,6 +49,13 @@ theorem frank_negative_cdf_source (θ : ℝ) (hθ : θ < 0) (u v : I) :
       -Real.log (1 + (Real.exp (-θ * (u : ℝ)) - 1) *
         (Real.exp (-θ * (v : ℝ)) - 1) / (Real.exp (-θ) - 1)) / θ :=
   Copula.frankNegative_cdf_source θ hθ u v
+/-- Table 2's Ali–Mikhail–Haq CDF on the full parameter interval and closed square. -/
+theorem amh_cdf_full (θ : ℝ) (hmin : -1 ≤ θ) (hmax : θ ≤ 1) (u v : I) :
+    (Copula.amh θ hmin hmax).cdf ![u, v] =
+      (u : ℝ) * (v : ℝ) /
+        (1 - θ * (1 - (u : ℝ)) * (1 - (v : ℝ))) :=
+  Copula.cdf_amh θ hmin hmax u v
+
 /-- Table 1's Frank family at its zero parameter is independence. -/
 theorem frank_zero_cdf (u v : I) :
     (Copula.independence 2).cdf ![u, v] = (u : ℝ) * (v : ℝ) := by
