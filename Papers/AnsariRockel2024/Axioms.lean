@@ -621,3 +621,18 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.amh_ci_iff
 #print axioms Papers.AnsariRockel2024.amh_cd_iff
 #assert_standard_axioms Papers.AnsariRockel2024.amh_cd_iff
+
+#print axioms Papers.AnsariRockel2024.amh_zero
+#assert_standard_axioms Papers.AnsariRockel2024.amh_zero
+
+#print axioms Papers.AnsariRockel2024.amh_cdf_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.amh_cdf_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.amh_negative_not_mtp2_density
+#assert_standard_axioms Papers.AnsariRockel2024.amh_negative_not_mtp2_density
+
+#print axioms Papers.AnsariRockel2024.amh_zero_mtp2_density
+#assert_standard_axioms Papers.AnsariRockel2024.amh_zero_mtp2_density
+
+#print axioms Papers.AnsariRockel2024.amh_one_mtp2_density
+#assert_standard_axioms Papers.AnsariRockel2024.amh_one_mtp2_density
