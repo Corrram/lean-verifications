@@ -378,6 +378,12 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.isCD_eq_independence_of_hasMTP2Density
 #assert_standard_axioms Papers.AnsariRockel2024.isCD_eq_independence_of_hasMTP2Density
 
+#print axioms Papers.AnsariRockel2024.isCD_eq_independence_of_isTP2CDF
+#assert_standard_axioms Papers.AnsariRockel2024.isCD_eq_independence_of_isTP2CDF
+
+#print axioms Papers.AnsariRockel2024.nelsen7_cdf_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_cdf_tp2_iff
+
 #print axioms Papers.AnsariRockel2024.nelsen7_density_tp2_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_density_tp2_iff
 

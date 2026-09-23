@@ -271,6 +271,25 @@ theorem isCD_eq_independence_of_hasMTP2Density (C : Copula 2)
   (Copula.isPQD_and_isNQD_iff C).mp
     ⟨hasMTP2Density_isPQD C hM, hCD.isNQD⟩
 
+/-- CDF-level TP2 is also incompatible with conditional decreasingness,
+except at independence. This statement is separate from density TP2. -/
+theorem isCD_eq_independence_of_isTP2CDF (C : Copula 2)
+    (hCD : C.IsCD) (hTP : C.IsTP2CDF) : C = Copula.independence 2 :=
+  (Copula.isPQD_and_isNQD_iff C).mp ⟨hTP.isPQD, hCD.isNQD⟩
+
+/-- Nelsen 7 has a TP2 distribution function only at independence. -/
+theorem nelsen7_cdf_tp2_iff (θ : I) :
+    (Copula.nelsen7 θ).IsTP2CDF ↔ θ = 1 := by
+  constructor
+  · intro h
+    have he := isCD_eq_independence_of_isTP2CDF
+      (Copula.nelsen7 θ) (Copula.isCD_nelsen7 θ) h
+    exact (Copula.isCI_nelsen7_iff θ).mp (he ▸ Copula.isCI_independence)
+  · intro h
+    subst θ
+    rw [Copula.nelsen7_one]
+    exact Copula.isTP2CDF_independence
+
 /-- The Nelsen 7 family has an MTP2 density exactly at its independence
 endpoint; this includes the singular lower endpoint and all interior values. -/
 theorem nelsen7_density_tp2_iff (θ : I) :
