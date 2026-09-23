@@ -622,6 +622,11 @@ import Verification.AxiomAudit
 #print axioms Papers.AnsariRockel2024.amh_cd_iff
 #assert_standard_axioms Papers.AnsariRockel2024.amh_cd_iff
 
+#print axioms Papers.AnsariRockel2024.amh_schur_nonnegative_iff
+#assert_standard_axioms Papers.AnsariRockel2024.amh_schur_nonnegative_iff
+#print axioms Papers.AnsariRockel2024.amh_schur_nonpositive_iff
+#assert_standard_axioms Papers.AnsariRockel2024.amh_schur_nonpositive_iff
+
 #print axioms Papers.AnsariRockel2024.amh_zero
 #assert_standard_axioms Papers.AnsariRockel2024.amh_zero
 
