@@ -398,3 +398,9 @@ import Verification.AxiomAudit
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_rho_interior
 #print axioms Papers.AnsariRockel2024.nelsen7_rho
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen7_rho
+#print axioms Papers.AnsariRockel2024.nelsen7_tau_rho
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_tau_rho
+#print axioms Papers.AnsariRockel2024.nelsen7_tau_interior
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_tau_interior
+#print axioms Papers.AnsariRockel2024.nelsen7_tau
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen7_tau
