@@ -74,6 +74,16 @@ theorem clayton_positive_pqd (θ : ℝ) (hθ : 0 < θ) :
     (Copula.clayton 2 θ hθ).IsPQD :=
   Copula.isPQD_clayton_positive θ hθ
 
+/-- Table 3: the zero-parameter limit is independence, hence both CI and CD. -/
+theorem clayton_zero_ci_cd :
+    (Copula.independence 2).IsCI ∧ (Copula.independence 2).IsCD :=
+  ⟨Copula.isCI_independence, Copula.isCD_independence⟩
+
+/-- Table 3: the negative endpoint is the countermonotonic copula, hence CD. -/
+theorem clayton_negative_one_cd :
+    (Copula.claytonNegative (-1) le_rfl (by norm_num)).IsCD := by
+  rw [Copula.claytonNegative_neg_one]
+  exact Copula.isCD_countermonotonic
 /-- Table 3: negative Clayton parameters are negatively quadrant dependent. -/
 theorem clayton_negative_nqd (θ : ℝ) (hθ : -1 ≤ θ) (hn : θ < 0) :
     (Copula.claytonNegative θ hθ hn).IsNQD :=
