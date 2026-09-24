@@ -1056,3 +1056,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen17_schur_antitone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen17_schur_antitone
+
+#print axioms Papers.AnsariRockel2024.nelsen17_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.nelsen17_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_tendsto_zero
