@@ -824,3 +824,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen11_schur_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen11_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen13_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_cdf
+
+#print axioms Papers.AnsariRockel2024.nelsen13_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen13_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_one
+
+#print axioms Papers.AnsariRockel2024.nelsen13_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_tails
