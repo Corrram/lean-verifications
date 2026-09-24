@@ -1272,3 +1272,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.plackett_tendsto_atTop
 #assert_standard_axioms Papers.AnsariRockel2024.plackett_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.plackett_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.plackett_schur_above_one
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_schur_above_one
+
+#print axioms Papers.AnsariRockel2024.plackett_schur_below_one
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_schur_below_one

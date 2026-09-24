@@ -53,3 +53,8 @@ compared.
 ## arXiv v3 Tawn TP2 exclusion
 
 [Table 5 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3) labels non-independent Tawn copulas as non-TP2. The admitted parameter range includes both weights equal to one, which Table 4 identifies with Gumbel. `tawn_one_one_density_tp2` verifies an actual TP2 density throughout this subfamily. `tawn_one_one_not_independence` proves non-independence for shape greater than one using the positive upper tail. `tawn_printed_tp2_exclusion_false` refutes the universal exclusion with shape two and unit weights. This does not classify the other Tawn weights. The corresponding journal table cell has not yet been compared.
+
+
+## arXiv v3 Plackett decreasing Schur range
+
+[Table 5 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3) prints the decreasing Schur range as theta<=0, while Table 4 admits only theta>0. This leaves the decreasing range empty. The Lean theorem `plackett_schur_below_one` proves both directional Schur comparisons throughout 0<theta<=eta<=1, using the exact CD classification and the independently proved lower-orthant order. `plackett_schur_above_one` verifies the increasing range above independence. We record the useful decreasing range (0,1] as a correction, rather than treating the vacuous printed condition as coverage of that range. The corresponding journal cell has not been compared.

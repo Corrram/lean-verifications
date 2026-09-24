@@ -2,6 +2,7 @@ import Verification.PlackettDensity
 import Verification.PlackettConditional
 import Verification.PlackettTails
 import Verification.PlackettContinuity
+import Verification.PlackettOrder
 
 /-! # Table 4: the Plackett copula and its actual Lebesgue density -/
 
@@ -62,5 +63,17 @@ theorem plackett_tendsto_atTop {A : Type*} {l : Filter A} (θ : A → ℝ)
     Tendsto (fun a => (Verification.plackett (θ a) (hθ a)).cdf ![u,v]) l
       (𝓝 ((Copula.comonotonic 2).cdf ![u,v])) :=
   Verification.plackett_tendsto_atTop θ hθ ht u v
+
+theorem plackett_lowerOrthant_iff {θ η : ℝ} (hθ : 0 < θ) (hη : 0 < η) :
+    (Verification.plackett θ hθ).LowerOrthantLE (Verification.plackett η hη) ↔ θ ≤ η :=
+  Verification.plackett_lowerOrthant_iff hθ hη
+
+theorem plackett_schur_above_one {θ η : ℝ} (hθ : 0 < θ) (h1 : 1 ≤ θ) (hθη : θ ≤ η) :
+    (Verification.plackett θ hθ).SchurBothLE (Verification.plackett η (hθ.trans_le hθη)) :=
+  Verification.plackett_schur_above_one hθ h1 hθη
+
+theorem plackett_schur_below_one {θ η : ℝ} (hθ : 0 < θ) (hη : η ≤ 1) (hθη : θ ≤ η) :
+    (Verification.plackett η (hθ.trans_le hθη)).SchurBothLE (Verification.plackett θ hθ) :=
+  Verification.plackett_schur_below_one hθ hη hθη
 
 end Papers.AnsariRockel2024
