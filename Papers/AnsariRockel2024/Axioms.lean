@@ -716,3 +716,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_zero_ci_cd
 #assert_standard_axioms Papers.AnsariRockel2024.frank_zero_ci_cd
+
+#print axioms Papers.AnsariRockel2024.frank_positive_density
+#assert_standard_axioms Papers.AnsariRockel2024.frank_positive_density
+
+#print axioms Papers.AnsariRockel2024.frank_positive_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.frank_positive_density_tp2
+
+#print axioms Papers.AnsariRockel2024.frank_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.frank_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.frank_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.frank_ci_iff
+
+#print axioms Papers.AnsariRockel2024.frank_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.frank_cd_iff

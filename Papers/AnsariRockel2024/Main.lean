@@ -37,6 +37,7 @@ import Papers.AnsariRockel2024.Association
 import Papers.AnsariRockel2024.Dependence
 import Papers.AnsariRockel2024.FrankTails
 import Papers.AnsariRockel2024.FrankDependence
+import Papers.AnsariRockel2024.FrankDensity
 
 /-!
 # AnsariRockel2024: public results
