@@ -3,6 +3,7 @@ import Verification.Nelsen20Conditional
 import Verification.Nelsen20Tails
 import Verification.Nelsen20Limits
 import Verification.Nelsen20Order
+import Verification.Nelsen20Density
 
 /-! # Tables 1–3: Nelsen 20 constructor, independence member, CI and tails -/
 
@@ -48,5 +49,14 @@ theorem nelsen20_lowerOrthant_monotone {θ η : ℝ}
 theorem nelsen20_schur_monotone {θ η : ℝ} (hθ : 0 ≤ θ) (hη : 0 ≤ η) (hθη : θ ≤ η) :
     (Verification.nelsen20 θ hθ).SchurBothLE (Verification.nelsen20 η hη) :=
   Verification.nelsen20_schur_monotone hθ hη hθη
+
+theorem nelsen20_toMeasure_density {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.nelsen20 θ hθ.le).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Verification.n20Density θ x)) :=
+  Verification.n20_toMeasure_density hθ
+
+theorem nelsen20_density_tp2 (θ : ℝ) (hθ : 0 ≤ θ) : (Verification.nelsen20 θ hθ).HasMTP2Density :=
+  Verification.nelsen20_density_tp2 θ hθ
 
 end Papers.AnsariRockel2024
