@@ -641,3 +641,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.amh_one_mtp2_density
 #assert_standard_axioms Papers.AnsariRockel2024.amh_one_mtp2_density
+
+#print axioms Papers.AnsariRockel2024.amh_density_formula
+#assert_standard_axioms Papers.AnsariRockel2024.amh_density_formula
+
+#print axioms Papers.AnsariRockel2024.amh_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.amh_density_tp2_iff
