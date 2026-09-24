@@ -3,6 +3,7 @@ import Verification.Nelsen13Order
 import Verification.Nelsen13Continuity
 import Verification.Nelsen13Limits
 import Verification.Nelsen13Dependence
+import Verification.Nelsen13Density
 
 /-! # Tables 1–3: Nelsen 13 constructor, endpoints, orders, CI, and tails -/
 
