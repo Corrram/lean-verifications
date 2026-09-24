@@ -1013,3 +1013,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen20_density_tp2
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen20_density_tp2
+
+#print axioms Papers.AnsariRockel2024.nelsen17_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_cdf_full
+
+#print axioms Papers.AnsariRockel2024.nelsen17_neg_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_neg_one
