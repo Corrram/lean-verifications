@@ -1,6 +1,7 @@
 import Verification.Nelsen16
 import Verification.Nelsen16Order
 import Verification.Nelsen16Tails
+import Verification.Nelsen16Conditional
 
 /-! # Tables 1–2: Nelsen 16 constructor and zero endpoint -/
 
@@ -44,5 +45,12 @@ theorem nelsen16_tails (θ : ℝ) (hθ : 0 ≤ θ) :
     (Verification.nelsen16 θ hθ).HasLowerTailDependence (if θ = 0 then 0 else 1/2) ∧
       (Verification.nelsen16 θ hθ).HasUpperTailDependence 0 :=
   Verification.nelsen16_tails θ hθ
+
+theorem nelsen16_ci {θ : ℝ} (hθ : 3 ≤ θ) : (Verification.nelsen16 θ (by linarith)).IsCI :=
+  Verification.nelsen16_isCI hθ
+
+theorem nelsen16_schur_monotone {θ η : ℝ} (hθ : 3 ≤ θ) (hη : 3 ≤ η) (hθη : θ ≤ η) :
+    (Verification.nelsen16 θ (by linarith)).SchurBothLE (Verification.nelsen16 η (by linarith)) :=
+  Verification.nelsen16_schur_monotone hθ hη hθη
 
 end Papers.AnsariRockel2024

@@ -935,3 +935,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen16_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen16_tails
+
+#print axioms Papers.AnsariRockel2024.nelsen16_ci
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_ci
+
+#print axioms Papers.AnsariRockel2024.nelsen16_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_schur_monotone
