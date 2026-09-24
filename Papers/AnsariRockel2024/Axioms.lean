@@ -947,3 +947,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen16_density_tp2
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen16_density_tp2
+
+#print axioms Papers.AnsariRockel2024.nelsen16_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_ci_iff
