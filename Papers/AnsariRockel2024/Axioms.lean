@@ -869,3 +869,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen12_schur_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen12_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.gumbel_ci
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_ci
+
+#print axioms Papers.AnsariRockel2024.gumbel_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.joe_ci
+#assert_standard_axioms Papers.AnsariRockel2024.joe_ci
