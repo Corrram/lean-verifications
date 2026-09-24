@@ -1,3 +1,4 @@
+import Verification.PlackettRho
 import Verification.PlackettDensity
 import Verification.PlackettConditional
 import Verification.PlackettTails
@@ -90,5 +91,20 @@ theorem plackett_not_density_tp2_above_two {θ : ℝ} (hθ : 2 < θ) :
 theorem plackett_density_tp2_iff {θ : ℝ} (hθ : 0 < θ) :
     (Verification.plackett θ hθ).HasMTP2Density ↔ θ ∈ Set.Icc (1:ℝ) 2 :=
   Verification.plackett_density_tp2_iff hθ
+
+/-- Corrected Table 6 formula, derived from the actual copula measure. -/
+theorem plackett_spearmanRho {θ : ℝ} (hθ : 0 < θ) (hne : θ ≠ 1) :
+    (Verification.plackett θ hθ).spearmanRho =
+      (θ+1)/(θ-1)-2*θ*Real.log θ/(θ-1)^2 :=
+  Verification.plackett_spearmanRho hθ hne
+
+theorem plackett_spearmanRho_one :
+    (Verification.plackett 1 (by norm_num)).spearmanRho = 0 :=
+  Verification.plackett_spearmanRho_one
+
+theorem plackett_printed_rho_false :
+    (Verification.plackett 2 (by norm_num)).spearmanRho ≠
+      ((2:ℝ)+1)/(2-1)-2*(2*2/(2-1)^2)*Real.log 2 :=
+  Verification.plackett_printed_rho_false
 
 end Papers.AnsariRockel2024

@@ -58,3 +58,16 @@ compared.
 ## arXiv v3 Plackett decreasing Schur range
 
 [Table 5 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3) prints the decreasing Schur range as theta<=0, while Table 4 admits only theta>0. This leaves the decreasing range empty. The Lean theorem `plackett_schur_below_one` proves both directional Schur comparisons throughout 0<theta<=eta<=1, using the exact CD classification and the independently proved lower-orthant order. `plackett_schur_above_one` verifies the increasing range above independence. We record the useful decreasing range (0,1] as a correction, rather than treating the vacuous printed condition as coverage of that range. The corresponding journal cell has not been compared.
+
+## arXiv v3 Plackett Spearman rho
+
+[Table 6 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3) prints
+`(theta+1)/(theta-1) - 2*(2*theta/(theta-1)^2)*log(theta)`.
+The Lean theorem `plackett_spearmanRho` derives the corrected expression
+`(theta+1)/(theta-1) - 2*theta*log(theta)/(theta-1)^2` by integrating the
+actual copula CDF. The odds equation gives a section antiderivative;
+the fundamental theorem of calculus and Fubini give the full integral.
+`plackett_spearmanRho_one` supplies the independence value zero.
+`plackett_printed_rho_false` refutes the printed expression at theta=2.
+This comparison is pinned to arXiv v3; the corresponding journal cell
+has not been compared.

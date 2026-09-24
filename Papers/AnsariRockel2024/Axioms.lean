@@ -1290,3 +1290,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.plackett_density_tp2_iff
 #assert_standard_axioms Papers.AnsariRockel2024.plackett_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.plackett_spearmanRho
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_spearmanRho
+
+#print axioms Papers.AnsariRockel2024.plackett_spearmanRho_one
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_spearmanRho_one
+
+#print axioms Papers.AnsariRockel2024.plackett_printed_rho_false
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_printed_rho_false
