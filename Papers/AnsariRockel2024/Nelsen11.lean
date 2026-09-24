@@ -1,9 +1,11 @@
-import Verification.Nelsen11
+import Verification.Nelsen11Continuity
 
 /-! # Tables 1–3: Nelsen 11 as an actual copula measure -/
 
 open ProbabilityTheory
 open scoped unitInterval
+open Filter
+open scoped Topology
 
 namespace Papers.AnsariRockel2024
 
@@ -35,5 +37,13 @@ theorem nelsen11_tails (θ : ℝ) (hθ0 : 0 ≤ θ) (hθ1 : θ ≤ 1/2) :
     (Verification.nelsen11 θ hθ0 hθ1).HasLowerTailDependence 0 ∧
       (Verification.nelsen11 θ hθ0 hθ1).HasUpperTailDependence 0 :=
   Verification.nelsen11_tails θ hθ0 hθ1
+
+theorem nelsen11_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ0 : ∀ z, 0 ≤ θ z) (hθ1 : ∀ z, θ z ≤ 1/2)
+    (hlim : Tendsto θ l (𝓝 0)) (u v : I) :
+    Tendsto (fun z => (Verification.nelsen11 (θ z) (hθ0 z) (hθ1 z)).cdf ![u,v]) l
+      (𝓝 ((Copula.independence 2).cdf ![u,v])) := by
+  simpa [Copula.cdf_independence, Fin.prod_univ_two] using
+    Verification.nelsen11_tendsto_zero θ hθ0 hθ1 hlim u v
 
 end Papers.AnsariRockel2024
