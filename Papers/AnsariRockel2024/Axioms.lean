@@ -1047,3 +1047,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen17_density_tp2_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen17_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen17_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen17_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen17_schur_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_schur_antitone

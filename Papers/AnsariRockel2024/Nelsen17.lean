@@ -1,4 +1,5 @@
 import Verification.Nelsen17Density
+import Verification.Nelsen17Order
 import Verification.Nelsen17Tails
 
 /-! # Tables 1–2: Nelsen 17 on both nonzero parameter branches -/
@@ -54,5 +55,20 @@ theorem nelsen17_toMeasure_density (θ : ℝ) (hθ : θ ≠ 0) :
 theorem nelsen17_density_tp2_iff (θ : ℝ) (hθ : θ ≠ 0) :
     (Verification.nelsen17 θ hθ).HasMTP2Density ↔ -1 ≤ θ :=
   Verification.nelsen17_density_tp2_iff θ hθ
+
+theorem nelsen17_lowerOrthant_monotone {θ η : ℝ}
+    (hθ : θ ≠ 0) (hη : η ≠ 0) (hθη : θ ≤ η) :
+    (Verification.nelsen17 θ hθ).LowerOrthantLE (Verification.nelsen17 η hη) :=
+  Verification.nelsen17_lowerOrthant_monotone hθ hη hθη
+
+theorem nelsen17_schur_monotone {θ η : ℝ} (hθ : θ ≠ 0) (hη : η ≠ 0)
+    (hθ1 : -1 ≤ θ) (hθη : θ ≤ η) :
+    (Verification.nelsen17 θ hθ).SchurBothLE (Verification.nelsen17 η hη) :=
+  Verification.nelsen17_schur_monotone hθ hη hθ1 hθη
+
+theorem nelsen17_schur_antitone {θ η : ℝ} (hθ : θ ≠ 0) (hη : η ≠ 0)
+    (hη1 : η ≤ -1) (hθη : θ ≤ η) :
+    (Verification.nelsen17 η hη).SchurBothLE (Verification.nelsen17 θ hθ) :=
+  Verification.nelsen17_schur_antitone hθ hη hη1 hθη
 
 end Papers.AnsariRockel2024
