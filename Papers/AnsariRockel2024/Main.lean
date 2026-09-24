@@ -40,6 +40,7 @@ import Papers.AnsariRockel2024.FrankDependence
 import Papers.AnsariRockel2024.FrankDensity
 import Papers.AnsariRockel2024.FrankLimits
 import Papers.AnsariRockel2024.FrankContinuity
+import Papers.AnsariRockel2024.Nelsen10
 
 /-!
 # AnsariRockel2024: public results

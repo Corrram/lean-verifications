@@ -749,3 +749,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_tendsto_zero
 #assert_standard_axioms Papers.AnsariRockel2024.frank_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen10_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_cdf
+
+#print axioms Papers.AnsariRockel2024.nelsen10_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen10_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_one
+
+#print axioms Papers.AnsariRockel2024.nelsen10_nqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_nqd
+
+#print axioms Papers.AnsariRockel2024.nelsen10_pqd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_pqd_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen10_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_ci_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen10_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen10_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_tails
