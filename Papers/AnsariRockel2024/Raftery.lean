@@ -4,6 +4,7 @@ import Verification.RafteryTails
 import Verification.RafteryLimits
 import Verification.RafteryRho
 import Verification.RafteryTP2
+import Verification.RafteryOrder
 
 open ProbabilityTheory MeasureTheory Copula
 open scoped unitInterval
@@ -93,5 +94,13 @@ theorem raftery_cd_iff (δ : I) : (Verification.raftery δ).IsCD ↔ δ=0 := Ver
 theorem raftery_printed_tp2_exclusion_false :
     ¬∀ δ : I, Verification.raftery δ≠independence 2 → ¬(Verification.raftery δ).HasMTP2Density :=
   Verification.raftery_printed_tp2_exclusion_false
+
+theorem raftery_lowerOrthant_monotone {δ η : I} (hδη : δ≤η) :
+    (Verification.raftery δ).LowerOrthantLE (Verification.raftery η) :=
+  Verification.raftery_lowerOrthant_monotone hδη
+
+theorem raftery_schur_monotone {δ η : I} (hδη : δ≤η) :
+    (Verification.raftery δ).SchurBothLE (Verification.raftery η) :=
+  Verification.raftery_schur_monotone hδη
 
 end Papers.AnsariRockel2024

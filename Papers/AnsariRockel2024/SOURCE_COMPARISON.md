@@ -105,5 +105,6 @@ interior-rectangle integration identifies the density. Its factorization
 into coordinate weights and an antitone function of max(u,v) proves TP2.
 `raftery_printed_tp2_exclusion_false` gives a non-independent delta=1/2
 counterexample to Table 5. CI/PQD hold throughout [0,1]; CD/NQD hold only
-at independence. Parameter orders, Kendall tau and the corresponding
-journal cells remain to be checked.
+at independence. Increasing lower-orthant and both-direction Schur
+parameter orders are also verified on the entire closed interval. Kendall
+tau and the corresponding journal cells remain to be checked.
