@@ -1,4 +1,5 @@
 import Verification.Nelsen16
+import Verification.Nelsen16Order
 
 /-! # Tables 1–2: Nelsen 16 constructor and zero endpoint -/
 
@@ -27,5 +28,15 @@ theorem nelsen16_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
     Filter.Tendsto (fun a => (Verification.nelsen16 (θ a) (hθ a)).cdf ![u,v]) l
       (nhds (Copula.countermonotonic.cdf ![u,v])) :=
   Verification.nelsen16_tendsto_zero θ hθ ht u v
+
+theorem nelsen16_lowerOrthant_monotone {θ η : ℝ} (hθ : 0 ≤ θ) (hη : 0 ≤ η) (hθη : θ ≤ η) :
+    (Verification.nelsen16 θ hθ).LowerOrthantLE (Verification.nelsen16 η hη) :=
+  Verification.nelsen16_lowerOrthant_monotone hθ hη hθη
+
+theorem nelsen16_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ z, 0 ≤ θ z) (hlim : Filter.Tendsto θ l Filter.atTop) (u v : I) :
+    Filter.Tendsto (fun z => (Verification.nelsen16 (θ z) (hθ z)).cdf ![u,v]) l
+      (nhds ((Copula.clayton 2 1 (by norm_num)).cdf ![u,v])) :=
+  Verification.nelsen16_tendsto_atTop θ hθ hlim u v
 
 end Papers.AnsariRockel2024
