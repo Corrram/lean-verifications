@@ -1026,3 +1026,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen17_isCD
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isCD
+
+#print axioms Papers.AnsariRockel2024.nelsen17_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_tails
