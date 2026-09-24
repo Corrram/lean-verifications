@@ -4,6 +4,7 @@ import Verification.Nelsen19Tails
 import Verification.Nelsen19Limits
 import Verification.Nelsen19Order
 import Verification.Nelsen19UpperLimit
+import Verification.Nelsen19Density
 
 /-! # Tables 1–3: Nelsen 19 constructor, zero limit, CI and tails -/
 
@@ -49,5 +50,14 @@ theorem nelsen19_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
     Filter.Tendsto (fun a => (Verification.nelsen19 (θ a) (hθ a)).cdf ![u,v]) l
       (nhds ((Copula.comonotonic 2).cdf ![u,v])) :=
   Verification.nelsen19_tendsto_atTop θ hθ ht u v
+
+theorem nelsen19_toMeasure_density {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.nelsen19 θ hθ.le).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Verification.n19Density θ x)) :=
+  Verification.n19_toMeasure_density hθ
+
+theorem nelsen19_density_tp2 (θ : ℝ) (hθ : 0 ≤ θ) : (Verification.nelsen19 θ hθ).HasMTP2Density :=
+  Verification.nelsen19_density_tp2 θ hθ
 
 end Papers.AnsariRockel2024

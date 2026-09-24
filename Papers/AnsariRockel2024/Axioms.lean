@@ -977,3 +977,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen19_tendsto_atTop
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen19_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.nelsen19_toMeasure_density
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_toMeasure_density
+
+#print axioms Papers.AnsariRockel2024.nelsen19_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_density_tp2
