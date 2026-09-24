@@ -1218,3 +1218,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.cuadrasAuge_pickands
 #assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_pickands
+
+#print axioms Papers.AnsariRockel2024.tawn_ci
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_ci
+
+#print axioms Papers.AnsariRockel2024.tawn_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.maxProduct_independence_ci
+#assert_standard_axioms Papers.AnsariRockel2024.maxProduct_independence_ci
