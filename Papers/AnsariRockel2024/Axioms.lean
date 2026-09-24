@@ -683,3 +683,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gumbelBarnett_xi_zero
 #assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_xi_zero
+
+#print axioms Papers.AnsariRockel2024.frank_positive_tails
+#assert_standard_axioms Papers.AnsariRockel2024.frank_positive_tails
+
+#print axioms Papers.AnsariRockel2024.frank_negative_tails
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_tails
+
+#print axioms Papers.AnsariRockel2024.frank_zero_tails
+#assert_standard_axioms Papers.AnsariRockel2024.frank_zero_tails

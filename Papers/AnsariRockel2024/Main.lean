@@ -35,6 +35,7 @@ import Papers.AnsariRockel2024.TailsAndOrders
 import Papers.AnsariRockel2024.FamilyExtensions
 import Papers.AnsariRockel2024.Association
 import Papers.AnsariRockel2024.Dependence
+import Papers.AnsariRockel2024.FrankTails
 
 /-!
 # AnsariRockel2024: public results
