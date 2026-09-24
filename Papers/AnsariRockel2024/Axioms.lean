@@ -779,3 +779,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen10_continuousAt_zero
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen10_continuousAt_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen10_cdf_crossing
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_cdf_crossing
+
+#print axioms Papers.AnsariRockel2024.nelsen10_orthant_incomparable
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_orthant_incomparable
+
+#print axioms Papers.AnsariRockel2024.nelsen10_schur_incomparable
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_schur_incomparable
+
+#print axioms Papers.AnsariRockel2024.nelsen10_schurBoth_incomparable
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_schurBoth_incomparable
