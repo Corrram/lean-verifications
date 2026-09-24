@@ -1,9 +1,10 @@
 import Verification.Nelsen22Tails
+import Verification.Nelsen22Limits
 
 /-! # Nelsen 22: trigonometric copula, exact CI/TP2 classification and tails -/
 
-open ProbabilityTheory Set
-open scoped unitInterval
+open ProbabilityTheory Set Filter
+open scoped unitInterval Topology
 
 namespace Papers.AnsariRockel2024
 
@@ -40,5 +41,18 @@ theorem nelsen22_lowerTail (θ : ℝ) (hθ : θ ∈ Icc 0 1) :
 theorem nelsen22_upperTail (θ : ℝ) (hθ : θ ∈ Icc 0 1) :
     (Verification.nelsen22 θ hθ).HasUpperTailDependence 0 :=
   Verification.nelsen22_upperTail θ hθ
+
+theorem nelsen22_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, θ a ∈ Icc 0 1) (ht : Tendsto θ l (𝓝 0)) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen22 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Copula.independence 2).cdf ![u,v])) :=
+  Verification.nelsen22_tendsto_zero θ hθ ht u v
+
+theorem nelsen22_tendsto_parameter {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, θ a ∈ Icc 0 1) {η : ℝ} (hη : η ∈ Icc 0 1)
+    (ht : Tendsto θ l (𝓝 η)) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen22 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Verification.nelsen22 η hη).cdf ![u,v])) :=
+  Verification.nelsen22_tendsto_parameter θ hθ hη ht u v
 
 end Papers.AnsariRockel2024

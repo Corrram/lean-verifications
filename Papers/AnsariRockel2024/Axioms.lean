@@ -1170,3 +1170,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen22_upperTail
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen22_upperTail
+
+#print axioms Papers.AnsariRockel2024.nelsen22_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen22_tendsto_parameter
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_tendsto_parameter
