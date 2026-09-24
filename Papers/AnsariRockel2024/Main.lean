@@ -46,6 +46,7 @@ import Papers.AnsariRockel2024.Nelsen13
 import Papers.AnsariRockel2024.NelsenPowerConditional
 import Papers.AnsariRockel2024.GumbelJoeConditional
 import Papers.AnsariRockel2024.Nelsen16
+import Papers.AnsariRockel2024.Nelsen19
 
 /-!
 # AnsariRockel2024: public results

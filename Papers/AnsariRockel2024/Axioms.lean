@@ -953,3 +953,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen16_density_tp2_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen16_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen19_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_cdf
+
+#print axioms Papers.AnsariRockel2024.nelsen19_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen19_ci
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_ci
+
+#print axioms Papers.AnsariRockel2024.nelsen19_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_tails
+
+#print axioms Papers.AnsariRockel2024.nelsen19_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_tendsto_zero
