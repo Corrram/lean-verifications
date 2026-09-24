@@ -4,6 +4,7 @@ import Verification.PlackettTails
 import Verification.PlackettContinuity
 import Verification.PlackettOrder
 import Verification.PlackettDensityNecessity
+import Verification.PlackettTP2
 
 /-! # Table 4: the Plackett copula and its actual Lebesgue density -/
 
@@ -85,5 +86,9 @@ theorem plackett_not_density_tp2_above_two {θ : ℝ} (hθ : 2 < θ) :
     ¬(Verification.plackett θ (by linarith)).HasMTP2Density := by
   intro hC
   exact (not_le.mpr hθ) (Verification.plackett_density_tp2_requires_le_two (by linarith) hC)
+
+theorem plackett_density_tp2_iff {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.plackett θ hθ).HasMTP2Density ↔ θ ∈ Set.Icc (1:ℝ) 2 :=
+  Verification.plackett_density_tp2_iff hθ
 
 end Papers.AnsariRockel2024
