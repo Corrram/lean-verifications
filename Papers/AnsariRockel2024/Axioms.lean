@@ -1137,3 +1137,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen18_not_cd
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_cd
+
+#print axioms Papers.AnsariRockel2024.nelsen18_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen18_tendsto_parameter
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_tendsto_parameter
+
+#print axioms Papers.AnsariRockel2024.nelsen18_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_tendsto_atTop

@@ -1,9 +1,11 @@
 import Verification.Nelsen18Tails
+import Verification.Nelsen18Order
+import Verification.Nelsen18Limits
 
 /-! # Nelsen 18: constructor, CDF, tails and conditional classifications -/
 
-open ProbabilityTheory
-open scoped unitInterval
+open ProbabilityTheory Filter
+open scoped unitInterval Topology
 
 namespace Papers.AnsariRockel2024
 
@@ -40,5 +42,21 @@ theorem nelsen18_not_nqd (θ : ℝ) (hθ : 2 ≤ θ) : ¬ (Verification.nelsen18
 
 theorem nelsen18_not_cd (θ : ℝ) (hθ : 2 ≤ θ) : ¬ (Verification.nelsen18 θ hθ).IsCD :=
   Verification.nelsen18_not_cd θ hθ
+
+theorem nelsen18_lowerOrthant_monotone {θ η : ℝ} (hθ : 2 ≤ θ) (hθη : θ ≤ η) :
+    (Verification.nelsen18 θ hθ).LowerOrthantLE (Verification.nelsen18 η (hθ.trans hθη)) :=
+  Verification.nelsen18_lowerOrthant_monotone hθ hθη
+
+theorem nelsen18_tendsto_parameter {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 2 ≤ θ a) {η : ℝ} (hη : 2 ≤ η) (ht : Tendsto θ l (𝓝 η)) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen18 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Verification.nelsen18 η hη).cdf ![u,v])) :=
+  Verification.nelsen18_tendsto_parameter θ hθ hη ht u v
+
+theorem nelsen18_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 2 ≤ θ a) (ht : Tendsto θ l atTop) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen18 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Copula.comonotonic 2).cdf ![u,v])) :=
+  Verification.nelsen18_tendsto_atTop θ hθ ht u v
 
 end Papers.AnsariRockel2024
