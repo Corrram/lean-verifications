@@ -93,5 +93,9 @@ now constructs an actual copula measure and verifies the full-square
 formula with coefficient `(1-delta)/(1+delta)` for delta<1. Its mixture
 representation proves uniform margins and nonnegative rectangle
 increments; `raftery_zero` and `raftery_one` verify both endpoint identities.
-Interior dependence properties and the corresponding journal cells remain
-to be checked.
+The actual tail limits are now checked by `raftery_tails_lt_one` and
+`raftery_tails_one`: lower=2*delta/(1+delta), upper=0 for delta<1, and
+both coefficients equal one at delta=1. Full-square parameter continuity
+and both endpoint limits are also checked. Remaining conditional and
+density classifications, orders, association formulas and the corresponding
+journal cells remain to be checked.

@@ -1317,3 +1317,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.raftery_one
 #assert_standard_axioms Papers.AnsariRockel2024.raftery_one
+
+#print axioms Papers.AnsariRockel2024.raftery_tails_lt_one
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_tails_lt_one
+
+#print axioms Papers.AnsariRockel2024.raftery_tails_one
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_tails_one
+
+#print axioms Papers.AnsariRockel2024.raftery_comonotonic_bounds
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_comonotonic_bounds
+
+#print axioms Papers.AnsariRockel2024.raftery_tendsto_parameter
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_tendsto_parameter
+
+#print axioms Papers.AnsariRockel2024.raftery_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.raftery_tendsto_one
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_tendsto_one
