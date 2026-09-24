@@ -692,3 +692,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_zero_tails
 #assert_standard_axioms Papers.AnsariRockel2024.frank_zero_tails
+
+#print axioms Papers.AnsariRockel2024.frank_positive_ci
+#assert_standard_axioms Papers.AnsariRockel2024.frank_positive_ci
+
+#print axioms Papers.AnsariRockel2024.frank_positive_not_cd
+#assert_standard_axioms Papers.AnsariRockel2024.frank_positive_not_cd
+
+#print axioms Papers.AnsariRockel2024.frank_negative_cd
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_cd
+
+#print axioms Papers.AnsariRockel2024.frank_negative_not_ci
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_not_ci
+
+#print axioms Papers.AnsariRockel2024.frank_positive_quadrant
+#assert_standard_axioms Papers.AnsariRockel2024.frank_positive_quadrant
+
+#print axioms Papers.AnsariRockel2024.frank_negative_quadrant
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_quadrant
+
+#print axioms Papers.AnsariRockel2024.frank_negative_not_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.frank_negative_not_density_tp2
+
+#print axioms Papers.AnsariRockel2024.frank_zero_ci_cd
+#assert_standard_axioms Papers.AnsariRockel2024.frank_zero_ci_cd
