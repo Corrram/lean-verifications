@@ -4,10 +4,12 @@ import Verification.Nelsen13Continuity
 import Verification.Nelsen13Limits
 import Verification.Nelsen13Dependence
 import Verification.Nelsen13Density
+import Verification.Nelsen13DensityMeasure
 
 /-! # Tables 1–3: Nelsen 13 constructor, endpoints, orders, CI, and tails -/
 
 open ProbabilityTheory
+open MeasureTheory
 open scoped unitInterval
 open Filter
 open scoped Topology
@@ -59,5 +61,15 @@ theorem nelsen13_schur_monotone {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η) 
 theorem nelsen13_density_tp2_requires_one (θ : ℝ) (hθ : 0 ≤ θ)
     (hd : (Verification.nelsen13 θ hθ).HasMTP2Density) : 1 ≤ θ :=
   Verification.nelsen13_density_tp2_requires_one θ hθ hd
+
+theorem nelsen13_density_measure {θ : ℝ} (hθ : 1 ≤ θ) :
+    (Verification.nelsen13 θ (by linarith)).toMeasure =
+      (volume : Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Verification.n13Density θ x)) :=
+  Verification.nelsen13_toMeasure_density hθ
+
+theorem nelsen13_density_tp2_iff (θ : ℝ) (hθ : 0 ≤ θ) :
+    (Verification.nelsen13 θ hθ).HasMTP2Density ↔ 1 ≤ θ :=
+  Verification.nelsen13_density_tp2_iff θ hθ
 
 end Papers.AnsariRockel2024

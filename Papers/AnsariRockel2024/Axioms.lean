@@ -854,3 +854,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen13_density_tp2_requires_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen13_density_tp2_requires_one
+
+#print axioms Papers.AnsariRockel2024.nelsen13_density_measure
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_density_measure
+
+#print axioms Papers.AnsariRockel2024.nelsen13_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_density_tp2_iff
