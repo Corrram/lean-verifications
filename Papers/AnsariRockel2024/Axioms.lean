@@ -1071,3 +1071,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen21_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen21_one
+
+#print axioms Papers.AnsariRockel2024.nelsen21_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_lowerTail
+
+#print axioms Papers.AnsariRockel2024.nelsen21_upperTail
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_upperTail
+
+#print axioms Papers.AnsariRockel2024.nelsen21_not_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_not_pqd
+
+#print axioms Papers.AnsariRockel2024.nelsen21_not_ci
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_not_ci
+
+#print axioms Papers.AnsariRockel2024.nelsen21_not_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_not_density_tp2
+
+#print axioms Papers.AnsariRockel2024.nelsen21_isCD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_isCD_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen21_isNQD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_isNQD_iff
