@@ -1,5 +1,6 @@
 import Verification.BB1Conditional
 import Verification.BB1Density
+import Verification.Nelsen14Order
 import Verification.SchurOrthantEquivalence
 import Copula.Dependence.Nelsen12
 import Copula.Order.SymmetricSchur
@@ -47,5 +48,13 @@ theorem nelsen14_toMeasure_density (θ : ℝ) (hθ : 1 ≤ θ) :
       (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)).withDensity
         (fun x => ENNReal.ofReal (Verification.bbDensity θ⁻¹ θ x)) :=
   Verification.bb_toMeasure_density (inv_pos.mpr (by linarith : 0 < θ)) hθ
+
+theorem nelsen14_lowerOrthant_monotone {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η) (hθη : θ ≤ η) :
+    (Copula.nelsen14 θ hθ).LowerOrthantLE (Copula.nelsen14 η hη) :=
+  Verification.nelsen14_lowerOrthant_monotone hθ hη hθη
+
+theorem nelsen14_schur_monotone {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η) (hθη : θ ≤ η) :
+    (Copula.nelsen14 θ hθ).SchurBothLE (Copula.nelsen14 η hη) :=
+  Verification.nelsen14_schur_monotone hθ hη hθη
 
 end Papers.AnsariRockel2024

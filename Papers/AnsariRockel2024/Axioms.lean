@@ -908,3 +908,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen14_toMeasure_density
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_toMeasure_density
+
+#print axioms Papers.AnsariRockel2024.nelsen14_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen14_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_schur_monotone
