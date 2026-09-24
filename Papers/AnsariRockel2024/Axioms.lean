@@ -1182,3 +1182,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen22_isNQD
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen22_isNQD
+
+#print axioms Papers.AnsariRockel2024.nelsen22_lowerOrthant_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_lowerOrthant_antitone
+
+#print axioms Papers.AnsariRockel2024.nelsen22_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_schur_monotone

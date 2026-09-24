@@ -1,6 +1,7 @@
 import Verification.Nelsen22Tails
 import Verification.Nelsen22Limits
 import Verification.Nelsen22Conditional
+import Verification.Nelsen22Order
 
 /-! # Nelsen 22: trigonometric copula, exact CI/TP2 classification and tails -/
 
@@ -61,5 +62,15 @@ theorem nelsen22_isCD (θ : ℝ) (hθ : θ ∈ Icc 0 1) : (Verification.nelsen22
 
 theorem nelsen22_isNQD (θ : ℝ) (hθ : θ ∈ Icc 0 1) : (Verification.nelsen22 θ hθ).IsNQD :=
   (Verification.nelsen22_isCD θ hθ).isNQD
+
+theorem nelsen22_lowerOrthant_antitone {θ η : ℝ} (hθ : θ ∈ Icc 0 1) (hη : η ∈ Icc 0 1)
+    (hθη : θ ≤ η) :
+    (Verification.nelsen22 η hη).LowerOrthantLE (Verification.nelsen22 θ hθ) :=
+  Verification.nelsen22_lowerOrthant_antitone hθ hη hθη
+
+theorem nelsen22_schur_monotone {θ η : ℝ} (hθ : θ ∈ Icc 0 1) (hη : η ∈ Icc 0 1)
+    (hθη : θ ≤ η) :
+    (Verification.nelsen22 θ hθ).SchurBothLE (Verification.nelsen22 η hη) :=
+  Verification.nelsen22_schur_monotone hθ hη hθη
 
 end Papers.AnsariRockel2024
