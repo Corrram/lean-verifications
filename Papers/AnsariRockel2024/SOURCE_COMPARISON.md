@@ -71,3 +71,23 @@ the fundamental theorem of calculus and Fubini give the full integral.
 `plackett_printed_rho_false` refutes the printed expression at theta=2.
 This comparison is pinned to arXiv v3; the corresponding journal cell
 has not been compared.
+
+## arXiv v3 Raftery formula and endpoints
+
+[Table 1 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3)
+prints the Raftery CDF with coefficient `1-delta`. The exact Lean
+counterexample `raftery_printed_cdf_not_copula` shows that this expression
+cannot be a copula CDF: at delta=1/2 and u=v=7/8 its value is
+5985/8192, strictly below the necessary lower bound u+v-1=3/4.
+The literal formula therefore cannot be used as the family constructor.
+
+Appendix A.4.1 says that no Raftery parameter has a density, although
+Table 4 identifies delta=0 with independence. `raftery_zero_density`
+checks that this endpoint identity implies a TP2 Lebesgue density.
+Table 5 prints upper-tail coefficient zero without excluding delta=1,
+which Table 4 identifies with comonotonicity. `raftery_one_upperTail`
+checks that this endpoint has coefficient one and cannot have coefficient
+zero. Both endpoint results state the endpoint identity as a hypothesis;
+they do not claim to construct the interior family. The interior
+constructor, its properties, and the corresponding journal cells remain
+to be checked.

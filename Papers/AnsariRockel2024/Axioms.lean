@@ -1299,3 +1299,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.plackett_printed_rho_false
 #assert_standard_axioms Papers.AnsariRockel2024.plackett_printed_rho_false
+
+#print axioms Papers.AnsariRockel2024.raftery_printed_cdf_not_copula
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_printed_cdf_not_copula
+
+#print axioms Papers.AnsariRockel2024.raftery_zero_density
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_zero_density
+
+#print axioms Papers.AnsariRockel2024.raftery_one_upperTail
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_one_upperTail
