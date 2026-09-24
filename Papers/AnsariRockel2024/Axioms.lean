@@ -1029,3 +1029,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen17_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen17_tails
+
+#print axioms Papers.AnsariRockel2024.nelsen17_isCI_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isCI_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen17_isCD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isCD_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen17_isPQD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isPQD_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen17_isNQD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isNQD_iff

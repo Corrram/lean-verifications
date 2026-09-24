@@ -1,4 +1,4 @@
-import Verification.Nelsen17Conditional
+import Verification.Nelsen17Necessity
 import Verification.Nelsen17Tails
 
 /-! # Tables 1–2: Nelsen 17 on both nonzero parameter branches -/
@@ -28,5 +28,21 @@ theorem nelsen17_tails (θ : ℝ) (hθ : θ ≠ 0) :
     (Verification.nelsen17 θ hθ).HasLowerTailDependence 0 ∧
       (Verification.nelsen17 θ hθ).HasUpperTailDependence 0 :=
   Verification.nelsen17_tails θ hθ
+
+theorem nelsen17_isCI_iff (θ : ℝ) (hθ : θ ≠ 0) :
+    (Verification.nelsen17 θ hθ).IsCI ↔ -1 ≤ θ :=
+  Verification.nelsen17_isCI_iff θ hθ
+
+theorem nelsen17_isCD_iff (θ : ℝ) (hθ : θ ≠ 0) :
+    (Verification.nelsen17 θ hθ).IsCD ↔ θ ≤ -1 :=
+  Verification.nelsen17_isCD_iff θ hθ
+
+theorem nelsen17_isPQD_iff (θ : ℝ) (hθ : θ ≠ 0) :
+    (Verification.nelsen17 θ hθ).IsPQD ↔ -1 ≤ θ :=
+  Verification.nelsen17_isPQD_iff θ hθ
+
+theorem nelsen17_isNQD_iff (θ : ℝ) (hθ : θ ≠ 0) :
+    (Verification.nelsen17 θ hθ).IsNQD ↔ θ ≤ -1 :=
+  Verification.nelsen17_isNQD_iff θ hθ
 
 end Papers.AnsariRockel2024
