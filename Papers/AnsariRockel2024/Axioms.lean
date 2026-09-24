@@ -932,3 +932,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen16_tendsto_atTop
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen16_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.nelsen16_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_tails

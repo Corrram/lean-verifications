@@ -1,5 +1,6 @@
 import Verification.Nelsen16
 import Verification.Nelsen16Order
+import Verification.Nelsen16Tails
 
 /-! # Tables 1–2: Nelsen 16 constructor and zero endpoint -/
 
@@ -38,5 +39,10 @@ theorem nelsen16_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
     Filter.Tendsto (fun z => (Verification.nelsen16 (θ z) (hθ z)).cdf ![u,v]) l
       (nhds ((Copula.clayton 2 1 (by norm_num)).cdf ![u,v])) :=
   Verification.nelsen16_tendsto_atTop θ hθ hlim u v
+
+theorem nelsen16_tails (θ : ℝ) (hθ : 0 ≤ θ) :
+    (Verification.nelsen16 θ hθ).HasLowerTailDependence (if θ = 0 then 0 else 1/2) ∧
+      (Verification.nelsen16 θ hθ).HasUpperTailDependence 0 :=
+  Verification.nelsen16_tails θ hθ
 
 end Papers.AnsariRockel2024
