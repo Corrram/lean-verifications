@@ -2,6 +2,7 @@ import Verification.Nelsen16
 import Verification.Nelsen16Order
 import Verification.Nelsen16Tails
 import Verification.Nelsen16Conditional
+import Verification.Nelsen16Density
 
 /-! # Tables 1–2: Nelsen 16 constructor and zero endpoint -/
 
@@ -52,5 +53,15 @@ theorem nelsen16_ci {θ : ℝ} (hθ : 3 ≤ θ) : (Verification.nelsen16 θ (by 
 theorem nelsen16_schur_monotone {θ η : ℝ} (hθ : 3 ≤ θ) (hη : 3 ≤ η) (hθη : θ ≤ η) :
     (Verification.nelsen16 θ (by linarith)).SchurBothLE (Verification.nelsen16 η (by linarith)) :=
   Verification.nelsen16_schur_monotone hθ hη hθη
+
+theorem nelsen16_toMeasure_density {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.nelsen16 θ hθ.le).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Verification.n16Density θ x)) :=
+  Verification.n16_toMeasure_density hθ
+
+theorem nelsen16_density_tp2 {θ : ℝ} (hθ : 3+2*Real.sqrt 2 ≤ θ) :
+    (Verification.nelsen16 θ (le_trans zero_le_one (Verification.n16_density_threshold hθ).1)).HasMTP2Density :=
+  Verification.n16_hasMTP2Density hθ
 
 end Papers.AnsariRockel2024

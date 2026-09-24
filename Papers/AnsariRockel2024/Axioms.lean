@@ -941,3 +941,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen16_schur_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen16_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen16_toMeasure_density
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_toMeasure_density
+
+#print axioms Papers.AnsariRockel2024.nelsen16_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_density_tp2
