@@ -1146,3 +1146,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen18_tendsto_atTop
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen18_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.nelsen22_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen22_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_cdf_full
+
+#print axioms Papers.AnsariRockel2024.nelsen22_cdf_printed
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_cdf_printed
+
+#print axioms Papers.AnsariRockel2024.nelsen22_not_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_not_pqd
+
+#print axioms Papers.AnsariRockel2024.nelsen22_isCI_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_isCI_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen22_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen22_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_lowerTail
+
+#print axioms Papers.AnsariRockel2024.nelsen22_upperTail
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_upperTail
