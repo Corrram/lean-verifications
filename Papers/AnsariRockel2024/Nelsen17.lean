@@ -2,6 +2,7 @@ import Verification.Nelsen17Density
 import Verification.Nelsen17Order
 import Verification.Nelsen17UpperLimit
 import Verification.Nelsen17ZeroLimit
+import Verification.Nelsen17LowerLimit
 import Verification.Nelsen17Tails
 
 /-! # Tables 1–2: Nelsen 17 on both nonzero parameter branches -/
@@ -84,5 +85,11 @@ theorem nelsen17_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
     Tendsto (fun a => (Verification.nelsen17 (θ a) (hθ a)).cdf ![u,v]) l
       (𝓝 (Real.exp (Real.log (1+(u:ℝ))*Real.log (1+(v:ℝ))/Real.log 2)-1)) :=
   Verification.nelsen17_tendsto_zero θ hθ ht u v
+
+theorem nelsen17_tendsto_atBot {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, θ a ≠ 0) (ht : Tendsto θ l atBot) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen17 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 (max 1 ((1+(u:ℝ))*(1+(v:ℝ))/2)-1)) :=
+  Verification.nelsen17_tendsto_atBot θ hθ ht u v
 
 end Papers.AnsariRockel2024
