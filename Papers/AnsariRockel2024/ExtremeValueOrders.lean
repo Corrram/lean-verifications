@@ -1,6 +1,7 @@
 import Papers.AnsariRockel2024.GeneralOrders
 import Verification.ExtremeValuePickands
 import Verification.ExtremeValueLog
+import Verification.ExtremeValueConvexity
 import Copula.ExtremeValue.Diagonal
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
@@ -206,5 +207,9 @@ theorem extremeValue_log_increment_second (C : Copula 2) (hC : C.IsExtremeValue)
     0≤extremeValueLog C x y₂ hx (hy.trans hyy)-extremeValueLog C x y₁ hx hy ∧
     extremeValueLog C x y₂ hx (hy.trans hyy)-extremeValueLog C x y₁ hx hy≤y₂-y₁ :=
   Verification.extremeValueLog_increment_second C hC hx hy hyy
+
+theorem extremeValue_log_section_convex (C : Copula 2) (hC : C.IsExtremeValue)
+    (y : ℝ) (hy : 0≤y) : ConvexOn ℝ (Set.Ioi 0) (extremeValueLogSection C y hy) :=
+  Verification.extremeValueLogSection_convex C hC y hy
 
 end Papers.AnsariRockel2024

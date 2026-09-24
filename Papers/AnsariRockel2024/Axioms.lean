@@ -1386,3 +1386,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.extremeValue_log_increment_second
 #assert_standard_axioms Papers.AnsariRockel2024.extremeValue_log_increment_second
+
+#print axioms Papers.AnsariRockel2024.extremeValue_log_section_convex
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_log_section_convex
