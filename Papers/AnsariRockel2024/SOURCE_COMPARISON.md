@@ -49,3 +49,7 @@ prove the pair (0,0) for −1≤θ<1 and (1/2,0) at θ=1. The endpoint copula
 is Clayton(1), so the printed zero at that endpoint is false. This finding
 is pinned to arXiv v3; the corresponding journal table cell has not been
 compared.
+
+## arXiv v3 Tawn TP2 exclusion
+
+[Table 5 of arXiv:2310.17307v3](https://arxiv.org/html/2310.17307v3) labels non-independent Tawn copulas as non-TP2. The admitted parameter range includes both weights equal to one, which Table 4 identifies with Gumbel. `tawn_one_one_density_tp2` verifies an actual TP2 density throughout this subfamily. `tawn_one_one_not_independence` proves non-independence for shape greater than one using the positive upper tail. `tawn_printed_tp2_exclusion_false` refutes the universal exclusion with shape two and unit weights. This does not classify the other Tawn weights. The corresponding journal table cell has not yet been compared.

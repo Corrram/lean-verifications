@@ -1188,3 +1188,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen22_schur_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen22_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.tawn_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.tawn_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.tawn_tendsto_parameter
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_tendsto_parameter
+
+#print axioms Papers.AnsariRockel2024.tawn_one_one_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_one_one_density_tp2
+
+#print axioms Papers.AnsariRockel2024.tawn_one_one_not_independence
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_one_one_not_independence
+
+#print axioms Papers.AnsariRockel2024.tawn_printed_tp2_exclusion_false
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_printed_tp2_exclusion_false
