@@ -1236,3 +1236,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_schur_nonpositive
 #assert_standard_axioms Papers.AnsariRockel2024.frank_schur_nonpositive
+
+#print axioms Papers.AnsariRockel2024.plackett_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_cdf
+
+#print axioms Papers.AnsariRockel2024.plackett_one
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_one
+
+#print axioms Papers.AnsariRockel2024.plackett_density
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_density
