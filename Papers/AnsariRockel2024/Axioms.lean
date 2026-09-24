@@ -791,3 +791,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen10_schurBoth_incomparable
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen10_schurBoth_incomparable
+
+#print axioms Papers.AnsariRockel2024.nelsen11_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_cdf
+
+#print axioms Papers.AnsariRockel2024.nelsen11_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen11_nqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_nqd
+
+#print axioms Papers.AnsariRockel2024.nelsen11_pqd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_pqd_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen11_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_ci_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen11_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen11_tails
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_tails
