@@ -1,0 +1,15 @@
+schema_version = 1
+id = "Rockel2026ExactBlest"
+title = "Rank weighting and asymmetry in Blest’s rank correlation: two exact regions"
+authors = ["Marcus Rockel"]
+publication_status = "preprint"
+year = "2026"
+journal = ""
+doi = ""
+arxiv = "2609.27634"
+arxiv_version = "v1"
+source_for_numbering = "arXiv:2609.27634v1"
+verification_status = "complete-for-scope"
+scope = "All labeled mathematical results of arXiv:2609.27634v1: both exact regions, unique boundary copulas, sharp discrepancies, the transpose region, rearrangement and dual-certificate lemmas, explicit extremal families and conditional laws. Quantitative claims and figure values are included; historical discussion and literal proof prose are excluded."
+entrypoint = "Papers.Rockel2026ExactBlest.Main"
+coverage = "COVERAGE.md"

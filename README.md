@@ -5,8 +5,8 @@ collaborators. Each article has a permanent folder under [`Papers/`](Papers/READ
 with its bibliography, proof sources, and an explicit record of which results
 have been formalized.
 
-**Current status:** six supplements are **complete for their stated scopes**:
-xi-beta, tau-footrule-beta, rho-gamma, corrected xi-rho, copula approximation, and rho-footrule.
+**Current status:** seven supplements are **complete for their stated scopes**:
+xi-beta, tau-footrule-beta, rho-gamma, corrected xi-rho, copula approximation, rho-footrule, and the two exact Blest regions.
 The other three remain **in progress**. Coverage includes the exact
 xi-beta region and several subclasses; the exact SI xi-footrule region and full equality classification, universal
 upper and explicit Jensen lower bounds, admissible cubic inversion, and entire bottom boundary; the full SI/SD xi-rho theorem and sharp rho-minus-xi maximum 2/5 with unique attainment;
@@ -44,6 +44,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 | τ–footrule–β region (2026) | [OrendayLaresRockel2026TauFootruleBeta](Papers/OrendayLaresRockel2026TauFootruleBeta/README.md) | Complete for stated scope; exact joint region, signed shuffles, geometry and volume |
 | ρ–footrule region and applications (2026) | [AnsariRockel2026RhoFootrule](Papers/AnsariRockel2026RhoFootrule/README.md) | Complete for stated scope; exact regions, unique optimizers, finite-ranking sharpness, mixability and compact xi-eta region with attained maxima |
 | ρ–γ region (2026) | [AnsariRockelSteinmassl2026RhoGamma](Papers/AnsariRockelSteinmassl2026RhoGamma/README.md) | Complete for stated scope; original theta family, exact region, shuffle laws, endpoint asymptotics and attained duality |
+| Rank weighting and asymmetry in Blest’s rank correlation (2026) | [Rockel2026ExactBlest](Papers/Rockel2026ExactBlest/README.md) | Complete for stated scope; exact rho/nu and eta/nu regions, unique extremizers, sharp asymmetry and transpose region |
 
 ## Reproduce the build
 
@@ -58,7 +59,7 @@ python scripts/check_verification.py
 ```
 
 Lean is pinned to **4.34.0**. The `copula` dependency is pinned to the commit
-`5926399c46f83d307127fd34b3aa2e416c940786`, and `lake-manifest.json` records all transitive revisions,
+`72a596ebd8c111cb11a046be0d5c5cd64a878954`, and `lake-manifest.json` records all transitive revisions,
 including mathlib. The Git dependency works before and after Reservoir indexing;
 indexing is not required for this build. Do not run `lake update` when reproducing
 a published supplement.

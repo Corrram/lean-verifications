@@ -69,7 +69,9 @@ standard transitive axiom allowlist for every declaration below.
 
 There are no pending rows within the declared scope. The numbered mathematical
 results, original boundary parametrization and its stated consequences are mapped
-above. The source construction is identified at the level of probability measures.
+above. A source audit on 24 September 2026 checked the 17 labeled results of
+arXiv v1 against this map, including Remark 3.4 (strong duality); 118 declarations
+are listed in Axioms.lean. The source construction is identified at the level of probability measures.
 Numerical experiments and plots are not counted as formal proofs.
 
 Additional proof modules: [SignMagnitude.lean](SignMagnitude.lean), [Transport.lean](Transport.lean), [HalfShift.lean](HalfShift.lean), [SignConverse.lean](SignConverse.lean), [SignAttainment.lean](SignAttainment.lean).
@@ -77,7 +79,15 @@ Additional proof modules: [SignMagnitude.lean](SignMagnitude.lean), [Transport.l
 ## Latest package integration
 
 The dependency is pinned to copula commit
-`5926399c46f83d307127fd34b3aa2e416c940786`. New proof modules: [ExactRegion.lean](ExactRegion.lean), [BoundaryGeometry.lean](BoundaryGeometry.lean), [SharpDiscrepancy.lean](SharpDiscrepancy.lean), [SignThresholds.lean](SignThresholds.lean), [ElementaryArc.lean](ElementaryArc.lean).
+`72a596ebd8c111cb11a046be0d5c5cd64a878954`. New proof modules: [ExactRegion.lean](ExactRegion.lean), [BoundaryGeometry.lean](BoundaryGeometry.lean), [SharpDiscrepancy.lean](SharpDiscrepancy.lean), [SignThresholds.lean](SignThresholds.lean), [ElementaryArc.lean](ElementaryArc.lean).
 Every mapped declaration is compiled and transitively audited against the standard
 Lean axiom allowlist. Uniqueness of a numerical boundary value does not imply
 uniqueness of its copula witness.
+
+## Validation on 24 September 2026
+
+The full root build completed successfully (4,622 jobs) with Lean 4.34.0 and
+the dependency pin above, including this paper's 118 printed and asserted
+coverage declarations. The root coverage checker, its seven regression tests,
+and the handbook link/search checks also passed. There are no pending rows
+within this paper's stated scope.
