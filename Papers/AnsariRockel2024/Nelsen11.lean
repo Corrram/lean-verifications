@@ -1,5 +1,6 @@
 import Verification.Nelsen11Continuity
 import Verification.Nelsen11Dependence
+import Verification.Nelsen11Order
 
 /-! # Tables 1–3: Nelsen 11 as an actual copula measure -/
 
@@ -50,5 +51,15 @@ theorem nelsen11_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
 theorem nelsen11_cd (θ : ℝ) (hθ0 : 0 ≤ θ) (hθ1 : θ ≤ 1/2) :
     (Verification.nelsen11 θ hθ0 hθ1).IsCD :=
   Verification.nelsen11_isCD θ hθ0 hθ1
+
+theorem nelsen11_lowerOrthant_antitone {θ η : ℝ}
+    (hθ0 : 0 ≤ θ) (hθ1 : θ ≤ 1/2) (hη0 : 0 ≤ η) (hη1 : η ≤ 1/2) (hθη : θ ≤ η) :
+    (Verification.nelsen11 η hη0 hη1).LowerOrthantLE (Verification.nelsen11 θ hθ0 hθ1) :=
+  Verification.nelsen11_lowerOrthant_antitone hθ0 hθ1 hη0 hη1 hθη
+
+theorem nelsen11_schur_monotone {θ η : ℝ}
+    (hθ0 : 0 ≤ θ) (hθ1 : θ ≤ 1/2) (hη0 : 0 ≤ η) (hη1 : η ≤ 1/2) (hθη : θ ≤ η) :
+    (Verification.nelsen11 θ hθ0 hθ1).SchurBothLE (Verification.nelsen11 η hη0 hη1) :=
+  Verification.nelsen11_schur_monotone hθ0 hθ1 hη0 hη1 hθη
 
 end Papers.AnsariRockel2024
