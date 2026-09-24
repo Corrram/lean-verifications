@@ -1041,3 +1041,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen17_isNQD_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isNQD_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen17_toMeasure_density
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_toMeasure_density
+
+#print axioms Papers.AnsariRockel2024.nelsen17_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_density_tp2_iff

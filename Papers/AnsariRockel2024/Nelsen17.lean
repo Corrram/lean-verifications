@@ -1,4 +1,4 @@
-import Verification.Nelsen17Necessity
+import Verification.Nelsen17Density
 import Verification.Nelsen17Tails
 
 /-! # Tables 1–2: Nelsen 17 on both nonzero parameter branches -/
@@ -44,5 +44,15 @@ theorem nelsen17_isPQD_iff (θ : ℝ) (hθ : θ ≠ 0) :
 theorem nelsen17_isNQD_iff (θ : ℝ) (hθ : θ ≠ 0) :
     (Verification.nelsen17 θ hθ).IsNQD ↔ θ ≤ -1 :=
   Verification.nelsen17_isNQD_iff θ hθ
+
+theorem nelsen17_toMeasure_density (θ : ℝ) (hθ : θ ≠ 0) :
+    (Verification.nelsen17 θ hθ).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Verification.n17Density (-θ) x)) := by
+  simpa only [neg_neg] using Verification.n17_toMeasure_density (neg_ne_zero.mpr hθ)
+
+theorem nelsen17_density_tp2_iff (θ : ℝ) (hθ : θ ≠ 0) :
+    (Verification.nelsen17 θ hθ).HasMTP2Density ↔ -1 ≤ θ :=
+  Verification.nelsen17_density_tp2_iff θ hθ
 
 end Papers.AnsariRockel2024
