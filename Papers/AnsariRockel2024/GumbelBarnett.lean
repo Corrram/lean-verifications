@@ -1,4 +1,5 @@
-import Verification.GumbelBarnettDependence
+import Verification.GumbelBarnettXi
+import Copula.Rank.ChatterjeeExamples
 
 /-! # Tables 1–3: Gumbel–Barnett on its full closed parameter interval -/
 
@@ -41,5 +42,19 @@ theorem gumbelBarnett_tails (θ : I) :
     (Verification.gumbelBarnett θ).HasLowerTailDependence 0 ∧
       (Verification.gumbelBarnett θ).HasUpperTailDependence 0 :=
   Verification.gumbelBarnett_tails θ
+
+theorem gumbelBarnett_conditionalCDF (θ v : I) :
+    (fun u => (Verification.gumbelBarnett θ).conditionalCDF u v) =ᵐ[MeasureTheory.volume]
+      fun u => Verification.gbConditional θ u v :=
+  Verification.gumbelBarnett_conditionalCDF θ v
+
+theorem gumbelBarnett_xi (θ : I) (hθ : 0 < (θ:ℝ)) :
+    (Verification.gumbelBarnett θ).chatterjeeXi =
+      3*Real.exp (3/(2*(θ:ℝ)))/(4*(θ:ℝ))*
+        Verification.exponentialIntegralE1 (3/(2*(θ:ℝ)))+(θ:ℝ)/3-1/2 :=
+  Verification.gumbelBarnett_chatterjeeXi θ hθ
+
+theorem gumbelBarnett_xi_zero : (Verification.gumbelBarnett 0).chatterjeeXi = 0 := by
+  rw [Verification.gumbelBarnett_zero, Copula.chatterjeeXi_independence]
 
 end Papers.AnsariRockel2024

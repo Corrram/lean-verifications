@@ -674,3 +674,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gumbelBarnett_tails
 #assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_tails
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_conditionalCDF
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_xi
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_xi
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_xi_zero
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_xi_zero
