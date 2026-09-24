@@ -1227,3 +1227,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.maxProduct_independence_ci
 #assert_standard_axioms Papers.AnsariRockel2024.maxProduct_independence_ci
+
+#print axioms Papers.AnsariRockel2024.frank_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.frank_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.frank_schur_nonnegative
+#assert_standard_axioms Papers.AnsariRockel2024.frank_schur_nonnegative
+
+#print axioms Papers.AnsariRockel2024.frank_schur_nonpositive
+#assert_standard_axioms Papers.AnsariRockel2024.frank_schur_nonpositive
