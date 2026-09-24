@@ -995,3 +995,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen20_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen20_tails
+
+#print axioms Papers.AnsariRockel2024.nelsen20_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen20_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen20_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen20_tendsto_atTop

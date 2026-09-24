@@ -1,6 +1,7 @@
 import Verification.Nelsen20
 import Verification.Nelsen20Conditional
 import Verification.Nelsen20Tails
+import Verification.Nelsen20Limits
 
 /-! # Tables 1–3: Nelsen 20 constructor, independence member, CI and tails -/
 
@@ -25,5 +26,17 @@ theorem nelsen20_tails (θ : ℝ) (hθ : 0 ≤ θ) :
     (Verification.nelsen20 θ hθ).HasLowerTailDependence (if θ = 0 then 0 else 1) ∧
       (Verification.nelsen20 θ hθ).HasUpperTailDependence 0 :=
   Verification.nelsen20_tails θ hθ
+
+theorem nelsen20_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 0 ≤ θ a) (ht : Filter.Tendsto θ l (nhds 0)) (u v : I) :
+    Filter.Tendsto (fun a => (Verification.nelsen20 (θ a) (hθ a)).cdf ![u,v]) l
+      (nhds ((Copula.independence 2).cdf ![u,v])) :=
+  Verification.nelsen20_tendsto_zero θ hθ ht u v
+
+theorem nelsen20_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 0 ≤ θ a) (ht : Filter.Tendsto θ l Filter.atTop) (u v : I) :
+    Filter.Tendsto (fun a => (Verification.nelsen20 (θ a) (hθ a)).cdf ![u,v]) l
+      (nhds ((Copula.comonotonic 2).cdf ![u,v])) :=
+  Verification.nelsen20_tendsto_atTop θ hθ ht u v
 
 end Papers.AnsariRockel2024
