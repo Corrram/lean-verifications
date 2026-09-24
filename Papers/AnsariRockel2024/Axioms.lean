@@ -914,3 +914,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen14_schur_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen14_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen16_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_cdf_full
+
+#print axioms Papers.AnsariRockel2024.nelsen16_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen16_cdf_continuous_parameter
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_cdf_continuous_parameter
+
+#print axioms Papers.AnsariRockel2024.nelsen16_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen16_tendsto_zero
