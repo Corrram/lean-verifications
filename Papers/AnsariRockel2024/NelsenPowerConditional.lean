@@ -1,4 +1,5 @@
 import Verification.BB1Conditional
+import Verification.BB1Density
 import Verification.SchurOrthantEquivalence
 import Copula.Dependence.Nelsen12
 import Copula.Order.SymmetricSchur
@@ -28,5 +29,23 @@ theorem nelsen12_schur_monotone {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η) 
     have hx : x = ![x 0,x 1] := by ext i; fin_cases i <;> rfl
     rw [hx, Copula.cdf_transpose, Copula.cdf_transpose]
     exact ho ![x 1,x 0]
+
+theorem nelsen12_density_tp2 (θ : ℝ) (hθ : 1 ≤ θ) : (Copula.nelsen12 θ hθ).HasMTP2Density :=
+  Verification.bb_hasMTP2Density (by norm_num : (0:ℝ) < 1) hθ
+
+theorem nelsen14_density_tp2 (θ : ℝ) (hθ : 1 ≤ θ) : (Copula.nelsen14 θ hθ).HasMTP2Density :=
+  Verification.bb_hasMTP2Density (inv_pos.mpr (by linarith : 0 < θ)) hθ
+
+theorem nelsen12_toMeasure_density (θ : ℝ) (hθ : 1 ≤ θ) :
+    (Copula.nelsen12 θ hθ).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Verification.bbDensity 1 θ x)) :=
+  Verification.bb_toMeasure_density (by norm_num : (0:ℝ) < 1) hθ
+
+theorem nelsen14_toMeasure_density (θ : ℝ) (hθ : 1 ≤ θ) :
+    (Copula.nelsen14 θ hθ).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → I)).withDensity
+        (fun x => ENNReal.ofReal (Verification.bbDensity θ⁻¹ θ x)) :=
+  Verification.bb_toMeasure_density (inv_pos.mpr (by linarith : 0 < θ)) hθ
 
 end Papers.AnsariRockel2024
