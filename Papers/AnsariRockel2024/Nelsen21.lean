@@ -1,5 +1,6 @@
 import Verification.Nelsen21Tails
 import Verification.Nelsen21Limits
+import Verification.Nelsen21Order
 
 /-! # Nelsen 21: measure constructor, printed CDF, and countermonotonic endpoint -/
 
@@ -61,5 +62,9 @@ theorem nelsen21_tendsto_one {α : Type*} {l : Filter α} (θ : α → ℝ)
     Tendsto (fun a => (Verification.nelsen21 (θ a) (hθ a)).cdf ![u,v]) l
       (𝓝 (Copula.countermonotonic.cdf ![u,v])) :=
   Verification.nelsen21_tendsto_one θ hθ ht u v
+
+theorem nelsen21_lowerOrthant_monotone {θ η : ℝ} (hθ : 1 ≤ θ) (hθη : θ ≤ η) :
+    (Verification.nelsen21 θ hθ).LowerOrthantLE (Verification.nelsen21 η (hθ.trans hθη)) :=
+  Verification.nelsen21_lowerOrthant_monotone hθ hθη
 
 end Papers.AnsariRockel2024

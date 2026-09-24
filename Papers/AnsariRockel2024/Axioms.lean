@@ -1101,3 +1101,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen21_tendsto_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen21_tendsto_one
+
+#print axioms Papers.AnsariRockel2024.nelsen21_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_lowerOrthant_monotone
