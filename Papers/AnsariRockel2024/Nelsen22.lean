@@ -1,5 +1,6 @@
 import Verification.Nelsen22Tails
 import Verification.Nelsen22Limits
+import Verification.Nelsen22Conditional
 
 /-! # Nelsen 22: trigonometric copula, exact CI/TP2 classification and tails -/
 
@@ -54,5 +55,11 @@ theorem nelsen22_tendsto_parameter {α : Type*} {l : Filter α} (θ : α → ℝ
     Tendsto (fun a => (Verification.nelsen22 (θ a) (hθ a)).cdf ![u,v]) l
       (𝓝 ((Verification.nelsen22 η hη).cdf ![u,v])) :=
   Verification.nelsen22_tendsto_parameter θ hθ hη ht u v
+
+theorem nelsen22_isCD (θ : ℝ) (hθ : θ ∈ Icc 0 1) : (Verification.nelsen22 θ hθ).IsCD :=
+  Verification.nelsen22_isCD θ hθ
+
+theorem nelsen22_isNQD (θ : ℝ) (hθ : θ ∈ Icc 0 1) : (Verification.nelsen22 θ hθ).IsNQD :=
+  (Verification.nelsen22_isCD θ hθ).isNQD
 
 end Papers.AnsariRockel2024

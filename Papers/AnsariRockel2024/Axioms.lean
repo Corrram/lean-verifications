@@ -1176,3 +1176,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen22_tendsto_parameter
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen22_tendsto_parameter
+
+#print axioms Papers.AnsariRockel2024.nelsen22_isCD
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_isCD
+
+#print axioms Papers.AnsariRockel2024.nelsen22_isNQD
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen22_isNQD
