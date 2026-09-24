@@ -815,3 +815,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen11_tendsto_zero
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen11_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen11_cd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen11_cd
