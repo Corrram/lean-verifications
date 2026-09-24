@@ -1065,3 +1065,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen17_tendsto_atBot
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen17_tendsto_atBot
+
+#print axioms Papers.AnsariRockel2024.nelsen21_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_cdf_full
+
+#print axioms Papers.AnsariRockel2024.nelsen21_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_one
