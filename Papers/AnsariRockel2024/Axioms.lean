@@ -1257,3 +1257,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.plackett_nqd_iff
 #assert_standard_axioms Papers.AnsariRockel2024.plackett_nqd_iff
+
+#print axioms Papers.AnsariRockel2024.plackett_tails
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_tails
+
+#print axioms Papers.AnsariRockel2024.plackett_cdf_rationalized
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_cdf_rationalized
+
+#print axioms Papers.AnsariRockel2024.plackett_tendsto_parameter
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_tendsto_parameter
+
+#print axioms Papers.AnsariRockel2024.plackett_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.plackett_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_tendsto_atTop

@@ -1,10 +1,12 @@
 import Verification.PlackettDensity
 import Verification.PlackettConditional
+import Verification.PlackettTails
+import Verification.PlackettContinuity
 
 /-! # Table 4: the Plackett copula and its actual Lebesgue density -/
 
-open ProbabilityTheory MeasureTheory
-open scoped unitInterval
+open ProbabilityTheory MeasureTheory Filter
+open scoped unitInterval Topology
 
 namespace Papers.AnsariRockel2024
 
@@ -33,5 +35,32 @@ theorem plackett_pqd_iff {θ : ℝ} (hθ : 0 < θ) :
 
 theorem plackett_nqd_iff {θ : ℝ} (hθ : 0 < θ) :
     (Verification.plackett θ hθ).IsNQD ↔ θ ≤ 1 := Verification.plackett_nqd_iff hθ
+
+theorem plackett_tails {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.plackett θ hθ).HasLowerTailDependence 0 ∧
+      (Verification.plackett θ hθ).HasUpperTailDependence 0 := Verification.plackett_tails hθ
+
+theorem plackett_cdf_rationalized {θ : ℝ} (hθ : 0 < θ) (u v : I) :
+    (Verification.plackett θ hθ).cdf ![u,v] =
+      2*θ*(u:ℝ)*(v:ℝ)/(Verification.plackettA θ u v+Real.sqrt (Verification.plackettD θ u v)) :=
+  Verification.plackett_cdf_rationalized hθ u v
+
+theorem plackett_tendsto_parameter {A : Type*} {l : Filter A} (θ : A → ℝ)
+    (hθ : ∀ a, 0 < θ a) {η : ℝ} (hη : 0 < η) (ht : Tendsto θ l (𝓝 η)) (u v : I) :
+    Tendsto (fun a => (Verification.plackett (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Verification.plackett η hη).cdf ![u,v])) :=
+  Verification.plackett_tendsto_parameter θ hθ hη ht u v
+
+theorem plackett_tendsto_zero {A : Type*} {l : Filter A} (θ : A → ℝ)
+    (hθ : ∀ a, 0 < θ a) (ht : Tendsto θ l (𝓝 0)) (u v : I) :
+    Tendsto (fun a => (Verification.plackett (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 (Copula.countermonotonic.cdf ![u,v])) :=
+  Verification.plackett_tendsto_zero θ hθ ht u v
+
+theorem plackett_tendsto_atTop {A : Type*} {l : Filter A} (θ : A → ℝ)
+    (hθ : ∀ a, 0 < θ a) (ht : Tendsto θ l atTop) (u v : I) :
+    Tendsto (fun a => (Verification.plackett (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Copula.comonotonic 2).cdf ![u,v])) :=
+  Verification.plackett_tendsto_atTop θ hθ ht u v
 
 end Papers.AnsariRockel2024
