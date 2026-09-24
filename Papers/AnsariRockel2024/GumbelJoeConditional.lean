@@ -1,6 +1,7 @@
 import Verification.GumbelConditional
 import Verification.JoeConditional
 import Verification.JoeOrder
+import Verification.JoeDensity
 
 /-! # Table 3: Gumbel–Hougaard and Joe conditional increase and parameter orders -/
 
@@ -25,5 +26,14 @@ theorem joe_lowerOrthant_monotone {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η
 theorem joe_schur_monotone {θ η : ℝ} (hθ : 1 ≤ θ) (hη : 1 ≤ η) (hθη : θ ≤ η) :
     (Copula.joe θ hθ).SchurBothLE (Copula.joe η hη) :=
   Verification.joe_schur_monotone hθ hη hθη
+
+theorem joe_toMeasure_density {θ : ℝ} (hθ : 1 ≤ θ) :
+    (Copula.joe θ hθ).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → unitInterval)).withDensity
+        (fun x => ENNReal.ofReal (Verification.joeDensity θ x)) :=
+  Verification.joe_toMeasure_density hθ
+
+theorem joe_density_tp2 {θ : ℝ} (hθ : 1 ≤ θ) : (Copula.joe θ hθ).HasMTP2Density :=
+  Verification.joe_hasMTP2Density hθ
 
 end Papers.AnsariRockel2024
