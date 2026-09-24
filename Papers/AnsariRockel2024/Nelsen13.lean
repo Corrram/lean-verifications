@@ -1,9 +1,14 @@
 import Verification.Nelsen13Tails
+import Verification.Nelsen13Order
+import Verification.Nelsen13Continuity
+import Verification.Nelsen13Limits
 
-/-! # Tables 1–3: Nelsen 13 constructor, special cases, and tails -/
+/-! # Tables 1–3: Nelsen 13 constructor, endpoints, orthant order, and tails -/
 
 open ProbabilityTheory
 open scoped unitInterval
+open Filter
+open scoped Topology
 
 namespace Papers.AnsariRockel2024
 
@@ -23,5 +28,22 @@ theorem nelsen13_tails (θ : ℝ) (hθ : 0 ≤ θ) :
     (Verification.nelsen13 θ hθ).HasLowerTailDependence 0 ∧
       (Verification.nelsen13 θ hθ).HasUpperTailDependence 0 :=
   Verification.nelsen13_tails θ hθ
+
+theorem nelsen13_lowerOrthant_monotone {θ η : ℝ}
+    (hθ : 0 ≤ θ) (hη : 0 ≤ η) (hθη : θ ≤ η) :
+    (Verification.nelsen13 θ hθ).LowerOrthantLE (Verification.nelsen13 η hη) :=
+  Verification.nelsen13_lowerOrthant_monotone hθ hη hθη
+
+theorem nelsen13_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ z, 0 ≤ θ z) (hlim : Tendsto θ l (𝓝 0)) (u v : I) :
+    Tendsto (fun z => (Verification.nelsen13 (θ z) (hθ z)).cdf ![u,v]) l
+      (𝓝 ((Verification.gumbelBarnett 1).cdf ![u,v])) :=
+  Verification.nelsen13_tendsto_zero θ hθ hlim u v
+
+theorem nelsen13_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ z, 0 ≤ θ z) (hlim : Tendsto θ l atTop) (u v : I) :
+    Tendsto (fun z => (Verification.nelsen13 (θ z) (hθ z)).cdf ![u,v]) l
+      (𝓝 (min (u:ℝ) (v:ℝ))) :=
+  Verification.nelsen13_tendsto_atTop θ hθ hlim u v
 
 end Papers.AnsariRockel2024
