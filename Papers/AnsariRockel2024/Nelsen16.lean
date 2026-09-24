@@ -4,6 +4,7 @@ import Verification.Nelsen16Tails
 import Verification.Nelsen16Conditional
 import Verification.Nelsen16Density
 import Verification.Nelsen16Necessity
+import Verification.Nelsen16DensityNecessity
 
 /-! # Tables 1–2: Nelsen 16 constructor and zero endpoint -/
 
@@ -67,5 +68,9 @@ theorem nelsen16_density_tp2 {θ : ℝ} (hθ : 3+2*Real.sqrt 2 ≤ θ) :
 
 theorem nelsen16_ci_iff (θ : ℝ) (hθ : 0 ≤ θ) : (Verification.nelsen16 θ hθ).IsCI ↔ 3 ≤ θ :=
   Verification.nelsen16_ci_iff θ hθ
+
+theorem nelsen16_density_tp2_iff (θ : ℝ) (hθ : 0 ≤ θ) :
+    (Verification.nelsen16 θ hθ).HasMTP2Density ↔ 3+2*Real.sqrt 2 ≤ θ :=
+  Verification.nelsen16_density_tp2_iff θ hθ
 
 end Papers.AnsariRockel2024
