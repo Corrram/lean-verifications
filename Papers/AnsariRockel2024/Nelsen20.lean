@@ -2,6 +2,7 @@ import Verification.Nelsen20
 import Verification.Nelsen20Conditional
 import Verification.Nelsen20Tails
 import Verification.Nelsen20Limits
+import Verification.Nelsen20Order
 
 /-! # Tables 1–3: Nelsen 20 constructor, independence member, CI and tails -/
 
@@ -38,5 +39,14 @@ theorem nelsen20_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
     Filter.Tendsto (fun a => (Verification.nelsen20 (θ a) (hθ a)).cdf ![u,v]) l
       (nhds ((Copula.comonotonic 2).cdf ![u,v])) :=
   Verification.nelsen20_tendsto_atTop θ hθ ht u v
+
+theorem nelsen20_lowerOrthant_monotone {θ η : ℝ}
+    (hθ : 0 ≤ θ) (hη : 0 ≤ η) (hθη : θ ≤ η) :
+    (Verification.nelsen20 θ hθ).LowerOrthantLE (Verification.nelsen20 η hη) :=
+  Verification.nelsen20_lowerOrthant_monotone hθ hη hθη
+
+theorem nelsen20_schur_monotone {θ η : ℝ} (hθ : 0 ≤ θ) (hη : 0 ≤ η) (hθη : θ ≤ η) :
+    (Verification.nelsen20 θ hθ).SchurBothLE (Verification.nelsen20 η hη) :=
+  Verification.nelsen20_schur_monotone hθ hη hθη
 
 end Papers.AnsariRockel2024
