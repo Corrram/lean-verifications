@@ -1206,3 +1206,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.tawn_printed_tp2_exclusion_false
 #assert_standard_axioms Papers.AnsariRockel2024.tawn_printed_tp2_exclusion_false
+
+#print axioms Papers.AnsariRockel2024.tawn_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_pickands
+
+#print axioms Papers.AnsariRockel2024.gumbel_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_pickands
+
+#print axioms Papers.AnsariRockel2024.marshallOlkin_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_pickands
+
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_pickands
