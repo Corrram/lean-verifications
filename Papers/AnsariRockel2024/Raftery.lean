@@ -3,8 +3,9 @@ import Verification.Raftery
 import Verification.RafteryTails
 import Verification.RafteryLimits
 import Verification.RafteryRho
+import Verification.RafteryTP2
 
-open ProbabilityTheory Copula
+open ProbabilityTheory MeasureTheory Copula
 open scoped unitInterval
 
 namespace Papers.AnsariRockel2024
@@ -68,5 +69,29 @@ theorem raftery_tendsto_one {A : Type*} {l : Filter A} (δ : A → I)
 theorem raftery_spearmanRho (δ : I) :
     (Verification.raftery δ).spearmanRho = (δ:ℝ)*(4-3*(δ:ℝ))/(2-(δ:ℝ))^2 :=
   Verification.raftery_spearmanRho δ
+
+theorem raftery_density (δ : I) (h1 : δ≠1) :
+    (Verification.raftery δ).toMeasure = (volume : Measure (Fin 2 → I)).withDensity
+      (fun x => ENNReal.ofReal (Verification.rafteryDensity (1/(1-(δ:ℝ))) (x 0) (x 1))) :=
+  Verification.raftery_toMeasure_density δ h1
+
+theorem raftery_absolutelyContinuous_iff (δ : I) :
+    (Verification.raftery δ).toMeasure ≪ (volume : Measure (Fin 2 → I)) ↔ δ≠1 :=
+  Verification.raftery_absolutelyContinuous_iff δ
+
+theorem raftery_density_tp2_iff (δ : I) : (Verification.raftery δ).HasMTP2Density ↔ δ≠1 :=
+  Verification.raftery_density_tp2_iff δ
+
+theorem raftery_ci (δ : I) : (Verification.raftery δ).IsCI := Verification.raftery_isCI δ
+
+theorem raftery_pqd (δ : I) : (Verification.raftery δ).IsPQD := Verification.raftery_isPQD δ
+
+theorem raftery_nqd_iff (δ : I) : (Verification.raftery δ).IsNQD ↔ δ=0 := Verification.raftery_nqd_iff δ
+
+theorem raftery_cd_iff (δ : I) : (Verification.raftery δ).IsCD ↔ δ=0 := Verification.raftery_cd_iff δ
+
+theorem raftery_printed_tp2_exclusion_false :
+    ¬∀ δ : I, Verification.raftery δ≠independence 2 → ¬(Verification.raftery δ).HasMTP2Density :=
+  Verification.raftery_printed_tp2_exclusion_false
 
 end Papers.AnsariRockel2024

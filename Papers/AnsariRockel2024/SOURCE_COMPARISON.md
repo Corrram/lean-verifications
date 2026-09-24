@@ -98,6 +98,12 @@ The actual tail limits are now checked by `raftery_tails_lt_one` and
 both coefficients equal one at delta=1. Full-square parameter continuity
 and both endpoint limits are also checked. `raftery_spearmanRho` now
 verifies the printed Table 6 rho formula for the corrected family by
-integrating the actual mixture CDF, including both endpoints. Remaining
-conditional and density classifications, orders, Kendall tau and the
-corresponding journal cells remain to be checked.
+integrating the actual mixture CDF, including both endpoints. The density calculation now gives a stronger correction: the actual
+measure is absolutely continuous and has TP2 density exactly for delta<1.
+The first and mixed CDF derivatives agree across the diagonal, and
+interior-rectangle integration identifies the density. Its factorization
+into coordinate weights and an antitone function of max(u,v) proves TP2.
+`raftery_printed_tp2_exclusion_false` gives a non-independent delta=1/2
+counterexample to Table 5. CI/PQD hold throughout [0,1]; CD/NQD hold only
+at independence. Parameter orders, Kendall tau and the corresponding
+journal cells remain to be checked.

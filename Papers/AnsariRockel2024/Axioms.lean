@@ -1338,3 +1338,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.raftery_spearmanRho
 #assert_standard_axioms Papers.AnsariRockel2024.raftery_spearmanRho
+
+#print axioms Papers.AnsariRockel2024.raftery_density
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_density
+
+#print axioms Papers.AnsariRockel2024.raftery_absolutelyContinuous_iff
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_absolutelyContinuous_iff
+
+#print axioms Papers.AnsariRockel2024.raftery_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.raftery_ci
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_ci
+
+#print axioms Papers.AnsariRockel2024.raftery_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_pqd
+
+#print axioms Papers.AnsariRockel2024.raftery_nqd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_nqd_iff
+
+#print axioms Papers.AnsariRockel2024.raftery_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_cd_iff
+
+#print axioms Papers.AnsariRockel2024.raftery_printed_tp2_exclusion_false
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_printed_tp2_exclusion_false
