@@ -860,3 +860,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen13_density_tp2_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen13_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen12_ci
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_ci
+
+#print axioms Papers.AnsariRockel2024.nelsen14_ci
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen14_ci
+
+#print axioms Papers.AnsariRockel2024.nelsen12_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen12_schur_monotone
