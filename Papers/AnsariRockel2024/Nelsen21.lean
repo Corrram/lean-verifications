@@ -1,9 +1,10 @@
 import Verification.Nelsen21Tails
+import Verification.Nelsen21Limits
 
 /-! # Nelsen 21: measure constructor, printed CDF, and countermonotonic endpoint -/
 
-open ProbabilityTheory
-open scoped unitInterval
+open ProbabilityTheory Filter
+open scoped unitInterval Topology
 
 namespace Papers.AnsariRockel2024
 
@@ -42,5 +43,23 @@ theorem nelsen21_isCD_iff (θ : ℝ) (hθ : 1 ≤ θ) :
 theorem nelsen21_isNQD_iff (θ : ℝ) (hθ : 1 ≤ θ) :
     (Verification.nelsen21 θ hθ).IsNQD ↔ θ = 1 :=
   Verification.nelsen21_isNQD_iff θ hθ
+
+theorem nelsen21_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 1 ≤ θ a) (ht : Tendsto θ l atTop) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen21 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Copula.comonotonic 2).cdf ![u,v])) :=
+  Verification.nelsen21_tendsto_atTop θ hθ ht u v
+
+theorem nelsen21_tendsto_parameter {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 1 ≤ θ a) {η : ℝ} (hη : 1 ≤ η) (ht : Tendsto θ l (𝓝 η)) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen21 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 ((Verification.nelsen21 η hη).cdf ![u,v])) :=
+  Verification.nelsen21_tendsto_parameter θ hθ hη ht u v
+
+theorem nelsen21_tendsto_one {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 1 ≤ θ a) (ht : Tendsto θ l (𝓝 1)) (u v : I) :
+    Tendsto (fun a => (Verification.nelsen21 (θ a) (hθ a)).cdf ![u,v]) l
+      (𝓝 (Copula.countermonotonic.cdf ![u,v])) :=
+  Verification.nelsen21_tendsto_one θ hθ ht u v
 
 end Papers.AnsariRockel2024

@@ -1092,3 +1092,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen21_isNQD_iff
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen21_isNQD_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen21_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.nelsen21_tendsto_parameter
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_tendsto_parameter
+
+#print axioms Papers.AnsariRockel2024.nelsen21_tendsto_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_tendsto_one
