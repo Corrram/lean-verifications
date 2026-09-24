@@ -7,12 +7,10 @@ open scoped unitInterval
 
 namespace Verification
 
-theorem integral_symmetric_triangle (f : I × I → ℝ) (hf : Measurable f)
-    (hb : ∀ p, f p ∈ Icc (0:ℝ) 1) (hs : ∀ p, f p.swap=f p) :
+theorem integral_symmetric_triangle_of_integrable (f : I × I → ℝ) (hi : Integrable f)
+    (hs : ∀ p, f p.swap=f p) :
     (∫ u : I,∫ v : I,f (u,v))=2*(∫ u : I,∫ v in Iic u,f (u,v)) := by
   classical
-  have hi : Integrable f := (integrable_const (1:ℝ)).mono' hf.aestronglyMeasurable
-    (Eventually.of_forall fun p => by simpa only [Real.norm_eq_abs,abs_of_nonneg (hb p).1] using (hb p).2)
   let L : I × I → ℝ := {p : I × I | p.2≤p.1}.indicator f
   have hL : Integrable L := hi.indicator (measurableSet_le measurable_snd measurable_fst)
   have hLs : Integrable (fun p : I × I => L p.swap) := hL.swap
@@ -40,5 +38,12 @@ theorem integral_symmetric_triangle (f : I × I → ℝ) (hf : Measurable f)
       rfl
   rw [hleft]
   ring
+
+theorem integral_symmetric_triangle (f : I × I → ℝ) (hf : Measurable f)
+    (hb : ∀ p, f p ∈ Icc (0:ℝ) 1) (hs : ∀ p, f p.swap=f p) :
+    (∫ u : I,∫ v : I,f (u,v))=2*(∫ u : I,∫ v in Iic u,f (u,v)) := by
+  apply integral_symmetric_triangle_of_integrable f _ hs
+  exact (integrable_const (1:ℝ)).mono' hf.aestronglyMeasurable
+    (Eventually.of_forall fun p => by simpa only [Real.norm_eq_abs,abs_of_nonneg (hb p).1] using (hb p).2)
 
 end Verification

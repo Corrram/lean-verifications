@@ -5,6 +5,7 @@ import Verification.RafteryLimits
 import Verification.RafteryRho
 import Verification.RafteryTP2
 import Verification.RafteryOrder
+import Verification.RafteryTau
 
 open ProbabilityTheory MeasureTheory Copula
 open scoped unitInterval
@@ -102,5 +103,9 @@ theorem raftery_lowerOrthant_monotone {δ η : I} (hδη : δ≤η) :
 theorem raftery_schur_monotone {δ η : I} (hδη : δ≤η) :
     (Verification.raftery δ).SchurBothLE (Verification.raftery η) :=
   Verification.raftery_schur_monotone hδη
+
+theorem raftery_kendallTau (δ : I) :
+    (Verification.raftery δ).kendallTau=2*(δ:ℝ)/(3-(δ:ℝ)) :=
+  Verification.raftery_kendallTau δ
 
 end Papers.AnsariRockel2024

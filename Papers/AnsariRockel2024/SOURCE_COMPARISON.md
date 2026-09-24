@@ -106,5 +106,11 @@ into coordinate weights and an antitone function of max(u,v) proves TP2.
 `raftery_printed_tp2_exclusion_false` gives a non-independent delta=1/2
 counterexample to Table 5. CI/PQD hold throughout [0,1]; CD/NQD hold only
 at independence. Increasing lower-orthant and both-direction Schur
-parameter orders are also verified on the entire closed interval. Kendall
-tau and the corresponding journal cells remain to be checked.
+parameter orders are also verified on the entire closed interval.
+`raftery_kendallTau` verifies the printed Table 6 formula
+`2*delta/(3-delta)` for the corrected family, including both endpoints.
+Integration of the actual CDF against its identified density gives
+`(4*a-1)/(4*(2*a+1))`, where `a=1/(1-delta)` in the interior.
+Symmetry reduces the calculation to one triangle, where the inner
+integral is a linear combination of three powers.
+The corresponding journal cells remain to be checked.

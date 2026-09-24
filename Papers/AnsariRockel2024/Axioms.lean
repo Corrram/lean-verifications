@@ -1368,3 +1368,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.raftery_schur_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.raftery_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.raftery_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_kendallTau
