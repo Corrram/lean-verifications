@@ -2,6 +2,7 @@ import Verification.RafterySource
 import Verification.Raftery
 import Verification.RafteryTails
 import Verification.RafteryLimits
+import Verification.RafteryRho
 
 open ProbabilityTheory Copula
 open scoped unitInterval
@@ -63,5 +64,9 @@ theorem raftery_tendsto_one {A : Type*} {l : Filter A} (δ : A → I)
     (hδ : Filter.Tendsto (fun x => (δ x:ℝ)) l (nhds 1)) (u v : I) :
     Filter.Tendsto (fun x => (Verification.raftery (δ x)).cdf ![u,v]) l
       (nhds ((comonotonic 2).cdf ![u,v])) := Verification.raftery_tendsto_one δ hδ u v
+
+theorem raftery_spearmanRho (δ : I) :
+    (Verification.raftery δ).spearmanRho = (δ:ℝ)*(4-3*(δ:ℝ))/(2-(δ:ℝ))^2 :=
+  Verification.raftery_spearmanRho δ
 
 end Papers.AnsariRockel2024

@@ -96,6 +96,8 @@ increments; `raftery_zero` and `raftery_one` verify both endpoint identities.
 The actual tail limits are now checked by `raftery_tails_lt_one` and
 `raftery_tails_one`: lower=2*delta/(1+delta), upper=0 for delta<1, and
 both coefficients equal one at delta=1. Full-square parameter continuity
-and both endpoint limits are also checked. Remaining conditional and
-density classifications, orders, association formulas and the corresponding
-journal cells remain to be checked.
+and both endpoint limits are also checked. `raftery_spearmanRho` now
+verifies the printed Table 6 rho formula for the corrected family by
+integrating the actual mixture CDF, including both endpoints. Remaining
+conditional and density classifications, orders, Kendall tau and the
+corresponding journal cells remain to be checked.
