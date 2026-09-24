@@ -647,3 +647,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.amh_density_tp2_iff
 #assert_standard_axioms Papers.AnsariRockel2024.amh_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_cdf
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_zero
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_zero
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_parameter_continuous
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_parameter_continuous
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_cd
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_cd
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_ci_iff
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_density_tp2_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_density_tp2_iff
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_schur_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_schur_iff
+
+#print axioms Papers.AnsariRockel2024.gumbelBarnett_tails
+#assert_standard_axioms Papers.AnsariRockel2024.gumbelBarnett_tails
