@@ -2,6 +2,8 @@ import Verification.Nelsen19
 import Verification.Nelsen19Conditional
 import Verification.Nelsen19Tails
 import Verification.Nelsen19Limits
+import Verification.Nelsen19Order
+import Verification.Nelsen19UpperLimit
 
 /-! # Tables 1–3: Nelsen 19 constructor, zero limit, CI and tails -/
 
@@ -32,5 +34,20 @@ theorem nelsen19_tendsto_zero {α : Type*} {l : Filter α} (θ : α → ℝ)
     Filter.Tendsto (fun a => (Verification.nelsen19 (θ a) (hθ a)).cdf ![u,v]) l
       (nhds ((Copula.clayton 2 1 (by norm_num)).cdf ![u,v])) :=
   Verification.nelsen19_tendsto_zero θ hθ ht u v
+
+theorem nelsen19_lowerOrthant_monotone {θ η : ℝ}
+    (hθ : 0 ≤ θ) (hη : 0 ≤ η) (hθη : θ ≤ η) :
+    (Verification.nelsen19 θ hθ).LowerOrthantLE (Verification.nelsen19 η hη) :=
+  Verification.nelsen19_lowerOrthant_monotone hθ hη hθη
+
+theorem nelsen19_schur_monotone {θ η : ℝ} (hθ : 0 ≤ θ) (hη : 0 ≤ η) (hθη : θ ≤ η) :
+    (Verification.nelsen19 θ hθ).SchurBothLE (Verification.nelsen19 η hη) :=
+  Verification.nelsen19_schur_monotone hθ hη hθη
+
+theorem nelsen19_tendsto_atTop {α : Type*} {l : Filter α} (θ : α → ℝ)
+    (hθ : ∀ a, 0 ≤ θ a) (ht : Filter.Tendsto θ l Filter.atTop) (u v : I) :
+    Filter.Tendsto (fun a => (Verification.nelsen19 (θ a) (hθ a)).cdf ![u,v]) l
+      (nhds ((Copula.comonotonic 2).cdf ![u,v])) :=
+  Verification.nelsen19_tendsto_atTop θ hθ ht u v
 
 end Papers.AnsariRockel2024

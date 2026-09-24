@@ -968,3 +968,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen19_tendsto_zero
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen19_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.nelsen19_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen19_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen19_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen19_tendsto_atTop
