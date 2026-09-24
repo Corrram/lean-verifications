@@ -878,3 +878,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.joe_ci
 #assert_standard_axioms Papers.AnsariRockel2024.joe_ci
+
+#print axioms Papers.AnsariRockel2024.joe_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.joe_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.joe_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.joe_schur_monotone
