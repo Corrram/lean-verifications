@@ -845,3 +845,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen13_tendsto_atTop
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen13_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.nelsen13_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_ci_iff
+
+#print axioms Papers.AnsariRockel2024.nelsen13_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen13_density_tp2_requires_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen13_density_tp2_requires_one
