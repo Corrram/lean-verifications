@@ -890,3 +890,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.joe_density_tp2
 #assert_standard_axioms Papers.AnsariRockel2024.joe_density_tp2
+
+#print axioms Papers.AnsariRockel2024.gumbel_toMeasure_density
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_toMeasure_density
+
+#print axioms Papers.AnsariRockel2024.gumbel_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_density_tp2

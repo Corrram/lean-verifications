@@ -2,6 +2,7 @@ import Verification.GumbelConditional
 import Verification.JoeConditional
 import Verification.JoeOrder
 import Verification.JoeDensity
+import Verification.GumbelDensity
 
 /-! # Table 3: Gumbel–Hougaard and Joe conditional increase and parameter orders -/
 
@@ -35,5 +36,14 @@ theorem joe_toMeasure_density {θ : ℝ} (hθ : 1 ≤ θ) :
 
 theorem joe_density_tp2 {θ : ℝ} (hθ : 1 ≤ θ) : (Copula.joe θ hθ).HasMTP2Density :=
   Verification.joe_hasMTP2Density hθ
+
+theorem gumbel_toMeasure_density {θ : ℝ} (hθ : 1 ≤ θ) :
+    (Copula.gumbel θ hθ).toMeasure =
+      (MeasureTheory.volume : MeasureTheory.Measure (Fin 2 → unitInterval)).withDensity
+        (fun x => ENNReal.ofReal (Verification.gumbelDensity θ x)) :=
+  Verification.gumbel_toMeasure_density hθ
+
+theorem gumbel_density_tp2 {θ : ℝ} (hθ : 1 ≤ θ) : (Copula.gumbel θ hθ).HasMTP2Density :=
+  Verification.gumbel_hasMTP2Density hθ
 
 end Papers.AnsariRockel2024
