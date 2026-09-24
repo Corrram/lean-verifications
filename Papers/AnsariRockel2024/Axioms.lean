@@ -731,3 +731,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_cd_iff
 #assert_standard_axioms Papers.AnsariRockel2024.frank_cd_iff
+
+#print axioms Papers.AnsariRockel2024.frank_cdf_lower_bound
+#assert_standard_axioms Papers.AnsariRockel2024.frank_cdf_lower_bound
+
+#print axioms Papers.AnsariRockel2024.frank_tendsto_atTop
+#assert_standard_axioms Papers.AnsariRockel2024.frank_tendsto_atTop
+
+#print axioms Papers.AnsariRockel2024.frank_tendsto_atBot
+#assert_standard_axioms Papers.AnsariRockel2024.frank_tendsto_atBot
