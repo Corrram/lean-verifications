@@ -773,3 +773,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen10_tails
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen10_tails
+
+#print axioms Papers.AnsariRockel2024.nelsen10_cd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_cd
+
+#print axioms Papers.AnsariRockel2024.nelsen10_continuousAt_zero
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen10_continuousAt_zero

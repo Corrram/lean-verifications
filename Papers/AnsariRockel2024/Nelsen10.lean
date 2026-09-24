@@ -1,4 +1,4 @@
-import Verification.Nelsen10
+import Verification.Nelsen10Continuity
 
 /-! # Tables 1–3: Nelsen 10, its actual CDF, endpoints and dependence exclusions -/
 
@@ -35,5 +35,12 @@ theorem nelsen10_tails (θ : I) :
     (Verification.nelsen10 θ).HasLowerTailDependence 0 ∧
       (Verification.nelsen10 θ).HasUpperTailDependence 0 :=
   Verification.nelsen10_tails θ
+
+theorem nelsen10_cd (θ : I) : (Verification.nelsen10 θ).IsCD :=
+  Verification.nelsen10_isCD θ
+
+theorem nelsen10_continuousAt_zero (u v : I) :
+    ContinuousAt (fun θ : I => (Verification.nelsen10 θ).cdf ![u,v]) 0 :=
+  Verification.nelsen10_continuousAt_zero u v
 
 end Papers.AnsariRockel2024
