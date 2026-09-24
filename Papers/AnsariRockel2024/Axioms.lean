@@ -1104,3 +1104,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen21_lowerOrthant_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen21_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen21_not_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_not_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen21_not_schur_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen21_not_schur_antitone
