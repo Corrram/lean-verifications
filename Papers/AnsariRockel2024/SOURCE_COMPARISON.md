@@ -20,6 +20,9 @@ certificate that every table cell in either version has been verified.
 | Mardia W coefficient | Appendix A.4.1, equation (A7), p. 30 (PDF index 29) | The published expression retains the negative W coefficient identified in arXiv equation (23). The formalization uses the nonnegative coefficient of the actual copula mixture. |
 | Fréchet parameter order | Appendix A.4.2, p. 31 (PDF index 30) | The published text still says the family increases when either weight is increased; the W-weight direction fails for the valid mixture. |
 | Mardia CI/CD and density TP2 | Appendix A.4.1, p. 30 (PDF index 29) | The published text still omits the independence case `θ = 0` from CI/CD and labels singular endpoints TP2 under a density interpretation. The Lean correction remains necessary. |
+| Plackett CI/CD and TP2 | Appendix A.4.1, p. 30 (PDF index 29) | The journal retains CI iff theta>=1, CD iff theta<=1, the TP2 exclusion for theta>2, and only numerical evidence for TP2 on [1,2]. The audited `plackett_density_tp2_iff` now proves that exact closed range. |
+| Raftery density exclusion | Appendix A.4.1, p. 30 (PDF index 29) | The journal repeats the assertion that no parameter has a density. `raftery_absolutelyContinuous_iff` and `raftery_density_tp2_iff` refute it: both properties hold exactly for delta<1. |
+| Raftery CI and lower-orthant order | Appendix A.4.1–A.4.2, pp. 30–31 (PDF indices 29–30) | The published CI and increasing lower-orthant statements agree with the audited `raftery_ci` and `raftery_lowerOrthant_monotone`. |
 
 The published text therefore does not resolve these printed discrepancies.
 Other family cells and all uninspected differences between the two versions
@@ -113,4 +116,8 @@ Integration of the actual CDF against its identified density gives
 `(4*a-1)/(4*(2*a+1))`, where `a=1/(1-delta)` in the interior.
 Symmetry reduces the calculation to one triangle, where the inner
 integral is a linear combination of three powers.
-The corresponding journal cells remain to be checked.
+The journal's Appendix A.4.1 density exclusion, CI assertion, and A.4.2
+lower-orthant assertion have now been compared above. The corresponding
+journal table formulas and tail cells remain to be checked. This distinction
+is intentional: publisher PDF text was available for the prose comparison,
+but page rendering and a direct PDF download failed during this check.

@@ -285,7 +285,7 @@ and checked against the standard axiom allowlist in [Axioms.lean](Axioms.lean).
 | Table 6: Raftery Kendall tau | `Papers.AnsariRockel2024.raftery_kendallTau` | verified | The corrected copula has tau=2*delta/(3-delta) on the entire closed parameter interval. The actual identified density permits integration of the CDF against the copula measure. Symmetry reduces the integral to one triangle; the inner integral is a linear combination of powers v, v^(2*a), and v^(4*a-1), where a=1/(1-delta). Exact power integration gives integral (4*a-1)/(4*(2*a+1)), hence tau=2*(a-1)/(2*a+1). Both singular/independence endpoint values are checked separately. |
 | Remaining family constructors and table entries | — | pending | Unlisted cells are not covered by the results above. |
 | General dependence/order equivalences and their applications | — | pending | Unlisted density properties and rearrangement-based Schur order need separate correspondence checks. |
-| Journal/preprint correspondence | — | pending | Selected named results and four printed discrepancies are compared with the open-access published PDF in SOURCE_COMPARISON.md. The remaining family cells and full version correspondence are not yet checked. |
+| Journal/preprint correspondence | — | pending | Selected named results and discrepancies are compared with the open-access published PDF in SOURCE_COMPARISON.md, including the Raftery density exclusion and the Plackett TP2 interval discussed in Appendix A.4.1. The remaining family cells and full version correspondence are not yet checked. |
 
 Proof sources: [ClaytonDensityDerivative.lean](ClaytonDensityDerivative.lean), [Definitions.lean](Definitions.lean),
 [Association.lean](Association.lean), and [Dependence.lean](Dependence.lean).
