@@ -1,5 +1,6 @@
 import Papers.AnsariRockel2024.GeneralOrders
 import Verification.ExtremeValuePickands
+import Verification.ExtremeValueLog
 import Copula.ExtremeValue.Diagonal
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
@@ -177,5 +178,33 @@ theorem marshallOlkin_tau (α β : I) :
       (α : ℝ) * (β : ℝ) /
         ((α : ℝ) + (β : ℝ) - (α : ℝ) * (β : ℝ)) :=
   Verification.marshallOlkin_kendallTau α β
+
+theorem extremeValue_pickands_bounds (C : Copula 2) (hC : C.IsExtremeValue) (t : I) :
+    max (1-(t:ℝ)) (t:ℝ)≤copulaPickands C t ∧ copulaPickands C t≤1 :=
+  Verification.extremeValue_pickands_bounds C hC t
+
+theorem extremeValue_log_homogeneous (C : Copula 2) (hC : C.IsExtremeValue)
+    (x y t : ℝ) (hx : 0≤x) (hy : 0≤y) (ht : 0≤t) :
+    extremeValueLog C (t*x) (t*y) (mul_nonneg ht hx) (mul_nonneg ht hy)=
+      t*extremeValueLog C x y hx hy :=
+  Verification.extremeValueLog_homogeneous C hC x y t hx hy ht
+
+theorem extremeValue_log_submodular (C : Copula 2) (hC : C.IsExtremeValue)
+    {x₁ x₂ y₁ y₂ : ℝ} (hx : 0≤x₁) (hy : 0≤y₁) (hxx : x₁≤x₂) (hyy : y₁≤y₂) :
+    extremeValueLog C x₁ y₁ hx hy + extremeValueLog C x₂ y₂ (hx.trans hxx) (hy.trans hyy) ≤
+      extremeValueLog C x₁ y₂ hx (hy.trans hyy) + extremeValueLog C x₂ y₁ (hx.trans hxx) hy :=
+  Verification.extremeValueLog_submodular C hC hx hy hxx hyy
+
+theorem extremeValue_log_increment_first (C : Copula 2) (hC : C.IsExtremeValue)
+    {x₁ x₂ y : ℝ} (hx : 0≤x₁) (hy : 0≤y) (hxx : x₁≤x₂) :
+    0≤extremeValueLog C x₂ y (hx.trans hxx) hy-extremeValueLog C x₁ y hx hy ∧
+    extremeValueLog C x₂ y (hx.trans hxx) hy-extremeValueLog C x₁ y hx hy≤x₂-x₁ :=
+  Verification.extremeValueLog_increment_first C hC hx hy hxx
+
+theorem extremeValue_log_increment_second (C : Copula 2) (hC : C.IsExtremeValue)
+    {x y₁ y₂ : ℝ} (hx : 0≤x) (hy : 0≤y₁) (hyy : y₁≤y₂) :
+    0≤extremeValueLog C x y₂ hx (hy.trans hyy)-extremeValueLog C x y₁ hx hy ∧
+    extremeValueLog C x y₂ hx (hy.trans hyy)-extremeValueLog C x y₁ hx hy≤y₂-y₁ :=
+  Verification.extremeValueLog_increment_second C hC hx hy hyy
 
 end Papers.AnsariRockel2024

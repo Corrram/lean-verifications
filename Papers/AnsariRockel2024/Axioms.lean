@@ -1371,3 +1371,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.raftery_kendallTau
 #assert_standard_axioms Papers.AnsariRockel2024.raftery_kendallTau
+
+#print axioms Papers.AnsariRockel2024.extremeValue_pickands_bounds
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_bounds
+
+#print axioms Papers.AnsariRockel2024.extremeValue_log_homogeneous
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_log_homogeneous
+
+#print axioms Papers.AnsariRockel2024.extremeValue_log_submodular
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_log_submodular
+
+#print axioms Papers.AnsariRockel2024.extremeValue_log_increment_first
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_log_increment_first
+
+#print axioms Papers.AnsariRockel2024.extremeValue_log_increment_second
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_log_increment_second
