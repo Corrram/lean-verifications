@@ -1245,3 +1245,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.plackett_density
 #assert_standard_axioms Papers.AnsariRockel2024.plackett_density
+
+#print axioms Papers.AnsariRockel2024.plackett_ci_iff
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_ci_iff
+
+#print axioms Papers.AnsariRockel2024.plackett_cd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_cd_iff
+
+#print axioms Papers.AnsariRockel2024.plackett_pqd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_pqd_iff
+
+#print axioms Papers.AnsariRockel2024.plackett_nqd_iff
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_nqd_iff

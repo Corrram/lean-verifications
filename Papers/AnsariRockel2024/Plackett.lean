@@ -1,4 +1,5 @@
 import Verification.PlackettDensity
+import Verification.PlackettConditional
 
 /-! # Table 4: the Plackett copula and its actual Lebesgue density -/
 
@@ -20,5 +21,17 @@ theorem plackett_density {θ : ℝ} (hθ : 0 < θ) (hne : θ ≠ 1) :
     (Verification.plackett θ hθ).toMeasure = (volume : Measure (Fin 2 → I)).withDensity
       (fun x => ENNReal.ofReal (Verification.plackettDensity θ (x 0) (x 1))) :=
   Verification.plackett_toMeasure_density hθ hne
+
+theorem plackett_ci_iff {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.plackett θ hθ).IsCI ↔ 1 ≤ θ := Verification.plackett_ci_iff hθ
+
+theorem plackett_cd_iff {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.plackett θ hθ).IsCD ↔ θ ≤ 1 := Verification.plackett_cd_iff hθ
+
+theorem plackett_pqd_iff {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.plackett θ hθ).IsPQD ↔ 1 ≤ θ := Verification.plackett_pqd_iff hθ
+
+theorem plackett_nqd_iff {θ : ℝ} (hθ : 0 < θ) :
+    (Verification.plackett θ hθ).IsNQD ↔ θ ≤ 1 := Verification.plackett_nqd_iff hθ
 
 end Papers.AnsariRockel2024
