@@ -1110,3 +1110,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen21_not_schur_antitone
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen21_not_schur_antitone
+
+#print axioms Papers.AnsariRockel2024.nelsen18_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_cdf_full
+
+#print axioms Papers.AnsariRockel2024.nelsen18_cdf_of_lt_one
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_cdf_of_lt_one
+
+#print axioms Papers.AnsariRockel2024.nelsen18_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_lowerTail
+
+#print axioms Papers.AnsariRockel2024.nelsen18_upperTail
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_upperTail
+
+#print axioms Papers.AnsariRockel2024.nelsen18_not_pqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_pqd
+
+#print axioms Papers.AnsariRockel2024.nelsen18_not_ci
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_ci
+
+#print axioms Papers.AnsariRockel2024.nelsen18_not_density_tp2
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_density_tp2
+
+#print axioms Papers.AnsariRockel2024.nelsen18_not_nqd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_nqd
+
+#print axioms Papers.AnsariRockel2024.nelsen18_not_cd
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_cd
