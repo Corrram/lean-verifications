@@ -1308,3 +1308,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.raftery_one_upperTail
 #assert_standard_axioms Papers.AnsariRockel2024.raftery_one_upperTail
+
+#print axioms Papers.AnsariRockel2024.raftery_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_cdf
+
+#print axioms Papers.AnsariRockel2024.raftery_zero
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_zero
+
+#print axioms Papers.AnsariRockel2024.raftery_one
+#assert_standard_axioms Papers.AnsariRockel2024.raftery_one

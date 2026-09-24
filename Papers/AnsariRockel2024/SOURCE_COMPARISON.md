@@ -88,6 +88,10 @@ Table 5 prints upper-tail coefficient zero without excluding delta=1,
 which Table 4 identifies with comonotonicity. `raftery_one_upperTail`
 checks that this endpoint has coefficient one and cannot have coefficient
 zero. Both endpoint results state the endpoint identity as a hypothesis;
-they do not claim to construct the interior family. The interior
-constructor, its properties, and the corresponding journal cells remain
+they are endpoint consistency checks. The subsequent theorem `raftery_cdf`
+now constructs an actual copula measure and verifies the full-square
+formula with coefficient `(1-delta)/(1+delta)` for delta<1. Its mixture
+representation proves uniform margins and nonnegative rectangle
+increments; `raftery_zero` and `raftery_one` verify both endpoint identities.
+Interior dependence properties and the corresponding journal cells remain
 to be checked.
