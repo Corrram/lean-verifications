@@ -740,3 +740,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_tendsto_atBot
 #assert_standard_axioms Papers.AnsariRockel2024.frank_tendsto_atBot
+
+#print axioms Papers.AnsariRockel2024.frankSigned_cdf_regular
+#assert_standard_axioms Papers.AnsariRockel2024.frankSigned_cdf_regular
+
+#print axioms Papers.AnsariRockel2024.frank_continuousAt_zero
+#assert_standard_axioms Papers.AnsariRockel2024.frank_continuousAt_zero
+
+#print axioms Papers.AnsariRockel2024.frank_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.frank_tendsto_zero
