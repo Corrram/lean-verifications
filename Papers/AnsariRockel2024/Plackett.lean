@@ -3,6 +3,7 @@ import Verification.PlackettConditional
 import Verification.PlackettTails
 import Verification.PlackettContinuity
 import Verification.PlackettOrder
+import Verification.PlackettDensityNecessity
 
 /-! # Table 4: the Plackett copula and its actual Lebesgue density -/
 
@@ -75,5 +76,14 @@ theorem plackett_schur_above_one {θ η : ℝ} (hθ : 0 < θ) (h1 : 1 ≤ θ) (h
 theorem plackett_schur_below_one {θ η : ℝ} (hθ : 0 < θ) (hη : η ≤ 1) (hθη : θ ≤ η) :
     (Verification.plackett η (hθ.trans_le hθη)).SchurBothLE (Verification.plackett θ hθ) :=
   Verification.plackett_schur_below_one hθ hη hθη
+
+theorem plackett_density_tp2_necessary {θ : ℝ} (hθ : 0 < θ)
+    (hC : (Verification.plackett θ hθ).HasMTP2Density) : θ ∈ Set.Icc (1:ℝ) 2 :=
+  Verification.plackett_density_tp2_necessary hθ hC
+
+theorem plackett_not_density_tp2_above_two {θ : ℝ} (hθ : 2 < θ) :
+    ¬(Verification.plackett θ (by linarith)).HasMTP2Density := by
+  intro hC
+  exact (not_le.mpr hθ) (Verification.plackett_density_tp2_requires_le_two (by linarith) hC)
 
 end Papers.AnsariRockel2024

@@ -1281,3 +1281,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.plackett_schur_below_one
 #assert_standard_axioms Papers.AnsariRockel2024.plackett_schur_below_one
+
+#print axioms Papers.AnsariRockel2024.plackett_density_tp2_necessary
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_density_tp2_necessary
+
+#print axioms Papers.AnsariRockel2024.plackett_not_density_tp2_above_two
+#assert_standard_axioms Papers.AnsariRockel2024.plackett_not_density_tp2_above_two
