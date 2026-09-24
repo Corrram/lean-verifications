@@ -1019,3 +1019,10 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.nelsen17_neg_one
 #assert_standard_axioms Papers.AnsariRockel2024.nelsen17_neg_one
+
+
+#print axioms Papers.AnsariRockel2024.nelsen17_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isCI
+
+#print axioms Papers.AnsariRockel2024.nelsen17_isCD
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen17_isCD

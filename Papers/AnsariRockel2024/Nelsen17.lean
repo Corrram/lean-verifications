@@ -1,4 +1,4 @@
-import Verification.Nelsen17
+import Verification.Nelsen17Conditional
 
 /-! # Tables 1–2: Nelsen 17 on both nonzero parameter branches -/
 
@@ -14,5 +14,13 @@ theorem nelsen17_cdf_full (θ : ℝ) (hθ : θ ≠ 0) (u v : I) :
 
 theorem nelsen17_neg_one : Verification.nelsen17 (-1) (by norm_num) = Copula.independence 2 :=
   Verification.nelsen17_neg_one
+
+theorem nelsen17_isCI (θ : ℝ) (hθ : θ ≠ 0) (hθ1 : -1 ≤ θ) :
+    (Verification.nelsen17 θ hθ).IsCI :=
+  Verification.nelsen17_isCI θ hθ hθ1
+
+theorem nelsen17_isCD (θ : ℝ) (hθ : θ ≠ 0) (hθ1 : θ ≤ -1) :
+    (Verification.nelsen17 θ hθ).IsCD :=
+  Verification.nelsen17_isCD θ hθ hθ1
 
 end Papers.AnsariRockel2024
