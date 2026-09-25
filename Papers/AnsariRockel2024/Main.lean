@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2024.JoeExtremeValueWeights
 import Papers.AnsariRockel2024.JoeExtremeValueTails
 import Papers.AnsariRockel2024.JoeExtremeValuePickands
 import Papers.AnsariRockel2024.JoeExtremeValueOrders
