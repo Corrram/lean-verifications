@@ -1878,3 +1878,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_upperTail
 #assert_standard_axioms Papers.AnsariRockel2024.student_upperTail
+
+#print axioms Papers.AnsariRockel2024.student_cdf_continuous
+#assert_standard_axioms Papers.AnsariRockel2024.student_cdf_continuous
+
+#print axioms Papers.AnsariRockel2024.laplace_cdf_continuous
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_cdf_continuous
+
+#print axioms Papers.AnsariRockel2024.student_cdf_tendsto_one
+#assert_standard_axioms Papers.AnsariRockel2024.student_cdf_tendsto_one
+
+#print axioms Papers.AnsariRockel2024.student_cdf_tendsto_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.student_cdf_tendsto_negative_one
+
+#print axioms Papers.AnsariRockel2024.laplace_cdf_tendsto_one
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_cdf_tendsto_one
+
+#print axioms Papers.AnsariRockel2024.laplace_cdf_tendsto_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_cdf_tendsto_negative_one
