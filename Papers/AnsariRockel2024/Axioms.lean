@@ -1644,3 +1644,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_schurBoth_iff
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_schurBoth_iff
+
+#print axioms Papers.AnsariRockel2024.gaussian_cdf_continuous
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_cdf_continuous
+
+#print axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_one
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_one
+
+#print axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_negative_one

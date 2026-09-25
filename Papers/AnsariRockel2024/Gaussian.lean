@@ -11,11 +11,12 @@ import Verification.GaussianCopulaDensity
 import Verification.GaussianTP2
 import Verification.GaussianTails
 import Verification.GaussianOrder
+import Verification.GaussianContinuity
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
 open ProbabilityTheory MeasureTheory Set Copula
-open scoped unitInterval
+open scoped unitInterval Topology
 
 namespace Papers.AnsariRockel2024
 
@@ -216,5 +217,24 @@ theorem gaussian_schur_iff {r s : ℝ} (hr : r∈Icc (-1) 1) (hs : s∈Icc (-1) 
 theorem gaussian_schurBoth_iff {r s : ℝ} (hr : r∈Icc (-1) 1) (hs : s∈Icc (-1) 1) :
     (Verification.gaussianBivariate r hr).SchurBothLE (Verification.gaussianBivariate s hs) ↔ |r|≤|s| :=
   Verification.gaussianBivariate_schurBoth_iff hr hs
+
+theorem gaussian_cdf_continuous (u : Fin 2 → I) :
+    Continuous (fun r : Icc (-1:ℝ) 1 => (Verification.gaussianBivariate r r.property).cdf u) :=
+  Verification.gaussianBivariate_cdf_continuous u
+
+theorem gaussian_cdf_tendsto_zero (u : Fin 2 → I) :
+    Filter.Tendsto (fun r : Icc (-1:ℝ) 1 => (Verification.gaussianBivariate r r.property).cdf u)
+      (𝓝 (⟨0,by norm_num⟩ : Icc (-1:ℝ) 1)) (𝓝 ((independence 2).cdf u)) :=
+  Verification.gaussianBivariate_cdf_tendsto_zero u
+
+theorem gaussian_cdf_tendsto_one (u : Fin 2 → I) :
+    Filter.Tendsto (fun r : Icc (-1:ℝ) 1 => (Verification.gaussianBivariate r r.property).cdf u)
+      (𝓝 (⟨1,by norm_num⟩ : Icc (-1:ℝ) 1)) (𝓝 ((comonotonic 2).cdf u)) :=
+  Verification.gaussianBivariate_cdf_tendsto_one u
+
+theorem gaussian_cdf_tendsto_negative_one (u : Fin 2 → I) :
+    Filter.Tendsto (fun r : Icc (-1:ℝ) 1 => (Verification.gaussianBivariate r r.property).cdf u)
+      (𝓝 (⟨-1,by norm_num⟩ : Icc (-1:ℝ) 1)) (𝓝 (countermonotonic.cdf u)) :=
+  Verification.gaussianBivariate_cdf_tendsto_negative_one u
 
 end Papers.AnsariRockel2024
