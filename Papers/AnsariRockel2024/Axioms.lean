@@ -1482,3 +1482,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_spearmanRho
 #assert_standard_axioms Papers.AnsariRockel2024.frank_spearmanRho
+
+#print axioms Papers.AnsariRockel2024.clayton_positive_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_conditionalCDF
+
+#print axioms Papers.AnsariRockel2024.clayton_positive_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_kendallTau
+
+#print axioms Papers.AnsariRockel2024.clayton_zero_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_zero_kendallTau
+
+#print axioms Papers.AnsariRockel2024.clayton_negative_one_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_one_kendallTau

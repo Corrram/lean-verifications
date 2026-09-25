@@ -10,6 +10,7 @@ import Papers.AnsariRockel2024.Nelsen18
 import Papers.AnsariRockel2024.Nelsen21
 import Papers.AnsariRockel2024.GumbelBarnett
 import Papers.AnsariRockel2024.ClaytonDensityDerivative
+import Papers.AnsariRockel2024.ClaytonAssociation
 import Papers.AnsariRockel2024.DensityTP2Consequences
 import Papers.AnsariRockel2024.CuadrasAugeResults
 import Papers.AnsariRockel2024.ExtremeValueOrders
