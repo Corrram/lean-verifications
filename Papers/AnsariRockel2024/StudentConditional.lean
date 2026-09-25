@@ -1,6 +1,7 @@
 import Verification.StudentConditionalCDF
 import Verification.StudentConditionalDensity
 import Papers.AnsariRockel2024.Student
+import Verification.StudentConditionalKernel
 
 open ProbabilityTheory MeasureTheory Set
 open scoped ENNReal
@@ -40,5 +41,33 @@ theorem student_conditional_cdf_standard (r : ℝ) (hr : r∈Ioo (-1) 1)
         ((y-r*x)/Real.sqrt ((ν+x^2)*(1-r^2)/(ν+1))) := by
   rw [student_marginal 0 (by norm_num) (ν+1) (by positivity) 0]
   exact Verification.studentConditionalDensity_cdf_standard hr ν hν x y
+
+theorem student_joint_disintegration (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) (f : ℝ×ℝ → ℝ≥0∞) (hf : Measurable f) :
+    (∫⁻ p, f p ∂(Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν).toMeasure.map
+      MeasurableEquiv.finTwoArrow)=
+      ∫⁻ x, ∫⁻ y, f (x,y) ∂volume.withDensity (Verification.studentConditionalDensity r ν x)
+        ∂Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0 :=
+  Verification.student_joint_disintegration hr ν hν f hf
+
+theorem student_conditional_kernel_isMarkov (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) : IsMarkovKernel (Verification.studentConditionalKernel r ν) :=
+  Verification.studentConditionalKernel_isMarkov hr ν hν
+
+theorem student_joint_eq_compProd (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) :
+    (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν).toMeasure.map
+      MeasurableEquiv.finTwoArrow=
+      (Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0) ⊗ₘ
+        Verification.studentConditionalKernel r ν :=
+  Verification.student_joint_eq_compProd hr ν hν
+
+theorem student_joint_rectangle_conditional (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) (a b : ℝ) :
+    ((Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν).toMeasure.map
+      MeasurableEquiv.finTwoArrow).real (Iic a ×ˢ Iic b)=
+      ∫ x in Iic a, ProbabilityTheory.cdf (volume.withDensity (Verification.studentConditionalDensity r ν x)) b
+        ∂Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0 :=
+  Verification.student_joint_rectangle_conditional hr ν hν a b
 
 end Papers.AnsariRockel2024

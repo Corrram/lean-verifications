@@ -1827,3 +1827,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_conditional_cdf_standard
 #assert_standard_axioms Papers.AnsariRockel2024.student_conditional_cdf_standard
+
+#print axioms Papers.AnsariRockel2024.student_joint_disintegration
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_disintegration
+
+#print axioms Papers.AnsariRockel2024.student_conditional_kernel_isMarkov
+#assert_standard_axioms Papers.AnsariRockel2024.student_conditional_kernel_isMarkov
+
+#print axioms Papers.AnsariRockel2024.student_joint_eq_compProd
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_eq_compProd
+
+#print axioms Papers.AnsariRockel2024.student_joint_rectangle_conditional
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_rectangle_conditional
