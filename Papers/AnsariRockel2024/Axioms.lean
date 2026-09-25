@@ -1920,3 +1920,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_radial_density_antitone
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_radial_density_antitone
+
+#print axioms Papers.AnsariRockel2024.laplace_radial_density_finite
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_radial_density_finite
+
+#print axioms Papers.AnsariRockel2024.laplace_radial_density_origin
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_radial_density_origin
+
+#print axioms Papers.AnsariRockel2024.laplace_radial_density_blowup
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_radial_density_blowup
+
+#print axioms Papers.AnsariRockel2024.laplace_radial_density_continuous
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_radial_density_continuous

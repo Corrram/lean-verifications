@@ -1,4 +1,4 @@
-import Verification.LaplaceJointDensity
+import Verification.LaplaceRadialAnalysis
 
 open ProbabilityTheory MeasureTheory Real Set Copula Verification
 open scoped ENNReal
@@ -18,5 +18,18 @@ theorem laplace_joint_radial_density (r : ℝ) (hr : r∈Ioo (-1) 1) :
 
 theorem laplace_radial_density_antitone : Antitone laplaceRadialDensity :=
   laplaceRadialDensity_antitone
+
+theorem laplace_radial_density_finite {q : ℝ} (hq : 0<q) :
+    laplaceRadialDensity q≠∞ := laplaceRadialDensity_ne_top hq
+
+theorem laplace_radial_density_origin : laplaceRadialDensity 0=∞ :=
+  laplaceRadialDensity_zero
+
+theorem laplace_radial_density_blowup :
+    Filter.Tendsto laplaceRadialDensity (nhds (0:ℝ)) (nhds ∞) :=
+  laplaceRadialDensity_tendsto_zero
+
+theorem laplace_radial_density_continuous {q : ℝ} (hq : 0<q) :
+    ContinuousAt laplaceRadialDensity q := laplaceRadialDensity_continuousAt hq
 
 end Papers.AnsariRockel2024
