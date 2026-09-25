@@ -1695,3 +1695,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_lowerOrthant_monotone
 #assert_standard_axioms Papers.AnsariRockel2024.student_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.student_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.student_kendallTau
+
+#print axioms Papers.AnsariRockel2024.student_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.student_lowerOrthant_iff
