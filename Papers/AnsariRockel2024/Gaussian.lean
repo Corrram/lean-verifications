@@ -6,6 +6,7 @@ import Verification.GaussianConditional
 import Verification.GaussianXi
 import Verification.GaussianQuantileConditional
 import Verification.GaussianDependence
+import Verification.GaussianNormalDensity
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -167,5 +168,16 @@ theorem gaussian_isPQD_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
 theorem gaussian_isNQD_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
     (Verification.gaussianBivariate r hr).IsNQD ↔ r≤0 :=
   Verification.gaussianBivariate_isNQD_iff hr
+
+theorem gaussian_absolutelyContinuous_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).toMeasure ≪ volume ↔ r∈Ioo (-1) 1 :=
+  Verification.gaussianBivariate_absolutelyContinuous_iff hr
+
+theorem gaussian_toMeasure_normal_density {r : ℝ} (hr : r∈Ioo (-1) 1) :
+    (Verification.gaussianBivariate r ⟨hr.1.le,hr.2.le⟩).toMeasure=
+      ((volume : Measure (ℝ×ℝ)).withDensity
+        (fun p => gaussianPDF 0 1 p.1*gaussianPDF (r*p.1) (1-r^2).toNNReal p.2)).map
+          (fun p => ![cdfUnit (gaussianReal 0 1) p.1,cdfUnit (gaussianReal 0 1) p.2]) :=
+  Verification.gaussianBivariate_toMeasure_normal_density hr
 
 end Papers.AnsariRockel2024
