@@ -150,3 +150,17 @@ The negative Student-t endpoint is now also proved: `student_negative_one` ident
 [arXiv v3 HTML Table 1](https://arxiv.org/html/2310.17307v3) prints correlation `rho` in the dimension slots of the Student-t density: `Gamma((nu+rho)/2)`, `nu^(rho/2)`, `pi^(rho/2)`, and power `-(nu+rho)/2`. The formal definition `Verification.studentPrintedJointPDF` transcribes that literal expression with the bivariate correlation determinant and quadratic form. At correlation zero, degrees of freedom two, and the origin, it equals one. The actual standard density proved from the Gaussian-gamma construction equals `1/(2*pi)` there, strictly below one. The public theorem `student_joint_printed_formula_false` refutes the universal pointwise identity. A single-point counterexample is not used to claim inequality of measures.
 
 The checked correction is the standard dimension-two formula in `student_joint_standard_density`: the power is `-(nu+2)/2`, and the gamma recurrence simplifies the normalizing factor to `1/(2*pi*sqrt(1-rho^2))`. This comparison was checked against the arXiv v3 HTML. The arXiv PDF and journal wording of this particular cell remain unchecked.
+
+
+## Extreme-value endpoint convergence: uniformity
+
+The [arXiv v3 Figure 2 discussion](https://arxiv.org/html/2310.17307v3)
+states uniform endpoint convergence for the asymmetric Joe extreme-value
+family. The earlier full-square pointwise results are now strengthened by
+`joeExtremeValue_limit_independence_uniform` and
+`joeExtremeValue_limit_marshallOlkin_uniform`, for every fixed weight pair
+in [0,1]. The two Galambos endpoint limits are also proved uniform.
+The general lemma `Verification.copula_cdf_uniform_limit_of_pointwise`
+uses the dimension-dependent common Lipschitz constant and compactness
+of the closed cube. The BB5 uniform-limit claims in the same discussion
+remain unverified; this update does not cover that family.
