@@ -121,3 +121,7 @@ lower-orthant assertion have now been compared above. The corresponding
 journal table formulas and tail cells remain to be checked. This distinction
 is intentional: publisher PDF text was available for the prose comparison,
 but page rendering and a direct PDF download failed during this check.
+
+## Gaussian xi real-domain failure (arXiv v3 only)
+
+The [arXiv v3 PDF, page 19](https://arxiv.org/pdf/2310.17307v3#page=19) and [HTML Table 6](https://arxiv.org/html/2310.17307v3) both print the arcsine argument `1/2 + r^2/(1+r)`. The checked theorem `gaussian_printed_xi_argument_outside_domain` shows it exceeds one for every `-1<r<-1/2`; `gaussian_printed_xi_argument_counterexample` evaluates it to `11/4` at `r=-3/4`. The correlation-matrix theorem confirms these are admissible parameters of the actual Gaussian family. This is a failure of the classical real arcsine domain, independent of any totalized library convention outside [-1,1]. A corrected xi formula and the journal version of this cell remain pending.

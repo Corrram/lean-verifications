@@ -1518,3 +1518,27 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gumbel_spearmanRho
 #assert_standard_axioms Papers.AnsariRockel2024.gumbel_spearmanRho
+
+#print axioms Papers.AnsariRockel2024.gaussian_correlation_admissible
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_correlation_admissible
+
+#print axioms Papers.AnsariRockel2024.gaussian_zero
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_zero
+
+#print axioms Papers.AnsariRockel2024.gaussian_one
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_one
+
+#print axioms Papers.AnsariRockel2024.gaussian_symmetric
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_symmetric
+
+#print axioms Papers.AnsariRockel2024.gaussian_zero_association
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_zero_association
+
+#print axioms Papers.AnsariRockel2024.gaussian_one_association
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_one_association
+
+#print axioms Papers.AnsariRockel2024.gaussian_printed_xi_argument_outside_domain
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_printed_xi_argument_outside_domain
+
+#print axioms Papers.AnsariRockel2024.gaussian_printed_xi_argument_counterexample
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_printed_xi_argument_counterexample

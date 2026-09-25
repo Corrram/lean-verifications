@@ -1,0 +1,46 @@
+import Verification.GaussianBivariate
+
+/-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
+
+open ProbabilityTheory Set Copula
+
+namespace Papers.AnsariRockel2024
+
+theorem gaussian_correlation_admissible (r : ℝ) :
+    (Verification.bivariateCorrelation r).PosSemidef ↔ r∈Icc (-1) 1 :=
+  Verification.bivariateCorrelation_posSemidef_iff r
+
+theorem gaussian_zero : Verification.gaussianBivariate 0 (by norm_num)=independence 2 :=
+  Verification.gaussianBivariate_zero
+
+theorem gaussian_one : Verification.gaussianBivariate 1 (by norm_num)=comonotonic 2 :=
+  Verification.gaussianBivariate_one
+
+theorem gaussian_symmetric {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).transpose=Verification.gaussianBivariate r hr :=
+  Verification.gaussianBivariate_transpose hr
+
+theorem gaussian_zero_association :
+    (Verification.gaussianBivariate 0 (by norm_num)).spearmanRho=0 ∧
+    (Verification.gaussianBivariate 0 (by norm_num)).kendallTau=0 ∧
+    (Verification.gaussianBivariate 0 (by norm_num)).chatterjeeXi=0 := by
+  rw [gaussian_zero]
+  simp
+
+theorem gaussian_one_association :
+    (Verification.gaussianBivariate 1 (by norm_num)).spearmanRho=1 ∧
+    (Verification.gaussianBivariate 1 (by norm_num)).kendallTau=1 ∧
+    (Verification.gaussianBivariate 1 (by norm_num)).chatterjeeXi=1 := by
+  rw [gaussian_one]
+  simp
+
+theorem gaussian_printed_xi_argument_outside_domain {r : ℝ}
+    (hr : r∈Ioo (-1) (-(1/2))) : 1<Verification.gaussianPrintedXiArgument r :=
+  Verification.gaussianPrintedXiArgument_gt_one hr
+
+theorem gaussian_printed_xi_argument_counterexample :
+    Verification.gaussianPrintedXiArgument (-(3/4))=11/4 ∧
+      Verification.gaussianPrintedXiArgument (-(3/4))∉Icc (-1) 1 :=
+  Verification.gaussianPrintedXiArgument_counterexample
+
+end Papers.AnsariRockel2024
