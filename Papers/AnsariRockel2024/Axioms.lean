@@ -1713,3 +1713,33 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_xi_neg
 #assert_standard_axioms Papers.AnsariRockel2024.student_xi_neg
+
+#print axioms Papers.AnsariRockel2024.laplace_isSklarCopula
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_isSklarCopula
+
+#print axioms Papers.AnsariRockel2024.laplace_one
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_one
+
+#print axioms Papers.AnsariRockel2024.laplace_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_negative_one
+
+#print axioms Papers.AnsariRockel2024.laplace_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_kendallTau
+
+#print axioms Papers.AnsariRockel2024.laplace_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_lowerOrthant_monotone
+
+#print axioms Papers.AnsariRockel2024.laplace_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.laplace_reflect_second
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_reflect_second
+
+#print axioms Papers.AnsariRockel2024.laplace_rho_neg
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_rho_neg
+
+#print axioms Papers.AnsariRockel2024.laplace_tau_neg
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_tau_neg
+
+#print axioms Papers.AnsariRockel2024.laplace_xi_neg
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_xi_neg
