@@ -1,3 +1,4 @@
+import Verification.ScaleMixtureSymmetry
 import Verification.ScaleMixtureReflection
 import Papers.AnsariRockel2024.Student
 import Verification.ScaleMixtureJointCDF
@@ -67,5 +68,24 @@ theorem student_xi_neg {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
     (Verification.studentBivariate (-r) (by constructor <;> linarith [hr.1,hr.2]) ν hν).chatterjeeXi=
       (Verification.studentBivariate r hr ν hν).chatterjeeXi := by
   rw [student_reflect_second hr ν hν,Verification.xi_reflect_second]
+
+
+theorem student_transpose {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
+    (Verification.studentBivariate r hr ν hν).transpose=Verification.studentBivariate r hr ν hν :=
+  Verification.gaussianScaleMixture_transpose hr (gammaProbability (ν/2) (ν/2) (by positivity) (by positivity)) (fun t => (Real.sqrt t)⁻¹)
+    (by fun_prop) (by
+      filter_upwards [ae_pos_gammaMeasure (ν/2) (ν/2)] with t ht
+      exact inv_pos.mpr (Real.sqrt_pos.mpr ht))
+
+theorem student_radiallySymmetric {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
+    (Verification.studentBivariate r hr ν hν).IsRadiallySymmetric :=
+  Verification.gaussianScaleMixture_radiallySymmetric hr (gammaProbability (ν/2) (ν/2) (by positivity) (by positivity)) (fun t => (Real.sqrt t)⁻¹)
+    (by fun_prop) (by
+      filter_upwards [ae_pos_gammaMeasure (ν/2) (ν/2)] with t ht
+      exact inv_pos.mpr (Real.sqrt_pos.mpr ht))
+
+theorem student_upperTail_iff_lowerTail {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) (ℓ : ℝ) :
+    (Verification.studentBivariate r hr ν hν).HasUpperTailDependence ℓ ↔ (Verification.studentBivariate r hr ν hν).HasLowerTailDependence ℓ :=
+  (student_radiallySymmetric hr ν hν).hasUpperTailDependence_iff ℓ
 
 end Papers.AnsariRockel2024

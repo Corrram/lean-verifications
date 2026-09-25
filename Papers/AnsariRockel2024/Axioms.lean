@@ -1743,3 +1743,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_xi_neg
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_xi_neg
+
+#print axioms Papers.AnsariRockel2024.student_transpose
+#assert_standard_axioms Papers.AnsariRockel2024.student_transpose
+
+#print axioms Papers.AnsariRockel2024.student_radiallySymmetric
+#assert_standard_axioms Papers.AnsariRockel2024.student_radiallySymmetric
+
+#print axioms Papers.AnsariRockel2024.student_upperTail_iff_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.student_upperTail_iff_lowerTail
+
+#print axioms Papers.AnsariRockel2024.laplace_transpose
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_transpose
+
+#print axioms Papers.AnsariRockel2024.laplace_radiallySymmetric
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_radiallySymmetric
+
+#print axioms Papers.AnsariRockel2024.laplace_upperTail_iff_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_upperTail_iff_lowerTail

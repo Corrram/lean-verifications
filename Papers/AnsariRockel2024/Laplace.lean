@@ -1,3 +1,4 @@
+import Verification.ScaleMixtureSymmetry
 import Copula.Families.ScaleMixtures
 import Verification.ScaleMixtureTau
 import Verification.ScaleMixtureJointCDF
@@ -72,5 +73,18 @@ theorem laplace_xi_neg {r : ℝ} (hr : r∈Icc (-1) 1) :
     (laplaceBivariate (-r) (by constructor <;> linarith [hr.1,hr.2])).chatterjeeXi=
       (laplaceBivariate r hr).chatterjeeXi := by
   rw [laplace_reflect_second hr,xi_reflect_second]
+
+
+theorem laplace_transpose {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.laplaceBivariate r hr).transpose=Verification.laplaceBivariate r hr :=
+  Verification.gaussianScaleMixture_transpose hr _ _ (by fun_prop) Verification.laplace_scale_pos
+
+theorem laplace_radiallySymmetric {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.laplaceBivariate r hr).IsRadiallySymmetric :=
+  Verification.gaussianScaleMixture_radiallySymmetric hr _ _ (by fun_prop) Verification.laplace_scale_pos
+
+theorem laplace_upperTail_iff_lowerTail {r : ℝ} (hr : r∈Icc (-1) 1) (ℓ : ℝ) :
+    (Verification.laplaceBivariate r hr).HasUpperTailDependence ℓ ↔ (Verification.laplaceBivariate r hr).HasLowerTailDependence ℓ :=
+  (laplace_radiallySymmetric hr).hasUpperTailDependence_iff ℓ
 
 end Papers.AnsariRockel2024
