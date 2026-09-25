@@ -1569,3 +1569,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_rho_normal_integral
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_rho_normal_integral
+
+#print axioms Papers.AnsariRockel2024.gaussian_wedge_probability
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_wedge_probability
+
+#print axioms Papers.AnsariRockel2024.gaussian_halfline_cdf_integral
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_halfline_cdf_integral

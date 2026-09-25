@@ -1,4 +1,5 @@
 import Verification.GaussianRepresentation
+import Verification.GaussianWedge
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -88,5 +89,14 @@ theorem gaussian_rho_normal_integral {r : ℝ} (hr : r∈Icc (-1) 1) :
         ProbabilityTheory.cdf (gaussianReal 0 1) (r*x 0+Real.sqrt (1-r^2)*x 1)
         ∂Measure.pi (fun _ => gaussianReal 0 1))-3 :=
   Verification.gaussianBivariate_rho_normal_integral hr
+
+theorem gaussian_wedge_probability {a : ℝ} (ha : 0≤a) :
+    (∫ x in Ioi (0:ℝ), ∫ y in Ioi (0:ℝ),
+      (if y≤a*x then (1:ℝ) else 0) ∂gaussianReal 0 1 ∂gaussianReal 0 1)=
+      Real.arctan a/(2*Real.pi) := Verification.standardGaussian_wedge ha
+
+theorem gaussian_halfline_cdf_integral (a : ℝ) :
+    (∫ x in Ioi (0:ℝ), ProbabilityTheory.cdf (gaussianReal 0 1) (a*x) ∂gaussianReal 0 1)=
+      1/4+Real.arctan a/(2*Real.pi) := Verification.integral_standardGaussian_cdf a
 
 end Papers.AnsariRockel2024
