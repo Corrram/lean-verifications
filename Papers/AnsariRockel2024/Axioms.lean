@@ -2031,3 +2031,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.joeExtremeValue_zero_weight
 #assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_zero_weight
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_schurBoth_mono
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_schurBoth_mono
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_limit_marshallOlkin
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_limit_marshallOlkin
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_limit_independence
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_limit_independence
