@@ -1,8 +1,8 @@
-import Verification.GaussianReflection
+import Verification.GaussianRepresentation
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
-open ProbabilityTheory Set Copula
+open ProbabilityTheory MeasureTheory Set Copula
 
 namespace Papers.AnsariRockel2024
 
@@ -74,5 +74,19 @@ theorem gaussian_printed_xi_formula_false :
     ¬∀ (r : ℝ) (hr : r∈Icc (-1) 1),
       (Verification.gaussianBivariate r hr).chatterjeeXi=Verification.gaussianPrintedXi r :=
   Verification.gaussian_printed_xi_formula_false
+
+theorem gaussian_toMeasure_independent {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).toMeasure =
+      (Measure.pi (fun _ : Fin 2 => gaussianReal 0 1)).map
+        (fun x => ![cdfUnit (gaussianReal 0 1) (x 0),
+          cdfUnit (gaussianReal 0 1) (r*x 0+Real.sqrt (1-r^2)*x 1)]) :=
+  Verification.gaussianBivariate_toMeasure_independent hr
+
+theorem gaussian_rho_normal_integral {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).spearmanRho =
+      12*(∫ x : Fin 2 → ℝ, ProbabilityTheory.cdf (gaussianReal 0 1) (x 0)*
+        ProbabilityTheory.cdf (gaussianReal 0 1) (r*x 0+Real.sqrt (1-r^2)*x 1)
+        ∂Measure.pi (fun _ => gaussianReal 0 1))-3 :=
+  Verification.gaussianBivariate_rho_normal_integral hr
 
 end Papers.AnsariRockel2024

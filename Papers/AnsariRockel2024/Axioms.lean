@@ -1563,3 +1563,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_printed_xi_formula_false
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_printed_xi_formula_false
+
+#print axioms Papers.AnsariRockel2024.gaussian_toMeasure_independent
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_toMeasure_independent
+
+#print axioms Papers.AnsariRockel2024.gaussian_rho_normal_integral
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_rho_normal_integral
