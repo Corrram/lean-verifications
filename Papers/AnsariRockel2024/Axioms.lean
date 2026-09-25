@@ -2004,3 +2004,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.galambos_schurBoth_iff
 #assert_standard_axioms Papers.AnsariRockel2024.galambos_schurBoth_iff
+
+#print axioms Papers.AnsariRockel2024.galambos_limit_comonotonic
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_limit_comonotonic
