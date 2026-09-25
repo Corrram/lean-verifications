@@ -1,4 +1,5 @@
 import Verification.AMHXi
+import Verification.AMHTau
 
 /-! # Ali–Mikhail–Haq association formulas -/
 
@@ -30,5 +31,16 @@ theorem amh_xi_tendsto_zero {A : Type*} {l : Filter A} (θ : A → ℝ)
     (hmin : ∀ x, -1≤θ x) (hmax : ∀ x, θ x≤1) (hθ : Filter.Tendsto θ l (nhds 0)) :
     Filter.Tendsto (fun x => (amh (θ x) (hmin x) (hmax x)).chatterjeeXi) l (nhds 0) :=
   Verification.amh_xi_tendsto_zero θ hmin hmax hθ
+
+theorem amh_kendallTau {θ : ℝ} (hmin : -1≤θ) (hmax : θ<1) (h0 : θ≠0) :
+    (amh θ hmin hmax.le).kendallTau=
+      1-2/(3*θ)-2*(1-θ)^2*Real.log (1-θ)/(3*θ^2) :=
+  Verification.amh_kendallTau hmin hmax h0
+
+theorem amh_kendallTau_zero : (amh 0 (by norm_num) (by norm_num)).kendallTau=0 :=
+  Verification.amh_kendallTau_zero
+
+theorem amh_kendallTau_one : (amh 1 (by norm_num) le_rfl).kendallTau=1/3 :=
+  Verification.amh_kendallTau_one
 
 end Papers.AnsariRockel2024

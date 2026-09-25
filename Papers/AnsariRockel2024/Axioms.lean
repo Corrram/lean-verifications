@@ -1428,3 +1428,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.amh_xi_tendsto_zero
 #assert_standard_axioms Papers.AnsariRockel2024.amh_xi_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.amh_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.amh_kendallTau
+
+#print axioms Papers.AnsariRockel2024.amh_kendallTau_zero
+#assert_standard_axioms Papers.AnsariRockel2024.amh_kendallTau_zero
+
+#print axioms Papers.AnsariRockel2024.amh_kendallTau_one
+#assert_standard_axioms Papers.AnsariRockel2024.amh_kendallTau_one
