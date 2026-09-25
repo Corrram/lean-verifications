@@ -1479,3 +1479,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_spearmanRho_neg
 #assert_standard_axioms Papers.AnsariRockel2024.frank_spearmanRho_neg
+
+#print axioms Papers.AnsariRockel2024.frank_spearmanRho
+#assert_standard_axioms Papers.AnsariRockel2024.frank_spearmanRho

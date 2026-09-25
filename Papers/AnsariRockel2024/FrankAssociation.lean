@@ -1,5 +1,6 @@
 import Papers.AnsariRockel2024.FrankContinuity
 import Verification.FrankTau
+import Verification.FrankRho
 import Copula.Rank.Symmetry
 
 /-! # Table 6: Frank Kendall tau and the first Debye function -/
@@ -52,5 +53,12 @@ theorem frank_spearmanRho_neg (θ : ℝ) : (frankSigned (-θ)).spearmanRho= -(fr
   · subst θ; simp [frank_spearmanRho_zero]
   · simp [frankSigned,frankNegative,hp,show ¬0< -θ by linarith,show -θ<0 by linarith,
       Copula.spearmanRho_reflect_second]
+
+theorem frank_spearmanRho {θ : ℝ} (hθ : θ≠0) :
+    (frankSigned θ).spearmanRho=
+      1-12/θ*(Verification.debyeOne θ-Verification.debyeTwo θ) := by
+  apply Verification.frank_spearmanRho_of_cdf _ hθ
+  intro u v
+  rw [frankSigned_cdf_regular,Verification.frankRegularCDF_eq_real hθ]
 
 end Papers.AnsariRockel2024
