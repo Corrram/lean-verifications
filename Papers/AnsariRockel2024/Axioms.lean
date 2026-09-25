@@ -1452,3 +1452,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.amh_spearmanRho_closed
 #assert_standard_axioms Papers.AnsariRockel2024.amh_spearmanRho_closed
+
+#print axioms Papers.AnsariRockel2024.frank_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.frank_conditionalCDF
+
+#print axioms Papers.AnsariRockel2024.frank_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.frank_kendallTau
+
+#print axioms Papers.AnsariRockel2024.frank_kendallTau_zero
+#assert_standard_axioms Papers.AnsariRockel2024.frank_kendallTau_zero
