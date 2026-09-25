@@ -1,6 +1,7 @@
 import Verification.GaussianRepresentation
 import Verification.GaussianWedge
 import Verification.GaussianTau
+import Verification.GaussianRho
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -103,5 +104,9 @@ theorem gaussian_halfline_cdf_integral (a : ℝ) :
 theorem gaussian_kendallTau {r : ℝ} (hr : r∈Icc (-1) 1) :
     (Verification.gaussianBivariate r hr).kendallTau=2/Real.pi*Real.arcsin r :=
   Verification.gaussianBivariate_kendallTau hr
+
+theorem gaussian_spearmanRho {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).spearmanRho=6/Real.pi*Real.arcsin (r/2) :=
+  Verification.gaussianBivariate_spearmanRho hr
 
 end Papers.AnsariRockel2024

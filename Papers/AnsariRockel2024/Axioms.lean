@@ -1578,3 +1578,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_kendallTau
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_kendallTau
+
+#print axioms Papers.AnsariRockel2024.gaussian_spearmanRho
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_spearmanRho
