@@ -2094,3 +2094,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.galambos_printed_midpoint_false
 #assert_standard_axioms Papers.AnsariRockel2024.galambos_printed_midpoint_false
+
+#print axioms Papers.AnsariRockel2024.bb5_exponent_formula
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_formula
+
+#print axioms Papers.AnsariRockel2024.bb5_exponent_bounds
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_bounds
+
+#print axioms Papers.AnsariRockel2024.bb5_exponent_homogeneous
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_homogeneous
+
+#print axioms Papers.AnsariRockel2024.bb5_exponent_shape_one
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_shape_one
