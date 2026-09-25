@@ -2166,3 +2166,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.bb5_shape_one
 #assert_standard_axioms Papers.AnsariRockel2024.bb5_shape_one
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_spectral_isExtremeValue
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_spectral_isExtremeValue
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_spectral_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_spectral_isCI
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_pickands_spectral
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_pickands_spectral
