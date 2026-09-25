@@ -10,6 +10,7 @@ import Verification.GaussianNormalDensity
 import Verification.GaussianCopulaDensity
 import Verification.GaussianTP2
 import Verification.GaussianTails
+import Verification.GaussianOrder
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -203,5 +204,17 @@ theorem gaussian_lowerTail {r : ℝ} (hr : r∈Icc (-1) 1) :
 theorem gaussian_upperTail {r : ℝ} (hr : r∈Icc (-1) 1) :
     (Verification.gaussianBivariate r hr).HasUpperTailDependence (if r=1 then 1 else 0) :=
   Verification.gaussianBivariate_upperTail hr
+
+theorem gaussian_lowerOrthant_iff {r s : ℝ} (hr : r∈Icc (-1) 1) (hs : s∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).LowerOrthantLE (Verification.gaussianBivariate s hs) ↔ r≤s :=
+  Verification.gaussianBivariate_lowerOrthant_iff hr hs
+
+theorem gaussian_schur_iff {r s : ℝ} (hr : r∈Icc (-1) 1) (hs : s∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).SchurLE (Verification.gaussianBivariate s hs) ↔ |r|≤|s| :=
+  Verification.gaussianBivariate_schur_iff hr hs
+
+theorem gaussian_schurBoth_iff {r s : ℝ} (hr : r∈Icc (-1) 1) (hs : s∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).SchurBothLE (Verification.gaussianBivariate s hs) ↔ |r|≤|s| :=
+  Verification.gaussianBivariate_schurBoth_iff hr hs
 
 end Papers.AnsariRockel2024

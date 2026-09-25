@@ -1635,3 +1635,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_upperTail
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_upperTail
+
+#print axioms Papers.AnsariRockel2024.gaussian_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.gaussian_schur_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_schur_iff
+
+#print axioms Papers.AnsariRockel2024.gaussian_schurBoth_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_schurBoth_iff
