@@ -1971,3 +1971,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.galambos_survivalClayton_maxima_limit
 #assert_standard_axioms Papers.AnsariRockel2024.galambos_survivalClayton_maxima_limit
+
+#print axioms Papers.AnsariRockel2024.galambos_isExtremeValue
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_isExtremeValue
+
+#print axioms Papers.AnsariRockel2024.galambos_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_isCI
+
+#print axioms Papers.AnsariRockel2024.galambos_pickands_interior
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_pickands_interior
