@@ -1542,3 +1542,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_printed_xi_argument_counterexample
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_printed_xi_argument_counterexample
+
+#print axioms Papers.AnsariRockel2024.gaussian_neg
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_neg
+
+#print axioms Papers.AnsariRockel2024.gaussian_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_negative_one
+
+#print axioms Papers.AnsariRockel2024.gaussian_negative_one_association
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_negative_one_association
+
+#print axioms Papers.AnsariRockel2024.gaussian_xi_neg
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_xi_neg
+
+#print axioms Papers.AnsariRockel2024.gaussian_rho_neg
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_rho_neg
+
+#print axioms Papers.AnsariRockel2024.gaussian_tau_neg
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_tau_neg
+
+#print axioms Papers.AnsariRockel2024.gaussian_printed_xi_formula_false
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_printed_xi_formula_false

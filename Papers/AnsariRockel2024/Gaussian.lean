@@ -1,4 +1,4 @@
-import Verification.GaussianBivariate
+import Verification.GaussianReflection
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -42,5 +42,37 @@ theorem gaussian_printed_xi_argument_counterexample :
     Verification.gaussianPrintedXiArgument (-(3/4))=11/4 ∧
       Verification.gaussianPrintedXiArgument (-(3/4))∉Icc (-1) 1 :=
   Verification.gaussianPrintedXiArgument_counterexample
+
+theorem gaussian_neg {r : ℝ} (hr : r∈Icc (-1) 1) :
+    Verification.gaussianBivariate (-r) (by constructor <;> linarith [hr.1,hr.2])=
+      (Verification.gaussianBivariate r hr).reflect {1} := Verification.gaussianBivariate_neg hr
+
+theorem gaussian_negative_one :
+    Verification.gaussianBivariate (-1) (by norm_num)=countermonotonic :=
+  Verification.gaussianBivariate_negative_one
+
+theorem gaussian_negative_one_association :
+    (Verification.gaussianBivariate (-1) (by norm_num)).spearmanRho= -1 ∧
+    (Verification.gaussianBivariate (-1) (by norm_num)).kendallTau= -1 ∧
+    (Verification.gaussianBivariate (-1) (by norm_num)).chatterjeeXi=1 := by
+  rw [gaussian_negative_one]
+  simp
+
+theorem gaussian_xi_neg {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate (-r) (by constructor <;> linarith [hr.1,hr.2])).chatterjeeXi=
+      (Verification.gaussianBivariate r hr).chatterjeeXi := Verification.gaussianBivariate_xi_neg hr
+
+theorem gaussian_rho_neg {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate (-r) (by constructor <;> linarith [hr.1,hr.2])).spearmanRho=
+      -(Verification.gaussianBivariate r hr).spearmanRho := Verification.gaussianBivariate_rho_neg hr
+
+theorem gaussian_tau_neg {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate (-r) (by constructor <;> linarith [hr.1,hr.2])).kendallTau=
+      -(Verification.gaussianBivariate r hr).kendallTau := Verification.gaussianBivariate_tau_neg hr
+
+theorem gaussian_printed_xi_formula_false :
+    ¬∀ (r : ℝ) (hr : r∈Icc (-1) 1),
+      (Verification.gaussianBivariate r hr).chatterjeeXi=Verification.gaussianPrintedXi r :=
+  Verification.gaussian_printed_xi_formula_false
 
 end Papers.AnsariRockel2024
