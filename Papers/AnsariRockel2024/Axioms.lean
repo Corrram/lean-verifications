@@ -1689,3 +1689,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_marginal_cdf_neg
 #assert_standard_axioms Papers.AnsariRockel2024.student_marginal_cdf_neg
+
+#print axioms Papers.AnsariRockel2024.student_joint_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_cdf
+
+#print axioms Papers.AnsariRockel2024.student_lowerOrthant_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.student_lowerOrthant_monotone
