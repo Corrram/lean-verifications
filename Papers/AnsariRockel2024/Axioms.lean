@@ -2202,3 +2202,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.huslerReiss_limit_independence_uniform
 #assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_limit_independence_uniform
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_pickands_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_pickands_antitone
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_schurBoth_mono
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_schurBoth_mono
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_schurBoth_iff
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_schurBoth_iff
