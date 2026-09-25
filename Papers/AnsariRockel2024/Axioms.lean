@@ -2244,3 +2244,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.huslerReiss_closed_schurBoth_iff
 #assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_schurBoth_iff
+
+#print axioms Papers.AnsariRockel2024.tEV_spectral_isExtremeValue
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_spectral_isExtremeValue
+
+#print axioms Papers.AnsariRockel2024.tEV_spectral_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_spectral_isCI
+
+#print axioms Papers.AnsariRockel2024.tEV_pickands_spectral
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_pickands_spectral
