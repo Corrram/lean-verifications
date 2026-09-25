@@ -1770,3 +1770,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_spearmanRho
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_spearmanRho
+
+#print axioms Papers.AnsariRockel2024.student_marginal_withDensity
+#assert_standard_axioms Papers.AnsariRockel2024.student_marginal_withDensity
+
+#print axioms Papers.AnsariRockel2024.student_marginal_equivalent_volume
+#assert_standard_axioms Papers.AnsariRockel2024.student_marginal_equivalent_volume
+
+#print axioms Papers.AnsariRockel2024.laplace_marginal_withDensity
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_marginal_withDensity
+
+#print axioms Papers.AnsariRockel2024.laplace_marginal_equivalent_volume
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_marginal_equivalent_volume
