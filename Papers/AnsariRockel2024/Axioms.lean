@@ -2052,3 +2052,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_endpoints
 #assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_endpoints
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_extremalCoefficient
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_extremalCoefficient
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_tails
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_tails
