@@ -1962,3 +1962,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_copula_gaussian_limit
 #assert_standard_axioms Papers.AnsariRockel2024.student_copula_gaussian_limit
+
+#print axioms Papers.AnsariRockel2024.galambos_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_cdf_full
+
+#print axioms Papers.AnsariRockel2024.galambos_cdf_interior
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_cdf_interior
+
+#print axioms Papers.AnsariRockel2024.galambos_survivalClayton_maxima_limit
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_survivalClayton_maxima_limit
