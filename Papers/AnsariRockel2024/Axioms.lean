@@ -1845,3 +1845,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_conditionalCDF_standard
 #assert_standard_axioms Papers.AnsariRockel2024.student_conditionalCDF_standard
+
+#print axioms Papers.AnsariRockel2024.student_isSI_iff
+#assert_standard_axioms Papers.AnsariRockel2024.student_isSI_iff
+
+#print axioms Papers.AnsariRockel2024.student_isCI_iff
+#assert_standard_axioms Papers.AnsariRockel2024.student_isCI_iff
+
+#print axioms Papers.AnsariRockel2024.student_isSD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.student_isSD_iff
+
+#print axioms Papers.AnsariRockel2024.student_isCD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.student_isCD_iff
+
+#print axioms Papers.AnsariRockel2024.student_not_hasMTP2Density
+#assert_standard_axioms Papers.AnsariRockel2024.student_not_hasMTP2Density

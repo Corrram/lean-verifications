@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2024.StudentDependence
 import Papers.AnsariRockel2024.StudentConditional
 import Papers.AnsariRockel2024.EllipticalDensity
 import Papers.AnsariRockel2024.EllipticalRho
