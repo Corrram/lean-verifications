@@ -63,8 +63,9 @@ theorem studentTCDF_le_one (k : ℝ) (hk : 0<k) (x : ℝ) : studentTCDF k x≤1 
 /-- Gamma integrals of bounded functions as Lebesgue integrals over the positive half-line. -/
 theorem integral_gammaMeasure_Ioi {a b : ℝ} (ha : 0<a) (hb : 0<b) (f : ℝ → ℝ) :
     (∫ t, f t ∂gammaMeasure a b)=∫ t in Ioi 0, gammaPDFReal a b t*f t := by
-  rw [gammaMeasure,integral_withDensity_eq_integral_toReal_smul
-    (by unfold gammaPDF; fun_prop) (Filter.Eventually.of_forall fun _ => ENNReal.ofReal_lt_top)]
+  rw [gammaMeasure,integral_withDensity_eq_integral_toReal_smul (f := gammaPDF a b)
+    (measurable_gammaPDFReal a b).ennreal_ofReal
+    (Filter.Eventually.of_forall fun _ => by simp [gammaPDF])]
   simp only [gammaPDF,ENNReal.toReal_ofReal (gammaPDFReal_nonneg ha hb _),smul_eq_mul]
   rw [← integral_indicator measurableSet_Ioi]
   apply integral_congr_ae
@@ -130,7 +131,11 @@ theorem integral_Ioi_rpow_gaussian_subst (ν : ℝ) (hν : 0<ν) (g : ℝ → �
   rw [← hpow,hcc]
   have hinv : c⁻¹*(2*(c^ν)⁻¹*∫ z in Ioi 0, z^ν*Real.exp (-(z^2/2))*g z)=∫ t in Ioi 0, h t := hsub
   field_simp at hinv ⊢
-  linarith [hinv]
+  rw [hinv]
+  congr 2
+  funext t
+  simp only [h]
+  ring_nf
 
 /-- The positive Gaussian power moment weighted by a normal CDF is a Student-t CDF with
 `ν+1` degrees of freedom. -/
@@ -161,9 +166,11 @@ theorem positivePower_normalCDF_integral (ν : ℝ) (hν : 0<ν) (β : ℝ) :
     apply setIntegral_congr_fun measurableSet_Ioi
     intro t ht
     have ht0 : (0:ℝ)<t := ht
-    simp only [gammaPDFReal,if_pos ht0.le]
-    rw [show A-1=(ν-1)/2 by rw [hA]; ring,Real.sqrt_mul (by linarith) t]
+    simp only [gammaPDFReal,ht0.le,ite_true]
+    rw [show A-1=(ν-1)/2 by rw [hA]; ring,Real.sqrt_mul (by linarith) t,
+      show (ν+1)/2*t=A*t by rw [hA]]
     ring_nf
+    rfl
   rw [hL,integral_Ioi_rpow_gaussian_subst ν hν,hR,gaussianPositiveMoment_formula ν hν]
   have hG : 0<Real.Gamma A := Real.Gamma_pos_of_pos hApos
   have h2A : (2:ℝ)^A*A^A=(ν+1)^A := by

@@ -74,7 +74,7 @@ theorem nelsen2_two_section (v : I) (hv : (v:ℝ)=1/2) {u : ℝ} (hu : u∈Ioo (
   have hv0 : v≠0 := fun e => by rw [e] at hv; norm_num at hv
   dsimp only [cdfSection]
   rw [projIcc_of_mem zero_le_one ⟨by linarith [hu.1],hu.2.le⟩,nelsen2_cdf_full]
-  rw [if_neg (by rintro (h|h); exacts [hu0 h,hv0 h])]
+  rw [ite_eq_right (by rintro (h|h); exacts [hu0 h,hv0 h])]
   simp only
   rw [show ((2:ℝ))⁻¹=1/2 by norm_num,← Real.sqrt_eq_rpow,Real.rpow_two,Real.rpow_two]
   apply max_eq_right
@@ -102,7 +102,7 @@ theorem nelsen2_two_median_energy_lt :
     have hloc : cdfSection (nelsen2 2 (by norm_num)) unitHalf=ᶠ[𝓝 (u:ℝ)]
         fun x => 1-Real.sqrt ((1-x)^2+(1-1/2)^2) := by
       filter_upwards [Ioo_mem_nhds hu.1 hu.2] with x hx
-      rw [nelsen2_two_section unitHalf hv hx]
+      rw [nelsen2_two_section unitHalf hv hx,hv]
     apply HasDerivAt.congr_of_eventuallyEq _ hloc
     have hin : HasDerivAt (fun x : ℝ => (1-x)^2+(1-1/2:ℝ)^2) (2*(1-(u:ℝ))*(-1)) u := by
       have := ((hasDerivAt_id (u:ℝ)).const_sub 1).pow 2
@@ -112,7 +112,6 @@ theorem nelsen2_two_median_energy_lt :
     have hq := Real.sqrt_pos.mpr (hpos (u:ℝ))
     simp only [g]
     field_simp
-    ring
   have hval : g unitHalf=Real.sqrt (1/2) := by
     simp only [g,hv]
     rw [show (1-1/2:ℝ)^2+(1-1/2)^2=1/2 by norm_num]
@@ -155,7 +154,7 @@ theorem genestGhoudi_two_section (v : I) (hv : (v:ℝ)=1/2) {u : ℝ} (hu : u∈
   have hv0 : v≠0 := fun e => by rw [e] at hv; norm_num at hv
   dsimp only [cdfSection]
   rw [projIcc_of_mem zero_le_one ⟨by linarith [hu.1],hu.2.le⟩,genestGhoudi_cdf_full]
-  rw [if_neg (by rintro (h|h); exacts [hu0 h,hv0 h])]
+  rw [ite_eq_right (by rintro (h|h); exacts [hu0 h,hv0 h])]
   simp only
   rw [show ((2:ℝ))⁻¹=1/2 by norm_num,← Real.sqrt_eq_rpow,← Real.sqrt_eq_rpow,← Real.sqrt_eq_rpow,
     Real.rpow_two,Real.rpow_two,Real.rpow_two]
@@ -168,9 +167,14 @@ theorem genestGhoudi_two_section (v : I) (hv : (v:ℝ)=1/2) {u : ℝ} (hu : u∈
   have hu2 : 1/2≤Real.sqrt u := by
     rw [Real.le_sqrt (by norm_num) (by linarith [hu.1])]
     linarith [hu.1]
+  have hs2 : 1/2≤Real.sqrt (1/2) := by
+    rw [Real.le_sqrt (by norm_num) (by norm_num)]
+    norm_num
   have : Real.sqrt ((1-Real.sqrt u)^2+(1-Real.sqrt (1/2))^2)≤1 := by
     rw [Real.sqrt_le_one]
-    nlinarith
+    have ha : (1-Real.sqrt u)^2≤1/4 := by nlinarith
+    have hb : (1-Real.sqrt (1/2))^2≤1/4 := by nlinarith
+    linarith
   linarith
 
 theorem genestGhoudi_two_median_energy_lt :
@@ -194,6 +198,7 @@ theorem genestGhoudi_two_median_energy_lt :
     apply ContinuousAt.mul
     · exact continuousAt_const.mul (continuousAt_const.sub hsq)
     · apply ContinuousAt.div (continuousAt_const.sub hsu) ((continuousAt_const.mul hsu).mul hsq)
+      show 2*Real.sqrt ((unitHalf:I):ℝ)*Real.sqrt (S ((unitHalf:I):ℝ))≠0
       rw [hv]
       exact (mul_pos (mul_pos (by norm_num) hs0) (Real.sqrt_pos.mpr (hSpos _))).ne'
   have hd : ∀ᶠ u in 𝓝 unitHalf, HasDerivAt (cdfSection (genestGhoudi 2 (by norm_num)) unitHalf) (g u) (u:ℝ) := by
@@ -203,7 +208,7 @@ theorem genestGhoudi_two_median_energy_lt :
     have hloc : cdfSection (genestGhoudi 2 (by norm_num)) unitHalf=ᶠ[𝓝 (u:ℝ)]
         fun x => (1-Real.sqrt (S x))^2 := by
       filter_upwards [Ioo_mem_nhds hu.1 hu.2] with x hx
-      rw [genestGhoudi_two_section unitHalf hv hx]
+      rw [genestGhoudi_two_section unitHalf hv hx,hv]
     apply HasDerivAt.congr_of_eventuallyEq _ hloc
     have hu0 : 0<(u:ℝ) := by linarith [hu.1]
     have hsu := Real.sqrt_pos.mpr hu0

@@ -64,26 +64,24 @@ theorem integral_bivariateGaussian_mix {r : ℝ} (hr : r∈Icc (-1) 1) (F : ℝ 
     (∫ z, F (z 0) (z 1) ∂multivariateGaussian 0 (bivariateCorrelation r))=
       ∫ p : ℝ×ℝ, F p.1 (r*p.1+Real.sqrt (1-r^2)*p.2) ∂(gaussianReal 0 1).prod (gaussianReal 0 1) := by
   have hFz : Measurable (fun z : EuclideanSpace ℝ (Fin 2) => F (z 0) (z 1)) :=
-    hF.comp (by fun_prop)
-  rw [← map_gaussianMix hr,← map_pi_eq_stdGaussian,Measure.map_map (by fun_prop) (by fun_prop),
+    hF.comp (f := fun z : EuclideanSpace ℝ (Fin 2) => (z 0,z 1)) (by fun_prop)
+  rw [← map_gaussianMix hr,← map_pi_eq_stdGaussian,Measure.map_map (gaussianMix r).continuous.measurable
+      (by fun_prop : Measurable (WithLp.toLp 2 : (Fin 2 → ℝ) → EuclideanSpace ℝ (Fin 2))),
     integral_map (by fun_prop) hFz.aestronglyMeasurable,
     ← (measurePreserving_finTwoArrow (gaussianReal 0 1)).integral_comp' ]
   congr 1
-  funext x
-  simp [gaussianMix,MeasurableEquiv.finTwoArrow]
 
 theorem integral_bivariateGaussian_mixSwap {r : ℝ} (hr : r∈Icc (-1) 1) (F : ℝ → ℝ → ℝ)
     (hF : Measurable (Function.uncurry F)) :
     (∫ z, F (z 0) (z 1) ∂multivariateGaussian 0 (bivariateCorrelation r))=
       ∫ p : ℝ×ℝ, F (r*p.1+Real.sqrt (1-r^2)*p.2) p.1 ∂(gaussianReal 0 1).prod (gaussianReal 0 1) := by
   have hFz : Measurable (fun z : EuclideanSpace ℝ (Fin 2) => F (z 0) (z 1)) :=
-    hF.comp (by fun_prop)
-  rw [← map_gaussianMixSwap hr,← map_pi_eq_stdGaussian,Measure.map_map (by fun_prop) (by fun_prop),
+    hF.comp (f := fun z : EuclideanSpace ℝ (Fin 2) => (z 0,z 1)) (by fun_prop)
+  rw [← map_gaussianMixSwap hr,← map_pi_eq_stdGaussian,Measure.map_map (gaussianMixSwap r).continuous.measurable
+      (by fun_prop : Measurable (WithLp.toLp 2 : (Fin 2 → ℝ) → EuclideanSpace ℝ (Fin 2))),
     integral_map (by fun_prop) hFz.aestronglyMeasurable,
     ← (measurePreserving_finTwoArrow (gaussianReal 0 1)).integral_comp' ]
   congr 1
-  funext x
-  simp [gaussianMixSwap,MeasurableEquiv.finTwoArrow]
 
 /-! ## Pointwise threshold identities -/
 
@@ -168,14 +166,18 @@ theorem tEV_threshold_le (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) {κ : �
   have hs : 0<Real.sqrt (1-r^2) := Real.sqrt_pos.mpr (by nlinarith [hr.1,hr.2])
   have hWm : Measurable (gaussianPositiveWeight ν) :=
     (positivePower_continuous ν hν).measurable.div_const _
-  rw [integral_prod _ (integrable_weight_indicator ν hν _ (measurableSet_le
-    (hWm.comp (by fun_prop)) ((hWm.comp measurable_fst).const_mul κ)))]
+  rw [integral_prod _ (integrable_weight_indicator ν hν
+    (fun p : ℝ×ℝ => gaussianPositiveWeight ν (r*p.1+Real.sqrt (1-r^2)*p.2)≤κ*gaussianPositiveWeight ν p.1)
+    (measurableSet_le (f := fun p : ℝ×ℝ => gaussianPositiveWeight ν (r*p.1+Real.sqrt (1-r^2)*p.2))
+      (g := fun p : ℝ×ℝ => κ*gaussianPositiveWeight ν p.1)
+      (hWm.comp (by fun_prop)) ((hWm.comp measurable_fst).const_mul κ)))]
   rw [← tEV_weighted_normalCDF ν hν]
   congr 1
   funext a
   by_cases ha : a≤0
   · simp [gaussianPositiveWeight_of_nonpos ν hν ha]
   have ha' : 0<a := lt_of_not_ge ha
+  dsimp only
   rw [integral_const_mul]
   congr 1
   have he : (fun b => if gaussianPositiveWeight ν (r*a+Real.sqrt (1-r^2)*b)≤
@@ -189,7 +191,6 @@ theorem tEV_threshold_le (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) {κ : �
   rw [he,standardGaussian_linear_halfline hs]
   congr 1
   field_simp
-  ring
 
 /-- The conditional threshold integral with a strict comparison. -/
 theorem tEV_threshold_lt (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) {κ : ℝ} (hκ : 0<κ) :
@@ -200,14 +201,18 @@ theorem tEV_threshold_lt (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) {κ : �
   have hs : 0<Real.sqrt (1-r^2) := Real.sqrt_pos.mpr (by nlinarith [hr.1,hr.2])
   have hWm : Measurable (gaussianPositiveWeight ν) :=
     (positivePower_continuous ν hν).measurable.div_const _
-  rw [integral_prod _ (integrable_weight_indicator ν hν _ (measurableSet_lt
-    (hWm.comp (by fun_prop)) ((hWm.comp measurable_fst).const_mul κ)))]
+  rw [integral_prod _ (integrable_weight_indicator ν hν
+    (fun p : ℝ×ℝ => gaussianPositiveWeight ν (r*p.1+Real.sqrt (1-r^2)*p.2)<κ*gaussianPositiveWeight ν p.1)
+    (measurableSet_lt (f := fun p : ℝ×ℝ => gaussianPositiveWeight ν (r*p.1+Real.sqrt (1-r^2)*p.2))
+      (g := fun p : ℝ×ℝ => κ*gaussianPositiveWeight ν p.1)
+      (hWm.comp (by fun_prop)) ((hWm.comp measurable_fst).const_mul κ)))]
   rw [← tEV_weighted_normalCDF ν hν]
   congr 1
   funext a
   by_cases ha : a≤0
   · simp [gaussianPositiveWeight_of_nonpos ν hν ha]
   have ha' : 0<a := lt_of_not_ge ha
+  dsimp only
   rw [integral_const_mul]
   congr 1
   have he : (fun b => if gaussianPositiveWeight ν (r*a+Real.sqrt (1-r^2)*b)<
@@ -221,15 +226,14 @@ theorem tEV_threshold_lt (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) {κ : �
   rw [he,standardGaussian_linear_halfline_strict hs]
   congr 1
   field_simp
-  ring
 
 /-! ## The stable tail function -/
 
-/-- The argument `z` of the t-EV Pickands function, written for a ratio `σ`. -/
-noncomputable def tEVArg (ν r σ : ℝ) : ℝ := Real.sqrt ((1+ν)/(1-r^2))*(σ-r)
+/-- The argument `z` of the t-EV Pickands function, written for a ratio `s`. -/
+noncomputable def tEVArg (ν r s : ℝ) : ℝ := Real.sqrt ((1+ν)/(1-r^2))*(s-r)
 
-theorem tEVArg_eq (ν r σ : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) :
-    (σ-r)/Real.sqrt (1-r^2)*Real.sqrt (ν+1)=tEVArg ν r σ := by
+theorem tEVArg_eq (ν r s : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) :
+    (s-r)/Real.sqrt (1-r^2)*Real.sqrt (ν+1)=tEVArg ν r s := by
   have hs : 0<1-r^2 := by nlinarith [hr.1,hr.2]
   unfold tEVArg
   rw [Real.sqrt_div (by linarith),add_comm 1 ν]
@@ -239,7 +243,7 @@ theorem tEVArg_eq (ν r σ : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) :
 private theorem max_split (p q : ℝ) :
     max p q=p*(if q≤p then (1:ℝ) else 0)+q*(if p<q then (1:ℝ) else 0) := by
   by_cases h : q≤p
-  · simp [h,not_lt.mpr h,max_eq_left h]
+  · simp [h,not_lt.mpr h]
   · have h' : p<q := lt_of_not_ge h
     simp [h,h',max_eq_right h'.le]
 
@@ -253,7 +257,8 @@ theorem tEVStableTail_formula (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) {x
     (positivePower_continuous ν hν).measurable.div_const _
   set W := gaussianPositiveWeight ν
   let N := multivariateGaussian (0 : EuclideanSpace ℝ (Fin 2)) (bivariateCorrelation r)
-  have hI (i : Fin 2) := gaussianPositiveWeight_coordinate_integrable ν r hν hr' i
+  have hI (i : Fin 2) : Integrable (fun z : EuclideanSpace ℝ (Fin 2) => W (z i)) N :=
+    gaussianPositiveWeight_coordinate_integrable ν r hν hr' i
   -- split the maximum
   have hsplit : (tEVStableTail ν r hν hr').value x y=
       x*(∫ z, W (z 0)*(if y*W (z 1)≤x*W (z 0) then (1:ℝ) else 0) ∂N)+
@@ -267,16 +272,16 @@ theorem tEVStableTail_formula (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) {x
       · exact ((hm0.const_mul x).mul (Measurable.ite (measurableSet_le (hm1.const_mul y)
           (hm0.const_mul x)) measurable_const measurable_const)).aestronglyMeasurable
       · filter_upwards [] with z
-        have h0 := gaussianPositiveWeight_nonneg ν hν (z 0)
-        split_ifs <;> simp [abs_of_nonneg (mul_nonneg hx.le h0),abs_of_nonneg h0]
+        have h0 : 0≤W (z 0) := gaussianPositiveWeight_nonneg ν hν (z 0)
+        split_ifs <;> simp [abs_of_pos hx,abs_of_nonneg h0,mul_nonneg hx.le h0]
     have hi2 : Integrable (fun z : EuclideanSpace ℝ (Fin 2) =>
         y*W (z 1)*(if x*W (z 0)<y*W (z 1) then (1:ℝ) else 0)) N := by
       apply ((hI 1).const_mul y).mono'
       · exact ((hm1.const_mul y).mul (Measurable.ite (measurableSet_lt (hm0.const_mul x)
           (hm1.const_mul y)) measurable_const measurable_const)).aestronglyMeasurable
       · filter_upwards [] with z
-        have h1 := gaussianPositiveWeight_nonneg ν hν (z 1)
-        split_ifs <;> simp [abs_of_nonneg (mul_nonneg hy.le h1),abs_of_nonneg h1]
+        have h1 : 0≤W (z 1) := gaussianPositiveWeight_nonneg ν hν (z 1)
+        split_ifs <;> simp [abs_of_pos hy,abs_of_nonneg h1,mul_nonneg hy.le h1]
     simp_rw [max_split]
     rw [integral_add hi1 hi2,← integral_const_mul,← integral_const_mul]
     congr 1 <;> apply integral_congr_ae <;> filter_upwards [] with z <;> ring
@@ -318,7 +323,8 @@ theorem tEV_pickands_formula (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) (t 
     copulaPickands (tEV ν r hν ⟨hr.1.le,hr.2.le⟩) t=
       (1-(t:ℝ))*studentTCDF (ν+1) (tEVArg ν r (((1-(t:ℝ))/(t:ℝ))^(1/ν)))+
       (t:ℝ)*studentTCDF (ν+1) (tEVArg ν r (((t:ℝ)/(1-(t:ℝ)))^(1/ν))) := by
-  rw [tEV,stableTailCopula_pickands]
+  unfold tEV
+  rw [stableTailCopula_pickands]
   exact tEVStableTail_formula ν r hν hr (by linarith [ht.2]) ht.1
 
 /-- The t-EV CDF at interior points, as an extreme-value copula with the Student-t
@@ -330,7 +336,8 @@ theorem tEV_cdf_interior (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) (u v : 
         (tEVArg ν r (((-Real.log (u:ℝ))/(-Real.log (v:ℝ)))^(1/ν)))+
       (-Real.log (v:ℝ))*studentTCDF (ν+1)
         (tEVArg ν r (((-Real.log (v:ℝ))/(-Real.log (u:ℝ)))^(1/ν))))) := by
-  rw [tEV,stableTailCopula_cdf,stableTailCDF_positive_coords _ _ _ hu.1 hv.1,
+  unfold tEV
+  rw [stableTailCopula_cdf,stableTailCDF_positive_coords _ _ _ hu.1 hv.1,
     tEVStableTail_formula ν r hν hr
       (neg_pos.mpr (Real.log_neg hu.1 hu.2)) (neg_pos.mpr (Real.log_neg hv.1 hv.2))]
 

@@ -51,7 +51,7 @@ theorem strictAntiOn_of_pos (g : BivariateGenerator) (hpos : ∀ x, 0≤x → 0<
     simp only [smul_eq_mul,hcomb] at hc
     rw [← h] at hc
     by_contra hcon
-    push_neg at hcon
+    push Not at hcon
     nlinarith [mul_pos hl1 (sub_pos.mpr hcon)]
   set w := g.toFun b
   have hw : 0<w := hpos b hb
@@ -81,7 +81,9 @@ theorem invFun_toFun (g : BivariateGenerator) (hpos : ∀ x, 0≤x → 0<g.toFun
     rw [projIcc_of_mem _ hmem] at this
     exact (hpos x hx).ne' this
   have hr := g.right_inv _ hne
-  rw [projIcc_of_mem _ hmem] at hr
+  have e : ((projIcc 0 1 zero_le_one (g.toFun x) : I) : ℝ)=g.toFun x :=
+    congrArg Subtype.val (projIcc_of_mem _ hmem)
+  rw [e] at hr
   exact (g.strictAntiOn_of_pos hpos).injOn (g.inv_nonneg _ hne) hx hr
 
 /-- The composition `φ₁ ∘ ψ₂` of Proposition 3.3. -/
@@ -113,25 +115,29 @@ theorem lowerOrthantLE_iff_subadditive (g₁ g₂ : BivariateGenerator)
   · intro h x y hx hy
     set u := projIcc 0 1 zero_le_one (g₂.toFun x)
     set v := projIcc 0 1 zero_le_one (g₂.toFun y)
+    have hu0 : u≠0 := hne x hx
+    have hv0 : v≠0 := hne y hy
     have hc := h u v
-    simp only [cdf,hne x hx,hne y hy,or_self,ite_false] at hc
+    simp only [cdf,hu0,hv0,or_self,ite_false] at hc
     rw [invFun_toFun g₂ h₂ hx,invFun_toFun g₂ h₂ hy] at hc
     -- `ψ₁(a) ≤ ψ₁(φ₁ w)` with `w=ψ₂(x+y)`
     set w := projIcc 0 1 zero_le_one (g₂.toFun (x+y))
     have hw := g₁.right_inv w (hne (x+y) (add_nonneg hx hy))
-    rw [projIcc_of_mem _ (hmem (x+y) (add_nonneg hx hy))] at hw
+    have ew : (w : ℝ)=g₂.toFun (x+y) :=
+      congrArg Subtype.val (projIcc_of_mem _ (hmem (x+y) (add_nonneg hx hy)))
+    rw [ew] at hw
     rw [← hw] at hc
     have ha : 0≤g₁.invFun u+g₁.invFun v :=
       add_nonneg (g₁.inv_nonneg u (hne x hx)) (g₁.inv_nonneg v (hne y hy))
     have hb : 0≤g₁.invFun w := g₁.inv_nonneg w (hne (x+y) (add_nonneg hx hy))
     by_contra hlt
-    push_neg at hlt
-    have := (g₁.strictAntiOn_of_pos h₁) hb ha hlt
+    push Not at hlt
+    have := (g₁.strictAntiOn_of_pos h₁) ha hb hlt
     exact absurd hc (not_le.mpr this)
   · intro h u v
     by_cases hz : u=0 ∨ v=0
     · rcases hz with hz|hz <;> simp [hz]
-    push_neg at hz
+    push Not at hz
     simp only [cdf,hz.1,hz.2,or_self,ite_false]
     set x := g₂.invFun u
     set y := g₂.invFun v
@@ -147,7 +153,9 @@ theorem lowerOrthantLE_iff_subadditive (g₁ g₂ : BivariateGenerator)
     simp only [compose,hu,hv] at hs
     set w := projIcc 0 1 zero_le_one (g₂.toFun (x+y))
     have hw := g₁.right_inv w (hne (x+y) (add_nonneg hx hy))
-    rw [projIcc_of_mem _ (hmem (x+y) (add_nonneg hx hy))] at hw
+    have ew : (w : ℝ)=g₂.toFun (x+y) :=
+      congrArg Subtype.val (projIcc_of_mem _ (hmem (x+y) (add_nonneg hx hy)))
+    rw [ew] at hw
     rw [← hw]
     exact g₁.antitone (g₁.inv_nonneg w (hne (x+y) (add_nonneg hx hy)))
       (add_nonneg (g₁.inv_nonneg u hz.1) (g₁.inv_nonneg v hz.2)) hs
@@ -163,7 +171,7 @@ theorem lowerOrthantLE_iff_generator (g₁ g₂ : BivariateGenerator) :
   · intro h u v
     by_cases hz : u=0 ∨ v=0
     · rcases hz with hz|hz <;> simp [hz]
-    push_neg at hz
+    push Not at hz
     simpa [cdf,hz.1,hz.2] using h u v hz.1 hz.2
 
 end ProbabilityTheory.Copula.BivariateGenerator

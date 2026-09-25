@@ -74,14 +74,15 @@ theorem studentMarginalPDF_le {k : ℝ} (hk : k∈Icc (1:ℝ) 2) {M : ℝ} (hM :
     studentMarginalPDF k t≤2*M/(1+t^2) := by
   have hk0 : 0<k := by linarith [hk.1]
   rw [studentMarginalPDF_standard_form hk0 t]
-  have hb1 : 1≤1+t^2/k := by have : 0≤t^2/k := by positivity
-                                linarith
+  have hb1 : 1≤1+t^2/k := by
+    have : 0≤t^2/k := by positivity
+    linarith
   have hpow : (1+t^2/k)^(-((k+1)/2))≤(1+t^2/k)⁻¹ := by
     rw [← Real.rpow_neg_one]
     exact Real.rpow_le_rpow_of_exponent_le hb1 (by linarith [hk.1])
   have hcmp : (1+t^2/k)⁻¹≤2/(1+t^2) := by
     rw [inv_eq_one_div,div_le_div_iff₀ (by positivity) (by positivity)]
-    have : t^2/k≥t^2/2 := div_le_div_of_nonneg_left (sq_nonneg t) (by norm_num) hk.2
+    have : t^2/k≥t^2/2 := div_le_div_of_nonneg_left (sq_nonneg t) hk0 hk.2
     nlinarith
   have hc0 : 0≤studentConst k := by
     unfold studentConst
@@ -188,7 +189,7 @@ theorem arctan_tEV_half {r : ℝ} (hr : r∈Ioo (-1) 1) :
   have hθ1 : -(Real.pi/2)<θ := by simp only [θ]; linarith [Real.pi_pos]
   have hθ2 : θ<Real.pi/2 := by
     have : -(Real.pi/2)<Real.arcsin r := by
-      rw [Real.lt_arcsin_iff_sin_lt' (by linarith [Real.pi_pos]) ] ; simp; linarith [hr.1]
+      exact Real.neg_pi_div_two_lt_arcsin.mpr hr.1
     simp only [θ]; linarith [Real.pi_pos]
   have hc2 : Real.cos (2*θ)=r := by
     rw [show 2*θ=Real.pi/2-Real.arcsin r by simp only [θ]; ring,Real.cos_pi_div_two_sub,
@@ -237,28 +238,19 @@ theorem marshallOlkin_equal_exp (a : I) {x y : ℝ} (hx : 0<x) (hy : 0<y) :
     (marshallOlkin a a).cdf ![⟨Real.exp (-x),(Real.exp_pos _).le,Real.exp_le_one_iff.mpr (by linarith)⟩,
       ⟨Real.exp (-y),(Real.exp_pos _).le,Real.exp_le_one_iff.mpr (by linarith)⟩]=
       Real.exp (-(max x y+(1-(a:ℝ))*min x y)) := by
+  have ha : 0≤(a:ℝ) := a.property.1
   rw [cdf_marshallOlkin]
-  simp only [Matrix.cons_val_zero,Matrix.cons_val_one,Matrix.head_cons]
+  simp only [Matrix.cons_val_zero,Matrix.cons_val_one]
   simp only [← Real.exp_mul]
-  rw [min_def]
-  split_ifs with h
-  · -- `-x*a ≤ -y*a`, hence `y ≤ x` or `a=0`
-    rw [← Real.exp_add,← Real.exp_add]
+  rcases le_total x y with hxy|hxy
+  · rw [min_eq_right (Real.exp_le_exp.mpr (by nlinarith : -y*(a:ℝ)≤-x*a)),← Real.exp_add,
+      ← Real.exp_add,max_eq_right hxy,min_eq_left hxy]
     congr 1
-    rcases le_total y x with hxy|hxy
-    · rw [max_eq_left hxy,min_eq_right hxy]; ring
-    · rw [max_eq_right hxy,min_eq_left hxy]
-      have ha : (a:ℝ)*(y-x)≤0 := by nlinarith
-      have ha0 : (a:ℝ)*(y-x)≥0 := mul_nonneg a.property.1 (by linarith)
-      nlinarith
-  · push_neg at h
-    rw [← Real.exp_add,← Real.exp_add]
+    ring
+  · rw [min_eq_left (Real.exp_le_exp.mpr (by nlinarith : -x*(a:ℝ)≤-y*a)),← Real.exp_add,
+      ← Real.exp_add,max_eq_left hxy,min_eq_right hxy]
     congr 1
-    rcases le_total y x with hxy|hxy
-    · rw [max_eq_left hxy,min_eq_right hxy]
-      have : (a:ℝ)*(x-y)≥0 := mul_nonneg a.property.1 (by linarith)
-      nlinarith
-    · rw [max_eq_right hxy,min_eq_left hxy]; ring
+    ring
 
 theorem studentTCDF_one_neg_arcsin {r : ℝ} (hr : r∈Ioo (-1) 1) :
     studentTCDF 1 (Real.sqrt ((1+0)/(1-r^2))*(0-r))=1-tEVZeroWeight r := by
@@ -279,20 +271,20 @@ theorem studentTCDF_one_half_limit {r : ℝ} (hr : r∈Ioo (-1) 1) :
   ring
 
 theorem tEVArg_zero_limit_finite {ι : Type*} {l : Filter ι} (ν : ι → ℝ) (hνl : Tendsto ν l (𝓝 0))
-    (r : ℝ) {σ : ι → ℝ} {σ0 : ℝ} (hσ : Tendsto σ l (𝓝 σ0)) :
-    Tendsto (fun i => tEVArg (ν i) r (σ i)) l (𝓝 (Real.sqrt ((1+0)/(1-r^2))*(σ0-r))) := by
+    (r : ℝ) {w : ι → ℝ} {w0 : ℝ} (hw : Tendsto w l (𝓝 w0)) :
+    Tendsto (fun i => tEVArg (ν i) r (w i)) l (𝓝 (Real.sqrt ((1+0)/(1-r^2))*(w0-r))) := by
   unfold tEVArg
-  apply Tendsto.mul _ (hσ.sub_const r)
+  apply Tendsto.mul _ (hw.sub_const r)
   exact (Real.continuous_sqrt.tendsto _).comp ((hνl.const_add 1).div_const _)
 
 theorem tEVArg_zero_limit_atTop {ι : Type*} {l : Filter ι} (ν : ι → ℝ) (hνl : Tendsto ν l (𝓝 0))
-    {r : ℝ} (hr : r∈Ioo (-1) 1) {σ : ι → ℝ} (hσ : Tendsto σ l atTop) :
-    Tendsto (fun i => tEVArg (ν i) r (σ i)) l atTop := by
+    {r : ℝ} (hr : r∈Ioo (-1) 1) {w : ι → ℝ} (hw : Tendsto w l atTop) :
+    Tendsto (fun i => tEVArg (ν i) r (w i)) l atTop := by
   have hs : 0<1-r^2 := by nlinarith [hr.1,hr.2]
   unfold tEVArg
   apply Tendsto.pos_mul_atTop (Real.sqrt_pos.mpr (show (0:ℝ)<(1+0)/(1-r^2) by positivity))
   · exact (Real.continuous_sqrt.tendsto _).comp ((hνl.const_add 1).div_const _)
-  · exact tendsto_atTop_add_const_right _ (-r) hσ |>.congr fun i => by ring
+  · exact tendsto_atTop_add_const_right _ (-r) hw |>.congr fun i => by ring
 
 /-- Table 4 audit: as `ν → 0+`, the t-EV copula tends pointwise to the Marshall–Olkin copula
 with equal weights `1/2+arcsin(ρ)/π`. -/
@@ -306,7 +298,7 @@ theorem tEV_tendsto_marshallOlkin {ι : Type*} {l : Filter ι} [l.IsCountablyGen
   have hkl : Tendsto (fun i => ν i+1) l (𝓝 1) := by simpa using hνl.add_const 1
   have hinv : Tendsto (fun i => 1/ν i) l atTop := by
     have : Tendsto ν l (𝓝[>] 0) := tendsto_nhdsWithin_iff.mpr ⟨hνl,Eventually.of_forall hν⟩
-    simpa only [one_div] using tendsto_inv_nhdsGT_zero.comp this
+    simpa only [one_div,Function.comp_def] using tendsto_inv_nhdsGT_zero.comp this
   -- boundary cases
   by_cases hu0 : u=0
   · subst hu0
@@ -330,6 +322,7 @@ theorem tEV_tendsto_marshallOlkin {ι : Type*} {l : Filter ι} [l.IsCountablyGen
   have hv : (v:ℝ)∈Ioo (0:ℝ) 1 :=
     ⟨lt_of_le_of_ne v.property.1 (fun e => hv0 (Subtype.ext e.symm)),
       lt_of_le_of_ne v.property.2 (fun e => hv1 (Subtype.ext e))⟩
+  simp_rw [tEV_cdf_interior _ r _ hr u v hu hv]
   set x := -Real.log (u:ℝ)
   set y := -Real.log (v:ℝ)
   have hx : 0<x := neg_pos.mpr (Real.log_neg hu.1 hu.2)
@@ -341,7 +334,6 @@ theorem tEV_tendsto_marshallOlkin {ι : Type*} {l : Filter ι} [l.IsCountablyGen
   have htarget := marshallOlkin_equal_exp a hx hy
   rw [← hue,← hve] at htarget
   rw [htarget]
-  simp_rw [tEV_cdf_interior _ r _ hr u v hu hv]
   apply Real.continuous_exp.continuousAt.tendsto.comp
   apply Tendsto.neg
   -- the two Student-t terms
@@ -352,25 +344,27 @@ theorem tEV_tendsto_marshallOlkin {ι : Type*} {l : Filter ι} [l.IsCountablyGen
   have hsmall {c : ℝ} (hc0 : 0<c) (hc : c<1) :
       Tendsto (fun i => studentTCDF (ν i+1) (tEVArg (ν i) r (c^(1/ν i)))) l (𝓝 (1-(a:ℝ))) := by
     have h := studentTCDF_tendsto_df _ _ hk hkl
-      (tEVArg_zero_limit_finite ν hνl r ((tendsto_rpow_atTop_of_base_lt_one c hc0 hc).comp hinv))
+      (tEVArg_zero_limit_finite ν hνl r ((tendsto_rpow_atTop_of_base_lt_one c (by linarith) hc).comp hinv))
     rwa [studentTCDF_one_neg_arcsin hr] at h
   rcases lt_trichotomy y x with hxy|hxy|hxy
   · rw [max_eq_left hxy.le,min_eq_right hxy.le]
     have h1 := hlarge ((one_lt_div hy).mpr hxy)
     have h2 := hsmall (div_pos hy hx) ((div_lt_one hx).mpr hxy)
-    convert (h1.const_mul x).add (h2.const_mul y) using 2 <;> ring
-  · subst hxy
-    rw [max_self,min_self]
-    have he (i : ι) : (y/y)^(1/ν i)=1 := by rw [div_self hy.ne',Real.one_rpow]
+    convert (h1.const_mul x).add (h2.const_mul y) using 2
+    ring
+  · rw [hxy,max_self,min_self]
+    have he (i : ι) : (x/x)^(1/ν i)=1 := by rw [div_self hx.ne',Real.one_rpow]
     simp_rw [he]
     have h := studentTCDF_tendsto_df _ _ hk hkl (tEVArg_zero_limit_finite ν hνl r
       (tendsto_const_nhds (x := (1:ℝ))))
     rw [studentTCDF_one_half_limit hr] at h
-    convert (h.const_mul y).add (h.const_mul y) using 2
-    ring
+    convert (h.const_mul x).add (h.const_mul x) using 2
+    ring_nf
+    rfl
   · rw [max_eq_right hxy.le,min_eq_left hxy.le]
     have h1 := hsmall (div_pos hx hy) ((div_lt_one hy).mpr hxy)
     have h2 := hlarge ((one_lt_div hx).mpr hxy)
-    convert (h1.const_mul x).add (h2.const_mul y) using 2 <;> ring
+    convert (h1.const_mul x).add (h2.const_mul y) using 2
+    ring
 
 end Verification

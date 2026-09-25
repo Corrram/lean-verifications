@@ -2259,3 +2259,234 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.tEV_gaussian_moment_add_two
 #assert_standard_axioms Papers.AnsariRockel2024.tEV_gaussian_moment_add_two
+
+#print axioms Papers.AnsariRockel2024.LogConvexNegDeriv.isCI
+#assert_standard_axioms Papers.AnsariRockel2024.LogConvexNegDeriv.isCI
+
+#print axioms Papers.AnsariRockel2024.LogConcaveNegDeriv.isCD
+#assert_standard_axioms Papers.AnsariRockel2024.LogConcaveNegDeriv.isCD
+
+#print axioms Papers.AnsariRockel2024.archimedean_lowerOrthant_iff_generator
+#assert_standard_axioms Papers.AnsariRockel2024.archimedean_lowerOrthant_iff_generator
+
+#print axioms Papers.AnsariRockel2024.archimedean_lowerOrthant_iff_subadditive
+#assert_standard_axioms Papers.AnsariRockel2024.archimedean_lowerOrthant_iff_subadditive
+
+#print axioms Papers.AnsariRockel2024.archimedean_schur_iff_subadditive_of_logconvex
+#assert_standard_axioms Papers.AnsariRockel2024.archimedean_schur_iff_subadditive_of_logconvex
+
+#print axioms Papers.AnsariRockel2024.archimedean_schur_iff_subadditive_of_logconcave
+#assert_standard_axioms Papers.AnsariRockel2024.archimedean_schur_iff_subadditive_of_logconcave
+
+#print axioms Papers.AnsariRockel2024.rearrSchurLE_congr
+#assert_standard_axioms Papers.AnsariRockel2024.rearrSchurLE_congr
+
+#print axioms Papers.AnsariRockel2024.schur_endpoint_trivial
+#assert_standard_axioms Papers.AnsariRockel2024.schur_endpoint_trivial
+
+#print axioms Papers.AnsariRockel2024.paperSchurLE_iff
+#assert_standard_axioms Papers.AnsariRockel2024.paperSchurLE_iff
+
+#print axioms Papers.AnsariRockel2024.paperSchurBothLE_iff
+#assert_standard_axioms Papers.AnsariRockel2024.paperSchurBothLE_iff
+
+#print axioms Papers.AnsariRockel2024.rearranged_extremal
+#assert_standard_axioms Papers.AnsariRockel2024.rearranged_extremal
+
+#print axioms Papers.AnsariRockel2024.rearranged_mem
+#assert_standard_axioms Papers.AnsariRockel2024.rearranged_mem
+
+#print axioms Papers.AnsariRockel2024.rearranged_unique_max
+#assert_standard_axioms Papers.AnsariRockel2024.rearranged_unique_max
+
+#print axioms Papers.AnsariRockel2024.rearranged_unique_min
+#assert_standard_axioms Papers.AnsariRockel2024.rearranged_unique_min
+
+#print axioms Papers.AnsariRockel2024.upRearr_cis
+#assert_standard_axioms Papers.AnsariRockel2024.upRearr_cis
+
+#print axioms Papers.AnsariRockel2024.downRearr_formula
+#assert_standard_axioms Papers.AnsariRockel2024.downRearr_formula
+
+#print axioms Papers.AnsariRockel2024.rearranged_schur_equiv
+#assert_standard_axioms Papers.AnsariRockel2024.rearranged_schur_equiv
+
+#print axioms Papers.AnsariRockel2024.upRearr_formula
+#assert_standard_axioms Papers.AnsariRockel2024.upRearr_formula
+
+#print axioms Papers.AnsariRockel2024.prop31
+#assert_standard_axioms Papers.AnsariRockel2024.prop31
+
+#print axioms Papers.AnsariRockel2024.nelsen2_not_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_not_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen2_not_schur_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen2_not_schur_antitone
+
+#print axioms Papers.AnsariRockel2024.genestGhoudi_not_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_not_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.genestGhoudi_not_schur_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_not_schur_antitone
+
+#print axioms Papers.AnsariRockel2024.nelsen8_not_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen8_not_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.nelsen8_not_schur_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen8_not_schur_antitone
+
+#print axioms Papers.AnsariRockel2024.nelsen8_five_quarter_energy
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen8_five_quarter_energy
+
+#print axioms Papers.AnsariRockel2024.nelsen18_not_schur_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_schur_antitone
+
+#print axioms Papers.AnsariRockel2024.tEV_student_cdf_eq
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_student_cdf_eq
+
+#print axioms Papers.AnsariRockel2024.tEV_arg_def
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_arg_def
+
+#print axioms Papers.AnsariRockel2024.tEV_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_pickands
+
+#print axioms Papers.AnsariRockel2024.tEV_cdf_interior
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_cdf_interior
+
+#print axioms Papers.AnsariRockel2024.tEV_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_isCI
+
+#print axioms Papers.AnsariRockel2024.tEV_extremalCoefficient
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_extremalCoefficient
+
+#print axioms Papers.AnsariRockel2024.tEV_tails
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_tails
+
+#print axioms Papers.AnsariRockel2024.tEV_one
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_one
+
+#print axioms Papers.AnsariRockel2024.tEV_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_negative_one
+
+#print axioms Papers.AnsariRockel2024.tEV_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_lowerTail
+
+#print axioms Papers.AnsariRockel2024.tEV_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.tEV_schurBoth_mono
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_schurBoth_mono
+
+#print axioms Papers.AnsariRockel2024.tEV_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.tEV_schurBoth_iff
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_schurBoth_iff
+
+#print axioms Papers.AnsariRockel2024.tEV_closed_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_closed_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.tEV_closed_schurBoth_mono
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_closed_schurBoth_mono
+
+#print axioms Papers.AnsariRockel2024.tEV_limit_infinity
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_limit_infinity
+
+#print axioms Papers.AnsariRockel2024.tEV_limit_zero
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_limit_zero
+
+#print axioms Papers.AnsariRockel2024.tEV_zero_weight
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_zero_weight
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_ne_independence
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_ne_independence
+
+#print axioms Papers.AnsariRockel2024.tEV_printed_infinity_limit_false
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_printed_infinity_limit_false
+
+#print axioms Papers.AnsariRockel2024.tEV_zero_weight_pos
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_zero_weight_pos
+
+#print axioms Papers.AnsariRockel2024.tEV_zero_limit_ne_independence
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_zero_limit_ne_independence
+
+#print axioms Papers.AnsariRockel2024.tEV_witness_not_mtp2
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_witness_not_mtp2
+
+#print axioms Papers.AnsariRockel2024.clayton_signed_positive
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_signed_positive
+
+#print axioms Papers.AnsariRockel2024.clayton_signed_zero
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_signed_zero
+
+#print axioms Papers.AnsariRockel2024.clayton_signed_negative
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_signed_negative
+
+#print axioms Papers.AnsariRockel2024.clayton_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.clayton_schur_nonnegative
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_schur_nonnegative
+
+#print axioms Papers.AnsariRockel2024.clayton_schur_nonpositive
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_schur_nonpositive
+
+#print axioms Papers.AnsariRockel2024.clayton_negative_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_tendsto_zero
+
+#print axioms Papers.AnsariRockel2024.genestGhoudi_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.genestGhoudi_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.nelsen18_two_not_schurLE_four
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_two_not_schurLE_four
+
+#print axioms Papers.AnsariRockel2024.nelsen18_not_schur_monotone
+#assert_standard_axioms Papers.AnsariRockel2024.nelsen18_not_schur_monotone
+
+#print axioms Papers.AnsariRockel2024.mardia_schur_nonnegative
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_schur_nonnegative
+
+#print axioms Papers.AnsariRockel2024.mardia_schur_nonpositive
+#assert_standard_axioms Papers.AnsariRockel2024.mardia_schur_nonpositive
+
+#print axioms Papers.AnsariRockel2024.frechet_schur_mono_M
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_schur_mono_M
+
+#print axioms Papers.AnsariRockel2024.frechet_schur_mono_W
+#assert_standard_axioms Papers.AnsariRockel2024.frechet_schur_mono_W
+
+#print axioms Papers.AnsariRockel2024.laplace_radial_eq_besselK0
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_radial_eq_besselK0
+
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_cdf
+
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_one
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_one
+
+#print axioms Papers.AnsariRockel2024.cuadrasAuge_zero
+#assert_standard_axioms Papers.AnsariRockel2024.cuadrasAuge_zero
+
+#print axioms Papers.AnsariRockel2024.marshallOlkin_one_one_eq
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_one_one_eq
+
+#print axioms Papers.AnsariRockel2024.marshallOlkin_diag
+#assert_standard_axioms Papers.AnsariRockel2024.marshallOlkin_diag
+
+#print axioms Papers.AnsariRockel2024.mtp2_density_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.mtp2_density_isCI
+
+#print axioms Papers.AnsariRockel2024.hv_integrand
+#assert_standard_axioms Papers.AnsariRockel2024.hv_integrand
+
+#print axioms Papers.AnsariRockel2024.student_spearmanRho_hv
+#assert_standard_axioms Papers.AnsariRockel2024.student_spearmanRho_hv
+
+#print axioms Papers.AnsariRockel2024.laplace_spearmanRho_hv
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_spearmanRho_hv
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_witness_not_mtp2
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_witness_not_mtp2
+
+#print axioms Papers.AnsariRockel2024.tawn_witness_not_mtp2
+#assert_standard_axioms Papers.AnsariRockel2024.tawn_witness_not_mtp2

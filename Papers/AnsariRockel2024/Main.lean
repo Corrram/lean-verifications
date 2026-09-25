@@ -103,6 +103,21 @@ import Papers.AnsariRockel2024.Nelsen16
 import Papers.AnsariRockel2024.Nelsen17
 import Papers.AnsariRockel2024.Nelsen19
 import Papers.AnsariRockel2024.Nelsen20
+import Papers.AnsariRockel2024.ArchimedeanOrders
+import Papers.AnsariRockel2024.Rearrangement
+import Papers.AnsariRockel2024.SchurUnordered
+import Papers.AnsariRockel2024.TEV
+import Papers.AnsariRockel2024.TEVLimits
+import Papers.AnsariRockel2024.TEVTP2Witness
+import Papers.AnsariRockel2024.ClaytonOrders
+import Papers.AnsariRockel2024.GenestGhoudiOrder
+import Papers.AnsariRockel2024.Nelsen18Schur
+import Papers.AnsariRockel2024.FrechetMardiaSchur
+import Papers.AnsariRockel2024.LaplaceBessel
+import Papers.AnsariRockel2024.FamilyMappings
+import Papers.AnsariRockel2024.EllipticalRhoHV
+import Papers.AnsariRockel2024.JoeExtremeValueTP2
+import Papers.AnsariRockel2024.TawnTP2Witness
 
 /-!
 # AnsariRockel2024: public results

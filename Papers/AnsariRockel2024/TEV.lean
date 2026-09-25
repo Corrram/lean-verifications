@@ -2,6 +2,7 @@ import Verification.TEVEndpoints
 import Verification.ScaleMixtureMarginals
 import Papers.AnsariRockel2024.ExtremeValueOrders
 import Papers.AnsariRockel2024.TEVSpectral
+import Copula.TailDependence.Examples
 
 /-! # The t-EV family (Tables 1, 4 and 5)
 
@@ -22,13 +23,13 @@ theorem tEV_student_cdf_eq (ν : ℝ) (hν : 0<ν) (x : ℝ) :
     Verification.studentTCDF (ν+1) x=
       ProbabilityTheory.cdf (marginal (studentTLaw (Verification.bivariateCorrelation 0) (ν+1)
         (by positivity)) 0) x := by
-  rw [Verification.gaussianScaleMixtureLaw_marginal _ (Verification.bivariateCorrelation_posSemidef
+  rw [studentTLaw,Verification.gaussianScaleMixtureLaw_marginal _ (Verification.bivariateCorrelation_posSemidef
       (by norm_num)) (by intro j; fin_cases j <;> rfl) _ _ (by fun_prop) 0]
   exact Verification.studentTCDF_eq_mixture_cdf (ν+1) (by positivity) x
 
 /-- The Pickands argument `z_t` in the printed form `sqrt((1+ν)/(1-ρ²))((t/(1-t))^(1/ν)-ρ)`. -/
-theorem tEV_arg_def (ν r σ : ℝ) :
-    Verification.tEVArg ν r σ=Real.sqrt ((1+ν)/(1-r^2))*(σ-r) := rfl
+theorem tEV_arg_def (ν r w : ℝ) :
+    Verification.tEVArg ν r w=Real.sqrt ((1+ν)/(1-r^2))*(w-r) := rfl
 
 /-- Tables 1 and 4: the t-EV Pickands function
 `A(t)=(1-t)T_{ν+1}(z_{1-t})+t T_{ν+1}(z_t)`. -/
@@ -83,12 +84,11 @@ theorem tEV_negative_one (ν : ℝ) (hν : 0<ν) :
 
 theorem tEV_lowerTail (ν r : ℝ) (hν : 0<ν) (hr : r∈Ioc (-1) 1) :
     (Verification.tEV ν r hν ⟨hr.1.le,hr.2⟩).HasLowerTailDependence (if r=1 then 1 else 0) := by
-  by_cases h1 : r=1
+  split_ifs with h1
   · subst r
-    rw [if_pos rfl,tEV_one ν hν]
+    rw [tEV_one ν hν]
     exact hasLowerTailDependence_comonotonic
-  · rw [if_neg h1]
-    exact (tEV_tails ν r hν ⟨hr.1,lt_of_le_of_ne hr.2 h1⟩).1
+  · exact (tEV_tails ν r hν ⟨hr.1,lt_of_le_of_ne hr.2 h1⟩).1
 
 theorem tEV_lowerOrthant_mono (ν r q : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) (hq : q∈Ioo (-1) 1)
     (hrq : r≤q) :
@@ -114,7 +114,7 @@ theorem tEV_lowerOrthant_iff (ν r q : ℝ) (hν : 0<ν) (hr : r∈Ioo (-1) 1) (
   constructor
   · intro h
     by_contra hlt
-    push_neg at hlt
+    push Not at hlt
     have ht := h.upperTailDependence_le (Verification.tEV_tails ν r hν hr).2
       (Verification.tEV_tails ν q hν hq).2
     have hz := Verification.tEVArg_one_strictAntiOn ν hν hq hr hlt

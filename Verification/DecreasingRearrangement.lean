@@ -2,7 +2,7 @@ import Mathlib.MeasureTheory.Integral.Layercake
 import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
 import Mathlib.Topology.UnitInterval
 import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
-import Mathlib.Probability.UnitInterval
+import Mathlib.MeasureTheory.Constructions.UnitInterval
 
 /-! # Decreasing rearrangements on the unit interval
 
@@ -33,21 +33,21 @@ theorem distFun_antitone (f : I → ℝ) : Antitone (distFun f) := by
 theorem distFun_of_bound {f : I → ℝ} (hf : ∀ u, f u≤1) {c : ℝ} (hc : 1≤c) : distFun f c=0 := by
   unfold distFun
   have : {u : I | c < f u}=∅ := by
-    ext u; simp only [mem_setOf_eq,mem_empty_iff_false,iff_false,not_lt]; linarith [hf u]
+    ext u; simp only [mem_ofPred_eq,mem_empty_iff_false,iff_false,not_lt]; linarith [hf u]
   simp [this]
 
 theorem distFun_of_neg {f : I → ℝ} (hf : ∀ u, 0≤f u) {c : ℝ} (hc : c<0) : distFun f c=1 := by
   unfold distFun
   have : {u : I | c < f u}=univ := by
-    ext u; simp only [mem_setOf_eq,mem_univ,iff_true]; linarith [hf u]
+    ext u; simp only [mem_ofPred_eq,mem_univ,iff_true]; linarith [hf u]
   simp [this]
 
 /-- Right continuity of the distribution function. -/
-theorem distFun_rightContinuous {f : I → ℝ} (hf : Measurable f) (c : ℝ) :
+theorem distFun_rightContinuous {f : I → ℝ} (_hf : Measurable f) (c : ℝ) :
     Tendsto (distFun f) (𝓝[>] c) (𝓝 (distFun f c)) := by
   have hU : {u : I | c < f u}=⋃ n : ℕ, {u : I | c+1/((n:ℝ)+1) < f u} := by
     ext u
-    simp only [mem_setOf_eq,mem_iUnion]
+    simp only [mem_ofPred_eq,mem_iUnion]
     constructor
     · intro h
       obtain ⟨n,hn⟩ := exists_nat_one_div_lt (sub_pos.mpr h)
@@ -57,7 +57,7 @@ theorem distFun_rightContinuous {f : I → ℝ} (hf : Measurable f) (c : ℝ) :
       linarith
   have hmono : Monotone (fun n : ℕ => {u : I | c+1/((n:ℝ)+1) < f u}) := by
     intro m n hmn u hu
-    simp only [mem_setOf_eq] at hu ⊢
+    simp only [mem_ofPred_eq] at hu ⊢
     have : 1/((n:ℝ)+1)≤1/((m:ℝ)+1) :=
       one_div_le_one_div_of_le (by positivity) (by exact_mod_cast Nat.add_le_add_right hmn 1)
     linarith
@@ -109,7 +109,7 @@ theorem lt_decRearr_iff {f : I → ℝ} (hf : ∀ u, f u≤1) (hm : Measurable f
   constructor
   · intro h
     by_contra hle
-    push_neg at hle
+    push Not at hle
     have := csInf_le (decRearr_set_bdd f s) ⟨hc,hle⟩
     exact absurd h (not_lt.mpr this)
   · intro h
@@ -122,7 +122,7 @@ theorem lt_decRearr_iff {f : I → ℝ} (hf : ∀ u, f u≤1) (hm : Measurable f
     apply le_csInf (decRearr_set_nonempty hf hs)
     intro c' hc'
     by_contra hlt
-    push_neg at hlt
+    push Not at hlt
     have := distFun_antitone f hlt.le
     linarith [hc'.2]
 
@@ -137,14 +137,14 @@ theorem volume_lt_decRearr {f : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f
     volume {s : I | c<decRearr f s}=volume {u : I | c<f u} := by
   rcases lt_or_ge c 0 with hc|hc
   · have h1 : {s : I | c<decRearr f s}=univ := by
-      ext s; simp only [mem_setOf_eq,mem_univ,iff_true]
+      ext s; simp only [mem_ofPred_eq,mem_univ,iff_true]
       exact lt_of_lt_of_le hc (decRearr_nonneg hf s.property.1)
     have h2 : {u : I | c<f u}=univ := by
-      ext u; simp only [mem_setOf_eq,mem_univ,iff_true]; linarith [hf0 u]
+      ext u; simp only [mem_ofPred_eq,mem_univ,iff_true]; linarith [hf0 u]
     rw [h1,h2]
   · have hset : {s : I | c<decRearr f s}={s : I | (s:ℝ)<distFun f c} := by
       ext s
-      simp only [mem_setOf_eq]
+      simp only [mem_ofPred_eq]
       exact lt_decRearr_iff hf hm hc s.property.1
     rw [hset]
     have hd0 := distFun_nonneg f c
@@ -159,7 +159,6 @@ theorem volume_lt_decRearr {f : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f
 /-- The pushforward distributions of `f` and of its rearrangement coincide. -/
 theorem map_decRearr {f : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hm : Measurable f) :
     (volume : Measure I).map (fun s : I => decRearr f s)=(volume : Measure I).map f := by
-  have : IsProbabilityMeasure ((volume : Measure I).map f) := isProbabilityMeasure_map hm.aemeasurable
   apply (Measure.ext_of_Iic _ _ _).symm
   intro a
   rw [Measure.map_apply hm measurableSet_Iic,Measure.map_apply (decRearr_measurable hf) measurableSet_Iic]
@@ -184,7 +183,6 @@ theorem decRearr_congr {f g : I → ℝ} (h : f=ᵐ[volume] g) : decRearr f=decR
     apply measureReal_congr
     filter_upwards [h] with u hu
     simp only [eq_iff_iff]
-    change c<f u ↔ c<g u
     rw [hu]
   unfold decRearr
   rw [hd]
@@ -195,64 +193,46 @@ theorem decRearr_mono {f g : I → ℝ} (hg : ∀ u, g u≤1) (h : ∀ᵐ u ∂v
   intro c hc
   refine ⟨hc.1,le_trans ?_ hc.2⟩
   unfold distFun
-  apply measureReal_mono_ae
+  apply ENNReal.toReal_mono (measure_ne_top _ _)
+  apply measure_mono_ae
   filter_upwards [h] with u hu
-  intro hx
-  exact lt_of_lt_of_le hx hu
+  exact fun hx => lt_of_lt_of_le hx hu
 
 /-! ## Layer-cake formulas on initial segments -/
 
 theorem integral_Iic_eq_layercake {f : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hm : Measurable f)
-    (A : Set I) (hA : MeasurableSet A) :
+    (A : Set I) (_hA : MeasurableSet A) :
     (∫ u in A, f u)=∫ t in Ioc (0:ℝ) 1, volume.real (A∩{u : I | t<f u}) := by
   have hi : Integrable f (volume.restrict A) := by
     apply Integrable.of_bound hm.aestronglyMeasurable 1
     exact Eventually.of_forall fun u => by rw [Real.norm_eq_abs,abs_of_nonneg (hf0 u)]; exact hf u
-  rw [hi.integral_eq_integral_meas_lt (Eventually.of_forall hf0)]
-  have hsplit : Ioi (0:ℝ)=Ioc 0 1∪Ioi 1 := (Ioc_union_Ioi_eq_Ioi zero_le_one).symm
-  rw [hsplit,setIntegral_union (Ioc_disjoint_Ioi le_rfl) measurableSet_Ioi]
-  · have hz : (∫ t in Ioi (1:ℝ), (volume.restrict A).real {a : I | t<f a})=0 := by
-      apply setIntegral_eq_zero_of_forall_eq_zero
-      intro t ht
-      have : {a : I | t<f a}=∅ := by
-        ext a; simp only [mem_setOf_eq,mem_empty_iff_false,iff_false,not_lt]
-        linarith [hf a,show (1:ℝ)<t from ht]
-      simp [this]
-    rw [hz,add_zero]
-    apply setIntegral_congr_fun measurableSet_Ioc
+  rw [hi.integral_eq_integral_meas_lt (Eventually.of_forall hf0),
+    setIntegral_eq_of_subset_of_forall_sdiff_eq_zero measurableSet_Ioi Ioc_subset_Ioi_self]
+  · apply setIntegral_congr_fun measurableSet_Ioc
     intro t _
-    rw [measureReal_restrict_apply (measurableSet_lt measurable_const hm),inter_comm]
-  · apply Integrable.integrableOn
-    apply Integrable.of_bound _ 1
-    · exact Eventually.of_forall fun t => by
-        rw [Real.norm_eq_abs,abs_of_nonneg measureReal_nonneg]
-        calc (volume.restrict A).real {a : I | t<f a}≤(volume.restrict A).real univ :=
-              measureReal_mono (subset_univ _)
-          _ ≤ 1 := by
-              rw [measureReal_restrict_apply MeasurableSet.univ,univ_inter]
-              calc volume.real A≤volume.real (univ : Set I) := measureReal_mono (subset_univ _)
-                _ = 1 := by simp
-    · apply Measurable.aestronglyMeasurable
-      exact Antitone.measurable (fun a b hab => measureReal_mono (fun u hu => lt_of_le_of_lt hab hu))
-  · apply Integrable.integrableOn
-    apply Integrable.of_bound _ 1
-    · exact Eventually.of_forall fun t => by
-        rw [Real.norm_eq_abs,abs_of_nonneg measureReal_nonneg]
-        calc (volume.restrict A).real {a : I | t<f a}≤(volume.restrict A).real univ :=
-              measureReal_mono (subset_univ _)
-          _ ≤ 1 := by
-              rw [measureReal_restrict_apply MeasurableSet.univ,univ_inter]
-              calc volume.real A≤volume.real (univ : Set I) := measureReal_mono (subset_univ _)
-                _ = 1 := by simp
-    · apply Measurable.aestronglyMeasurable
-      exact Antitone.measurable (fun a b hab => measureReal_mono (fun u hu => lt_of_le_of_lt hab hu))
+    simp only
+    rw [measureReal_restrict_apply (measurableSet_lt measurable_const hm), inter_comm]
+  · intro t ht
+    have ht1 : (1:ℝ) < t := by
+      rcases ht with ⟨h0, h1⟩
+      simp only [mem_Ioi, mem_Ioc, not_and, not_le] at h0 h1
+      exact h1 h0
+    have : {a : I | t<f a}=∅ := by
+      ext a; simp only [mem_ofPred_eq,mem_empty_iff_false,iff_false,not_lt]
+      linarith [hf a]
+    simp [this]
+
+theorem antitone_measureReal_inter (A : Set I) (f : I → ℝ) :
+    Antitone (fun t : ℝ => volume.real (A ∩ {u : I | t < f u})) :=
+  fun a b hab => measureReal_mono
+    (inter_subset_inter_right _ (fun u (hu : b < f u) => (lt_of_le_of_lt hab hu : a < f u)))
 
 theorem volume_Iic_inter_lt_decRearr {f : I → ℝ} (hf : ∀ u, f u≤1) (hm : Measurable f) (x : I)
     {t : ℝ} (ht : 0≤t) :
     volume.real (Iic x∩{s : I | t<decRearr f s})=min (x:ℝ) (distFun f t) := by
   have hset : Iic x∩{s : I | t<decRearr f s}=Iic x∩{s : I | (s:ℝ)<distFun f t} := by
     ext s
-    simp only [mem_inter_iff,mem_setOf_eq]
+    simp only [mem_inter_iff,mem_ofPred_eq]
     rw [lt_decRearr_iff hf hm ht s.property.1]
   rw [hset]
   have hd0 := distFun_nonneg f t
@@ -263,7 +243,8 @@ theorem volume_Iic_inter_lt_decRearr {f : I → ℝ} (hf : ∀ u, f u≤1) (hm :
     have hsub : Iic x∩{s : I | (s:ℝ)<distFun f t}⊆Iic x := inter_subset_left
     have hsup : Iio x⊆Iic x∩{s : I | (s:ℝ)<distFun f t} := by
       intro s hs
-      exact ⟨le_of_lt hs,lt_of_lt_of_le (Subtype.coe_lt_coe.mpr hs) h⟩
+      exact ⟨mem_Iic.mpr (mem_Iio.mp hs).le,
+        lt_of_lt_of_le (Subtype.coe_lt_coe.mpr (mem_Iio.mp hs)) h⟩
     have h1 := measureReal_mono hsub (μ := (volume : Measure I))
     have h2 := measureReal_mono hsup (μ := (volume : Measure I))
     have hIic : volume.real (Iic x)=(x:ℝ) := by
@@ -283,7 +264,7 @@ theorem volume_Iic_inter_lt_decRearr {f : I → ℝ} (hf : ∀ u, f u≤1) (hm :
     rw [measureReal_def,hv,ENNReal.toReal_ofReal hd0]
 
 /-- Layer-cake form of the partial integrals of the rearrangement. -/
-theorem integral_Iic_decRearr {f : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hm : Measurable f)
+theorem integral_Iic_decRearr {f : I → ℝ} (_hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hm : Measurable f)
     (x : I) : (∫ s in Iic x, decRearr f s)=∫ t in Ioc (0:ℝ) 1, min (x:ℝ) (distFun f t) := by
   rw [integral_Iic_eq_layercake (fun s => decRearr_nonneg hf s.property.1)
     (fun s => decRearr_le_one hf s.property.1) (decRearr_measurable hf) _ measurableSet_Iic]
@@ -302,14 +283,13 @@ theorem integral_Iic_le_decRearr {f : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : �
         _ = x := by simp [measureReal_def,unitInterval.volume_Iic,ENNReal.toReal_ofReal x.property.1]
     · exact measureReal_mono inter_subset_right
   apply setIntegral_mono_on _ _ measurableSet_Ioc (fun t _ => hb t)
-  · apply Integrable.integrableOn
-    apply Integrable.of_bound _ 1
-    · exact Eventually.of_forall fun t => by
-        rw [Real.norm_eq_abs,abs_of_nonneg measureReal_nonneg]
-        calc volume.real (Iic x∩{u : I | t<f u})≤volume.real (univ : Set I) := measureReal_mono (subset_univ _)
-          _ = 1 := by simp
-    · exact (Antitone.measurable (fun a b hab => measureReal_mono
-        (inter_subset_inter_right _ (fun u hu => lt_of_le_of_lt hab hu)))).aestronglyMeasurable
+  · refine Measure.integrableOn_of_bounded (M := 1) (by simp)
+      (antitone_measureReal_inter _ f).measurable.aestronglyMeasurable
+      (Eventually.of_forall fun t => ?_)
+    rw [Real.norm_eq_abs,abs_of_nonneg measureReal_nonneg]
+    calc volume.real (Iic x∩{u : I | t<f u})≤volume.real (univ : Set I) :=
+          measureReal_mono (subset_univ _)
+      _ = 1 := by simp
   · apply Measure.integrableOn_of_bounded (M := 1)
     · simp
     · exact (Antitone.measurable (fun a b hab => min_le_min_left _ (distFun_antitone f hab))).aestronglyMeasurable

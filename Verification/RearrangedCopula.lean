@@ -60,7 +60,7 @@ theorem decRearr_const_one {s : ℝ} (hs : 0≤s) (hs1 : s<1) : decRearr (fun _ 
   apply le_csInf (decRearr_set_nonempty (fun _ => le_rfl) hs)
   intro c hc
   by_contra hlt
-  push_neg at hlt
+  push Not at hlt
   have : distFun (fun _ : I => (1:ℝ)) c=1 := by
     unfold distFun
     have : {u : I | c<(fun _ : I => (1:ℝ)) u}=univ := by ext u; simp [hlt]
@@ -85,7 +85,7 @@ theorem integrable_decRearr_condSection (C : Copula 2) (v : I) :
 theorem upRearrCDF_zero_left (C : Copula 2) (v : I) : upRearrCDF C 0 v=0 := by
   unfold upRearrCDF
   apply setIntegral_measure_zero
-  rw [show Iic (0:I)={0} from by ext x; simp [le_antisymm_iff,x.property.1]]
+  rw [unitInterval.volume_Iic]
   simp
 
 theorem upRearrCDF_zero_right (C : Copula 2) (u : I) : upRearrCDF C u 0=0 := by
@@ -97,7 +97,7 @@ theorem upRearrCDF_zero_right (C : Copula 2) (u : I) : upRearrCDF C u 0=0 := by
 
 theorem upRearrCDF_one_left (C : Copula 2) (v : I) : upRearrCDF C 1 v=(v:ℝ) := by
   unfold upRearrCDF
-  rw [Iic_top,Measure.restrict_univ]
+  rw [show Iic (1:I)=univ from Iic_top,Measure.restrict_univ]
   have h := integral_comp_decRearr (condSection_nonneg C v) (condSection_le_one C v)
     (condSection_measurable C v) (φ := id) measurable_id
   simp only [id] at h
@@ -173,19 +173,20 @@ theorem upRearr_isSI (C : Copula 2) : (upRearr C).IsSI := by
     decRearr_antitoneOn (condSection_le_one C v) s.property.1 t.property.1 hst
   -- increments over `(a,b]` and `(b,c]`
   have hdiff (x y : I) (hxy : x≤y) : (∫ s in Iic y, f s)-(∫ s in Iic x, f s)=∫ s in Ioc x y, f s := by
-    rw [← Iic_diff_Iic,integral_diff measurableSet_Iic hfi.integrableOn (Iic_subset_Iic.mpr hxy)]
+    rw [← Iic_sdiff_Iic,setIntegral_sdiff measurableSet_Iic hfi.integrableOn (Iic_subset_Iic.mpr hxy)]
   have hlen (x y : I) (hxy : x≤y) : volume.real (Ioc x y)=(y:ℝ)-x := by
     rw [measureReal_def,unitInterval.volume_Ioc]
     exact ENNReal.toReal_ofReal (sub_nonneg.mpr hxy)
   have h1 : ((b:ℝ)-a)*f b≤∫ s in Ioc a b, f s := by
-    have := setIntegral_ge_of_const_le (μ := volume) measurableSet_Ioc
+    have := setIntegral_ge_of_const_le_real (μ := volume) (s := Ioc a b) (f := f) measurableSet_Ioc
       (by rw [unitInterval.volume_Ioc]; exact ENNReal.ofReal_ne_top) (fun s hs => hanti s b hs.2)
       hfi.integrableOn
     rwa [hlen a b hab,mul_comm] at this
   have h2 : (∫ s in Ioc b c, f s)≤((c:ℝ)-b)*f b := by
-    have := setIntegral_le_of_le_const (μ := volume) measurableSet_Ioc
-      (by rw [unitInterval.volume_Ioc]; exact ENNReal.ofReal_ne_top) (fun s hs => hanti b s (le_of_lt hs.1))
-    rwa [hlen b c hbc,mul_comm] at this
+    have := setIntegral_mono_on (μ := volume) (s := Ioc b c) hfi.integrableOn
+      (integrableOn_const (C := f b) (by rw [unitInterval.volume_Ioc]; exact ENNReal.ofReal_ne_top))
+      measurableSet_Ioc (fun s hs => hanti b s (le_of_lt hs.1))
+    rwa [setIntegral_const,smul_eq_mul,hlen b c hbc] at this
   have e1 := hdiff a b hab
   have e2 := hdiff b c hbc
   have hba : 0≤(b:ℝ)-a := sub_nonneg.mpr hab
@@ -196,7 +197,9 @@ theorem upRearr_isSI (C : Copula 2) : (upRearr C).IsSI := by
 theorem upRearr_schur_equiv (C : Copula 2) : (upRearr C).SchurLE C ∧ C.SchurLE (upRearr C) := by
   have he (v : I) (φ : ℝ → ℝ) (hφ : Continuous φ) :
       (∫ u : I, φ ((upRearr C).conditionalCDF u v))=∫ u : I, φ (C.conditionalCDF u v) := by
-    rw [integral_congr_ae ((upRearr_conditionalCDF C v).fun_comp φ)]
+    rw [integral_congr_ae (g := fun u : I => φ (decRearr (condSection C v) (u:ℝ))) (by
+      filter_upwards [upRearr_conditionalCDF C v] with u hu
+      exact congrArg φ hu)]
     exact integral_comp_decRearr (condSection_nonneg C v) (condSection_le_one C v)
       (condSection_measurable C v) hφ.measurable
   exact ⟨fun v φ hc _ => (he v φ hc).le,fun v φ hc _ => (he v φ hc).ge⟩
@@ -220,8 +223,7 @@ theorem integral_set_le_decRearr {f : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : �
   apply setIntegral_mono_on _ _ measurableSet_Ioc (fun t _ => hb t)
   · apply Measure.integrableOn_of_bounded (M := 1)
     · simp
-    · exact (Antitone.measurable (fun a b hab => measureReal_mono
-        (inter_subset_inter_right _ (fun u hu => lt_of_le_of_lt hab hu)))).aestronglyMeasurable
+    · exact (antitone_measureReal_inter A f).measurable.aestronglyMeasurable
     · exact Eventually.of_forall fun t => by
         rw [Real.norm_eq_abs,abs_of_nonneg measureReal_nonneg]
         calc volume.real (A∩{u : I | t<f u})≤volume.real (univ : Set I) := measureReal_mono (subset_univ _)

@@ -28,13 +28,14 @@ theorem studentTCDF_lower_bound (k : ℝ) (hk : 0<k) {z : ℝ} (hz : 0≤z) :
     · rw [indicator_of_mem (by simpa using ht),mul_one]
       apply ProbabilityTheory.monotone_cdf
       have ht' : ¬ (3/4:ℝ)≤|t-1| := ht
-      push_neg at ht'
+      push Not at ht'
       have h1 : 1/4<t := by linarith [(abs_lt.mp ht').1]
       have h2 : 1/2≤Real.sqrt t := by
         rw [Real.le_sqrt (by norm_num) (by linarith)]; linarith
       nlinarith
   have hint : Integrable (fun t => Φ (z*Real.sqrt t)) (gammaMeasure (k/2) (k/2)) := by
-    apply Integrable.of_bound (by fun_prop) 1
+    apply Integrable.of_bound (f := fun t => Φ (z*Real.sqrt t)) (by exact ((ProbabilityTheory.monotone_cdf (gaussianReal 0 1)).measurable.comp
+      (measurable_const.mul Real.continuous_sqrt.measurable)).aestronglyMeasurable) 1
     exact Eventually.of_forall fun t => by
       rw [Real.norm_eq_abs,abs_of_nonneg (ProbabilityTheory.cdf_nonneg _ _)]
       exact ProbabilityTheory.cdf_le_one _ _
@@ -43,7 +44,7 @@ theorem studentTCDF_lower_bound (k : ℝ) (hk : 0<k) {z : ℝ} (hz : 0≤z) :
         rw [measureReal_compl hS,probReal_univ]
         linarith
     _ = ∫ t, Φ (z/2)*Sᶜ.indicator (fun _ => (1:ℝ)) t ∂gammaMeasure (k/2) (k/2) := by
-        rw [integral_const_mul,integral_indicator_one hS.compl]
+        rw [integral_const_mul,integral_indicator hS.compl,setIntegral_const,smul_eq_mul,mul_one]
     _ ≤ studentTCDF k z := by
         unfold studentTCDF
         exact integral_mono ((integrable_const _).indicator hS.compl |>.const_mul _) hint hpt
@@ -64,15 +65,15 @@ theorem studentTCDF_tendsto_one {ι : Type*} {l : Filter ι} (k z : ι → ℝ) 
     exact studentTCDF_lower_bound (k i) (hk i) hi
   · exact Eventually.of_forall fun i => studentTCDF_le_one (k i) (hk i) (z i)
 
-theorem tEVArg_tendsto_atTop {ι : Type*} {l : Filter ι} (ν : ι → ℝ) (hν : ∀ i, 0<ν i)
+theorem tEVArg_tendsto_atTop {ι : Type*} {l : Filter ι} (ν : ι → ℝ) (_hν : ∀ i, 0<ν i)
     (hνt : Tendsto ν l atTop) {r : ℝ} (hr : r∈Ioo (-1) 1) {c : ℝ} (hc : 0<c) :
     Tendsto (fun i => tEVArg (ν i) r (c^(1/ν i))) l atTop := by
   have hs : 0<1-r^2 := by nlinarith [hr.1,hr.2]
   have hpow : Tendsto (fun i => c^(1/ν i)) l (𝓝 1) := by
     have h0 : Tendsto (fun i => 1/ν i) l (𝓝 0) := by
-      simpa only [one_div] using tendsto_inv_atTop_zero.comp hνt
+      simpa only [one_div,Function.comp_def] using tendsto_inv_atTop_zero.comp hνt
     have := ((Real.continuousAt_const_rpow hc.ne').tendsto).comp h0
-    simpa [Real.rpow_zero] using this
+    simpa [Real.rpow_zero,Function.comp_def] using this
   have hsq : Tendsto (fun i => Real.sqrt ((1+ν i)/(1-r^2))) l atTop := by
     apply Real.tendsto_sqrt_atTop.comp
     apply Tendsto.atTop_div_const hs
@@ -88,7 +89,7 @@ theorem tEV_tendsto_independence {ι : Type*} {l : Filter ι} (ν : ι → ℝ) 
     Tendsto (fun i => (tEV (ν i) r (hν i) ⟨hr.1.le,hr.2.le⟩).cdf ![u,v]) l
       (𝓝 ((independence 2).cdf ![u,v])) := by
   rw [cdf_independence,Fin.prod_univ_two]
-  simp only [Matrix.cons_val_zero,Matrix.cons_val_one,Matrix.head_cons]
+  simp only [Matrix.cons_val_zero,Matrix.cons_val_one]
   -- boundary cases
   by_cases hu0 : u=0
   · subst hu0

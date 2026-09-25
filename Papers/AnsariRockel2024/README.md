@@ -44,6 +44,14 @@ their precise correspondence to the paper and any article-specific proofs.
 - [Nelsen7Rho.lean](Nelsen7Rho.lean) and [Nelsen7Tau.lean](Nelsen7Tau.lean): exact Nelsen 7 logarithmic rho and tau formulas on the full interval.
 - [Nelsen7SourceCorrection.lean](Nelsen7SourceCorrection.lean): counterexample to arXiv v3 Appendix A.5.1's printed xi intermediate integral.
 - [Dependence.lean](Dependence.lean): selected Table 5 properties.
+- [Rearrangement.lean](Rearrangement.lean): Definition 2.3, Lemma 2.4, Lemma 2.7 and Proposition 3.1 (rearranged copulas and the rearrangement Schur order).
+- [ArchimedeanOrders.lean](ArchimedeanOrders.lean): Proposition 3.3 (i)–(iii).
+- [ClaytonOrders.lean](ClaytonOrders.lean) and [GenestGhoudiOrder.lean](GenestGhoudiOrder.lean): Clayton lower-orthant/Schur orders on the signed range and the Genest–Ghoudi lower-orthant order.
+- [SchurUnordered.lean](SchurUnordered.lean) and [Nelsen18Schur.lean](Nelsen18Schur.lean): the unordered Schur cells of Nelsen 2, 8, 15 and 18.
+- [FrechetMardiaSchur.lean](FrechetMardiaSchur.lean): Mardia and Fréchet Schur orders.
+- [TEV.lean](TEV.lean), [TEVLimits.lean](TEVLimits.lean): the t-EV family in printed Student-t form, its orders, tails, endpoints and ν-limits.
+- [TawnTP2Witness.lean](TawnTP2Witness.lean), [JoeExtremeValueTP2.lean](JoeExtremeValueTP2.lean), [TEVTP2Witness.lean](TEVTP2Witness.lean): explicit non-TP2 members.
+- [LaplaceBessel.lean](LaplaceBessel.lean), [EllipticalRhoHV.lean](EllipticalRhoHV.lean), [FamilyMappings.lean](FamilyMappings.lean): Laplace Bessel density, Heinen–Valdesogo rho, and remaining mapping rows.
 - [Axioms.lean](Axioms.lean): axiom reports for the claimed final results.
 - [COVERAGE.md](COVERAGE.md): source-result correspondence and remaining gaps.
 

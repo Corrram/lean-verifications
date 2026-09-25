@@ -29,7 +29,7 @@ variable {f g : I → ℝ}
 
 theorem integrable_of_unit (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hm : Measurable f)
     {φ : ℝ → ℝ} (hφ : Continuous φ) : Integrable (fun u => φ (f u)) := by
-  obtain ⟨b,hb⟩ := isCompact_Icc.exists_bound_of_continuousOn hφ.continuousOn (a := (0:ℝ)) (b := 1)
+  obtain ⟨b,hb⟩ := (isCompact_Icc (a := (0:ℝ)) (b := 1)).exists_bound_of_continuousOn hφ.continuousOn
   exact Integrable.of_bound (hφ.measurable.comp hm).aestronglyMeasurable b
     (Eventually.of_forall fun u => hb _ ⟨hf0 u,hf u⟩)
 
@@ -44,7 +44,7 @@ theorem integral_hinge_decRearr (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hm
   integral_comp_decRearr hf0 hf hm (hinge_continuous c).measurable
 
 /-- Partial integrals of an antitone rearrangement at its own level. -/
-theorem integral_Iic_decRearr_eq (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hm : Measurable f) (x : I) :
+theorem integral_Iic_decRearr_eq (_hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (_hm : Measurable f) (x : I) :
     (∫ s in Iic x, decRearr f s)=decRearr f x*x+∫ s : I, max (decRearr f s-decRearr f x) 0 := by
   set c := decRearr f x
   have hr := decRearr_measurable hf
@@ -75,6 +75,7 @@ theorem integral_Iic_le_hinge {h : I → ℝ} (hi : Integrable h) (x : I) (c : �
   calc (∫ s in Iic x, h s)≤∫ s in Iic x, (c+max (h s-c) 0) := by
         apply setIntegral_mono_on hi.integrableOn ((integrable_const c).add hmax).integrableOn measurableSet_Iic
         intro s _
+        show h s ≤ c + max (h s - c) 0
         have := le_max_left (h s-c) 0
         linarith
     _ = c*x+∫ s in Iic x, max (h s-c) 0 := by
@@ -82,7 +83,7 @@ theorem integral_Iic_le_hinge {h : I → ℝ} (hi : Integrable h) (x : I) (c : �
         simp [measureReal_def,unitInterval.volume_Iic,ENNReal.toReal_ofReal x.property.1]
         ring
     _ ≤ c*x+∫ s : I, max (h s-c) 0 := by
-        apply add_le_add_left
+        apply add_le_add le_rfl
         exact setIntegral_le_integral hmax (Eventually.of_forall fun s => le_max_right _ _)
 
 /-- Convex tests imply the rearrangement Schur order. -/
@@ -97,12 +98,12 @@ theorem rearrSchurLE_of_convex (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (hfm
         (decRearr_measurable hf) continuous_id
     calc (∫ s in Iic x, decRearr f s)≤c*x+∫ s : I, max (decRearr f s-c) 0 := integral_Iic_le_hinge hfi x c
       _ = c*x+∫ u : I, max (f u-c) 0 := by rw [integral_hinge_decRearr hf0 hf hfm]
-      _ ≤ c*x+∫ u : I, max (g u-c) 0 := add_le_add_left (h _ (hinge_continuous c) (hinge_convex c)) _
+      _ ≤ c*x+∫ u : I, max (g u-c) 0 := add_le_add le_rfl (h _ (hinge_continuous c) (hinge_convex c))
       _ = c*x+∫ s : I, max (decRearr g s-c) 0 := by rw [integral_hinge_decRearr hg0 hg hgm]
-      _ = ∫ s in Iic x, decRearr g s := by rw [integral_Iic_decRearr_eq hg0 hg hgm x]; ring
-  · apply le_antisymm (h id continuous_id ((convexOn_id (convex_Icc 0 1))))
-    have := h (fun y => -y) continuous_neg ((concaveOn_id (convex_Icc 0 1)).neg)
-    simp only [integral_neg] at this
+      _ = ∫ s in Iic x, decRearr g s := by rw [integral_Iic_decRearr_eq hg0 hg hgm x]
+  · have h1 := h id continuous_id (convexOn_id (convex_Icc 0 1))
+    have h2 := h (fun y => -y) continuous_neg ((concaveOn_id (convex_Icc 0 1)).neg)
+    simp only [id, integral_neg] at h1 h2
     linarith
 
 /-- The rearrangement Schur order implies all hinge comparisons. -/
@@ -116,8 +117,8 @@ theorem hinge_le_of_rearrSchurLE (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (h
       funext u; exact max_eq_left (by linarith [hg0 u])
     have hfi := integrable_of_unit hf0 hf hfm continuous_id
     have hgi := integrable_of_unit hg0 hg hgm continuous_id
-    rw [e1,e2,integral_sub hfi (integrable_const c),integral_sub hgi (integrable_const c)]
     simp only [id] at hfi hgi
+    rw [e1,e2,integral_sub hfi (integrable_const c),integral_sub hgi (integrable_const c)]
     have := h.2
     linarith
   -- `c ≥ 0`: the positive part of `f* - c` lives on an initial segment
@@ -136,15 +137,17 @@ theorem hinge_le_of_rearrSchurLE (hf0 : ∀ u, 0≤f u) (hf : ∀ u, f u≤1) (h
       apply max_eq_right
       have : ¬ c<decRearr f s := by
         rw [lt_decRearr_iff hf hfm hc s.property.1]
-        exact not_lt.mpr (le_of_lt (Subtype.coe_lt_coe.mpr hs))
+        have hlt : (x0:ℝ)<s := Subtype.coe_lt_coe.mpr hs
+        exact not_lt.mpr (le_of_lt hlt)
       linarith [not_lt.mp this]
     have hl : (∫ s in Iic x0, max (decRearr f s-c) 0)=∫ s in Iic x0, (decRearr f s-c) := by
       apply setIntegral_congr_ae measurableSet_Iic
       have hne : ∀ᵐ s : I, s≠x0 := by simp [ae_iff]
       filter_upwards [hne] with s hs hmem
       apply max_eq_left
+      have hle : (s:ℝ)≤x0 := Subtype.coe_le_coe.mpr hmem
       have hlt : (s:ℝ)<distFun f c :=
-        lt_of_le_of_ne (Subtype.coe_le_coe.mpr hmem) (fun e => hs (Subtype.ext e))
+        lt_of_le_of_ne hle (fun e => hs (Subtype.ext e))
       have := (lt_decRearr_iff hf hfm hc s.property.1).mpr hlt
       linarith
     rw [hz,add_zero,hl,integral_sub (hri f hf0 hf hfm).integrableOn (integrable_const c).integrableOn]
@@ -181,7 +184,6 @@ theorem cellSlope_mono {φ : ℝ → ℝ} (hφ : ConvexOn ℝ (Icc 0 1) φ) {n k
   have e1 : ((k+1:ℕ):ℝ)/n-k/n=1/n := by push_cast; field_simp; ring
   have e2 : ((k+1+1:ℕ):ℝ)/n-((k+1:ℕ):ℝ)/n=1/n := by push_cast; field_simp; ring
   rw [e1,e2,div_div_eq_mul_div,div_div_eq_mul_div,div_one,div_one] at hs
-  unfold cellSlope
   linarith [hs]
 
 /-- Algebraic telescoping identity for the hinge sum without the positive parts. -/
@@ -237,14 +239,16 @@ theorem integral_hingeInterp_le {f g : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : �
       (∫ u, hingeInterp φ n (k u))=φ 0+cellSlope φ n 0*(∫ u, k u)+
         ∑ i ∈ Finset.Ico 1 n, (cellSlope φ n i-cellSlope φ n (i-1))*∫ u, max (k u-i/n) 0 := by
     unfold hingeInterp
-    have hki := integrable_of_unit hk0 hk hkm continuous_id
-    rw [integral_add (((integrable_const _)).add (hki.const_mul _))
-        (integrable_finset_sum _ fun i _ => (hI k hk0 hk hkm _).const_mul _),
-      integral_add (integrable_const _) (hki.const_mul _),integral_finset_sum _ fun i _ => (hI k hk0 hk hkm _).const_mul _]
-    simp only [integral_const,measureReal_univ_eq_one,smul_eq_mul,one_mul,integral_const_mul]
-    rfl
+    have hki : Integrable (fun u => k u) := integrable_of_unit hk0 hk hkm continuous_id
+    have hA : Integrable (fun u => φ 0+cellSlope φ n 0*k u) := (integrable_const _).add (hki.const_mul _)
+    have hB : Integrable (fun u => ∑ i ∈ Finset.Ico 1 n,
+        (cellSlope φ n i-cellSlope φ n (i-1))*max (k u-i/n) 0) :=
+      integrable_finsetSum _ fun i _ => (hI k hk0 hk hkm _).const_mul _
+    rw [integral_add hA hB,integral_add (integrable_const _) (hki.const_mul _),
+      integral_finsetSum _ fun i _ => (hI k hk0 hk hkm _).const_mul _]
+    simp only [integral_const,probReal_univ,smul_eq_mul,one_mul,integral_const_mul]
   rw [hexp f hf0 hf hfm,hexp g hg0 hg hgm,hint]
-  apply add_le_add_left
+  apply add_le_add le_rfl
   apply Finset.sum_le_sum
   intro i hi
   rw [Finset.mem_Ico] at hi
@@ -257,7 +261,7 @@ theorem integral_hingeInterp_le {f g : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : �
 theorem hingeInterp_approx {φ : ℝ → ℝ} (hφc : Continuous φ) {ε : ℝ} (hε : 0<ε) :
     ∃ n : ℕ, 0<n ∧ ∀ y ∈ Icc (0:ℝ) 1, |hingeInterp φ n y-φ y|≤ε := by
   obtain ⟨δ,hδ,hδε⟩ := Metric.uniformContinuousOn_iff.mp
-    (isCompact_Icc.uniformContinuousOn_of_continuous hφc.continuousOn) ε hε
+    ((isCompact_Icc (a := (0:ℝ)) (b := 1)).uniformContinuousOn_of_continuous hφc.continuousOn) ε hε
   obtain ⟨n,hn⟩ := exists_nat_one_div_lt hδ
   refine ⟨n+1,Nat.succ_pos n,?_⟩
   intro y hy
@@ -279,7 +283,9 @@ theorem hingeInterp_approx {φ : ℝ → ℝ} (hφc : Continuous φ) {ε : ℝ} 
       exact le_of_lt (by exact_mod_cast Nat.lt_floor_add_one (y*N))
     · have : j=n := min_eq_right (by omega)
       rw [this]
+      have hN : (N:ℝ)=n+1 := by simp [N]
       push_cast
+      rw [hN]
       nlinarith [hy.2]
   rw [hingeInterp_cell φ (Nat.succ_pos n) hjN ⟨hjl,hju⟩]
   set a : ℝ := (j:ℝ)/N
@@ -307,9 +313,9 @@ theorem hingeInterp_approx {φ : ℝ → ℝ} (hφc : Continuous φ) {ε : ℝ} 
     ring
   rw [hform]
   calc |(1-t)*(φ a-φ y)+t*(φ b-φ y)|≤(1-t)*|φ a-φ y|+t*|φ b-φ y| := by
-        refine (abs_add _ _).trans ?_
+        refine (abs_add_le _ _).trans ?_
         rw [abs_mul,abs_mul,abs_of_nonneg (by linarith),abs_of_nonneg ht0]
-    _ ≤ (1-t)*ε+t*ε := by gcongr <;> linarith
+    _ ≤ (1-t)*ε+t*ε := by gcongr
     _ = ε := by ring
 
 /-- Majorization in the hinge form implies all continuous convex comparisons. -/
@@ -325,7 +331,7 @@ theorem convexSchurLE_of_hinge {f g : I → ℝ} (hf0 : ∀ u, 0≤f u) (hf : �
   have hLc : Continuous (hingeInterp φ n) := by
     unfold hingeInterp
     exact (continuous_const.add (continuous_const.mul continuous_id)).add
-      (continuous_finset_sum _ fun k _ => continuous_const.mul (hinge_continuous _))
+      (continuous_finsetSum _ fun k _ => continuous_const.mul (hinge_continuous _))
   have hcmp (k : I → ℝ) (hk0 : ∀ u, 0≤k u) (hk : ∀ u, k u≤1) (hkm : Measurable k) :
       |(∫ u, hingeInterp φ n (k u))-∫ u, φ (k u)|≤ε/2 := by
     rw [← integral_sub (integrable_of_unit hk0 hk hkm hLc) (integrable_of_unit hk0 hk hkm hφc)]

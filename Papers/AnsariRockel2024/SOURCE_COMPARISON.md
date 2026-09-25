@@ -23,6 +23,9 @@ certificate that every table cell in either version has been verified.
 | Plackett CI/CD and TP2 | Appendix A.4.1, p. 30 (PDF index 29) | The journal retains CI iff theta>=1, CD iff theta<=1, the TP2 exclusion for theta>2, and only numerical evidence for TP2 on [1,2]. The audited `plackett_density_tp2_iff` now proves that exact closed range. |
 | Raftery density exclusion | Appendix A.4.1, p. 30 (PDF index 29) | The journal repeats the assertion that no parameter has a density. `raftery_absolutelyContinuous_iff` and `raftery_density_tp2_iff` refute it: both properties hold exactly for delta<1. |
 | Raftery CI and lower-orthant order | Appendix A.4.1–A.4.2, pp. 30–31 (PDF indices 29–30) | The published CI and increasing lower-orthant statements agree with the audited `raftery_ci` and `raftery_lowerOrthant_monotone`. |
+| Lemma 2.4, Lemma 2.7, Proposition 3.1, Proposition 3.3 | Section 2–3 | Same numbering in the published PDF (text extraction, 2026-09-25); the verified statements are the arXiv v3 ones. |
+| Table 5 starred TP2 cells (Hüsler–Reiss `*`, Joe-EV/Tawn/t-EV `✗*`) and Mardia Schur `*` | Table 5 | The published table keeps the same starred numerical entries (text extraction). The Lean witnesses verify the exclusions only at the listed members; the Tawn Gumbel correction still applies. |
+| Table 3 unordered Schur cells `✗*` (Nelsen 2, 8, 15, 21) | Table 3 | Unchanged in the published table (text extraction); the Nelsen 18 cell could not be read reliably from the extraction. |
 
 The published text therefore does not resolve these printed discrepancies.
 Other family cells and all uninspected differences between the two versions

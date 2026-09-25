@@ -34,8 +34,11 @@ theorem schur_endpoint_trivial (D E : Copula 2) (v : I) (hv : v=0 ∨ v=1) (φ :
     (∫ u : I, φ (D.conditionalCDF u v))=∫ u : I, φ (E.conditionalCDF u v) := by
   rcases hv with h|h
   · subst h
-    rw [integral_congr_ae ((condSection_zero_ae D).fun_comp φ),
-      integral_congr_ae ((condSection_zero_ae E).fun_comp φ)]
+    have hD : (∫ u : I, φ (D.conditionalCDF u 0))=∫ _u : I, φ 0 :=
+      integral_congr_ae (by filter_upwards [condSection_zero_ae D] with u hu; exact congrArg φ hu)
+    have hE : (∫ u : I, φ (E.conditionalCDF u 0))=∫ _u : I, φ 0 :=
+      integral_congr_ae (by filter_upwards [condSection_zero_ae E] with u hu; exact congrArg φ hu)
+    rw [hD,hE]
   · subst h
     have hD : (fun u => D.conditionalCDF u 1)=fun _ => (1:ℝ) := funext (condSection_one D)
     have hE : (fun u => E.conditionalCDF u 1)=fun _ => (1:ℝ) := funext (condSection_one E)
@@ -57,9 +60,9 @@ theorem paperSchurLE_iff (D E : Copula 2) : PaperSchurLE D E ↔ D.SchurLE E := 
         (condSection_measurable E v)).mpr ?_
       intro φ _ _
       exact (schur_endpoint_trivial D E v hv φ).le
-    push_neg at hv
-    have h0 : 0<v := lt_of_le_of_ne v.property.1 (fun e => hv.1 (Subtype.ext e.symm))
-    have h1 : v<1 := lt_of_le_of_ne v.property.2 (fun e => hv.2 (Subtype.ext e))
+    push Not at hv
+    have h0 : 0<v := lt_of_le_of_ne (show (0:I)≤v from v.property.1) (fun e => hv.1 e.symm)
+    have h1 : v<1 := lt_of_le_of_ne (show v≤(1:I) from v.property.2) hv.2
     exact (rearrSchurLE_congr (hc D v) (hc E v)).mp (h v h0 h1)
   · intro h v _ _
     rw [rearrSchurLE_congr (hc D v) (hc E v)]
@@ -108,8 +111,8 @@ theorem rearranged_schur_equiv (E : Copula 2) :
 /-- The increasing rearrangement in explicit form `E↑(u,v)=∫_0^u (∂₁E(·,v))*`. -/
 theorem upRearr_formula (E : Copula 2) (u v : I) :
     (upRearr E).cdf ![u,v]=∫ s in Iic u, decRearr (fun t : I => deriv (cdfSection E v) t) s := by
-  rw [upRearr_cdf,upRearrCDF,decRearr_congr (conditionalCDF_eq_deriv E v)]
-  rfl
+  rw [upRearr_cdf,upRearrCDF,show condSection E v=fun u => E.conditionalCDF u v from rfl,
+    decRearr_congr (conditionalCDF_eq_deriv E v)]
 
 /-- Proposition 3.1: `D ≤_{∂₁S} E ⇔ D↑ ≤_lo E↑ ⇔ D↓ ≥_lo E↓`. -/
 theorem prop31 (D E : Copula 2) :

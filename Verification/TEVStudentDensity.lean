@@ -62,6 +62,10 @@ theorem studentMarginalPDF_integral (k : ℝ) (hk : 0<k) : (∫ x, studentMargin
 
 theorem studentTCDF_eq_integral_Iic (k : ℝ) (hk : 0<k) (x : ℝ) :
     studentTCDF k x=∫ t in Iic x, studentMarginalPDF k t := by
+  have hP : IsProbabilityMeasure (normalScaleMixtureMarginal
+      (gammaProbability (k/2) (k/2) (by positivity) (by positivity)) (fun t => (Real.sqrt t)⁻¹)) := by
+    unfold normalScaleMixtureMarginal
+    exact (Measure.isProbabilityMeasure_map_iff (by fun_prop)).mpr inferInstance
   rw [studentTCDF_eq_mixture_cdf k hk,ProbabilityTheory.cdf_eq_real,studentMixture_withDensity k hk,
     measureReal_def,withDensity_apply _ measurableSet_Iic,
     integral_eq_lintegral_of_nonneg_ae (Filter.Eventually.of_forall fun t => (studentMarginalPDF_pos hk t).le)
