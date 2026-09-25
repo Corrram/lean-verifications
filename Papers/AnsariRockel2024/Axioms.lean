@@ -1581,3 +1581,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_spearmanRho
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_spearmanRho
+
+#print axioms Papers.AnsariRockel2024.gaussian_cdf_normal
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_cdf_normal
+
+#print axioms Papers.AnsariRockel2024.gaussian_conditionalCDF_normal
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_conditionalCDF_normal
+
+#print axioms Papers.AnsariRockel2024.gaussian_xi_normal_integral
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_xi_normal_integral

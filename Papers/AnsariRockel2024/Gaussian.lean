@@ -2,6 +2,7 @@ import Verification.GaussianRepresentation
 import Verification.GaussianWedge
 import Verification.GaussianTau
 import Verification.GaussianRho
+import Verification.GaussianConditional
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -108,5 +109,24 @@ theorem gaussian_kendallTau {r : ℝ} (hr : r∈Icc (-1) 1) :
 theorem gaussian_spearmanRho {r : ℝ} (hr : r∈Icc (-1) 1) :
     (Verification.gaussianBivariate r hr).spearmanRho=6/Real.pi*Real.arcsin (r/2) :=
   Verification.gaussianBivariate_spearmanRho hr
+
+theorem gaussian_cdf_normal {r : ℝ} (hr : r∈Ioo (-1) 1) (a b : ℝ) :
+    (Verification.gaussianBivariate r ⟨hr.1.le,hr.2.le⟩).cdf
+      ![cdfUnit (gaussianReal 0 1) a,cdfUnit (gaussianReal 0 1) b]=
+      ∫ x in Iic a, ProbabilityTheory.cdf (gaussianReal 0 1)
+        ((b-r*x)/Real.sqrt (1-r^2)) ∂gaussianReal 0 1 :=
+  Verification.gaussianBivariate_cdf_normal hr a b
+
+theorem gaussian_conditionalCDF_normal {r : ℝ} (hr : r∈Ioo (-1) 1) (b : ℝ) :
+    (fun x => (Verification.gaussianBivariate r ⟨hr.1.le,hr.2.le⟩).conditionalCDF
+      (cdfUnit (gaussianReal 0 1) x) (cdfUnit (gaussianReal 0 1) b)) =ᵐ[gaussianReal 0 1]
+      fun x => ProbabilityTheory.cdf (gaussianReal 0 1) ((b-r*x)/Real.sqrt (1-r^2)) :=
+  Verification.gaussianBivariate_conditionalCDF_normal hr b
+
+theorem gaussian_xi_normal_integral {r : ℝ} (hr : r∈Ioo (-1) 1) :
+    (Verification.gaussianBivariate r ⟨hr.1.le,hr.2.le⟩).chatterjeeXi=
+      6*(∫ b, ∫ x, (ProbabilityTheory.cdf (gaussianReal 0 1)
+        ((b-r*x)/Real.sqrt (1-r^2)))^2 ∂gaussianReal 0 1 ∂gaussianReal 0 1)-2 :=
+  Verification.gaussianBivariate_xi_normal_integral hr
 
 end Papers.AnsariRockel2024
