@@ -1980,3 +1980,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.galambos_pickands_interior
 #assert_standard_axioms Papers.AnsariRockel2024.galambos_pickands_interior
+
+#print axioms Papers.AnsariRockel2024.galambos_power_diagonal
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_power_diagonal
+
+#print axioms Papers.AnsariRockel2024.galambos_extremalCoefficient
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_extremalCoefficient
+
+#print axioms Papers.AnsariRockel2024.galambos_tails
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_tails
