@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2024.StudentPrecision
 import Papers.AnsariRockel2024.LaplaceDensity
 import Papers.AnsariRockel2024.LaplaceDependence
 import Papers.AnsariRockel2024.EllipticalContinuity

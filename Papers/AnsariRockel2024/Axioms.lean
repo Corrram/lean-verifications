@@ -1941,3 +1941,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density
+
+#print axioms Papers.AnsariRockel2024.student_precision_centered_second_moment
+#assert_standard_axioms Papers.AnsariRockel2024.student_precision_centered_second_moment
+
+#print axioms Papers.AnsariRockel2024.student_precision_concentration_bound
+#assert_standard_axioms Papers.AnsariRockel2024.student_precision_concentration_bound
+
+#print axioms Papers.AnsariRockel2024.student_precision_concentrates
+#assert_standard_axioms Papers.AnsariRockel2024.student_precision_concentrates
