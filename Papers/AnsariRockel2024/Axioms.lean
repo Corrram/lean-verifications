@@ -1824,3 +1824,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_conditional_cdf_mixture
 #assert_standard_axioms Papers.AnsariRockel2024.student_conditional_cdf_mixture
+
+#print axioms Papers.AnsariRockel2024.student_conditional_cdf_standard
+#assert_standard_axioms Papers.AnsariRockel2024.student_conditional_cdf_standard

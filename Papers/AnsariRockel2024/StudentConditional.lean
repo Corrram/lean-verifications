@@ -1,5 +1,6 @@
 import Verification.StudentConditionalCDF
 import Verification.StudentConditionalDensity
+import Papers.AnsariRockel2024.Student
 
 open ProbabilityTheory MeasureTheory Set
 open scoped ENNReal
@@ -30,5 +31,14 @@ theorem student_conditional_cdf_mixture (r : ℝ) (hr : r∈Ioo (-1) 1)
         ((y-r*x)*Real.sqrt t/Real.sqrt (1-r^2))
           ∂gammaMeasure (ν/2+1/2) (ν/2+x^2/2) :=
   Verification.studentConditionalDensity_cdf hr ν hν x y
+
+theorem student_conditional_cdf_standard (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) (x y : ℝ) :
+    ProbabilityTheory.cdf (volume.withDensity (Verification.studentConditionalDensity r ν x)) y=
+      ProbabilityTheory.cdf (Copula.marginal
+        (Copula.studentTLaw (Verification.bivariateCorrelation 0) (ν+1) (by positivity)) 0)
+        ((y-r*x)/Real.sqrt ((ν+x^2)*(1-r^2)/(ν+1))) := by
+  rw [student_marginal 0 (by norm_num) (ν+1) (by positivity) 0]
+  exact Verification.studentConditionalDensity_cdf_standard hr ν hν x y
 
 end Papers.AnsariRockel2024
