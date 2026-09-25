@@ -2112,3 +2112,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.bb5_exponent_submodular
 #assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_submodular
+
+#print axioms Papers.AnsariRockel2024.bb5_exponent_exp_rectangle
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_exp_rectangle
+
+#print axioms Papers.AnsariRockel2024.bb5_interior_rectangle_nonneg
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_interior_rectangle_nonneg
