@@ -136,3 +136,9 @@ and checks that the resulting normalized Gaussian pair has correlation
 `(1+r^2)/2`. Its lower-quadrant probability yields the formula. The singular
 endpoints use the checked benchmark copulas. This is a derived correction,
 not a claim that the printed arXiv v3 cell agrees with it.
+
+## Elliptical endpoint qualifications
+
+The [arXiv v3 HTML Appendix A.3.3](https://arxiv.org/html/2310.17307v3#A3.SS3) assigns Gaussian tail coefficient one to both signed singular endpoints. The checked Gaussian family equals W at r=-1, where both coefficients are zero. The declarations `gaussian_negative_one_not_lowerTail_one` and `gaussian_negative_one_not_upperTail_one` formally refute coefficient one by uniqueness of the tail limits. The positive endpoint has both coefficients one. This passage has not been checked against the journal version; the cached journal PDF is empty and cannot serve as evidence.
+
+Table 2 includes Student-t correlation r=1 in the admissible range and identifies that member as M. The scale-mixture construction now proves this identity for every real nu>0, and `student_one_isCI` verifies CI there. Thus the blanket not-CI language in Table 5 and Appendix A.3.1 needs an interior-parameter qualification. The non-CI claim for interior Student-t parameters remains to be formalized.

@@ -237,4 +237,20 @@ theorem gaussian_cdf_tendsto_negative_one (u : Fin 2 → I) :
       (𝓝 (⟨-1,by norm_num⟩ : Icc (-1:ℝ) 1)) (𝓝 (countermonotonic.cdf u)) :=
   Verification.gaussianBivariate_cdf_tendsto_negative_one u
 
+theorem gaussian_negative_one_not_lowerTail_one :
+    ¬(Verification.gaussianBivariate (-1) (by norm_num)).HasLowerTailDependence 1 := by
+  intro h
+  have hz := gaussian_lowerTail (r := -1) (by norm_num)
+  norm_num at hz
+  have he := hz.unique h
+  norm_num at he
+
+theorem gaussian_negative_one_not_upperTail_one :
+    ¬(Verification.gaussianBivariate (-1) (by norm_num)).HasUpperTailDependence 1 := by
+  intro h
+  have hz := gaussian_upperTail (r := -1) (by norm_num)
+  norm_num at hz
+  have he := hz.unique h
+  norm_num at he
+
 end Papers.AnsariRockel2024

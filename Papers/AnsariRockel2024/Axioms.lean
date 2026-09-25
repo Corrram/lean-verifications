@@ -1656,3 +1656,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_negative_one
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_cdf_tendsto_negative_one
+
+#print axioms Papers.AnsariRockel2024.student_isSklarCopula
+#assert_standard_axioms Papers.AnsariRockel2024.student_isSklarCopula
+
+#print axioms Papers.AnsariRockel2024.student_one
+#assert_standard_axioms Papers.AnsariRockel2024.student_one
+
+#print axioms Papers.AnsariRockel2024.student_one_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.student_one_isCI
+
+#print axioms Papers.AnsariRockel2024.gaussian_negative_one_not_lowerTail_one
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_negative_one_not_lowerTail_one
+
+#print axioms Papers.AnsariRockel2024.gaussian_negative_one_not_upperTail_one
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_negative_one_not_upperTail_one

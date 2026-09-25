@@ -1,3 +1,4 @@
+import Papers.AnsariRockel2024.Student
 import Papers.AnsariRockel2024.Raftery
 import Papers.AnsariRockel2024.AMHAssociation
 import Papers.AnsariRockel2024.Plackett
