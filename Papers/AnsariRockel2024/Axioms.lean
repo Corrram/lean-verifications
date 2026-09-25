@@ -1671,3 +1671,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_negative_one_not_upperTail_one
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_negative_one_not_upperTail_one
+
+#print axioms Papers.AnsariRockel2024.student_negative_one
+#assert_standard_axioms Papers.AnsariRockel2024.student_negative_one
+
+#print axioms Papers.AnsariRockel2024.student_negative_one_isCD
+#assert_standard_axioms Papers.AnsariRockel2024.student_negative_one_isCD
+
+#print axioms Papers.AnsariRockel2024.student_marginal
+#assert_standard_axioms Papers.AnsariRockel2024.student_marginal
