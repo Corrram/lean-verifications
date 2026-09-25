@@ -2013,3 +2013,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.galambos_limit_independence
 #assert_standard_axioms Papers.AnsariRockel2024.galambos_limit_independence
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_isExtremeValue
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_isExtremeValue
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_isCI
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_cdf_product
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_cdf_product
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_cdf_interior
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_cdf_interior
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_unit_weights
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_unit_weights
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_zero_weight
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_zero_weight
