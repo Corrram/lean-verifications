@@ -1,5 +1,6 @@
 import Verification.AMHXi
 import Verification.AMHTau
+import Verification.AMHRho
 
 /-! # Ali–Mikhail–Haq association formulas -/
 
@@ -42,5 +43,14 @@ theorem amh_kendallTau_zero : (amh 0 (by norm_num) (by norm_num)).kendallTau=0 :
 
 theorem amh_kendallTau_one : (amh 1 (by norm_num) le_rfl).kendallTau=1/3 :=
   Verification.amh_kendallTau_one
+
+theorem amh_spearmanRho_integral {θ : ℝ} (hmin : -1≤θ) (hmax : θ<1) (h0 : θ≠0) :
+    (amh θ hmin hmax.le).spearmanRho=
+      12*(∫ v : I, (v:ℝ)/(θ*(1-(v:ℝ)))+
+        (v:ℝ)*(1-θ*(1-(v:ℝ)))/(θ*(1-(v:ℝ)))^2*Real.log (1-θ*(1-(v:ℝ))))-3 :=
+  Verification.amh_spearmanRho_integral hmin hmax h0
+
+theorem amh_spearmanRho_zero : (amh 0 (by norm_num) (by norm_num)).spearmanRho=0 :=
+  Verification.amh_spearmanRho_zero
 
 end Papers.AnsariRockel2024
