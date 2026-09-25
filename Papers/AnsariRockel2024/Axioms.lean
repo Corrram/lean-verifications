@@ -1950,3 +1950,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_precision_concentrates
 #assert_standard_axioms Papers.AnsariRockel2024.student_precision_concentrates
+
+#print axioms Papers.AnsariRockel2024.student_marginal_gaussian_limit
+#assert_standard_axioms Papers.AnsariRockel2024.student_marginal_gaussian_limit
+
+#print axioms Papers.AnsariRockel2024.student_joint_gaussian_limit
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_gaussian_limit
+
+#print axioms Papers.AnsariRockel2024.student_copula_gaussian_limit_interior
+#assert_standard_axioms Papers.AnsariRockel2024.student_copula_gaussian_limit_interior
+
+#print axioms Papers.AnsariRockel2024.student_copula_gaussian_limit
+#assert_standard_axioms Papers.AnsariRockel2024.student_copula_gaussian_limit
