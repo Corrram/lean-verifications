@@ -1,3 +1,4 @@
+import Verification.ScaleMixtureReflection
 import Papers.AnsariRockel2024.Student
 import Verification.ScaleMixtureJointCDF
 import Verification.ScaleMixtureTau
@@ -45,5 +46,26 @@ theorem student_lowerOrthant_iff {r q : ℝ} (hr : r∈Icc (-1) 1) (hq : q∈Icc
   rw [student_kendallTau r hr ν hν,student_kendallTau q hq ν hν] at ht
   exact (Real.strictMonoOn_arcsin.le_iff_le hr hq).mp
     ((mul_le_mul_iff_right₀ (div_pos (by norm_num) Real.pi_pos)).mp ht)
+
+
+theorem student_reflect_second {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
+    Verification.studentBivariate (-r) (by constructor <;> linarith [hr.1,hr.2]) ν hν=
+      (Verification.studentBivariate r hr ν hν).reflect {1} :=
+  Verification.studentBivariate_neg hr ν hν
+
+theorem student_rho_neg {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
+    (Verification.studentBivariate (-r) (by constructor <;> linarith [hr.1,hr.2]) ν hν).spearmanRho=
+      -(Verification.studentBivariate r hr ν hν).spearmanRho := by
+  rw [student_reflect_second hr ν hν,spearmanRho_reflect_second]
+
+theorem student_tau_neg {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
+    (Verification.studentBivariate (-r) (by constructor <;> linarith [hr.1,hr.2]) ν hν).kendallTau=
+      -(Verification.studentBivariate r hr ν hν).kendallTau := by
+  rw [student_reflect_second hr ν hν,kendallTau_reflect_second]
+
+theorem student_xi_neg {r : ℝ} (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
+    (Verification.studentBivariate (-r) (by constructor <;> linarith [hr.1,hr.2]) ν hν).chatterjeeXi=
+      (Verification.studentBivariate r hr ν hν).chatterjeeXi := by
+  rw [student_reflect_second hr ν hν,Verification.xi_reflect_second]
 
 end Papers.AnsariRockel2024

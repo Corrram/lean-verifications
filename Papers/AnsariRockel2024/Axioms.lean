@@ -1701,3 +1701,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_lowerOrthant_iff
 #assert_standard_axioms Papers.AnsariRockel2024.student_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.student_reflect_second
+#assert_standard_axioms Papers.AnsariRockel2024.student_reflect_second
+
+#print axioms Papers.AnsariRockel2024.student_rho_neg
+#assert_standard_axioms Papers.AnsariRockel2024.student_rho_neg
+
+#print axioms Papers.AnsariRockel2024.student_tau_neg
+#assert_standard_axioms Papers.AnsariRockel2024.student_tau_neg
+
+#print axioms Papers.AnsariRockel2024.student_xi_neg
+#assert_standard_axioms Papers.AnsariRockel2024.student_xi_neg
