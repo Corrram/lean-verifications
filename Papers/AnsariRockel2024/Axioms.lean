@@ -1761,3 +1761,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_upperTail_iff_lowerTail
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_upperTail_iff_lowerTail
+
+#print axioms Papers.AnsariRockel2024.elliptical_rho_conditional_comparison
+#assert_standard_axioms Papers.AnsariRockel2024.elliptical_rho_conditional_comparison
