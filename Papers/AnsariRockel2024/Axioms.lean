@@ -1914,3 +1914,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density_nonpositive
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density_nonpositive
+
+#print axioms Papers.AnsariRockel2024.laplace_joint_radial_density
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_joint_radial_density
+
+#print axioms Papers.AnsariRockel2024.laplace_radial_density_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_radial_density_antitone
