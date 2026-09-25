@@ -1602,3 +1602,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_conditional_monotoneOn
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_conditional_monotoneOn
+
+#print axioms Papers.AnsariRockel2024.gaussian_isCI_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_isCI_iff
+
+#print axioms Papers.AnsariRockel2024.gaussian_isCD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_isCD_iff
+
+#print axioms Papers.AnsariRockel2024.gaussian_isPQD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_isPQD_iff
+
+#print axioms Papers.AnsariRockel2024.gaussian_isNQD_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_isNQD_iff

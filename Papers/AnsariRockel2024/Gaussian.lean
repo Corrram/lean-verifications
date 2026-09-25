@@ -5,6 +5,7 @@ import Verification.GaussianRho
 import Verification.GaussianConditional
 import Verification.GaussianXi
 import Verification.GaussianQuantileConditional
+import Verification.GaussianDependence
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -150,5 +151,21 @@ theorem gaussian_conditional_antitoneOn {r : ℝ} (hr : 0≤r) (v : I) :
 theorem gaussian_conditional_monotoneOn {r : ℝ} (hr : r≤0) (v : I) :
     MonotoneOn (Verification.gaussianQuantileConditional r v) {u : I | (u:ℝ)∈Ioo (0:ℝ) 1} :=
   Verification.gaussianQuantileConditional_monotoneOn hr v
+
+theorem gaussian_isCI_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).IsCI ↔ 0≤r :=
+  Verification.gaussianBivariate_isCI_iff hr
+
+theorem gaussian_isCD_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).IsCD ↔ r≤0 :=
+  Verification.gaussianBivariate_isCD_iff hr
+
+theorem gaussian_isPQD_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).IsPQD ↔ 0≤r :=
+  Verification.gaussianBivariate_isPQD_iff hr
+
+theorem gaussian_isNQD_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).IsNQD ↔ r≤0 :=
+  Verification.gaussianBivariate_isNQD_iff hr
 
 end Papers.AnsariRockel2024
