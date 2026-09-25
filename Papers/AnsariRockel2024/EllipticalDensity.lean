@@ -1,3 +1,4 @@
+import Verification.StudentJointDensity
 import Verification.ScaleMixtureJointDensity
 import Verification.StudentMarginalDensity
 import Verification.ScaleMixtureDensity
@@ -77,5 +78,22 @@ theorem laplace_joint_equivalent_volume (r : ℝ) (hr : r∈Ioo (-1) 1) :
     (gaussianScaleMixtureLaw (Verification.bivariateCorrelation r) (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt).toMeasure.map MeasurableEquiv.finTwoArrow ≪ volume ∧
       volume ≪ (gaussianScaleMixtureLaw (Verification.bivariateCorrelation r) (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt).toMeasure.map MeasurableEquiv.finTwoArrow :=
   Verification.gaussianScaleMixtureLaw_joint_equivalent_volume hr (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (by fun_prop) Verification.laplace_scale_pos
+
+theorem student_joint_standard_density (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) :
+    (studentTLaw (Verification.bivariateCorrelation r) ν hν).toMeasure.map MeasurableEquiv.finTwoArrow=
+      volume.withDensity (fun p : ℝ×ℝ => ENNReal.ofReal
+        ((2*Real.pi*Real.sqrt (1-r^2))⁻¹*
+          (1+(p.1^2-2*r*p.1*p.2+p.2^2)/(ν*(1-r^2)))^(-((ν+2)/2)))) := by
+  rw [student_joint_withDensity r hr ν hν]
+  congr 1
+  funext p
+  rw [Verification.student_joint_density_evaluation hr ν hν p,
+    Verification.studentJointPDF_standard_form hr hν p,
+    Verification.studentQuadratic_standard_form hr p]
+  congr 1
+  rw [show -(ν/2+1)=-((ν+2)/2) by ring]
+  congr 2
+  rw [div_div,mul_comm (1-r^2) ν]
 
 end Papers.AnsariRockel2024

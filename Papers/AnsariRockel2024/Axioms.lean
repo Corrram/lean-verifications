@@ -1797,3 +1797,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_joint_equivalent_volume
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_joint_equivalent_volume
+
+#print axioms Papers.AnsariRockel2024.student_joint_standard_density
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_standard_density
