@@ -1812,3 +1812,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_joint_printed_formula_false
 #assert_standard_axioms Papers.AnsariRockel2024.student_joint_printed_formula_false
+
+#print axioms Papers.AnsariRockel2024.student_precision_measure_update
+#assert_standard_axioms Papers.AnsariRockel2024.student_precision_measure_update
+
+#print axioms Papers.AnsariRockel2024.student_joint_density_factorization
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_density_factorization
+
+#print axioms Papers.AnsariRockel2024.student_conditional_density_normalized
+#assert_standard_axioms Papers.AnsariRockel2024.student_conditional_density_normalized
