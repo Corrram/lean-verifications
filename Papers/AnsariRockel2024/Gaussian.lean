@@ -3,6 +3,7 @@ import Verification.GaussianWedge
 import Verification.GaussianTau
 import Verification.GaussianRho
 import Verification.GaussianConditional
+import Verification.GaussianXi
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -128,5 +129,10 @@ theorem gaussian_xi_normal_integral {r : ℝ} (hr : r∈Ioo (-1) 1) :
       6*(∫ b, ∫ x, (ProbabilityTheory.cdf (gaussianReal 0 1)
         ((b-r*x)/Real.sqrt (1-r^2)))^2 ∂gaussianReal 0 1 ∂gaussianReal 0 1)-2 :=
   Verification.gaussianBivariate_xi_normal_integral hr
+
+theorem gaussian_chatterjeeXi {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).chatterjeeXi=
+      3/Real.pi*Real.arcsin ((1+r^2)/2)-1/2 :=
+  Verification.gaussianBivariate_chatterjeeXi hr
 
 end Papers.AnsariRockel2024

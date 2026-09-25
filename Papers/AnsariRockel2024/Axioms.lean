@@ -1590,3 +1590,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_xi_normal_integral
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_xi_normal_integral
+
+#print axioms Papers.AnsariRockel2024.gaussian_chatterjeeXi
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_chatterjeeXi

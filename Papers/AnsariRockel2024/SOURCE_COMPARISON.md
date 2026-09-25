@@ -122,8 +122,17 @@ journal table formulas and tail cells remain to be checked. This distinction
 is intentional: publisher PDF text was available for the prose comparison,
 but page rendering and a direct PDF download failed during this check.
 
-## Gaussian xi real-domain failure (arXiv v3 only)
+## Gaussian xi: arXiv v3 discrepancy and proved correction
 
-The [arXiv v3 PDF, page 19](https://arxiv.org/pdf/2310.17307v3#page=19) and [HTML Table 6](https://arxiv.org/html/2310.17307v3) both print the arcsine argument `1/2 + r^2/(1+r)`. The checked theorem `gaussian_printed_xi_argument_outside_domain` shows it exceeds one for every `-1<r<-1/2`; `gaussian_printed_xi_argument_counterexample` evaluates it to `11/4` at `r=-3/4`. The correlation-matrix theorem confirms these are admissible parameters of the actual Gaussian family. This is a failure of the classical real arcsine domain, independent of any totalized library convention outside [-1,1]. A corrected xi formula and the journal version of this cell remain pending.
+The [arXiv v3 PDF, page 19](https://arxiv.org/pdf/2310.17307v3#page=19) and [HTML Table 6](https://arxiv.org/html/2310.17307v3) both print the arcsine argument `1/2 + r^2/(1+r)`. The checked theorem `gaussian_printed_xi_argument_outside_domain` shows it exceeds one for every `-1<r<-1/2`; `gaussian_printed_xi_argument_counterexample` evaluates it to `11/4` at `r=-3/4`. The correlation-matrix theorem confirms these are admissible parameters of the actual Gaussian family. This is a failure of the classical real arcsine domain, independent of any totalized library convention outside [-1,1]. The corrected xi formula is proved below; the journal version of this cell remains unchecked.
 
-The stronger theorem `gaussian_printed_xi_formula_false` now refutes the literal formula on the actual signed Gaussian family without using out-of-domain arguments. At `r=-1/2` the expression equals one; at `r=1/2` it is strictly less than one. The proved Gaussian sign-reflection identity implies equal actual xi values at these two correlations. The printed arguments are respectively one and two-thirds, both within the classical real arcsine domain. The corrected general formula and journal correspondence are still pending.
+The stronger theorem `gaussian_printed_xi_formula_false` now refutes the literal formula on the actual signed Gaussian family without using out-of-domain arguments. At `r=-1/2` the expression equals one; at `r=1/2` it is strictly less than one. The proved Gaussian sign-reflection identity implies equal actual xi values at these two correlations. The printed arguments are respectively one and two-thirds, both within the classical real arcsine domain. The corrected general formula is now proved below; journal correspondence remains pending.
+
+The theorem `gaussian_chatterjeeXi` proves the corrected expression
+`(3/pi)*arcsin((1+r^2)/2)-1/2` for the actual Gaussian copula on the full
+closed interval `[-1,1]`. The proof identifies its actual conditional CDF,
+represents its squared integral using four independent standard normals,
+and checks that the resulting normalized Gaussian pair has correlation
+`(1+r^2)/2`. Its lower-quadrant probability yields the formula. The singular
+endpoints use the checked benchmark copulas. This is a derived correction,
+not a claim that the printed arXiv v3 cell agrees with it.
