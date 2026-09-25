@@ -1509,3 +1509,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gumbel_kendallTau_generator_integral
 #assert_standard_axioms Papers.AnsariRockel2024.gumbel_kendallTau_generator_integral
+
+#print axioms Papers.AnsariRockel2024.gumbel_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_kendallTau

@@ -1,4 +1,4 @@
-import Verification.GumbelAssociation
+import Verification.GumbelTauEvaluation
 
 /-! # Gumbel–Hougaard conditional law and reduction of the Table 6 tau integral -/
 
@@ -18,5 +18,8 @@ theorem gumbel_kendallTau_generator_integral {θ : ℝ} (hθ : 1≤θ) :
       1-4*(∫ x in Ioi (0:ℝ), ∫ y in Ioi (0:ℝ),
         (Verification.gumbelPsiDeriv θ⁻¹ (x+y))^2) :=
   Verification.gumbel_kendallTau_generator_integral hθ
+
+theorem gumbel_kendallTau {θ : ℝ} (hθ : 1≤θ) :
+    (gumbel θ hθ).kendallTau=(θ-1)/θ := Verification.gumbel_kendallTau hθ
 
 end Papers.AnsariRockel2024
