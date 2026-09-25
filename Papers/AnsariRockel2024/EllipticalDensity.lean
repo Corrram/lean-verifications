@@ -1,3 +1,4 @@
+import Verification.StudentMarginalDensity
 import Verification.ScaleMixtureDensity
 import Papers.AnsariRockel2024.Student
 import Papers.AnsariRockel2024.Laplace
@@ -39,5 +40,17 @@ theorem laplace_marginal_equivalent_volume (r : ℝ) (hr : r∈Icc (-1) 1) (i : 
   rw [Verification.gaussianScaleMixtureLaw_marginal _ (Verification.bivariateCorrelation_posSemidef hr)
     (by intro j; fin_cases j <;> rfl) (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (by fun_prop) i]
   exact Verification.normalScaleMixtureMarginal_equivalent_volume (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (by fun_prop) Verification.laplace_scale_pos
+
+theorem student_marginal_standard_density (r : ℝ) (hr : r∈Icc (-1) 1)
+    (ν : ℝ) (hν : 0<ν) (i : Fin 2) :
+    marginal (studentTLaw (Verification.bivariateCorrelation r) ν hν) i=
+      volume.withDensity (fun x : ℝ => ENNReal.ofReal
+        (Real.Gamma ((ν+1)/2)/(Real.sqrt (ν*Real.pi)*Real.Gamma (ν/2))*
+          (1+x^2/ν)^(-((ν+1)/2)))) := by
+  rw [student_marginal_withDensity r hr ν hν i]
+  congr 1
+  funext x
+  rw [Verification.student_marginal_density_evaluation ν hν x,
+    Verification.studentMarginalPDF_standard_form hν x]
 
 end Papers.AnsariRockel2024
