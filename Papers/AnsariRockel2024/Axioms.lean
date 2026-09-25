@@ -1764,3 +1764,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.elliptical_rho_conditional_comparison
 #assert_standard_axioms Papers.AnsariRockel2024.elliptical_rho_conditional_comparison
+
+#print axioms Papers.AnsariRockel2024.student_spearmanRho
+#assert_standard_axioms Papers.AnsariRockel2024.student_spearmanRho
+
+#print axioms Papers.AnsariRockel2024.laplace_spearmanRho
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_spearmanRho
