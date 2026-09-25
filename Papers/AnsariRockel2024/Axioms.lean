@@ -1503,3 +1503,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.clayton_positive_chatterjeeXi
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_chatterjeeXi
+
+#print axioms Papers.AnsariRockel2024.gumbel_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_conditionalCDF
+
+#print axioms Papers.AnsariRockel2024.gumbel_kendallTau_generator_integral
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_kendallTau_generator_integral
