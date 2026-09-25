@@ -1,6 +1,7 @@
 import Verification.AMHXi
 import Verification.AMHTau
 import Verification.AMHRho
+import Verification.AMHRhoLog
 
 /-! # Ali–Mikhail–Haq association formulas -/
 
@@ -52,5 +53,11 @@ theorem amh_spearmanRho_integral {θ : ℝ} (hmin : -1≤θ) (hmax : θ<1) (h0 :
 
 theorem amh_spearmanRho_zero : (amh 0 (by norm_num) (by norm_num)).spearmanRho=0 :=
   Verification.amh_spearmanRho_zero
+
+theorem amh_spearmanRho {θ : ℝ} (hmin : -1≤θ) (hmax : θ<1) (h0 : θ≠0) :
+    (amh θ hmin hmax.le).spearmanRho=
+      12*(1+θ)*(∫ t in (1:ℝ)..(1-θ), Real.log t/(1-t))/θ^2-
+        24*(1-θ)*Real.log (1-θ)/θ^2-3*(θ+12)/θ :=
+  Verification.amh_spearmanRho hmin hmax h0
 
 end Papers.AnsariRockel2024
