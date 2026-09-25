@@ -29,7 +29,7 @@ noncomputable def huslerReissStableTail (δ : ℝ) : StableTail :=
     (lognormalSpectralWeight_mean _) (by simp)
 
 /-- The positive-parameter Hüsler–Reiss spectral construction.
-The paper's explicit Gaussian-CDF formula is identified separately. -/
+The paper's explicit Gaussian-CDF formula is identified in `HuslerReissFormula.lean`. -/
 noncomputable def huslerReissPositive (δ : ℝ) (_hδ : 0<δ) : Copula 2 :=
   stableTailCopula (huslerReissStableTail δ)
 

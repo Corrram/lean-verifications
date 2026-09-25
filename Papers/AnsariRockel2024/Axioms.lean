@@ -2175,3 +2175,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.huslerReiss_pickands_spectral
 #assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_pickands_spectral
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_pickands_interior
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_pickands_interior
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_cdf_interior
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_cdf_interior
