@@ -2253,3 +2253,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.tEV_pickands_spectral
 #assert_standard_axioms Papers.AnsariRockel2024.tEV_pickands_spectral
+
+#print axioms Papers.AnsariRockel2024.tEV_gaussian_moment
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_gaussian_moment
+
+#print axioms Papers.AnsariRockel2024.tEV_gaussian_moment_add_two
+#assert_standard_axioms Papers.AnsariRockel2024.tEV_gaussian_moment_add_two
