@@ -4,10 +4,12 @@ import Verification.GaussianTau
 import Verification.GaussianRho
 import Verification.GaussianConditional
 import Verification.GaussianXi
+import Verification.GaussianQuantileConditional
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
 open ProbabilityTheory MeasureTheory Set Copula
+open scoped unitInterval
 
 namespace Papers.AnsariRockel2024
 
@@ -134,5 +136,19 @@ theorem gaussian_chatterjeeXi {r : ℝ} (hr : r∈Icc (-1) 1) :
     (Verification.gaussianBivariate r hr).chatterjeeXi=
       3/Real.pi*Real.arcsin ((1+r^2)/2)-1/2 :=
   Verification.gaussianBivariate_chatterjeeXi hr
+
+theorem gaussian_conditionalCDF_quantile {r : ℝ} (hr : r∈Ioo (-1) 1)
+    {v : I} (hv : (v:ℝ)∈Ioo (0:ℝ) 1) :
+    (fun u => (Verification.gaussianBivariate r ⟨hr.1.le,hr.2.le⟩).conditionalCDF u v)=ᵐ[volume]
+      Verification.gaussianQuantileConditional r v :=
+  Verification.gaussianBivariate_conditionalCDF_quantile hr hv
+
+theorem gaussian_conditional_antitoneOn {r : ℝ} (hr : 0≤r) (v : I) :
+    AntitoneOn (Verification.gaussianQuantileConditional r v) {u : I | (u:ℝ)∈Ioo (0:ℝ) 1} :=
+  Verification.gaussianQuantileConditional_antitoneOn hr v
+
+theorem gaussian_conditional_monotoneOn {r : ℝ} (hr : r≤0) (v : I) :
+    MonotoneOn (Verification.gaussianQuantileConditional r v) {u : I | (u:ℝ)∈Ioo (0:ℝ) 1} :=
+  Verification.gaussianQuantileConditional_monotoneOn hr v
 
 end Papers.AnsariRockel2024

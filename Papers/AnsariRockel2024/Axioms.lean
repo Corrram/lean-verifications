@@ -1593,3 +1593,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_chatterjeeXi
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_chatterjeeXi
+
+#print axioms Papers.AnsariRockel2024.gaussian_conditionalCDF_quantile
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_conditionalCDF_quantile
+
+#print axioms Papers.AnsariRockel2024.gaussian_conditional_antitoneOn
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_conditional_antitoneOn
+
+#print axioms Papers.AnsariRockel2024.gaussian_conditional_monotoneOn
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_conditional_monotoneOn
