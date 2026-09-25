@@ -14,7 +14,7 @@ certificate that every table cell in either version has been verified.
 | Lemma 2.6, monotone-class Schur/lower-orthant implications | p. 7 (PDF index 6) | Same two-part statement and hypotheses as arXiv v3. |
 | Lemma 2.8, conditionally decreasing analogue | p. 8 (PDF index 7) | Same two-part statement and reversed orthant direction. |
 | Proposition 3.2, survival invariance | p. 10 (PDF index 9) | Same three numbered clauses. |
-| Theorem 3.4, extreme-value orders | p. 14 (PDF index 13) | Same five equivalences, including the still-unproved general CI premise used for the Schur directions. |
+| Theorem 3.4, extreme-value orders | p. 14 (PDF index 13) | Same five equivalences. The general CI theorem is now proved from max-stability, so the audited copula-form Schur equivalences no longer require an independent CI premise. |
 | Table 6 and Appendix A.5 | pp. 18 and 31–34 (PDF indices 17 and 30–33) | The same named family rows and Marshall–Olkin/Cuadras–Augé calculation sections appear. Formula-by-formula correspondence for unverified cells remains pending. |
 | Fréchet mixture condition | Appendix A.4.1, p. 30 (PDF index 29) | The printed condition still says `α + β ≥ 1`, opposite to the valid mixture simplex `α + β ≤ 1`. |
 | Mardia W coefficient | Appendix A.4.1, equation (A7), p. 30 (PDF index 29) | The published expression retains the negative W coefficient identified in arXiv equation (23). The formalization uses the nonnegative coefficient of the actual copula mixture. |

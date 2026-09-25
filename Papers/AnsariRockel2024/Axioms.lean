@@ -1389,3 +1389,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.extremeValue_log_section_convex
 #assert_standard_axioms Papers.AnsariRockel2024.extremeValue_log_section_convex
+
+#print axioms Papers.AnsariRockel2024.extremeValue_ci
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_ci
+
+#print axioms Papers.AnsariRockel2024.extremeValue_schur_iff_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_schur_iff_pickands
+
+#print axioms Papers.AnsariRockel2024.extremeValue_schur_first_iff_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_schur_first_iff_pickands
+
+#print axioms Papers.AnsariRockel2024.extremeValue_schur_second_iff_pickands
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_schur_second_iff_pickands
+
+#print axioms Papers.AnsariRockel2024.extremeValue_pickands_xi_mono
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_xi_mono

@@ -2,6 +2,7 @@ import Papers.AnsariRockel2024.GeneralOrders
 import Verification.ExtremeValuePickands
 import Verification.ExtremeValueLog
 import Verification.ExtremeValueConvexity
+import Verification.ExtremeValueConditional
 import Copula.ExtremeValue.Diagonal
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
@@ -15,8 +16,7 @@ open scoped unitInterval
 
 namespace Papers.AnsariRockel2024
 
-/-- Theorem 3.4(i)-(ii), with a canonical Pickands function recovered from max-stability.
-The Schur equivalences for arbitrary extreme-value copulas are not asserted here. -/
+/-- Theorem 3.4(i)-(ii), with a canonical Pickands function recovered from max-stability. -/
 theorem extremeValue_pickands_order (C D : Copula 2)
     (hC : C.IsExtremeValue) (hD : D.IsExtremeValue) :
     C.LowerOrthantLE D ↔ ∀ t : I, 0<t → t<1 → copulaPickands D t ≤ copulaPickands C t :=
@@ -211,5 +211,37 @@ theorem extremeValue_log_increment_second (C : Copula 2) (hC : C.IsExtremeValue)
 theorem extremeValue_log_section_convex (C : Copula 2) (hC : C.IsExtremeValue)
     (y : ℝ) (hy : 0≤y) : ConvexOn ℝ (Set.Ioi 0) (extremeValueLogSection C y hy) :=
   Verification.extremeValueLogSection_convex C hC y hy
+
+/-- Every max-stable bivariate copula is conditionally increasing, without a density assumption. -/
+theorem extremeValue_ci (C : Copula 2) (hC : C.IsExtremeValue) : C.IsCI :=
+  Verification.extremeValue_isCI C hC
+
+/-- Theorem 3.4(iii), without a separate CI hypothesis. -/
+theorem extremeValue_schur_iff_pickands (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue) :
+    C.SchurBothLE D ↔
+      ∀ t : I, 0<t → t<1 → copulaPickands D t≤copulaPickands C t :=
+  extremeValue_schur_iff_pickands_of_ci C D hC hD (extremeValue_ci C hC) (extremeValue_ci D hD)
+
+/-- Theorem 3.4(iv), without a separate CI hypothesis. -/
+theorem extremeValue_schur_first_iff_pickands (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue) :
+    C.SchurLE D ↔
+      ∀ t : I, 0<t → t<1 → copulaPickands D t≤copulaPickands C t :=
+  extremeValue_schur_first_iff_pickands_of_ci C D hC hD (extremeValue_ci C hC) (extremeValue_ci D hD)
+
+/-- Theorem 3.4(v), without a separate CI hypothesis. -/
+theorem extremeValue_schur_second_iff_pickands (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue) :
+    C.transpose.SchurLE D.transpose ↔
+      ∀ t : I, 0<t → t<1 → copulaPickands D t≤copulaPickands C t :=
+  extremeValue_schur_second_iff_pickands_of_ci C D hC hD (extremeValue_ci C hC) (extremeValue_ci D hD)
+
+/-- Remark 3.5: both directional xi comparisons for arbitrary extreme-value copulas. -/
+theorem extremeValue_pickands_xi_mono (C D : Copula 2)
+    (hC : C.IsExtremeValue) (hD : D.IsExtremeValue)
+    (h : ∀ t : I, 0<t → t<1 → copulaPickands D t≤copulaPickands C t) :
+    C.chatterjeeXi≤D.chatterjeeXi ∧ C.transpose.chatterjeeXi≤D.transpose.chatterjeeXi :=
+  extremeValue_pickands_xi_mono_of_ci C D hC hD (extremeValue_ci C hC) (extremeValue_ci D hD) h
 
 end Papers.AnsariRockel2024
