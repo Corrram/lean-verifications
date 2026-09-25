@@ -3,6 +3,7 @@ import Verification.ExtremeValuePickands
 import Verification.ExtremeValueLog
 import Verification.ExtremeValueConvexity
 import Verification.ExtremeValueConditional
+import Verification.PickandsConvexity
 import Copula.ExtremeValue.Diagonal
 import Verification.MarshallOlkinSingular
 import Verification.MarshallOlkinRho
@@ -243,5 +244,13 @@ theorem extremeValue_pickands_xi_mono (C D : Copula 2)
     (h : ∀ t : I, 0<t → t<1 → copulaPickands D t≤copulaPickands C t) :
     C.chatterjeeXi≤D.chatterjeeXi ∧ C.transpose.chatterjeeXi≤D.transpose.chatterjeeXi :=
   extremeValue_pickands_xi_mono_of_ci C D hC hD (extremeValue_ci C hC) (extremeValue_ci D hD) h
+
+/-- The real-coordinate extension agrees with the canonical Pickands function on its domain. -/
+theorem extremeValue_pickands_real_coe (C : Copula 2) (hC : C.IsExtremeValue) (t : I) :
+    copulaPickandsReal C t=copulaPickands C t := Verification.copulaPickandsReal_coe C hC t
+
+/-- Section 2.1.2: convexity follows from the actual max-stable copula. -/
+theorem extremeValue_pickands_convex (C : Copula 2) (hC : C.IsExtremeValue) :
+    ConvexOn ℝ (Set.Icc 0 1) (copulaPickandsReal C) := Verification.copulaPickandsReal_convex C hC
 
 end Papers.AnsariRockel2024

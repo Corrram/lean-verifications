@@ -1404,3 +1404,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.extremeValue_pickands_xi_mono
 #assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_xi_mono
+
+#print axioms Papers.AnsariRockel2024.extremeValue_pickands_real_coe
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_real_coe
+
+#print axioms Papers.AnsariRockel2024.extremeValue_pickands_convex
+#assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_convex
