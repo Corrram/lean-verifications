@@ -9,6 +9,7 @@ import Verification.GaussianDependence
 import Verification.GaussianNormalDensity
 import Verification.GaussianCopulaDensity
 import Verification.GaussianTP2
+import Verification.GaussianTails
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -190,5 +191,17 @@ theorem gaussian_density {r : ℝ} (hr : r∈Ioo (-1) 1) :
 theorem gaussian_hasMTP2Density_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
     (Verification.gaussianBivariate r hr).HasMTP2Density ↔ 0≤r ∧ r<1 :=
   Verification.gaussianBivariate_hasMTP2Density_iff hr
+
+theorem gaussian_radiallySymmetric {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).IsRadiallySymmetric :=
+  Verification.gaussianBivariate_radiallySymmetric hr
+
+theorem gaussian_lowerTail {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).HasLowerTailDependence (if r=1 then 1 else 0) :=
+  Verification.gaussianBivariate_lowerTail hr
+
+theorem gaussian_upperTail {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).HasUpperTailDependence (if r=1 then 1 else 0) :=
+  Verification.gaussianBivariate_upperTail hr
 
 end Papers.AnsariRockel2024

@@ -1626,3 +1626,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_hasMTP2Density_iff
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_hasMTP2Density_iff
+
+#print axioms Papers.AnsariRockel2024.gaussian_radiallySymmetric
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_radiallySymmetric
+
+#print axioms Papers.AnsariRockel2024.gaussian_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_lowerTail
+
+#print axioms Papers.AnsariRockel2024.gaussian_upperTail
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_upperTail
