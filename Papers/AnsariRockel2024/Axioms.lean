@@ -2043,3 +2043,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.joeExtremeValue_limit_independence
 #assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_limit_independence
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_interior
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_interior
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_zero_weight
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_zero_weight
+
+#print axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_endpoints
+#assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_pickands_endpoints
