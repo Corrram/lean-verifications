@@ -1806,3 +1806,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_absolutelyContinuous_iff
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_absolutelyContinuous_iff
+
+#print axioms Papers.AnsariRockel2024.student_joint_printed_density_counterexample
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_printed_density_counterexample
+
+#print axioms Papers.AnsariRockel2024.student_joint_printed_formula_false
+#assert_standard_axioms Papers.AnsariRockel2024.student_joint_printed_formula_false

@@ -1,3 +1,4 @@
+import Verification.StudentSourceCorrection
 import Verification.ScaleMixtureAbsoluteContinuity
 import Verification.StudentJointDensity
 import Verification.ScaleMixtureJointDensity
@@ -106,5 +107,15 @@ theorem student_absolutelyContinuous_iff (r : ℝ) (hr : r∈Icc (-1) 1) (ν : �
 theorem laplace_absolutelyContinuous_iff (r : ℝ) (hr : r∈Icc (-1) 1) :
     (Verification.laplaceBivariate r hr).toMeasure ≪ volume ↔ r∈Ioo (-1) 1 :=
   Verification.gaussianScaleMixture_absolutelyContinuous_iff hr (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (by fun_prop) Verification.laplace_scale_pos
+
+theorem student_joint_printed_density_counterexample :
+    Verification.studentPrintedJointPDF 0 2 (0,0)=1 ∧
+      Verification.studentJointPDF 0 2 (0,0)=(2*Real.pi)⁻¹ :=
+  ⟨Verification.studentPrintedJointPDF_zero_two_origin,Verification.studentJointPDF_zero_two_origin⟩
+
+theorem student_joint_printed_formula_false :
+    ¬∀ (r : ℝ) (_hr : r∈Ioo (-1) 1) (ν : ℝ) (_hν : 0<ν) (p : ℝ×ℝ),
+      Verification.studentJointPDF r ν p=Verification.studentPrintedJointPDF r ν p :=
+  Verification.student_joint_printed_formula_false
 
 end Papers.AnsariRockel2024
