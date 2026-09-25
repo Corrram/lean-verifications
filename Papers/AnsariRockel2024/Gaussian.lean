@@ -7,6 +7,8 @@ import Verification.GaussianXi
 import Verification.GaussianQuantileConditional
 import Verification.GaussianDependence
 import Verification.GaussianNormalDensity
+import Verification.GaussianCopulaDensity
+import Verification.GaussianTP2
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -179,5 +181,14 @@ theorem gaussian_toMeasure_normal_density {r : ℝ} (hr : r∈Ioo (-1) 1) :
         (fun p => gaussianPDF 0 1 p.1*gaussianPDF (r*p.1) (1-r^2).toNNReal p.2)).map
           (fun p => ![cdfUnit (gaussianReal 0 1) p.1,cdfUnit (gaussianReal 0 1) p.2]) :=
   Verification.gaussianBivariate_toMeasure_normal_density hr
+
+theorem gaussian_density {r : ℝ} (hr : r∈Ioo (-1) 1) :
+    (Verification.gaussianBivariate r ⟨hr.1.le,hr.2.le⟩).toMeasure=
+      volume.withDensity (fun u => ENNReal.ofReal (Verification.gaussianCopulaDensity r u)) :=
+  Verification.gaussianBivariate_density hr
+
+theorem gaussian_hasMTP2Density_iff {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).HasMTP2Density ↔ 0≤r ∧ r<1 :=
+  Verification.gaussianBivariate_hasMTP2Density_iff hr
 
 end Papers.AnsariRockel2024

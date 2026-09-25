@@ -1620,3 +1620,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_toMeasure_normal_density
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_toMeasure_normal_density
+
+#print axioms Papers.AnsariRockel2024.gaussian_density
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_density
+
+#print axioms Papers.AnsariRockel2024.gaussian_hasMTP2Density_iff
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_hasMTP2Density_iff
