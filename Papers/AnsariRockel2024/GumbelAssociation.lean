@@ -1,5 +1,5 @@
 import Verification.GumbelTauEvaluation
-import Verification.GumbelRho
+import Verification.GumbelRhoFormula
 
 /-! # Gumbel–Hougaard conditional law and reduction of the Table 6 tau integral -/
 
@@ -27,5 +27,11 @@ theorem gumbel_spearmanRho_ratio_integral {θ : ℝ} (hθ : 1≤θ) :
     (gumbel θ hθ).spearmanRho=
       12*(∫ s in Ioi (0:ℝ), (1/(1+s+(1+s^θ)^θ⁻¹))^2)-3 :=
   Verification.gumbel_spearmanRho_ratio_integral hθ
+
+theorem gumbel_spearmanRho {θ : ℝ} (hθ : 1≤θ) :
+    (gumbel θ hθ).spearmanRho=
+      (12/θ)*(∫ t in (0:ℝ)..1,
+        (t*(1-t))^(1/θ-1)/(1+t^(1/θ)+(1-t)^(1/θ))^2)-3 :=
+  Verification.gumbel_spearmanRho hθ
 
 end Papers.AnsariRockel2024
