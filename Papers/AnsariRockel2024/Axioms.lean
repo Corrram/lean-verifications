@@ -1935,3 +1935,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_joint_density_tp2_counterexample
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_joint_density_tp2_counterexample
+
+#print axioms Papers.AnsariRockel2024.laplace_joint_no_tp2_density_version
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_joint_no_tp2_density_version

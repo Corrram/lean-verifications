@@ -1,4 +1,4 @@
-import Verification.LaplaceTP2Witness
+import Verification.LaplaceJointNonTP2
 
 open ProbabilityTheory MeasureTheory Real Set Copula Verification
 open scoped ENNReal
@@ -41,5 +41,13 @@ theorem laplace_joint_density_tp2_counterexample (r : ℝ) (hr : r∈Ioo (-1) 1)
       gaussianScaleMixtureJointDensity r (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (-1,1)*
         gaussianScaleMixtureJointDensity r (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (t,0) :=
   laplace_joint_density_tp2_witness hr
+
+theorem laplace_joint_no_tp2_density_version {r : ℝ} (hr : r∈Ioo (-1) 1) :
+    ¬∃ g : ℝ×ℝ→ℝ, Measurable g ∧ (∀ p,0≤g p) ∧
+      (∀ a b c d : ℝ, a≤b → c≤d → g (a,d)*g (b,c)≤g (a,c)*g (b,d)) ∧
+      (gaussianScaleMixtureLaw (bivariateCorrelation r)
+        (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt).toMeasure.map
+          MeasurableEquiv.finTwoArrow=volume.withDensity (fun p => ENNReal.ofReal (g p)) :=
+  laplace_joint_no_tp2_density hr
 
 end Papers.AnsariRockel2024
