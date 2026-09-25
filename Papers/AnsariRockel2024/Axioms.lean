@@ -2181,3 +2181,24 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.huslerReiss_cdf_interior
 #assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_cdf_interior
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_extremalCoefficient
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_extremalCoefficient
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_tails
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_tails
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_limit_comonotonic
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_limit_comonotonic
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_limit_independence_interior
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_limit_independence_interior
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_limit_independence
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_limit_independence
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_limit_comonotonic_uniform
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_limit_comonotonic_uniform
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_limit_independence_uniform
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_limit_independence_uniform
