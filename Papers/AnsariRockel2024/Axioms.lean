@@ -2106,3 +2106,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.bb5_exponent_shape_one
 #assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_shape_one
+
+#print axioms Papers.AnsariRockel2024.bb5_exponent_eq_power_log
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_eq_power_log
+
+#print axioms Papers.AnsariRockel2024.bb5_exponent_submodular
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_exponent_submodular
