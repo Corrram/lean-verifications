@@ -1,4 +1,4 @@
-import Verification.LaplaceRadialAnalysis
+import Verification.LaplaceTP2Witness
 
 open ProbabilityTheory MeasureTheory Real Set Copula Verification
 open scoped ENNReal
@@ -31,5 +31,15 @@ theorem laplace_radial_density_blowup :
 
 theorem laplace_radial_density_continuous {q : ℝ} (hq : 0<q) :
     ContinuousAt laplaceRadialDensity q := laplaceRadialDensity_continuousAt hq
+
+/-- A strict violation for the explicitly identified joint density. This statement
+does not yet exclude every almost-everywhere equivalent density. -/
+theorem laplace_joint_density_tp2_counterexample (r : ℝ) (hr : r∈Ioo (-1) 1) :
+    ∃ t : ℝ, 0<t ∧ t<1 ∧
+      gaussianScaleMixtureJointDensity r (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (-1,0)*
+        gaussianScaleMixtureJointDensity r (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (t,1) <
+      gaussianScaleMixtureJointDensity r (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (-1,1)*
+        gaussianScaleMixtureJointDensity r (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (t,0) :=
+  laplace_joint_density_tp2_witness hr
 
 end Papers.AnsariRockel2024
