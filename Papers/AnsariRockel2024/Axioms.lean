@@ -1896,3 +1896,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_cdf_tendsto_negative_one
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_cdf_tendsto_negative_one
+
+#print axioms Papers.AnsariRockel2024.laplace_not_independent_zero
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_not_independent_zero
+
+#print axioms Papers.AnsariRockel2024.laplace_not_isPQD_nonpositive
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_not_isPQD_nonpositive
+
+#print axioms Papers.AnsariRockel2024.laplace_not_isNQD_nonnegative
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_not_isNQD_nonnegative
+
+#print axioms Papers.AnsariRockel2024.laplace_not_isCI_nonpositive
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_not_isCI_nonpositive
+
+#print axioms Papers.AnsariRockel2024.laplace_not_isCD_nonnegative
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_not_isCD_nonnegative
+
+#print axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density_nonpositive
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density_nonpositive
