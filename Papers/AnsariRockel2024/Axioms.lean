@@ -1512,3 +1512,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gumbel_kendallTau
 #assert_standard_axioms Papers.AnsariRockel2024.gumbel_kendallTau
+
+#print axioms Papers.AnsariRockel2024.gumbel_spearmanRho_ratio_integral
+#assert_standard_axioms Papers.AnsariRockel2024.gumbel_spearmanRho_ratio_integral
