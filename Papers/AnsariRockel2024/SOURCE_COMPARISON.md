@@ -164,3 +164,26 @@ The general lemma `Verification.copula_cdf_uniform_limit_of_pointwise`
 uses the dimension-dependent common Lipschitz constant and compactness
 of the closed cube. The BB5 uniform-limit claims in the same discussion
 remain unverified; this update does not cover that family.
+
+
+## Galambos midpoint: arXiv v3 appendix correction
+
+[Appendix A.2.3 of arXiv v3](https://arxiv.org/html/2310.17307v3#A2.SS3)
+gives the midpoint as `2^((1-delta)/delta)`. The actual copula's canonical
+Pickands midpoint is `1-2^(-1/delta)/2`, proved by
+`galambos_pickands_midpoint`. At delta=1 the respective values are one
+and three quarters; `galambos_printed_midpoint_false` refutes the universal
+printed equality. The corrected midpoint is strictly greater than one
+half for every positive delta, so the intended zero lower-tail conclusion
+is preserved. This comparison concerns the arXiv v3 HTML; the journal
+version of this expression has not been checked.
+
+## Table 5 question marks and numerical claims
+
+[Table 5](https://arxiv.org/html/2310.17307v3) labels BB5/Galambos density
+TP2, Student-t/Laplace Schur order, and Laplace tail coefficients with
+question marks. These are absent claims, not asserted formulas awaiting
+proof. Starred numerical claims, such as the Joe-EV density exclusion,
+remain distinct pending verification obligations. The Joe-EV CDF,
+Pickands, order, limit and tail results do not establish that density
+claim. The current coverage remains incomplete.

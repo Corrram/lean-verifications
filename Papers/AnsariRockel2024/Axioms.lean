@@ -2082,3 +2082,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.joeExtremeValue_limit_marshallOlkin_uniform
 #assert_standard_axioms Papers.AnsariRockel2024.joeExtremeValue_limit_marshallOlkin_uniform
+
+#print axioms Papers.AnsariRockel2024.galambos_pickands_midpoint
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_pickands_midpoint
+
+#print axioms Papers.AnsariRockel2024.galambos_pickands_midpoint_gt_half
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_pickands_midpoint_gt_half
+
+#print axioms Papers.AnsariRockel2024.galambos_printed_midpoint_counterexample
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_printed_midpoint_counterexample
+
+#print axioms Papers.AnsariRockel2024.galambos_printed_midpoint_false
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_printed_midpoint_false
