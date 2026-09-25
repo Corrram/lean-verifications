@@ -1419,3 +1419,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.amh_chatterjeeXi_zero
 #assert_standard_axioms Papers.AnsariRockel2024.amh_chatterjeeXi_zero
+
+#print axioms Papers.AnsariRockel2024.amh_chatterjeeXi_one
+#assert_standard_axioms Papers.AnsariRockel2024.amh_chatterjeeXi_one
+
+#print axioms Papers.AnsariRockel2024.amh_xi_bound_near_zero
+#assert_standard_axioms Papers.AnsariRockel2024.amh_xi_bound_near_zero
+
+#print axioms Papers.AnsariRockel2024.amh_xi_tendsto_zero
+#assert_standard_axioms Papers.AnsariRockel2024.amh_xi_tendsto_zero
