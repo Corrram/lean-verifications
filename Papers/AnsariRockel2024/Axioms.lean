@@ -1821,3 +1821,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_conditional_density_normalized
 #assert_standard_axioms Papers.AnsariRockel2024.student_conditional_density_normalized
+
+#print axioms Papers.AnsariRockel2024.student_conditional_cdf_mixture
+#assert_standard_axioms Papers.AnsariRockel2024.student_conditional_cdf_mixture

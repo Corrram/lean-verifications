@@ -1,3 +1,4 @@
+import Verification.StudentConditionalCDF
 import Verification.StudentConditionalDensity
 
 open ProbabilityTheory MeasureTheory Set
@@ -21,5 +22,13 @@ theorem student_conditional_density_normalized (r : ℝ) (hr : r∈Ioo (-1) 1)
     (ν : ℝ) (hν : 0<ν) (x : ℝ) :
     (∫⁻ y, Verification.studentConditionalDensity r ν x y)=1 :=
   Verification.studentConditionalDensity_integral hr ν hν x
+
+theorem student_conditional_cdf_mixture (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) (x y : ℝ) :
+    ProbabilityTheory.cdf (volume.withDensity (Verification.studentConditionalDensity r ν x)) y=
+      ∫ t, ProbabilityTheory.cdf (gaussianReal 0 1)
+        ((y-r*x)*Real.sqrt t/Real.sqrt (1-r^2))
+          ∂gammaMeasure (ν/2+1/2) (ν/2+x^2/2) :=
+  Verification.studentConditionalDensity_cdf hr ν hν x y
 
 end Papers.AnsariRockel2024
