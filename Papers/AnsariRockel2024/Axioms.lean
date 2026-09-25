@@ -1410,3 +1410,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.extremeValue_pickands_convex
 #assert_standard_axioms Papers.AnsariRockel2024.extremeValue_pickands_convex
+
+#print axioms Papers.AnsariRockel2024.amh_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.amh_conditionalCDF
+
+#print axioms Papers.AnsariRockel2024.amh_chatterjeeXi
+#assert_standard_axioms Papers.AnsariRockel2024.amh_chatterjeeXi
+
+#print axioms Papers.AnsariRockel2024.amh_chatterjeeXi_zero
+#assert_standard_axioms Papers.AnsariRockel2024.amh_chatterjeeXi_zero

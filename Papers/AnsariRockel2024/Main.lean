@@ -1,4 +1,5 @@
 import Papers.AnsariRockel2024.Raftery
+import Papers.AnsariRockel2024.AMHAssociation
 import Papers.AnsariRockel2024.Plackett
 import Papers.AnsariRockel2024.FrankOrder
 import Papers.AnsariRockel2024.TawnConditional
