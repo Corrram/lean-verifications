@@ -2124,3 +2124,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.bb5_cdf_full
 #assert_standard_axioms Papers.AnsariRockel2024.bb5_cdf_full
+
+#print axioms Papers.AnsariRockel2024.bb5_isExtremeValue
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_isExtremeValue
+
+#print axioms Papers.AnsariRockel2024.bb5_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_isCI
+
+#print axioms Papers.AnsariRockel2024.bb5_pickands_interior
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_pickands_interior
+
+#print axioms Papers.AnsariRockel2024.bb5_extremalCoefficient
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_extremalCoefficient
+
+#print axioms Papers.AnsariRockel2024.bb5_tails
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_tails
