@@ -2118,3 +2118,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.bb5_interior_rectangle_nonneg
 #assert_standard_axioms Papers.AnsariRockel2024.bb5_interior_rectangle_nonneg
+
+#print axioms Papers.AnsariRockel2024.bb5_cdf_interior
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_cdf_interior
+
+#print axioms Papers.AnsariRockel2024.bb5_cdf_full
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_cdf_full
