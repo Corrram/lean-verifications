@@ -2217,3 +2217,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.huslerReiss_schurBoth_iff
 #assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_schurBoth_iff
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_zero
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_zero
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_positive
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_positive
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_closed_isExtremeValue
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_isExtremeValue
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_closed_isCI
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_isCI
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_closed_tails
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_tails
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_closed_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_closed_schurBoth_mono
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_schurBoth_mono
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_closed_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.huslerReiss_closed_schurBoth_iff
+#assert_standard_axioms Papers.AnsariRockel2024.huslerReiss_closed_schurBoth_iff
