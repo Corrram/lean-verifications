@@ -1461,3 +1461,21 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.frank_kendallTau_zero
 #assert_standard_axioms Papers.AnsariRockel2024.frank_kendallTau_zero
+
+#print axioms Papers.AnsariRockel2024.frank_debyeTwo_kernel_integral
+#assert_standard_axioms Papers.AnsariRockel2024.frank_debyeTwo_kernel_integral
+
+#print axioms Papers.AnsariRockel2024.frank_debyeOne_neg
+#assert_standard_axioms Papers.AnsariRockel2024.frank_debyeOne_neg
+
+#print axioms Papers.AnsariRockel2024.frank_debyeTwo_neg
+#assert_standard_axioms Papers.AnsariRockel2024.frank_debyeTwo_neg
+
+#print axioms Papers.AnsariRockel2024.frank_kendallTau_neg
+#assert_standard_axioms Papers.AnsariRockel2024.frank_kendallTau_neg
+
+#print axioms Papers.AnsariRockel2024.frank_spearmanRho_zero
+#assert_standard_axioms Papers.AnsariRockel2024.frank_spearmanRho_zero
+
+#print axioms Papers.AnsariRockel2024.frank_spearmanRho_neg
+#assert_standard_axioms Papers.AnsariRockel2024.frank_spearmanRho_neg

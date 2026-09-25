@@ -56,4 +56,93 @@ theorem integral_debye_section {θ : ℝ} (hθ : θ≠0) :
   simp only [mul_zero,mul_one,smul_eq_mul,debyeOne]
   ring
 
+/-- The second Debye function on nonzero arguments, with the Table 6 normalization. -/
+noncomputable def debyeTwo (θ : ℝ) : ℝ :=
+  (2/θ^2)*(∫ t in (0:ℝ)..θ, t^2/(Real.exp t-1))
+
+theorem integrable_debye_second_section {θ : ℝ} (hθ : θ≠0) :
+    Integrable (fun v : I => (v:ℝ)^2/(Real.exp (θ*(v:ℝ))-1)) := by
+  have hi : Integrable (fun v : I => (v:ℝ)*debyeKernel (θ*(v:ℝ))/θ) :=
+    Copula.integrable_continuous_unit volume
+      ((continuous_subtype_val.mul (continuous_debyeKernel.comp (by fun_prop))).div_const θ)
+  apply hi.congr
+  filter_upwards [Measure.ae_ne (volume : Measure I) 0] with v hv
+  have hv' : (v:ℝ)≠0 := fun h => hv (Subtype.ext h)
+  rw [debyeKernel_of_ne (mul_ne_zero hθ hv')]
+  field_simp
+
+theorem integral_debye_second_section {θ : ℝ} (hθ : θ≠0) :
+    (∫ v : I, (v:ℝ)^2/(Real.exp (θ*(v:ℝ))-1))=debyeTwo θ/(2*θ) := by
+  rw [Copula.integral_unitInterval (fun v => v^2/(Real.exp (θ*v)-1))]
+  have he : (fun v : ℝ => v^2/(Real.exp (θ*v)-1))=
+      fun v : ℝ => (1/θ^2)*((θ*v)^2/(Real.exp (θ*v)-1)) := by
+    funext v
+    field_simp
+  rw [he,intervalIntegral.integral_const_mul,
+    intervalIntegral.integral_comp_mul_left (fun t : ℝ => t^2/(Real.exp t-1)) hθ]
+  simp only [mul_zero,mul_one,smul_eq_mul,debyeTwo]
+  field_simp
+
+theorem debyeKernel_neg (x : ℝ) : debyeKernel (-x)=debyeKernel x+x := by
+  by_cases hx : x=0
+  · subst x; simp
+  rw [debyeKernel_of_ne (neg_ne_zero.mpr hx),debyeKernel_of_ne hx,Real.exp_neg]
+  have he : Real.exp x≠0 := Real.exp_ne_zero _
+  have he1 : Real.exp x-1≠0 := by
+    intro h
+    exact hx (Real.exp_injective ((sub_eq_zero.mp h).trans Real.exp_zero.symm))
+  have he2 : (Real.exp x)⁻¹-1≠0 := by
+    intro h
+    have hh : Real.exp x=1 := by simpa using sub_eq_zero.mp h
+    exact he1 (sub_eq_zero.mpr hh)
+  field_simp [he,he1,he2]
+  have he3 : 1-Real.exp x≠0 := by intro h; apply he1; linarith
+  field_simp [he3]
+  ring
+
+theorem debyeOne_kernel_integral {θ : ℝ} (hθ : θ≠0) :
+    debyeOne θ=∫ v : I, debyeKernel (θ*(v:ℝ)) := by
+  have he : (fun v : I => debyeKernel (θ*(v:ℝ))) =ᵐ[volume]
+      fun v => θ*((v:ℝ)/(Real.exp (θ*(v:ℝ))-1)) := by
+    filter_upwards [Measure.ae_ne (volume : Measure I) 0] with v hv
+    have hv' : (v:ℝ)≠0 := fun h => hv (Subtype.ext h)
+    rw [debyeKernel_of_ne (mul_ne_zero hθ hv')]
+    ring
+  rw [integral_congr_ae he,integral_const_mul,integral_debye_section hθ]
+  field_simp
+
+theorem debyeTwo_kernel_integral {θ : ℝ} (hθ : θ≠0) :
+    debyeTwo θ=∫ v : I, 2*(v:ℝ)*debyeKernel (θ*(v:ℝ)) := by
+  have he : (fun v : I => 2*(v:ℝ)*debyeKernel (θ*(v:ℝ))) =ᵐ[volume]
+      fun v => (2*θ)*((v:ℝ)^2/(Real.exp (θ*(v:ℝ))-1)) := by
+    filter_upwards [Measure.ae_ne (volume : Measure I) 0] with v hv
+    have hv' : (v:ℝ)≠0 := fun h => hv (Subtype.ext h)
+    rw [debyeKernel_of_ne (mul_ne_zero hθ hv')]
+    ring
+  rw [integral_congr_ae he,integral_const_mul,integral_debye_second_section hθ]
+  field_simp
+
+theorem debyeOne_neg {θ : ℝ} (hθ : θ≠0) : debyeOne (-θ)=debyeOne θ+θ/2 := by
+  rw [debyeOne_kernel_integral (neg_ne_zero.mpr hθ),debyeOne_kernel_integral hθ]
+  simp_rw [neg_mul,debyeKernel_neg]
+  have hi : Integrable (fun v : I => debyeKernel (θ*(v:ℝ))) :=
+    Copula.integrable_continuous_unit volume (continuous_debyeKernel.comp (by fun_prop))
+  have hj : Integrable (fun v : I => θ*(v:ℝ)) := Copula.integrable_continuous_unit volume (by fun_prop)
+  rw [integral_add hi hj,integral_const_mul,Copula.integral_unit_id]
+  ring
+
+theorem debyeTwo_neg {θ : ℝ} (hθ : θ≠0) : debyeTwo (-θ)=debyeTwo θ+2*θ/3 := by
+  rw [debyeTwo_kernel_integral (neg_ne_zero.mpr hθ),debyeTwo_kernel_integral hθ]
+  simp_rw [neg_mul,debyeKernel_neg,mul_add]
+  have hi : Integrable (fun v : I => 2*(v:ℝ)*debyeKernel (θ*(v:ℝ))) :=
+    Copula.integrable_continuous_unit volume ((by fun_prop : Continuous (fun v : I => 2*(v:ℝ))).mul
+      (continuous_debyeKernel.comp (by fun_prop)))
+  have hj : Integrable (fun v : I => 2*(v:ℝ)*(θ*(v:ℝ))) :=
+    Copula.integrable_continuous_unit volume (by fun_prop)
+  rw [integral_add hi hj]
+  have he : (fun v : I => 2*(v:ℝ)*(θ*(v:ℝ)))=fun v : I => (2*θ)*(v:ℝ)^2 := by
+    funext v; ring
+  rw [he,integral_const_mul,Copula.integral_unit_pow]
+  ring
+
 end Verification
