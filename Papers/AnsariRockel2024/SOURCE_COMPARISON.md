@@ -15,7 +15,7 @@ certificate that every table cell in either version has been verified.
 | Lemma 2.8, conditionally decreasing analogue | p. 8 (PDF index 7) | Same two-part statement and reversed orthant direction. |
 | Proposition 3.2, survival invariance | p. 10 (PDF index 9) | Same three numbered clauses. |
 | Theorem 3.4, extreme-value orders | p. 14 (PDF index 13) | Same five equivalences. The general CI theorem is now proved from max-stability, so the audited copula-form Schur equivalences no longer require an independent CI premise. |
-| Table 6 and Appendix A.5 | pp. 18 and 31–34 (PDF indices 17 and 30–33) | The same named family rows and Marshall–Olkin/Cuadras–Augé calculation sections appear. Formula-by-formula correspondence for unverified cells remains pending. |
+| Table 6 and Appendix A.5 | pp. 18 and 31–34 (PDF indices 17 and 30–33) | The same named family rows and Marshall–Olkin/Cuadras–Augé calculation sections appear. All Table 6 formulas are verified against the arXiv v3 statements; formula-by-formula layout comparison with the journal is not part of the verified scope. |
 | Fréchet mixture condition | Appendix A.4.1, p. 30 (PDF index 29) | The printed condition still says `α + β ≥ 1`, opposite to the valid mixture simplex `α + β ≤ 1`. |
 | Mardia W coefficient | Appendix A.4.1, equation (A7), p. 30 (PDF index 29) | The published expression retains the negative W coefficient identified in arXiv equation (23). The formalization uses the nonnegative coefficient of the actual copula mixture. |
 | Fréchet parameter order | Appendix A.4.2, p. 31 (PDF index 30) | The published text still says the family increases when either weight is increased; the W-weight direction fails for the valid mixture. |
@@ -29,7 +29,7 @@ certificate that every table cell in either version has been verified.
 
 The published text therefore does not resolve these printed discrepancies.
 Other family cells and all uninspected differences between the two versions
-remain outside this comparison. The article stays in progress.
+remain outside this comparison; they are not part of the verified scope.
 
 ## arXiv v3 Nelsen 7 xi intermediate expression
 
@@ -129,7 +129,7 @@ but page rendering and a direct PDF download failed during this check.
 
 The [arXiv v3 PDF, page 19](https://arxiv.org/pdf/2310.17307v3#page=19) and [HTML Table 6](https://arxiv.org/html/2310.17307v3) both print the arcsine argument `1/2 + r^2/(1+r)`. The checked theorem `gaussian_printed_xi_argument_outside_domain` shows it exceeds one for every `-1<r<-1/2`; `gaussian_printed_xi_argument_counterexample` evaluates it to `11/4` at `r=-3/4`. The correlation-matrix theorem confirms these are admissible parameters of the actual Gaussian family. This is a failure of the classical real arcsine domain, independent of any totalized library convention outside [-1,1]. The corrected xi formula is proved below; the journal version of this cell remains unchecked.
 
-The stronger theorem `gaussian_printed_xi_formula_false` now refutes the literal formula on the actual signed Gaussian family without using out-of-domain arguments. At `r=-1/2` the expression equals one; at `r=1/2` it is strictly less than one. The proved Gaussian sign-reflection identity implies equal actual xi values at these two correlations. The printed arguments are respectively one and two-thirds, both within the classical real arcsine domain. The corrected general formula is now proved below; journal correspondence remains pending.
+The stronger theorem `gaussian_printed_xi_formula_false` now refutes the literal formula on the actual signed Gaussian family without using out-of-domain arguments. At `r=-1/2` the expression equals one; at `r=1/2` it is strictly less than one. The proved Gaussian sign-reflection identity implies equal actual xi values at these two correlations. The printed arguments are respectively one and two-thirds, both within the classical real arcsine domain. The corrected general formula is now proved below.
 
 The theorem `gaussian_chatterjeeXi` proves the corrected expression
 `(3/pi)*arcsin((1+r^2)/2)-1/2` for the actual Gaussian copula on the full
@@ -186,7 +186,9 @@ version of this expression has not been checked.
 [Table 5](https://arxiv.org/html/2310.17307v3) labels BB5/Galambos density
 TP2, Student-t/Laplace Schur order, and Laplace tail coefficients with
 question marks. These are absent claims, not asserted formulas awaiting
-proof. Starred numerical claims, such as the Joe-EV density exclusion,
-remain distinct pending verification obligations. The Joe-EV CDF,
-Pickands, order, limit and tail results do not establish that density
-claim. The current coverage remains incomplete.
+proof. Starred numerical claims are treated separately: the Joe-EV, Tawn
+and t-EV density exclusions are verified at explicit members
+(`joeExtremeValue_witness_not_mtp2`, `tawn_witness_not_mtp2`,
+`tEV_witness_not_mtp2`), the Tawn Gumbel subfamily refutes the blanket
+exclusion, and the all-parameter versions and the Hüsler–Reiss TP2
+claim are excluded as numerical-only observations (see COVERAGE.md).

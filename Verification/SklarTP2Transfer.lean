@@ -6,7 +6,7 @@ open scoped unitInterval ENNReal
 
 namespace Verification
 
-theorem map_withDensity_comp {X Y : Type*} [MeasurableSpace X] [MeasurableSpace Y]
+theorem sklar_map_withDensity_comp {X Y : Type*} [MeasurableSpace X] [MeasurableSpace Y]
     (μ : Measure X) {F : X→Y} (hF : Measurable F) {h : Y→ℝ≥0∞} (hh : Measurable h) :
     (μ.withDensity (fun x => h (F x))).map F=(μ.map F).withDensity h := by
   apply Measure.ext_of_lintegral
@@ -35,7 +35,7 @@ theorem joint_tp2_density_of_copula (J : Measure (ℝ×ℝ)) (M : Measure ℝ)
     exact Prod.ext (hinj (congrFun he 0)) (hinj (congrFun he 1))
   have hJ : J=(M.prod M).withDensity (fun p => ENNReal.ofReal (c (Φ p))) := by
     apply (hΦ.measurableEmbedding hΦinj).map_injective
-    rw [map_withDensity_comp _ hΦ hc.ennreal_ofReal,hprod,← hcd,← hC]
+    rw [sklar_map_withDensity_comp _ hΦ hc.ennreal_ofReal,hprod,← hcd,← hC]
   let g : ℝ×ℝ→ℝ := fun p => m p.1*m p.2*c (Φ p)
   refine ⟨g,by fun_prop,fun p => mul_nonneg (mul_nonneg (hn _) (hn _)) (hcn _),?_,?_⟩
   · intro a b u v hab huv

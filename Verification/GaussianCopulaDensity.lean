@@ -38,7 +38,7 @@ theorem gaussianCopulaDensity_normal (r x y : ℝ) :
   rw [gaussianCopulaDensity,ite_eq_left h]
   simp only [Matrix.cons_val_zero,Matrix.cons_val_one,normalQuantile_cdfUnit]
 
-theorem map_withDensity_comp {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
+theorem gaussian_map_withDensity_comp {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
     (μ : Measure α) {F : α → β} (hF : Measurable F) {g : β → ENNReal} (hg : Measurable g) :
     (μ.withDensity (fun x => g (F x))).map F=(μ.map F).withDensity g := by
   apply Measure.ext_of_lintegral
@@ -85,6 +85,6 @@ theorem gaussianBivariate_density {r : ℝ} (hr : r∈Ioo (-1) 1) :
     rw [← ENNReal.ofReal_mul (mul_nonneg (gaussianPDFReal_nonneg _ _ _) (gaussianPDFReal_nonneg _ _ _))]
     congr 1
     field_simp [hp]
-  rw [gaussianBivariate_toMeasure_normal_density hr,hd,map_withDensity_comp _ hf hg,hmap]
+  rw [gaussianBivariate_toMeasure_normal_density hr,hd,gaussian_map_withDensity_comp _ hf hg,hmap]
 
 end Verification

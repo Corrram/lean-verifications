@@ -35,7 +35,7 @@ See [website authoring and reproduction](docs/WEBSITE.md).
 
 | Article | Supplement | Status |
 | --- | --- | --- |
-| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | In progress; selected family formulas and tails, exact Frechet/Mardia dependence and Nelsen 7 xi/Schur classifications and parameter orders |
+| Ansari & Rockel (2024), *Dependence properties of bivariate copula families* | [AnsariRockel2024](Papers/AnsariRockel2024/README.md) | Complete for stated scope; all arXiv v3 Tables 1–6 cells and Lemmas/Propositions 2.4–3.4, with source corrections; numerical-only observations excluded |
 | ξ–ρ region and inequality (2026) | [AnsariRockel2026XiRho](Papers/AnsariRockel2026XiRho/README.md) | Complete for corrected scope; full region, SI/SD theorem, sharp gap, density/support/MTP2, all ranks, asymmetry, and formal journal correction |
 | ξ–footrule region (2026) | [Rockel2026XiFootrule](Papers/Rockel2026XiFootrule/README.md) | In progress; exact SI region, Jensen bound, closed full region and boundary attainment, and two-parameter density with endpoints |
 | Association measures for approximating copulas (2025) | [Rockel2025Approximation](Papers/Rockel2025Approximation/README.md) | Complete for stated scope; arbitrary-partition ranks, MTP2 monotonicity, counterexamples, population and iid estimator consistency, and unit-cost complexity |
