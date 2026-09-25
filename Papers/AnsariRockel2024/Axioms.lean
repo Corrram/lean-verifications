@@ -1860,3 +1860,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_not_hasMTP2Density
 #assert_standard_axioms Papers.AnsariRockel2024.student_not_hasMTP2Density
+
+#print axioms Papers.AnsariRockel2024.student_diagonal_integral
+#assert_standard_axioms Papers.AnsariRockel2024.student_diagonal_integral
+
+#print axioms Papers.AnsariRockel2024.student_lowerTailRatio_integral
+#assert_standard_axioms Papers.AnsariRockel2024.student_lowerTailRatio_integral
