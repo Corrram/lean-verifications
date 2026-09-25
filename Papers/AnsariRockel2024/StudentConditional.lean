@@ -2,6 +2,7 @@ import Verification.StudentConditionalCDF
 import Verification.StudentConditionalDensity
 import Papers.AnsariRockel2024.Student
 import Verification.StudentConditionalKernel
+import Verification.StudentCopulaConditional
 
 open ProbabilityTheory MeasureTheory Set
 open scoped ENNReal
@@ -69,5 +70,26 @@ theorem student_joint_rectangle_conditional (r : ℝ) (hr : r∈Ioo (-1) 1)
       ∫ x in Iic a, ProbabilityTheory.cdf (volume.withDensity (Verification.studentConditionalDensity r ν x)) b
         ∂Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0 :=
   Verification.student_joint_rectangle_conditional hr ν hν a b
+
+theorem student_cdf_conditional (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) (a b : ℝ) :
+    (Verification.studentBivariate r ⟨hr.1.le,hr.2.le⟩ ν hν).cdf
+      ![cdfUnit (Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0) a,
+        cdfUnit (Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 1) b]=
+      ∫ x in Iic a, ProbabilityTheory.cdf (volume.withDensity (Verification.studentConditionalDensity r ν x)) b
+        ∂Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0 :=
+  Verification.studentBivariate_cdf_conditional hr ν hν a b
+
+theorem student_conditionalCDF_standard (r : ℝ) (hr : r∈Ioo (-1) 1)
+    (ν : ℝ) (hν : 0<ν) (b : ℝ) :
+    (fun x => (Verification.studentBivariate r ⟨hr.1.le,hr.2.le⟩ ν hν).conditionalCDF
+      (cdfUnit (Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0) x)
+      (cdfUnit (Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 1) b))
+      =ᵐ[Copula.marginal (Copula.studentTLaw (Verification.bivariateCorrelation r) ν hν) 0]
+      fun x => ProbabilityTheory.cdf (Copula.marginal
+        (Copula.studentTLaw (Verification.bivariateCorrelation 0) (ν+1) (by positivity)) 0)
+        ((b-r*x)/Real.sqrt ((ν+x^2)*(1-r^2)/(ν+1))) := by
+  filter_upwards [Verification.studentBivariate_conditionalCDF hr ν hν b] with x hx
+  exact hx.trans (student_conditional_cdf_standard r hr ν hν x b)
 
 end Papers.AnsariRockel2024

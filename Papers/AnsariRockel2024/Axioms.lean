@@ -1839,3 +1839,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_joint_rectangle_conditional
 #assert_standard_axioms Papers.AnsariRockel2024.student_joint_rectangle_conditional
+
+#print axioms Papers.AnsariRockel2024.student_cdf_conditional
+#assert_standard_axioms Papers.AnsariRockel2024.student_cdf_conditional
+
+#print axioms Papers.AnsariRockel2024.student_conditionalCDF_standard
+#assert_standard_axioms Papers.AnsariRockel2024.student_conditionalCDF_standard
