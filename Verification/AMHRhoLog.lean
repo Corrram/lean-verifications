@@ -81,24 +81,31 @@ theorem amhRhoBoundary_tendsto_zero (θ : ℝ) (hθ : θ≠0) :
 noncomputable def amhRhoIntegrand (θ w : ℝ) : ℝ :=
   (1-w)/(θ*w)+(1-w)*(1-θ*w)/(θ*w)^2*Real.log (1-θ*w)
 
-theorem amhRhoIntegrand_integrable {θ : ℝ} (hmin : -1≤θ) (hmax : θ<1) (h0 : θ≠0) :
+theorem amhRhoIntegrand_integrable_of_le_one {θ : ℝ} (hmin : -1≤θ) (hmax : θ≤1) (h0 : θ≠0) :
     IntervalIntegrable (amhRhoIntegrand θ) volume 0 1 := by
   apply (intervalIntegrable_const (c:=(1:ℝ))).mono_fun' (by unfold amhRhoIntegrand; fun_prop)
-  filter_upwards [ae_restrict_mem measurableSet_uIoc] with w hw
+  filter_upwards [ae_restrict_mem measurableSet_uIoc,
+    ae_restrict_of_ae (Measure.ae_ne (volume : Measure ℝ) 1)] with w hw hw1
   have hw' : w∈Ioc (0:ℝ) 1 := by simpa using hw
   let v : I := ⟨1-w,by constructor <;> linarith [hw'.1,hw'.2]⟩
   have hv : (v:ℝ)≠1 := by dsimp [v]; linarith [hw'.1]
-  have he := integral_amh_cdf_section hmin hmax h0 v hv
-  have he' : amhRhoIntegrand θ w=∫ u : I, (amh θ hmin hmax.le).cdf ![u,v] := by
+  have hvp : 0<(v:ℝ) := by dsimp [v]; exact sub_pos.mpr (lt_of_le_of_ne hw'.2 hw1)
+  have he := integral_amh_cdf_section_of_den_pos hmin hmax h0 v hv
+    (fun _ hu => amhDen_pos_of_pos_right hmax hu v.property hvp)
+  have he' : amhRhoIntegrand θ w=∫ u : I, (amh θ hmin hmax).cdf ![u,v] := by
     rw [he]
     simp only [v,sub_sub_cancel]
     rfl
   rw [he',Real.norm_eq_abs,abs_of_nonneg (integral_nonneg (fun u => Copula.cdf_nonneg _ _))]
   calc
     _ ≤ ∫ _u : I, (1:ℝ) := integral_mono
-      (Copula.integrable_continuous_unit volume ((amh θ hmin hmax.le).continuous_cdf.comp (by fun_prop)))
+      (Copula.integrable_continuous_unit volume ((amh θ hmin hmax).continuous_cdf.comp (by fun_prop)))
       (integrable_const 1) (fun u => Copula.cdf_le_one _ _)
     _ = 1 := by simp
+
+theorem amhRhoIntegrand_integrable {θ : ℝ} (hmin : -1≤θ) (hmax : θ<1) (h0 : θ≠0) :
+    IntervalIntegrable (amhRhoIntegrand θ) volume 0 1 :=
+  amhRhoIntegrand_integrable_of_le_one hmin hmax.le h0
 
 theorem amhRhoIntegrand_integral {θ : ℝ} (hmin : -1≤θ) (hmax : θ<1) (h0 : θ≠0) :
     (∫ w in (0:ℝ)..1, amhRhoIntegrand θ w)=
