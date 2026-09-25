@@ -1800,3 +1800,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_joint_standard_density
 #assert_standard_axioms Papers.AnsariRockel2024.student_joint_standard_density
+
+#print axioms Papers.AnsariRockel2024.student_absolutelyContinuous_iff
+#assert_standard_axioms Papers.AnsariRockel2024.student_absolutelyContinuous_iff
+
+#print axioms Papers.AnsariRockel2024.laplace_absolutelyContinuous_iff
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_absolutelyContinuous_iff

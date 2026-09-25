@@ -1,3 +1,4 @@
+import Verification.ScaleMixtureAbsoluteContinuity
 import Verification.StudentJointDensity
 import Verification.ScaleMixtureJointDensity
 import Verification.StudentMarginalDensity
@@ -95,5 +96,15 @@ theorem student_joint_standard_density (r : ℝ) (hr : r∈Ioo (-1) 1)
   rw [show -(ν/2+1)=-((ν+2)/2) by ring]
   congr 2
   rw [div_div,mul_comm (1-r^2) ν]
+
+theorem student_absolutelyContinuous_iff (r : ℝ) (hr : r∈Icc (-1) 1) (ν : ℝ) (hν : 0<ν) :
+    (Verification.studentBivariate r hr ν hν).toMeasure ≪ volume ↔ r∈Ioo (-1) 1 :=
+  Verification.gaussianScaleMixture_absolutelyContinuous_iff hr (gammaProbability (ν/2) (ν/2) (by positivity) (by positivity)) (fun t : ℝ => (Real.sqrt t)⁻¹) (by fun_prop) (by
+    filter_upwards [ae_pos_gammaMeasure (ν/2) (ν/2)] with t ht
+    exact inv_pos.mpr (Real.sqrt_pos.mpr ht))
+
+theorem laplace_absolutelyContinuous_iff (r : ℝ) (hr : r∈Icc (-1) 1) :
+    (Verification.laplaceBivariate r hr).toMeasure ≪ volume ↔ r∈Ioo (-1) 1 :=
+  Verification.gaussianScaleMixture_absolutelyContinuous_iff hr (gammaProbability 1 1 zero_lt_one zero_lt_one) Real.sqrt (by fun_prop) Verification.laplace_scale_pos
 
 end Papers.AnsariRockel2024
