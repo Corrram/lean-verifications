@@ -2139,3 +2139,30 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.bb5_tails
 #assert_standard_axioms Papers.AnsariRockel2024.bb5_tails
+
+#print axioms Papers.AnsariRockel2024.bb5_pickands_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_pickands_antitone
+
+#print axioms Papers.AnsariRockel2024.bb5_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.bb5_schurBoth_mono
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_schurBoth_mono
+
+#print axioms Papers.AnsariRockel2024.bb5_limit_comonotonic
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_limit_comonotonic
+
+#print axioms Papers.AnsariRockel2024.bb5_limit_gumbel_interior
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_limit_gumbel_interior
+
+#print axioms Papers.AnsariRockel2024.bb5_limit_gumbel
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_limit_gumbel
+
+#print axioms Papers.AnsariRockel2024.bb5_limit_comonotonic_uniform
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_limit_comonotonic_uniform
+
+#print axioms Papers.AnsariRockel2024.bb5_limit_gumbel_uniform
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_limit_gumbel_uniform
+
+#print axioms Papers.AnsariRockel2024.bb5_shape_one
+#assert_standard_axioms Papers.AnsariRockel2024.bb5_shape_one
