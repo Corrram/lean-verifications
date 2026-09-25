@@ -1494,3 +1494,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.clayton_negative_one_kendallTau
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_one_kendallTau
+
+#print axioms Papers.AnsariRockel2024.clayton_negative_conditionalCDF
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_conditionalCDF
+
+#print axioms Papers.AnsariRockel2024.clayton_negative_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_kendallTau
