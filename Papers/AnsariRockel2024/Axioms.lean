@@ -1938,3 +1938,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.laplace_joint_no_tp2_density_version
 #assert_standard_axioms Papers.AnsariRockel2024.laplace_joint_no_tp2_density_version
+
+#print axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density
+#assert_standard_axioms Papers.AnsariRockel2024.laplace_not_hasMTP2Density
