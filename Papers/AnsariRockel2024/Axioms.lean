@@ -1680,3 +1680,12 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_marginal
 #assert_standard_axioms Papers.AnsariRockel2024.student_marginal
+
+#print axioms Papers.AnsariRockel2024.student_marginal_cdf
+#assert_standard_axioms Papers.AnsariRockel2024.student_marginal_cdf
+
+#print axioms Papers.AnsariRockel2024.student_marginal_cdf_strictMono
+#assert_standard_axioms Papers.AnsariRockel2024.student_marginal_cdf_strictMono
+
+#print axioms Papers.AnsariRockel2024.student_marginal_cdf_neg
+#assert_standard_axioms Papers.AnsariRockel2024.student_marginal_cdf_neg
