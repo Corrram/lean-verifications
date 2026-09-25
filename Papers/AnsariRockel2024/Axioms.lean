@@ -2007,3 +2007,9 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.galambos_limit_comonotonic
 #assert_standard_axioms Papers.AnsariRockel2024.galambos_limit_comonotonic
+
+#print axioms Papers.AnsariRockel2024.galambos_limit_independence_interior
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_limit_independence_interior
+
+#print axioms Papers.AnsariRockel2024.galambos_limit_independence
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_limit_independence
