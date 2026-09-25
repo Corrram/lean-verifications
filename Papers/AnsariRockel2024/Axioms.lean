@@ -1989,3 +1989,18 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.galambos_tails
 #assert_standard_axioms Papers.AnsariRockel2024.galambos_tails
+
+#print axioms Papers.AnsariRockel2024.galambos_pickands_antitone
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_pickands_antitone
+
+#print axioms Papers.AnsariRockel2024.galambos_lowerOrthant_mono
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_lowerOrthant_mono
+
+#print axioms Papers.AnsariRockel2024.galambos_schurBoth_mono
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_schurBoth_mono
+
+#print axioms Papers.AnsariRockel2024.galambos_lowerOrthant_iff
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_lowerOrthant_iff
+
+#print axioms Papers.AnsariRockel2024.galambos_schurBoth_iff
+#assert_standard_axioms Papers.AnsariRockel2024.galambos_schurBoth_iff
