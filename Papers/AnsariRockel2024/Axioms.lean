@@ -1500,3 +1500,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.clayton_negative_kendallTau
 #assert_standard_axioms Papers.AnsariRockel2024.clayton_negative_kendallTau
+
+#print axioms Papers.AnsariRockel2024.clayton_positive_chatterjeeXi
+#assert_standard_axioms Papers.AnsariRockel2024.clayton_positive_chatterjeeXi

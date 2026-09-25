@@ -1,8 +1,9 @@
 import Papers.AnsariRockel2024.ClaytonResults
 import Verification.ClaytonTau
 import Verification.ClaytonNegativeTau
+import Verification.ClaytonXi
 
-/-! # Table 6: Clayton Kendall tau on the full signed parameter range -/
+/-! # Table 6: signed Clayton Kendall tau and positive Clayton Chatterjee xi -/
 
 open ProbabilityTheory MeasureTheory Copula
 open scoped unitInterval
@@ -36,5 +37,10 @@ theorem clayton_negative_kendallTau {θ : ℝ} (hmin : -1≤θ) (hmax : θ<0) :
     rw [clayton_negative_one_kendallTau]
     norm_num
   · exact Verification.claytonNegative_kendallTau (lt_of_le_of_ne hmin (Ne.symm he)) hmax
+
+theorem clayton_positive_chatterjeeXi {θ : ℝ} (hθ : 0<θ) :
+    (clayton 2 θ hθ).chatterjeeXi =
+      6*(∫ v : I, Verification.eulerHypergeometric (1/θ) (2+2/θ) (1/θ+1)
+        (1-(v:ℝ)^(-θ)))-2 := Verification.clayton_chatterjeeXi hθ
 
 end Papers.AnsariRockel2024
