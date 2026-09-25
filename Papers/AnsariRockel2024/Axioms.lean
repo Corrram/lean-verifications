@@ -1866,3 +1866,15 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.student_lowerTailRatio_integral
 #assert_standard_axioms Papers.AnsariRockel2024.student_lowerTailRatio_integral
+
+#print axioms Papers.AnsariRockel2024.student_lowerTail_interior
+#assert_standard_axioms Papers.AnsariRockel2024.student_lowerTail_interior
+
+#print axioms Papers.AnsariRockel2024.student_upperTail_interior
+#assert_standard_axioms Papers.AnsariRockel2024.student_upperTail_interior
+
+#print axioms Papers.AnsariRockel2024.student_lowerTail
+#assert_standard_axioms Papers.AnsariRockel2024.student_lowerTail
+
+#print axioms Papers.AnsariRockel2024.student_upperTail
+#assert_standard_axioms Papers.AnsariRockel2024.student_upperTail
