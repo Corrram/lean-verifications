@@ -1,5 +1,6 @@
 import Verification.GaussianRepresentation
 import Verification.GaussianWedge
+import Verification.GaussianTau
 
 /-! # Gaussian family: admissible parameters, benchmark members and source domain check -/
 
@@ -98,5 +99,9 @@ theorem gaussian_wedge_probability {a : ℝ} (ha : 0≤a) :
 theorem gaussian_halfline_cdf_integral (a : ℝ) :
     (∫ x in Ioi (0:ℝ), ProbabilityTheory.cdf (gaussianReal 0 1) (a*x) ∂gaussianReal 0 1)=
       1/4+Real.arctan a/(2*Real.pi) := Verification.integral_standardGaussian_cdf a
+
+theorem gaussian_kendallTau {r : ℝ} (hr : r∈Icc (-1) 1) :
+    (Verification.gaussianBivariate r hr).kendallTau=2/Real.pi*Real.arcsin r :=
+  Verification.gaussianBivariate_kendallTau hr
 
 end Papers.AnsariRockel2024

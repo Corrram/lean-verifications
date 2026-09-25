@@ -1575,3 +1575,6 @@ import Verification.AxiomAudit
 
 #print axioms Papers.AnsariRockel2024.gaussian_halfline_cdf_integral
 #assert_standard_axioms Papers.AnsariRockel2024.gaussian_halfline_cdf_integral
+
+#print axioms Papers.AnsariRockel2024.gaussian_kendallTau
+#assert_standard_axioms Papers.AnsariRockel2024.gaussian_kendallTau
