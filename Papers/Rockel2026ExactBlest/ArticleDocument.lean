@@ -87,7 +87,7 @@ def documentJson : Json := Json.mkObj [
     ("id", .str "corollary-3-2"),
     ("title", .str "Corollary 3.2. Sharp deviation between nu and rho"),
     ("certificate", .str (toString ``corollary_valid)),
-    ("correspondence", .str (toString ``corollary_correspondence)),
+    ("correspondence", .str (toString ``full_correspondence)),
     ("verified", .str (toString ``corollary_verified)),
     ("target", .str "nu_rho_bound; paper_nu_rho_max_unique; paper_nu_rho_min_unique; rho_midpoint_original_graph; rho_midpoint_reflected_graph"),
     ("checked", checked_document% (vocabulary.withDefinitionLinks) corollary_valid)

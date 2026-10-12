@@ -70,8 +70,11 @@ kernel. The statement correspondence is derived from the definition bridges
 and applies pointwise at every real bound before being specialized to `1/4`.
 That original bridge remains available. The new proof document is checked
 independently: `Argument.sound` derives its conclusion from the validity of
-every node. The full correspondence proof is definitional and does not appeal
-to a proof of the conclusion. The readable law defining the tent-map copula
+every node. `ExistingCorollary` extracts the types of the existing bound,
+uniqueness, family-value and graph theorems with `statement_of%`.
+`full_correspondence` connects these to the complete proof document by unfolding
+definitions, normalizing the parameter and using the survival identities; it
+does not appeal to a proof of the corollary. The readable law defining the tent-map copula
 also has a checked identity with `paperD unitHalf`.
 
 Recognizing the intended mathematics in the displayed statement and definitions

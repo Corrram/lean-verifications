@@ -206,8 +206,49 @@ theorem corollary_correspondence : corollaryProof.goal.eval model () ↔ NativeS
   simp only [corollaryProof, Argument.goal, Expr.eval, model, Var.get, NativeStatement,
     Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one, zero_sub]
 
+/-- Extract the actual types of all existing paper theorems, not display labels. -/
+def ExistingCorollary : Prop :=
+  (statement_of% nu_rho_bound) ∧
+  (statement_of% paper_nu_rho_max_unique) ∧
+  (statement_of% paper_nu_rho_min_unique) ∧
+  (statement_of% (paperD_values Copula.unitHalf)) ∧
+  (statement_of% rho_midpoint_original_graph) ∧
+  (statement_of% rho_midpoint_reflected_graph)
+
+/-- This is a correspondence between statements; no proof of the corollary is used. -/
+theorem existing_correspondence : NativeStatement ↔ ExistingCorollary := by
+  have hv : (statement_of% (paperD_values Copula.unitHalf)) ↔
+      (extremizer.spearmanRho = 0 ∧ blestNu extremizer = 1/4) := by
+    norm_num [extremizer, Copula.unitHalf]
+  unfold ExistingCorollary
+  rw [hv]
+  simp only [neg_div]
+  change NativeStatement ↔
+    (∀ C : Copula 2, |blestNu C - C.spearmanRho| ≤ 1/4) ∧
+    (∀ C : Copula 2, blestNu C - C.spearmanRho = 1/4 → C = extremizer) ∧
+    (∀ C : Copula 2, blestNu C - C.spearmanRho = -(1/4) → C = extremizer.survivalCopula) ∧
+    (extremizer.spearmanRho = 0 ∧ blestNu extremizer = 1/4) ∧
+    OnGraph (rhoFullFamily Copula.unitHalf) tent ∧
+    OnGraph (rhoFullFamily Copula.unitHalf).survivalCopula vee
+  rw [← paperD_half]
+  constructor
+  · intro h
+    exact ⟨fun C => (h C).1, fun C hc => (h C).2.1.mp hc,
+      fun C hc => (h C).2.2.1.mp hc, (h extremizer).2.2.2.1,
+      (h extremizer).2.2.2.2⟩
+  · rintro ⟨hb, hmax, hmin, hvalues, hgraphs⟩ C
+    refine ⟨hb C, ⟨hmax C, ?_⟩, ⟨hmin C, ?_⟩, hvalues, hgraphs⟩
+    · rintro rfl; rw [hvalues.1, hvalues.2]; norm_num
+    · rintro rfl
+      rw [nu_survival, Copula.spearmanRho_survivalCopula, hvalues.1, hvalues.2]
+      norm_num
+
+theorem full_correspondence : corollaryProof.goal.eval model () ↔ ExistingCorollary :=
+  corollary_correspondence.trans existing_correspondence
+
 #assert_lean_mirror_axioms corollary_valid
 #assert_lean_mirror_axioms corollary_correspondence
+#assert_lean_mirror_axioms full_correspondence
 #assert_lean_mirror_axioms left_definition
 #assert_lean_mirror_axioms phi_definition
 #assert_lean_mirror_axioms right_definition

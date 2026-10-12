@@ -25,7 +25,7 @@
         "title": "Corollary 3.2. Sharp deviation between nu and rho",
         "target": "nu_rho_bound; paper_nu_rho_max_unique; paper_nu_rho_min_unique; rho_midpoint_original_graph; rho_midpoint_reflected_graph",
         "id": "corollary-3-2",
-        "correspondence": "Papers.Rockel2026ExactBlest.ArticleProof.corollary_correspondence",
+        "correspondence": "Papers.Rockel2026ExactBlest.ArticleProof.full_correspondence",
         "checked": {
           "statement": {
             "type": "\\mathcal{C}",
