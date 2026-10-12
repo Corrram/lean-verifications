@@ -1,0 +1,55 @@
+{"verified": "Papers.Rockel2026ExactBlest.ArticleBridge.article_verified",
+ "title": "The Blest–Spearman bound",
+ "targetModule": "Papers.Rockel2026ExactBlest.ExactBlest",
+ "target": "Papers.Rockel2026ExactBlest.nu_rho_bound",
+ "statement":
+ {"variable": "C",
+  "noun": "bivariate copula",
+  "kind": "universal",
+  "formula":
+  "\\left|\\href{#def-nu}{\\nu\\left(C\\right)} - \\href{#def-rho}{\\rho\\left(C\\right)}\\right| \\le \\frac{1}{4}",
+  "domain": "copula"},
+ "sourceUrl": "https://arxiv.org/abs/2609.27634v1",
+ "source": "arXiv:2609.27634v1, Corollary 3.2 (universal inequality)",
+ "scope":
+ "The universal inequality for every bivariate copula, including singular copulas. Sharpness and equality cases are outside this certificate.",
+ "schemaVersion": 1,
+ "paperId": "Rockel2026ExactBlest",
+ "id": "blest-spearman",
+ "equivalence":
+ "Papers.Rockel2026ExactBlest.ArticleBridge.statement_equivalence",
+ "definitions":
+ [{"title": "Probability conventions",
+   "latex":
+   "Put $I=[0,1]$. We identify a copula with its probability law $\\mu_C$ on $I^2$. Write $\\lambda$ for Lebesgue probability measure on $I$, $\\pi_1(u,v)=u$ and $\\pi_2(u,v)=v$ for the coordinate projections, and $f_*\\mu(A)=\\mu(f^{-1}(A))$ for the pushforward of a measure. All displayed integrals use Lebesgue measure.",
+   "key": "probability",
+   "dependencies": [],
+   "bridge":
+   "Foundation: probability measures, pushforwards, Lebesgue measure"},
+  {"title": "Bivariate copula",
+   "latex":
+   "A probability law $\\mu_C$ on $I^2$ is a bivariate copula precisely when\n\\[\\left(\\href{#def-probability}{(\\pi_1)_*\\mu_{C}} = \\href{#def-probability}{\\lambda} \\;\\land\\; \\href{#def-probability}{(\\pi_2)_*\\mu_{C}} = \\href{#def-probability}{\\lambda}\\right).\\]",
+   "key": "copula",
+   "dependencies": ["probability", "probability", "probability", "probability"],
+   "bridge":
+   "Papers.Rockel2026ExactBlest.ArticleBridge.copula_definition_equiv"},
+  {"title": "Distribution function",
+   "latex":
+   "For $u,v\\in I$, the distribution function associated with $\\mu_C$ is\n\\[C(u,v):=\\href{#def-probability}{\\mu_{C}([0,u]\\times[0,v])}.\\]",
+   "key": "cdf",
+   "dependencies": ["probability"],
+   "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.cdf_definition_eq"},
+  {"title": "Blest's coefficient",
+   "latex":
+   "\\[\\nu(C):=24\\,\\int_0^1 \\int_0^1 \\left(1 - u\\right)\\,\\href{#def-cdf}{C\\left(u,v\\right)}\\,\\mathrm{d}u\\,\\mathrm{d}v - 2.\\]",
+   "key": "nu",
+   "dependencies": ["cdf"],
+   "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.nu_definition_eq"},
+  {"title": "Spearman's rho",
+   "latex":
+   "\\[\\rho(C):=12\\,\\int_0^1 \\int_0^1 \\href{#def-cdf}{C\\left(u,v\\right)}\\,\\mathrm{d}u\\,\\mathrm{d}v - 3.\\]",
+   "key": "rho",
+   "dependencies": ["cdf"],
+   "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.rho_definition_eq"}],
+ "bridgeModule": "Papers.Rockel2026ExactBlest.ArticleBridge",
+ "allowedAxioms": ["propext", "Classical.choice", "Quot.sound"]}

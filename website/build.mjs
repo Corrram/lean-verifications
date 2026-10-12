@@ -6,6 +6,7 @@ import MarkdownIt from 'markdown-it';
 import texmath from 'markdown-it-texmath';
 import katex from 'katex';
 import { parse } from 'smol-toml';
+import { renderCompanion, validateCompanion } from './lean-mirror.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -16,11 +17,14 @@ const sha = process.env.SOURCE_SHA || execFileSync('git', ['rev-parse', 'HEAD'],
 if (!/^[a-f0-9]{40}$/.test(sha)) throw new Error('SOURCE_SHA must be a full commit SHA');
 const repo = 'https://github.com/Corrram/lean-verifications';
 const source = `${repo}/blob/${sha}/`;
+const mirrorRevision = parse(fs.readFileSync(path.join(root, 'lakefile.toml'), 'utf8')).require.find((p) => p.name === 'lean-mirror').rev;
+const mirrorSource = `https://github.com/Corrram/lean-mirror/blob/${mirrorRevision}/`;
 const url = (p = '') => base + p;
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const write = (p, text) => { const dest = path.join(out, p); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, text); };
 const md = new MarkdownIt({ html: false, linkify: true }).use(texmath, { engine: katex, delimiters: 'dollars', katexOptions: { throwOnError: true, strict: 'error', trust: false } });
+const companion = validateCompanion(JSON.parse(read('examples/paper-bridge/blest-bound.json')));
 const chapters = [
   ['copulas', 'Copulas & conventions', 'Probability measures, distribution functions, and the basic examples.'],
   ['measures', 'Dependence measures', 'The normalizations and directions behind the rank coefficients.'],
@@ -75,6 +79,7 @@ const nav = (active) => `<aside class="sidebar" id="navigation">
     <p class="nav-label">The handbook</p>
     ${chapters.map(([slug, title], i) => `<a class="${active === slug ? 'active' : ''}" ${active === slug ? 'aria-current="page"' : ''} href="${url(`handbook/${slug}/`)}"><span class="nav-number">0${i + 1}</span>${esc(title)}</a>`).join('')}
     <p class="nav-label">The formal library</p>
+    <a class="${active === 'lean-mirror' ? 'active' : ''}" href="${url('lean-mirror/')}">LeanMirror companions</a>
     <a class="${active === 'papers' || active.startsWith('paper:') ? 'active' : ''}" href="${url('papers/')}">Article supplements <span class="nav-count">${papers.length}</span></a>
     <a href="${url('api/')}" data-api-link>Lean API reference <span aria-hidden="true">↗</span></a>
     <a href="${url('search/')}">Search the collection</a>
@@ -148,7 +153,7 @@ for (const p of papers) {
   const coverage = read(dir + p.coverage);
   const arxiv = p.arxiv ? `${p.arxiv}${p.arxiv_version || ''}` : '';
   const bib = read(dir + 'references.bib');
-  const links = [p.doi && `<a href="https://doi.org/${esc(p.doi)}">Journal article ↗</a>`, arxiv && `<a href="https://arxiv.org/abs/${esc(arxiv)}">arXiv:${esc(arxiv)} ↗</a>`, `<a href="${repo}/tree/${sha}/${dir}">Source folder ↗</a>`, `<a href="${api(p.entrypoint)}">Lean module ↗</a>`].filter(Boolean).join('');
+  const links = [p.id === companion.paperId && `<a href="${url(`lean-mirror/${companion.id}/`)}">LeanMirror companion →</a>`, p.doi && `<a href="https://doi.org/${esc(p.doi)}">Journal article ↗</a>`, arxiv && `<a href="https://arxiv.org/abs/${esc(arxiv)}">arXiv:${esc(arxiv)} ↗</a>`, `<a href="${repo}/tree/${sha}/${dir}">Source folder ↗</a>`, `<a href="${api(p.entrypoint)}">Lean module ↗</a>`].filter(Boolean).join('');
   page(`papers/${p.id}/`, p.title, `<article class="prose paper-detail"><div class="eyebrow">Article supplement / ${esc(p.year)}</div><h1>${esc(p.title)}</h1><p class="authors">${esc(p.authors.join(' · '))}</p><p class="publication">${esc(p.journal || 'arXiv preprint')}${p.doi ? ` · DOI ${esc(p.doi)}` : ''}</p><div class="paper-links">${links}</div><div class="scope-note"><div>${badge(p)}<p>${esc(p.scope)}</p></div></div>${sourceNotice(p)}<dl class="metadata"><div><dt>Stable identifier</dt><dd><code>${esc(p.id)}</code></dd></div><div><dt>Source for numbering</dt><dd>${esc(p.source_for_numbering)}</dd></div><div><dt>Lean entry point</dt><dd><a href="${api(p.entrypoint)}"><code>${esc(p.entrypoint)}</code></a></dd></div></dl><section class="coverage">${render(coverage.replace(/^# Coverage\s*\n/, '## Verification map\n'), source + dir)}</section><h2>Inspect the formalization</h2><div class="module-links">${['Definitions', 'Main', 'Axioms'].map((m) => `<a href="${api(`Papers.${p.id}.${m}`)}">${m}<span>Generated Lean documentation →</span></a>`).join('')}</div><h2>Reproduce this snapshot</h2><p>Run the full project build to check every source file. The pinned toolchain and dependencies live at the repository root.</p><pre><code>git clone ${repo}.git
 cd lean-verifications
 git checkout --detach ${sha}
@@ -156,6 +161,12 @@ lake exe cache get
 lake build</code></pre><h2>Cite this supplement</h2><p>Use the <a href="${repo}/tree/${sha}/${dir}">permanent folder at commit ${sha.slice(0, 7)}</a> to identify the exact software snapshot. Cite the original article separately. This handbook follows the latest deployed commit.</p><details><summary>Article bibliography (BibTeX)</summary><pre><code>${esc(bib)}</code></pre></details></article>`, { active: `paper:${p.id}`, label: 'Articles', description: p.scope, sourcePath: dir + 'paper.toml' });
   searchIndex.push({ title: p.title, kind: 'Article supplement', url: url(`papers/${p.id}/`), keywords: p.id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'), text: `${p.authors.join(' ')} ${p.id} ${p.doi} ${p.arxiv} ${p.scope} ${coverage}` });
 }
+
+page('lean-mirror/', 'LeanMirror: readable mathematics, checked correspondence', `<article class="prose"><div class="eyebrow">A mathematical companion</div><h1>LeanMirror</h1><p class="lead">Readable mathematics with Lean-checked correspondence.</p><p>LeanMirror connects a precise statement and its definitions, written in familiar mathematical notation, to an existing Lean theorem. A compiled proof establishes their correspondence. Terms in the companion lead directly to the definitions used.</p><a class="mirror-example-link" href="${url(`lean-mirror/${companion.id}/`)}"><span class="eyebrow">Explore the first companion</span><h2>${esc(companion.title)}</h2><span>Read the theorem and follow its definitions →</span></a><h2>Ordinary mathematics, explicit meaning</h2><p>The companion keeps the original wording and notation wherever possible. Ambiguous phrases require a precise interpretation: for instance, “sharp” might mean that equality is attained at every value of a coefficient. The readable statement makes that interpretation visible.</p><h2>Proofs checked by Lean</h2><p>The controlled language has a mathematical interpretation in Lean. Definition correspondences and the equivalence with the target theorem are ordinary Lean proofs, checked by the kernel when compiled. The proof of the established theorem then supplies a proof of the companion statement.</p><p>The current prototype supports a small language, including restricted universal quantification, real arithmetic, inequalities, and integration on the unit interval. It applies to mathematics in general. The parser and presentation software remain an explicit trust boundary.</p><p><a href="${mirrorSource}README.md">Language, architecture, and extension guide ↗</a></p></article>`, { active: 'lean-mirror', label: 'LeanMirror', sourcePath: 'docs/LEAN_MIRROR.md' });
+page(`lean-mirror/${companion.id}/`, companion.title, renderCompanion(companion, { url, api, source, mirrorSource, sha }), { active: 'lean-mirror', label: 'LeanMirror', sourcePath: `Papers/${companion.paperId}/ArticlePresentation.lean` });
+write(`lean-mirror/${companion.id}/companion.json`, read('examples/paper-bridge/blest-bound.json'));
+write(`lean-mirror/${companion.id}/companion.tex`, read('examples/paper-bridge/blest-bound.tex'));
+searchIndex.push({ title: `LeanMirror: ${companion.title}`, kind: 'Mathematical companion', url: url(`lean-mirror/${companion.id}/`), text: `${companion.title} nu rho Blest Spearman copula precise definitions equivalence ${companion.definitions.map((d) => d.title).join(' ')}` });
 
 page('search/', 'Search the collection', `<div class="eyebrow">Handbook & formal library</div><h1>Search the collection</h1><p class="lead">Find an article, a mathematical concept, or a Lean declaration.</p><form class="search-form" id="collection-search" role="search"><label for="search-query">Search terms</label><div><input id="search-query" name="q" type="search" placeholder="Try copula, xi rho, or cdf_one" autocomplete="off"><button class="button" type="submit">Search</button></div></form><p class="search-status" id="search-status" aria-live="polite">Enter a term to search the handbook and generated Lean reference.</p><div id="search-results"></div><p class="native-search">You can also use <a id="native-search-link" href="${url('api/search.html')}">doc-gen4’s full declaration search →</a></p><noscript><p>Interactive search requires JavaScript. Browse the <a href="${url('papers/')}">article index</a> or <a href="${url('api/')}">Lean module index</a>.</p></noscript>`, { active: 'search', label: 'Search', sourcePath: 'website/build.mjs' });
 
@@ -166,7 +177,7 @@ fs.cpSync(path.join(here, 'node_modules/katex/dist'), path.join(out, 'assets/kat
 fs.copyFileSync(path.join(here, 'node_modules/katex/LICENSE'), path.join(out, 'assets/katex/LICENSE'));
 write('search-index.json', JSON.stringify(searchIndex));
 write('.nojekyll', '');
-write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', articles: papers.map(({ id, verification_status, verified_declarations, version_warning, source_discrepancies }) => ({ id, verification_status, verified_declarations, version_warning: version_warning || null, source_discrepancies: source_discrepancies || [] })) }, null, 2));
+write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', leanMirror: mirrorRevision, companions: [{ id: companion.id, declarations: [companion.target, companion.equivalence, companion.verified, ...companion.definitions.map((d) => d.bridge).filter((b) => !b.startsWith('Foundation:'))] }], articles: papers.map(({ id, verification_status, verified_declarations, version_warning, source_discrepancies }) => ({ id, verification_status, verified_declarations, version_warning: version_warning || null, source_discrepancies: source_discrepancies || [] })) }, null, 2));
 const docs = path.join(root, 'docbuild/.lake/build/doc');
 if (fs.existsSync(path.join(docs, 'index.html'))) {
   fs.cpSync(docs, path.join(out, 'api'), { recursive: true });

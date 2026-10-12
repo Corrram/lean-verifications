@@ -27,3 +27,7 @@ jobs:
           python scripts/check_verification.py
       - name: Check that the build preserves dependency pins
         run: git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json
+      - name: Check article correspondence prototype and generated LaTeX
+        run: |
+          python scripts/test_lean_mirror.py
+          python scripts/lean_mirror.py --check

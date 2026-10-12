@@ -19,6 +19,13 @@ with KaTeX and use locally served styles and fonts.
   once their metadata is filled in. `scripts/prepare_docs.py` imports every
   Lean file under `Papers/` and `Verification/`, including modules not imported
   by `Main.lean`.
+- LeanMirror companions live under `/lean-mirror/`. Run
+  `python scripts/lean_mirror.py` after changing their checked source; this
+  compiles the certificate and generates both the LaTeX and website JSON.
+  Website formulas come from that JSON. Publication recompiles the proofs,
+  checks the axiom audit and rejection tests, and rejects stale output.
+  The website checker also requires the companion's correspondence declarations
+  to appear in the generated Lean API.
 - A handbook explanation or a generated module page is not a verified article
   result. Update verification status only under the coverage rules in
   [ADDING_A_PAPER.md](ADDING_A_PAPER.md).

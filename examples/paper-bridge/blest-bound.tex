@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newtheorem*{checkedtheorem}{Theorem}
+\begin{document}
+{\Large\bfseries A readable theorem with a Lean certificate}\par
+{\color{gray}LeanMirror prototype $\cdot$ Blest--Spearman bound}\par
+
+\begin{checkedtheorem}
+Let $C$ be a bivariate copula. Then
+\[
+\left|\nu\left(C\right) - \rho\left(C\right)\right| \le \frac{1}{4}.
+\]
+\end{checkedtheorem}
+This is the universal inequality from Corollary~3.2 of \href{https://arxiv.org/abs/2609.27634v1}{Rockel, arXiv:2609.27634v1}. The prototype covers the inequality; sharpness and equality cases are outside this certificate.
+
+\paragraph{Probability conventions.} Put $I=[0,1]$. We identify a copula with its probability law $\mu_C$ on $I^2$. Write $\lambda$ for Lebesgue probability measure on $I$, $\pi_1(u,v)=u$ and $\pi_2(u,v)=v$ for the coordinate projections, and $f_*\mu(A)=\mu(f^{-1}(A))$ for the pushforward of a measure. All displayed integrals use Lebesgue measure.
+
+\paragraph{Bivariate copula.} A probability law $\mu_C$ on $I^2$ is a bivariate copula precisely when
+\[\left((\pi_1)_*\mu_{C} = \lambda \;\land\; (\pi_2)_*\mu_{C} = \lambda\right).\]
+
+\paragraph{Distribution function.} For $u,v\in I$, the distribution function associated with $\mu_C$ is
+\[C(u,v):=\mu_{C}([0,u]\times[0,v]).\]
+
+\paragraph{Blest's coefficient.} \[\nu(C):=24\,\int_0^1 \int_0^1 \left(1 - u\right)\,C\left(u,v\right)\,\mathrm{d}u\,\mathrm{d}v - 2.\]
+
+\paragraph{Spearman's rho.} \[\rho(C):=12\,\int_0^1 \int_0^1 C\left(u,v\right)\,\mathrm{d}u\,\mathrm{d}v - 3.\]
+
+\medskip\hrule\medskip
+\textbf{What is checked.} Lean checks the copula and coefficient correspondences, the equivalence of this statement with the existing theorem, and the resulting proof. The existing proof is \texttt{nu\_rho\_bound}; the bridge is \texttt{ArticleBridge.statement\_equivalence}. The displayed formulas and interpreted propositions come from the same typed syntax trees.
+
+{\small\textbf{Presentation boundary.} The controlled-language parser, symbol notation, and LaTeX renderer are inspectable software, not themselves formally verified. The probability conventions above are the explicitly documented foundation vocabulary.}
+\end{document}

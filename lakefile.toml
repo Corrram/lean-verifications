@@ -15,6 +15,11 @@ git = "https://github.com/Corrram/copula.git"
 # Includes all ten exact classical rank regions and approximation constructors.
 rev = "72a596ebd8c111cb11a046be0d5c5cd64a878954"
 
+[[require]]
+name = "lean-mirror"
+git = "https://github.com/Corrram/lean-mirror.git"
+rev = "db5b24fe5577d54eb7b09db3cc39349608a2db9f"
+
 [[lean_lib]]
 name = "Verification"
 globs = ["Verification.*"]

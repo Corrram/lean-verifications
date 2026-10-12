@@ -28,6 +28,18 @@ const index = JSON.parse(fs.readFileSync(path.join(out, 'search-index.json')));
 const metadata = JSON.parse(fs.readFileSync(path.join(out, 'build-info.json')));
 assert.equal(index.filter((x) => x.kind === 'Article supplement').length, metadata.articles.length);
 assert.match(metadata.commit, /^[a-f0-9]{40}$/);
+assert.equal(index.filter((x) => x.kind === 'Mathematical companion').length, metadata.companions.length);
+for (const companion of metadata.companions) {
+  const directory = path.join(out, 'lean-mirror', companion.id);
+  const html = fs.readFileSync(path.join(directory, 'index.html'), 'utf8');
+  const data = JSON.parse(fs.readFileSync(path.join(directory, 'companion.json'), 'utf8'));
+  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
+  for (const [, fragment] of html.matchAll(/href="#([^"]+)"/g)) assert(ids.has(fragment), `Broken companion definition link: ${fragment}`);
+  for (const definition of data.definitions) assert(ids.has(`def-${definition.key}`), `Missing definition: ${definition.key}`);
+  for (const key of ['copula', 'nu', 'rho']) assert(html.includes(`href="#def-${key}"`), `Statement term is not linked: ${key}`);
+  assert(html.includes('Sharpness and equality cases are outside this certificate.'), 'Companion scope is missing');
+  assert(fs.existsSync(path.join(directory, 'companion.tex')), 'Companion LaTeX download missing');
+}
 for (const article of metadata.articles) {
   const html = fs.readFileSync(path.join(out, 'papers', article.id, 'index.html'), 'utf8');
   const rendered = (html.match(/class="source-discrepancy"/g) || []).length;
@@ -40,6 +52,9 @@ assert.equal((catalog.match(/class="source-flag"/g) || []).length,
   'Catalog source-correction indicators do not match paper records');
 if (!preview) {
   const data = JSON.parse(fs.readFileSync(path.join(out, 'api/declarations/declaration-data.bmp')));
+  for (const companion of metadata.companions) for (const name of companion.declarations) {
+    assert(data.declarations[name], `LeanMirror proof missing from generated API: ${name}`);
+  }
   for (const name of ['ProbabilityTheory.Copula', 'ProbabilityTheory.Copula.cdf_one', 'ProbabilityTheory.Copula.cdf_nonneg']) assert(data.declarations[name], `Missing generated declaration: ${name}`);
   for (const article of metadata.articles) for (const module of ['Main', 'Definitions', 'Axioms']) assert(fs.existsSync(path.join(out, 'api/Papers', article.id, `${module}.html`)), `Missing API module: ${article.id}.${module}`);
   for (const article of metadata.articles) for (const name of article.verified_declarations) {

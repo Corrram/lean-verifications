@@ -40,6 +40,10 @@ jobs:
         run: |
           python scripts/test_check_verification.py
           python scripts/check_verification.py
+      - name: Compile LeanMirror certificates and check companion freshness
+        run: |
+          python scripts/test_lean_mirror.py
+          python scripts/lean_mirror.py --check
       - name: Fetch the pinned documentation dependencies
         # Clone sources before restoring their .lake directories, otherwise
         # Lake treats a cache-only directory as an invalid Git checkout.
@@ -87,6 +91,7 @@ jobs:
         working-directory: website
         run: |
           npm ci
+          npm test
           npm run build
           npm run check
       - name: Check that dependency pins are unchanged

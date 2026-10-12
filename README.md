@@ -18,6 +18,11 @@ declaration advertised as verified.
 
 ## Handbook and Lean reference
 
+The [LeanMirror companion](docs/LEAN_MIRROR.md) demonstrates readable
+mathematical definitions and a statement generated as LaTeX from typed syntax,
+with Lean-checked definition correspondences and an equivalence to an existing
+paper theorem. Its first example is the Blest--Spearman inequality.
+
 Read the [mathematical handbook](https://corrram.github.io/lean-verifications/)
 for definitions, conventions, and article coverage maps. The
 [Lean API reference](https://corrram.github.io/lean-verifications/api/) is generated
