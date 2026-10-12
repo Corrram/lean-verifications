@@ -1,0 +1,128 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ansari and Rockel(2026)]{ansari2026rhofootrule}
+Jonathan Ansari and Marcus Rockel.
+\newblock The exact {S}pearman rho-footrule region via optimal transport with
+  applications to finite rankings, mixability, and {C}hatterjee's rank
+  correlation, 2026.
+\newblock arXiv:2608.20176.
+
+\bibitem[Blest(2000)]{blest2000rank}
+David~C. Blest.
+\newblock Rank correlation -- an alternative measure.
+\newblock \emph{Aust. N. Z. J. Stat.}, 42\penalty0 (1):\penalty0 101--111,
+  2000.
+
+\bibitem[Daniels(1950)]{daniels1950rank}
+Henry~E. Daniels.
+\newblock Rank correlation and population models.
+\newblock \emph{J. R. Stat. Soc., Ser. B}, 12\penalty0 (2):\penalty0 171--181,
+  1950.
+\newblock \doi{10.1111/j.2517-6161.1950.tb00054.x}.
+
+\bibitem[Durante and Sempi(2016)]{durante2016principles}
+Fabrizio Durante and Carlo Sempi.
+\newblock \emph{Principles of copula theory}.
+\newblock CRC Press, Boca Raton, FL, 2016.
+
+\bibitem[Durante et~al.(2010)Durante, Klement, Sempi, and
+  {\'U}beda-Flores]{durante2010measures}
+Fabrizio Durante, Erich~Peter Klement, Carlo Sempi, and Manuel
+  {\'U}beda-Flores.
+\newblock Measures of non-exchangeability for bivariate random vectors.
+\newblock \emph{Statist. Papers}, 51\penalty0 (3):\penalty0 687--699, 2010.
+
+\bibitem[Durbin and Stuart(1951)]{durbin1951inversions}
+James Durbin and Alan Stuart.
+\newblock Inversions and rank correlation coefficients.
+\newblock \emph{J. R. Stat. Soc., Ser. B}, 13\penalty0 (2):\penalty0 303--309,
+  1951.
+\newblock \doi{10.1111/j.2517-6161.1951.tb00095.x}.
+
+\bibitem[Genest and Plante(2003)]{genest2003blest}
+Christian Genest and Jean-Fran{\c{c}}ois Plante.
+\newblock On {B}lest's measure of rank correlation.
+\newblock \emph{Can. J. Stat.}, 31\penalty0 (1):\penalty0 35--52, 2003.
+
+\bibitem[Hardy et~al.(1952)Hardy, Littlewood, and
+  P{\'o}lya]{hardy1952inequalities}
+Godfrey~H. Hardy, John~E. Littlewood, and George P{\'o}lya.
+\newblock \emph{Inequalities}.
+\newblock Cambridge University Press, Cambridge, second edition, 1952.
+
+\bibitem[Kendall(1938)]{kendall1938new}
+Maurice~G. Kendall.
+\newblock A new measure of rank correlation.
+\newblock \emph{Biometrika}, 30\penalty0 (1--2):\penalty0 81--93, 1938.
+\newblock \doi{10.1093/biomet/30.1-2.81}.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Moj{\v{s}}kerc(2022)]{kokolbukovsek2022exact}
+Damjana Kokol~Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock On the exact region determined by {S}pearman's footrule and {G}ini's
+  gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 410:\penalty0 Paper No. 114212, 2022.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2023)]{kokolbukovsek2023exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact regions determined by {K}endall's tau and other
+  concordance measures.
+\newblock \emph{Mediterr. J. Math.}, 20\penalty0 (3):\penalty0 Paper No. 147,
+  2023.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2021)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc, and Omladi{\v{c}}]{kokolbukovsek2021spearman}
+Damjana Kokol~Bukov{\v{s}}ek, Toma{\v{z}} Ko{\v{s}}ir, Bla{\v{z}}
+  Moj{\v{s}}kerc, and Matja{\v{z}} Omladi{\v{c}}.
+\newblock Spearman's footrule and {G}ini's gamma: local bounds for bivariate
+  copulas and the exact region with respect to {B}lomqvist's beta.
+\newblock \emph{J. Comput. Appl. Math.}, 390:\penalty0 Paper No. 113385, 2021.
+
+\bibitem[Nelsen(2006)]{nelsen2006introduction}
+Roger~B. Nelsen.
+\newblock \emph{An introduction to copulas}.
+\newblock Springer, New York, second edition, 2006.
+
+\bibitem[Rockel(2026)]{rockel2026exact}
+Marcus Rockel.
+\newblock The exact region between {C}hatterjee's and {B}lest's rank
+  correlations.
+\newblock \emph{Int. J. Approx. Reasoning}, 197:\penalty0 Paper No. 109744,
+  2026.
+
+\bibitem[Scarsini(1984)]{scarsini1984measures}
+Marco Scarsini.
+\newblock On measures of concordance.
+\newblock \emph{Stochastica}, 8\penalty0 (3):\penalty0 201--218, 1984.
+
+\bibitem[Schreyer et~al.(2017)Schreyer, Paulin, and
+  Trutschnig]{schreyer2017exact}
+Manuela Schreyer, Roland Paulin, and Wolfgang Trutschnig.
+\newblock On the exact region determined by {K}endall's $\tau$ and {S}pearman's
+  $\rho$.
+\newblock \emph{J. R. Stat. Soc., Ser. B, Stat. Methodol.}, 79\penalty0
+  (2):\penalty0 613--633, 2017.
+
+\bibitem[Spearman(1904)]{spearman1904proof}
+Charles Spearman.
+\newblock The proof and measurement of association between two things.
+\newblock \emph{Am. J. Psychol.}, 15\penalty0 (1):\penalty0 72--101, 1904.
+\newblock \doi{10.2307/1412159}.
+
+\bibitem[Tschimpke(2025)]{tschimpke2025exact}
+Marco Tschimpke.
+\newblock On the exact region determined by {S}pearman's $\rho$ and {B}lest's
+  measure of rank correlation $\nu$ for bivariate extreme-value copulas.
+\newblock \emph{J. Multivariate Anal.}, 205:\penalty0 Paper No. 105377, 2025.
+
+\bibitem[Villani(2009)]{villani2009optimal}
+C{\'e}dric Villani.
+\newblock \emph{Optimal transport: old and new}, volume 338 of
+  \emph{Grundlehren der mathematischen Wissenschaften}.
+\newblock Springer, Berlin, 2009.
+
+\end{thebibliography}

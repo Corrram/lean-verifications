@@ -23,13 +23,17 @@ def bundle(destination):
         info = zipfile.ZipInfo('lean-verifications/READ-ME-FIRST.txt', date_time=(2020, 1, 1, 0, 0, 0))
         info.compress_type = zipfile.ZIP_DEFLATED
         archive.writestr(info, (
-            'LeanMirror companion to Corollary 3.2 of arXiv:2609.27634v1\n\n'
+            'LeanMirror reader and verification documents for arXiv:2609.27634v1\n\n'
             'Install Lean using the pinned lean-toolchain, then run:\n'
             '  lake exe cache get\n'
             '  python scripts/lean_mirror.py --check\n'
+            '  python scripts/lean_mirror_article.py --check\n'
             '  python scripts/test_lean_mirror.py\n'
             '  python scripts/test_paper_source.py\n\n'
-            'Read examples/paper-bridge/blest-bound.tex for the mathematical companion.\n'
+            'The complete original manuscript is examples/paper-bridge/source/article.tex.\n'
+            'Its source bindings and compiled evidence are article-map.json and article-evidence.json.\n'
+            'The fully checked Corollary 3.2 document is examples/paper-bridge/blest-bound.tex.\n'
+            'All labeled results have formal counterparts; literal proof-step coverage is incomplete.\n'
             'This bundle contains verification sources, not the website build.\n'
             'The source manuscript and its license notice are in examples/paper-bridge/source/.\n'
         ))

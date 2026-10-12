@@ -1,0 +1,655 @@
+{
+  "schemaVersion": 1,
+  "paperId": "Rockel2026ExactBlest",
+  "source": "source/article.tex",
+  "bibliography": "source/exact-blest-regions.bbl",
+  "bindings": [
+    {
+      "label": "thm:rho-nu",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.rho_nu_region",
+        "Papers.Rockel2026ExactBlest.rho_upper_exists_unique",
+        "Papers.Rockel2026ExactBlest.rho_lower_exists_unique",
+        "Papers.Rockel2026ExactBlest.rho_lower_eq_survival_upper"
+      ]
+    },
+    {
+      "label": "thm:eta-nu",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_nu_region",
+        "Papers.Rockel2026ExactBlest.eta_upper_exists_unique",
+        "Papers.Rockel2026ExactBlest.eta_lower_exists_unique",
+        "Papers.Rockel2026ExactBlest.eta_lower_eq_transpose_upper"
+      ]
+    },
+    {
+      "label": "lem:coupling",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_nu_moment",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_rho_moment",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_transpose_moment",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_eta_moment",
+        "Papers.Rockel2026ExactBlest.eta_mix",
+        "ProbabilityTheory.Copula.spearmanRho_mix",
+        "Papers.Rockel2026XiBlest.blest_mix"
+      ]
+    },
+    {
+      "label": "lem:symmetries",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_survival",
+        "Papers.Rockel2026ExactBlest.eta_survival",
+        "Papers.Rockel2026ExactBlest.nu_reflect_first",
+        "ProbabilityTheory.Copula.spearmanRho_survivalCopula",
+        "ProbabilityTheory.Copula.spearmanRho_reflect_second",
+        "Papers.Rockel2026XiBlest.blest_reflect_second"
+      ]
+    },
+    {
+      "label": "lem:rearrangement",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.rearrangement"
+      ]
+    },
+    {
+      "label": "lem:rho-nu-values",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperD_values",
+        "Papers.Rockel2026ExactBlest.paperD_strictMono",
+        "Papers.Rockel2026ExactBlest.paperD_parameter_range",
+        "Papers.Rockel2026ExactBlest.paperD_parameter_exists_unique",
+        "Papers.Rockel2026ExactBlest.paperD_on_boundary"
+      ]
+    },
+    {
+      "label": "cor:nu-rho",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleProof.corollary_valid",
+        "Papers.Rockel2026ExactBlest.ArticleProof.full_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleProof.corollary_verified"
+      ]
+    },
+    {
+      "label": "lem:eta-nu-values",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_paperA",
+        "Papers.Rockel2026ExactBlest.nu_paperA",
+        "Papers.Rockel2026ExactBlest.eta_paperB",
+        "Papers.Rockel2026ExactBlest.nu_paperB",
+        "Papers.Rockel2026ExactBlest.paperA_gap",
+        "Papers.Rockel2026ExactBlest.paperB_gap",
+        "Papers.Rockel2026ExactBlest.eta_paperA_strictMono",
+        "Papers.Rockel2026ExactBlest.paperEtaB_strictMonoOn",
+        "Papers.Rockel2026ExactBlest.paperEtaB_endpoints"
+      ]
+    },
+    {
+      "label": "lem:dual-certificate",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.dual_certificate",
+        "Papers.Rockel2026ExactBlest.dual_certificate_graph",
+        "Papers.Rockel2026ExactBlest.dual_certificate_reverse_graph"
+      ]
+    },
+    {
+      "label": "prop:dual-A",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paper_dualA",
+        "Papers.Rockel2026ExactBlest.paper_contactA"
+      ]
+    },
+    {
+      "label": "prop:dual-B",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paper_dualB",
+        "Papers.Rockel2026ExactBlest.paper_contactB"
+      ]
+    },
+    {
+      "label": "cor:asymmetry",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_eta_bound",
+        "Papers.Rockel2026ExactBlest.nu_transpose_bound",
+        "Papers.Rockel2026ExactBlest.paper_asymmetry_eq_iff",
+        "Papers.Rockel2026ExactBlest.paper_transposition_eq_iff",
+        "Papers.Rockel2026ExactBlest.paperA_threeQuarter_values"
+      ]
+    },
+    {
+      "label": "cor:nu-transpose",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_transpose_region_gap",
+        "Papers.Rockel2026ExactBlest.nu_transpose_region",
+        "Papers.Rockel2026ExactBlest.nu_transpose_max_exists_unique",
+        "Papers.Rockel2026ExactBlest.nu_transpose_min_exists_unique",
+        "Papers.Rockel2026ExactBlest.paper_nu_transpose_max_A",
+        "Papers.Rockel2026ExactBlest.paper_nu_transpose_max_B",
+        "Papers.Rockel2026ExactBlest.paper_nu_transpose_extremizer_cases",
+        "Papers.Rockel2026ExactBlest.nu_transpose_extremizer_neg_one"
+      ]
+    },
+    {
+      "label": "rem:randomization",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperA_not_extremal",
+        "Papers.Rockel2026ExactBlest.paperB_conditional_formula",
+        "Papers.Rockel2026ExactBlest.familyB_not_first_graph",
+        "Papers.Rockel2026ExactBlest.reflection_byproduct",
+        "Papers.Rockel2026ExactBlest.rho_eta_bound",
+        "Papers.Rockel2026ExactBlest.paper_rho_eta_extremizers"
+      ]
+    },
+    {
+      "label": "eq:nu-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleBridge.nu_definition_eq",
+        "Papers.Rockel2026ExactBlest.nu_normalization"
+      ]
+    },
+    {
+      "label": "eq:rho-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleBridge.rho_definition_eq"
+      ]
+    },
+    {
+      "label": "eq:eta-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.eta_cdf_integral",
+        "Papers.Rockel2026ExactBlest.eta_transpose",
+        "Papers.Rockel2026ExactBlest.nu_transpose"
+      ]
+    },
+    {
+      "label": "eq:Phi-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleProof.phi_definition",
+        "Papers.Rockel2026ExactBlest.rhoBoundary_reflect"
+      ]
+    },
+    {
+      "label": "eq:Upsilon-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.etaGap_of_ge",
+        "Papers.Rockel2026ExactBlest.etaGap_mem",
+        "Papers.Rockel2026ExactBlest.etaGap_bottom",
+        "Papers.Rockel2026ExactBlest.etaGap_continuousAt_join"
+      ]
+    },
+    {
+      "label": "eq:Upsilon-param",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.etaGap_paperEtaB",
+        "Papers.Rockel2026ExactBlest.paperEtaB_strictMonoOn",
+        "Papers.Rockel2026ExactBlest.paperEtaB_endpoints"
+      ]
+    },
+    {
+      "label": "eq:coupling-moments",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_nu_moment",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_rho_moment",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_transpose_moment",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_eta_moment"
+      ]
+    },
+    {
+      "label": "eq:survival-transform",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_survival",
+        "Papers.Rockel2026ExactBlest.eta_survival",
+        "ProbabilityTheory.Copula.spearmanRho_survivalCopula"
+      ]
+    },
+    {
+      "label": "eq:reflection-transform",
+      "declarations": [
+        "ProbabilityTheory.Copula.spearmanRho_reflect_second",
+        "Papers.Rockel2026XiBlest.blest_reflect_second"
+      ]
+    },
+    {
+      "label": "eq:eta-reflection",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_reflect_second"
+      ]
+    },
+    {
+      "label": "eq:rho-nu-support",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.rho_support_moment"
+      ]
+    },
+    {
+      "label": "eq:Zc-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperZeta_formula",
+        "Papers.Rockel2026ExactBlest.quadratic_cdf_at_score",
+        "Papers.Rockel2026ExactBlest.quadraticRank_uniform",
+        "Papers.Rockel2026ExactBlest.paperD_graph_law"
+      ]
+    },
+    {
+      "label": "eq:rho-nu-values",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperD_values"
+      ]
+    },
+    {
+      "label": "eq:eta-nu-support",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.support_identity",
+        "Papers.Rockel2026ExactBlest.support_moment_survival"
+      ]
+    },
+    {
+      "label": "eq:Tw-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperT_formula",
+        "Papers.Rockel2026ExactBlest.paperA_graph_law",
+        "Papers.Rockel2026ExactBlest.paperA_zero",
+        "Papers.Rockel2026ExactBlest.paperA_one"
+      ]
+    },
+    {
+      "label": "eq:Ba-branches",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperB_conditional_formula",
+        "Papers.Rockel2026ExactBlest.paperB_half"
+      ]
+    },
+    {
+      "label": "eq:Aw-values",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_paperA",
+        "Papers.Rockel2026ExactBlest.nu_paperA"
+      ]
+    },
+    {
+      "label": "eq:Ba-values",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_paperB",
+        "Papers.Rockel2026ExactBlest.nu_paperB"
+      ]
+    },
+    {
+      "label": "eq:potential-A",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.hasDerivAt_paperPhiA",
+        "Papers.Rockel2026ExactBlest.hasDerivAt_paperPsiA",
+        "Papers.Rockel2026ExactBlest.paperPotentialsA_normalized"
+      ]
+    },
+    {
+      "label": "eq:dual-A-inequality",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paper_dualA"
+      ]
+    },
+    {
+      "label": "eq:potential-B",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.hasDerivAt_paperPhiB",
+        "Papers.Rockel2026ExactBlest.hasDerivAt_paperPsiB",
+        "Papers.Rockel2026ExactBlest.paperPotentialsB_normalized"
+      ]
+    },
+    {
+      "label": "eq:branch-sum",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.branch_sum",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.branch_derivatives"
+      ]
+    },
+    {
+      "label": "eq:eta-nu-support-line",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.paper_graph_support"
+      ]
+    },
+    {
+      "label": "eq:Lambda-def",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.Lambda_closed_branch",
+        "Papers.Rockel2026ExactBlest.Lambda_bijOn"
+      ]
+    },
+    {
+      "label": "eq:Lambda-param",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.Lambda_paperNB",
+        "Papers.Rockel2026ExactBlest.paperNB_bijOn",
+        "Papers.Rockel2026ExactBlest.paper_Lambda_junction"
+      ]
+    },
+    {
+      "label": "fig:regions",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_rho_bound",
+        "Papers.Rockel2026ExactBlest.nu_eta_bound"
+      ]
+    },
+    {
+      "label": "fig:rho-extremizers",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.rho_figure_values",
+        "Papers.Rockel2026ExactBlest.paperD_graph_law"
+      ]
+    },
+    {
+      "label": "fig:eta-extremizers",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paper_figure_panel_values",
+        "Papers.Rockel2026ExactBlest.paperB_conditional_formula"
+      ]
+    },
+    {
+      "label": "fig:nu-transpose",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_nu_region_linear_image",
+        "Papers.Rockel2026ExactBlest.upper_boundary_curve",
+        "Papers.Rockel2026ExactBlest.lower_boundary_curve"
+      ]
+    },
+    {
+      "quote": "The starting point is the identity",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_moment"
+      ]
+    },
+    {
+      "quote": "The third identity follows",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_transpose_moment"
+      ]
+    },
+    {
+      "quote": "Averaging the two formulas",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_eta_moment"
+      ]
+    },
+    {
+      "quote": "For the measure of concordance",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_reflect_first",
+        "Papers.Rockel2026ExactBlest.nu_survival",
+        "Papers.Rockel2026ExactBlest.eta_survival"
+      ]
+    },
+    {
+      "quote": "Fix $t\\in(0,1)$ and set",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.cdfRank_threshold"
+      ]
+    },
+    {
+      "quote": "Now choose $H=",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.weighted_tail_layercake",
+        "Papers.Rockel2026ExactBlest.threshold_rearrangement"
+      ]
+    },
+    {
+      "quote": "Equality holds precisely when",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.rearrangement"
+      ]
+    },
+    {
+      "quote": "Formula \\eqref{eq:rho-nu-values} follows",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperD_values",
+        "Papers.Rockel2026ExactBlest.paperD_on_boundary"
+      ]
+    },
+    {
+      "quote": "Fix $C\\in\\CC$ with $\\rho(C)=",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperD_parameter_exists_unique",
+        "Papers.Rockel2026ExactBlest.continuous_quadratic_cdf",
+        "Papers.Rockel2026ExactBlest.quadraticRank_uniform"
+      ]
+    },
+    {
+      "quote": "and equality holds if and only if $Z=",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.rearrangement",
+        "Papers.Rockel2026ExactBlest.paper_rho_upper_unique"
+      ]
+    },
+    {
+      "quote": "The survival copula $\\widehat C$ satisfies",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.nu_survival",
+        "Papers.Rockel2026ExactBlest.rho_lower_eq_survival_upper",
+        "Papers.Rockel2026ExactBlest.rho_fibre_complete"
+      ]
+    },
+    {
+      "quote": "On $[-1,0]$, \\eqref{eq:Phi-def} gives",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleProof.gap_maximum"
+      ]
+    },
+    {
+      "quote": "Direct integration over the linear pieces",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_paperA",
+        "Papers.Rockel2026ExactBlest.nu_paperA",
+        "Papers.Rockel2026ExactBlest.eta_paperB",
+        "Papers.Rockel2026ExactBlest.nu_paperB"
+      ]
+    },
+    {
+      "quote": "That $\\eta(A_w)$ increases",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_paperA_strictMono",
+        "Papers.Rockel2026ExactBlest.hasDerivAt_paperEtaB",
+        "Papers.Rockel2026ExactBlest.deriv_paperEtaB_pos"
+      ]
+    },
+    {
+      "quote": "In addition, $\\eta(B_{1/2})",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperEtaB_endpoints"
+      ]
+    },
+    {
+      "quote": "Part~(a) is the elementary direction",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.dual_certificate"
+      ]
+    },
+    {
+      "quote": "For~(b), the sets",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.dual_certificate_graph",
+        "Papers.Rockel2026ExactBlest.dual_certificate_reverse_graph"
+      ]
+    },
+    {
+      "quote": "\\Delta(x,z)&=\\frac{(x+w-1-z)^2",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_rectangle_10",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_first_factor"
+      ]
+    },
+    {
+      "quote": "F(x,z)&\\coloneqq(6-2w)",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_rectangle_01",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_second_factor"
+      ]
+    },
+    {
+      "quote": "\\partial_x\\Delta(x,z)=\\frac{(x+z-1)",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_00",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_00_nonpos"
+      ]
+    },
+    {
+      "quote": "\\partial_z\\Delta(1-w,z)=-",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_edge_derivative_z"
+      ]
+    },
+    {
+      "quote": "\\partial_z\\Delta(x,z)=\\frac{(x+z-1)",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_11",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_11_nonneg",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_edge_derivative_x"
+      ]
+    },
+    {
+      "quote": "\\ell_+^2\\,F_+",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_rectangle_10",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_rectangle_11"
+      ]
+    },
+    {
+      "quote": "\\Delta(x,z)=\\frac{(x+z-1)^2\\,\\bigl\\{(4-3b)",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_rectangle_02"
+      ]
+    },
+    {
+      "quote": "\\partial_x\\Delta(x,z)=-\\frac{2(1-x-z)",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_derivative_low_x",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_derivative_low_x_nonpos"
+      ]
+    },
+    {
+      "quote": "\\partial_z\\Delta(1-b,z)=-\\frac{4(1-b)^2z",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_edge_derivative_0",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_edge_derivative_1",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_edge_derivative_1_nonpos"
+      ]
+    },
+    {
+      "quote": "The first of these expressions changes sign",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_middle_factor_pos",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_middle_anchor"
+      ]
+    },
+    {
+      "quote": "\\partial_x\\Delta(x,z)=-\\frac{\\ell_-",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_derivative_high_x",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_edge_derivative_2",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_derivative_high_x_nonneg",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_edge_derivative_2_nonneg"
+      ]
+    },
+    {
+      "quote": "For the first derivative, note that",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_last_linear_factors",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.random_last_edge_factor"
+      ]
+    },
+    {
+      "quote": "Differentiating \\eqref{eq:Upsilon-def} on",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.hasDerivAt_graphGap",
+        "Papers.Rockel2026ExactBlest.graphGap_deriv_bounds"
+      ]
+    },
+    {
+      "quote": "\\partial_b\\Upsilon(e_b)",
+      "kind": "math",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.hasDerivAt_paperUps",
+        "Papers.Rockel2026ExactBlest.paperUps_deriv_pos"
+      ]
+    },
+    {
+      "quote": "Consider the linear bijection $L",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.eta_nu_region_linear_image",
+        "Papers.Rockel2026ExactBlest.nu_transpose_region_gap"
+      ]
+    },
+    {
+      "quote": "Both coordinates of these curves increase",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.lowerCurve_strictMonoOn",
+        "Papers.Rockel2026ExactBlest.upperCurve_strictMonoOn",
+        "Papers.Rockel2026ExactBlest.param_slope_bounds"
+      ]
+    },
+    {
+      "quote": "The quantity $n_b=e_b-",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.paperNB_bijOn",
+        "Papers.Rockel2026ExactBlest.Lambda_bijOn"
+      ]
+    }
+  ],
+  "definitions": {
+    "\\nu": {
+      "label": "eq:nu-def"
+    },
+    "\\rho": {
+      "label": "eq:rho-def"
+    },
+    "\\eta": {
+      "label": "eq:eta-def"
+    },
+    "\\Phi": {
+      "label": "eq:Phi-def"
+    },
+    "\\Upsilon": {
+      "label": "eq:Upsilon-def"
+    },
+    "\\Lambda": {
+      "label": "eq:Lambda-def"
+    },
+    "\\zeta": {
+      "label": "eq:Zc-def"
+    },
+    "T_w": {
+      "label": "eq:Tw-def"
+    }
+  },
+  "verificationScope": "All original article content is reproduced. Compiled counterparts are attached to every labeled result; verification of every literal proof step is in progress."
+}

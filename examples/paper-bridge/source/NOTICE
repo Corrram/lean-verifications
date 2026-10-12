@@ -7,5 +7,11 @@ line-selected excerpt documented in ../source.json. Both are included at the
 author's request. Original article copyright and licensing remain unchanged;
 the repository's software license does not relicense the manuscript.
 
-The generated companion identifies every editorial precision change and
-preserves the source statement and proof in a separate comparison column.
+The original bibliography and all four PDF figures come from the same source
+archive. PNG figures are browser renderings of those PDFs. Their hashes are
+recorded in article-evidence.json together with the original text's hash.
+
+The full online reader preserves the original article, with verification links
+as an overlay. The detailed Corollary 3.2 proof document retains its comparison
+column. A compiled counterpart link is distinct from exhaustive verification
+of the original prose and literal proof steps; the reader reports that scope.

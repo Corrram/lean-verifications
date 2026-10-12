@@ -7,6 +7,7 @@ import texmath from 'markdown-it-texmath';
 import katex from 'katex';
 import { parse } from 'smol-toml';
 import { renderCompanion, validateCompanion } from './lean-mirror.mjs';
+import { fullArticle, renderFullArticle } from './article-companion.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -25,6 +26,18 @@ const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const write = (p, text) => { const dest = path.join(out, p); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, text); };
 const md = new MarkdownIt({ html: false, linkify: true }).use(texmath, { engine: katex, delimiters: 'dollars', katexOptions: { throwOnError: true, strict: 'error', trust: false } });
 const companion = validateCompanion(JSON.parse(read('examples/paper-bridge/blest-bound.json')));
+const fullArticleEvidence = JSON.parse(read('examples/paper-bridge/article-evidence.json'));
+const fullArticleData = fullArticle({
+  source: read('examples/paper-bridge/source/article.tex'),
+  bibliography: read('examples/paper-bridge/source/exact-blest-regions.bbl'),
+  mapping: read('examples/paper-bridge/article-map.json'), evidence: fullArticleEvidence,
+  assetBytes: Object.fromEntries(Object.keys(fullArticleEvidence.assets).map(name => {
+    const directory = path.resolve(root, 'examples/paper-bridge');
+    const file = path.resolve(directory, name);
+    if (!file.startsWith(directory + path.sep)) throw new Error('Unsafe article asset path');
+    return [name, fs.readFileSync(file)];
+  })),
+});
 const chapters = [
   ['copulas', 'Copulas & conventions', 'Probability measures, distribution functions, and the basic examples.'],
   ['measures', 'Dependence measures', 'The normalizations and directions behind the rank coefficients.'],
@@ -162,14 +175,21 @@ lake build</code></pre><h2>Cite this supplement</h2><p>Use the <a href="${repo}/
   searchIndex.push({ title: p.title, kind: 'Article supplement', url: url(`papers/${p.id}/`), keywords: p.id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'), text: `${p.authors.join(' ')} ${p.id} ${p.doi} ${p.arxiv} ${p.scope} ${coverage}` });
 }
 
-page('lean-mirror/', 'LeanMirror: readable mathematics, checked correspondence', `<article class="prose"><div class="eyebrow">A mathematical companion</div><h1>LeanMirror</h1><p class="lead">Readable mathematics with checked statements, definitions and proofs.</p><p>LeanMirror connects a precise statement and its definitions, written in familiar mathematical notation, to an existing Lean theorem. A compiled proof establishes their correspondence. A scoped proof document checks each intermediate step, while a comparison column preserves the original text. Terms lead directly to their definitions.</p><a class="mirror-example-link" href="${url(`lean-mirror/${companion.id}/`)}"><span class="eyebrow">Explore the first companion</span><h2>${esc(companion.title)}</h2><span>Compare the complete corollary and its checked proof →</span></a><h2>Ordinary mathematics, explicit meaning</h2><p>The companion keeps the original wording and notation wherever possible. Ambiguous phrases require a precise interpretation: for instance, “sharp” might mean that equality is attained at every value of a coefficient. The readable statement makes that interpretation visible.</p><h2>Proofs checked by Lean</h2><p>The controlled language has a mathematical interpretation in Lean. Definition correspondences and the equivalence with the target theorem are ordinary Lean proofs, checked by the kernel when compiled. The proof-document engine checks each assertion and derives its conclusion. Earlier results can be reused as compiled dependencies.</p><p>The current prototype supports a small language, including quantifiers, implication, arithmetic, integration, scoped assumptions, intermediate claims and existential choices. It applies to mathematics in general. The parser and presentation software remain an explicit trust boundary.</p><p><a href="${mirrorSource}README.md">Language, architecture, and extension guide ↗</a></p></article>`, { active: 'lean-mirror', label: 'LeanMirror', sourcePath: 'docs/LEAN_MIRROR.md' });
-page(`lean-mirror/${companion.id}/`, companion.title, renderCompanion(companion, { url, api, source, mirrorSource, sha }), { active: 'lean-mirror', label: 'LeanMirror', sourcePath: `Papers/${companion.paperId}/ArticleDocument.lean` });
+page('lean-mirror/', 'LeanMirror: readable mathematics, checked correspondence', `<article class="prose"><div class="eyebrow">A mathematical companion</div><h1>LeanMirror</h1><p class="lead">Readable mathematics with checked statements, definitions and proofs.</p><p>LeanMirror connects a precise statement and its definitions, written in familiar mathematical notation, to an existing Lean theorem. A compiled proof establishes their correspondence. A scoped proof document checks each intermediate step, while a comparison column preserves the original text. Terms lead directly to their definitions.</p><a class="mirror-example-link" href="${url(`lean-mirror/${companion.id}/`)}"><span class="eyebrow">Explore the first companion</span><h2>${esc(companion.title)}</h2><span>Read the complete Blest article with verification links →</span></a><h2>Ordinary mathematics, explicit meaning</h2><p>The companion keeps the original wording and notation wherever possible. Ambiguous phrases require a precise interpretation: for instance, “sharp” might mean that equality is attained at every value of a coefficient. The readable statement makes that interpretation visible.</p><h2>Proofs checked by Lean</h2><p>The controlled language has a mathematical interpretation in Lean. Definition correspondences and the equivalence with the target theorem are ordinary Lean proofs, checked by the kernel when compiled. The proof-document engine checks each assertion and derives its conclusion. Earlier results can be reused as compiled dependencies.</p><p>The current prototype supports a small language, including quantifiers, implication, arithmetic, integration, scoped assumptions, intermediate claims and existential choices. It applies to mathematics in general. The parser and presentation software remain an explicit trust boundary.</p><p><a href="${mirrorSource}README.md">Language, architecture, and extension guide ↗</a></p></article>`, { active: 'lean-mirror', label: 'LeanMirror', sourcePath: 'docs/LEAN_MIRROR.md' });
+page(`lean-mirror/${companion.id}/`, fullArticleData.article.title, renderFullArticle(fullArticleData, { url, api, source, paperUrl: url(`papers/${companion.paperId}/`) }), { active: 'lean-mirror', label: 'LeanMirror', sourcePath: 'examples/paper-bridge/source/article.tex' });
+page(`lean-mirror/${companion.id}/corollary-3-2/`, companion.title, renderCompanion(companion, { url, api, source, mirrorSource, sha }), { active: 'lean-mirror', label: 'LeanMirror', sourcePath: `Papers/${companion.paperId}/ArticleDocument.lean` });
 write(`lean-mirror/${companion.id}/companion.json`, read('examples/paper-bridge/blest-bound.json'));
 write(`lean-mirror/${companion.id}/companion.tex`, read('examples/paper-bridge/blest-bound.tex'));
 write(`lean-mirror/${companion.id}/original.tex`, read('examples/paper-bridge/source/article.tex'));
 write(`lean-mirror/${companion.id}/source.json`, read('examples/paper-bridge/source.json'));
+write(`lean-mirror/${companion.id}/article.leanmirror.json`, JSON.stringify({
+  ...fullArticleEvidence, source: read('examples/paper-bridge/source/article.tex'),
+  bibliography: read('examples/paper-bridge/source/exact-blest-regions.bbl'),
+  mapping: JSON.parse(read('examples/paper-bridge/article-map.json')),
+}, null, 2));
+fs.cpSync(path.join(root, 'examples/paper-bridge/source/images'), path.join(out, `lean-mirror/${companion.id}/images`), { recursive: true });
 execFileSync(process.env.PYTHON || 'python', ['scripts/bundle_lean_mirror.py', path.join(out, `lean-mirror/${companion.id}/executable.zip`)], {cwd: root, stdio: 'inherit'});
-searchIndex.push({ title: `LeanMirror: ${companion.title}`, kind: 'Mathematical companion', url: url(`lean-mirror/${companion.id}/`), text: `${companion.title} nu rho Blest Spearman copula precise definitions equivalence ${companion.definitions.map((d) => d.title).join(' ')}` });
+searchIndex.push({ title: `LeanMirror: ${fullArticleData.article.title}`, kind: 'Mathematical companion', url: url(`lean-mirror/${companion.id}/`), text: `${fullArticleData.article.title} nu rho eta Blest Spearman transpose rank weighting asymmetry copula transport dual certificate precise definitions equivalence ${companion.definitions.map((d) => d.title).join(' ')}` });
 
 page('search/', 'Search the collection', `<div class="eyebrow">Handbook & formal library</div><h1>Search the collection</h1><p class="lead">Find an article, a mathematical concept, or a Lean declaration.</p><form class="search-form" id="collection-search" role="search"><label for="search-query">Search terms</label><div><input id="search-query" name="q" type="search" placeholder="Try copula, xi rho, or cdf_one" autocomplete="off"><button class="button" type="submit">Search</button></div></form><p class="search-status" id="search-status" aria-live="polite">Enter a term to search the handbook and generated Lean reference.</p><div id="search-results"></div><p class="native-search">You can also use <a id="native-search-link" href="${url('api/search.html')}">doc-gen4’s full declaration search →</a></p><noscript><p>Interactive search requires JavaScript. Browse the <a href="${url('papers/')}">article index</a> or <a href="${url('api/')}">Lean module index</a>.</p></noscript>`, { active: 'search', label: 'Search', sourcePath: 'website/build.mjs' });
 
@@ -180,7 +200,7 @@ fs.cpSync(path.join(here, 'node_modules/katex/dist'), path.join(out, 'assets/kat
 fs.copyFileSync(path.join(here, 'node_modules/katex/LICENSE'), path.join(out, 'assets/katex/LICENSE'));
 write('search-index.json', JSON.stringify(searchIndex));
 write('.nojekyll', '');
-write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', leanMirror: mirrorRevision, companions: [{ id: companion.id, declarations: [companion.target, companion.equivalence, companion.verified, ...companion.document.results.flatMap(r => [r.certificate, r.correspondence, r.verified]), ...companion.definitions.map((d) => d.bridge).filter((b) => !b.startsWith('Foundation:'))] }], articles: papers.map(({ id, verification_status, verified_declarations, version_warning, source_discrepancies }) => ({ id, verification_status, verified_declarations, version_warning: version_warning || null, source_discrepancies: source_discrepancies || [] })) }, null, 2));
+write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', leanMirror: mirrorRevision, fullArticles: [{ id: companion.id, stats: fullArticleData.stats, declarations: Object.keys(fullArticleData.evidence) }], companions: [{ id: companion.id, declarations: [companion.target, companion.equivalence, companion.verified, ...companion.document.results.flatMap(r => [r.certificate, r.correspondence, r.verified]), ...companion.definitions.map((d) => d.bridge).filter((b) => !b.startsWith('Foundation:'))] }], articles: papers.map(({ id, verification_status, verified_declarations, version_warning, source_discrepancies }) => ({ id, verification_status, verified_declarations, version_warning: version_warning || null, source_discrepancies: source_discrepancies || [] })) }, null, 2));
 const docs = path.join(root, 'docbuild/.lake/build/doc');
 if (fs.existsSync(path.join(docs, 'index.html'))) {
   fs.cpSync(docs, path.join(out, 'api'), { recursive: true });

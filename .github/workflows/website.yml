@@ -44,6 +44,7 @@ jobs:
         run: |
           python scripts/test_lean_mirror.py
           python scripts/lean_mirror.py --check
+          python scripts/lean_mirror_article.py --check
           python scripts/test_paper_source.py
       - name: Fetch the pinned documentation dependencies
         # Clone sources before restoring their .lake directories, otherwise

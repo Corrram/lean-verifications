@@ -31,7 +31,7 @@ assert.match(metadata.commit, /^[a-f0-9]{40}$/);
 assert.equal(index.filter((x) => x.kind === 'Mathematical companion').length, metadata.companions.length);
 for (const companion of metadata.companions) {
   const directory = path.join(out, 'lean-mirror', companion.id);
-  const html = fs.readFileSync(path.join(directory, 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(directory, 'corollary-3-2', 'index.html'), 'utf8');
   const data = JSON.parse(fs.readFileSync(path.join(directory, 'companion.json'), 'utf8'));
   const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
   for (const [, fragment] of html.matchAll(/href="#([^"]+)"/g)) assert(ids.has(fragment), `Broken companion definition link: ${fragment}`);
@@ -42,6 +42,21 @@ for (const companion of metadata.companions) {
   assert(fs.existsSync(path.join(directory, 'executable.zip')), 'Executable bundle missing');
   assert(fs.existsSync(path.join(directory, 'original.tex')), 'Original source missing');
   assert(fs.existsSync(path.join(directory, 'companion.tex')), 'Companion LaTeX download missing');
+}
+for (const article of metadata.fullArticles) {
+  const directory=path.join(out,'lean-mirror',article.id);
+  const html=fs.readFileSync(path.join(directory,'index.html'),'utf8');
+  const data=JSON.parse(fs.readFileSync(path.join(directory,'article.leanmirror.json'),'utf8'));
+  const allIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+  const ids=new Set(allIds);
+  assert.equal(allIds.length,ids.size,'Duplicate full-article anchors');
+  for(const [,fragment] of html.matchAll(/href="#([^"]+)"/g))assert(ids.has(fragment),`Broken article link: ${fragment}`);
+  assert.equal((html.match(/class="article-result"/g)||[]).length,article.stats.statements);
+  assert.equal((html.match(/<figure /g)||[]).length,article.stats.figures);
+  assert(html.includes('Exhaustive verification of the literal proof steps is still in progress'), 'Verification boundary missing');
+  assert(html.includes('href="#article-eq-nu-def"'), 'Original notation is not clickable');
+  assert.equal(Object.keys(data.evidence).length,article.declarations.length);
+  assert.equal(data.source,fs.readFileSync(path.join(directory,'original.tex'),'utf8'));
 }
 for (const article of metadata.articles) {
   const html = fs.readFileSync(path.join(out, 'papers', article.id, 'index.html'), 'utf8');
@@ -58,6 +73,7 @@ if (!preview) {
   for (const companion of metadata.companions) for (const name of companion.declarations) {
     assert(data.declarations[name], `LeanMirror proof missing from generated API: ${name}`);
   }
+  for(const article of metadata.fullArticles)for(const name of article.declarations)assert(data.declarations[name],`Article evidence missing from generated API: ${name}`);
   for (const name of ['ProbabilityTheory.Copula', 'ProbabilityTheory.Copula.cdf_one', 'ProbabilityTheory.Copula.cdf_nonneg']) assert(data.declarations[name], `Missing generated declaration: ${name}`);
   for (const article of metadata.articles) for (const module of ['Main', 'Definitions', 'Axioms']) assert(fs.existsSync(path.join(out, 'api/Papers', article.id, `${module}.html`)), `Missing API module: ${article.id}.${module}`);
   for (const article of metadata.articles) for (const name of article.verified_declarations) {
