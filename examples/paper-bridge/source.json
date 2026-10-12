@@ -1,0 +1,35 @@
+{
+  "author": "Marcus Rockel",
+  "title": "Rank weighting and asymmetry in Blest’s rank correlation: two exact regions",
+  "revision": "2609.27634v1",
+  "repository": "https://arxiv.org/abs/2609.27634v1",
+  "sourceUrl": "https://arxiv.org/src/2609.27634v1",
+  "file": "article.tex",
+  "originalFilename": "exact-blest-regions.tex",
+  "sourceSha256": "5004f7d396f865b09b1c6a06c7207ecdb0da00d5fdcd201168200c951247ac03",
+  "license": "Original article copyright retained by the author; included at the author’s request.",
+  "licenseUrl": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+  "passages": [
+    {
+      "id": "corollary-3-2",
+      "file": "source/corollary-3-2.tex",
+      "startLine": 447,
+      "endLine": 461,
+      "sha256": "484471a9c10907d47d217119f35e13fe0e719a0206df0d970f49e4b05f823594"
+    }
+  ],
+  "references": {
+    "eq:Phi-def": "4",
+    "lem:rho-nu-values": "3.1",
+    "thm:rho-nu": "1.1",
+    "eq:Zc-def": "12",
+    "eq:survival-transform": "8"
+  },
+  "changes": [
+    "The whole statement and proof of Corollary 3.2 are retained in the comparison column, from the published version of 23 September 2026.",
+    "The two scalar branch expressions are named g₋ and g₊. Derivative existence, strict monotonicity, and every equality case are explicit.",
+    "Attainment and uniqueness are expressed as equivalences; the extremizers’ coefficient values and support graphs are included.",
+    "Copulas are identified with their probability laws. Supported on a graph is interpreted as probability one on that graph; the graphs here are closed.",
+    "Theorem 1.1, Lemma 3.1 and the survival identities remain compiled dependencies, as they are cited dependencies in the printed proof."
+  ]
+}

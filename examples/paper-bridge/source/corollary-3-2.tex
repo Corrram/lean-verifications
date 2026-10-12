@@ -1,0 +1,15 @@
+\begin{corollary}[Sharp deviation between $\nu$ and $\rho$]
+\label{cor:nu-rho}
+Every $C\in\CC$ satisfies $|\nu(C)-\rho(C)|\le\frac14$.
+The maximum $\nu-\rho=\frac14$ is attained only by $D_{1/2}$, which has $\rho=0$ and is supported on the graph of the tent map $u\mapsto\min\{2u,2-2u\}$.
+The minimum $\nu-\rho=-\frac14$ is attained only by its survival copula, which is supported on the graph of $u\mapsto|2u-1|$.
+\end{corollary}
+
+\begin{proof}
+On $[-1,0]$, \eqref{eq:Phi-def} gives $\Phi(r)-r=r+1-\frac34(1+r)^{4/3}$, and its derivative $1-(1+r)^{1/3}$ is positive for $r<0$.
+On $[0,1]$, $\Phi(r)-r=1-r-\frac34(1-r)^{4/3}$, and its derivative $(1-r)^{1/3}-1$ is negative for $r>0$.
+Consequently $\Phi(r)-r\le\Phi(0)=\frac14$, with equality only at $r=0$.
+Lemma~\ref{lem:rho-nu-values} matches $r=0$ with $c=\frac12$, so by Theorem~\ref{thm:rho-nu}, no copula other than $D_{1/2}$ attains the maximum.
+Its coupling $\gamma_{\zeta_{1/2}}$ sits on the graph of $\zeta_{1/2}(x)=|2x-1|$ from \eqref{eq:Zc-def}, which becomes the graph of the tent map in the coordinates $(u,v)=(1-x,1-z)$.
+For the minimum, \eqref{eq:survival-transform} sends $\nu-\rho$ to $\rho-\nu$, so only $\widehat{D_{1/2}}$ attains it: this is the copula of $(X,\zeta_{1/2}(X))$, supported on the graph of $u\mapsto|2u-1|$.
+\end{proof}

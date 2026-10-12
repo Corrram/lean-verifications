@@ -1,39 +1,90 @@
 \documentclass[11pt]{article}
 \usepackage[a4paper,margin=24mm]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{xcolor}
-\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
-\newtheorem*{checkedtheorem}{Theorem}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem*{corollary}{Corollary 3.2}
+\setlength{\emergencystretch}{3em}
 \begin{document}
-{\Large\bfseries A readable theorem with a Lean certificate}\par
-{\color{gray}LeanMirror prototype $\cdot$ Blest--Spearman bound}\par
+\title{Sharp deviation between $\nu$ and $\rho$\\\large A LeanMirror companion}
+\author{Marcus Rockel}
+\date{}
+\maketitle
+Source: \href{https://arxiv.org/abs/2609.27634v1}{arXiv:2609.27634v1, Corollary 3.2 and its proof}.\par
+Corollary 3.2 in full: universal bound, both unique extremizers, attainment, and support graphs, with a checked version of its printed proof. Earlier results used in the proof are checked library dependencies; the rest of the article is not reproduced as a LeanMirror document.
 
-\begin{checkedtheorem}
-Let $C$ be a bivariate copula. Then
-\[
-\left|\nu\left(C\right) - \rho\left(C\right)\right| \le \frac{1}{4}.
-\]
-\end{checkedtheorem}
-This is the universal inequality from Corollary~3.2 of \href{https://arxiv.org/abs/2609.27634v1}{Rockel, arXiv:2609.27634v1}. The prototype covers the inequality; sharpness and equality cases are outside this certificate.
+\begin{corollary}
+For every $C\in \mathcal{C}$, $\left|\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right| \le \frac{1}{4}$; and $\left(\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right) = \frac{1}{4}$ if and only if $C = \hyperlink{def-extremizer}{D_{1/2}}$; and $\left(\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right) = -\frac{1}{4}$ if and only if $C = \widehat{\hyperlink{def-extremizer}{D_{1/2}}}$; and $\rho(\hyperlink{def-extremizer}{D_{1/2}}) = 0$; and $\nu(\hyperlink{def-extremizer}{D_{1/2}}) = \frac{1}{4}$; and $\mu_{\hyperlink{def-extremizer}{D_{1/2}}}(\{(u,v):v=\hyperlink{def-tent}{T}(u)\})=1$; and $\mu_{\widehat{\hyperlink{def-extremizer}{D_{1/2}}}}(\{(u,v):v=\hyperlink{def-vee}{V}(u)\})=1$.
+\end{corollary}
+\section*{Definitions used below}
+\hypertarget{def-probability}{}\paragraph{Probability conventions}
+Put $I=[0,1]$. We identify a copula with its probability law $\mu_C$ on $I^2$. Write $\lambda$ for Lebesgue probability measure on $I$, $\pi_1(u,v)=u$ and $\pi_2(u,v)=v$ for the coordinate projections, and $f_*\mu(A)=\mu(f^{-1}(A))$ for the pushforward of a measure. All displayed integrals use Lebesgue measure.
 
-\paragraph{Probability conventions.} Put $I=[0,1]$. We identify a copula with its probability law $\mu_C$ on $I^2$. Write $\lambda$ for Lebesgue probability measure on $I$, $\pi_1(u,v)=u$ and $\pi_2(u,v)=v$ for the coordinate projections, and $f_*\mu(A)=\mu(f^{-1}(A))$ for the pushforward of a measure. All displayed integrals use Lebesgue measure.
+\hypertarget{def-copula}{}\paragraph{Bivariate copula}
+A probability law $\mu_C$ on $I^2$ is a bivariate copula precisely when
+\[\left(\hyperlink{def-probability}{(\pi_1)_*\mu_{C}} = \hyperlink{def-probability}{\lambda} \;\land\; \hyperlink{def-probability}{(\pi_2)_*\mu_{C}} = \hyperlink{def-probability}{\lambda}\right).\]
 
-\paragraph{Bivariate copula.} A probability law $\mu_C$ on $I^2$ is a bivariate copula precisely when
-\[\left((\pi_1)_*\mu_{C} = \lambda \;\land\; (\pi_2)_*\mu_{C} = \lambda\right).\]
+\hypertarget{def-cdf}{}\paragraph{Distribution function}
+For $u,v\in I$, the distribution function associated with $\mu_C$ is
+\[C(u,v):=\hyperlink{def-probability}{\mu_{C}([0,u]\times[0,v])}.\]
 
-\paragraph{Distribution function.} For $u,v\in I$, the distribution function associated with $\mu_C$ is
-\[C(u,v):=\mu_{C}([0,u]\times[0,v]).\]
+\hypertarget{def-rho}{}\paragraph{Spearman's rho}
+\[\rho(C):=12\,\int_0^1 \int_0^1 \hyperlink{def-cdf}{C\left(u,v\right)}\,\mathrm{d}u\,\mathrm{d}v - 3.\]
 
-\paragraph{Blest's coefficient.} \[\nu(C):=24\,\int_0^1 \int_0^1 \left(1 - u\right)\,C\left(u,v\right)\,\mathrm{d}u\,\mathrm{d}v - 2.\]
+\hypertarget{def-nu}{}\paragraph{Blest's coefficient}
+\[\nu(C):=24\,\int_0^1 \int_0^1 \left(1 - u\right)\,\hyperlink{def-cdf}{C\left(u,v\right)}\,\mathrm{d}u\,\mathrm{d}v - 2.\]
 
-\paragraph{Spearman's rho.} \[\rho(C):=12\,\int_0^1 \int_0^1 C\left(u,v\right)\,\mathrm{d}u\,\mathrm{d}v - 3.\]
+\hypertarget{def-calculus}{}\paragraph{Real powers and derivatives}
+Real powers have their usual nonnegative-base meaning in this proof. $f'(r)=d$ asserts that the derivative exists and equals $d$. Strict increase on $[a,b]$ means $f(x)<f(y)$ whenever $a\le x<y\le b$; strict decrease reverses that inequality.
 
-\medskip\hrule\medskip
-\textbf{What is checked.} Lean checks the copula and coefficient correspondences, the equivalence of this statement with the existing theorem, and the resulting proof. The existing proof is \texttt{nu\_rho\_bound}; the bridge is \texttt{ArticleBridge.statement\_equivalence}. The displayed formulas and interpreted propositions come from the same typed syntax trees.
+\hypertarget{def-left-branch}{}\paragraph{The negative branch of the deviation}
+For $r\in[-1,0]$,\[g_-(r):=\left(r + 1\right) - \frac{3}{4}\,\hyperlink{def-calculus}{\left(\left(1 + r\right)\right)^{\frac{4}{3}}}.\]
 
-{\small\textbf{Presentation boundary.} The controlled-language parser, symbol notation, and LaTeX renderer are inspectable software, not themselves formally verified. The probability conventions above are the explicitly documented foundation vocabulary.}
+\hypertarget{def-right-branch}{}\paragraph{The positive branch of the deviation}
+For $r\in[0,1]$,\[g_+(r):=\left(1 - r\right) - \frac{3}{4}\,\hyperlink{def-calculus}{\left(\left(1 - r\right)\right)^{\frac{4}{3}}}.\]
+
+\hypertarget{def-phi}{}\paragraph{The upper boundary (equation 4)}
+For $r\in[-1,1]$,\[\Phi(r)-r=\begin{cases}g_-(r),&-1\le r\le0,\\g_+(r),&0\le r\le1.\end{cases}\] The two branches agree at zero. These are the two expressions used in the original proof.
+
+\hypertarget{def-tent}{}\paragraph{The tent map}
+For $u\in[0,1]$,\[T(u):=\hyperlink{def-calculus}{\min\{2\,u,\left(2 - 2\,u\right)\}}.\]
+
+\hypertarget{def-vee}{}\paragraph{The reflected tent map}
+For $u\in[0,1]$,\[V(u):=\left|2\,u - 1\right|.\]
+
+\hypertarget{def-graph}{}\paragraph{Supported on a graph}
+The statement that a copula is supported on the graph of $f$ means $v=f(u)$ for $\mu_C$-almost every $(u,v)$, equivalently $\mu_C(\{(u,v):v=f(u)\})=1$. Both maps here are continuous.
+
+\hypertarget{def-extremizer}{}\paragraph{The extremal copula}
+$D_{1/2}$ is the law of $(U,T(U))$ for $U$ uniform on $[0,1]$. The checked law identity identifies it with the paper's $D_c$ at $c=1/2$.
+
+\hypertarget{def-survival}{}\paragraph{The survival copula (equation 8)}
+The survival copula of $C$ is the law of $(1-U,1-V)$ when $(U,V)$ has law $C$. Its distribution function is\[\widehat C(u,v)=\left(\left(u + v\right) - 1\right) + C(\hyperlink{def-probability}{(1-u)},\hyperlink{def-probability}{(1-v)}).\]
+
+\section*{The checked proof}
+\begin{proof}
+Then for every $r\in \mathbb{R}$ satisfying $\left(-1 \le r \;\land\; r \le 0\right)$, $\left(\hyperlink{def-phi}{\Phi(r)} - r\right) = \hyperlink{def-left-branch}{g_-(r)}$.
+Then for every $r\in \mathbb{R}$ satisfying $\left(0 \le r \;\land\; r \le 1\right)$, $\left(\hyperlink{def-phi}{\Phi(r)} - r\right) = \hyperlink{def-right-branch}{g_+(r)}$.
+Then for every $r\in \mathbb{R}$ satisfying $\left(-1 < r \;\land\; r < 0\right)$, $\hyperlink{def-left-branch}{g_-}'(r)=\left(1 - \hyperlink{def-calculus}{\left(\left(1 + r\right)\right)^{\frac{1}{3}}}\right)$.
+Then for every $r\in \mathbb{R}$ satisfying $\left(-1 \le r \;\land\; r < 0\right)$, $0 < \left(1 - \hyperlink{def-calculus}{\left(\left(1 + r\right)\right)^{\frac{1}{3}}}\right)$.
+Then for every $r\in \mathbb{R}$ satisfying $\left(0 < r \;\land\; r < 1\right)$, $\hyperlink{def-right-branch}{g_+}'(r)=\left(\hyperlink{def-calculus}{\left(\left(1 - r\right)\right)^{\frac{1}{3}}} - 1\right)$.
+Then for every $r\in \mathbb{R}$ satisfying $\left(0 < r \;\land\; r \le 1\right)$, $\left(\hyperlink{def-calculus}{\left(\left(1 - r\right)\right)^{\frac{1}{3}}} - 1\right) < 0$.
+Then $\hyperlink{def-left-branch}{g_-}\text{ is strictly increasing on }[-1,0]$; and $\hyperlink{def-right-branch}{g_+}\text{ is strictly decreasing on }[0,1]$.
+Then for every $r\in \mathbb{R}$ satisfying $\left(-1 \le r \;\land\; r \le 1\right)$, $\left(\hyperlink{def-phi}{\Phi(r)} - r\right) \le \frac{1}{4}$; and $\left(\hyperlink{def-phi}{\Phi(r)} - r\right) = \frac{1}{4}$ if and only if $r = 0$.
+Then $\rho(\hyperlink{def-extremizer}{D_{1/2}}) = 0$; and $\nu(\hyperlink{def-extremizer}{D_{1/2}}) = \frac{1}{4}$.
+Then for every $C\in \mathcal{C}$, $\left(\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right) = \frac{1}{4}$ if and only if $C = \hyperlink{def-extremizer}{D_{1/2}}$.
+Then $\mu_{\hyperlink{def-extremizer}{D_{1/2}}}(\{(u,v):v=\hyperlink{def-tent}{T}(u)\})=1$.
+Then for every $C\in \mathcal{C}$, $\left(\nu(\hyperlink{def-survival}{\widehat{C}}) - \rho(\hyperlink{def-survival}{\widehat{C}})\right) = \left(\hyperlink{def-rho}{\rho(C)} - \hyperlink{def-nu}{\nu(C)}\right)$.
+Then for every $C\in \mathcal{C}$, $\left(\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right) = -\frac{1}{4}$ if and only if $C = \widehat{\hyperlink{def-extremizer}{D_{1/2}}}$.
+Then $\mu_{\widehat{\hyperlink{def-extremizer}{D_{1/2}}}}(\{(u,v):v=\hyperlink{def-vee}{V}(u)\})=1$.
+Let $C\in \mathcal{C}$.
+Then $\left|\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right| \le \frac{1}{4}$.
+Hence $\left|\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right| \le \frac{1}{4}$; and $\left(\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right) = \frac{1}{4}$ if and only if $C = \hyperlink{def-extremizer}{D_{1/2}}$; and $\left(\hyperlink{def-nu}{\nu(C)} - \hyperlink{def-rho}{\rho(C)}\right) = -\frac{1}{4}$ if and only if $C = \widehat{\hyperlink{def-extremizer}{D_{1/2}}}$; and $\rho(\hyperlink{def-extremizer}{D_{1/2}}) = 0$; and $\nu(\hyperlink{def-extremizer}{D_{1/2}}) = \frac{1}{4}$; and $\mu_{\hyperlink{def-extremizer}{D_{1/2}}}(\{(u,v):v=\hyperlink{def-tent}{T}(u)\})=1$; and $\mu_{\widehat{\hyperlink{def-extremizer}{D_{1/2}}}}(\{(u,v):v=\hyperlink{def-vee}{V}(u)\})=1$.
+\end{proof}
+\section*{Verification}
+The proof follows the derivative argument in the published corollary. Every assertion above is generated from the typed proof tree certified by \texttt{ArticleProof.corollary\_valid}. Lean checks every intermediate step and the equivalence to the formal statement. The earlier region theorem, family values and survival identities are compiled dependencies.
+
+The online companion compares the complete original statement and proof with this version. Notation, rendering and correspondence with the intended mathematics remain inspectable presentation components. The rest of the article is not reproduced as an executable document here.
+
+To reproduce, run \texttt{python scripts/lean\_mirror.py --check} in the pinned repository after fetching its Lean dependencies.
 \end{document}

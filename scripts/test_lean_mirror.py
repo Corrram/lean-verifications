@@ -12,11 +12,25 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 LAKE = os.environ.get("LAKE", "lake")
 PRELUDE = r"""import Papers.Rockel2026ExactBlest.ArticleBridge
+import Papers.Rockel2026ExactBlest.ArticleProof
 open LeanMirror Papers.Rockel2026ExactBlest.ArticleBridge
 open ClaimSymbol
 """
 
 CASES = {
+    "a false intermediate step cannot reuse the valid document": (r"""
+namespace ProofMutation
+open Papers.Rockel2026ExactBlest.ArticleProof
+def changed : Argument Symbol [] := .have [math| |- 0 = 1] corollaryProof
+theorem bad : changed.Valid model (fun _ => True) := corollary_valid
+end ProofMutation
+""", "type mismatch"),
+    "a changed extremizer value cannot reuse its certificate": (r"""
+namespace ExtremizerMutation
+open Papers.Rockel2026ExactBlest.ArticleProof
+theorem bad : extremizer.spearmanRho = 1 := extremizer_values.1
+end ExtremizerMutation
+""", "type mismatch"),
     "wrong external context": (r"""
 def bad : Expr ClaimSymbol [law] .real :=
   [math| D, C |- \nu(C)]
@@ -67,7 +81,7 @@ theorem bad : False := by sorry
 
 def main() -> None:
     subprocess.run([LAKE, "build", "LeanMirror.Tests",
-                    "Papers.Rockel2026ExactBlest.ArticlePresentation"], cwd=ROOT, check=True)
+                    "LeanMirror.DocumentTests", "Papers.Rockel2026ExactBlest.ArticleDocument"], cwd=ROOT, check=True)
     temp_root = ROOT / ".lake" / "lean-mirror-tests"
     temp_root.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=temp_root) as tmp:

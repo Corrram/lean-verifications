@@ -34,3 +34,25 @@ test('invalid notation fails publication instead of rendering a broken formula',
   data.statement.formula = '\\unknownCommand{C}';
   assert.throws(() => renderCompanion(data, options));
 });
+
+test('the complete proof, equality cases, source and executable download are present', () => {
+  const html = renderCompanion(fixture, options);
+  assert.match(html, /Every step of the printed argument/);
+  assert.match(html, /Original · Corollary 3.2/);
+  assert.match(html, /maximum/);
+  assert.match(html, /minimum/);
+  assert.match(html, /executable.zip/);
+  for (const key of ['phi','extremizer','survival','tent','vee','calculus']) {
+    assert(html.includes(`id="def-${key}"`));
+  }
+  assert.equal((html.match(/Exact obligation/g) || []).length, 15);
+});
+
+test('unverified proof nodes and unresolved source citations fail publication', () => {
+  const changed = structuredClone(fixture);
+  changed.document.results[0].checked.proof.kind = 'prose';
+  assert.throws(() => renderCompanion(changed, options), /proof node/);
+  const citation = structuredClone(fixture);
+  delete citation.original.provenance.references['thm:rho-nu'];
+  assert.throws(() => renderCompanion(citation, options), /Unknown source reference/);
+});

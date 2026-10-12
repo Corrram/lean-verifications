@@ -31,3 +31,4 @@ jobs:
         run: |
           python scripts/test_lean_mirror.py
           python scripts/lean_mirror.py --check
+          python scripts/test_paper_source.py

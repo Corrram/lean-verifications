@@ -1,55 +1,841 @@
-{"verified": "Papers.Rockel2026ExactBlest.ArticleBridge.article_verified",
- "title": "The Blest–Spearman bound",
- "targetModule": "Papers.Rockel2026ExactBlest.ExactBlest",
- "target": "Papers.Rockel2026ExactBlest.nu_rho_bound",
- "statement":
- {"variable": "C",
-  "noun": "bivariate copula",
-  "kind": "universal",
-  "formula":
-  "\\left|\\href{#def-nu}{\\nu\\left(C\\right)} - \\href{#def-rho}{\\rho\\left(C\\right)}\\right| \\le \\frac{1}{4}",
-  "domain": "copula"},
- "sourceUrl": "https://arxiv.org/abs/2609.27634v1",
- "source": "arXiv:2609.27634v1, Corollary 3.2 (universal inequality)",
- "scope":
- "The universal inequality for every bivariate copula, including singular copulas. Sharpness and equality cases are outside this certificate.",
- "schemaVersion": 1,
- "paperId": "Rockel2026ExactBlest",
- "id": "blest-spearman",
- "equivalence":
- "Papers.Rockel2026ExactBlest.ArticleBridge.statement_equivalence",
- "definitions":
- [{"title": "Probability conventions",
-   "latex":
-   "Put $I=[0,1]$. We identify a copula with its probability law $\\mu_C$ on $I^2$. Write $\\lambda$ for Lebesgue probability measure on $I$, $\\pi_1(u,v)=u$ and $\\pi_2(u,v)=v$ for the coordinate projections, and $f_*\\mu(A)=\\mu(f^{-1}(A))$ for the pushforward of a measure. All displayed integrals use Lebesgue measure.",
-   "key": "probability",
-   "dependencies": [],
-   "bridge":
-   "Foundation: probability measures, pushforwards, Lebesgue measure"},
-  {"title": "Bivariate copula",
-   "latex":
-   "A probability law $\\mu_C$ on $I^2$ is a bivariate copula precisely when\n\\[\\left(\\href{#def-probability}{(\\pi_1)_*\\mu_{C}} = \\href{#def-probability}{\\lambda} \\;\\land\\; \\href{#def-probability}{(\\pi_2)_*\\mu_{C}} = \\href{#def-probability}{\\lambda}\\right).\\]",
-   "key": "copula",
-   "dependencies": ["probability", "probability", "probability", "probability"],
-   "bridge":
-   "Papers.Rockel2026ExactBlest.ArticleBridge.copula_definition_equiv"},
-  {"title": "Distribution function",
-   "latex":
-   "For $u,v\\in I$, the distribution function associated with $\\mu_C$ is\n\\[C(u,v):=\\href{#def-probability}{\\mu_{C}([0,u]\\times[0,v])}.\\]",
-   "key": "cdf",
-   "dependencies": ["probability"],
-   "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.cdf_definition_eq"},
-  {"title": "Blest's coefficient",
-   "latex":
-   "\\[\\nu(C):=24\\,\\int_0^1 \\int_0^1 \\left(1 - u\\right)\\,\\href{#def-cdf}{C\\left(u,v\\right)}\\,\\mathrm{d}u\\,\\mathrm{d}v - 2.\\]",
-   "key": "nu",
-   "dependencies": ["cdf"],
-   "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.nu_definition_eq"},
-  {"title": "Spearman's rho",
-   "latex":
-   "\\[\\rho(C):=12\\,\\int_0^1 \\int_0^1 \\href{#def-cdf}{C\\left(u,v\\right)}\\,\\mathrm{d}u\\,\\mathrm{d}v - 3.\\]",
-   "key": "rho",
-   "dependencies": ["cdf"],
-   "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.rho_definition_eq"}],
- "bridgeModule": "Papers.Rockel2026ExactBlest.ArticleBridge",
- "allowedAxioms": ["propext", "Classical.choice", "Quot.sound"]}
+{
+  "verified": "Papers.Rockel2026ExactBlest.ArticleBridge.article_verified",
+  "title": "The Blest–Spearman bound",
+  "targetModule": "Papers.Rockel2026ExactBlest.ExactBlest",
+  "target": "Papers.Rockel2026ExactBlest.nu_rho_bound",
+  "statement": {
+    "variable": "C",
+    "noun": "bivariate copula",
+    "kind": "universal",
+    "formula": "\\left|\\href{#def-nu}{\\nu\\left(C\\right)} - \\href{#def-rho}{\\rho\\left(C\\right)}\\right| \\le \\frac{1}{4}",
+    "domain": "copula"
+  },
+  "sourceUrl": "https://arxiv.org/abs/2609.27634v1",
+  "source": "arXiv:2609.27634v1, Corollary 3.2 and its proof",
+  "scope": "Corollary 3.2 in full: universal bound, both unique extremizers, attainment, and support graphs, with a checked version of its printed proof. Earlier results used in the proof are checked library dependencies; the rest of the article is not reproduced as a LeanMirror document.",
+  "schemaVersion": 1,
+  "paperId": "Rockel2026ExactBlest",
+  "id": "blest-spearman",
+  "equivalence": "Papers.Rockel2026ExactBlest.ArticleBridge.statement_equivalence",
+  "document": {
+    "schemaVersion": 1,
+    "results": [
+      {
+        "verified": "Papers.Rockel2026ExactBlest.ArticleProof.corollary_verified",
+        "title": "Corollary 3.2. Sharp deviation between nu and rho",
+        "target": "nu_rho_bound; paper_nu_rho_max_unique; paper_nu_rho_min_unique; rho_midpoint_original_graph; rho_midpoint_reflected_graph",
+        "id": "corollary-3-2",
+        "correspondence": "Papers.Rockel2026ExactBlest.ArticleProof.corollary_correspondence",
+        "checked": {
+          "statement": {
+            "type": "\\mathcal{C}",
+            "name": "C",
+            "latex": "\\forall C\\in \\mathcal{C},\\quad \\left(\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right) \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)\\right)\\right)",
+            "kind": "forall",
+            "body": {
+              "right": {
+                "right": {
+                  "right": {
+                    "right": {
+                      "right": {
+                        "latex": "\\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1",
+                        "kind": "formula"
+                      },
+                      "left": {
+                        "latex": "\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1",
+                        "kind": "formula"
+                      },
+                      "latex": "\\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)",
+                      "kind": "and"
+                    },
+                    "left": {
+                      "right": {
+                        "right": "\\frac{1}{4}",
+                        "operator": "=",
+                        "left": "\\nu(\\href{#def-extremizer}{D_{1/2}})",
+                        "latex": "\\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}",
+                        "kind": "relation"
+                      },
+                      "left": {
+                        "right": "0",
+                        "operator": "=",
+                        "left": "\\rho(\\href{#def-extremizer}{D_{1/2}})",
+                        "latex": "\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0",
+                        "kind": "relation"
+                      },
+                      "latex": "\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right)",
+                      "kind": "and"
+                    },
+                    "latex": "\\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)",
+                    "kind": "and"
+                  },
+                  "left": {
+                    "right": {
+                      "right": "\\widehat{\\href{#def-extremizer}{D_{1/2}}}",
+                      "operator": "=",
+                      "left": "C",
+                      "latex": "C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}",
+                      "kind": "relation"
+                    },
+                    "left": {
+                      "right": "0 - \\frac{1}{4}",
+                      "operator": "=",
+                      "left": "\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}",
+                      "latex": "\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4}",
+                      "kind": "relation"
+                    },
+                    "latex": "\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right)",
+                    "kind": "iff"
+                  },
+                  "latex": "\\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)",
+                  "kind": "and"
+                },
+                "left": {
+                  "right": {
+                    "right": "\\href{#def-extremizer}{D_{1/2}}",
+                    "operator": "=",
+                    "left": "C",
+                    "latex": "C = \\href{#def-extremizer}{D_{1/2}}",
+                    "kind": "relation"
+                  },
+                  "left": {
+                    "right": "\\frac{1}{4}",
+                    "operator": "=",
+                    "left": "\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}",
+                    "latex": "\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4}",
+                    "kind": "relation"
+                  },
+                  "latex": "\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right)",
+                  "kind": "iff"
+                },
+                "latex": "\\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right) \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)\\right)",
+                "kind": "and"
+              },
+              "left": {
+                "right": "\\frac{1}{4}",
+                "operator": "\\le",
+                "left": "\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right|",
+                "latex": "\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4}",
+                "kind": "relation"
+              },
+              "latex": "\\left(\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right) \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)\\right)\\right)",
+              "kind": "and"
+            },
+            "binding": "C"
+          },
+          "proof": {
+            "next": {
+              "next": {
+                "next": {
+                  "next": {
+                    "next": {
+                      "next": {
+                        "next": {
+                          "next": {
+                            "next": {
+                              "next": {
+                                "next": {
+                                  "next": {
+                                    "next": {
+                                      "next": {
+                                        "type": "\\mathcal{C}",
+                                        "next": {
+                                          "next": {
+                                            "kind": "finish",
+                                            "formula": {
+                                              "right": {
+                                                "right": {
+                                                  "right": {
+                                                    "right": {
+                                                      "right": {
+                                                        "latex": "\\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1",
+                                                        "kind": "formula"
+                                                      },
+                                                      "left": {
+                                                        "latex": "\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1",
+                                                        "kind": "formula"
+                                                      },
+                                                      "latex": "\\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)",
+                                                      "kind": "and"
+                                                    },
+                                                    "left": {
+                                                      "right": {
+                                                        "right": "\\frac{1}{4}",
+                                                        "operator": "=",
+                                                        "left": "\\nu(\\href{#def-extremizer}{D_{1/2}})",
+                                                        "latex": "\\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}",
+                                                        "kind": "relation"
+                                                      },
+                                                      "left": {
+                                                        "right": "0",
+                                                        "operator": "=",
+                                                        "left": "\\rho(\\href{#def-extremizer}{D_{1/2}})",
+                                                        "latex": "\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0",
+                                                        "kind": "relation"
+                                                      },
+                                                      "latex": "\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right)",
+                                                      "kind": "and"
+                                                    },
+                                                    "latex": "\\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)",
+                                                    "kind": "and"
+                                                  },
+                                                  "left": {
+                                                    "right": {
+                                                      "right": "\\widehat{\\href{#def-extremizer}{D_{1/2}}}",
+                                                      "operator": "=",
+                                                      "left": "C",
+                                                      "latex": "C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}",
+                                                      "kind": "relation"
+                                                    },
+                                                    "left": {
+                                                      "right": "0 - \\frac{1}{4}",
+                                                      "operator": "=",
+                                                      "left": "\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}",
+                                                      "latex": "\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4}",
+                                                      "kind": "relation"
+                                                    },
+                                                    "latex": "\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right)",
+                                                    "kind": "iff"
+                                                  },
+                                                  "latex": "\\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)",
+                                                  "kind": "and"
+                                                },
+                                                "left": {
+                                                  "right": {
+                                                    "right": "\\href{#def-extremizer}{D_{1/2}}",
+                                                    "operator": "=",
+                                                    "left": "C",
+                                                    "latex": "C = \\href{#def-extremizer}{D_{1/2}}",
+                                                    "kind": "relation"
+                                                  },
+                                                  "left": {
+                                                    "right": "\\frac{1}{4}",
+                                                    "operator": "=",
+                                                    "left": "\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}",
+                                                    "latex": "\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4}",
+                                                    "kind": "relation"
+                                                  },
+                                                  "latex": "\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right)",
+                                                  "kind": "iff"
+                                                },
+                                                "latex": "\\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right) \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)\\right)",
+                                                "kind": "and"
+                                              },
+                                              "left": {
+                                                "right": "\\frac{1}{4}",
+                                                "operator": "\\le",
+                                                "left": "\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right|",
+                                                "latex": "\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4}",
+                                                "kind": "relation"
+                                              },
+                                              "latex": "\\left(\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right) \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)\\right)\\right)",
+                                              "kind": "and"
+                                            },
+                                            "claim": "\\left(\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right) \\;\\land\\; \\left(\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right) \\;\\land\\; \\left(\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right) \\;\\land\\; \\left(\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1 \\;\\land\\; \\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1\\right)\\right)\\right)\\right)\\right)"
+                                          },
+                                          "kind": "have",
+                                          "formula": {
+                                            "right": "\\frac{1}{4}",
+                                            "operator": "\\le",
+                                            "left": "\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right|",
+                                            "latex": "\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4}",
+                                            "kind": "relation"
+                                          },
+                                          "claim": "\\left|\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right| \\le \\frac{1}{4}"
+                                        },
+                                        "name": "C",
+                                        "kind": "fix",
+                                        "binding": "C"
+                                      },
+                                      "kind": "have",
+                                      "formula": {
+                                        "latex": "\\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1",
+                                        "kind": "formula"
+                                      },
+                                      "claim": "\\mu_{\\widehat{\\href{#def-extremizer}{D_{1/2}}}}(\\{(u,v):v=\\href{#def-vee}{V}(u)\\})=1"
+                                    },
+                                    "kind": "have",
+                                    "formula": {
+                                      "type": "\\mathcal{C}",
+                                      "name": "C",
+                                      "latex": "\\forall C\\in \\mathcal{C},\\quad \\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right)",
+                                      "kind": "forall",
+                                      "body": {
+                                        "right": {
+                                          "right": "\\widehat{\\href{#def-extremizer}{D_{1/2}}}",
+                                          "operator": "=",
+                                          "left": "C",
+                                          "latex": "C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}",
+                                          "kind": "relation"
+                                        },
+                                        "left": {
+                                          "right": "0 - \\frac{1}{4}",
+                                          "operator": "=",
+                                          "left": "\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}",
+                                          "latex": "\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4}",
+                                          "kind": "relation"
+                                        },
+                                        "latex": "\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right)",
+                                        "kind": "iff"
+                                      },
+                                      "binding": "C"
+                                    },
+                                    "claim": "\\forall C\\in \\mathcal{C},\\quad \\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = -\\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\widehat{\\href{#def-extremizer}{D_{1/2}}}\\right)"
+                                  },
+                                  "kind": "have",
+                                  "formula": {
+                                    "type": "\\mathcal{C}",
+                                    "name": "C",
+                                    "latex": "\\forall C\\in \\mathcal{C},\\quad \\left(\\nu(\\href{#def-survival}{\\widehat{C}}) - \\rho(\\href{#def-survival}{\\widehat{C}})\\right) = \\left(\\href{#def-rho}{\\rho(C)} - \\href{#def-nu}{\\nu(C)}\\right)",
+                                    "kind": "forall",
+                                    "body": {
+                                      "right": "\\href{#def-rho}{\\rho(C)} - \\href{#def-nu}{\\nu(C)}",
+                                      "operator": "=",
+                                      "left": "\\nu(\\href{#def-survival}{\\widehat{C}}) - \\rho(\\href{#def-survival}{\\widehat{C}})",
+                                      "latex": "\\left(\\nu(\\href{#def-survival}{\\widehat{C}}) - \\rho(\\href{#def-survival}{\\widehat{C}})\\right) = \\left(\\href{#def-rho}{\\rho(C)} - \\href{#def-nu}{\\nu(C)}\\right)",
+                                      "kind": "relation"
+                                    },
+                                    "binding": "C"
+                                  },
+                                  "claim": "\\forall C\\in \\mathcal{C},\\quad \\left(\\nu(\\href{#def-survival}{\\widehat{C}}) - \\rho(\\href{#def-survival}{\\widehat{C}})\\right) = \\left(\\href{#def-rho}{\\rho(C)} - \\href{#def-nu}{\\nu(C)}\\right)"
+                                },
+                                "kind": "have",
+                                "formula": {
+                                  "latex": "\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1",
+                                  "kind": "formula"
+                                },
+                                "claim": "\\mu_{\\href{#def-extremizer}{D_{1/2}}}(\\{(u,v):v=\\href{#def-tent}{T}(u)\\})=1"
+                              },
+                              "kind": "have",
+                              "formula": {
+                                "type": "\\mathcal{C}",
+                                "name": "C",
+                                "latex": "\\forall C\\in \\mathcal{C},\\quad \\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right)",
+                                "kind": "forall",
+                                "body": {
+                                  "right": {
+                                    "right": "\\href{#def-extremizer}{D_{1/2}}",
+                                    "operator": "=",
+                                    "left": "C",
+                                    "latex": "C = \\href{#def-extremizer}{D_{1/2}}",
+                                    "kind": "relation"
+                                  },
+                                  "left": {
+                                    "right": "\\frac{1}{4}",
+                                    "operator": "=",
+                                    "left": "\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}",
+                                    "latex": "\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4}",
+                                    "kind": "relation"
+                                  },
+                                  "latex": "\\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right)",
+                                  "kind": "iff"
+                                },
+                                "binding": "C"
+                              },
+                              "claim": "\\forall C\\in \\mathcal{C},\\quad \\left(\\left(\\href{#def-nu}{\\nu(C)} - \\href{#def-rho}{\\rho(C)}\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; C = \\href{#def-extremizer}{D_{1/2}}\\right)"
+                            },
+                            "kind": "have",
+                            "formula": {
+                              "right": {
+                                "right": "\\frac{1}{4}",
+                                "operator": "=",
+                                "left": "\\nu(\\href{#def-extremizer}{D_{1/2}})",
+                                "latex": "\\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}",
+                                "kind": "relation"
+                              },
+                              "left": {
+                                "right": "0",
+                                "operator": "=",
+                                "left": "\\rho(\\href{#def-extremizer}{D_{1/2}})",
+                                "latex": "\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0",
+                                "kind": "relation"
+                              },
+                              "latex": "\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right)",
+                              "kind": "and"
+                            },
+                            "claim": "\\left(\\rho(\\href{#def-extremizer}{D_{1/2}}) = 0 \\;\\land\\; \\nu(\\href{#def-extremizer}{D_{1/2}}) = \\frac{1}{4}\\right)"
+                          },
+                          "kind": "have",
+                          "formula": {
+                            "type": "\\mathbb{R}",
+                            "name": "r",
+                            "latex": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 \\le r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; r = 0\\right)\\right)\\right)",
+                            "kind": "forall",
+                            "body": {
+                              "premise": {
+                                "right": {
+                                  "right": "1",
+                                  "operator": "\\le",
+                                  "left": "r",
+                                  "latex": "r \\le 1",
+                                  "kind": "relation"
+                                },
+                                "left": {
+                                  "right": "r",
+                                  "operator": "\\le",
+                                  "left": "0 - 1",
+                                  "latex": "-1 \\le r",
+                                  "kind": "relation"
+                                },
+                                "latex": "\\left(-1 \\le r \\;\\land\\; r \\le 1\\right)",
+                                "kind": "and"
+                              },
+                              "latex": "\\left(\\left(-1 \\le r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; r = 0\\right)\\right)\\right)",
+                              "kind": "imp",
+                              "body": {
+                                "right": {
+                                  "right": {
+                                    "right": "0",
+                                    "operator": "=",
+                                    "left": "r",
+                                    "latex": "r = 0",
+                                    "kind": "relation"
+                                  },
+                                  "left": {
+                                    "right": "\\frac{1}{4}",
+                                    "operator": "=",
+                                    "left": "\\href{#def-phi}{\\Phi(r)} - r",
+                                    "latex": "\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\frac{1}{4}",
+                                    "kind": "relation"
+                                  },
+                                  "latex": "\\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; r = 0\\right)",
+                                  "kind": "iff"
+                                },
+                                "left": {
+                                  "right": "\\frac{1}{4}",
+                                  "operator": "\\le",
+                                  "left": "\\href{#def-phi}{\\Phi(r)} - r",
+                                  "latex": "\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) \\le \\frac{1}{4}",
+                                  "kind": "relation"
+                                },
+                                "latex": "\\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; r = 0\\right)\\right)",
+                                "kind": "and"
+                              }
+                            },
+                            "binding": "r"
+                          },
+                          "claim": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 \\le r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) \\le \\frac{1}{4} \\;\\land\\; \\left(\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\frac{1}{4} \\;\\Longleftrightarrow\\; r = 0\\right)\\right)\\right)"
+                        },
+                        "kind": "have",
+                        "formula": {
+                          "right": {
+                            "latex": "\\href{#def-right-branch}{g_+}\\text{ is strictly decreasing on }[0,1]",
+                            "kind": "formula"
+                          },
+                          "left": {
+                            "latex": "\\href{#def-left-branch}{g_-}\\text{ is strictly increasing on }[-1,0]",
+                            "kind": "formula"
+                          },
+                          "latex": "\\left(\\href{#def-left-branch}{g_-}\\text{ is strictly increasing on }[-1,0] \\;\\land\\; \\href{#def-right-branch}{g_+}\\text{ is strictly decreasing on }[0,1]\\right)",
+                          "kind": "and"
+                        },
+                        "claim": "\\left(\\href{#def-left-branch}{g_-}\\text{ is strictly increasing on }[-1,0] \\;\\land\\; \\href{#def-right-branch}{g_+}\\text{ is strictly decreasing on }[0,1]\\right)"
+                      },
+                      "kind": "have",
+                      "formula": {
+                        "type": "\\mathbb{R}",
+                        "name": "r",
+                        "latex": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(0 < r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right) < 0\\right)",
+                        "kind": "forall",
+                        "body": {
+                          "premise": {
+                            "right": {
+                              "right": "1",
+                              "operator": "\\le",
+                              "left": "r",
+                              "latex": "r \\le 1",
+                              "kind": "relation"
+                            },
+                            "left": {
+                              "right": "r",
+                              "operator": "<",
+                              "left": "0",
+                              "latex": "0 < r",
+                              "kind": "relation"
+                            },
+                            "latex": "\\left(0 < r \\;\\land\\; r \\le 1\\right)",
+                            "kind": "and"
+                          },
+                          "latex": "\\left(\\left(0 < r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right) < 0\\right)",
+                          "kind": "imp",
+                          "body": {
+                            "right": "0",
+                            "operator": "<",
+                            "left": "\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1",
+                            "latex": "\\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right) < 0",
+                            "kind": "relation"
+                          }
+                        },
+                        "binding": "r"
+                      },
+                      "claim": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(0 < r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right) < 0\\right)"
+                    },
+                    "kind": "have",
+                    "formula": {
+                      "type": "\\mathbb{R}",
+                      "name": "r",
+                      "latex": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(0 < r \\;\\land\\; r < 1\\right) \\;\\Longrightarrow\\; \\href{#def-right-branch}{g_+}'(r)=\\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right)\\right)",
+                      "kind": "forall",
+                      "body": {
+                        "premise": {
+                          "right": {
+                            "right": "1",
+                            "operator": "<",
+                            "left": "r",
+                            "latex": "r < 1",
+                            "kind": "relation"
+                          },
+                          "left": {
+                            "right": "r",
+                            "operator": "<",
+                            "left": "0",
+                            "latex": "0 < r",
+                            "kind": "relation"
+                          },
+                          "latex": "\\left(0 < r \\;\\land\\; r < 1\\right)",
+                          "kind": "and"
+                        },
+                        "latex": "\\left(\\left(0 < r \\;\\land\\; r < 1\\right) \\;\\Longrightarrow\\; \\href{#def-right-branch}{g_+}'(r)=\\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right)\\right)",
+                        "kind": "imp",
+                        "body": {
+                          "latex": "\\href{#def-right-branch}{g_+}'(r)=\\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right)",
+                          "kind": "formula"
+                        }
+                      },
+                      "binding": "r"
+                    },
+                    "claim": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(0 < r \\;\\land\\; r < 1\\right) \\;\\Longrightarrow\\; \\href{#def-right-branch}{g_+}'(r)=\\left(\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{1}{3}}} - 1\\right)\\right)"
+                  },
+                  "kind": "have",
+                  "formula": {
+                    "type": "\\mathbb{R}",
+                    "name": "r",
+                    "latex": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 \\le r \\;\\land\\; r < 0\\right) \\;\\Longrightarrow\\; 0 < \\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)\\right)",
+                    "kind": "forall",
+                    "body": {
+                      "premise": {
+                        "right": {
+                          "right": "0",
+                          "operator": "<",
+                          "left": "r",
+                          "latex": "r < 0",
+                          "kind": "relation"
+                        },
+                        "left": {
+                          "right": "r",
+                          "operator": "\\le",
+                          "left": "0 - 1",
+                          "latex": "-1 \\le r",
+                          "kind": "relation"
+                        },
+                        "latex": "\\left(-1 \\le r \\;\\land\\; r < 0\\right)",
+                        "kind": "and"
+                      },
+                      "latex": "\\left(\\left(-1 \\le r \\;\\land\\; r < 0\\right) \\;\\Longrightarrow\\; 0 < \\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)\\right)",
+                      "kind": "imp",
+                      "body": {
+                        "right": "1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}",
+                        "operator": "<",
+                        "left": "0",
+                        "latex": "0 < \\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)",
+                        "kind": "relation"
+                      }
+                    },
+                    "binding": "r"
+                  },
+                  "claim": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 \\le r \\;\\land\\; r < 0\\right) \\;\\Longrightarrow\\; 0 < \\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)\\right)"
+                },
+                "kind": "have",
+                "formula": {
+                  "type": "\\mathbb{R}",
+                  "name": "r",
+                  "latex": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 < r \\;\\land\\; r < 0\\right) \\;\\Longrightarrow\\; \\href{#def-left-branch}{g_-}'(r)=\\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)\\right)",
+                  "kind": "forall",
+                  "body": {
+                    "premise": {
+                      "right": {
+                        "right": "0",
+                        "operator": "<",
+                        "left": "r",
+                        "latex": "r < 0",
+                        "kind": "relation"
+                      },
+                      "left": {
+                        "right": "r",
+                        "operator": "<",
+                        "left": "0 - 1",
+                        "latex": "-1 < r",
+                        "kind": "relation"
+                      },
+                      "latex": "\\left(-1 < r \\;\\land\\; r < 0\\right)",
+                      "kind": "and"
+                    },
+                    "latex": "\\left(\\left(-1 < r \\;\\land\\; r < 0\\right) \\;\\Longrightarrow\\; \\href{#def-left-branch}{g_-}'(r)=\\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)\\right)",
+                    "kind": "imp",
+                    "body": {
+                      "latex": "\\href{#def-left-branch}{g_-}'(r)=\\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)",
+                      "kind": "formula"
+                    }
+                  },
+                  "binding": "r"
+                },
+                "claim": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 < r \\;\\land\\; r < 0\\right) \\;\\Longrightarrow\\; \\href{#def-left-branch}{g_-}'(r)=\\left(1 - \\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{1}{3}}}\\right)\\right)"
+              },
+              "kind": "have",
+              "formula": {
+                "type": "\\mathbb{R}",
+                "name": "r",
+                "latex": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(0 \\le r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-right-branch}{g_+(r)}\\right)",
+                "kind": "forall",
+                "body": {
+                  "premise": {
+                    "right": {
+                      "right": "1",
+                      "operator": "\\le",
+                      "left": "r",
+                      "latex": "r \\le 1",
+                      "kind": "relation"
+                    },
+                    "left": {
+                      "right": "r",
+                      "operator": "\\le",
+                      "left": "0",
+                      "latex": "0 \\le r",
+                      "kind": "relation"
+                    },
+                    "latex": "\\left(0 \\le r \\;\\land\\; r \\le 1\\right)",
+                    "kind": "and"
+                  },
+                  "latex": "\\left(\\left(0 \\le r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-right-branch}{g_+(r)}\\right)",
+                  "kind": "imp",
+                  "body": {
+                    "right": "\\href{#def-right-branch}{g_+(r)}",
+                    "operator": "=",
+                    "left": "\\href{#def-phi}{\\Phi(r)} - r",
+                    "latex": "\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-right-branch}{g_+(r)}",
+                    "kind": "relation"
+                  }
+                },
+                "binding": "r"
+              },
+              "claim": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(0 \\le r \\;\\land\\; r \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-right-branch}{g_+(r)}\\right)"
+            },
+            "kind": "have",
+            "formula": {
+              "type": "\\mathbb{R}",
+              "name": "r",
+              "latex": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 \\le r \\;\\land\\; r \\le 0\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-left-branch}{g_-(r)}\\right)",
+              "kind": "forall",
+              "body": {
+                "premise": {
+                  "right": {
+                    "right": "0",
+                    "operator": "\\le",
+                    "left": "r",
+                    "latex": "r \\le 0",
+                    "kind": "relation"
+                  },
+                  "left": {
+                    "right": "r",
+                    "operator": "\\le",
+                    "left": "0 - 1",
+                    "latex": "-1 \\le r",
+                    "kind": "relation"
+                  },
+                  "latex": "\\left(-1 \\le r \\;\\land\\; r \\le 0\\right)",
+                  "kind": "and"
+                },
+                "latex": "\\left(\\left(-1 \\le r \\;\\land\\; r \\le 0\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-left-branch}{g_-(r)}\\right)",
+                "kind": "imp",
+                "body": {
+                  "right": "\\href{#def-left-branch}{g_-(r)}",
+                  "operator": "=",
+                  "left": "\\href{#def-phi}{\\Phi(r)} - r",
+                  "latex": "\\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-left-branch}{g_-(r)}",
+                  "kind": "relation"
+                }
+              },
+              "binding": "r"
+            },
+            "claim": "\\forall r\\in \\mathbb{R},\\quad \\left(\\left(-1 \\le r \\;\\land\\; r \\le 0\\right) \\;\\Longrightarrow\\; \\left(\\href{#def-phi}{\\Phi(r)} - r\\right) = \\href{#def-left-branch}{g_-(r)}\\right)"
+          }
+        },
+        "certificate": "Papers.Rockel2026ExactBlest.ArticleProof.corollary_valid"
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "title": "Probability conventions",
+      "latex": "Put $I=[0,1]$. We identify a copula with its probability law $\\mu_C$ on $I^2$. Write $\\lambda$ for Lebesgue probability measure on $I$, $\\pi_1(u,v)=u$ and $\\pi_2(u,v)=v$ for the coordinate projections, and $f_*\\mu(A)=\\mu(f^{-1}(A))$ for the pushforward of a measure. All displayed integrals use Lebesgue measure.",
+      "key": "probability",
+      "dependencies": [],
+      "bridge": "Foundation: probability measures, pushforwards, Lebesgue measure"
+    },
+    {
+      "title": "Bivariate copula",
+      "latex": "A probability law $\\mu_C$ on $I^2$ is a bivariate copula precisely when\n\\[\\left(\\href{#def-probability}{(\\pi_1)_*\\mu_{C}} = \\href{#def-probability}{\\lambda} \\;\\land\\; \\href{#def-probability}{(\\pi_2)_*\\mu_{C}} = \\href{#def-probability}{\\lambda}\\right).\\]",
+      "key": "copula",
+      "dependencies": [
+        "probability",
+        "probability",
+        "probability",
+        "probability"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.copula_definition_equiv"
+    },
+    {
+      "title": "Distribution function",
+      "latex": "For $u,v\\in I$, the distribution function associated with $\\mu_C$ is\n\\[C(u,v):=\\href{#def-probability}{\\mu_{C}([0,u]\\times[0,v])}.\\]",
+      "key": "cdf",
+      "dependencies": [
+        "probability"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.cdf_definition_eq"
+    },
+    {
+      "title": "Spearman's rho",
+      "latex": "\\[\\rho(C):=12\\,\\int_0^1 \\int_0^1 \\href{#def-cdf}{C\\left(u,v\\right)}\\,\\mathrm{d}u\\,\\mathrm{d}v - 3.\\]",
+      "key": "rho",
+      "dependencies": [
+        "cdf"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.rho_definition_eq"
+    },
+    {
+      "title": "Blest's coefficient",
+      "latex": "\\[\\nu(C):=24\\,\\int_0^1 \\int_0^1 \\left(1 - u\\right)\\,\\href{#def-cdf}{C\\left(u,v\\right)}\\,\\mathrm{d}u\\,\\mathrm{d}v - 2.\\]",
+      "key": "nu",
+      "dependencies": [
+        "cdf"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleBridge.nu_definition_eq"
+    },
+    {
+      "title": "Real powers and derivatives",
+      "latex": "Real powers have their usual nonnegative-base meaning in this proof. $f'(r)=d$ asserts that the derivative exists and equals $d$. Strict increase on $[a,b]$ means $f(x)<f(y)$ whenever $a\\le x<y\\le b$; strict decrease reverses that inequality.",
+      "key": "calculus",
+      "dependencies": [],
+      "bridge": "Foundation: Real.rpow, HasDerivAt, StrictMonoOn, StrictAntiOn, min"
+    },
+    {
+      "title": "The negative branch of the deviation",
+      "latex": "For $r\\in[-1,0]$,\\[g_-(r):=\\left(r + 1\\right) - \\frac{3}{4}\\,\\href{#def-calculus}{\\left(\\left(1 + r\\right)\\right)^{\\frac{4}{3}}}.\\]",
+      "key": "left-branch",
+      "dependencies": [
+        "calculus"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleProof.left_definition"
+    },
+    {
+      "title": "The positive branch of the deviation",
+      "latex": "For $r\\in[0,1]$,\\[g_+(r):=\\left(1 - r\\right) - \\frac{3}{4}\\,\\href{#def-calculus}{\\left(\\left(1 - r\\right)\\right)^{\\frac{4}{3}}}.\\]",
+      "key": "right-branch",
+      "dependencies": [
+        "calculus"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleProof.right_definition"
+    },
+    {
+      "title": "The upper boundary (equation 4)",
+      "latex": "For $r\\in[-1,1]$,\\[\\Phi(r)-r=\\begin{cases}g_-(r),&-1\\le r\\le0,\\\\g_+(r),&0\\le r\\le1.\\end{cases}\\] The two branches agree at zero. These are the two expressions used in the original proof.",
+      "key": "phi",
+      "dependencies": [
+        "left-branch",
+        "right-branch"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleProof.phi_definition"
+    },
+    {
+      "title": "The tent map",
+      "latex": "For $u\\in[0,1]$,\\[T(u):=\\href{#def-calculus}{\\min\\{2\\,u,\\left(2 - 2\\,u\\right)\\}}.\\]",
+      "key": "tent",
+      "dependencies": [
+        "calculus"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleProof.tent_definition"
+    },
+    {
+      "title": "The reflected tent map",
+      "latex": "For $u\\in[0,1]$,\\[V(u):=\\left|2\\,u - 1\\right|.\\]",
+      "key": "vee",
+      "dependencies": [],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleProof.vee_definition"
+    },
+    {
+      "title": "Supported on a graph",
+      "latex": "The statement that a copula is supported on the graph of $f$ means $v=f(u)$ for $\\mu_C$-almost every $(u,v)$, equivalently $\\mu_C(\\{(u,v):v=f(u)\\})=1$. Both maps here are continuous.",
+      "key": "graph",
+      "dependencies": [
+        "copula",
+        "probability"
+      ],
+      "bridge": "Foundation: ArticleProof.OnGraph, almost-everywhere equality"
+    },
+    {
+      "title": "The extremal copula",
+      "latex": "$D_{1/2}$ is the law of $(U,T(U))$ for $U$ uniform on $[0,1]$. The checked law identity identifies it with the paper's $D_c$ at $c=1/2$.",
+      "key": "extremizer",
+      "dependencies": [
+        "tent",
+        "copula"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleProof.extremizer_definition"
+    },
+    {
+      "title": "The survival copula (equation 8)",
+      "latex": "The survival copula of $C$ is the law of $(1-U,1-V)$ when $(U,V)$ has law $C$. Its distribution function is\\[\\widehat C(u,v)=\\left(\\left(u + v\\right) - 1\\right) + C(\\href{#def-probability}{(1-u)},\\href{#def-probability}{(1-v)}).\\]",
+      "key": "survival",
+      "dependencies": [
+        "copula",
+        "cdf",
+        "probability"
+      ],
+      "bridge": "Papers.Rockel2026ExactBlest.ArticleProof.survival_definition"
+    }
+  ],
+  "bridgeModule": "Papers.Rockel2026ExactBlest.ArticleBridge",
+  "allowedAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "original": {
+    "provenance": {
+      "author": "Marcus Rockel",
+      "title": "Rank weighting and asymmetry in Blest’s rank correlation: two exact regions",
+      "revision": "2609.27634v1",
+      "repository": "https://arxiv.org/abs/2609.27634v1",
+      "sourceUrl": "https://arxiv.org/src/2609.27634v1",
+      "file": "article.tex",
+      "originalFilename": "exact-blest-regions.tex",
+      "sourceSha256": "5004f7d396f865b09b1c6a06c7207ecdb0da00d5fdcd201168200c951247ac03",
+      "license": "Original article copyright retained by the author; included at the author’s request.",
+      "licenseUrl": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "passages": [
+        {
+          "id": "corollary-3-2",
+          "file": "source/corollary-3-2.tex",
+          "startLine": 447,
+          "endLine": 461,
+          "sha256": "484471a9c10907d47d217119f35e13fe0e719a0206df0d970f49e4b05f823594"
+        }
+      ],
+      "references": {
+        "eq:Phi-def": "4",
+        "lem:rho-nu-values": "3.1",
+        "thm:rho-nu": "1.1",
+        "eq:Zc-def": "12",
+        "eq:survival-transform": "8"
+      },
+      "changes": [
+        "The whole statement and proof of Corollary 3.2 are retained in the comparison column, from the published version of 23 September 2026.",
+        "The two scalar branch expressions are named g₋ and g₊. Derivative existence, strict monotonicity, and every equality case are explicit.",
+        "Attainment and uniqueness are expressed as equivalences; the extremizers’ coefficient values and support graphs are included.",
+        "Copulas are identified with their probability laws. Supported on a graph is interpreted as probability one on that graph; the graphs here are closed.",
+        "Theorem 1.1, Lemma 3.1 and the survival identities remain compiled dependencies, as they are cited dependencies in the printed proof."
+      ]
+    },
+    "latex": "\\begin{corollary}[Sharp deviation between $\\nu$ and $\\rho$]\n\\label{cor:nu-rho}\nEvery $C\\in\\CC$ satisfies $|\\nu(C)-\\rho(C)|\\le\\frac14$.\nThe maximum $\\nu-\\rho=\\frac14$ is attained only by $D_{1/2}$, which has $\\rho=0$ and is supported on the graph of the tent map $u\\mapsto\\min\\{2u,2-2u\\}$.\nThe minimum $\\nu-\\rho=-\\frac14$ is attained only by its survival copula, which is supported on the graph of $u\\mapsto|2u-1|$.\n\\end{corollary}\n\n\\begin{proof}\nOn $[-1,0]$, \\eqref{eq:Phi-def} gives $\\Phi(r)-r=r+1-\\frac34(1+r)^{4/3}$, and its derivative $1-(1+r)^{1/3}$ is positive for $r<0$.\nOn $[0,1]$, $\\Phi(r)-r=1-r-\\frac34(1-r)^{4/3}$, and its derivative $(1-r)^{1/3}-1$ is negative for $r>0$.\nConsequently $\\Phi(r)-r\\le\\Phi(0)=\\frac14$, with equality only at $r=0$.\nLemma~\\ref{lem:rho-nu-values} matches $r=0$ with $c=\\frac12$, so by Theorem~\\ref{thm:rho-nu}, no copula other than $D_{1/2}$ attains the maximum.\nIts coupling $\\gamma_{\\zeta_{1/2}}$ sits on the graph of $\\zeta_{1/2}(x)=|2x-1|$ from \\eqref{eq:Zc-def}, which becomes the graph of the tent map in the coordinates $(u,v)=(1-x,1-z)$.\nFor the minimum, \\eqref{eq:survival-transform} sends $\\nu-\\rho$ to $\\rho-\\nu$, so only $\\widehat{D_{1/2}}$ attains it: this is the copula of $(X,\\zeta_{1/2}(X))$, supported on the graph of $u\\mapsto|2u-1|$.\n\\end{proof}\n"
+  }
+}

@@ -1,0 +1,11 @@
+Original article: Marcus Rockel, Rank weighting and asymmetry in Blest's rank
+correlation: two exact regions, arXiv:2609.27634v1, 23 September 2026.
+
+article.tex is the unchanged exact-blest-regions.tex from the arXiv source
+archive at https://arxiv.org/src/2609.27634v1. corollary-3-2.tex is the exact
+line-selected excerpt documented in ../source.json. Both are included at the
+author's request. Original article copyright and licensing remain unchanged;
+the repository's software license does not relicense the manuscript.
+
+The generated companion identifies every editorial precision change and
+preserves the source statement and proof in a separate comparison column.

@@ -37,7 +37,10 @@ for (const companion of metadata.companions) {
   for (const [, fragment] of html.matchAll(/href="#([^"]+)"/g)) assert(ids.has(fragment), `Broken companion definition link: ${fragment}`);
   for (const definition of data.definitions) assert(ids.has(`def-${definition.key}`), `Missing definition: ${definition.key}`);
   for (const key of ['copula', 'nu', 'rho']) assert(html.includes(`href="#def-${key}"`), `Statement term is not linked: ${key}`);
-  assert(html.includes('Sharpness and equality cases are outside this certificate.'), 'Companion scope is missing');
+  assert(html.includes('Corollary 3.2 in full'), 'Companion scope is missing');
+  assert(html.includes('Precise companion · Lean checked') && html.includes('Original · Corollary 3.2'), 'Proof comparison is missing');
+  assert(fs.existsSync(path.join(directory, 'executable.zip')), 'Executable bundle missing');
+  assert(fs.existsSync(path.join(directory, 'original.tex')), 'Original source missing');
   assert(fs.existsSync(path.join(directory, 'companion.tex')), 'Companion LaTeX download missing');
 }
 for (const article of metadata.articles) {

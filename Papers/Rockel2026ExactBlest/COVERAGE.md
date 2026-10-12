@@ -226,6 +226,18 @@ listed above are proved. The four modules added in the revision are:
   manuscript's parametrization, with every family-dependent statement and all
   figure values restated in that notation.
 
+## Executable companion
+
+Corollary 3.2 now also has a LeanMirror proof document. `ArticleCalculus.lean`
+follows the printed derivative argument, including strict signs and the unique
+scalar maximum. `ArticleProof.lean` checks every displayed intermediate claim,
+both equality cases, the extremizers' values and their support graphs.
+`ArticleDocument.lean` exports the audited tree and the definitions used by it.
+The online companion compares this with the complete original corollary and
+proof, taken verbatim from the pinned arXiv source. This companion does not yet
+reproduce the rest of the article as a proof document; its cited earlier results
+remain compiled dependencies. See the repository's LeanMirror guide.
+
 Historical motivation, references, and literal proof prose are not Lean
 statements. Some printed intermediate steps are replaced by the alternative
 proof routes documented above. There are no proof placeholders, custom
