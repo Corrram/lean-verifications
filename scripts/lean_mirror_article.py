@@ -18,6 +18,28 @@ BASE_DIRECTORY = ROOT/'examples/paper-bridge'
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def figure_rendering_assets(directory, mapping):
+    """Keep original PDFs and explicitly pinned browser renderings together."""
+    directory=directory.resolve()
+    rendered=[]
+    for raw,entry in mapping.get('figureAssets',{}).items():
+        paths={}
+        for field in ('source','rendered'):
+            name=entry[field]
+            if not isinstance(name,str) or '\\' in name or ':' in name:
+                raise ValueError('Unsafe figure rendering path: '+raw)
+            path=(directory/name).resolve()
+            if not path.is_relative_to(directory) or not path.is_file():
+                raise ValueError('Unsafe or missing figure rendering: '+raw)
+            paths[field]=path
+        if not paths['source'].is_relative_to(directory/'source'):
+            raise ValueError('Figure original must be in the pinned source: '+raw)
+        for field in ('source','rendered'):
+            if digest(paths[field])!=entry[field+'Sha256']:
+                raise ValueError('Figure rendering changed: '+raw+' '+field)
+        rendered.append(paths['rendered'])
+    return sorted(set(rendered))
+
 def canonical_evidence(records):
     """Axiom and dependency collections are sets, not ordered proof steps."""
     for record in records.values():
@@ -88,7 +110,8 @@ def export_article(directory,check):
     else:
         if source_hash!=provenance['sourceSha256']:raise ValueError('The pinned original article changed')
         assets=[DIRECTORY/mapping['bibliography'], *sorted((DIRECTORY/'source/images').glob('*'))]
-    pinned={str(p.relative_to(DIRECTORY)).replace('\\','/'):digest(p) for p in assets}
+    assets += figure_rendering_assets(DIRECTORY,mapping)
+    pinned={str(p.resolve().relative_to(DIRECTORY.resolve())).replace('\\','/'):digest(p) for p in assets}
     with tempfile.TemporaryDirectory(dir=ROOT/'.lake') as temp:
         fresh=Path(temp)/'article.json'
         if mapping['paperId']=='Rockel2026ExactBlest':exporter=ROOT/'scripts/ExportLeanMirrorArticle.lean'

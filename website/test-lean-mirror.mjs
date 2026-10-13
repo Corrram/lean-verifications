@@ -18,6 +18,10 @@ test('the full original article retains all results, proof environments, figures
   assert.equal(data.stats.statements,14);
   assert.equal(data.stats.linkedStatements,14);
   assert.equal(data.stats.figures,4);
+  for(const figure of Object.values(data.figureAssets)) {
+    assert.match(figure.source,/\.pdf$/);
+    assert.match(figure.rendered,/^rendered-figures\/.*\.png$/);
+  }
   assert.equal((html.match(/class="article-proof"/g)||[]).length,(articleInputs.source.match(/\\begin\{proof\}/g)||[]).length);
   assert.equal(data.article.bibliography.length,19);
   assert.match(html,/Exchanging the roles of the coordinates handles the fourth rectangle/);
@@ -66,6 +70,49 @@ test('the full original article retains all results, proof environments, figures
       ? data.evidence[ns+'scoped_dualA'].type : document.correspondence===ns+'contact_set_correspondence'
       ? data.evidence['Papers.Rockel2026ExactBlest.paper_contactA'].type : data.evidence[document.correspondence].type;
     assert.match(scopedType,/w < 1/);
+  }
+});
+
+test('the rho-gamma reader preserves PDF figures and checks the printed optimizer mixture argument',()=>{
+  const directory=new URL('../examples/articles/AnsariRockelSteinmassl2026RhoGamma/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/rho-gamma.tex'),bibliography:read('source/rho-gamma.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,17);assert.equal(data.stats.linkedStatements,17);
+  assert.equal(data.stats.figures,2);assert.equal(data.article.bibliography.length,14);
+  assert.equal((html.match(/<img /g)||[]).length,2);
+  assert.equal((html.match(/class="article-proof"/g)||[]).length,13);
+  assert.equal(data.stats.linkedProofPassages,1);
+  assert.match(html,/17 September 2026/);assert.match(html,/Steinmaßl/);
+  assert.match(html,/href="#article-eq-defs"/);assert.match(html,/href="#article-def-optim-problem"/);
+  assert.equal(Object.keys(data.documents).length,2);
+  const ns='Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.';
+  assert.equal(data.documents[ns+'region_statement_valid'].presentation,'statement');
+  const nodes=[];
+  for(let node=data.documents[ns+'strict_valid'].checked.proof;node;node=node.next)nodes.push(node);
+  assert.deepEqual(nodes.map(n=>n.kind),['fix','fix','assume','choose','have','choose','have','have','have','finish']);
+  assert.equal(nodes[3].formula.kind,'and');assert.equal(nodes[5].formula.kind,'and');
+  assert.match(html,/Theorem 1.1: the printed strict-monotonicity argument/);
+  assert.match(html,/The other main-proof paragraphs are not certified/);
+  assert.match(html,/introductory endpoint convention/);
+  assert.match(html,/intro_zero_endpoint_incompatible/);
+  assert.match(inputs.source,/with \$C_0=M\$ and \$C_\\infty=W\$/);
+  assert.match(inputs.source,/setting \$C_0=W\$ and \$C_\\infty=M\$/);
+  assert(!data.evidence[ns+'strict_valid'].dependencies.some(n=>n.endsWith('.upperRho_strictMono')));
+  assert(!data.evidence[ns+'region_correspondence'].dependencies.some(n=>n.endsWith('.exact_region')));
+  for(const figure of Object.values(data.figureAssets)) {
+    assert.match(figure.source,/^source\/figures\/.*\.pdf$/);
+    assert.match(figure.rendered,/^rendered-figures\/.*\.png$/);
+    assert(html.includes('/lean-mirror/rho-gamma/images/'+figure.filename));
+  }
+  const changedRendering={...inputs.assetBytes};
+  changedRendering['rendered-figures/rho_gamma_region.png']=Buffer.from('changed');
+  assert.throws(()=>fullArticle({...inputs,assetBytes:changedRendering}),/Article asset changed/);
+  for(const certificate of ['gamma_definition','rho_definition','region_correspondence','strict_valid','mixture_definition']){
+    const missing=structuredClone(evidence);delete missing.evidence[ns+certificate];
+    assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
   }
 });
 

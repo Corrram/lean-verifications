@@ -271,3 +271,33 @@ theorem. This does not certify the preceding endpoint construction, the
 later `x=1` paragraph, the abstract pair-measure and Kantorovich duality
 arguments, or every other printed proof step. Random-variable statements
 with only copula-law counterparts carry that limitation explicitly.
+
+The rho–Gini gamma reader at `/lean-mirror/rho-gamma/` preserves
+arXiv:2609.19890v1, including all seventeen result blocks, fourteen references,
+the three authors and their shared affiliation, and the two original PDF
+figures (seven panels). All seventeen result blocks have compiled counterparts.
+
+The coefficient integrals, splitting parameters and composite boundary
+coordinates have independent typed encodings. The gamma bridge justifies
+splitting the printed integral of a sum into the two native integrals. The
+upper boundary is characterized as an attained maximum. The exact-region
+clause has a typed statement and an interpretation bridge that does not invoke
+the native region theorem. Other clauses retain explicitly scoped counterparts.
+
+A ten-node proof document checks the printed strict-monotonicity paragraph:
+choose an optimizer at `g1`, show its rho is below one, choose
+`eta=(g2-g1)/(1-g1)`, and mix it with `M`. The prescribed gamma, affine rho,
+strict increase and comparison with the upper boundary are checked separately.
+The validity proof does not invoke the existing strict-monotonicity theorem.
+It does reuse the preceding boundary attainment and global bound. This does
+not certify every earlier proof paragraph or the auxiliary piecewise formulas.
+
+The introduction reverses the endpoint convention relative to Definition 3.8
+and the later formulas. The reader preserves the text and flags the conflict.
+Lean proves `G(0)=-1` and `G(0) != gamma(M)`, whereas `gamma(M)=1`.
+
+PDF figures remain unchanged in the executable bundle. An explicit figure map
+records the source PDF, inspected browser rendering, both SHA-256 hashes,
+renderer version, page and resolution. Publication checks both files against
+the compiled asset manifest. These provenance checks detect changed assets;
+they do not certify numerical plots or the rendering software itself.

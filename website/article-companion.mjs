@@ -1,5 +1,6 @@
 import {createHash} from 'node:crypto';
 import {articleBlocks,parseArticle,renderArticle,resolveBindings} from '../.lake/packages/lean-mirror/reader/article.mjs';
+import {resolveFigureAssets} from '../.lake/packages/lean-mirror/reader/figures.mjs';
 import {escape,proofHTML,formulaProse,validateDocument} from '../.lake/packages/lean-mirror/reader/render.mjs';
 
 const hash=text=>createHash('sha256').update(text).digest('hex');
@@ -10,6 +11,7 @@ export function fullArticle({source,bibliography,mapping,evidence,assetBytes}) {
     if(!assetBytes[name]||hash(assetBytes[name])!==checksum)throw new Error(`Article asset changed: ${name}`);
   }
   const article=parseArticle(source,bibliography,{referenceChoices:config.referenceChoices});
+  const figureAssets=resolveFigureAssets(article,config.figureAssets,evidence.assets);
   const annotations=resolveBindings(article,config.bindings);
   for(const items of Object.values(annotations))for(const item of items) {
     const record=evidence.evidence[item.declaration];
@@ -24,7 +26,7 @@ export function fullArticle({source,bibliography,mapping,evidence,assetBytes}) {
   }
   const statements=blocks.filter(b=>b.isResult);
   const proofPassages=blocks.filter(b=>['paragraph','math'].includes(b.kind)&&blocks.some(parent=>parent.kind==='proof'&&parent.start<=b.start&&parent.end>=b.end));
-  return {article,config,annotations,evidence:evidence.evidence,documents:evidence.documents??{},stats:{
+  return {article,config,annotations,figureAssets,evidence:evidence.evidence,documents:evidence.documents??{},stats:{
     statements:statements.length,linkedStatements:statements.filter(b=>annotations[b.id]?.length).length,
     proofPassages:proofPassages.length,linkedProofPassages:proofPassages.filter(b=>annotations[b.id]?.length).length,
     figures:blocks.filter(b=>b.kind==='figure').length,
@@ -38,7 +40,7 @@ export function renderFullArticle(data,{url,api,source,paperUrl}) {
     annotations:data.annotations,evidence:data.evidence,definitions:data.config.definitions,
     sourceURL:data.config.sourceURL??'https://arxiv.org/abs/2609.27634v1',
     sourceDate:data.config.sourceDate??'',
-    figureURL:image=>url(route+'images/'+image.split('/').at(-1).replace(/\.pdf$/,'.png')),
+    figureURL:image=>url(route+'images/'+data.figureAssets[image].filename),
     certificateURL:record=>api(record.module)+'#'+record.declaration,
     proofDetails:(b,items,m)=>items.filter(item=>data.documents[item.declaration]).map(item=>{
       const document=data.documents[item.declaration],statementOnly=document.presentation==='statement';

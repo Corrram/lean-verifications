@@ -1,0 +1,444 @@
+{
+  "schemaVersion": 1,
+  "id": "rho-gamma",
+  "paperId": "AnsariRockelSteinmassl2026RhoGamma",
+  "title": "The exact region determined by Spearman’s rho and Gini’s gamma",
+  "source": "source/rho-gamma.tex",
+  "bibliography": "source/rho-gamma.bbl",
+  "sourceURL": "https://arxiv.org/abs/2609.19890v1",
+  "sourceDate": "2026-09-17",
+  "evidenceModule": "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions",
+  "proofDocumentNamespace": "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions",
+  "bindings": [
+    {
+      "label": "eq:defs",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.rho_definition",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.gamma_definition"
+      ],
+      "note": "The typed gamma definition keeps the integral of the printed sum; its bridge justifies splitting it into the two native integrals."
+    },
+    {
+      "label": "def_optim_problem",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.upper_definition",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sharp_upper_bound",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upper_boundary_attained"
+      ],
+      "note": "The typed characterization states that the maximum is attained and bounds every copula with the prescribed gamma. The native scalar function is defined through explicit boundary parameters."
+    },
+    {
+      "label": "eq:region-def",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.region_correspondence"
+      ]
+    },
+    {
+      "label": "thm:main",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.exact_region",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sharp_upper_bound",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sharp_lower_bound",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upper_boundary_attained",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.lower_boundary_attained",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.region_compact",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.region_convex",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.region_centrally_symmetric",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upperRho_concave",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upperRho_strictMono",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upperRho_continuous",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upperRho_endpoints",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_value",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_maximizes",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_gamma_full_range",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.continuous_theta_coordinates_nonnegative",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_tendsto_atTop",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_tendsto_zero",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.region_correspondence",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.region_verified",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.region_statement_valid"
+      ],
+      "note": "Only the exact-region clause, equation (6), has an independent typed statement certificate here. The other clauses expose compiled counterparts, including finite-theta continuity, endpoint limits and full parameter coverage. A compiled counterpart does not certify every printed proof step."
+    },
+    {
+      "label": "eq:maximum",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_value",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_maximizes",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_coefficients",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upper_boundary_attained"
+      ]
+    },
+    {
+      "label": "eq:exact-region",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.exact_region",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.region_correspondence",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.region_verified",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.region_statement_valid"
+      ]
+    },
+    {
+      "label": "eq:split",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.splitting_definitions",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_splitting"
+      ],
+      "note": "The four composite formulas have independent typed encodings. The auxiliary offset is the native source-normalized c_theta, linked separately to its branch formulas."
+    },
+    {
+      "label": "eq:param-boundary",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.coordinate_definitions",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_coefficients",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_zero",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_tendsto_atTop"
+      ],
+      "note": "The finite-real formulas G and P have independent typed encodings. The limit at infinity is a separate theorem, not evaluation of a real variable at infinity."
+    },
+    {
+      "label": "eq:large-parameters",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaCertificate_data",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaCertificate_s",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_auxiliary_potential",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_cost",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_optimal"
+      ]
+    },
+    {
+      "label": "eq:small-parameters",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.right_source_data",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.left_source_data",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaCertificate_data"
+      ]
+    },
+    {
+      "label": "eq:moments",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.right_source_data",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.left_source_data",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaCertificate_data",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_distance_distribution",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_atom_mass_bounds",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_delta_bound",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_midpoint_atom_zero"
+      ]
+    },
+    {
+      "label": "cor:elementary",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_upper_boundary",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_arc_coverage",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_endpoint_constants",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_d_coverage",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.five_piece_shuffle_realizes_boundary",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_arc_closed"
+      ]
+    },
+    {
+      "label": "eq:elementary",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_upper_boundary",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_arc_closed"
+      ]
+    },
+    {
+      "label": "eq:d-arc",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.five_piece_shuffle_realizes_boundary",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_arc_coefficients"
+      ]
+    },
+    {
+      "label": "rem:anchors",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaAlpha_integer",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_integer_coordinates",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upper_boundary_cubic_remainder",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upper_boundary_asymptotic",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.continuous_thetaInput",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.continuous_theta_coordinates_nonnegative",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_tendsto_atTop"
+      ],
+      "note": "The junction, limit and asymptotic claims have counterparts; this link does not certify each descriptive sentence or numerical approximation."
+    },
+    {
+      "label": "eq:asymptotic",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upper_boundary_cubic_remainder",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upper_boundary_asymptotic"
+      ]
+    },
+    {
+      "label": "prop:discrepancy",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.discrepancy_coefficients",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.discrepancy_support_slope",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.discrepancy_value",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.rho_sub_gamma_le",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.abs_rho_sub_gamma_le",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.maximal_discrepancy_attained"
+      ],
+      "note": "The radical constant, exact maximizing point, universal bound and attainment are proved. Decimal approximations are retained as source text, outside the certificate."
+    },
+    {
+      "label": "eq:discrepancy",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.abs_rho_sub_gamma_le",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.maximal_discrepancy_attained"
+      ]
+    },
+    {
+      "label": "cor:signs",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upperRho_zero",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.upperRho_neg_gammaThreshold",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.zero_gamma_slice",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.zero_rho_slice",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.same_sign_of_abs_rho_gt",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.same_sign_of_abs_gamma_gt"
+      ]
+    },
+    {
+      "label": "eq:zero-sections",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.zero_gamma_slice",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.zero_rho_slice"
+      ]
+    },
+    {
+      "label": "lem:representations",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.moment_representation",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.rankMagnitude_uniform",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.magnitude_marginal",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sign_product_identity",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sign_min_magnitude_identity",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sign_magnitude_rho",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sign_magnitude_gamma",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.signCopula_joint_law",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.signCopula_magnitude_law",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.signCopula_rho",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.signCopula_gamma"
+      ],
+      "note": "The converse constructs the full joint law on an arbitrary probability space. Boolean signs encode +/-1; zero-magnitude events are proved null."
+    },
+    {
+      "label": "eq:rank-moments",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.moment_representation"
+      ]
+    },
+    {
+      "label": "eq:signed-moments",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sign_magnitude_rho",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sign_magnitude_gamma"
+      ]
+    },
+    {
+      "label": "eq:signed-objective",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.supporting_functional",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.supporting_functional_le"
+      ]
+    },
+    {
+      "label": "lem:sign-attainment",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.signOptimizer_magnitude",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.signOptimizer_value",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sign_bound_attained",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.supporting_bound_iff_transport_bound",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_optimizer_lifts"
+      ]
+    },
+    {
+      "label": "lem:duality",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_weak_duality",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_contact_value",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_contact_optimal",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_contact_support"
+      ],
+      "note": "Native feasible potentials are continuous on the unit interval, with contact almost everywhere under the supplied copula law. The source definition of feasibility uses C(I), and support is interpreted as full measure on its closed contact set."
+    },
+    {
+      "label": "rem:strong-duality",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.supporting_slope_covered",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_primal_dual_attained",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_strong_duality",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transportValue_eq_dual_infimum",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transportValue_attained",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.supporting_maximum"
+      ]
+    },
+    {
+      "label": "lem:input",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaCertificate_s",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaCertificate_data",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.thetaCertificate_width",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_auxiliary_potential",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_potential_derivative",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShiftPotential_lipschitz",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShiftPotential_deriv_bound"
+      ],
+      "note": "The original theta-indexed potential has the printed endpoint value, global inequality, almost-sure contact and almost-everywhere derivative bound. Its source normalization is explicit."
+    },
+    {
+      "label": "lem:halfshift-range",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_optimal",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_not_optimal",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.halfShift_optimal_iff"
+      ],
+      "note": "The native multiplier is s=1/theta, so the positive-theta regime theta<=1 is the same as s>=1."
+    },
+    {
+      "label": "lem:parameter-checks",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.source_parameter_inequalities",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_parameter_inequalities",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_discriminant_inequalities"
+      ]
+    },
+    {
+      "label": "def:extremizers",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.glued_copula_probability_law",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_splitting",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_coefficients",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_zero",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_tendsto_atTop"
+      ],
+      "note": "The actual probability measure is identified with the printed two-block mixture and fair-sign construction; the source splitting parameters are identified separately. The infinity endpoint is handled by its limit and the native comonotonic endpoint."
+    },
+    {
+      "label": "prop:moments",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_boundary_coefficients",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_zero",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_tendsto_atTop",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.boundary_coefficients"
+      ]
+    },
+    {
+      "label": "ex:map",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_shuffle_support",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_shuffle_graph",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_shuffle_law",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_shuffle_measurePreserving",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.five_piece_shuffle_realizes_boundary",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.elementary_d_coverage"
+      ],
+      "note": "The native copula measure equals the law of the displayed five-piece graph map, including the endpoint convention."
+    },
+    {
+      "label": "lem:extension",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.glued_dual_feasible"
+      ],
+      "note": "The compiled certificate covers the whole square for each constructed auxiliary branch. It does not turn every printed local estimate into a checked proof document."
+    },
+    {
+      "label": "thm:support",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_transport_value",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_supporting_inequality",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.sharp_supporting_bound",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_contact_value",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.transport_contact_optimal"
+      ]
+    },
+    {
+      "label": "eq:value",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_transport_value"
+      ]
+    },
+    {
+      "label": "eq:sharp-support",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_supporting_inequality"
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "quote": "Choose $-1\\le g_1<g_2\\le1$",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.strict_valid",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.strict_correspondence",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.strict_verified",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.mixture_definition"
+      ],
+      "note": "The proof document follows the final strict-monotonicity argument with optimizer attainment and the global upper bound as compiled dependencies. It does not certify the earlier main-proof paragraphs."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "with $C_0=M$ and $C_\\infty=W$",
+      "role": "refutation",
+      "declarations": [
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions.intro_zero_endpoint_incompatible",
+        "Papers.AnsariRockelSteinmassl2026RhoGamma.theta_coordinates_zero"
+      ],
+      "note": "The introductory endpoint convention conflicts with the later Definition 3.8 and endpoint formulas. Lean proves G(0) is not gamma(M). The original text is preserved."
+    }
+  ],
+  "figureAssets": {
+    "\\rhogammaroot figures/rho_gamma_region.pdf": {
+      "source": "source/figures/rho_gamma_region.pdf",
+      "rendered": "rendered-figures/rho_gamma_region.png",
+      "sourceSha256": "26b33accb51fc619da5c28b80c2637770f079670a8eaed2ed45dd938f9049f56",
+      "renderedSha256": "81e30670658110a9b4755c5c93cbf4c6d0e1edee6c4ba598bfb1e5b51899a50f",
+      "renderer": "pdftoppm 26.07.0",
+      "page": 1,
+      "dpi": 144
+    },
+    "\\rhogammaroot figures/rho_gamma_extremizers.pdf": {
+      "source": "source/figures/rho_gamma_extremizers.pdf",
+      "rendered": "rendered-figures/rho_gamma_extremizers.png",
+      "sourceSha256": "2e92c05cee6ff784fdea03cf8bce5d607502af18988f95af36c3f0c070bac9e9",
+      "renderedSha256": "9a7ee9d985b58e8b1b5709e0679d19ddb27271fd2c50c0c7e26f35e5f893bf51",
+      "renderer": "pdftoppm 26.07.0",
+      "page": 1,
+      "dpi": 144
+    }
+  },
+  "definitions": {
+    "\\rho": {
+      "label": "eq:defs"
+    },
+    "\\gamma": {
+      "label": "eq:defs"
+    },
+    "\\rhoup": {
+      "label": "def_optim_problem"
+    },
+    "\\overline{\\rho}": {
+      "label": "def_optim_problem"
+    },
+    "G": {
+      "label": "eq:param-boundary"
+    },
+    "P": {
+      "label": "eq:param-boundary"
+    },
+    "\\alpha": {
+      "label": "eq:split"
+    }
+  },
+  "verificationScope": "The full original arXiv v1 article is retained, including all 17 numbered results, original proof text, literature table, shared author affiliation notes and bibliography. Both original PDF figures remain in the executable bundle; browser renderings are explicitly pinned to their source PDF and rendering hashes, page, DPI and renderer version. Rho and gamma integral definitions, the four splitting formulas and the finite-real G/P coordinate formulas have independent typed encodings and checked bridges. The exact-region clause of Theorem 1.1 has a typed statement certificate; other clauses have compiled native counterparts. The final strict-monotonicity argument is a checked proof document following the source optimizer-and-mixture construction, using previously established boundary attainment and the global upper bound. This does not yet certify every preceding printed proof step, all auxiliary piecewise formulas as independent typed definitions, historical literature claims, decimal approximations or plotted numerical data. A native theorem counterpart is distinct from certification of its full printed proof.",
+  "sourceDiscrepancies": [
+    {
+      "version": "arXiv v1, introductory endpoint convention",
+      "unverified_claim": "The introduction states C_0=M and C_infinity=W. Definition 3.8 and the later endpoint formulas use the opposite convention.",
+      "evidence": "Lean proves G(0)=-1 and G(0) is not gamma(M), since gamma(M)=1. Thus the introductory C_0=M convention cannot satisfy the stated identity G(theta)=gamma(C_theta).",
+      "verified_instead": "The checked parametrization has (G(0),P(0))=(-1,-1) and limit (1,1) at infinity, agreeing with the later C_0=W, C_infinity=M convention."
+    }
+  ]
+}

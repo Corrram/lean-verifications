@@ -727,5 +727,43 @@
     }
   },
   "verificationScope": "All original article content is reproduced. Compiled counterparts are attached to every labeled result. Corollary 3.2 has a fully checked proof document. The four rectangle calculations, their composition, and the equality-set argument check both conclusions of Proposition 4.3 on the article range 1/2≤w<1. The equality argument uses strict derivative comparisons and edge factorizations; it does not certify every printed calculation word for word. Exhaustive verification of the remaining literal proof steps is still in progress.",
-  "sourceDate": "2026-09-23"
+  "sourceDate": "2026-09-23",
+  "figureAssets": {
+    "images/blest_regions.pdf": {
+      "source": "source/images/blest_regions.pdf",
+      "rendered": "rendered-figures/blest_regions.png",
+      "sourceSha256": "d6437e1b7fb11fd59f025d7beaca93611d9660043e8a663bedf74b92a9880194",
+      "renderedSha256": "b421398f897fd024d4423e65ce555eabd5779ac5383c35064b5c43e7753bd0f0",
+      "renderer": "pdftoppm 26.07.0",
+      "page": 1,
+      "dpi": 144
+    },
+    "images/eta_nu_extremizers.pdf": {
+      "source": "source/images/eta_nu_extremizers.pdf",
+      "rendered": "rendered-figures/eta_nu_extremizers.png",
+      "sourceSha256": "51dccb0d6b847e1aa96a8abb9aa9d1a11751d07edcc8cf39118ae26ce0925cfa",
+      "renderedSha256": "af885d5f8d2c4db71d010655839357157f1704b27999341d86d794002356d6de",
+      "renderer": "pdftoppm 26.07.0",
+      "page": 1,
+      "dpi": 144
+    },
+    "images/nu_transpose_region.pdf": {
+      "source": "source/images/nu_transpose_region.pdf",
+      "rendered": "rendered-figures/nu_transpose_region.png",
+      "sourceSha256": "f8478b56ad6ef28cfc7d7281fe58c80b2dee46c9bc685ad1e9d8293667881081",
+      "renderedSha256": "5be34c0625cd95efa74749a32ebc83f5fe4ea8b438a0e31b66dd1174f4953739",
+      "renderer": "pdftoppm 26.07.0",
+      "page": 1,
+      "dpi": 144
+    },
+    "images/rho_nu_extremizers.pdf": {
+      "source": "source/images/rho_nu_extremizers.pdf",
+      "rendered": "rendered-figures/rho_nu_extremizers.png",
+      "sourceSha256": "292330349605e11534c261361f7f579fa6dba5613888279579fd6e8bdba6d472",
+      "renderedSha256": "bc3d2be5914f28b0c305a14083daad852abf6a502ada2a33e0aff33d1f68610b",
+      "renderer": "pdftoppm 26.07.0",
+      "page": 1,
+      "dpi": 144
+    }
+  }
 }

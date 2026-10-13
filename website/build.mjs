@@ -24,6 +24,14 @@ const url = (p = '') => base + p;
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const write = (p, text) => { const dest = path.join(out, p); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, text); };
+const copyArticleFigures=(data,directory,route)=>{
+  for(const figure of Object.values(data.figureAssets)){
+    const file=path.resolve(root,directory,figure.rendered);
+    if(!file.startsWith(path.resolve(root,directory)+path.sep)||!fs.existsSync(file))throw new Error('Missing pinned figure rendering: '+figure.rendered);
+    const target=path.join(out,route,'images',figure.filename);
+    fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);
+  }
+};
 const md = new MarkdownIt({ html: false, linkify: true }).use(texmath, { engine: katex, delimiters: 'dollars', katexOptions: { throwOnError: true, strict: 'error', trust: false } });
 const companion = validateCompanion(JSON.parse(read('examples/paper-bridge/blest-bound.json')));
 const fullArticleEvidence = JSON.parse(read('examples/paper-bridge/article-evidence.json'));
@@ -203,6 +211,7 @@ write(`lean-mirror/${companion.id}/article.leanmirror.json`, JSON.stringify({
   mapping: JSON.parse(read('examples/paper-bridge/article-map.json')),
 }, null, 2));
 fs.cpSync(path.join(root, 'examples/paper-bridge/source/images'), path.join(out, `lean-mirror/${companion.id}/images`), { recursive: true });
+copyArticleFigures(fullArticleData,'examples/paper-bridge',`lean-mirror/${companion.id}/`);
 execFileSync(process.env.PYTHON || 'python', ['scripts/bundle_lean_mirror.py', path.join(out, `lean-mirror/${companion.id}/executable.zip`)], {cwd: root, stdio: 'inherit'});
 searchIndex.push({ title: `LeanMirror: ${fullArticleData.article.title}`, kind: 'Mathematical companion', url: url(`lean-mirror/${companion.id}/`), text: `${fullArticleData.article.title} nu rho eta Blest Spearman transpose rank weighting asymmetry copula transport dual certificate precise definitions equivalence ${companion.definitions.map((d) => d.title).join(' ')}` });
 
@@ -212,13 +221,7 @@ for(const {directory,evidence,data} of additionalArticles) {
   write(route+'original.tex',read(directory+'/'+data.config.source));
   write(route+'source.json',read(directory+'/source.json'));
   write(route+'article.leanmirror.json',JSON.stringify({...evidence,source:read(directory+'/'+data.config.source),bibliography:read(directory+'/'+data.config.bibliography),mapping:data.config},null,2));
-  const blocks=[];const walk=items=>{for(const b of items){blocks.push(b);if(b.children)walk(b.children);if(b.items)b.items.forEach(walk);}};walk(data.article.blocks);
-  for(const block of blocks.filter(b=>b.kind==='figure'))for(const image of block.images) {
-    const file=path.resolve(root,directory,'source',image.image);
-    if(!file.startsWith(path.resolve(root,directory,'source')+path.sep)||!fs.existsSync(file))throw new Error('Missing source figure: '+image.image);
-    if(!/\.(png|jpg|jpeg|svg)$/i.test(file))throw new Error('Source figure needs an explicit rendering: '+image.image);
-    const target=path.join(out,route,'images',path.basename(image.image));fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);
-  }
+  copyArticleFigures(data,directory,route);
   execFileSync(process.env.PYTHON||'python',['scripts/bundle_lean_mirror.py',path.join(out,route,'executable.zip')],{cwd:root,stdio:'inherit'});
   searchIndex.push({title:`LeanMirror: ${data.config.title}`,kind:'Mathematical companion',url:url(route),text:data.config.title+' '+data.config.verificationScope});
 }

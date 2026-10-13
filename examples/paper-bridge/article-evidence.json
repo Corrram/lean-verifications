@@ -1,5 +1,9 @@
 {
   "assets": {
+    "rendered-figures/blest_regions.png": "b421398f897fd024d4423e65ce555eabd5779ac5383c35064b5c43e7753bd0f0",
+    "rendered-figures/eta_nu_extremizers.png": "af885d5f8d2c4db71d010655839357157f1704b27999341d86d794002356d6de",
+    "rendered-figures/nu_transpose_region.png": "5be34c0625cd95efa74749a32ebc83f5fe4ea8b438a0e31b66dd1174f4953739",
+    "rendered-figures/rho_nu_extremizers.png": "bc3d2be5914f28b0c305a14083daad852abf6a502ada2a33e0aff33d1f68610b",
     "source/exact-blest-regions.bbl": "f87e4c961a094c6bff5a44f960d52c486d1b79ecef7645fad74e06b432c82348",
     "source/images/blest_regions.pdf": "d6437e1b7fb11fd59f025d7beaca93611d9660043e8a663bedf74b92a9880194",
     "source/images/blest_regions.png": "2feac114c16c64af6bc5d368e308b3dce31b444eb160f040dfdc9957b20e24aa",
@@ -33406,7 +33410,7 @@
       "type": "∀ (C : ProbabilityTheory.Copula 2), C.survivalCopula.spearmanRho = C.spearmanRho"
     }
   },
-  "mapSha256": "f9968bad9e1e51728e62c3575ca2a2000e3a523b4a34ced89b59f0aaaae5ce84",
+  "mapSha256": "58e1a2a2d2089fa5aa1ed8497ac6e64e9312924f29de473ff0c6640d9afdfdb3",
   "paperId": "Rockel2026ExactBlest",
   "schemaVersion": 1,
   "sourceSha256": "5004f7d396f865b09b1c6a06c7207ecdb0da00d5fdcd201168200c951247ac03"
