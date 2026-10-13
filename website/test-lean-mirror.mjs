@@ -195,3 +195,36 @@ test('the Chatterjee–footrule reader retains the original layout and separates
     assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
   }
 });
+
+test('the joint-region reader checks the printed mixture argument with both endpoint hypotheses',()=>{
+  const directory=new URL('../examples/articles/OrendayLaresRockel2026TauFootruleBeta/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/tau-phi-beta-region.tex'),bibliography:read('article.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,9);assert.equal(data.stats.linkedStatements,9);
+  assert.equal(data.stats.figures,3);assert.equal(data.article.bibliography.length,19);
+  assert.equal((html.match(/<img /g)||[]).length,3);
+  assert.equal((html.match(/class="article-proof"/g)||[]).length,(inputs.source.match(/\\begin\{proof\}/g)||[]).length);
+  assert.match(html,/July 2026/);
+  assert.match(html,/Theorem 1.1: the exact joint region/);
+  assert.match(html,/Filling the vertical fibre: the article&#39;s final mixture argument/);
+  assert.match(html,/does not certify the preceding construction of the endpoints/);
+  assert.match(html,/two additional source figures remain excluded by the original comment environment/);
+  for(const label of ['tau-def','phi-def','beta-def','Q-def','boundary-functions'])assert(html.includes('href="#article-eq-'+label+'"'));
+  const namespace='Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.';
+  assert.equal(data.documents[namespace+'region_statement_valid'].presentation,'statement');
+  const proof=data.documents[namespace+'fibre_valid'].checked.proof,nodes=[];
+  for(let node=proof;node;node=node.next)nodes.push(node);
+  assert.deepEqual(nodes.map(n=>n.kind),['fix','fix','fix','fix','fix','assume','have','have','have','finish']);
+  assert.match(nodes[5].claim,/\\phi\(C\^-\) = p/);
+  assert.match(nodes[5].claim,/\\beta\(C\^\+\) = b/);
+  assert.equal(nodes[7].formula.kind,'forall');assert.match(nodes[7].claim,/\\mathcal\{Q\}/);
+  assert.equal(nodes[8].formula.kind,'exists');assert.equal(nodes[8].formula.type,'[0,1]');
+  assert.equal(nodes[9].formula.kind,'exists');assert.equal(nodes[9].formula.type,'\\mathcal{C}');
+  for(const certificate of ['q_definition','boundary_definitions','fibre_valid']){
+    const missing=structuredClone(evidence);delete missing.evidence[namespace+certificate];
+    assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
+  }
+});

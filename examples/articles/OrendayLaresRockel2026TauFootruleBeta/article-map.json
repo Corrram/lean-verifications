@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "id": "tau-footrule-beta",
+  "paperId": "OrendayLaresRockel2026TauFootruleBeta",
+  "title": "The exact region determined by Kendall’s tau, Spearman’s footrule and Blomqvist’s beta",
+  "source": "source/tau-phi-beta-region.tex",
+  "bibliography": "article.bbl",
+  "sourceURL": "https://arxiv.org/abs/2607.12841v1",
+  "sourceDate": "2026-07-14",
+  "evidenceModule": "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions",
+  "proofDocumentNamespace": "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions",
+  "bindings": [
+    {
+      "label": "eq:tau-def",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.tau_definition"
+      ]
+    },
+    {
+      "label": "eq:phi-def",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.phi_definition"
+      ]
+    },
+    {
+      "label": "eq:beta-def",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.beta_definition"
+      ]
+    },
+    {
+      "label": "eq:Q-def",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.q_definition",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.concordance_mixture"
+      ],
+      "note": "The definition bridge accounts for the source integral argument order using symmetry of Q."
+    },
+    {
+      "label": "eq:boundary-functions",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.boundary_definitions"
+      ]
+    },
+    {
+      "label": "thm:main",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.exact_joint_region",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.region_correspondence",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.region_verified",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.region_statement_valid"
+      ],
+      "note": "The complete quantified statement has an independent typed encoding. The statement certificate does not certify every printed proof step."
+    },
+    {
+      "label": "eq:region",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.joint_region_outer_bound",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.exact_joint_region"
+      ]
+    },
+    {
+      "label": "prop:known",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.tau_footrule_bounds",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.exact_tau_footrule_region",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.beta_lower_le_footrule",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.footrule_le_beta_upper",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.minimal_footrule_at_beta",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.maximal_footrule_at_beta",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.exact_footrule_beta_region"
+      ]
+    },
+    {
+      "label": "eq:ft-region",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.tau_footrule_bounds",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.exact_tau_footrule_region"
+      ]
+    },
+    {
+      "label": "eq:bf-region",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.beta_lower_le_footrule",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.footrule_le_beta_upper",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.exact_footrule_beta_region"
+      ]
+    },
+    {
+      "label": "eq:ordinal-sum",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_cdf",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_zero",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_one",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_tau",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_footrule",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_beta"
+      ],
+      "note": "The native parameter is central width alpha=1-2a. The coefficient and CDF formulas include the degenerate endpoints."
+    },
+    {
+      "label": "lem:shuffle-tau",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.shuffle_tau"
+      ],
+      "note": "All finite signed shuffles are included, with zero-width strips. The native pair sum renames the article indices i<j as j<i."
+    },
+    {
+      "label": "eq:shuffle-tau",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.shuffle_tau"
+      ]
+    },
+    {
+      "label": "prop:lower-seed",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.lowerSeed_coefficients",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.footruleBetaLower_coefficients"
+      ],
+      "note": "The native lower seed is constructed as a reflected centered ordinal sum. Its coefficient values are proved; identification with every printed strip description is not supplied by this link."
+    },
+    {
+      "label": "prop:upper-seed",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.upperSeed_coefficients",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.footruleBetaUpperTau_coefficients"
+      ],
+      "note": "The six-strip family has the printed permutation and includes q=0 and q=1/4."
+    },
+    {
+      "label": "rem:boundary-edges",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_tau",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_footrule",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centeredOrdinal_beta",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.centered_tau_endpoints",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.lowerSeed_coefficients",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.upperSeed_coefficients"
+      ]
+    },
+    {
+      "label": "eq:Cpm-goal",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.lower_joint_face_attained",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.upper_joint_face_attained"
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "quote": "Let $C_s\\coloneqq (1-s)C^-+sC^+$",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_footrule_beta_intermediate",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.mixture_definition"
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "quote": "Since $\\Q$ is symmetric and affine in each argument",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.concordance_mixture",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.tau_mixture_continuous",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.fibre_valid",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.fibre_correspondence",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.fibre_verified",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions.mixture_definition"
+      ],
+      "note": "The accompanying proof document checks the final mixture argument with the endpoint hypotheses stated explicitly, not their preceding construction."
+    },
+    {
+      "label": "cor:fixed-phi",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.jointRegion_closed",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.jointRegion_compact",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.jointRegion_convex",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_footrule_rectangle",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.footrule_beta_section"
+      ]
+    },
+    {
+      "label": "eq:fixed-phi-section",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_footrule_rectangle"
+      ]
+    },
+    {
+      "label": "cor:beta-tau",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.tau_beta_bounds",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.exact_tau_beta_region"
+      ]
+    },
+    {
+      "label": "rem:fibre",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.fibre_reflection",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.fibre_midpoint_attained"
+      ]
+    },
+    {
+      "kind": "math",
+      "quote": "\\coloneqq \\int_{L(b)}^{U(b)}",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.fixed_beta_section_area",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.sectionArea_integral"
+      ],
+      "note": "The actual two-dimensional section measure is connected to the displayed polynomial integral."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "At $b=-1$ the section degenerates",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.sectionArea_maximum",
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.sectionArea_maximum_attained"
+      ]
+    },
+    {
+      "kind": "math",
+      "quote": "A'(b)",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.sectionArea_derivative"
+      ]
+    },
+    {
+      "kind": "math",
+      "quote": "\\operatorname{vol}(\\Om)",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026TauFootruleBeta.jointRegion_volume"
+      ],
+      "note": "The theorem measures the actual attained joint region; the other externally cited region volumes are outside this binding."
+    }
+  ],
+  "definitions": {
+    "\\tau": {
+      "label": "eq:tau-def"
+    },
+    "\\phi": {
+      "label": "eq:phi-def"
+    },
+    "\\beta": {
+      "label": "eq:beta-def"
+    },
+    "\\Q": {
+      "label": "eq:Q-def"
+    },
+    "L": {
+      "label": "eq:boundary-functions"
+    },
+    "U": {
+      "label": "eq:boundary-functions"
+    },
+    "\\ell": {
+      "label": "eq:boundary-functions"
+    },
+    "u": {
+      "label": "eq:boundary-functions"
+    }
+  },
+  "verificationScope": "All original arXiv v1 text, formulas, result numbers, proofs, three published figures and bibliography are retained. The two additional source figures remain excluded by the original comment environment. All nine result blocks have compiled counterparts. Coefficient and boundary definitions and the exact joint-region statement have independent typed encodings with checked correspondence. The final mixture paragraph is a checked proof document with both endpoints supplied, including affine footrule and beta, the quadratic tau formula, and the intermediate-value step. The earlier seed and ordinal-sum construction, every other printed proof step, external literature claims, and plotted numerical data are not yet certified as proof documents. An independently compiled theorem does not certify all of its printed proof."
+}

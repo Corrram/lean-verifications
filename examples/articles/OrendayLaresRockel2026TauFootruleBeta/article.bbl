@@ -1,0 +1,132 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Blomqvist(1950)]{blomqvist1950measure}
+Nils Blomqvist.
+\newblock On a measure of dependence between two random variables.
+\newblock \emph{Ann. Math. Stat.}, 21:\penalty0 593--600, 1950.
+
+\bibitem[Durante and Sempi(2016)]{durante2016principles}
+Fabrizio Durante and Carlo Sempi.
+\newblock \emph{Principles of copula theory}.
+\newblock CRC Press, Boca Raton, FL, 2016.
+
+\bibitem[Genest et~al.(2010)Genest, Ne{\v{s}}lehov{\'a}, and
+  Ben~Ghorbal]{genest2010spearman}
+Christian Genest, Johanna Ne{\v{s}}lehov{\'a}, and Noomen Ben~Ghorbal.
+\newblock Spearman's footrule and {G}ini's gamma: a review with complements.
+\newblock \emph{J. Nonparametric Stat.}, 22\penalty0 (8):\penalty0 937--954,
+  2010.
+
+\bibitem[Kendall(1938)]{kendall1938new}
+Maurice~G. Kendall.
+\newblock A new measure of rank correlation.
+\newblock \emph{Biometrika}, 30:\penalty0 81--93, 1938.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Moj{\v{s}}kerc(2022)]{kokolbukovsek2022exact}
+Damjana Kokol~Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock On the exact region determined by {S}pearman's footrule and {G}ini's
+  gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 410:\penalty0 Article ID 114212, 13
+  p., 2022.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Moj{\v{s}}kerc(2026)]{kokolbukovsek2026exact}
+Damjana Kokol~Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock The exact region determined by {B}lomqvist's beta, {S}pearman's
+  footrule and {G}ini's gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 473:\penalty0 Article ID 116861, 13
+  p., 2026.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2023)]{kokolbukovsek2023exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact regions determined by {K}endall's tau and other
+  concordance measures.
+\newblock \emph{Mediterr. J. Math.}, 20\penalty0 (3):\penalty0 Paper No. 147,
+  16 p., 2023.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2024)]{kokolbukovsek2024rhofootrule}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact region determined by {S}pearman's rho and {S}pearman's
+  footrule.
+\newblock \emph{J. Comput. Appl. Math.}, 437:\penalty0 Article ID 115463, 23
+  p., 2024.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2019)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc, and Omladi{\v{c}}]{kokolbukovsek2019relation}
+Damjana Kokol~Bukov{\v{s}}ek, Toma{\v{z}} Ko{\v{s}}ir, Bla{\v{z}}
+  Moj{\v{s}}kerc, and Matja{\v{z}} Omladi{\v{c}}.
+\newblock Relation between {B}lomqvist's beta and other measures of concordance
+  of copulas, 2019.
+\newblock arXiv:1911.03467.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2021)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc, and Omladi{\v{c}}]{kokolbukovsek2021spearman}
+Damjana Kokol~Bukov{\v{s}}ek, Toma{\v{z}} Ko{\v{s}}ir, Bla{\v{z}}
+  Moj{\v{s}}kerc, and Matja{\v{z}} Omladi{\v{c}}.
+\newblock Spearman's footrule and {G}ini's gamma: local bounds for bivariate
+  copulas and the exact region with respect to {B}lomqvist's beta.
+\newblock \emph{J. Comput. Appl. Math.}, 390:\penalty0 Article ID 113385, 24
+  p., 2021.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2026)Kokol~Bukov{\v{s}}ek, Lazi{\'c},
+  Moj{\v{s}}kerc, and Stopar]{kokolbukovsek2026footrule}
+Damjana Kokol~Bukov{\v{s}}ek, Petra Lazi{\'c}, Bla{\v{z}} Moj{\v{s}}kerc, and
+  Nik Stopar.
+\newblock The exact region determined by {S}pearman's footrule, {G}ini's gamma
+  and {K}endall's tau.
+\newblock \emph{J. Comput. Appl. Math.}, 486:\penalty0 Article ID 117639, 2026.
+
+\bibitem[Kruskal(1958)]{kruskal1958ordinal}
+William~H. Kruskal.
+\newblock Ordinal measures of association.
+\newblock \emph{J. Am. Stat. Assoc.}, 53\penalty0 (284):\penalty0 814--861,
+  1958.
+
+\bibitem[Mikusi{\'n}ski et~al.(1992)Mikusi{\'n}ski, Sherwood, and
+  Taylor]{mikusinski1992shuffles}
+Piotr Mikusi{\'n}ski, Howard Sherwood, and Michael~D. Taylor.
+\newblock Shuffles of {M}in.
+\newblock \emph{Stochastica}, 13\penalty0 (1):\penalty0 61--74, 1992.
+
+\bibitem[Nelsen(2006)]{nelsen2006introduction}
+Roger~B. Nelsen.
+\newblock \emph{An introduction to copulas}.
+\newblock Springer Series in Statistics. Springer, New York, second edition,
+  2006.
+
+\bibitem[Scarsini(1984)]{scarsini1984measures}
+Marco Scarsini.
+\newblock On measures of concordance.
+\newblock \emph{Stochastica}, 8\penalty0 (3):\penalty0 201--218, 1984.
+
+\bibitem[Schreyer et~al.(2017)Schreyer, Paulin, and
+  Trutschnig]{schreyer2017exact}
+Manuela Schreyer, Roland Paulin, and Wolfgang Trutschnig.
+\newblock On the exact region determined by {K}endall's $\tau$ and {S}pearman's
+  $\rho$.
+\newblock \emph{J. R. Stat. Soc., Ser. B, Stat. Methodol.}, 79\penalty0
+  (2):\penalty0 613--633, 2017.
+
+\bibitem[Sklar(1959)]{sklar1959fonctions}
+Abe Sklar.
+\newblock Fonctions de r{\'e}partition {\`a} $n$ dimensions et leurs marges.
+\newblock \emph{Publ. Inst. Stat. Univ. Paris}, 8:\penalty0 229--231, 1959.
+
+\bibitem[Spearman(1906)]{spearman1906footrule}
+Charles Spearman.
+\newblock `{F}ootrule' for measuring correlation.
+\newblock \emph{Br. J. Psychol.}, 2\penalty0 (1):\penalty0 89--108, 1906.
+
+\bibitem[Tschimpke et~al.(2025)Tschimpke, Schreyer, and
+  Trutschnig]{tschimpke2025revisiting}
+Marco Tschimpke, Manuela Schreyer, and Wolfgang Trutschnig.
+\newblock Revisiting the region determined by {S}pearman's $\rho$ and
+  {S}pearman's footrule $\phi$.
+\newblock \emph{J. Comput. Appl. Math.}, 457:\penalty0 Article ID 116259, 18
+  p., 2025.
+
+\end{thebibliography}

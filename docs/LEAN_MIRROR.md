@@ -195,3 +195,21 @@ a unique unrestricted real root. A separate checked proof document evaluates
 the cubic at two distinct roots when `y=-1/2`. The corrected inverse theorem
 restricts the root to `[0,2]`. Numerical optimization experiments remain
 visible but are not presented as formal proofs.
+
+The joint Kendall–footrule–Blomqvist reader at `/lean-mirror/tau-footrule-beta/`
+preserves arXiv:2607.12841v1. All nine result blocks, six proof environments,
+three published figures and nineteen references are retained. The original
+comment environment excludes two further source figures; the reader respects
+that choice and the executable bundle retains those assets.
+
+Its three coefficient definitions, concordance integral and four boundary
+functions have checked bridges. The integral defining the concordance function
+uses the article's argument order, with its correspondence justified by symmetry
+of the native function. The entire joint-region statement has an independent
+typed encoding; its interpretation bridge does not invoke the region theorem.
+The final mixture paragraph of the main proof also has a ten-node proof
+document: five fixed quantities, the endpoint hypotheses, three intermediate
+claims and a conclusion. It checks affine footrule and beta, quadratic tau,
+the intermediate-value step and the attaining copula. Both endpoints must
+already have the same footrule and beta. This scoped argument does not certify
+their earlier construction or every other printed proof step.
