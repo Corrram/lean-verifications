@@ -261,5 +261,6 @@
       "verified_instead": "The final IJAR PDF Lemma 5(iii) reverses the order. Lean verifies all four claims of that corrected shuffling path; the exact region also has an independent proof."
     }
   ],
-  "proofDocumentNamespace": "Papers.Rockel2026XiBlest.ArticleCalculations"
+  "proofDocumentNamespace": "Papers.Rockel2026XiBlest.ArticleCalculations",
+  "sourceDate": "2026-03-10"
 }

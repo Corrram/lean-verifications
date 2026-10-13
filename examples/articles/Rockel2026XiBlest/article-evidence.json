@@ -7246,7 +7246,7 @@
       "type": "∀ (C D : ProbabilityTheory.Copula 2), Continuous fun a => (C.mix D a).chatterjeeXi"
     }
   },
-  "mapSha256": "0880ecf8563654f0d94005f28d2515e00f73a63584caf6228524cb74cae750ba",
+  "mapSha256": "5c3954ec356064ce07d0692f559d37284369c31dab5d98475cd948a5fb9f032a",
   "paperId": "Rockel2026XiBlest",
   "schemaVersion": 1,
   "sourceSha256": "f8f54b02fbabbf0e7ff840279bf8e9a26c291de35cb1fd817aabba69e3c66c1f"

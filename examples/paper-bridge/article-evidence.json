@@ -29529,7 +29529,7 @@
       "type": "∀ (C : ProbabilityTheory.Copula 2), C.survivalCopula.spearmanRho = C.spearmanRho"
     }
   },
-  "mapSha256": "48a61b00566664e3448ab80a609c03d48148fd3ab0dc8d8c0c9d8e3a390acf4f",
+  "mapSha256": "45db23871d897551cd03919013313022a75cd2115977677819765ba01a8a4573",
   "paperId": "Rockel2026ExactBlest",
   "schemaVersion": 1,
   "sourceSha256": "5004f7d396f865b09b1c6a06c7207ecdb0da00d5fdcd201168200c951247ac03"

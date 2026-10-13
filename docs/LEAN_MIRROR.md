@@ -177,3 +177,21 @@ Article exports sort JSON keys and the axiom/dependency collections so field
 ordering cannot invalidate a cross-platform rebuild. Source hashes, theorem
 types and ordered proof steps remain exact. A freshness failure reports the
 first differing data field rather than just a generic stale-export message.
+
+The Chatterjee–Spearman footrule reader at `/lean-mirror/xi-footrule/` preserves
+arXiv:2509.07232v1, including all fourteen definition and result blocks, two
+tables, three figures with nine panels, and twenty-seven references. The six
+checkerboard panels retain the original two rows of three. Eleven result blocks
+have compiled counterparts; the external copula characterization and two KKT
+lemmas in the appendix are not covered by these bindings.
+
+The definitions of both coefficients and the Fréchet family have independent
+typed encodings and checked correspondence. The complete maximum statement
+includes attainment, uniqueness and both endpoints. Its statement certificate
+reuses the native theorem; it does not certify the original KKT proof. The
+reader also shows two refuted source claims, with the original text intact:
+the printed checkerboard matrix is not LTD, and the inverse cubic does not have
+a unique unrestricted real root. A separate checked proof document evaluates
+the cubic at two distinct roots when `y=-1/2`. The corrected inverse theorem
+restricts the root to `[0,2]`. Numerical optimization experiments remain
+visible but are not presented as formal proofs.

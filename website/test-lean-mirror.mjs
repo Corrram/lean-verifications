@@ -161,3 +161,37 @@ test('the Chatterjee–Blomqvist reader retains the original title, numbering an
   assert.match(html,/full definition bridge for the convex-function\/slope-data formulation/);
   assert.equal((html.match(/class="article-proof"/g)||[]).length,(inputs.source.match(/\\begin\{proof\}/g)||[]).length);
 });
+
+test('the Chatterjee–footrule reader retains the original layout and separates statement checks from refutations',()=>{
+  const directory=new URL('../examples/articles/Rockel2026XiFootrule/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/xi-footrule-region.tex'),bibliography:read('source/xi-footrule-region.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,14);assert.equal(data.stats.linkedStatements,11);
+  assert.equal(data.stats.figures,3);assert.equal(data.article.bibliography.length,27);
+  assert.equal((html.match(/<img /g)||[]).length,9);
+  assert.equal((html.match(/class="article-figure-row"/g)||[]).length,4);
+  assert.equal((html.match(/class="article-table"/g)||[]).length,2);
+  assert.equal((html.match(/class="article-proof"/g)||[]).length,(inputs.source.match(/\\begin\{proof\}/g)||[]).length);
+  assert.match(html,/8 September 2025/);
+  assert.match(html,/11 of 14 definition and result blocks/);
+  assert.match(html,/href="#article-eq-xi-definition"/);assert.match(html,/href="#article-eq-psi-definition"/);
+  assert.equal(Object.keys(data.documents).length,2);
+  const namespace='Papers.Rockel2026XiFootrule.ArticleDefinitions.';
+  assert.equal(data.documents[namespace+'upper_statement_valid'].presentation,'statement');
+  assert.match(html,/including both endpoints and uniqueness/);
+  assert.match(html,/That printed proof is not certified by this statement check/);
+  assert.match(html,/Why the cubic does not have a unique real root/);
+  assert.match(html,/Each step below is checked by Lean/);
+  assert.equal((html.match(/class="article-source-correction"/g)||[]).length,2);
+  assert.match(inputs.source,/the parameter \$\\mu\(y\)\$ is the unique real solution/);
+  assert.match(html,/printed_ltd_claim_false/);
+  assert.match(html,/footrule_cubic_not_unique_real/);
+  assert.match(html,/Appendix Lemmas A.1–A.2/);
+  for(const certificate of ['xi_definition','footrule_definition','cubic_counterexample_valid']){
+    const missing=structuredClone(evidence);delete missing.evidence[namespace+certificate];
+    assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
+  }
+});

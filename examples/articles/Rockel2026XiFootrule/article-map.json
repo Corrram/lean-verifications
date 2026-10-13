@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "id": "xi-footrule",
+  "paperId": "Rockel2026XiFootrule",
+  "title": "On the exact region between Chatterjee’s rank correlation and Spearman’s footrule",
+  "source": "source/xi-footrule-region.tex",
+  "bibliography": "source/xi-footrule-region.bbl",
+  "sourceURL": "https://arxiv.org/abs/2509.07232v1",
+  "sourceDate": "2025-09-08",
+  "evidenceModule": "Papers.Rockel2026XiFootrule.ArticleDefinitions",
+  "proofDocumentNamespace": "Papers.Rockel2026XiFootrule.ArticleDefinitions",
+  "bindings": [
+    {
+      "label": "eq:xi-definition",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.xi_derivative_formula",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.xi_definition"
+      ]
+    },
+    {
+      "label": "eq:psi-definition",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.footrule_definition"
+      ]
+    },
+    {
+      "label": "thm:exact_region_upper_bound",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.maximal_footrule",
+        "Papers.Rockel2026XiFootrule.cdf_upperBoundary",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.frechet_definition",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.upper_correspondence",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.upper_verified",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.upper_statement_valid"
+      ],
+      "note": "The maximum, attainment and uniqueness are checked. The native theorem uses a squared-distance proof; the original KKT argument is not yet a checked proof document."
+    },
+    {
+      "label": "eq:exact_region_upper_bound",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.upperBoundary_attains",
+        "Papers.Rockel2026XiFootrule.upperBoundary_unique"
+      ]
+    },
+    {
+      "label": "prop:si_equality_structure",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel",
+        "Papers.Rockel2026XiFootrule.si_equality_canonical_parameters"
+      ]
+    },
+    {
+      "label": "eq:level_two_form",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.si_equality_iff_conditional_threeLevel",
+        "Papers.Rockel2026XiFootrule.si_equality_iff_derivative_threeLevel"
+      ]
+    },
+    {
+      "kind": "remark",
+      "quote": "The class in \\eqref{eq:level_two_form}",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.asymmetricEquality_derivative",
+        "Papers.Rockel2026XiFootrule.asymmetricEquality_coefficients",
+        "Papers.Rockel2026XiFootrule.asymmetricEquality_not_exchangeable",
+        "Papers.Rockel2026XiFootrule.countablePi_isSI",
+        "Papers.Rockel2026XiFootrule.countablePi_xi_eq_footrule"
+      ],
+      "note": "The asymmetric example and adjacent countable Pi-block sums are checked. The arbitrary-interval converse cited from the literature is not certified by these links."
+    },
+    {
+      "label": "thm:si_region",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.exact_si_xi_footrule_region",
+        "Papers.Rockel2026XiFootrule.diagonalBoundary_coefficients",
+        "Papers.Rockel2026XiFootrule.diagonalBoundary_isSI",
+        "Papers.Rockel2026XiFootrule.upperBoundary_isSI"
+      ]
+    },
+    {
+      "label": "eq:xi_le_psi",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.si_xi_le_footrule"
+      ]
+    },
+    {
+      "label": "eq:xi_convex_continuity",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.fixed_footrule_intermediate",
+        "Papers.Rockel2026XiFootrule.fixed_footrule_upward"
+      ]
+    },
+    {
+      "kind": "corollary",
+      "quote": "\\xi(C) \\le \\frac34 \\tau(C) + \\frac14",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.si_xi_le_three_quarters_tau"
+      ]
+    },
+    {
+      "kind": "remark",
+      "quote": "\\mathcal{R}_{\\text{LSL}}= \\mathcal{R}_{\\text{SI}}",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si",
+        "Papers.Rockel2026XiFootrule.exact_lowerSemilinear_xi_footrule_region"
+      ],
+      "note": "These counterparts check the lower-semilinear region component of this remark, not all its statements or literature references."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "In particular, they showed that for LSL copulas",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.lowerSemilinear_xi_le_footrule",
+        "Papers.Rockel2026XiFootrule.lowerSemilinear_region_eq_si"
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "quote": "and consider its associated checkerboard copula",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.printed_ltd_matrix",
+        "Papers.Rockel2026XiFootrule.printed_ltd_coefficients",
+        "Papers.Rockel2026XiFootrule.printed_ltd_claim_false",
+        "Papers.Rockel2026XiFootrule.corrected_ltd_matrix",
+        "Papers.Rockel2026XiFootrule.corrected_ltd_counterexample"
+      ],
+      "note": "The printed copula has the stated coefficients but is not LTD. Its failure of the intended LTD hypothesis is checked. The replacement matrix is separately proved LTD and has different exact ranks.",
+      "role": "refutation"
+    },
+    {
+      "label": "prop:compact_formulas",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.relaxed_coefficients_closed",
+        "Papers.Rockel2026XiFootrule.relaxed_coefficients_continuous",
+        "Papers.Rockel2026XiFootrule.relaxed_coefficients_strict_monotonicity",
+        "Papers.Rockel2026XiFootrule.relaxed_coefficients_endpoints"
+      ],
+      "note": "The relaxed primitive is a real-valued function, not generally a copula; its extended coefficient integrals are checked on 0≤mu≤2."
+    },
+    {
+      "label": "thm:lower_boundary_mu_half",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.weighted_lower_bound",
+        "Papers.Rockel2026XiFootrule.weighted_lower_bound_closed"
+      ],
+      "note": "The checked parameter range is 0≤mu≤2, as in the preceding definition of the relaxed profile. The printed KKT proof route is not certified here."
+    },
+    {
+      "label": "eq:jensen",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.conditional_jensen_bound",
+        "Papers.Rockel2026XiFootrule.conditional_jensen_equality"
+      ]
+    },
+    {
+      "label": "eq:jensen_kkt_solution",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.jensen_profile_formula",
+        "Papers.Rockel2026XiFootrule.jensen_profile_feasible",
+        "Papers.Rockel2026XiFootrule.scalar_optimizer_minimum",
+        "Papers.Rockel2026XiFootrule.scalar_optimizer_unique"
+      ]
+    },
+    {
+      "label": "eq:lower_bound_partial",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.relaxed_values_integral_form"
+      ]
+    },
+    {
+      "label": "eq:lower_bound_h1h2",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.jensen_profile_formula",
+        "Papers.Rockel2026XiFootrule.jensen_profile_feasible"
+      ]
+    },
+    {
+      "label": "thm:final_explicit_region",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.attainable_region_convex",
+        "Papers.Rockel2026XiFootrule.attainable_region_closed",
+        "Papers.Rockel2026XiFootrule.attainable_region_compact",
+        "Papers.Rockel2026XiFootrule.negative_footrule_lower_bound",
+        "Papers.Rockel2026XiFootrule.exact_nonnegative_footrule_region"
+      ],
+      "note": "The lower estimate is checked for nonpositive footrule with the unique parameter restricted to [0,2]. The unrestricted real-root uniqueness sentence is false and refuted separately."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "the parameter $\\mu(y)$ is the unique real solution",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.footrule_cubic_not_unique_real",
+        "Papers.Rockel2026XiFootrule.footrule_cubic_unique_admissible",
+        "Papers.Rockel2026XiFootrule.footrule_inverse_unique",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.cubic_definition",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.different_definition",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.cubic_counterexample_valid",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.cubic_counterexample_correspondence",
+        "Papers.Rockel2026XiFootrule.ArticleDefinitions.cubic_counterexample_verified"
+      ],
+      "note": "At y=-1/2 there are two distinct real roots, 2 and -1. Only the admissible root in [0,2] is unique for y in [-1/2,0].",
+      "role": "refutation"
+    },
+    {
+      "label": "eq:horizontal_slice",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.fixed_footrule_intermediate",
+        "Papers.Rockel2026XiFootrule.fixed_footrule_upward",
+        "Papers.Rockel2026XiFootrule.xi_one_slice"
+      ]
+    },
+    {
+      "label": "eq:mu_y_definition",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.footrule_cubic_equivalence",
+        "Papers.Rockel2026XiFootrule.footrule_cubic_unique_admissible"
+      ]
+    },
+    {
+      "label": "thm:checkerboard",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.antiCheckerboard_cdf",
+        "Papers.Rockel2026XiFootrule.antiCheckerboard_xi",
+        "Papers.Rockel2026XiFootrule.antiCheckerboard_footrule",
+        "Papers.Rockel2026XiFootrule.xi_lower_bound_at_minimal_footrule",
+        "Papers.Rockel2026XiFootrule.xi_minimum_at_minimal_footrule_iff"
+      ]
+    },
+    {
+      "label": "eq:checkerboard_minimality",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.xi_lower_bound_at_minimal_footrule",
+        "Papers.Rockel2026XiFootrule.xi_minimum_at_minimal_footrule_iff"
+      ]
+    },
+    {
+      "label": "prop:two_param_copula_is_copula",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.twoParameter_density",
+        "Papers.Rockel2026XiFootrule.twoParameter_zero_width",
+        "Papers.Rockel2026XiFootrule.twoParameter_corner",
+        "Papers.Rockel2026XiFootrule.twoParameter_corner_coefficients"
+      ]
+    },
+    {
+      "label": "eq:ft_density",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.twoParameter_raw_marginals",
+        "Papers.Rockel2026XiFootrule.twoParameter_marginal_density"
+      ]
+    },
+    {
+      "label": "eq:two_param_copula_density",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.twoParameter_density"
+      ],
+      "note": "The measure identity is checked on the full closed parameter square. Density values on null fibers are immaterial; no pointwise division by a zero marginal density is claimed."
+    },
+    {
+      "label": "eq:dashed_line_copula_family",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.twoParameter_path_admissible",
+        "Papers.Rockel2026XiFootrule.twoParameter_path_zero",
+        "Papers.Rockel2026XiFootrule.twoParameter_parameters_continuous",
+        "Papers.Rockel2026XiFootrule.twoParameter_parameters_limit"
+      ],
+      "note": "The parameter path is checked. Its numerically suggested near-optimality and sampled objective values are not a certified boundary formula."
+    },
+    {
+      "label": "tab:footrule_minus_xi_max",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.footrule_sub_xi_le",
+        "Papers.Rockel2026XiFootrule.footrule_sub_xi_eq_iff"
+      ],
+      "note": "The universal maximum gap and its unique Frechet extremizer are checked. The sampled numerical values for other families are not certified by this link."
+    },
+    {
+      "label": "tab:footrule_plus_xi_min",
+      "declarations": [
+        "Papers.Rockel2026XiFootrule.frechet_coefficients",
+        "Papers.Rockel2026XiFootrule.frechet_objective_lower",
+        "Papers.Rockel2026XiFootrule.frechet_objective_eq_iff",
+        "Papers.Rockel2026XiFootrule.frechet_minimizer_coefficients"
+      ],
+      "note": "Only the exact lower-Frechet row and full Frechet-family minimum are checked; the other numerical table entries are not certified."
+    }
+  ],
+  "definitions": {
+    "\\xi": {
+      "label": "eq:xi-definition"
+    },
+    "\\psi": {
+      "label": "eq:psi-definition"
+    }
+  },
+  "sourceDiscrepancies": [
+    {
+      "version": "arXiv v1, Remark 2.6(d)",
+      "unverified_claim": "The printed 3-by-3 checkerboard matrix is LTD.",
+      "evidence": "Lean proves its CDF at (2/3, 2/3) is 5/12, below 4/9, so the matrix is not LTD.",
+      "verified_instead": "The corrected matrix printed in final JCAM Remark 2(d) is proved LTD with xi=38/81 and footrule=10/27."
+    },
+    {
+      "version": "arXiv v1, Theorem 3.3; final JCAM, Theorem 3.2",
+      "unverified_claim": "The cubic has a unique real solution mu(y).",
+      "evidence": "At y=-1/2, both mu=2 and mu=-1 are distinct real roots; Lean proves footrule_cubic_not_unique_real.",
+      "verified_instead": "For y in [-1/2,0], the admissible root mu in [0,2] is unique, as proved by footrule_cubic_unique_admissible. The paper's proof later uses this restriction."
+    }
+  ],
+  "verificationScope": "The original arXiv v1 text, title date, formulas, result numbers, proofs, figures, tables and bibliography are retained. The xi and footrule definitions, Frechet CDF and complete Theorem 2.1 maximum/attainment/uniqueness statement have independent typed encodings and checked correspondences. Other links expose actual compiled counterparts and their precise hypotheses. The false LTD example hypothesis and unrestricted real-root uniqueness are visibly refuted, with checked corrections. The original KKT proofs, the external copula-characterization lemma, Appendix Lemmas A.1–A.2, every printed intermediate proof claim, and numerical table/figure claims are not yet certified. A compiled alternative proof of a conclusion does not certify its printed argument."
+}
