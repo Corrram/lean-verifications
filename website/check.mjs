@@ -28,7 +28,7 @@ const index = JSON.parse(fs.readFileSync(path.join(out, 'search-index.json')));
 const metadata = JSON.parse(fs.readFileSync(path.join(out, 'build-info.json')));
 assert.equal(index.filter((x) => x.kind === 'Article supplement').length, metadata.articles.length);
 assert.match(metadata.commit, /^[a-f0-9]{40}$/);
-assert.equal(index.filter((x) => x.kind === 'Mathematical companion').length, metadata.companions.length);
+assert.equal(index.filter((x) => x.kind === 'Mathematical companion').length, metadata.fullArticles.length);
 for (const companion of metadata.companions) {
   const directory = path.join(out, 'lean-mirror', companion.id);
   const html = fs.readFileSync(path.join(directory, 'corollary-3-2', 'index.html'), 'utf8');
@@ -52,9 +52,9 @@ for (const article of metadata.fullArticles) {
   assert.equal(allIds.length,ids.size,'Duplicate full-article anchors');
   for(const [,fragment] of html.matchAll(/href="#([^"]+)"/g))assert(ids.has(fragment),`Broken article link: ${fragment}`);
   assert.equal((html.match(/class="article-result"/g)||[]).length,article.stats.statements);
-  assert.equal((html.match(/<figure /g)||[]).length,article.stats.figures);
+  assert.equal((html.match(/<figure(?![^>]*class="article-table") /g)||[]).length,article.stats.figures);
   assert(html.includes('Exhaustive verification of the literal proof steps is still in progress'), 'Verification boundary missing');
-  assert(html.includes('href="#article-eq-nu-def"'), 'Original notation is not clickable');
+  assert(html.includes('href="#article-eq-nu'), 'Original notation is not clickable');
   assert.equal(Object.keys(data.evidence).length,article.declarations.length);
   assert.equal(data.source,fs.readFileSync(path.join(directory,'original.tex'),'utf8'));
 }

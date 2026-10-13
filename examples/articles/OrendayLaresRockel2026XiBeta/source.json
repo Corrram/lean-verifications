@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "paperId": "OrendayLaresRockel2026XiBeta",
+  "arxiv": "2606.30033v2",
+  "sourceURL": "https://arxiv.org/src/2606.30033v2",
+  "archiveSha256": "6a144353c599ea79859eb56b4d9cb82127a9d56947be80137881f67c7e147162",
+  "files": {
+    "00README.json": "688f2711df19a00f60b763a414a3576a16924a4c9f3008d667c8af8caa1954af",
+    "figs/xi-beta-singular-copulas.png": "b81ce77d947cb863770c445c00d194b4c73df62e1253e5a5582659ba4fc718ad",
+    "figs/xi-beta-boundary-copulas.png": "65b7d8ae8c82ce6677781131fb0d54734749fcd646cf589196e955fef52fa611",
+    "figs/xi-beta-subclasses.png": "39ea4ae21078a61d88dfdbce50f02a3623ca3c2c6b3fdf9cec22676e8a827d36",
+    "xi-beta-region.bbl": "ac4a0e8b6b0ab78f7968afff388569ad79adcba67581bd36643f52d9b6f7cdb7",
+    "xi-beta-region.tex": "d7e4336fa48c21ad0ab91600f0f9c824855176079ee9e7dd0b984f4978464c48"
+  },
+  "sourceDiscrepancies": []
+}

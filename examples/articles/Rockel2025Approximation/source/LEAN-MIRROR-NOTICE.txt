@@ -1,0 +1,7 @@
+Original article: Measures of association for approximating copulas
+Authors: Marcus Rockel
+Exact source: https://arxiv.org/src/2505.08045v2
+
+Imported at the author's request. Manuscript copyright and licensing remain unchanged.
+The software license does not relicense this article. Source files are unmodified.
+This import is provenance, not a claim that the original statements or proofs are correct.

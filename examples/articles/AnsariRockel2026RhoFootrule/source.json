@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "paperId": "AnsariRockel2026RhoFootrule",
+  "arxiv": "2608.20176v1",
+  "sourceURL": "https://arxiv.org/src/2608.20176v1",
+  "archiveSha256": "4f89aacc76e76d34fa20716603485d10e301714d2511e631ce9961fb7a06d9a5",
+  "files": {
+    "00README.json": "fa345f670b5349292db6a921b7bdc45fe8730c8a0ab2ffc3d7e95c742637044f",
+    "figures/bertino_copulas.png": "df2a3badf0531e01a7e80b3c5c2bde4f5a8e04bbfb663ccce145d0c0756dcf3a",
+    "figures/region.png": "160c30c4c68b9c5d678fcb2287096ed5402b4310cf05245e4e073f1c19cd7eea",
+    "figures/zoom.png": "2daab81ba504ffbdd28f65d1363bde30186a51a2ea696dfa4e19d61eab4d3960",
+    "figures/eta_lower_construction.png": "0558473a8dd4a9a987fbfa9d7074eb9aecc99aa93d7e9e8c0ec30b2994064dc0",
+    "figures/eta_upper_construction.png": "bdfc5fd08d588da8e3c8357ce4c627b25947ced0b5012c09a135827e94178a8d",
+    "figures/construction.png": "593fb5f9e5e2a78cfb826ba3c3ba0ad04ba1da7f2badaddeddea92932b75fb0d",
+    "figures/copulas.png": "943d2aba674c36b9a9a6f6993e0fd4cd5b95a14b67b96a574a288f5024ab090f",
+    "figures/xi_rank_sobol_bounds.png": "0c9e5ea9c31d408ff322e698a1912d78a0ca6c99a84e1a5d9917d0a82bc39a27",
+    "Spearman_arXiv.bib": "67a21e6c3a8c815c1b5728bee151ab64eda7868ae1f676b97ca0790cd5fe8595",
+    "Spearman_arXiv.tex": "95e50d5992bc8a8756dce39c5299212e92706679c3503064cffa94a4fd67f87e"
+  },
+  "sourceDiscrepancies": []
+}

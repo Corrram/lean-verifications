@@ -46,6 +46,8 @@ jobs:
           python scripts/lean_mirror.py --check
           python scripts/lean_mirror_article.py --check
           python scripts/test_paper_source.py
+          python scripts/test_article_sources.py
+          python scripts/check_article_sources.py
       - name: Fetch the pinned documentation dependencies
         # Clone sources before restoring their .lake directories, otherwise
         # Lake treats a cache-only directory as an invalid Git checkout.

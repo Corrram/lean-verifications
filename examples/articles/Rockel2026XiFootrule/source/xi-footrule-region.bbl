@@ -1,0 +1,170 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ansari and Fuchs(2022)]{ansarifuchs2022asimpleextension}
+Jonathan Ansari and Sebastian Fuchs.
+\newblock A simple extension of azadkia and chatterjee's rank correlation to a
+  vector of endogenous variables.
+\newblock \emph{arXiv preprint arXiv:2212.01621}, 2022.
+
+\bibitem[Ansari and Fuchs(2025)]{ansari2025continuity}
+Jonathan Ansari and Sebastian Fuchs.
+\newblock On continuity of chatterjee's rank correlation and related dependence
+  measures.
+\newblock \emph{arXiv preprint arXiv:2503.11390}, 2025.
+
+\bibitem[Ansari and Rockel(2024)]{ansari2023dependence}
+Jonathan Ansari and Marcus Rockel.
+\newblock Dependence properties of bivariate copula families.
+\newblock \emph{Depend. Model.}, 12:\penalty0 36, 2024.
+
+\bibitem[Ansari and Rockel(2025)]{ansari2025exact}
+Jonathan Ansari and Marcus Rockel.
+\newblock The exact region and an inequality between chatterjee's and
+  spearman's rank correlations.
+\newblock \emph{arXiv preprint arXiv:2506.15897}, 2025.
+
+\bibitem[Bonnans and Shapiro(2000)]{bonnans2013perturbation}
+J.~Fr{\'e}d{\'e}ric Bonnans and Alexander Shapiro.
+\newblock \emph{Perturbation Analysis of Optimization Problems}.
+\newblock Springer Ser. Oper. Res. New York, NY: Springer, 2000.
+
+\bibitem[Bukov{\v{s}}ek and Moj{\v{s}}kerc(2022)]{kokol2022exact}
+Damjana~Kokol Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock On the exact region determined by {Spearman}'s footrule and {Gini}'s
+  gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 410:\penalty0 13, 2022.
+\newblock Id/No 114212.
+
+\bibitem[Chatterjee(2021)]{chatterjee2020}
+Sourav Chatterjee.
+\newblock A new coefficient of correlation.
+\newblock \emph{J. Amer. Statist. Assoc.}, 116\penalty0 (536):\penalty0
+  2009--2022, 2021.
+
+\bibitem[Darsow et~al.()Darsow, Nguyen, and Olsen]{darsow1992copulas}
+William~F. Darsow, Bao Nguyen, and Elwood~T. Olsen.
+\newblock Copulas and {Markov} processes.
+\newblock \emph{Ill. J. Math.}, 36\penalty0 (4):\penalty0 600--642.
+
+\bibitem[Dette et~al.(2013)Dette, Siburg, and Stoimenov]{dette2013copula}
+Holger Dette, Karl~F. Siburg, and Pavel~A. Stoimenov.
+\newblock A copula-based non-parametric measure of regression dependence.
+\newblock \emph{Scand. J. Stat.}, 40\penalty0 (1):\penalty0 21--41, 2013.
+
+\bibitem[Durante and Fern{\'a}ndez~S{\'a}nchez(2012)]{durante2012approximation}
+Fabrizio Durante and Juan Fern{\'a}ndez~S{\'a}nchez.
+\newblock On the approximation of copulas via shuffles of {Min}.
+\newblock \emph{Statist. Probab. Lett.}, 82\penalty0 (10):\penalty0 1761--1767,
+  2012.
+
+\bibitem[{Durante} and {Sempi}(2016)]{Durante-2016}
+Fabrizio {Durante} and Carlo {Sempi}.
+\newblock \emph{{Principles of Copula Theory}}.
+\newblock Boca Raton, FL: CRC Press, 2016.
+
+\bibitem[Fuchs(2024)]{fuchs2024quantifying}
+Sebastian Fuchs.
+\newblock Quantifying directed dependence via dimension reduction.
+\newblock \emph{J. Multivariate Anal.}, 201:\penalty0 21, 2024.
+
+\bibitem[Fuchs and Mccord(2019)]{fuchs2019lower}
+Sebastian Fuchs and Yann Mccord.
+\newblock On the lower bound of {Spearman}'s footrule.
+\newblock \emph{Depend. Model.}, 7:\penalty0 126--132, 2019.
+
+\bibitem[Fuchs et~al.(2025)Fuchs, Limbach, and Sch{\"u}rrer]{fuchs2025exact}
+Sebastian Fuchs, Carsten Limbach, and Fabian Sch{\"u}rrer.
+\newblock On exact regions between measures of concordance and chatterjee's
+  rank correlation for lower semilinear copulas.
+\newblock \emph{arXiv preprint arXiv:2507.23316}, 2025.
+
+\bibitem[Genest et~al.(2010)Genest, Ne{\v{s}}lehov{\'a}, and
+  Ben~Ghorbal]{genest2010spearman}
+Christian Genest, Johanna Ne{\v{s}}lehov{\'a}, and Noomen Ben~Ghorbal.
+\newblock Spearman's footrule and {Gini}'s gamma: a review with complements.
+\newblock \emph{J. Nonparametr. Stat.}, 22\penalty0 (8):\penalty0 937--954,
+  2010.
+
+\bibitem[Hewitt and Stromberg(1975)]{hewitt1975real}
+Edwin Hewitt and Karl Stromberg.
+\newblock \emph{Real and abstract analysis. {A} modern treatment of the theory
+  of functions of a real variable. 3rd printing}, volume~25 of \emph{Grad.
+  Texts Math.}
+\newblock Springer, Cham, 1975.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2023)]{bukovvsek2023exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact regions determined by {Kendall}'s tau and other
+  concordance measures.
+\newblock \emph{Mediterr. J. Math.}, 20\penalty0 (3):\penalty0 16, 2023.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2024)]{bukovvsek2024exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact region determined by {Spearman}'s rho and {Spearman}'s
+  footrule.
+\newblock \emph{J. Comput. Appl. Math.}, 437:\penalty0 23, 2024.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2021)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc, and Omladi{\v{c}}]{kokol2021exact}
+Damjana Kokol~Bukov{\v{s}}ek, Toma{\v{z}} Ko{\v{s}}ir, Bla{\v{z}}
+  Moj{\v{s}}kerc, and Matja{\v{z}} Omladi{\v{c}}.
+\newblock Spearman's footrule and {Gini}'s gamma: local bounds for bivariate
+  copulas and the exact region with respect to {Blomqvist}'s beta.
+\newblock \emph{J. Comput. Appl. Math.}, 390:\penalty0 24, 2021.
+\newblock Id/No 113385.
+
+\bibitem[Lal(2017)]{lal2017algebra2}
+Ramji Lal.
+\newblock \emph{Algebra 2. {Linear} algebra, {Galois} theory, representation
+  theory, group extensions and {Schur} multiplier}.
+\newblock Infosys Sci. Found. Ser. Singapore: Springer, 2017.
+
+\bibitem[{Nelsen}(2006)]{Nelsen-2006}
+Roger~B. {Nelsen}.
+\newblock \emph{{An Introduction to Copulas. 2nd ed.}}
+\newblock New York, NY: Springer, 2006.
+
+\bibitem[Pe{\v{c}}ari{\'c} et~al.(1992)Pe{\v{c}}ari{\'c}, Proschan, and
+  Tong]{pecaric1992convex}
+Josip~E. Pe{\v{c}}ari{\'c}, Frank Proschan, and Y.~L. Tong.
+\newblock \emph{Convex functions, partial orderings, and statistical
+  applications}, volume 187 of \emph{Math. Sci. Eng.}
+\newblock Boston, MA etc.: Academic Press, 1992.
+
+\bibitem[Rockel(2025)]{rockel2025measures}
+Marcus Rockel.
+\newblock Measures of association for approximating copulas.
+\newblock \emph{arXiv preprint arXiv:2505.08045}, 2025.
+
+\bibitem[Siburg and Strothmann(2021)]{siburg2021stochastic}
+Karl~Friedrich Siburg and Christopher Strothmann.
+\newblock Stochastic monotonicity and the {Markov} product for copulas.
+\newblock \emph{J. Math. Anal. Appl.}, 503\penalty0 (2):\penalty0 14, 2021.
+
+\bibitem[Sklar(1960)]{sklar1959fonctions}
+M.~Sklar.
+\newblock Fonctions de r{\'e}partition {\`a} {{\(n\)}} dimensions et leur
+  marges.
+\newblock \emph{Publ. Inst. Stat. Univ. Paris}, 8:\penalty0 229--231, 1960.
+
+\bibitem[Trutschnig(2011)]{trutschnig2017strong}
+Wolfgang Trutschnig.
+\newblock On a strong metric on the space of copulas and its induced dependence
+  measure.
+\newblock \emph{J. Math. Anal. Appl.}, 384\penalty0 (2):\penalty0 690--705,
+  2011.
+
+\bibitem[Tschimpke et~al.(2025)Tschimpke, Schreyer, and
+  Trutschnig]{tschimpke2025revisiting}
+Marco Tschimpke, Manuela Schreyer, and Wolfgang Trutschnig.
+\newblock Revisiting the region determined by spearman’s $\rho$ and
+  spearman’s footrule $\phi$.
+\newblock \emph{Journal of Computational and Applied Mathematics},
+  457:\penalty0 116259, 2025.
+
+\end{thebibliography}

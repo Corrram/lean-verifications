@@ -1,0 +1,193 @@
+\begin{thebibliography}{30}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ansari and Rockel(2026)]{ansari2026exact}
+Jonathan Ansari and Marcus Rockel.
+\newblock The exact region and an inequality between {Chatterjee}'s and
+  {Spearman}'s rank correlations.
+\newblock \emph{J. Multivariate Anal.}, 214:\penalty0 105630, 2026.
+
+\bibitem[Ansari et~al.(2026)Ansari, Langthaler, Fuchs, and
+  Trutschnig]{Ansari-LFT-2025}
+Jonathan Ansari, Patrick~B. Langthaler, Sebastian Fuchs, and Wolfgang
+  Trutschnig.
+\newblock Quantifying and estimating dependence via sensitivity of conditional
+  distributions.
+\newblock \emph{Bernoulli}, 32\penalty0 (1), 2026.
+
+\bibitem[Auddy et~al.(2024)Auddy, Deb, and Nandy]{auddy2021exact}
+Arnab Auddy, Nabarun Deb, and Sagnik Nandy.
+\newblock Exact detection thresholds and minimax optimality of {Chatterjee}'s
+  correlation coefficient.
+\newblock \emph{Bernoulli}, 30\penalty0 (2):\penalty0 1640--1668, 2024.
+
+\bibitem[Azadkia and Chatterjee(2021)]{chatterjee2021}
+Mona Azadkia and Sourav Chatterjee.
+\newblock A simple measure of conditional dependence.
+\newblock \emph{Ann. Statist.}, 49\penalty0 (6):\penalty0 3070--3102, 2021.
+
+\bibitem[Blomqvist(1950)]{blomqvist1950measure}
+Nils Blomqvist.
+\newblock On a measure of dependence between two random variables.
+\newblock \emph{Ann. Math. Stat.}, 21\penalty0 (4):\penalty0 593--600, 1950.
+
+\bibitem[Chatterjee(2021)]{chatterjee2020}
+Sourav Chatterjee.
+\newblock A new coefficient of correlation.
+\newblock \emph{J. Am. Statist. Assoc.}, 116\penalty0 (536):\penalty0
+  2009--2022, 2021.
+
+\bibitem[Darsow et~al.(1992)Darsow, Nguyen, and Olsen]{darsow1992copulas}
+William~F. Darsow, Bao Nguyen, and Elwood~T. Olsen.
+\newblock Copulas and {Markov} processes.
+\newblock \emph{Illinois J. Math.}, 36\penalty0 (4):\penalty0 600--642, 1992.
+
+\bibitem[Dette et~al.(2013)Dette, Siburg, and Stoimenov]{dette2013copula}
+Holger Dette, Karl~F. Siburg, and Pavel~A. Stoimenov.
+\newblock A copula-based non-parametric measure of regression dependence.
+\newblock \emph{Scand. J. Stat.}, 40\penalty0 (1):\penalty0 21--41, 2013.
+
+\bibitem[{Durante} and {Sempi}(2016)]{durante2016principles}
+Fabrizio {Durante} and Carlo {Sempi}.
+\newblock \emph{{Principles of Copula Theory}}.
+\newblock Boca Raton, FL: CRC Press, 2016.
+
+\bibitem[Fuchs et~al.(2026)Fuchs, Limbach, and Sch{\"u}rrer]{fuchs2025exact}
+Sebastian Fuchs, Carsten Limbach, and Fabian Sch{\"u}rrer.
+\newblock On exact regions between measures of concordance and {Chatterjee}'s
+  rank correlation for lower semilinear copulas.
+\newblock \emph{Int. J. Approx. Reasoning}, 189:\penalty0 109588, 2026.
+
+\bibitem[Huang et~al.(2022)Huang, Deb, and Sen]{deb2020b}
+Zhen Huang, Nabarun Deb, and Bodhisattva Sen.
+\newblock Kernel partial correlation coefficient -- a measure of conditional
+  dependence.
+\newblock \emph{J. Mach. Learn. Res.}, 23:\penalty0 216, 2022.
+
+\bibitem[Karlin(1968)]{karlin1968total}
+Samuel Karlin.
+\newblock \emph{Total Positivity. {Vol}. {I}}.
+\newblock Stanford University Press, Stanford, Calif., 1968.
+
+\bibitem[Karlin and Rinott(1980{\natexlab{a}})]{karlinrinott1980classes}
+Samuel Karlin and Yosef Rinott.
+\newblock Classes of orderings of measures and related correlation
+  inequalities. {I}: Multivariate totally positive distributions.
+\newblock \emph{J. Multivariate Anal.}, 10\penalty0 (4):\penalty0 467--498,
+  1980{\natexlab{a}}.
+
+\bibitem[Karlin and Rinott(1980{\natexlab{b}})]{karlinrinott1980reverse}
+Samuel Karlin and Yosef Rinott.
+\newblock Classes of orderings of measures and related correlation
+  inequalities. {II}: Multivariate reverse rule distributions.
+\newblock \emph{J. Multivariate Anal.}, 10\penalty0 (4):\penalty0 499--516,
+  1980{\natexlab{b}}.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Moj{\v{s}}kerc(2022)]{bukovvsek2022exact}
+Damjana Kokol~Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock On the exact region determined by {Spearman}'s footrule and {Gini}'s
+  gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 410:\penalty0 114212, 2022.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Moj{\v{s}}kerc(2026)]{bukovvsek2025exact}
+Damjana Kokol~Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock The exact region determined by {Blomqvist}'s beta, {Spearman}'s
+  footrule and {Gini}'s gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 473:\penalty0 116861, 2026.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2023)]{bukovvsek2023exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact regions determined by {Kendall}'s tau and other
+  concordance measures.
+\newblock \emph{Mediterr. J. Math.}, 20\penalty0 (3):\penalty0 147, 2023.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2024)]{bukovvsek2024exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact region determined by {Spearman}'s rho and {Spearman}'s
+  footrule.
+\newblock \emph{J. Comput. Appl. Math.}, 437:\penalty0 115463, 2024.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2019)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc, and Omladi{\v{c}}]{kokolbukovsek2019relation}
+Damjana Kokol~Bukov{\v{s}}ek, Toma{\v{z}} Ko{\v{s}}ir, Bla{\v{z}}
+  Moj{\v{s}}kerc, and Matja{\v{z}} Omladi{\v{c}}.
+\newblock Relation between {Blomqvist}'s beta and other measures of concordance
+  of copulas.
+\newblock Preprint, arXiv:1911.03467, 2019.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2021)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc, and Omladi{\v{c}}]{bukovvsek2021exact}
+Damjana Kokol~Bukov{\v{s}}ek, Toma{\v{z}} Ko{\v{s}}ir, Bla{\v{z}}
+  Moj{\v{s}}kerc, and Matja{\v{z}} Omladi{\v{c}}.
+\newblock Spearman's footrule and {Gini}'s gamma: local bounds for bivariate
+  copulas and the exact region with respect to {Blomqvist}'s beta.
+\newblock \emph{J. Comput. Appl. Math.}, 390:\penalty0 113385, 2021.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2026)Kokol~Bukov{\v{s}}ek, Lazi{\'c},
+  Moj{\v{s}}kerc, and Stopar]{kokolbukovsek2026footrule}
+Damjana Kokol~Bukov{\v{s}}ek, Petra Lazi{\'c}, Bla{\v{z}} Moj{\v{s}}kerc, and
+  Nik Stopar.
+\newblock The exact region determined by {Spearman}'s footrule, {Gini}'s gamma
+  and {Kendall}'s tau.
+\newblock \emph{J. Comput. Appl. Math.}, 486:\penalty0 117639, 2026.
+
+\bibitem[Lehmann(1966)]{lehmann1966concepts}
+E.~L. Lehmann.
+\newblock Some concepts of dependence.
+\newblock \emph{Ann. Math. Stat.}, 37\penalty0 (5):\penalty0 1137--1153, 1966.
+
+\bibitem[{Nelsen}(2006)]{nelsen2006introduction}
+Roger~B. {Nelsen}.
+\newblock \emph{{An Introduction to Copulas. 2nd ed.}}
+\newblock New York, NY: Springer, 2006.
+
+\bibitem[Orenday~Lares and Rockel(2026)]{orenday2026taufootrulebeta}
+Jacob~Israel Orenday~Lares and Marcus Rockel.
+\newblock The exact region determined by {Kendall}'s tau, {Spearman}'s footrule
+  and {Blomqvist}'s beta.
+\newblock Preprint, arXiv:2607.12841, 2026.
+
+\bibitem[Rockel(2026{\natexlab{a}})]{rockel2026blest}
+Marcus Rockel.
+\newblock The exact region between {Chatterjee}'s and {Blest}'s rank
+  correlations.
+\newblock \emph{Int. J. Approx. Reasoning}, 197:\penalty0 109744,
+  2026{\natexlab{a}}.
+
+\bibitem[Rockel(2026{\natexlab{b}})]{rockel2026exact}
+Marcus Rockel.
+\newblock On the exact region between {Chatterjee}'s rank correlation and
+  {Spearman}'s footrule.
+\newblock \emph{J. Comput. Appl. Math.}, 485:\penalty0 117466,
+  2026{\natexlab{b}}.
+
+\bibitem[Rockel(2026{\natexlab{c}})]{rockel2026kendall}
+Marcus Rockel.
+\newblock Kendall and {Spearman} bounds for {Chatterjee}'s rank correlation
+  under positive dependence.
+\newblock Preprint, arXiv:2606.22074, 2026{\natexlab{c}}.
+
+\bibitem[Schreyer et~al.(2017)Schreyer, Paulin, and
+  Trutschnig]{schreyer2017exact}
+Manuela Schreyer, Roland Paulin, and Wolfgang Trutschnig.
+\newblock On the exact region determined by {Kendall}'s {{\(\tau\)}} and
+  {Spearman}'s {{\(\rho\)}}.
+\newblock \emph{J. R. Stat. Soc., Ser. B, Stat. Methodol.}, 79\penalty0
+  (2):\penalty0 613--633, 2017.
+
+\bibitem[Shi et~al.(2022)Shi, Drton, and Han]{shi2022power}
+H.~Shi, M.~Drton, and F.~Han.
+\newblock On the power of {Chatterjee}'s rank correlation.
+\newblock \emph{Biometrika}, 109\penalty0 (2):\penalty0 317--333, 2022.
+
+\bibitem[Sklar(1959)]{sklar1959fonctions}
+Abe Sklar.
+\newblock Fonctions de r{\'e}partition {\`a} {{\(n\)}} dimensions et leurs
+  marges.
+\newblock \emph{Publ. Inst. Stat. Univ. Paris}, 8:\penalty0 229--231, 1959.
+
+\end{thebibliography}

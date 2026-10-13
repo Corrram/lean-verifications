@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "paperId": "AnsariRockel2024",
+  "arxiv": "2310.17307v3",
+  "sourceURL": "https://arxiv.org/src/2310.17307v3",
+  "archiveSha256": "dbc6c6b7f86350507126fc0fd52853ca9ad527ae129ba5e00d4fe9d541b91d7e",
+  "files": {
+    "dep_mod_arxiv.tex": "cd27f964ed4e07ce6472595b4fe48623ca36f66d858e7871638473eb379731a2",
+    "images/BB5_pickand.png": "abb22df00d54cbf2b4a2e62c1948ad738c8916ea033b1bdced0b96b75e407e7a",
+    "images/chatterjee/arch/AliMikhailHaq.png": "0bc0469aa1d40cf75ac00d242b56e203b0096b38743cc387a49428ba706c9df7",
+    "images/chatterjee/arch/Clayton.png": "08d683ae5b1951749f5ad22ef51a3f7fc99b359208c01be4755afb213c446adc",
+    "images/chatterjee/arch/Frank.png": "79e387e9cb2d46e0c19407b3f0d0b12f88ea352b6a43ed6aace93bdd0adbb0a0",
+    "images/chatterjee/arch/GenestGhoudi.png": "f4af7afe52683340655ae440b0e562b37c5fb3dd8ac0e810c55fe523e1c6ecc0",
+    "images/chatterjee/arch/GumbelBarnett.png": "dce2be20c036c9c7a34ff0db740a8d8dbb5587e31833f883772cdaf147eb7453",
+    "images/chatterjee/arch/GumbelHougaard.png": "52b183f0a2e3dc9bbe49d5ad7f9f352846b621c306fec10616c0b4e8d7081a1c",
+    "images/chatterjee/arch/Joe.png": "4515bef45c77d25e5484c3145ebaf792732d337a32162fffd66479a19562fbdc",
+    "images/chatterjee/arch/Nelsen10.png": "385dc62570a0980b563f0b18515e5d14bf5b1d36d939e5d53f052360da771bc7",
+    "images/chatterjee/arch/Nelsen11.png": "fc852b00b82a11b95de5013b84a003db207e876259f6d7e7846b808fd49389bb",
+    "images/chatterjee/arch/Nelsen12.png": "a627d0233702a874ad8da0dca1f8be4d1b20edf4b8faae48cde5217d2aab0be3",
+    "images/chatterjee/arch/Nelsen13.png": "99da4aec0496bfa341fefe4bb5a8b74a0220f5a6e82e8319b9f7680c1e32b48d",
+    "images/chatterjee/arch/Nelsen14.png": "803353c57393ccf59b0cc2ed1f4dfb52666783112ede696a0498cdfec2fc1032",
+    "images/chatterjee/arch/Nelsen16.png": "a5df46382d395d49ca87272de0496098505882915d7a8f296f335370a8a07200",
+    "images/chatterjee/arch/Nelsen17.png": "72f079de41fdc6fff6c12f5a6c6394c3b0cbff3d3b7df92d3d1b50046c54b9eb",
+    "images/chatterjee/arch/Nelsen18.png": "27bc59905f73422bf7fb9c6131eedeea796b68914188bdb67f3d89d32dde60e2",
+    "images/chatterjee/arch/Nelsen19.png": "1717ffd2a9f79f867473bd94383e533f1dfff8cb226e138a398ec0e72e1f0dc8",
+    "images/chatterjee/arch/Nelsen2.png": "04a6fa8defd788ac1036aabb94d397dacffb5462d4f20a66ef70adde68b048b3",
+    "images/chatterjee/arch/Nelsen20.png": "882ffdc710dc13012116c8ba2ced5622ee428950d2ef285783d1c578084eaa77",
+    "images/chatterjee/arch/Nelsen21.png": "f4ef31a8c0e2150f0c83dcaada6993612a730ead961918d012fdc1c2b6fb42dc",
+    "images/chatterjee/arch/Nelsen22.png": "5ca6db4c553710b84916dbbab899a02a641ab6b22f46335fb014228249a84e53",
+    "images/chatterjee/arch/Nelsen7.png": "28a9ab06392daf050a3225aaf3a119670a49cb6d64f4b8e9f25f5e92b445959f",
+    "images/chatterjee/arch/Nelsen8.png": "a4754613073764ac17267bcafe58cc521537d1345eb8a10e3c1f802b3b6efc00",
+    "images/chatterjee/ell/Gaussian.png": "e7758c79790c80696894e43f8b2238d1e9160880061fa933f72786a213478670",
+    "images/chatterjee/ell/Laplace.png": "9048cee7ffaaf796632e7d8af70b611d6a1701176d1863aef3540f3ad4fc8798",
+    "images/chatterjee/ell/StudentT.png": "1167b0e58b96eb7fef0a720db669cd134ef6d857259bfef862ac94569d6d6b2b",
+    "images/chatterjee/ell/StudentT_xi.png": "793ec4cf3adb80f9b95e5a3c3334e2a13bd3a90d18b9b90978b78ad54c1d6eb9",
+    "images/chatterjee/ev/BB5.png": "eedaed4690d184782465b6699c4dc9844a9c829efba986ffb4a6ff79076bdcd2",
+    "images/chatterjee/ev/BB5_xi.png": "5179299be47395d6c0635ab01abb4717dd8dc5e1156b98b72d412e0cca711fe5",
+    "images/chatterjee/ev/CuadrasAuge.png": "e4412559d4a0476d9ad8630bee03c7fa6cf89ebc143deb95abbdcaa28bcaa73f",
+    "images/chatterjee/ev/Galambos.png": "e52395d8122c9e52f3208fd7740b2191c361eb0b46c0ec236caa52cceec4ee76",
+    "images/chatterjee/ev/GumbelHougaard.png": "f65dfb1b6854f9f9f2b5463fac7c4796bcb01b51e91d647ebb3c58e702283855",
+    "images/chatterjee/ev/HueslerReiss.png": "8dc15bba1d9e50993af597d165c14d0b1c899127844c7c0f0f31c3efce5c0f4f",
+    "images/chatterjee/ev/JoeEV.png": "46bcad2a27602483592fcc1075cf9c4499719c00fe55968b0c2bce53e53b1589",
+    "images/chatterjee/ev/JoeEV_xi.png": "27f4a8477fdc310eb706032547d71dcd1815f9bd9f5c2fcfbc66bbdd55de6781",
+    "images/chatterjee/ev/MarshallOlkin.png": "ba714f52501ce1ca220c379de336ddf9b3263ef052010c8cc9d152b2f379dd5e",
+    "images/chatterjee/ev/MarshallOlkin_xi.png": "e7f6aa945c57ca36322428f0e460a98d3bb08245a1329d2dda3b47752d8c54f0",
+    "images/chatterjee/ev/Tawn.png": "4166d58e7d330d42d85c3abf2e6491a273dc66ca61b844f5cb18c1fe24962a2f",
+    "images/chatterjee/ev/Tawn_xi.png": "2bfd4b2db2f15aa5d004df9a5801c0c3043ea620fcd8cdc42e41980682300702",
+    "images/chatterjee/ev/tEV.png": "58349ebc066608809ea65f44a0b6438347aac492a80ba37fb1b90fd4bfc22cdc",
+    "images/chatterjee/unclassified/FarlieGumbelMorgenstern.png": "ee2767b1b77696dfdeb94f779f8d148e03813bcff0fc7af4294765700ff5ce2e",
+    "images/chatterjee/unclassified/Frechet.png": "b49c994b4fd147964b38601ba1b362f7aa47f72314ae5751c59b70c6e61b0f9b",
+    "images/chatterjee/unclassified/Frechet_xi.png": "0bd71696a561ff8272e4c87f0f09a7cdd2b11d02005ed608e697463494b16c13",
+    "images/chatterjee/unclassified/Mardia.png": "6d057affdd9dc0d82950ba3899ffd80e59fa0ea41f7f99eb8e53b272ee48a873",
+    "images/chatterjee/unclassified/Plackett.png": "137941b3932a0424a6ac3cbd8586aa74fb5a8086dac5e4c5b5a80e28d26864f6",
+    "images/chatterjee/unclassified/Raftery.png": "46a0de8740ba3d0514753f33be87076029bb2dd1121a913f80eb0aa6797762fe",
+    "images/cond_distr/Gaussian_mixed.png": "6d5e5428075dbd6ea002bd54ddb352dd96b4e75b7d6b8a22ce73f3e814439bb2",
+    "images/cond_distr/Gaussian_mixed_r.png": "8ede81a52d0188fcf534e0f647ebf20a7d18ddaf39b4ad85f0ccc4e37e7fa84b",
+    "images/cond_distr/StudentT_mixed.png": "6c2cee8f2dd6cb209338254f0ac08cbe4c61feb6bd359275e8406d04ff5d85bf",
+    "images/cond_distr/StudentT_mixed_r.png": "429bdd889ebc8c12be09d414251f4357afc93f0550ead7dd9c98777394636891",
+    "images/JoeEV_pickand.png": "4347f221806d56cd48ea71dc1463a16c170b978cd2a9a76211520018e3312ae6"
+  },
+  "sourceDiscrepancies": [
+    {
+      "version": "arXiv v3 Appendix A.4.1/equation (23); published DOI 10.1515/demo-2024-0002 Appendix A.4.1/equation (A7)",
+      "unverified_claim": "The Appendix A.4.1 Fréchet parameter constraint and equation (23) Mardia W weight yield the intended copula mixtures.",
+      "evidence": "The printed Fréchet inequality is reversed and the Mardia W weight can be negative; the literal parameterizations are excluded from the Lean constructors.",
+      "verified_instead": "Theorems use the valid Fréchet simplex and nonnegative Mardia W weight."
+    },
+    {
+      "version": "arXiv v3 and published DOI 10.1515/demo-2024-0002, Table 5 and Appendix A.4.2",
+      "unverified_claim": "Increasing the W weight increases the Fréchet copula in lower orthant order.",
+      "evidence": "Lean gives an explicit independence-to-W counterexample to that direction.",
+      "verified_instead": "The proved order increases with M weight and decreases with W weight."
+    },
+    {
+      "version": "arXiv v3 and published DOI 10.1515/demo-2024-0002, Table 5 and Appendix A.4.1",
+      "unverified_claim": "The printed Mardia CI/CD endpoint classifications omit independence, and singular endpoints have a Lebesgue TP2 density.",
+      "evidence": "Lean proves the missing theta=0 CI/CD cases and shows every nonzero M or W weight has a singular component.",
+      "verified_instead": "The corrected CI/CD classifications include theta=0; a TP2 Lebesgue density exists only at independence."
+    },
+    {
+      "version": "arXiv:2310.17307v3, Table 3; journal correspondence for this cell not checked",
+      "unverified_claim": "The Ali–Mikhail–Haq lower-tail coefficient is zero also at theta=1.",
+      "evidence": "Lean proves the theta=1 copula is Clayton(1) and its lower-tail coefficient is 1/2.",
+      "verified_instead": "The lower-tail coefficient is zero for -1<=theta<1 and 1/2 at theta=1; the upper-tail coefficient is always zero."
+    },
+    {
+      "version": "arXiv:2310.17307v3, Table 6; journal correspondence for this cell not checked",
+      "unverified_claim": "Plackett rho has logarithmic term 4*theta*log(theta)/(theta-1)^2.",
+      "evidence": "Lean integrates the actual CDF and refutes the printed formula at theta=2.",
+      "verified_instead": "The logarithmic term is 2*theta*log(theta)/(theta-1)^2 for theta>0, theta!=1; at theta=1 rho=0."
+    },
+    {
+      "version": "arXiv:2310.17307v3, Tables 1, 4-5 and Appendix A.4.1; corresponding journal cells not checked",
+      "unverified_claim": "The printed Raftery CDF is a copula, no Raftery parameter has a density, its non-independent members lack TP2 density, and its upper tail is zero throughout the closed parameter interval.",
+      "evidence": "The printed CDF is below the lower Frechet bound at delta=1/2, u=v=7/8. Independence has a TP2 density; comonotonicity has upper tail one.",
+      "verified_instead": "The literal CDF is formally refuted. An actual copula construction verifies the CDF with the missing factor 1/(1+delta) restored and verifies the stated endpoint identities. Absolute continuity and TP2 density hold exactly for delta<1; a non-independent delta=1/2 member refutes the printed exclusion. CI and PQD hold throughout [0,1], and CD/NQD hold only at zero."
+    },
+    {
+      "version": "arXiv:2310.17307v3, Table 6, PDF page 19 and HTML; journal cell not checked",
+      "unverified_claim": "The printed Gaussian xi expression has a real arcsine argument on the full signed correlation range.",
+      "evidence": "Its literal argument 1/2+r^2/(1+r) exceeds one throughout -1<r<-1/2 and equals 11/4 at r=-3/4, an admissible Gaussian correlation.",
+      "verified_instead": "The domain failure is formally checked. Moreover, the literal formula is refuted at the admissible pair r=+/-1/2 by its unequal values, contradicting the proved evenness of actual Gaussian xi. Both arcsine arguments are within [-1,1]. The corrected formula (3/pi)*arcsin((1+r^2)/2)-1/2 is proved for every r in [-1,1]."
+    },
+    {
+      "version": "arXiv:2310.17307v3, Appendix A.3.3; journal passage not checked",
+      "unverified_claim": "Both Gaussian tail coefficients are one at both signed singular correlations.",
+      "evidence": "At r=-1 the actual Gaussian copula is countermonotonic, and both checked tail limits are zero.",
+      "verified_instead": "Both coefficients are zero for -1<=r<1 and one at r=1. Uniqueness of limits formally excludes the printed value at r=-1."
+    },
+    {
+      "version": "arXiv v3 HTML Table 1; PDF and journal cell unchecked",
+      "unverified_claim": "The printed Student-t density with correlation rho in the dimension slots agrees pointwise with the actual standard bivariate density.",
+      "evidence": "At rho=0, nu=2 and the origin, the literal printed expression is 1, whereas the proved actual density is 1/(2*pi)<1. Lean refutes the universal pointwise formula.",
+      "verified_instead": "The actual joint law has the standard dimension-two density with exponent -(nu+2)/2 and normalizing factor 1/(2*pi*sqrt(1-rho^2))."
+    },
+    {
+      "version": "arXiv v3 Table 4 (t-EV row)",
+      "unverified_claim": "The t-EV copula tends to a Husler-Reiss copula as nu tends to infinity (fixed rho).",
+      "evidence": "For fixed rho in (-1,1) the Lean proof gives the independence limit, and every Husler-Reiss member with delta>0 differs from independence (tEV_printed_infinity_limit_false).",
+      "verified_instead": "tEV_limit_infinity (independence) and tEV_limit_zero (Marshall-Olkin with weight 1/2+arcsin(rho)/pi)."
+    },
+    {
+      "version": "arXiv v3 Table 5 (Tawn and Joe-EV TP2 cells)",
+      "unverified_claim": "Every non-independent Tawn / Joe-EV copula lacks a TP2 density (numerical).",
+      "evidence": "The unit-weight Tawn subfamily is Gumbel and has a TP2 density; the unit-weight Joe-EV subfamily is Galambos, whose TP2 status the paper marks unknown.",
+      "verified_instead": "Explicit non-TP2 members (tawn_witness_not_mtp2, joeExtremeValue_witness_not_mtp2, tEV_witness_not_mtp2) and the Gumbel TP2 correction."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+   "sources" : [
+      {
+         "usage" : "toplevel",
+         "filename" : "rho-gamma.tex"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "figures/rho_gamma_extremizers.pdf"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "figures/rho_gamma_region.pdf"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "references.bib"
+      }
+   ],
+   "spec_version" : 1,
+   "texlive_version" : "2025",
+   "process" : {
+      "compiler" : "pdflatex"
+   }
+}

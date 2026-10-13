@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "paperId": "Rockel2025Approximation",
+  "arxiv": "2505.08045v2",
+  "sourceURL": "https://arxiv.org/src/2505.08045v2",
+  "archiveSha256": "42e4a492f03d00ebd917a61b69cf56a78e6e17a339eae703e2358aef69f40ddb",
+  "files": {
+    "00README.json": "561210b64f94011ee206b69e818b13cfe93880575fe9946a7014945bd4020899",
+    "approximating_copulas.tex": "aac7ba70160539d3bdbdad8c9c333f00b30ce03d2454342217fecb4301e4830e",
+    "images/biv_check_min_example.png": "897e85ccb4579b1d2960c58ea10d5ab2cbf96c0eca44f31ad5a63f40714de2ce",
+    "images/biv_check_pi_example.png": "0d64c6c3aeb9f94ecee7129ae9d69f4dc9699bbc1f25f5ac846fa9cd6003aa7a",
+    "images/biv_check_w_example.png": "16fb1f4d1e26c5e794af6bcfc82cbe0a4abde7a15b557025cc124531da486338",
+    "images/clayton_2_bernstein_20_pdf.png": "02813f075f548c9ccf1c07531ef5776c3254228bcfe771c08dc5706900ec63c6",
+    "images/clayton_2_pdf.png": "d93a039ba06a11e7bae7c53a5939e67953e7302b0ecb3257214b3a0e8082acec",
+    "images/clayton_checkerboard.png": "0eb00b27ccd6471504acf5e9b0c0e5241029dd9b788979b0a7cf6c73e98a69b5",
+    "images/clayton_check_min.png": "38715fbae2848298b59606ee4b5f90d95b1e4f19b88d037eadc0212a8c070bb0",
+    "images/clayton_check_w.png": "a1f9c1f7772a57453ee8202d2a3622ce256b23d74dcd00ef44970db31e112904",
+    "images/convergence_estimate_seed_42.png": "6ecbe4401c44aa3bcb10f3a6848e504292d6549d68014c889f5acd363939875b",
+    "images/execution_time_scaling_seed_42.png": "8b7cb49eab6c9f86eab586bfbf787bb96c025648313a96ce8eaa091462f45cbc",
+    "images/kappa_sensitivity_seed_42.png": "bc626747121e784ebd417382a7a15d923ef2978f963e22084ce8b16353c7012f",
+    "images/shuffle_of_min_example.png": "79483b8b3a244aa519bbeb58b172e35b1a8fc95a2758054bdedfd91265e693a2",
+    "images/simulation_boxplots.png": "fbbe8a5ab62363646c52e407a2be600e6ad5a941a8b7d91d0b2f810ce0953e9a",
+    "images/simulation_rmse.png": "0dd613856ab924fbc5e27ecd72dfea05d0fc4eefcd654ddeede2f3c7c0df7b07",
+    "images/tp2_checkerboard_proof_densities.png": "87053bfb1848fd80ca73523e6796dcf282ab81bd3c18d629f27ec76120c4b33e",
+    "Literature.bib": "45dc000204ad47049f8822e60d43a1fb23e14f77332c92090bde2a4fc8e34cdb"
+  },
+  "sourceDiscrepancies": []
+}

@@ -1,0 +1,396 @@
+\begin{thebibliography}{51}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Book
+\bibitem[{Agresti(2013)}]{Agresti-2013}
+\bibinfo{author}{Agresti, A.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Categorical data analysis}.
+\newblock Wiley Ser. Probab. Stat.. \bibinfo{edition}{3rd ed.} ed.,
+  \bibinfo{publisher}{Hoboken, NJ: John Wiley \& Sons}.
+%Type = Article
+\bibitem[{Ansari and Fuchs(2025)}]{Ansari-Fuchs-2022}
+\bibinfo{author}{Ansari, J.}, \bibinfo{author}{Fuchs, S.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{A direct extension of {Azadkia} and {Chatterjee's}
+  rank correlation to multi-response vectors}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2212.01621} .
+%Type = Article
+\bibitem[{Ansari and Rockel(2024)}]{Ansari-Rockel-2023}
+\bibinfo{author}{Ansari, J.}, \bibinfo{author}{Rockel, M.},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Dependence properties of bivariate copula families}.
+\newblock \bibinfo{journal}{Depend. Model.} \bibinfo{volume}{12},
+  \bibinfo{pages}{36}.
+%Type = Article
+\bibitem[{Ansari and R{\"u}schendorf(2021)}]{Ansari-Rueschendorf-2021}
+\bibinfo{author}{Ansari, J.}, \bibinfo{author}{R{\"u}schendorf, L.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Sklar’s theorem, copula products, and ordering
+  results in factor models}.
+\newblock \bibinfo{journal}{Depend. Model.} \bibinfo{volume}{9},
+  \bibinfo{pages}{267--306}.
+%Type = Article
+\bibitem[{Auddy et~al.(2024)Auddy, Deb and Nandy}]{auddy2021}
+\bibinfo{author}{Auddy, A.}, \bibinfo{author}{Deb, N.}, \bibinfo{author}{Nandy,
+  S.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Exact detection thresholds and minimax optimality of
+  {Chatterjee}'s correlation coefficient}.
+\newblock \bibinfo{journal}{Bernoulli} \bibinfo{volume}{30},
+  \bibinfo{pages}{1640--1668}.
+%Type = Article
+\bibitem[{Azadkia and Chatterjee(2021)}]{chatterjee2021}
+\bibinfo{author}{Azadkia, M.}, \bibinfo{author}{Chatterjee, S.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{A simple measure of conditional dependence.}
+\newblock \bibinfo{journal}{Ann. Stat.} \bibinfo{volume}{49},
+  \bibinfo{pages}{3070--3102}.
+%Type = Manual
+\bibitem[{Azadkia et~al.(2021)Azadkia, Chatterjee and Matloff}]{FOCI}
+\bibinfo{author}{Azadkia, M.}, \bibinfo{author}{Chatterjee, S.},
+  \bibinfo{author}{Matloff, N.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{FOCI: Feature Ordering by Conditional Independence}.
+\newblock \URLprefix \url{https://CRAN.R-project.org/package=FOCI},
+  \DOIprefix\doi{10.32614/CRAN.package.FOCI}. \bibinfo{note}{r package version
+  0.1.3}.
+%Type = Book
+\bibitem[{Balakrishnan and Lai(2009)}]{Balakrishnan-2009}
+\bibinfo{author}{Balakrishnan, N.}, \bibinfo{author}{Lai, C.D.},
+  \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Continuous Bivariate Distributions}.
+\newblock \bibinfo{edition}{2nd revised ed.} ed., \bibinfo{publisher}{New York,
+  NY: Springer}.
+%Type = Article
+\bibitem[{Bickel(2022)}]{bickel2022}
+\bibinfo{author}{Bickel, P.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Measures of independence and functional dependence.}
+\newblock \bibinfo{journal}{Available at
+  \url{https://arxiv.org/abs/2206.13663v1}} .
+%Type = Book
+\bibitem[{Bonnans and Shapiro(2000)}]{bonnans2013perturbation}
+\bibinfo{author}{Bonnans, J.F.}, \bibinfo{author}{Shapiro, A.},
+  \bibinfo{year}{2000}.
+\newblock \bibinfo{title}{Perturbation Analysis of Optimization Problems}.
+\newblock Springer Ser. Oper. Res., \bibinfo{publisher}{New York, NY:
+  Springer}.
+%Type = Article
+\bibitem[{Bukov{\v{s}}ek and Moj{\v{s}}kerc(2022)}]{Bukovsek-2022}
+\bibinfo{author}{Bukov{\v{s}}ek, D.K.}, \bibinfo{author}{Moj{\v{s}}kerc, B.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{On the exact region determined by {Spearman}'s
+  footrule and {Gini}'s gamma}.
+\newblock \bibinfo{journal}{J. Comput. Appl. Math.} \bibinfo{volume}{410},
+  \bibinfo{pages}{13}.
+%Type = Article
+\bibitem[{Cao and Bickel(2022)}]{bickel2020}
+\bibinfo{author}{Cao, S.}, \bibinfo{author}{Bickel, P.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Correlations with tailored extremal properties.}
+\newblock \bibinfo{journal}{Available at
+  \url{https://arxiv.org/abs/2008.10177v2}} .
+%Type = Article
+\bibitem[{Chatterjee(2021)}]{chatterjee2020}
+\bibinfo{author}{Chatterjee, S.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{A new coefficient of correlation}.
+\newblock \bibinfo{journal}{J. Am. Stat. Assoc.} \bibinfo{volume}{116},
+  \bibinfo{pages}{2009--2022}.
+%Type = Incollection
+\bibitem[{Chatterjee(2024)}]{Chatterjee-2024}
+\bibinfo{author}{Chatterjee, S.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{A survey of some recent developments in measures of
+  association}, in: \bibinfo{booktitle}{Probability and Stochastic Processes. A
+  volume in honour of Rajeeva L. Karandikar}. \bibinfo{publisher}{Singpore:
+  Springer}, pp. \bibinfo{pages}{109--128}.
+%Type = Article
+\bibitem[{Cooke and Waij(1986)}]{cooke1986monte}
+\bibinfo{author}{Cooke, R.M.}, \bibinfo{author}{Waij, R.},
+  \bibinfo{year}{1986}.
+\newblock \bibinfo{title}{Monte carlo sampling for generalized knowledge
+  dependence with application to human reliability}.
+\newblock \bibinfo{journal}{Risk Analysis} \bibinfo{volume}{6},
+  \bibinfo{pages}{335--343}.
+%Type = Article
+\bibitem[{Dette et~al.(2013)Dette, Siburg and Stoimenov}]{dette2013copula}
+\bibinfo{author}{Dette, H.}, \bibinfo{author}{Siburg, K.F.},
+  \bibinfo{author}{Stoimenov, P.A.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{A copula-based non-parametric measure of regression
+  dependence}.
+\newblock \bibinfo{journal}{Scand. J. Stat.} \bibinfo{volume}{40},
+  \bibinfo{pages}{21--41}.
+%Type = Book
+\bibitem[{{Durante} and {Sempi}(2016)}]{Durante-2016}
+\bibinfo{author}{{Durante}, F.}, \bibinfo{author}{{Sempi}, C.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{{Principles of Copula Theory}}.
+\newblock \bibinfo{publisher}{Boca Raton, FL: CRC Press}.
+%Type = Article
+\bibitem[{Durbin and Stuart(1951)}]{Durbin-Stuart-1951}
+\bibinfo{author}{Durbin, J.}, \bibinfo{author}{Stuart, A.},
+  \bibinfo{year}{1951}.
+\newblock \bibinfo{title}{Inversions and rank correlation coefficients}.
+\newblock \bibinfo{journal}{J. R. Stat. Soc., Ser. B} \bibinfo{volume}{13},
+  \bibinfo{pages}{303--309}.
+%Type = Article
+\bibitem[{Fredricks and Nelsen(2007)}]{Fredricks-Nelsen-2007}
+\bibinfo{author}{Fredricks, G.A.}, \bibinfo{author}{Nelsen, R.B.},
+  \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{On the relationship between {Spearman}'s rho and
+  {Kendall}'s tau for pairs of continuous random variables}.
+\newblock \bibinfo{journal}{J. Stat. Plann. Inference} \bibinfo{volume}{137},
+  \bibinfo{pages}{2143--2150}.
+%Type = Article
+\bibitem[{Fuchs(2024)}]{fuchs2021quantifying}
+\bibinfo{author}{Fuchs, S.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Quantifying directed dependence via dimension
+  reduction}.
+\newblock \bibinfo{journal}{J. Multivariate Anal.} \bibinfo{volume}{201},
+  \bibinfo{pages}{21}.
+\newblock \bibinfo{note}{Id/No 105266}.
+%Type = Article
+\bibitem[{Fuchs and Tschimpke(2024)}]{Fuchs-Tschimpke-2024}
+\bibinfo{author}{Fuchs, S.}, \bibinfo{author}{Tschimpke, M.},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{A novel positive dependence property and its impact
+  on a popular class of concordance measures}.
+\newblock \bibinfo{journal}{J. Multivariate Anal.} \bibinfo{volume}{200},
+  \bibinfo{pages}{21}.
+\newblock \bibinfo{note}{Id/No 105259}.
+%Type = Article
+\bibitem[{Fuchs and Wang(2024)}]{Fuchs-Wang-2024}
+\bibinfo{author}{Fuchs, S.}, \bibinfo{author}{Wang, Y.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Hierarchical variable clustering based on the
+  predictive strength between random vectors}.
+\newblock \bibinfo{journal}{Int. J. Approx. Reasoning} \bibinfo{volume}{170},
+  \bibinfo{pages}{25}.
+\newblock \bibinfo{note}{Id/No 109185}.
+%Type = Article
+\bibitem[{Gamboa et~al.(2018)Gamboa, Klein and
+  Lagnoux}]{Gamboa-Klein-Lagnoux-2018}
+\bibinfo{author}{Gamboa, F.}, \bibinfo{author}{Klein, T.},
+  \bibinfo{author}{Lagnoux, A.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Sensitivity analysis based on {Cram{\'e}r}-von
+  {Mises} distance}.
+\newblock \bibinfo{journal}{SIAM/ASA J. Uncertain. Quantif.}
+  \bibinfo{volume}{6}, \bibinfo{pages}{522--548}.
+%Type = Article
+\bibitem[{Han(2021)}]{bernoulli2021}
+\bibinfo{author}{Han, F.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{On extensions of rank correlation coefficients to
+  multivariate spaces.}
+\newblock \bibinfo{journal}{Bernoulli} \bibinfo{volume}{28},
+  \bibinfo{pages}{7--11}.
+%Type = Article
+\bibitem[{Han and Huang(2024)}]{fan2022A}
+\bibinfo{author}{Han, F.}, \bibinfo{author}{Huang, Z.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Azadkia-{Chatterjee}'s correlation coefficient adapts
+  to manifold data}.
+\newblock \bibinfo{journal}{Ann. Appl. Probab.} \bibinfo{volume}{34},
+  \bibinfo{pages}{5172--5210}.
+%Type = Manual
+\bibitem[{Holmes and Chatterjee(2023)}]{XICOR}
+\bibinfo{author}{Holmes, S.}, \bibinfo{author}{Chatterjee, S.},
+  \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{XICOR: Association Measurement Through Cross Rank
+  Increments}.
+\newblock \URLprefix \url{https://CRAN.R-project.org/package=XICOR}.
+  \bibinfo{note}{r package version 1.0.0}.
+%Type = Article
+\bibitem[{Huang et~al.(2022)Huang, Deb and Sen}]{deb2020b}
+\bibinfo{author}{Huang, Z.}, \bibinfo{author}{Deb, N.}, \bibinfo{author}{Sen,
+  B.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Kernel partial correlation coefficient — a measure
+  of conditional dependence.}
+\newblock \bibinfo{journal}{Journal of Machine Learning Research}
+  \bibinfo{volume}{23}, \bibinfo{pages}{1--58}.
+%Type = Article
+\bibitem[{H{\"u}rlimann(2003)}]{Hurlimann-2003}
+\bibinfo{author}{H{\"u}rlimann, W.}, \bibinfo{year}{2003}.
+\newblock \bibinfo{title}{Hutchinson -- {Lai}'s conjecture for bivariate
+  extreme value copulas.}
+\newblock \bibinfo{journal}{Stat. Probab. Lett.} \bibinfo{volume}{61},
+  \bibinfo{pages}{191--198}.
+%Type = Article
+\bibitem[{Kleiner et~al.(2021)Kleiner, Moldovanu and
+  Strack}]{kleiner2021extreme}
+\bibinfo{author}{Kleiner, A.}, \bibinfo{author}{Moldovanu, B.},
+  \bibinfo{author}{Strack, P.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Extreme points and majorization: economic
+  applications}.
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{89},
+  \bibinfo{pages}{1557--1593}.
+%Type = Article
+\bibitem[{Kokol~Bukov{\v{s}}ek et~al.(2021)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc and Omladi{\v{c}}}]{Kokol-2021}
+\bibinfo{author}{Kokol~Bukov{\v{s}}ek, D.}, \bibinfo{author}{Ko{\v{s}}ir, T.},
+  \bibinfo{author}{Moj{\v{s}}kerc, B.}, \bibinfo{author}{Omladi{\v{c}}, M.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Spearman's footrule and {Gini}'s gamma: local bounds
+  for bivariate copulas and the exact region with respect to {Blomqvist}'s
+  beta}.
+\newblock \bibinfo{journal}{J. Comput. Appl. Math.} \bibinfo{volume}{390},
+  \bibinfo{pages}{24}.
+%Type = Article
+\bibitem[{Kokol~Bukov{\v{s}}ek and Stopar(2023)}]{Kokol-2023}
+\bibinfo{author}{Kokol~Bukov{\v{s}}ek, D.}, \bibinfo{author}{Stopar, N.},
+  \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{On the exact regions determined by {Kendall}'s tau
+  and other concordance measures}.
+\newblock \bibinfo{journal}{Mediterr. J. Math.} \bibinfo{volume}{20},
+  \bibinfo{pages}{16}.
+%Type = Article
+\bibitem[{Kokol~Bukov{\v{s}}ek and Stopar(2024)}]{Kokol-2024}
+\bibinfo{author}{Kokol~Bukov{\v{s}}ek, D.}, \bibinfo{author}{Stopar, N.},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{On the exact region determined by {Spearman}'s rho
+  and {Spearman}'s footrule}.
+\newblock \bibinfo{journal}{J. Comput. Appl. Math.} \bibinfo{volume}{437},
+  \bibinfo{pages}{23}.
+%Type = Article
+\bibitem[{Kotz and Van~Dorp(2010)}]{Kotz-2010}
+\bibinfo{author}{Kotz, S.}, \bibinfo{author}{Van~Dorp, J.R.},
+  \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Generalized diagonal band copulas with two-sided
+  generating densities}.
+\newblock \bibinfo{journal}{Decis. Anal.} \bibinfo{volume}{7},
+  \bibinfo{pages}{196--214}.
+%Type = Article
+\bibitem[{Lin and Han(2022)}]{han2022limit}
+\bibinfo{author}{Lin, Z.}, \bibinfo{author}{Han, F.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Limit theorems of {C}hatterjee's rank correlation}.
+\newblock \bibinfo{journal}{Available at https://arxiv.org/abs/2204.08031v2} .
+%Type = Book
+\bibitem[{McNeil et~al.(2015)McNeil, Frey and Embrechts}]{Embrechts-2015}
+\bibinfo{author}{McNeil, A.J.}, \bibinfo{author}{Frey, R.},
+  \bibinfo{author}{Embrechts, P.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Quantitative Risk Management. {Concepts}, Techniques
+  and Tools}.
+\newblock \bibinfo{edition}{Revised edition} ed.,
+  \bibinfo{publisher}{Princeton, NJ: Princeton University Press}.
+%Type = Book
+\bibitem[{{M\"uller} and {Stoyan}(2002)}]{Mueller-Stoyan-2002}
+\bibinfo{author}{{M\"uller}, A.}, \bibinfo{author}{{Stoyan}, D.},
+  \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{{Comparison Methods for Stochastic Models and
+  Risks.}}
+\newblock \bibinfo{publisher}{Chichester: Wiley}.
+%Type = Article
+\bibitem[{Munroe et~al.(2010)Munroe, Ransford and Genest}]{Munroe-2010}
+\bibinfo{author}{Munroe, P.}, \bibinfo{author}{Ransford, T.},
+  \bibinfo{author}{Genest, C.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{A counterexample to a conjecture of {Hutchinson} and
+  {Lai}}.
+\newblock \bibinfo{journal}{C. R., Math., Acad. Sci. Paris}
+  \bibinfo{volume}{348}, \bibinfo{pages}{305--310}.
+%Type = Book
+\bibitem[{{Nelsen}(2006)}]{Nelsen-2006}
+\bibinfo{author}{{Nelsen}, R.B.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{{An Introduction to Copulas. 2nd ed.}}
+\newblock \bibinfo{publisher}{New York, NY: Springer}.
+%Type = Book
+\bibitem[{Phelps(2001)}]{phelps2002lectures}
+\bibinfo{author}{Phelps, R.R.}, \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{Lectures on {Choquet}'s Theorem}. volume
+  \bibinfo{volume}{1757} of \textit{\bibinfo{series}{Lect. Notes Math.}}
+\newblock \bibinfo{publisher}{Berlin: Springer}.
+%Type = Book
+\bibitem[{R{\"u}schendorf(2013)}]{Rueschendorf-2013}
+\bibinfo{author}{R{\"u}schendorf, L.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Mathematical Risk Analysis. {Dependence}, Risk
+  Bounds, Optimal Allocations and Portfolios}.
+\newblock Springer Ser. Oper. Res. Financ. Eng., \bibinfo{publisher}{Berlin:
+  Springer}.
+%Type = Article
+\bibitem[{Sadeghi(2022)}]{Behnam-2022}
+\bibinfo{author}{Sadeghi, B.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Chatterjee correlation coefficient: A robust
+  alternative for classic correlation methods in geochemical studies-(including
+  “triplecpy” python package)}.
+\newblock \bibinfo{journal}{Ore Geology Reviews} \bibinfo{volume}{146},
+  \bibinfo{pages}{104954}.
+%Type = Article
+\bibitem[{Schreyer et~al.(2017)Schreyer, Paulin and Trutschnig}]{Schreyer-2017}
+\bibinfo{author}{Schreyer, M.}, \bibinfo{author}{Paulin, R.},
+  \bibinfo{author}{Trutschnig, W.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{On the exact region determined by {Kendall}'s
+  {{\(\tau\)}} and spearman's {{\(\rho\)}}}.
+\newblock \bibinfo{journal}{J. R. Stat. Soc., Ser. B, Stat. Methodol.}
+  \bibinfo{volume}{79}, \bibinfo{pages}{613--633}.
+%Type = Article
+\bibitem[{Shi et~al.(2022)Shi, Drton and Han}]{shi2021}
+\bibinfo{author}{Shi, H.}, \bibinfo{author}{Drton, M.}, \bibinfo{author}{Han,
+  F.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{On the power of {Chatterjee}'s rank correlation}.
+\newblock \bibinfo{journal}{Biometrika} \bibinfo{volume}{109},
+  \bibinfo{pages}{317--333}.
+%Type = Article
+\bibitem[{Shih and Chen(2025)}]{Shih-Emura-2025}
+\bibinfo{author}{Shih, J.H.}, \bibinfo{author}{Chen, Y.H.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{A class of regression association measures based on
+  concordance}.
+\newblock \bibinfo{journal}{Am. Stat.} \bibinfo{volume}{79},
+  \bibinfo{pages}{320--329}.
+%Type = Article
+\bibitem[{Shih and Emura(2021)}]{Shih-2021}
+\bibinfo{author}{Shih, J.H.}, \bibinfo{author}{Emura, T.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{On the copula correlation ratio and its
+  generalization}.
+\newblock \bibinfo{journal}{J. Multivariate Anal.} \bibinfo{volume}{182},
+  \bibinfo{pages}{15}.
+\newblock \bibinfo{note}{Id/No 104708}.
+%Type = Article
+\bibitem[{Sierra-Porta(2025)}]{sierra2025revised}
+\bibinfo{author}{Sierra-Porta, D.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Revised cross-correlation and time-lag between cosmic
+  ray intensity and solar activity using chatterjee’s correlation
+  coefficient}.
+\newblock \bibinfo{journal}{Advances in Space Research} \bibinfo{volume}{75},
+  \bibinfo{pages}{1330--1342}.
+%Type = Article
+\bibitem[{Strothmann et~al.(2024)Strothmann, Dette and
+  Siburg}]{Strothmann-2022}
+\bibinfo{author}{Strothmann, C.}, \bibinfo{author}{Dette, H.},
+  \bibinfo{author}{Siburg, K.F.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Rearranged dependence measures}.
+\newblock \bibinfo{journal}{Bernoulli} \bibinfo{volume}{30},
+  \bibinfo{pages}{1055--1078}.
+%Type = Article
+\bibitem[{Tschimpke et~al.(2025)Tschimpke, Schreyer and
+  Trutschnig}]{Tschimpke-2025}
+\bibinfo{author}{Tschimpke, M.}, \bibinfo{author}{Schreyer, M.},
+  \bibinfo{author}{Trutschnig, W.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Revisiting the region determined by {Spearman}'s
+  {{\(\rho\)}} and {Spearman}'s footrule {{\(\phi\)}}}.
+\newblock \bibinfo{journal}{J. Comput. Appl. Math.} \bibinfo{volume}{457},
+  \bibinfo{pages}{18}.
+%Type = Manual
+\bibitem[{Wang et~al.(2024)Wang, Fuchs and Ansari}]{didec}
+\bibinfo{author}{Wang, Y.}, \bibinfo{author}{Fuchs, S.},
+  \bibinfo{author}{Ansari, J.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{didec: Directed Dependence Coefficient}.
+\newblock \URLprefix \url{https://CRAN.R-project.org/package=didec}.
+  \bibinfo{note}{r package}.
+%Type = Article
+\bibitem[{Wiesel(2022)}]{wiesel2022}
+\bibinfo{author}{Wiesel, J.C.W.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Measuring association with {Wasserstein} distances}.
+\newblock \bibinfo{journal}{Bernoulli} \bibinfo{volume}{28},
+  \bibinfo{pages}{2816--2832}.
+%Type = Article
+\bibitem[{Zhang(2025)}]{Zhang-2025}
+\bibinfo{author}{Zhang, Q.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{On relationships between {Chatterjee}'s and
+  {Spearman}'s correlation coefficients}.
+\newblock \bibinfo{journal}{Commun. Stat., Theory Methods}
+  \bibinfo{volume}{54}, \bibinfo{pages}{259--279}.
+
+\end{thebibliography}

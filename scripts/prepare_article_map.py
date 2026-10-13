@@ -84,8 +84,8 @@ passage('That $\\eta(A_w)$ increases','eta_paperA_strictMono hasDerivAt_paperEta
 passage('In addition, $\\eta(B_{1/2})','paperEtaB_endpoints')
 passage('Part~(a) is the elementary direction','dual_certificate')
 passage('For~(b), the sets','dual_certificate_graph dual_certificate_reverse_graph')
-passage('\\Delta(x,z)&=\\frac{(x+w-1-z)^2','ArticleOriginalProof.graph_rectangle_10 ArticleOriginalProof.graph_first_factor',kind='math')
-passage('F(x,z)&\\coloneqq(6-2w)','ArticleOriginalProof.graph_rectangle_01 ArticleOriginalProof.graph_second_factor',kind='math')
+passage('\\Delta(x,z)&=\\frac{(x+w-1-z)^2','ArticleOriginalProof.graph_rectangle_10 ArticleOriginalProof.graph_first_factor ArticleCalculations.first_rectangle_valid ArticleCalculations.first_rectangle_correspondence ArticleCalculations.first_rectangle_verified ArticleCalculations.delta_definition',kind='math')
+passage('F(x,z)&\\coloneqq(6-2w)','ArticleOriginalProof.graph_rectangle_01 ArticleOriginalProof.graph_second_factor ArticleCalculations.second_rectangle_valid ArticleCalculations.second_rectangle_correspondence ArticleCalculations.second_rectangle_verified ArticleCalculations.factor_definition',kind='math')
 passage('\\partial_x\\Delta(x,z)=\\frac{(x+z-1)','ArticleOriginalProof.graph_derivative_00 ArticleOriginalProof.graph_derivative_00_nonpos',kind='math')
 passage('\\partial_z\\Delta(1-w,z)=-','ArticleOriginalProof.graph_edge_derivative_z',kind='math')
 passage('\\partial_z\\Delta(x,z)=\\frac{(x+z-1)','ArticleOriginalProof.graph_derivative_11 ArticleOriginalProof.graph_derivative_11_nonneg ArticleOriginalProof.graph_edge_derivative_x',kind='math')
@@ -111,5 +111,5 @@ data={'schemaVersion':1,'paperId':'Rockel2026ExactBlest','source':'source/articl
           '\\zeta':{'label':'eq:Zc-def'},'T_w':{'label':'eq:Tw-def'},
       },
       'verificationScope':'All original article content is reproduced. Compiled counterparts are attached to every labeled result; verification of every literal proof step is in progress.'}
-(ROOT/'examples/paper-bridge/article-map.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(ROOT/'examples/paper-bridge/article-map.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('Authored',len(bindings),'source bindings.')

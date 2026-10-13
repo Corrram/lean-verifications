@@ -1,0 +1,92 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ansari and Rockel(2025)]{ansari2025exact}
+Jonathan Ansari and Marcus Rockel.
+\newblock The exact region and an inequality between {Chatterjee}'s and
+  {Spearman}'s rank correlations.
+\newblock Preprint, {arXiv}:2506.15897 [math.{ST}] (2025), 2025.
+\newblock URL \url{https://arxiv.org/abs/2506.15897}.
+
+\bibitem[Azadkia and Chatterjee(2021)]{chatterjee2021}
+Mona Azadkia and Sourav Chatterjee.
+\newblock A simple measure of conditional dependence.
+\newblock \emph{Ann. Statist.}, 49\penalty0 (6):\penalty0 3070--3102, 2021.
+
+\bibitem[Blest(2000)]{blest2000rank}
+David~C. Blest.
+\newblock Rank correlation -- an alternative measure.
+\newblock \emph{Aust. N. Z. J. Stat.}, 42\penalty0 (1):\penalty0 101--111,
+  2000.
+
+\bibitem[Bonnans and Shapiro(2000)]{bonnans2013perturbation}
+J.~Fr{\'e}d{\'e}ric Bonnans and Alexander Shapiro.
+\newblock \emph{Perturbation Analysis of Optimization Problems}.
+\newblock Springer Ser. Oper. Res. New York, NY: Springer, 2000.
+
+\bibitem[Chatterjee(2021)]{chatterjee2020}
+Sourav Chatterjee.
+\newblock A new coefficient of correlation.
+\newblock \emph{J. Am. Statist. Assoc.}, 116\penalty0 (536):\penalty0
+  2009--2022, 2021.
+
+\bibitem[Dette et~al.(2013)Dette, Siburg, and Stoimenov]{dette2013copula}
+Holger Dette, Karl~F. Siburg, and Pavel~A. Stoimenov.
+\newblock A copula-based non-parametric measure of regression dependence.
+\newblock \emph{Scand. J. Stat.}, 40\penalty0 (1):\penalty0 21--41, 2013.
+
+\bibitem[Fuchs et~al.(2026)Fuchs, Limbach, and Sch{\"u}rrer]{fuchs2025exact}
+Sebastian Fuchs, Carsten Limbach, and Fabian Sch{\"u}rrer.
+\newblock On exact regions between measures of concordance and {Chatterjee}'s
+  rank correlation for lower semilinear copulas.
+\newblock \emph{Int. J. Approx. Reasoning}, 189:\penalty0 13, 2026.
+\newblock ISSN 0888-613X.
+\newblock \doi{10.1016/j.ijar.2025.109588}.
+\newblock Id/No 109588.
+
+\bibitem[Genest and Plante(2003)]{genest2003blests}
+Christian Genest and Jean-Fran{\c{c}}ois Plante.
+\newblock On {Blest}'s measure of rank correlation.
+\newblock \emph{Canad. J. Statist.}, 31\penalty0 (1):\penalty0 35--52, 2003.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Moj{\v{s}}kerc(2022)]{bukovvsek2022exact}
+Damjana Kokol~Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock On the exact region determined by {Spearman}'s footrule and {Gini}'s
+  gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 410:\penalty0 13, 2022.
+\newblock Id/No 114212.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2023)]{bukovvsek2023exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact regions determined by {Kendall}'s tau and other
+  concordance measures.
+\newblock \emph{Mediterr. J. Math.}, 20\penalty0 (3):\penalty0 16, 2023.
+
+\bibitem[Rockel(2025)]{rockel2025exact}
+Marcus Rockel.
+\newblock On the exact region between {Chatterjee}'s rank correlation and
+  {Spearman}'s footrule.
+\newblock Preprint, {arXiv}:2509.07232 [math.{ST}] (2025), 2025.
+\newblock URL \url{https://arxiv.org/abs/2509.07232}.
+
+\bibitem[Schreyer et~al.(2017)Schreyer, Paulin, and
+  Trutschnig]{schreyer2017exact}
+Manuela Schreyer, Roland Paulin, and Wolfgang Trutschnig.
+\newblock On the exact region determined by {Kendall}'s {{\(\tau\)}} and
+  spearman's {{\(\rho\)}}.
+\newblock \emph{J. R. Stat. Soc., Ser. B, Stat. Methodol.}, 79\penalty0
+  (2):\penalty0 613--633, 2017.
+
+\bibitem[Tschimpke(2025)]{tschimpke2025exact}
+Marco Tschimpke.
+\newblock On the exact region determined by {Spearman}'s {{\(\rho\)}} and
+  {Blest}'s measure of rank correlation {{\(\nu\)}} for bivariate extreme-value
+  copulas.
+\newblock \emph{J. Multivariate Anal.}, 205:\penalty0 17, 2025.
+\newblock Id/No 105377.
+
+\end{thebibliography}

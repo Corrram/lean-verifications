@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "paperId": "OrendayLaresRockel2026TauFootruleBeta",
+  "arxiv": "2607.12841v1",
+  "sourceURL": "https://arxiv.org/src/2607.12841v1",
+  "archiveSha256": "bf1d3ed5d1c1b0814d4ffac6e19724f23fc0a1ef69a368c9f903e7c6d5ce004e",
+  "files": {
+    "00README.json": "81cf75574b5194292f8a316c734c8dda6fe99aa59001d6580adca8f9e491c018",
+    "images/A_seed_supports.png": "5c6333a3ffd91796c7dc29e225cffe7c113a579e215ff6e23d7e0721f54b1a58",
+    "images/B_aD0_supports.png": "1ff03066487758edce1b8fa554735cac0fc6d53478069e7c355fda45838af81d",
+    "images/B_aW_supports.png": "cf8a7f6254d046dd7de26da264bf980efb368e0d9ad27a1d08e82a476d85c8f5",
+    "images/D_seed_supports.png": "b42dda161d81ec05a6d0c65d0f124047af8ac7a114f9f1d301e5e9ca1e3f5dab",
+    "images/region_beta_phi_tau.png": "0f1a70e73e40605ac79f8263b2ae20dc60b7c713ff3aef6acb02a3e7705051b5",
+    "references.bib": "2cfb299503f900e62bf094b547542c3860b758abdec7c26cadab29ff37dd0854",
+    "tau-phi-beta-region.tex": "47ff1a673f6f732987810be7c01a5f5b59a42f0d3947512a1033753f4525cf74"
+  },
+  "sourceDiscrepancies": []
+}

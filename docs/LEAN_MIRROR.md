@@ -104,3 +104,35 @@ the [LeanMirror repository](https://github.com/Corrram/lean-mirror).
 Extend the general language and compiler in LeanMirror. Keep subject-specific
 models, vocabulary, definitions, and equivalence proofs in downstream projects
 such as this one. Update the pinned dependency only after checking the companions.
+
+## Additional full-article readers
+
+The Chatterjee–Blest companion is at `/lean-mirror/xi-blest/`. It preserves
+arXiv:2603.09768v1 in full, including its numerical table and all figure panels.
+The two known false printed claims have visible notices and compiled
+counterexamples alongside the checked corrections. Its result and calculation
+links are compiled counterparts, not a claim that every literal proof step
+has been verified.
+
+The Blest–Spearman reader also embeds the first two rectangle calculations from
+Proposition 4.3 as a scoped proof document. Their factorizations, sign estimates, and the second rectangle’s exact equality set,
+and final nonnegativity assertion are separate checked nodes. The slack's typed
+definition and the displayed conclusion's correspondence have their own Lean proofs.
+
+All nine other manuscripts have been imported into `examples/articles/` with
+versioned arXiv provenance and hashes for every unchanged source file. An import
+does not make a manuscript a certified companion. Only directories with an
+explicit `article-map.json` are built as article readers.
+
+```sh
+python scripts/check_article_sources.py
+python scripts/test_article_sources.py
+python scripts/lean_mirror_article.py --check
+# Recompile one authored map while extending it:
+python scripts/lean_mirror_article.py --paper Rockel2026XiBlest
+```
+
+Source-to-theorem bindings identify an exact label or a unique literal passage;
+there is no fuzzy matching. Each generated registry extracts the actual Lean
+theorem type with `checked_native%` and audits its transitive axioms. Full proof
+documents additionally use `checked_document%` on a closed validity certificate.

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "paperId": "AnsariRockelSteinmassl2026RhoGamma",
+  "arxiv": "2609.19890v1",
+  "sourceURL": "https://arxiv.org/src/2609.19890v1",
+  "archiveSha256": "a6a52ecfb6973bbd241a6de922a10f66abc27c37d744bf426c5c454babad9c90",
+  "files": {
+    "00README.json": "c6b5b85cfb2f5b3b192c9cf93456caecddf7d7d198c1b80b6389024c312d9d3a",
+    "figures/rho_gamma_region.pdf": "26b33accb51fc619da5c28b80c2637770f079670a8eaed2ed45dd938f9049f56",
+    "figures/rho_gamma_extremizers.pdf": "2e92c05cee6ff784fdea03cf8bce5d607502af18988f95af36c3f0c070bac9e9",
+    "references.bib": "406019559ec5f38f5f7588c35bad09041f655b023ecc9cbe342728fcdfbf5b73",
+    "rho-gamma.bbl": "7410f9fc7d1605319fca1782b754d9270de716523087748f79c8b2052a85f357",
+    "rho-gamma.tex": "7f3c4647cb7c7a6587350b2857e73995689e92fbcfc7e9be421101d196d3345c"
+  },
+  "sourceDiscrepancies": []
+}

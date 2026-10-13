@@ -13,9 +13,7 @@ import tempfile
 from pathlib import Path
 from lean_mirror import ROOT, LAKE
 
-DIRECTORY = ROOT/'examples/paper-bridge'
-INDEX = ROOT/'Papers/Rockel2026ExactBlest/ArticleIndex.lean'
-OUT = DIRECTORY/'article-evidence.json'
+BASE_DIRECTORY = ROOT/'examples/paper-bridge'
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -24,45 +22,75 @@ def index_source(mapping):
     names=sorted({name for b in mapping['bindings'] for name in b['declarations']})
     if any(not re.fullmatch(r'[A-Za-z][A-Za-z0-9_.]*',name) for name in names):
         raise ValueError('Invalid mathematical declaration name')
+    paper_id=mapping['paperId']
+    if not re.fullmatch(r'[A-Za-z][A-Za-z0-9]+',paper_id):raise ValueError('Invalid paper identifier')
+    module='ArticleCalculations' if paper_id=='Rockel2026ExactBlest' else 'Main'
+    namespace=f'Papers.{paper_id}.ArticleIndex'
     lines=['import LeanMirror.Article',
-           'import Papers.Rockel2026ExactBlest.ArticleOriginalProof',
+           f'import Papers.{paper_id}.{module}',
            '', '-- Generated registry: each entry extracts and audits an actual theorem.',
-           'namespace Papers.Rockel2026ExactBlest.ArticleIndex',
+           f'namespace {namespace}',
            'open Lean LeanMirror',
            'def evidence : Json := Json.mkObj [']
     lines += [f'  ("{name}", checked_native% {name})'+(',' if i<len(names)-1 else '') for i,name in enumerate(names)]
-    lines+= [']', 'end Papers.Rockel2026ExactBlest.ArticleIndex', '']
+    lines+= [']', f'end {namespace}', '']
     return '\n'.join(lines)
 
-def main():
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--check',action='store_true')
-    args=parser.parse_args()
+def export_article(directory,check):
+    DIRECTORY=directory
     mapping=json.loads((DIRECTORY/'article-map.json').read_text(encoding='utf-8'))
+    namespace=f"Papers.{mapping['paperId']}.ArticleIndex"
+    INDEX=ROOT/'Papers'/mapping['paperId']/'ArticleIndex.lean'
+    OUT=DIRECTORY/'article-evidence.json'
     index=index_source(mapping)
-    if args.check:
+    if check:
         if not INDEX.exists() or INDEX.read_text(encoding='utf-8')!=index:
             raise SystemExit('Stale article theorem registry. Run python scripts/lean_mirror_article.py')
     else: INDEX.write_text(index,encoding='utf-8',newline='\n')
-    subprocess.run([LAKE,'build','Papers.Rockel2026ExactBlest.ArticleIndex'],cwd=ROOT,check=True)
+    subprocess.run([LAKE,'build',namespace],cwd=ROOT,check=True)
     provenance=json.loads((DIRECTORY/'source.json').read_text(encoding='utf-8'))
-    if digest(DIRECTORY/mapping['source'])!=provenance['sourceSha256']:
-        raise ValueError('The pinned original article changed')
-    assets=[DIRECTORY/mapping['bibliography'], *sorted((DIRECTORY/'source/images').glob('*'))]
+    source_hash=digest(DIRECTORY/mapping['source'])
+    if 'files' in provenance:
+        for name,expected in provenance['files'].items():
+            path=(DIRECTORY/'source'/name).resolve()
+            if not path.is_relative_to((DIRECTORY/'source').resolve()):raise ValueError('Unsafe source path')
+            if digest(path)!=expected:raise ValueError('Pinned source changed: '+name)
+        if source_hash!=provenance['files'][mapping['source'].removeprefix('source/')]:raise ValueError('Original article changed')
+        assets=[DIRECTORY/mapping['bibliography'], *sorted(p for p in (DIRECTORY/'source').rglob('*') if p.is_file())]
+    else:
+        if source_hash!=provenance['sourceSha256']:raise ValueError('The pinned original article changed')
+        assets=[DIRECTORY/mapping['bibliography'], *sorted((DIRECTORY/'source/images').glob('*'))]
     pinned={str(p.relative_to(DIRECTORY)).replace('\\','/'):digest(p) for p in assets}
     with tempfile.TemporaryDirectory(dir=ROOT/'.lake') as temp:
         fresh=Path(temp)/'article.json'
-        subprocess.run([LAKE,'env','lean','--run','scripts/ExportLeanMirrorArticle.lean',str(fresh)],cwd=ROOT,check=True)
-        evidence=json.loads(fresh.read_text(encoding='utf-8'))
-    data={'schemaVersion':1,'paperId':mapping['paperId'],'sourceSha256':provenance['sourceSha256'],
-          'mapSha256':digest(DIRECTORY/'article-map.json'),'assets':pinned,'evidence':evidence}
+        if mapping['paperId']=='Rockel2026ExactBlest':exporter=ROOT/'scripts/ExportLeanMirrorArticle.lean'
+        else:
+            exporter=Path(temp)/'Export.lean'
+            exporter.write_text(f'import {namespace}\n\ndef main (args : List String) : IO Unit := do\n  let [destination] := args | throw (IO.userError \"expected output path\")\n  IO.FS.writeFile destination ((Lean.Json.mkObj [(\"evidence\", {namespace}.evidence), (\"documents\", Lean.Json.mkObj [])]).pretty ++ \"\\n\")\n',encoding='utf-8')
+        subprocess.run([LAKE,'env','lean','--run',str(exporter),str(fresh)],cwd=ROOT,check=True)
+        compiled=json.loads(fresh.read_text(encoding='utf-8'))
+        evidence=compiled['evidence']
+    data={'schemaVersion':1,'paperId':mapping['paperId'],'sourceSha256':source_hash,
+          'mapSha256':digest(DIRECTORY/'article-map.json'),'assets':pinned,'evidence':evidence,
+          'documents':compiled['documents']}
     generated=json.dumps(data,ensure_ascii=False,indent=2)+'\n'
-    if args.check:
+    if check:
         if not OUT.exists() or OUT.read_text(encoding='utf-8')!=generated:
             raise SystemExit('Stale full article evidence. Run python scripts/lean_mirror_article.py')
         print('Full article evidence and all original assets are fresh.')
     else:
         OUT.write_text(generated,encoding='utf-8',newline='\n')
-        print('Exported',len(evidence),'audited theorem statements for the full article.')
+        print(mapping['paperId']+': exported',len(evidence),'audited theorem statements.')
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check',action='store_true')
+    parser.add_argument('--paper',help='Export only this paper identifier; default: all authored maps')
+    args=parser.parse_args()
+    directories=[BASE_DIRECTORY,*sorted(p.parent for p in (ROOT/'examples/articles').glob('*/article-map.json'))]
+    if args.paper:
+        directories=[d for d in directories if json.loads((d/'article-map.json').read_text(encoding='utf-8'))['paperId']==args.paper]
+        if not directories:raise SystemExit('No authored article map for '+args.paper)
+    for directory in directories:export_article(directory,args.check)
 
 if __name__=='__main__':main()

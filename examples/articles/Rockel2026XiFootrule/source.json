@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "paperId": "Rockel2026XiFootrule",
+  "arxiv": "2509.07232v1",
+  "sourceURL": "https://arxiv.org/src/2509.07232v1",
+  "archiveSha256": "cbdc67b5e8e478ef210edf43222740fc225d351dfbdb79279b1ec7b67e593a10",
+  "files": {
+    "00README.json": "5cb18ddf8ae583c290419b9829859c81730089d2f63a3e14aea04123bb2099c2",
+    "images/attainable_regions_combined.png": "4b604d07a1045ddee8e8bfc24b8f189bed0021657eee86c959558743f9b57fa6",
+    "images/new_xi_footrule_approx_lower_boundary_density_mu_0.50.png": "297328554effbad3941bf36dcc4926ec098cea639cc94ac6de93fdb6a6b60915",
+    "images/new_xi_footrule_approx_lower_boundary_density_mu_1.00.png": "d5afc93f4639634877526843bdd6ef60a4d07607e34439545bb8acaf72df0dee",
+    "images/new_xi_footrule_approx_lower_boundary_density_mu_1.50.png": "399dc6ee346c8d6f2ca33a3b6bb2cfabbca3f53b3c634b98434af1791147ae1a",
+    "images/new_xi_footrule_approx_lower_boundary_density_mu_2.00.png": "0e28690904d82f0307dab9cf6671e88c868c3c4ecc858af4990ace2e91daa425",
+    "images/new_xi_footrule_approx_lower_boundary_density_mu_4.00.png": "e70ed33c3815c0cc1eb24873ee276d18ff6c4ab5c4a05e0b3a1031ae45b2189e",
+    "images/new_xi_footrule_approx_lower_boundary_density_mu_8.00.png": "c0a0e0f6b9c6319fca52d764340ae29ce5c5c0a30c33354985fdcaa293aa8f18",
+    "images/two_param_a0.20_b0.30.png": "7b01fd47b76760e7d466254846b5205838d00ea82b9c5ae424311e6268db5b36",
+    "images/two_param_a0.30_b0.50.png": "52bed6e45659fddd4f4abe2a6fcbdbc0f4f0e11660a1194fa0793ff9990d2a6d",
+    "xi-footrule-region.bbl": "1b9646aa1fdfd0b590afe7f034c72f27cf736095dcf18ceada94b6be8cedca5b",
+    "xi-footrule-region.tex": "86c1961fda780874125fe452ab62698d4d2ddeb4a493bea61e8ccddaf0f7cb67"
+  },
+  "sourceDiscrepancies": [
+    {
+      "version": "arXiv v1, Remark 2.6(d)",
+      "unverified_claim": "The printed 3-by-3 checkerboard matrix is LTD.",
+      "evidence": "Lean proves its CDF at (2/3, 2/3) is 5/12, below 4/9, so the matrix is not LTD.",
+      "verified_instead": "The corrected matrix printed in final JCAM Remark 2(d) is proved LTD with xi=38/81 and footrule=10/27."
+    },
+    {
+      "version": "Final JCAM PDF, Theorem 3.2, p. 10",
+      "unverified_claim": "The cubic has a unique real solution mu(y).",
+      "evidence": "At y=-1/2, both mu=2 and mu=-1 are distinct real roots; Lean proves footrule_cubic_not_unique_real.",
+      "verified_instead": "For y in [-1/2,0], the admissible root mu in [0,2] is unique, as proved by footrule_cubic_unique_admissible. The paper's proof later uses this restriction."
+    }
+  ]
+}

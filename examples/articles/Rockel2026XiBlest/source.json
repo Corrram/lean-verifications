@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "paperId": "Rockel2026XiBlest",
+  "arxiv": "2603.09768v1",
+  "sourceURL": "https://arxiv.org/src/2603.09768v1",
+  "archiveSha256": "a4137d0631c3270002b22ead414d81f68a9fa76d37168371f70d3ad76b731df2",
+  "files": {
+    "00README.json": "4b72190c23cae7a12252f98ba2884ca7cf43ae1b6737d21c8ec1691855873292",
+    "images/clamped_parabola_0.5.png": "8ec31a686f98ee19bae50c5209d85743b63635b725db1e16593dfe10ad7352f8",
+    "images/clamped_parabola_1.png": "9eb2d36d8dc17a376a79d1e9c03d01524d37c86c10f6672e06a685a03e21095c",
+    "images/clamped_parabola_5.png": "0faf916ebf8b82d53912790cdaade2e0c28e4a751bf0e8364ee3666cf507ac64",
+    "images/xi-v-region.png": "3b5b8e305382ea87263e6c9ef0e8d2c6b67b6131f8c0e9390175c822832b8eeb",
+    "LiteratureXiNu.bib": "0ebcee7d513c5bd328138fbccbea2c58f218ce853dd5e38bd0b52b54e0ac0d6a",
+    "xi-nu-region.tex": "f8f54b02fbabbf0e7ff840279bf8e9a26c291de35cb1fd817aabba69e3c66c1f"
+  },
+  "sourceDiscrepancies": [
+    {
+      "version": "arXiv v1, proof of Theorem 2.3",
+      "unverified_claim": "The displayed lower-clamped square polynomial has coefficient -1/5 on r^5.",
+      "evidence": "Lean disproves that intermediate expression at r=1/2.",
+      "verified_instead": "The final IJAR PDF prints the corrected -8/15 coefficient. Lean verifies it and independently proves the final coefficient and region theorems."
+    },
+    {
+      "version": "arXiv v1, Lemma 4.3(iii) (shuffling lemma)",
+      "unverified_claim": "For p >= p', the shuffled copulas satisfy C_p >=_co C_p'.",
+      "evidence": "At the endpoints with C=M, the printed transformation gives C_0=M and C_1=W. Lean proves M is not concordance-below W, refuting the printed direction.",
+      "verified_instead": "The final IJAR PDF Lemma 5(iii) reverses the order. Lean verifies all four claims of that corrected shuffling path; the exact region also has an independent proof."
+    }
+  ]
+}

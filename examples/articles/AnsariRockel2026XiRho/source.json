@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "paperId": "AnsariRockel2026XiRho",
+  "arxiv": "2506.15897v3",
+  "sourceURL": "https://arxiv.org/src/2506.15897v3",
+  "archiveSha256": "221f8cf180598b8ac34186599c30345fa51d3447423f3c9949b9f83734122a1d",
+  "files": {
+    "00README.json": "2f633de66a2de64d465ca194de282daa3581997293d851d113581c1dc9480b0b",
+    "images/rho_minus_xi_maximal_copula_1.png": "4be1eb222d1fbbea32e6af22860854044ed6b2a67d6305a9d0efd91e15e5a7a4",
+    "images/differences_curves_combined.png": "0d61e4bf9efd3f7d4e2b5e8c30ae597a616e26cf78fbaf7cb8ce6709cbc56218",
+    "images/rho_minus_xi_maximal_copula_5.png": "4ce4cd3f5869851bfcb7ac78b016b8dfa2778e2c5440824daf93d49d008d65dd",
+    "images/attainable_rho_xi_region.png": "d8c4c7a9e42d271261d8f4f340e4df51e73b77a42a7e14584f633fc3d6f78855",
+    "images/rmx_cond_distr_0.5.png": "7c9cfb3ee93b04c14ab5a9b70d90e0ebed4969b99fb0252ca54616c372e679ff",
+    "images/illustrative_models.png": "865fd085381a359faa24dc0eb53cdc00e75cf526db4f6018974e00a29bf85741",
+    "images/rho_visualization.png": "7c948b50f67cd95fc534b779a79d371a18d9f888a36852a6c85545d2d450881b",
+    "images/xi_visualization.png": "99a8ca867ba137474ceeb0f093335719eb3aa7beb367792977af5f4a96687128",
+    "images/rmx_cond_distr_1.png": "8c90c33ec076748a50ee4fe1c1591156d396adbea05186c08bc379f53d2dca8b",
+    "images/rho_minus_xi_maximal_copula_0.5.png": "1897faa7706b4574022b61289a1b61fa2be5e8c72472506a0540b7fdba237606",
+    "images/rmx_cond_distr_5.png": "3c24214861f6a896160467ac606af9f5e6361e9661bff6cf07782584ad1edb45",
+    "xi-rho-region_arxiv.bbl": "744ecfdf16b4411d79133ab8d428ccfb52046cff3cb2e186497ce502156e326c",
+    "xi-rho-region_arxiv.tex": "155dc28668408b270f3fe0221bae3e2a1191370d2e770dfff96fe4eb12d859d1"
+  },
+  "sourceDiscrepancies": [
+    {
+      "version": "Published journal, equation (19)",
+      "unverified_claim": "Equation (19), as printed, gives the CDF of the proposed copula on the full closed square.",
+      "evidence": "Lean proves that it equals -1/8 at b=1, u=0, v=1/8, so it cannot be a copula CDF.",
+      "verified_instead": "The corrected arXiv v3 formula, including the boundary term, is proved on the full closed square."
+    }
+  ]
+}

@@ -24,6 +24,9 @@ test('the full original article retains all results, proof environments, figures
   assert.match(html,/Exhaustive verification of the literal proof steps is still in progress/);
   assert.match(html,/href="#article-eq-eta-def"/);
   assert.match(html,/Corollary 3.2: fully checked proof document/);
+  assert.match(html,/The first rectangle: the printed factorization and sign estimates/);
+  assert.match(html,/Each step below is checked by Lean/);
+  assert.match(html,/The second rectangle: nonnegativity and its exact equality set/);
 });
 
 test('changed source, source maps, figures and theorem evidence cannot pass publication',()=>{
@@ -35,6 +38,10 @@ test('changed source, source maps, figures and theorem evidence cannot pass publ
   assert.throws(()=>fullArticle({...articleInputs,evidence:missing}),/Missing compiled theorem type/);
   const tainted=structuredClone(articleEvidence);Object.values(tainted.evidence)[0].axioms.push('sorryAx');
   assert.throws(()=>fullArticle({...articleInputs,evidence:tainted}),/Unsupported article axiom/);
+  const badProof=structuredClone(articleEvidence);Object.values(badProof.documents)[0].checked.proof.kind='prose';
+  assert.throws(()=>fullArticle({...articleInputs,evidence:badProof}),/proof node/);
+  const badBridge=structuredClone(articleEvidence);Object.values(badBridge.documents)[0].correspondence='Missing.bridge';
+  assert.throws(()=>fullArticle({...articleInputs,evidence:badBridge}),/Missing compiled proof-document evidence/);
 });
 
 test('the checked companion renders formulas and local definition links', () => {
@@ -86,4 +93,23 @@ test('unverified proof nodes and unresolved source citations fail publication', 
   const citation = structuredClone(fixture);
   delete citation.original.provenance.references['thm:rho-nu'];
   assert.throws(() => renderCompanion(citation, options), /Unknown source reference/);
+});
+
+
+test('the Chatterjee–Blest original retains its table, all panels and both explicitly refuted claims',()=>{
+  const directory=new URL('../examples/articles/Rockel2026XiBlest/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/xi-nu-region.tex'),bibliography:read('article.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,13);assert.equal(data.stats.figures,2);
+  assert.equal((html.match(/<img /g)??[]).length,4);assert.match(html,/class="article-table"/);
+  assert.equal((html.match(/class="article-source-correction"/g)??[]).length,2);
+  assert.match(html,/printed_lower_square_polynomial_false/);assert.match(html,/not_comonotonic_concordanceLE_countermonotonic/);
+  assert.match(inputs.source,/r\^4 - \\frac\{r\^5\}\{5\}/);assert.match(inputs.source,/C_p\\geq_\{co\} C_/);
+  assert.equal(data.article.references['eq:xi'].number,'2');assert.equal(data.article.references['eq:nu'].number,'3');
+  assert.match(html,/href="#article-eq-xi"/);assert.match(html,/href="#article-eq-nu"/);
+  assert.match(html,/entire original proof text is not yet a certified LeanMirror proof document/);
+  assert.doesNotMatch(html,/corollary-3-2\//);
 });

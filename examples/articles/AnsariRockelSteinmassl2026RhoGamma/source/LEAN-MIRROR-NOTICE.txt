@@ -1,0 +1,7 @@
+Original article: The exact region determined by Spearman's rho and Gini's gamma
+Authors: Jonathan Ansari, Marcus Rockel, Stefanie Steinmaßl
+Exact source: https://arxiv.org/src/2609.19890v1
+
+Imported at the author's request. Manuscript copyright and licensing remain unchanged.
+The software license does not relicense this article. Source files are unmodified.
+This import is provenance, not a claim that the original statements or proofs are correct.

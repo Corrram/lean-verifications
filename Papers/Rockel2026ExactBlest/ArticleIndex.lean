@@ -1,5 +1,5 @@
 import LeanMirror.Article
-import Papers.Rockel2026ExactBlest.ArticleOriginalProof
+import Papers.Rockel2026ExactBlest.ArticleCalculations
 
 -- Generated registry: each entry extracts and audits an actual theorem.
 namespace Papers.Rockel2026ExactBlest.ArticleIndex
@@ -7,6 +7,14 @@ open Lean LeanMirror
 def evidence : Json := Json.mkObj [
   ("Papers.Rockel2026ExactBlest.ArticleBridge.nu_definition_eq", checked_native% Papers.Rockel2026ExactBlest.ArticleBridge.nu_definition_eq),
   ("Papers.Rockel2026ExactBlest.ArticleBridge.rho_definition_eq", checked_native% Papers.Rockel2026ExactBlest.ArticleBridge.rho_definition_eq),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.delta_definition", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.delta_definition),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.factor_definition", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.factor_definition),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_correspondence", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_correspondence),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_valid", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_valid),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_verified", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_verified),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_correspondence", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_correspondence),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_valid", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_valid),
+  ("Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_verified", checked_native% Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_verified),
   ("Papers.Rockel2026ExactBlest.ArticleOriginalProof.branch_derivatives", checked_native% Papers.Rockel2026ExactBlest.ArticleOriginalProof.branch_derivatives),
   ("Papers.Rockel2026ExactBlest.ArticleOriginalProof.branch_sum", checked_native% Papers.Rockel2026ExactBlest.ArticleOriginalProof.branch_sum),
   ("Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_eta_moment", checked_native% Papers.Rockel2026ExactBlest.ArticleOriginalProof.coupling_eta_moment),

@@ -1,0 +1,112 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ansari and Rockel(2026)]{ansari2026exact}
+Jonathan Ansari and Marcus Rockel.
+\newblock The exact {Spearman} rho--footrule region via optimal transport with
+  applications to finite rankings, mixability, and {Chatterjee}'s rank
+  correlation.
+\newblock Preprint,
+  \href{https://arxiv.org/abs/2608.20176v1}{arXiv:2608.20176v1}, 2026.
+
+\bibitem[Durante and Sempi(2015)]{durante2015principles}
+Fabrizio Durante and Carlo Sempi.
+\newblock \emph{Principles of Copula Theory}.
+\newblock Chapman and Hall/CRC, Boca Raton, 2015.
+\newblock \doi{10.1201/b18674}.
+
+\bibitem[Genest et~al.(2010)Genest, Ne{\v{s}}lehov{\'a}, and
+  Ben~Ghorbal]{genest2010spearman}
+Christian Genest, Johanna Ne{\v{s}}lehov{\'a}, and Noomen Ben~Ghorbal.
+\newblock {Spearman}'s footrule and {Gini}'s gamma: a review with complements.
+\newblock \emph{J. Nonparametric Stat.}, 22\penalty0 (8):\penalty0 937--954,
+  2010.
+\newblock \doi{10.1080/10485250903499667}.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Moj{\v{s}}kerc(2022)]{bukovsek2022exact}
+Damjana Kokol~Bukov{\v{s}}ek and Bla{\v{z}} Moj{\v{s}}kerc.
+\newblock On the exact region determined by {Spearman}'s footrule and {Gini}'s
+  gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 410:\penalty0 114212, 2022.
+\newblock \doi{10.1016/j.cam.2022.114212}.
+
+\bibitem[Kokol~Bukov{\v{s}}ek and Stopar(2023)]{bukovsek2023exact}
+Damjana Kokol~Bukov{\v{s}}ek and Nik Stopar.
+\newblock On the exact regions determined by {Kendall}'s tau and other
+  concordance measures.
+\newblock \emph{Mediterr. J. Math.}, 20\penalty0 (3):\penalty0 147, 2023.
+\newblock \doi{10.1007/s00009-023-02350-0}.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2021)Kokol~Bukov{\v{s}}ek, Ko{\v{s}}ir,
+  Moj{\v{s}}kerc, and Omladi{\v{c}}]{bukovsek2021spearman}
+Damjana Kokol~Bukov{\v{s}}ek, Toma{\v{z}} Ko{\v{s}}ir, Bla{\v{z}}
+  Moj{\v{s}}kerc, and Matja{\v{z}} Omladi{\v{c}}.
+\newblock {Spearman}'s footrule and {Gini}'s gamma: local bounds for bivariate
+  copulas and the exact region with respect to {Blomqvist}'s beta.
+\newblock \emph{J. Comput. Appl. Math.}, 390:\penalty0 113385, 2021.
+\newblock \doi{10.1016/j.cam.2021.113385}.
+
+\bibitem[Kokol~Bukov{\v{s}}ek et~al.(2026)Kokol~Bukov{\v{s}}ek, Lazi{\'c},
+  Moj{\v{s}}kerc, and Stopar]{bukovsek2026exact}
+Damjana Kokol~Bukov{\v{s}}ek, Petra Lazi{\'c}, Bla{\v{z}} Moj{\v{s}}kerc, and
+  Nik Stopar.
+\newblock The exact region determined by {Spearman}'s footrule, {Gini}'s gamma
+  and {Kendall}'s tau.
+\newblock \emph{J. Comput. Appl. Math.}, 486:\penalty0 117639, 2026.
+\newblock \doi{10.1016/j.cam.2026.117639}.
+
+\bibitem[Nelsen(1998)]{nelsen1998concordance}
+Roger~B. Nelsen.
+\newblock Concordance and {Gini}'s measure of association.
+\newblock \emph{J. Nonparametric Stat.}, 9\penalty0 (3):\penalty0 227--238,
+  1998.
+\newblock \doi{10.1080/10485259808832744}.
+
+\bibitem[Nelsen(2006)]{nelsen2006introduction}
+Roger~B. Nelsen.
+\newblock \emph{An Introduction to Copulas}.
+\newblock Springer Series in Statistics. Springer, New York, second edition,
+  2006.
+\newblock \doi{10.1007/0-387-28678-0}.
+
+\bibitem[Orenday~Lares and Rockel(2026)]{orendaylares2026exact}
+Jacob~Israel Orenday~Lares and Marcus Rockel.
+\newblock The exact region determined by {Kendall}'s tau, {Spearman}'s footrule
+  and {Blomqvist}'s beta.
+\newblock Preprint, \href{https://arxiv.org/abs/2607.12841}{arXiv:2607.12841},
+  2026.
+
+\bibitem[Scarsini(1984)]{scarsini1984measures}
+Marco Scarsini.
+\newblock On measures of concordance.
+\newblock \emph{Stochastica}, 8\penalty0 (3):\penalty0 201--218, 1984.
+\newblock URL \url{https://eudml.org/doc/38916}.
+
+\bibitem[Schreyer et~al.(2017)Schreyer, Paulin, and
+  Trutschnig]{schreyer2017exact}
+Manuela Schreyer, Roland Paulin, and Wolfgang Trutschnig.
+\newblock On the exact region determined by {Kendall}'s $\tau$ and {Spearman}'s
+  $\rho$.
+\newblock \emph{J. R. Stat. Soc., Ser. B, Stat. Methodol.}, 79\penalty0
+  (2):\penalty0 613--633, 2017.
+\newblock \doi{10.1111/rssb.12181}.
+
+\bibitem[Villani(2009)]{villani2009optimal}
+C{\'e}dric Villani.
+\newblock \emph{Optimal Transport: Old and New}, volume 338 of
+  \emph{Grundlehren der mathematischen Wissenschaften}.
+\newblock Springer, Berlin, 2009.
+\newblock \doi{10.1007/978-3-540-71050-9}.
+
+\bibitem[Zaev(2015)]{zaev2015monge}
+Danila~A. Zaev.
+\newblock On the {Monge}--{Kantorovich} problem with additional linear
+  constraints.
+\newblock \emph{Math. Notes}, 98\penalty0 (5):\penalty0 725--741, 2015.
+\newblock \doi{10.1134/S0001434615110036}.
+
+\end{thebibliography}

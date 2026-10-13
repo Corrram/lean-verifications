@@ -4,4 +4,7 @@ def main (args : List String) : IO Unit := do
   let [destination] := args
     | throw (IO.userError "usage: ExportLeanMirrorArticle.lean OUTPUT.json")
   IO.FS.writeFile destination
-    (Papers.Rockel2026ExactBlest.ArticleIndex.evidence.pretty ++ "\n")
+    ((Lean.Json.mkObj [
+      ("evidence", Papers.Rockel2026ExactBlest.ArticleIndex.evidence),
+      ("documents", Papers.Rockel2026ExactBlest.ArticleCalculations.documents)
+    ]).pretty ++ "\n")

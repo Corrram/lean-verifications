@@ -1,1 +1,6 @@
 * text=auto eol=lf
+
+# Manuscript provenance pins exact source bytes, including original line endings.
+examples/articles/**/source/** -text
+examples/articles/**/article.bbl -text
+examples/paper-bridge/source/** -text

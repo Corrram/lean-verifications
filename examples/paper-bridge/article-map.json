@@ -490,7 +490,11 @@
       "kind": "math",
       "declarations": [
         "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_rectangle_10",
-        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_first_factor"
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_first_factor",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_valid",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.delta_definition"
       ]
     },
     {
@@ -498,7 +502,11 @@
       "kind": "math",
       "declarations": [
         "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_rectangle_01",
-        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_second_factor"
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_second_factor",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_valid",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.factor_definition"
       ]
     },
     {

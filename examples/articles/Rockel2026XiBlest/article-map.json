@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "id": "xi-blest",
+  "paperId": "Rockel2026XiBlest",
+  "title": "The exact region between Chatterjee’s and Blest’s rank correlations",
+  "source": "source/xi-nu-region.tex",
+  "bibliography": "article.bbl",
+  "sourceURL": "https://arxiv.org/abs/2603.09768v1",
+  "bindings": [
+    {
+      "label": "eq:xi",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.xi_derivative_formula"
+      ]
+    },
+    {
+      "label": "eq:nu",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.blest_integral_formula"
+      ]
+    },
+    {
+      "label": "thm:region",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.exact_region",
+        "Papers.Rockel2026XiBlest.upper_boundary_unique",
+        "Papers.Rockel2026XiBlest.lower_boundary_unique",
+        "Papers.Rockel2026XiBlest.formula_zero_limits",
+        "Papers.Rockel2026XiBlest.formula_infinity_limits",
+        "Papers.Rockel2026XiBlest.maximal_absolute_gap",
+        "Papers.Rockel2026XiBlest.maximal_absolute_gap_eq_iff"
+      ]
+    },
+    {
+      "label": "eq:Xi-formula",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_coefficients_polynomial",
+        "Papers.Rockel2026XiBlest.extremal_coefficients_hyperbolic"
+      ]
+    },
+    {
+      "label": "eq:N-formula",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_coefficients"
+      ]
+    },
+    {
+      "label": "eq:region",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.exact_region"
+      ]
+    },
+    {
+      "label": "eq:key-derivative",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.formula_derivative_identity"
+      ]
+    },
+    {
+      "label": "lem:unique_q",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_normalization",
+        "Papers.Rockel2026XiBlest.normalizationMean_properties",
+        "Papers.Rockel2026XiBlest.extremalQ_continuous"
+      ]
+    },
+    {
+      "label": "eq:marginal",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_normalization"
+      ]
+    },
+    {
+      "label": "eq:clamped_h",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_conditionalCDF"
+      ]
+    },
+    {
+      "label": "eq:clamped",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_cdf"
+      ]
+    },
+    {
+      "label": "lem:cb_copula",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_cdf",
+        "Papers.Rockel2026XiBlest.extremal_isSI"
+      ]
+    },
+    {
+      "label": "thm:closed",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_coefficients",
+        "Papers.Rockel2026XiBlest.extremal_one_coefficients"
+      ]
+    },
+    {
+      "label": "eq:xi_nu_formulas",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.extremal_coefficients"
+      ]
+    },
+    {
+      "label": "eq:nu-sigma2",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.blest_reflect_second",
+        "Papers.Rockel2026XiBlest.xi_blest_reflection"
+      ]
+    },
+    {
+      "label": "eq:intro-nu-forms",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.blest_conditional_formula"
+      ]
+    },
+    {
+      "label": "opt:main",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.relaxed_solution"
+      ]
+    },
+    {
+      "label": "thm:KKT",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.relaxed_solution",
+        "Papers.Rockel2026XiBlest.relaxed_distance_bound"
+      ]
+    },
+    {
+      "label": "lem:1D",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.section_formulas",
+        "Papers.Rockel2026XiBlest.normalizationMean_hasDerivAt",
+        "Papers.Rockel2026XiBlest.normalization_substitution",
+        "Papers.Rockel2026XiBlest.one_dimensional_coefficients"
+      ]
+    },
+    {
+      "label": "eq:marg-1D",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.section_formulas"
+      ]
+    },
+    {
+      "label": "eq:xi-1D",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.one_dimensional_coefficients"
+      ]
+    },
+    {
+      "label": "lem:vq",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.substitution_upper",
+        "Papers.Rockel2026XiBlest.substitution_unclamped",
+        "Papers.Rockel2026XiBlest.substitution_double",
+        "Papers.Rockel2026XiBlest.substitution_lower"
+      ]
+    },
+    {
+      "label": "lem:path_continuity_xi",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.xi_mixture_continuous"
+      ]
+    },
+    {
+      "label": "lem:key-derivative",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.formula_hasDerivAt",
+        "Papers.Rockel2026XiBlest.formula_derivative_identity"
+      ]
+    },
+    {
+      "label": "eq:region-representation",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.exact_region"
+      ]
+    },
+    {
+      "label": "lemshuff1",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.shuffledCopula_zero",
+        "Papers.Rockel2026XiBlest.shuffledCopula_one"
+      ]
+    },
+    {
+      "label": "lemshuff2",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.shuffledCopula_xi"
+      ]
+    },
+    {
+      "label": "lemshuff4",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.shuffledCopula_uniformCDF_continuous"
+      ]
+    },
+    {
+      "label": "lemshuff3",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.not_comonotonic_concordanceLE_countermonotonic",
+        "Papers.Rockel2026XiBlest.shuffledCopula_concordance"
+      ],
+      "title": "Printed claim refuted; corrected concordance order checked",
+      "note": "The original arXiv inequality has its direction reversed. The endpoint case C=M, p=1, p′=0 would require M≤W. Lean refutes it and proves the corrected direction C_p≤C_p′ for p≥p′. The published IJAR version corrects this line.",
+      "role": "refutation"
+    },
+    {
+      "kind": "math",
+      "quote": "G_{iv}(r)&=b^2\\!\\left(\\frac{1}{5}-\\frac{2r^2}{3}+r^4 - \\frac{r^5}{5}",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false",
+        "Papers.Rockel2026XiBlest.lower_square_polynomial"
+      ],
+      "title": "Printed intermediate polynomial refuted; corrected calculation checked",
+      "note": "In the original arXiv line the coefficient of r^5 is −1/5. The correct coefficient is −8/15, as the published IJAR version prints. Lean checks the correction and refutes the printed formula at r=1/2. The final coefficient formulas are separately proved.",
+      "role": "refutation"
+    }
+  ],
+  "definitions": {
+    "\\xi": {
+      "label": "eq:xi"
+    },
+    "\\nu": {
+      "label": "eq:nu"
+    },
+    "\\Xi": {
+      "label": "eq:Xi-formula"
+    },
+    "\\NN": {
+      "label": "eq:N-formula"
+    },
+    "\\clamp": {
+      "label": "eq:clamped_h"
+    }
+  },
+  "verificationScope": "The original arXiv v1 article is reproduced without changing its text. Compiled counterparts are linked for the listed definitions, results and calculations. Two printed claims are explicitly refuted and their corrected versions are checked. The entire original proof text is not yet a certified LeanMirror proof document; external KKT theory, numerical tables and figures remain outside the formal scope.",
+  "sourceDiscrepancies": [
+    {
+      "version": "arXiv v1, proof of Theorem 2.3",
+      "unverified_claim": "The displayed lower-clamped square polynomial has coefficient -1/5 on r^5.",
+      "evidence": "Lean disproves that intermediate expression at r=1/2.",
+      "verified_instead": "The final IJAR PDF prints the corrected -8/15 coefficient. Lean verifies it and independently proves the final coefficient and region theorems."
+    },
+    {
+      "version": "arXiv v1, Lemma 4.3(iii) (shuffling lemma)",
+      "unverified_claim": "For p >= p', the shuffled copulas satisfy C_p >=_co C_p'.",
+      "evidence": "At the endpoints with C=M, the printed transformation gives C_0=M and C_1=W. Lean proves M is not concordance-below W, refuting the printed direction.",
+      "verified_instead": "The final IJAR PDF Lemma 5(iii) reverses the order. Lean verifies all four claims of that corrected shuffling path; the exact region also has an independent proof."
+    }
+  ]
+}
