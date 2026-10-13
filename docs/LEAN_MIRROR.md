@@ -153,3 +153,22 @@ An authored map may name a `proofDocumentNamespace` in the same paper module;
 the exporter compiles and extracts that namespace's proof documents alongside
 the theorem registry. This lets downstream articles add typed proof passages
 without adding subject-specific code to LeanMirror itself.
+
+The Chatterjee–Blomqvist reader at `/lean-mirror/xi-beta/` preserves
+arXiv:2606.30033v2, including the original wide title block, section equation
+numbers, bibliography and figures. Its date is pinned to the source version;
+rendering `\today` never silently substitutes the build date. All thirteen
+labeled results have compiled counterparts. The beta and attainable-region
+definitions, the exact-region statement and universal cubic inequality have
+independent typed encodings and checked correspondence. The region equivalence
+uses only interpreted definitions and set extensionality, without invoking the
+proved region theorem. The accompanying one-step statement documents reuse
+the native theorems; they do not certify the printed proof of Proposition 4.1.
+In particular, a full
+bridge from the convex-function hypotheses in Lemma 5.2 to the slope-data
+encoding remains outstanding. These limits are stated in the reader itself.
+
+An optional `evidenceModule` names a module in the current paper namespace
+containing additional definition or statement bridges. It is compiled before
+the registry is exported. The subject-specific model stays downstream; the
+generic parser and renderer stay in the LeanMirror package.

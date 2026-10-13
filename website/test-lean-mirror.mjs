@@ -128,3 +128,33 @@ test('the Chatterjee–Blest original retains its table, all panels and both exp
   assert.match(html,/entire original proof text is not yet a certified LeanMirror proof document/);
   assert.doesNotMatch(html,/corollary-3-2\//);
 });
+
+test('the Chatterjee–Blomqvist reader retains the original title, numbering and scoped statement bridge',()=>{
+  const directory=new URL('../examples/articles/OrendayLaresRockel2026XiBeta/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/xi-beta-region.tex'),bibliography:read('source/xi-beta-region.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,13);assert.equal(data.stats.linkedStatements,13);
+  assert.equal(data.stats.figures,3);assert.equal((html.match(/<img /g)||[]).length,3);
+  assert.equal(data.article.bibliography.length,30);
+  assert.equal(data.article.references['eq:beta-def'].number,'1.2');
+  assert.equal(data.article.references['eq:si-ineq'].number,'1.5');
+  assert.equal(data.article.references['eq:J'].number,'5.3');
+  assert.match(html,/29 September 2026/);
+  assert.match(html,/href="#article-eq-beta-def"/);
+  for(const label of ['tent','Lb','Ab'])assert.match(html,new RegExp('href="#article-eq-'+label+'"'));
+  assert.equal(Object.keys(data.documents).length,2);
+  assert.match(html,/lower_bound_correspondence/);assert.match(html,/beta_definition/);
+  assert.match(html,/exact_region_correspondence/);assert.match(html,/region_definition/);
+  assert.match(html,/Exact region: checked mathematical statement/);
+  assert.match(html,/does not certify the article&#39;s printed variational proof/);
+  const missingRegionDefinition=structuredClone(evidence);
+  delete missingRegionDefinition.evidence['Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.region_definition'];
+  assert.throws(()=>fullArticle({...inputs,evidence:missingRegionDefinition}),/Missing compiled/);
+  assert.match(html,/one-step statement proof reuses the existing compiled lower-bound theorem/);
+  assert.match(html,/does not certify the article&#39;s printed proof of Proposition 4.1/);
+  assert.match(html,/full definition bridge for the convex-function\/slope-data formulation/);
+  assert.equal((html.match(/class="article-proof"/g)||[]).length,(inputs.source.match(/\\begin\{proof\}/g)||[]).length);
+});

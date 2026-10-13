@@ -27,7 +27,10 @@ def index_source(mapping):
     document_namespace=mapping.get('proofDocumentNamespace')
     if document_namespace and not re.fullmatch(r'Papers\.'+re.escape(paper_id)+r'\.[A-Za-z][A-Za-z0-9_.]*',document_namespace):
         raise ValueError('Invalid proof document namespace')
-    imported_module=document_namespace or f'Papers.{paper_id}.'+('ArticleCalculations' if paper_id=='Rockel2026ExactBlest' else 'Main')
+    evidence_module=mapping.get('evidenceModule')
+    if evidence_module and not re.fullmatch(r'Papers\.'+re.escape(paper_id)+r'\.[A-Za-z][A-Za-z0-9_.]*',evidence_module):
+        raise ValueError('Invalid article evidence module')
+    imported_module=evidence_module or document_namespace or f'Papers.{paper_id}.'+('ArticleCalculations' if paper_id=='Rockel2026ExactBlest' else 'Main')
     namespace=f'Papers.{paper_id}.ArticleIndex'
     lines=['import LeanMirror.Article',
            f'import {imported_module}',

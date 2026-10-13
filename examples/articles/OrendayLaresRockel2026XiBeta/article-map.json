@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "id": "xi-beta",
+  "paperId": "OrendayLaresRockel2026XiBeta",
+  "title": "The exact region between Chatterjee’s ξ and Blomqvist’s β",
+  "source": "source/xi-beta-region.tex",
+  "bibliography": "source/xi-beta-region.bbl",
+  "sourceURL": "https://arxiv.org/abs/2606.30033v2",
+  "sourceDate": "2026-09-29",
+  "evidenceModule": "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions",
+  "bindings": [
+    {
+      "label": "eq:beta-def",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.beta_definition"
+      ]
+    },
+    {
+      "label": "eq:xi-def",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.xi_derivative_formula"
+      ]
+    },
+    {
+      "label": "thm:main",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_1_region",
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_1_inequality",
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_1_right_boundary",
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.lower_bound_correspondence",
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.lower_bound_verified",
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.lower_bound_document_valid",
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.exact_region_correspondence",
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.exact_region_verified",
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.region_statement_valid"
+      ]
+    },
+    {
+      "label": "eq:main-ineq",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.beta_cubic_le_two_xi",
+        "Papers.OrendayLaresRockel2026XiBeta.xi_eq_lower_iff"
+      ]
+    },
+    {
+      "label": "thm:si",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_2_region",
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_2_sd",
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_2_inequality",
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_2_beta_lower"
+      ]
+    },
+    {
+      "label": "eq:si-ineq",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.theorem_1_2_inequality"
+      ]
+    },
+    {
+      "label": "eq:key",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.median_energy_le_xi"
+      ]
+    },
+    {
+      "label": "eq:xi-deficit",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.one_sub_xi_eq_deriv"
+      ]
+    },
+    {
+      "label": "eq:flip",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.xi_check",
+        "Papers.OrendayLaresRockel2026XiBeta.beta_check"
+      ]
+    },
+    {
+      "label": "eq:reflect-region",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.xiBetaRegion_checkClass"
+      ]
+    },
+    {
+      "label": "lem:interpolation",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.interpolation_lemma"
+      ]
+    },
+    {
+      "label": "eq:Lb",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_cdf_paper"
+      ]
+    },
+    {
+      "label": "prop:Lb",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_absolutelyContinuous",
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_density_paper",
+        "Papers.OrendayLaresRockel2026XiBeta.tentDensityPaper_values_ae",
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_kernel_paper",
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_beta",
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_xi"
+      ]
+    },
+    {
+      "label": "eq:Lb-density",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_density_paper",
+        "Papers.OrendayLaresRockel2026XiBeta.tentDensityPaper_values_ae"
+      ]
+    },
+    {
+      "label": "eq:Lb-kernel",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_kernel_paper"
+      ]
+    },
+    {
+      "label": "prop:Lb-properties",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.proposition_3_2",
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_zero_eq_independence",
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_one_eq_ordinalSum",
+        "Papers.OrendayLaresRockel2026XiBeta.leftBoundary_neg_one_eq_check"
+      ]
+    },
+    {
+      "label": "rem:mechanism",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.abs_tentG_le_abs",
+        "Papers.OrendayLaresRockel2026XiBeta.tent_minimizes",
+        "Papers.OrendayLaresRockel2026XiBeta.tent_minimizer_unique",
+        "Papers.OrendayLaresRockel2026XiBeta.integral_tentG_sq"
+      ]
+    },
+    {
+      "label": "prop:sharp",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.beta_cubic_le_two_xi",
+        "Papers.OrendayLaresRockel2026XiBeta.xi_eq_lower_iff"
+      ]
+    },
+    {
+      "label": "prop:right-boundary",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.proposition_4_2"
+      ]
+    },
+    {
+      "label": "cor:rs-pqd",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.corollary_4_3_rs",
+        "Papers.OrendayLaresRockel2026XiBeta.corollary_4_3_pqd",
+        "Papers.OrendayLaresRockel2026XiBeta.corollary_4_3_nqd"
+      ]
+    },
+    {
+      "label": "eq:QA",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.cdf_completion"
+      ]
+    },
+    {
+      "label": "lem:completion",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.cdf_completion",
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.completion_isSI",
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.cdf_completion_half",
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.conditionalCDF_completion",
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.cdf_le_completion",
+        "Papers.OrendayLaresRockel2026XiBeta.xi_le_completion",
+        "Papers.OrendayLaresRockel2026XiBeta.eq_completion_of_xi_eq"
+      ]
+    },
+    {
+      "label": "eq:gap",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.gap_eq"
+      ]
+    },
+    {
+      "label": "eq:J",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.MedianSection.one_sub_xi_completion"
+      ]
+    },
+    {
+      "label": "lem:convex",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.SlopeData.w_sub_le",
+        "Papers.OrendayLaresRockel2026XiBeta.SlopeData.two_q_le_one",
+        "Papers.OrendayLaresRockel2026XiBeta.SlopeData.q_nonneg",
+        "Papers.OrendayLaresRockel2026XiBeta.SlopeData.two_q_sq_le_J",
+        "Papers.OrendayLaresRockel2026XiBeta.SlopeData.J_eq_two_q_sq_iff"
+      ],
+      "note": "The native formulation uses nondecreasing slope data. The equivalence between all the printed convex-function hypotheses and that encoding still needs its own LeanMirror definition bridge."
+    },
+    {
+      "label": "eq:area",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.SlopeData.areas"
+      ]
+    },
+    {
+      "label": "prop:Rb",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.proposition_5_3_law",
+        "Papers.OrendayLaresRockel2026XiBeta.proposition_5_3_i",
+        "Papers.OrendayLaresRockel2026XiBeta.proposition_5_3_ii",
+        "Papers.OrendayLaresRockel2026XiBeta.proposition_5_3_iii_iv"
+      ]
+    },
+    {
+      "label": "rem:R0",
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.xiBetaRegion_classSI_fibre_beta_zero",
+        "Papers.OrendayLaresRockel2026XiBeta.R0_upper_endpoint",
+        "Papers.OrendayLaresRockel2026XiBeta.V0_ae_eq",
+        "Papers.OrendayLaresRockel2026XiBeta.V0_floor_ae",
+        "Papers.OrendayLaresRockel2026XiBeta.xi_R0_transpose",
+        "Papers.OrendayLaresRockel2026XiBeta.R0_SI_transpose_not_SI",
+        "Papers.OrendayLaresRockel2026XiBeta.xi_le_tau_le_rho_Rb"
+      ]
+    },
+    {
+      "declarations": [
+        "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions.region_definition"
+      ],
+      "quote": "and \\(\\RR_{\\xi,\\beta}\\coloneqq\\RR^{\\CC}_{\\xi,\\beta}\\).",
+      "note": "This checks the all-copulas specialization of the displayed attainable-region definition.",
+      "kind": "paragraph"
+    }
+  ],
+  "definitions": {
+    "\\xi": {
+      "label": "eq:xi-def"
+    },
+    "\\beta": {
+      "label": "eq:beta-def"
+    },
+    "g_b": {
+      "label": "eq:tent"
+    },
+    "L_b": {
+      "label": "eq:Lb"
+    },
+    "R_b": {
+      "label": "eq:Ab"
+    }
+  },
+  "verificationScope": "The original arXiv v2 article, its title block, bibliography, figures, definitions, statements and proofs are preserved. The beta and attainable-region definitions, the exact-region statement, and the universal cubic inequality have independent typed LeanMirror encodings with checked correspondence to their native Lean meanings. Other links expose compiled counterparts and their hypotheses; they do not yet certify every printed subclaim or every literal proof step. In particular, a full definition bridge for the convex-function/slope-data formulation of Lemma 5.2 remains outstanding. Literature results, open problems and numerical figures are not certified by these links.",
+  "proofDocumentNamespace": "Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions"
+}

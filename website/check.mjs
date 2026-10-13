@@ -54,7 +54,10 @@ for (const article of metadata.fullArticles) {
   assert.equal((html.match(/class="article-result"/g)||[]).length,article.stats.statements);
   assert.equal((html.match(/<figure(?![^>]*class="article-table") /g)||[]).length,article.stats.figures);
   assert(html.includes('Exhaustive verification of the literal proof steps is still in progress'), 'Verification boundary missing');
-  assert(html.includes('href="#article-eq-nu'), 'Original notation is not clickable');
+  for(const definition of Object.values(data.mapping.definitions??{})){
+    const anchor='article-'+definition.label.replace(/[^a-zA-Z0-9-]/g,'-');
+    assert(html.includes(`href="#${anchor}"`), 'Original notation is not clickable: '+definition.label);
+  }
   assert.equal(Object.keys(data.evidence).length,article.declarations.length);
   assert.equal(data.source,fs.readFileSync(path.join(directory,'original.tex'),'utf8'));
 }

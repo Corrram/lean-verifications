@@ -36,11 +36,12 @@ export function renderFullArticle(data,{url,api,source,paperUrl}) {
   const body=renderArticle(data.article,{
     annotations:data.annotations,evidence:data.evidence,definitions:data.config.definitions,
     sourceURL:data.config.sourceURL??'https://arxiv.org/abs/2609.27634v1',
+    sourceDate:data.config.sourceDate??'',
     figureURL:image=>url(route+'images/'+image.split('/').at(-1).replace(/\.pdf$/,'.png')),
     certificateURL:record=>api(record.module)+'#'+record.declaration,
     proofDetails:(b,items,m)=>items.filter(item=>data.documents[item.declaration]).map(item=>{
       const document=data.documents[item.declaration];
-      return `<section class="article-checked-calculation"><h4>${escape(document.title)}</h4><p>Each step below is checked by Lean.</p><details><summary>Definitions used in this calculation</summary>${m(document.definition,true)}${data.config.paperId==='Rockel2026ExactBlest'?'<p>The potentials are defined in <a href="#article-eq-potential-A">the original potential equations</a>.</p>':''}</details><p>${formulaProse(document.checked.statement,m)}.</p>${proofHTML(document.checked.proof,m)}<p>Statement correspondence: <a href="${escape(api(data.evidence[document.correspondence].module)+'#'+document.correspondence)}">${escape(document.correspondence)}</a></p></section>`;
+      return `<section class="article-checked-calculation"><h4>${escape(document.title)}</h4><p>Each step below is checked by Lean.</p>${document.note?'<p>'+escape(document.note)+'</p>':''}<details><summary>Definitions used in this calculation</summary>${m(document.definition,true)}${data.config.paperId==='Rockel2026ExactBlest'?'<p>The potentials are defined in <a href="#article-eq-potential-A">the original potential equations</a>.</p>':''}</details><p>${formulaProse(document.checked.statement,m)}.</p>${proofHTML(document.checked.proof,m)}<p>Statement correspondence: <a href="${escape(api(data.evidence[document.correspondence].module)+'#'+document.correspondence)}">${escape(document.correspondence)}</a></p></section>`;
     }).join('')+(b.labels.includes('cor:nu-rho')?`<p><a href="${url(route+'corollary-3-2/')}">Open the precise proof document, with every intermediate claim checked</a></p>`:''),
   });
   return `<div class="article-reader"><div class="eyebrow"><a href="${url('lean-mirror/')}">LeanMirror</a> / Full article</div>
