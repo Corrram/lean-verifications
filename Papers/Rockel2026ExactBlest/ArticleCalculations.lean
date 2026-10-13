@@ -89,7 +89,7 @@ def secondRectangle : Argument Symbol [] := [proof|
   Have 3*w \le \factor(w,x,z);
   Have 0 < 3*w;
   Have 0 \le \delta(w,x,z);
-  Conclude \delta(w,x,z)=0 \iff x+z=1]
+  Conclude 0 \le \delta(w,x,z) \land (\delta(w,x,z)=0 \iff x+z=1)]
 
 theorem second_rectangle_valid : secondRectangle.Valid model (fun _ => True) := by
   simp only [secondRectangle, Argument.Valid, Expr.eval, Var.get, model, Ty.denote,
@@ -104,7 +104,8 @@ theorem second_rectangle_valid : secondRectangle.Valid model (fun _ => True) := 
   · rintro ⟨z,x,w,⟨⟩⟩ ⟨⟨⟨⟨⟨⟨_,hw⟩,_⟩,_⟩,he⟩,hf⟩,hp⟩
     rw [he]
     exact div_nonneg (mul_nonneg (sq_nonneg _) (hp.le.trans hf)) (by linarith [hw.1])
-  · rintro ⟨z,x,w,⟨⟩⟩ ⟨⟨⟨⟨⟨⟨⟨_,hw⟩,_⟩,_⟩,he⟩,hf⟩,hp⟩,_⟩
+  · rintro ⟨z,x,w,⟨⟩⟩ ⟨⟨⟨⟨⟨⟨⟨_,hw⟩,_⟩,_⟩,he⟩,hf⟩,hp⟩,hn⟩
+    refine ⟨hn,?_⟩
     have hden : 6*w ≠ 0 := by linarith [hw.1]
     have hfactor : (6-2*w)*z-(3+2*w)*x+3-4*w ≠ 0 := by linarith
     rw [he, div_eq_zero_iff, mul_eq_zero]
@@ -116,7 +117,7 @@ theorem second_rectangle_verified : secondRectangle.goal.eval model () :=
 
 theorem second_rectangle_correspondence : secondRectangle.goal.eval model () ↔
     ∀ w x z : ℝ, (1/2 ≤ w ∧ w < 1) → (0 ≤ x ∧ x ≤ 1-w) →
-      (w ≤ z ∧ z ≤ 1) → (deltaA w x z = 0 ↔ x+z=1) := by
+      (w ≤ z ∧ z ≤ 1) → 0 ≤ deltaA w x z ∧ (deltaA w x z = 0 ↔ x+z=1) := by
   simp only [secondRectangle, Argument.goal, Expr.eval, Var.get, model, Ty.denote,
     Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one]
 
@@ -216,6 +217,66 @@ theorem fourth_rectangle_correspondence : fourthRectangle.goal.eval model () ↔
   simp only [fourthRectangle, Argument.goal, Expr.eval, Var.get, model, Ty.denote,
     Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one]
 
+-- Compose the four checked calculations; this argument does not invoke dualA.
+def fourRectangles : Argument Symbol [] := [proof|
+  Fix w : real named "w";
+  Assume \frac{1}{2} \le w \land w < 1;
+  Have Forall x : real. Forall z : real.
+    ((1-w \le x \land x \le 1) \land (0 \le z \land z \le w)) \implies 0 \le \delta(w,x,z);
+  Have Forall x : real. Forall z : real.
+    ((0 \le x \land x \le 1-w) \land (w \le z \land z \le 1)) \implies 0 \le \delta(w,x,z);
+  Have Forall x : real. Forall z : real.
+    ((0 \le x \land x \le 1-w) \land (0 \le z \land z \le w)) \implies 0 \le \delta(w,x,z);
+  Have Forall x : real. Forall z : real.
+    ((1-w \le x \land x \le 1) \land (w \le z \land z \le 1)) \implies 0 \le \delta(w,x,z);
+  Conclude Forall x : real. Forall z : real.
+    ((0 \le x \land x \le 1) \land (0 \le z \land z \le 1)) \implies 0 \le \delta(w,x,z)]
+
+theorem four_rectangles_valid : fourRectangles.Valid model (fun _ => True) := by
+  simp only [fourRectangles,Argument.Valid,Expr.eval,Var.get,model,Ty.denote,
+    Nat.cast_ofNat,Nat.cast_zero,Nat.cast_one]
+  refine ⟨?_,?_,?_,?_,?_⟩
+  · rintro ⟨w,⟨⟩⟩ ⟨_,hw⟩ x z ⟨hx,hz⟩
+    exact first_rectangle_correspondence.mp first_rectangle_verified w x z hw hx hz
+  · rintro ⟨w,⟨⟩⟩ ⟨⟨_,hw⟩,_⟩ x z ⟨hx,hz⟩
+    exact (second_rectangle_correspondence.mp second_rectangle_verified w x z hw hx hz).1
+  · rintro ⟨w,⟨⟩⟩ ⟨⟨⟨_,hw⟩,_⟩,_⟩ x z ⟨hx,hz⟩
+    exact third_rectangle_correspondence.mp third_rectangle_verified w x z hw hx hz
+  · rintro ⟨w,⟨⟩⟩ ⟨⟨⟨⟨_,hw⟩,_⟩,_⟩,_⟩ x z ⟨hx,hz⟩
+    exact fourth_rectangle_correspondence.mp fourth_rectangle_verified w x z hw hx hz
+  · rintro ⟨w,⟨⟩⟩ h x z ⟨hx,hz⟩
+    have first := h.1.1.1.2
+    have second := h.1.1.2
+    have third := h.1.2
+    have fourth := h.2
+    by_cases hxl : x ≤ 1-w
+    · by_cases hzl : z ≤ w
+      · exact third x z ⟨⟨hx.1,hxl⟩,⟨hz.1,hzl⟩⟩
+      · exact second x z ⟨⟨hx.1,hxl⟩,⟨(le_of_not_ge hzl),hz.2⟩⟩
+    · by_cases hzl : z ≤ w
+      · exact first x z ⟨⟨(le_of_not_ge hxl),hx.2⟩,⟨hz.1,hzl⟩⟩
+      · exact fourth x z ⟨⟨(le_of_not_ge hxl),hx.2⟩,⟨(le_of_not_ge hzl),hz.2⟩⟩
+
+-- Extract the native inequality with the article's narrower parameter range.
+theorem scoped_dualA (w x z : ℝ) (hw : 1/2 ≤ w ∧ w < 1)
+    (hx : 0 ≤ x ∧ x ≤ 1) (hz : 0 ≤ z ∧ z ≤ 1) :
+    cost ((3-2*w)/(2*w)) x z ≤ paperPhiA w x+paperPsiA w z :=
+  paper_dualA w x z hw.1 hw.2.le hx hz
+
+def existingFourRectangles : Prop := statement_of% scoped_dualA
+
+theorem four_rectangles_correspondence : fourRectangles.goal.eval model () ↔ existingFourRectangles := by
+  simp only [fourRectangles,Argument.goal,Expr.eval,Var.get,model,Ty.denote,
+    Nat.cast_ofNat,Nat.cast_zero,Nat.cast_one,existingFourRectangles]
+  constructor
+  · intro h w x z hw hx hz
+    exact sub_nonneg.mp (h w hw x z ⟨hx,hz⟩)
+  · intro h w hw x z ⟨hx,hz⟩
+    exact sub_nonneg.mpr (h w x z hw hx hz)
+
+theorem four_rectangles_verified : fourRectangles.goal.eval model () :=
+  fourRectangles.sound model _ four_rectangles_valid () trivial
+
 def vocabulary : Vocabulary Symbol where
   key _ := "graph-slack"
   typeLatex _ := "\\mathbb{R}"
@@ -265,6 +326,15 @@ def documents : Json := Json.mkObj [
     ("definitionBridge", .str (toString ``delta_definition)),
     ("definition", .str ("\\Delta_w(x,z):=" ++ deltaDefinition.latex vocabulary ["z","x","w"] ++
       ".\\quad\\partial_z\\Delta_w(x,z)=d\\text{ means its derivative exists and equals }d"))
+  ]),
+  (toString ``four_rectangles_valid,Json.mkObj [
+    ("checked",checked_document% (vocabulary) four_rectangles_valid),
+    ("title",.str "Four rectangles cover the unit square"),
+    ("note",.str "The four intermediate assertions reuse the four checked rectangle proof documents. The final step splits at x=1-w and z=w, deriving nonnegativity on the whole square without invoking the native dual inequality. The correspondence unfolds the slack and rearranges the inequality. This composition checks the inequality part; it does not certify the entire printed contact-set argument."),
+    ("correspondence",.str (toString ``four_rectangles_correspondence)),
+    ("verified",.str (toString ``four_rectangles_verified)),
+    ("definitionBridge",.str (toString ``delta_definition)),
+    ("definition",.str ("\\Delta_w(x,z):="++deltaDefinition.latex vocabulary ["z","x","w"]))
   ])
 ]
 
@@ -282,4 +352,8 @@ def documents : Json := Json.mkObj [
 #assert_lean_mirror_axioms fourth_rectangle_valid
 #assert_lean_mirror_axioms fourth_rectangle_verified
 #assert_lean_mirror_axioms fourth_rectangle_correspondence
+#assert_lean_mirror_axioms scoped_dualA
+#assert_lean_mirror_axioms four_rectangles_valid
+#assert_lean_mirror_axioms four_rectangles_correspondence
+#assert_lean_mirror_axioms four_rectangles_verified
 end Papers.Rockel2026ExactBlest.ArticleCalculations

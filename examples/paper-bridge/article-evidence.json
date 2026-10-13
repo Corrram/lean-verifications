@@ -242,6 +242,483 @@
       "title": "The first rectangle: the printed factorization and sign estimates",
       "verified": "Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_verified"
     },
+    "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_valid": {
+      "checked": {
+        "proof": {
+          "binding": "w",
+          "kind": "fix",
+          "name": "w",
+          "next": {
+            "claim": "\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right)",
+            "formula": {
+              "kind": "and",
+              "latex": "\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right)",
+              "left": {
+                "kind": "relation",
+                "latex": "\\frac{1}{2} \\le w",
+                "left": "\\frac{1}{2}",
+                "operator": "\\le",
+                "right": "w"
+              },
+              "right": {
+                "kind": "relation",
+                "latex": "w < 1",
+                "left": "w",
+                "operator": "<",
+                "right": "1"
+              }
+            },
+            "kind": "assume",
+            "next": {
+              "claim": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+              "formula": {
+                "binding": "x",
+                "body": {
+                  "binding": "z",
+                  "body": {
+                    "body": {
+                      "kind": "relation",
+                      "latex": "0 \\le \\Delta_{w}(x,z)",
+                      "left": "0",
+                      "operator": "\\le",
+                      "right": "\\Delta_{w}(x,z)"
+                    },
+                    "kind": "imp",
+                    "latex": "\\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                    "premise": {
+                      "kind": "and",
+                      "latex": "\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right)",
+                      "left": {
+                        "kind": "and",
+                        "latex": "\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right)",
+                        "left": {
+                          "kind": "relation",
+                          "latex": "\\left(1 - w\\right) \\le x",
+                          "left": "1 - w",
+                          "operator": "\\le",
+                          "right": "x"
+                        },
+                        "right": {
+                          "kind": "relation",
+                          "latex": "x \\le 1",
+                          "left": "x",
+                          "operator": "\\le",
+                          "right": "1"
+                        }
+                      },
+                      "right": {
+                        "kind": "and",
+                        "latex": "\\left(0 \\le z \\;\\land\\; z \\le w\\right)",
+                        "left": {
+                          "kind": "relation",
+                          "latex": "0 \\le z",
+                          "left": "0",
+                          "operator": "\\le",
+                          "right": "z"
+                        },
+                        "right": {
+                          "kind": "relation",
+                          "latex": "z \\le w",
+                          "left": "z",
+                          "operator": "\\le",
+                          "right": "w"
+                        }
+                      }
+                    }
+                  },
+                  "kind": "forall",
+                  "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                  "name": "z",
+                  "type": "\\mathbb{R}"
+                },
+                "kind": "forall",
+                "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                "name": "x",
+                "type": "\\mathbb{R}"
+              },
+              "kind": "have",
+              "next": {
+                "claim": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                "formula": {
+                  "binding": "x",
+                  "body": {
+                    "binding": "z",
+                    "body": {
+                      "body": {
+                        "kind": "relation",
+                        "latex": "0 \\le \\Delta_{w}(x,z)",
+                        "left": "0",
+                        "operator": "\\le",
+                        "right": "\\Delta_{w}(x,z)"
+                      },
+                      "kind": "imp",
+                      "latex": "\\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                      "premise": {
+                        "kind": "and",
+                        "latex": "\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right)",
+                        "left": {
+                          "kind": "and",
+                          "latex": "\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right)",
+                          "left": {
+                            "kind": "relation",
+                            "latex": "0 \\le x",
+                            "left": "0",
+                            "operator": "\\le",
+                            "right": "x"
+                          },
+                          "right": {
+                            "kind": "relation",
+                            "latex": "x \\le \\left(1 - w\\right)",
+                            "left": "x",
+                            "operator": "\\le",
+                            "right": "1 - w"
+                          }
+                        },
+                        "right": {
+                          "kind": "and",
+                          "latex": "\\left(w \\le z \\;\\land\\; z \\le 1\\right)",
+                          "left": {
+                            "kind": "relation",
+                            "latex": "w \\le z",
+                            "left": "w",
+                            "operator": "\\le",
+                            "right": "z"
+                          },
+                          "right": {
+                            "kind": "relation",
+                            "latex": "z \\le 1",
+                            "left": "z",
+                            "operator": "\\le",
+                            "right": "1"
+                          }
+                        }
+                      }
+                    },
+                    "kind": "forall",
+                    "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                    "name": "z",
+                    "type": "\\mathbb{R}"
+                  },
+                  "kind": "forall",
+                  "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                  "name": "x",
+                  "type": "\\mathbb{R}"
+                },
+                "kind": "have",
+                "next": {
+                  "claim": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                  "formula": {
+                    "binding": "x",
+                    "body": {
+                      "binding": "z",
+                      "body": {
+                        "body": {
+                          "kind": "relation",
+                          "latex": "0 \\le \\Delta_{w}(x,z)",
+                          "left": "0",
+                          "operator": "\\le",
+                          "right": "\\Delta_{w}(x,z)"
+                        },
+                        "kind": "imp",
+                        "latex": "\\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                        "premise": {
+                          "kind": "and",
+                          "latex": "\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right)",
+                          "left": {
+                            "kind": "and",
+                            "latex": "\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right)",
+                            "left": {
+                              "kind": "relation",
+                              "latex": "0 \\le x",
+                              "left": "0",
+                              "operator": "\\le",
+                              "right": "x"
+                            },
+                            "right": {
+                              "kind": "relation",
+                              "latex": "x \\le \\left(1 - w\\right)",
+                              "left": "x",
+                              "operator": "\\le",
+                              "right": "1 - w"
+                            }
+                          },
+                          "right": {
+                            "kind": "and",
+                            "latex": "\\left(0 \\le z \\;\\land\\; z \\le w\\right)",
+                            "left": {
+                              "kind": "relation",
+                              "latex": "0 \\le z",
+                              "left": "0",
+                              "operator": "\\le",
+                              "right": "z"
+                            },
+                            "right": {
+                              "kind": "relation",
+                              "latex": "z \\le w",
+                              "left": "z",
+                              "operator": "\\le",
+                              "right": "w"
+                            }
+                          }
+                        }
+                      },
+                      "kind": "forall",
+                      "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                      "name": "z",
+                      "type": "\\mathbb{R}"
+                    },
+                    "kind": "forall",
+                    "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le w\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                    "name": "x",
+                    "type": "\\mathbb{R}"
+                  },
+                  "kind": "have",
+                  "next": {
+                    "claim": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                    "formula": {
+                      "binding": "x",
+                      "body": {
+                        "binding": "z",
+                        "body": {
+                          "body": {
+                            "kind": "relation",
+                            "latex": "0 \\le \\Delta_{w}(x,z)",
+                            "left": "0",
+                            "operator": "\\le",
+                            "right": "\\Delta_{w}(x,z)"
+                          },
+                          "kind": "imp",
+                          "latex": "\\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                          "premise": {
+                            "kind": "and",
+                            "latex": "\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right)",
+                            "left": {
+                              "kind": "and",
+                              "latex": "\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right)",
+                              "left": {
+                                "kind": "relation",
+                                "latex": "\\left(1 - w\\right) \\le x",
+                                "left": "1 - w",
+                                "operator": "\\le",
+                                "right": "x"
+                              },
+                              "right": {
+                                "kind": "relation",
+                                "latex": "x \\le 1",
+                                "left": "x",
+                                "operator": "\\le",
+                                "right": "1"
+                              }
+                            },
+                            "right": {
+                              "kind": "and",
+                              "latex": "\\left(w \\le z \\;\\land\\; z \\le 1\\right)",
+                              "left": {
+                                "kind": "relation",
+                                "latex": "w \\le z",
+                                "left": "w",
+                                "operator": "\\le",
+                                "right": "z"
+                              },
+                              "right": {
+                                "kind": "relation",
+                                "latex": "z \\le 1",
+                                "left": "z",
+                                "operator": "\\le",
+                                "right": "1"
+                              }
+                            }
+                          }
+                        },
+                        "kind": "forall",
+                        "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                        "name": "z",
+                        "type": "\\mathbb{R}"
+                      },
+                      "kind": "forall",
+                      "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(\\left(1 - w\\right) \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(w \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                      "name": "x",
+                      "type": "\\mathbb{R}"
+                    },
+                    "kind": "have",
+                    "next": {
+                      "claim": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                      "formula": {
+                        "binding": "x",
+                        "body": {
+                          "binding": "z",
+                          "body": {
+                            "body": {
+                              "kind": "relation",
+                              "latex": "0 \\le \\Delta_{w}(x,z)",
+                              "left": "0",
+                              "operator": "\\le",
+                              "right": "\\Delta_{w}(x,z)"
+                            },
+                            "kind": "imp",
+                            "latex": "\\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                            "premise": {
+                              "kind": "and",
+                              "latex": "\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right)",
+                              "left": {
+                                "kind": "and",
+                                "latex": "\\left(0 \\le x \\;\\land\\; x \\le 1\\right)",
+                                "left": {
+                                  "kind": "relation",
+                                  "latex": "0 \\le x",
+                                  "left": "0",
+                                  "operator": "\\le",
+                                  "right": "x"
+                                },
+                                "right": {
+                                  "kind": "relation",
+                                  "latex": "x \\le 1",
+                                  "left": "x",
+                                  "operator": "\\le",
+                                  "right": "1"
+                                }
+                              },
+                              "right": {
+                                "kind": "and",
+                                "latex": "\\left(0 \\le z \\;\\land\\; z \\le 1\\right)",
+                                "left": {
+                                  "kind": "relation",
+                                  "latex": "0 \\le z",
+                                  "left": "0",
+                                  "operator": "\\le",
+                                  "right": "z"
+                                },
+                                "right": {
+                                  "kind": "relation",
+                                  "latex": "z \\le 1",
+                                  "left": "z",
+                                  "operator": "\\le",
+                                  "right": "1"
+                                }
+                              }
+                            }
+                          },
+                          "kind": "forall",
+                          "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                          "name": "z",
+                          "type": "\\mathbb{R}"
+                        },
+                        "kind": "forall",
+                        "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                        "name": "x",
+                        "type": "\\mathbb{R}"
+                      },
+                      "kind": "finish"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "type": "\\mathbb{R}"
+        },
+        "statement": {
+          "binding": "w",
+          "body": {
+            "body": {
+              "binding": "x",
+              "body": {
+                "binding": "z",
+                "body": {
+                  "body": {
+                    "kind": "relation",
+                    "latex": "0 \\le \\Delta_{w}(x,z)",
+                    "left": "0",
+                    "operator": "\\le",
+                    "right": "\\Delta_{w}(x,z)"
+                  },
+                  "kind": "imp",
+                  "latex": "\\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                  "premise": {
+                    "kind": "and",
+                    "latex": "\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right)",
+                    "left": {
+                      "kind": "and",
+                      "latex": "\\left(0 \\le x \\;\\land\\; x \\le 1\\right)",
+                      "left": {
+                        "kind": "relation",
+                        "latex": "0 \\le x",
+                        "left": "0",
+                        "operator": "\\le",
+                        "right": "x"
+                      },
+                      "right": {
+                        "kind": "relation",
+                        "latex": "x \\le 1",
+                        "left": "x",
+                        "operator": "\\le",
+                        "right": "1"
+                      }
+                    },
+                    "right": {
+                      "kind": "and",
+                      "latex": "\\left(0 \\le z \\;\\land\\; z \\le 1\\right)",
+                      "left": {
+                        "kind": "relation",
+                        "latex": "0 \\le z",
+                        "left": "0",
+                        "operator": "\\le",
+                        "right": "z"
+                      },
+                      "right": {
+                        "kind": "relation",
+                        "latex": "z \\le 1",
+                        "left": "z",
+                        "operator": "\\le",
+                        "right": "1"
+                      }
+                    }
+                  }
+                },
+                "kind": "forall",
+                "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+                "name": "z",
+                "type": "\\mathbb{R}"
+              },
+              "kind": "forall",
+              "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)",
+              "name": "x",
+              "type": "\\mathbb{R}"
+            },
+            "kind": "imp",
+            "latex": "\\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)\\right)",
+            "premise": {
+              "kind": "and",
+              "latex": "\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right)",
+              "left": {
+                "kind": "relation",
+                "latex": "\\frac{1}{2} \\le w",
+                "left": "\\frac{1}{2}",
+                "operator": "\\le",
+                "right": "w"
+              },
+              "right": {
+                "kind": "relation",
+                "latex": "w < 1",
+                "left": "w",
+                "operator": "<",
+                "right": "1"
+              }
+            }
+          },
+          "kind": "forall",
+          "latex": "\\forall w\\in \\mathbb{R},\\quad \\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\left(0 \\le x \\;\\land\\; x \\le 1\\right) \\;\\land\\; \\left(0 \\le z \\;\\land\\; z \\le 1\\right)\\right) \\;\\Longrightarrow\\; 0 \\le \\Delta_{w}(x,z)\\right)\\right)",
+          "name": "w",
+          "type": "\\mathbb{R}"
+        }
+      },
+      "correspondence": "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_correspondence",
+      "definition": "\\Delta_w(x,z):=\\left(\\varphi_{w}(x) + \\psi_{w}(z)\\right) - \\left(\\left(x\\right)^2\\,z - \\frac{\\left(3 - 2\\,w\\right)}{2\\,w}\\,x\\,\\left(z\\right)^2\\right)",
+      "definitionBridge": "Papers.Rockel2026ExactBlest.ArticleCalculations.delta_definition",
+      "note": "The four intermediate assertions reuse the four checked rectangle proof documents. The final step splits at x=1-w and z=w, deriving nonnegativity on the whole square without invoking the native dual inequality. The correspondence unfolds the slack and rearranges the inequality. This composition checks the inequality part; it does not certify the entire printed contact-set argument.",
+      "title": "Four rectangles cover the unit square",
+      "verified": "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_verified"
+    },
     "Papers.Rockel2026ExactBlest.ArticleCalculations.fourth_rectangle_valid": {
       "checked": {
         "proof": {
@@ -716,23 +1193,34 @@
                             },
                             "kind": "have",
                             "next": {
-                              "claim": "\\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)",
+                              "claim": "\\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)",
                               "formula": {
-                                "kind": "iff",
-                                "latex": "\\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)",
+                                "kind": "and",
+                                "latex": "\\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)",
                                 "left": {
                                   "kind": "relation",
-                                  "latex": "\\Delta_{w}(x,z) = 0",
-                                  "left": "\\Delta_{w}(x,z)",
-                                  "operator": "=",
-                                  "right": "0"
+                                  "latex": "0 \\le \\Delta_{w}(x,z)",
+                                  "left": "0",
+                                  "operator": "\\le",
+                                  "right": "\\Delta_{w}(x,z)"
                                 },
                                 "right": {
-                                  "kind": "relation",
-                                  "latex": "\\left(x + z\\right) = 1",
-                                  "left": "x + z",
-                                  "operator": "=",
-                                  "right": "1"
+                                  "kind": "iff",
+                                  "latex": "\\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)",
+                                  "left": {
+                                    "kind": "relation",
+                                    "latex": "\\Delta_{w}(x,z) = 0",
+                                    "left": "\\Delta_{w}(x,z)",
+                                    "operator": "=",
+                                    "right": "0"
+                                  },
+                                  "right": {
+                                    "kind": "relation",
+                                    "latex": "\\left(x + z\\right) = 1",
+                                    "left": "x + z",
+                                    "operator": "=",
+                                    "right": "1"
+                                  }
                                 }
                               },
                               "kind": "finish"
@@ -760,25 +1248,36 @@
                 "body": {
                   "body": {
                     "body": {
-                      "kind": "iff",
-                      "latex": "\\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)",
+                      "kind": "and",
+                      "latex": "\\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)",
                       "left": {
                         "kind": "relation",
-                        "latex": "\\Delta_{w}(x,z) = 0",
-                        "left": "\\Delta_{w}(x,z)",
-                        "operator": "=",
-                        "right": "0"
+                        "latex": "0 \\le \\Delta_{w}(x,z)",
+                        "left": "0",
+                        "operator": "\\le",
+                        "right": "\\Delta_{w}(x,z)"
                       },
                       "right": {
-                        "kind": "relation",
-                        "latex": "\\left(x + z\\right) = 1",
-                        "left": "x + z",
-                        "operator": "=",
-                        "right": "1"
+                        "kind": "iff",
+                        "latex": "\\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)",
+                        "left": {
+                          "kind": "relation",
+                          "latex": "\\Delta_{w}(x,z) = 0",
+                          "left": "\\Delta_{w}(x,z)",
+                          "operator": "=",
+                          "right": "0"
+                        },
+                        "right": {
+                          "kind": "relation",
+                          "latex": "\\left(x + z\\right) = 1",
+                          "left": "x + z",
+                          "operator": "=",
+                          "right": "1"
+                        }
                       }
                     },
                     "kind": "imp",
-                    "latex": "\\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)",
+                    "latex": "\\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)",
                     "premise": {
                       "kind": "and",
                       "latex": "\\left(w \\le z \\;\\land\\; z \\le 1\\right)",
@@ -799,7 +1298,7 @@
                     }
                   },
                   "kind": "imp",
-                  "latex": "\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)",
+                  "latex": "\\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)",
                   "premise": {
                     "kind": "and",
                     "latex": "\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right)",
@@ -820,7 +1319,7 @@
                   }
                 },
                 "kind": "imp",
-                "latex": "\\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)",
+                "latex": "\\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)\\right)",
                 "premise": {
                   "kind": "and",
                   "latex": "\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right)",
@@ -841,17 +1340,17 @@
                 }
               },
               "kind": "forall",
-              "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)",
+              "latex": "\\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)\\right)",
               "name": "z",
               "type": "\\mathbb{R}"
             },
             "kind": "forall",
-            "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)",
+            "latex": "\\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)\\right)",
             "name": "x",
             "type": "\\mathbb{R}"
           },
           "kind": "forall",
-          "latex": "\\forall w\\in \\mathbb{R},\\quad \\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)",
+          "latex": "\\forall w\\in \\mathbb{R},\\quad \\forall x\\in \\mathbb{R},\\quad \\forall z\\in \\mathbb{R},\\quad \\left(\\left(\\frac{1}{2} \\le w \\;\\land\\; w < 1\\right) \\;\\Longrightarrow\\; \\left(\\left(0 \\le x \\;\\land\\; x \\le \\left(1 - w\\right)\\right) \\;\\Longrightarrow\\; \\left(\\left(w \\le z \\;\\land\\; z \\le 1\\right) \\;\\Longrightarrow\\; \\left(0 \\le \\Delta_{w}(x,z) \\;\\land\\; \\left(\\Delta_{w}(x,z) = 0 \\;\\Longleftrightarrow\\; \\left(x + z\\right) = 1\\right)\\right)\\right)\\right)\\right)",
           "name": "w",
           "type": "\\mathbb{R}"
         }
@@ -2022,6 +2521,338 @@
       "module": "Papers.Rockel2026ExactBlest.ArticleCalculations",
       "type": "LeanMirror.Expr.eval Papers.Rockel2026ExactBlest.ArticleCalculations.model\n  Papers.Rockel2026ExactBlest.ArticleCalculations.firstRectangle.goal ()"
     },
+    "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_correspondence": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "declaration": "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_correspondence",
+      "dependencies": [
+        "AddGroup.toSubNegMonoid",
+        "AddGroup.toSubtractionMonoid",
+        "AddGroupWithOne.toAddMonoidWithOne",
+        "AddMonoid.toAddZeroClass",
+        "AddMonoidWithOne.toAddMonoid",
+        "AddMonoidWithOne.toOne",
+        "AddZero.toZero",
+        "AddZeroClass.toAddZero",
+        "And",
+        "And.intro",
+        "CommSemiring.toSemiring",
+        "DenselyNormedField.toNontriviallyNormedField",
+        "DivInvMonoid.toDiv",
+        "Eq",
+        "Eq.mpr",
+        "Eq.trans",
+        "Field.toSemifield",
+        "HAdd.hAdd",
+        "HDiv.hDiv",
+        "HMul.hMul",
+        "HPow.hPow",
+        "HSub.hSub",
+        "HasDerivAt",
+        "Iff",
+        "Iff.intro",
+        "Iff.mp",
+        "Iff.mpr",
+        "IsOrderedAddMonoid.toAddRightMono",
+        "LE.le",
+        "LT.lt",
+        "LeanMirror.Argument.assume",
+        "LeanMirror.Argument.finish",
+        "LeanMirror.Argument.goal",
+        "LeanMirror.Argument.goal.eq_3",
+        "LeanMirror.Argument.have",
+        "LeanMirror.Context",
+        "LeanMirror.Expr",
+        "LeanMirror.Expr.all",
+        "LeanMirror.Expr.and",
+        "LeanMirror.Expr.app",
+        "LeanMirror.Expr.div",
+        "LeanMirror.Expr.eval",
+        "LeanMirror.Expr.eval.eq_19",
+        "LeanMirror.Expr.imp",
+        "LeanMirror.Expr.le",
+        "LeanMirror.Expr.lt",
+        "LeanMirror.Expr.nat",
+        "LeanMirror.Expr.sub",
+        "LeanMirror.Expr.symbol",
+        "LeanMirror.Expr.var",
+        "LeanMirror.Model.base",
+        "LeanMirror.Model.mk",
+        "LeanMirror.Ty",
+        "LeanMirror.Ty.denote",
+        "LeanMirror.Ty.fn",
+        "LeanMirror.Ty.prop",
+        "LeanMirror.Ty.real",
+        "LeanMirror.Var.here",
+        "LeanMirror.Var.there",
+        "List.cons",
+        "List.nil",
+        "Min.min",
+        "Monoid.toNPow",
+        "NPow.toPow",
+        "Nat",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "NegZeroClass.toZero",
+        "NontriviallyNormedField.toNormedField",
+        "NormedField.toField",
+        "OfNat.ofNat",
+        "One.toOfNat1",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.Symbol",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.Symbol.delta",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.existingFourRectangles",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourRectangles",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_correspondence.match_1_4",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_1",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_2",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_3",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_4",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_5",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model.match_1",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.deltaA",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.deltaA._proof_1",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.deltaA._proof_2",
+        "Papers.Rockel2026ExactBlest.cost",
+        "Papers.Rockel2026ExactBlest.paperPhiA",
+        "Papers.Rockel2026ExactBlest.paperPsiA",
+        "Prod.mk",
+        "PseudoMetricSpace.toUniformSpace",
+        "Real",
+        "Real.denselyNormedField",
+        "Real.instAdd",
+        "Real.instAddCommGroup",
+        "Real.instAddCommMonoid",
+        "Real.instAddGroup",
+        "Real.instDivInvMonoid",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instLE",
+        "Real.instLT",
+        "Real.instMin",
+        "Real.instMonoid",
+        "Real.instMul",
+        "Real.instNatCast",
+        "Real.instOne",
+        "Real.instPreorder",
+        "Real.instRing",
+        "Real.instSub",
+        "Real.instZero",
+        "Real.pseudoMetricSpace",
+        "Ring.toAddGroupWithOne",
+        "Semifield.toCommSemiring",
+        "Semiring.toModule",
+        "String",
+        "SubNegMonoid.toSub",
+        "SubNegZeroMonoid.toNegZeroClass",
+        "SubtractionMonoid.toSubNegZeroMonoid",
+        "UniformSpace.toTopologicalSpace",
+        "Unit",
+        "Unit.unit",
+        "Zero.toOfNat0",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "forall_congr",
+        "id",
+        "implies_congr",
+        "instHAdd",
+        "instHDiv",
+        "instHMul",
+        "instHPow",
+        "instHSub",
+        "instOfNatAtLeastTwo",
+        "instOfNatNat",
+        "sub_nonneg"
+      ],
+      "module": "Papers.Rockel2026ExactBlest.ArticleCalculations",
+      "type": "LeanMirror.Expr.eval Papers.Rockel2026ExactBlest.ArticleCalculations.model\n    Papers.Rockel2026ExactBlest.ArticleCalculations.fourRectangles.goal () ↔\n  Papers.Rockel2026ExactBlest.ArticleCalculations.existingFourRectangles"
+    },
+    "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_valid": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "declaration": "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_valid",
+      "dependencies": [
+        "AddGroupWithOne.toAddMonoidWithOne",
+        "AddMonoid.toAddZeroClass",
+        "AddMonoidWithOne.toAddMonoid",
+        "AddMonoidWithOne.toOne",
+        "AddZero.toZero",
+        "AddZeroClass.toAddZero",
+        "And",
+        "And.casesOn",
+        "And.intro",
+        "And.left",
+        "And.right",
+        "CommSemiring.toSemiring",
+        "DenselyNormedField.toNontriviallyNormedField",
+        "DivInvMonoid.toDiv",
+        "Eq",
+        "Eq.mpr",
+        "Eq.trans",
+        "Field.toSemifield",
+        "HAdd.hAdd",
+        "HDiv.hDiv",
+        "HMul.hMul",
+        "HPow.hPow",
+        "HSub.hSub",
+        "HasDerivAt",
+        "Iff",
+        "Iff.mp",
+        "LE.le",
+        "LT.lt",
+        "LeanMirror.Argument.Valid",
+        "LeanMirror.Argument.Valid.eq_3",
+        "LeanMirror.Argument.assume",
+        "LeanMirror.Argument.finish",
+        "LeanMirror.Argument.fix",
+        "LeanMirror.Argument.goal",
+        "LeanMirror.Argument.have",
+        "LeanMirror.Context",
+        "LeanMirror.Expr.all",
+        "LeanMirror.Expr.and",
+        "LeanMirror.Expr.app",
+        "LeanMirror.Expr.div",
+        "LeanMirror.Expr.eval",
+        "LeanMirror.Expr.imp",
+        "LeanMirror.Expr.le",
+        "LeanMirror.Expr.lt",
+        "LeanMirror.Expr.nat",
+        "LeanMirror.Expr.sub",
+        "LeanMirror.Expr.symbol",
+        "LeanMirror.Expr.var",
+        "LeanMirror.Model.base",
+        "LeanMirror.Model.mk",
+        "LeanMirror.Ty",
+        "LeanMirror.Ty.denote",
+        "LeanMirror.Ty.fn",
+        "LeanMirror.Ty.prop",
+        "LeanMirror.Ty.real",
+        "LeanMirror.Var.here",
+        "LeanMirror.Var.there",
+        "List.cons",
+        "List.nil",
+        "Min.min",
+        "Monoid.toNPow",
+        "NPow.toPow",
+        "Nat",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "NontriviallyNormedField.toNormedField",
+        "NormedField.toField",
+        "Not",
+        "OfNat.ofNat",
+        "One.toOfNat1",
+        "PUnit.casesOn",
+        "PUnit.unit",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.Symbol",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.Symbol.delta",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.firstRectangle",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.first_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourRectangles",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourthRectangle",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourth_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourth_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_1",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_2",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_3",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_4",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model._proof_5",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model.match_1",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.secondRectangle",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.thirdRectangle",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.third_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.third_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.deltaA",
+        "Papers.Rockel2026ExactBlest.paperPhiA",
+        "Papers.Rockel2026ExactBlest.paperPsiA",
+        "Prod.casesOn",
+        "Prod.fst",
+        "Prod.mk",
+        "PseudoMetricSpace.toUniformSpace",
+        "Real",
+        "Real.decidableLE",
+        "Real.denselyNormedField",
+        "Real.instAdd",
+        "Real.instAddCommGroup",
+        "Real.instDivInvMonoid",
+        "Real.instLE",
+        "Real.instLT",
+        "Real.instMin",
+        "Real.instMonoid",
+        "Real.instMul",
+        "Real.instNatCast",
+        "Real.instOne",
+        "Real.instRing",
+        "Real.instSub",
+        "Real.instZero",
+        "Real.linearOrder",
+        "Real.pseudoMetricSpace",
+        "Ring.toAddGroupWithOne",
+        "Semifield.toCommSemiring",
+        "Semiring.toModule",
+        "String",
+        "True",
+        "UniformSpace.toTopologicalSpace",
+        "Unit",
+        "Unit.unit",
+        "Zero.toOfNat0",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "dite",
+        "forall_congr",
+        "id",
+        "implies_congr",
+        "instHAdd",
+        "instHDiv",
+        "instHMul",
+        "instHPow",
+        "instHSub",
+        "instOfNatAtLeastTwo",
+        "instOfNatNat",
+        "le_of_not_ge"
+      ],
+      "module": "Papers.Rockel2026ExactBlest.ArticleCalculations",
+      "type": "LeanMirror.Argument.Valid Papers.Rockel2026ExactBlest.ArticleCalculations.model (fun x => True)\n  Papers.Rockel2026ExactBlest.ArticleCalculations.fourRectangles"
+    },
+    "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_verified": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "declaration": "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_verified",
+      "dependencies": [
+        "LeanMirror.Argument.sound",
+        "LeanMirror.Context",
+        "LeanMirror.Model.base",
+        "LeanMirror.Ty",
+        "List.nil",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.Symbol",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourRectangles",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_valid",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.model",
+        "True",
+        "Unit.unit",
+        "trivial"
+      ],
+      "module": "Papers.Rockel2026ExactBlest.ArticleCalculations",
+      "type": "LeanMirror.Expr.eval Papers.Rockel2026ExactBlest.ArticleCalculations.model\n  Papers.Rockel2026ExactBlest.ArticleCalculations.fourRectangles.goal ()"
+    },
     "Papers.Rockel2026ExactBlest.ArticleCalculations.fourth_rectangle_correspondence": {
       "axioms": [
         "Classical.choice",
@@ -2463,6 +3294,44 @@
       "module": "Papers.Rockel2026ExactBlest.ArticleCalculations",
       "type": "LeanMirror.Expr.eval Papers.Rockel2026ExactBlest.ArticleCalculations.model\n  Papers.Rockel2026ExactBlest.ArticleCalculations.fourthRectangle.goal ()"
     },
+    "Papers.Rockel2026ExactBlest.ArticleCalculations.scoped_dualA": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "declaration": "Papers.Rockel2026ExactBlest.ArticleCalculations.scoped_dualA",
+      "dependencies": [
+        "And",
+        "And.left",
+        "And.right",
+        "DivInvMonoid.toDiv",
+        "HDiv.hDiv",
+        "LE.le",
+        "LT.lt",
+        "LT.lt.le",
+        "Nat",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "OfNat.ofNat",
+        "One.toOfNat1",
+        "Papers.Rockel2026ExactBlest.paper_dualA",
+        "Real",
+        "Real.instDivInvMonoid",
+        "Real.instLE",
+        "Real.instLT",
+        "Real.instNatCast",
+        "Real.instOne",
+        "Real.instPreorder",
+        "Real.instZero",
+        "Zero.toOfNat0",
+        "instHDiv",
+        "instOfNatAtLeastTwo",
+        "instOfNatNat"
+      ],
+      "module": "Papers.Rockel2026ExactBlest.ArticleCalculations",
+      "type": "∀ (w x z : ℝ),\n  1 / 2 ≤ w ∧ w < 1 →\n    0 ≤ x ∧ x ≤ 1 →\n      0 ≤ z ∧ z ≤ 1 →\n        Papers.Rockel2026ExactBlest.cost ((3 - 2 * w) / (2 * w)) x z ≤\n          Papers.Rockel2026ExactBlest.paperPhiA w x + Papers.Rockel2026ExactBlest.paperPsiA w z"
+    },
     "Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_correspondence": {
       "axioms": [
         "Classical.choice",
@@ -2599,7 +3468,7 @@
         "of_eq_true"
       ],
       "module": "Papers.Rockel2026ExactBlest.ArticleCalculations",
-      "type": "LeanMirror.Expr.eval Papers.Rockel2026ExactBlest.ArticleCalculations.model\n    Papers.Rockel2026ExactBlest.ArticleCalculations.secondRectangle.goal () ↔\n  ∀ (w x z : ℝ),\n    1 / 2 ≤ w ∧ w < 1 →\n      0 ≤ x ∧ x ≤ 1 - w →\n        w ≤ z ∧ z ≤ 1 → (Papers.Rockel2026ExactBlest.ArticleOriginalProof.deltaA w x z = 0 ↔ x + z = 1)"
+      "type": "LeanMirror.Expr.eval Papers.Rockel2026ExactBlest.ArticleCalculations.model\n    Papers.Rockel2026ExactBlest.ArticleCalculations.secondRectangle.goal () ↔\n  ∀ (w x z : ℝ),\n    1 / 2 ≤ w ∧ w < 1 →\n      0 ≤ x ∧ x ≤ 1 - w →\n        w ≤ z ∧ z ≤ 1 →\n          0 ≤ Papers.Rockel2026ExactBlest.ArticleOriginalProof.deltaA w x z ∧\n            (Papers.Rockel2026ExactBlest.ArticleOriginalProof.deltaA w x z = 0 ↔ x + z = 1)"
     },
     "Papers.Rockel2026ExactBlest.ArticleCalculations.second_rectangle_valid": {
       "axioms": [
@@ -29529,7 +30398,7 @@
       "type": "∀ (C : ProbabilityTheory.Copula 2), C.survivalCopula.spearmanRho = C.spearmanRho"
     }
   },
-  "mapSha256": "45db23871d897551cd03919013313022a75cd2115977677819765ba01a8a4573",
+  "mapSha256": "02e3945fdad04e9bdeb832fc5e6a07eef74d8ca973bc57d35bdf23b7c24957da",
   "paperId": "Rockel2026ExactBlest",
   "schemaVersion": 1,
   "sourceSha256": "5004f7d396f865b09b1c6a06c7207ecdb0da00d5fdcd201168200c951247ac03"

@@ -655,6 +655,17 @@
         "Papers.Rockel2026ExactBlest.paperNB_bijOn",
         "Papers.Rockel2026ExactBlest.Lambda_bijOn"
       ]
+    },
+    {
+      "kind": "paragraph",
+      "quote": "Nonnegativity away from that set is proved rectangle by rectangle",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_valid",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.four_rectangles_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.scoped_dualA"
+      ],
+      "note": "The four checked rectangle documents imply nonnegativity on the whole square. This composition checks the inequality part; the complete contact-set argument is not certified by it."
     }
   ],
   "definitions": {
@@ -683,6 +694,6 @@
       "label": "eq:Tw-def"
     }
   },
-  "verificationScope": "All original article content is reproduced. Compiled counterparts are attached to every labeled result; verification of every literal proof step is in progress.",
+  "verificationScope": "All original article content is reproduced. Compiled counterparts are attached to every labeled result. Corollary 3.2 has a fully checked proof document. The four rectangle calculations and their composition check the inequality in Proposition 4.3 on the exact article range 1/2≤w<1. The complete contact-set argument and exhaustive verification of every other literal proof step remain in progress.",
   "sourceDate": "2026-09-23"
 }

@@ -27,13 +27,24 @@ test('the full original article retains all results, proof environments, figures
   assert.match(html,/The first rectangle: the printed factorization and sign estimates/);
   assert.match(html,/Each step below is checked by Lean/);
   assert.match(html,/The second rectangle: nonnegativity and its exact equality set/);
-  assert.equal(Object.keys(data.documents).length,4);
+  assert.equal(Object.keys(data.documents).length,5);
   assert.match(html,/The third rectangle: decrease in x and the edge minimum/);
   assert.match(html,/The fourth rectangle: increase in z and the edge minimum/);
+  assert.match(html,/Four rectangles cover the unit square/);
+  assert.match(html,/without invoking the native dual inequality/);
+  const ns='Papers.Rockel2026ExactBlest.ArticleCalculations.';
+  const composition=data.documents[ns+'four_rectangles_valid'].checked.proof,steps=[];
+  for(let node=composition;node;node=node.next)steps.push(node.kind);
+  assert.deepEqual(steps,['fix','assume','have','have','have','have','finish']);
+  const dependencies=data.evidence[ns+'four_rectangles_valid'].dependencies;
+  assert(!dependencies.includes('Papers.Rockel2026ExactBlest.paper_dualA'));
+  for(const rectangle of ['first','second','third','fourth'])assert(dependencies.includes(ns+rectangle+'_rectangle_verified'));
   // The source proposition excludes w=1. The checked companion keeps that
   // exact range even though the standalone nonnegativity lemmas extend to it.
   for(const document of Object.values(data.documents)) {
-    assert.match(data.evidence[document.correspondence].type,/w < 1/);
+    const scopedType=document.correspondence===ns+'four_rectangles_correspondence'
+      ? data.evidence[ns+'scoped_dualA'].type : data.evidence[document.correspondence].type;
+    assert.match(scopedType,/w < 1/);
   }
 });
 

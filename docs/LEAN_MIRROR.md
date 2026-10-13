@@ -132,6 +132,16 @@ proof. All four documents retain the article's range `1/2 ≤ w < 1`; their
 underlying nonnegativity lemmas also cover `w=1`. This does not yet certify the
 entire proposition's literal proof or all its equality cases.
 
+A fifth document composes the four rectangle calculations to cover the whole
+unit square. Its four intermediate claims use the checked rectangle documents;
+its final obligation splits at `x=1-w` and `z=w`. Its validity certificate does
+not call the native dual inequality. The second rectangle document now concludes
+both nonnegativity and its equality criterion, so the composition can use the
+former while preserving the original contact calculation. A pure interpretation
+bridge rearranges the slack inequality to the native dual inequality restricted
+to the article's range `1/2 ≤ w < 1`. The full contact-set proof is still a
+separate outstanding obligation.
+
 All nine other manuscripts have been imported into `examples/articles/` with
 versioned arXiv provenance and hashes for every unchanged source file. An import
 does not make a manuscript a certified companion. Only directories with an
