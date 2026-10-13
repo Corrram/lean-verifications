@@ -24,10 +24,13 @@ def index_source(mapping):
         raise ValueError('Invalid mathematical declaration name')
     paper_id=mapping['paperId']
     if not re.fullmatch(r'[A-Za-z][A-Za-z0-9]+',paper_id):raise ValueError('Invalid paper identifier')
-    module='ArticleCalculations' if paper_id=='Rockel2026ExactBlest' else 'Main'
+    document_namespace=mapping.get('proofDocumentNamespace')
+    if document_namespace and not re.fullmatch(r'Papers\.'+re.escape(paper_id)+r'\.[A-Za-z][A-Za-z0-9_.]*',document_namespace):
+        raise ValueError('Invalid proof document namespace')
+    imported_module=document_namespace or f'Papers.{paper_id}.'+('ArticleCalculations' if paper_id=='Rockel2026ExactBlest' else 'Main')
     namespace=f'Papers.{paper_id}.ArticleIndex'
     lines=['import LeanMirror.Article',
-           f'import Papers.{paper_id}.{module}',
+           f'import {imported_module}',
            '', '-- Generated registry: each entry extracts and audits an actual theorem.',
            f'namespace {namespace}',
            'open Lean LeanMirror',
@@ -66,7 +69,8 @@ def export_article(directory,check):
         if mapping['paperId']=='Rockel2026ExactBlest':exporter=ROOT/'scripts/ExportLeanMirrorArticle.lean'
         else:
             exporter=Path(temp)/'Export.lean'
-            exporter.write_text(f'import {namespace}\n\ndef main (args : List String) : IO Unit := do\n  let [destination] := args | throw (IO.userError \"expected output path\")\n  IO.FS.writeFile destination ((Lean.Json.mkObj [(\"evidence\", {namespace}.evidence), (\"documents\", Lean.Json.mkObj [])]).pretty ++ \"\\n\")\n',encoding='utf-8')
+            documents=mapping['proofDocumentNamespace']+'.documents' if mapping.get('proofDocumentNamespace') else 'Lean.Json.mkObj []'
+            exporter.write_text(f'import {namespace}\n\ndef main (args : List String) : IO Unit := do\n  let [destination] := args | throw (IO.userError \"expected output path\")\n  IO.FS.writeFile destination ((Lean.Json.mkObj [(\"evidence\", {namespace}.evidence), (\"documents\", {documents})]).pretty ++ \"\\n\")\n',encoding='utf-8')
         subprocess.run([LAKE,'env','lean','--run',str(exporter),str(fresh)],cwd=ROOT,check=True)
         compiled=json.loads(fresh.read_text(encoding='utf-8'))
         evidence=compiled['evidence']

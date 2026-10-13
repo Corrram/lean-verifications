@@ -1,10 +1,14 @@
 import LeanMirror.Article
-import Papers.Rockel2026XiBlest.Main
+import Papers.Rockel2026XiBlest.ArticleCalculations
 
 -- Generated registry: each entry extracts and audits an actual theorem.
 namespace Papers.Rockel2026XiBlest.ArticleIndex
 open Lean LeanMirror
 def evidence : Json := Json.mkObj [
+  ("Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_correspondence", checked_native% Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_correspondence),
+  ("Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_valid", checked_native% Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_valid),
+  ("Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_verified", checked_native% Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_verified),
+  ("Papers.Rockel2026XiBlest.ArticleCalculations.primitive_definition", checked_native% Papers.Rockel2026XiBlest.ArticleCalculations.primitive_definition),
   ("Papers.Rockel2026XiBlest.blest_conditional_formula", checked_native% Papers.Rockel2026XiBlest.blest_conditional_formula),
   ("Papers.Rockel2026XiBlest.blest_integral_formula", checked_native% Papers.Rockel2026XiBlest.blest_integral_formula),
   ("Papers.Rockel2026XiBlest.blest_reflect_second", checked_native% Papers.Rockel2026XiBlest.blest_reflect_second),

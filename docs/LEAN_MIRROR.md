@@ -114,10 +114,23 @@ counterexamples alongside the checked corrections. Its result and calculation
 links are compiled counterparts, not a claim that every literal proof step
 has been verified.
 
-The Blest–Spearman reader also embeds the first two rectangle calculations from
-Proposition 4.3 as a scoped proof document. Their factorizations, sign estimates, and the second rectangle’s exact equality set,
-and final nonnegativity assertion are separate checked nodes. The slack's typed
-definition and the displayed conclusion's correspondence have their own Lean proofs.
+The corrected lower-clamped square moment now has a scoped, readable proof
+document. It evaluates the primitive at `1` and `r` in two separate checked
+steps, then subtracts them to obtain the coefficient `-8/15`. Its independently
+encoded primitive definition and pointwise statement correspondence are also
+checked. This document accompanies an explicit refutation of the printed
+`-1/5` coefficient; it does not certify that erroneous original line.
+
+The Blest–Spearman reader embeds four rectangle calculations from Proposition
+4.3 as scoped proof documents. The first two check the factorizations and sign
+estimates, including the second rectangle's exact equality set. The last two
+check the partial derivatives, their signs, comparison with the relevant edge,
+vanishing endpoint values, the edge minimum and final nonnegativity. The edge
+minimum is proved using monotonicity from the displayed derivatives, as in the
+article. Each displayed conclusion has its own interpretation and correspondence
+proof. All four documents retain the article's range `1/2 ≤ w < 1`; their
+underlying nonnegativity lemmas also cover `w=1`. This does not yet certify the
+entire proposition's literal proof or all its equality cases.
 
 All nine other manuscripts have been imported into `examples/articles/` with
 versioned arXiv provenance and hashes for every unchanged source file. An import
@@ -136,3 +149,7 @@ Source-to-theorem bindings identify an exact label or a unique literal passage;
 there is no fuzzy matching. Each generated registry extracts the actual Lean
 theorem type with `checked_native%` and audits its transitive axioms. Full proof
 documents additionally use `checked_document%` on a closed validity certificate.
+An authored map may name a `proofDocumentNamespace` in the same paper module;
+the exporter compiles and extracts that namespace's proof documents alongside
+the theorem registry. This lets downstream articles add typed proof passages
+without adding subject-specific code to LeanMirror itself.

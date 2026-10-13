@@ -514,7 +514,11 @@
       "kind": "math",
       "declarations": [
         "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_00",
-        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_00_nonpos"
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_00_nonpos",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.third_rectangle_valid",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.third_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.third_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.delta_definition"
       ]
     },
     {
@@ -525,12 +529,32 @@
       ]
     },
     {
+      "quote": "Consequently $\\Delta(1-w,\\cdot)\\ge",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_third_edge_minimum",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_third_endpoints"
+      ]
+    },
+    {
+      "quote": "In either case the minimum on the edge",
+      "kind": "paragraph",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_fourth_edge_minimum",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_fourth_endpoints"
+      ]
+    },
+    {
       "quote": "\\partial_z\\Delta(x,z)=\\frac{(x+z-1)",
       "kind": "math",
       "declarations": [
         "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_11",
         "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_derivative_11_nonneg",
-        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_edge_derivative_x"
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_edge_derivative_x",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourth_rectangle_valid",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourth_rectangle_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.fourth_rectangle_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.delta_definition"
       ]
     },
     {

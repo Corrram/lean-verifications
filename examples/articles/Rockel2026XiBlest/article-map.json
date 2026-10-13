@@ -211,11 +211,22 @@
       "quote": "G_{iv}(r)&=b^2\\!\\left(\\frac{1}{5}-\\frac{2r^2}{3}+r^4 - \\frac{r^5}{5}",
       "declarations": [
         "Papers.Rockel2026XiBlest.printed_lower_square_polynomial_false",
-        "Papers.Rockel2026XiBlest.lower_square_polynomial"
+        "Papers.Rockel2026XiBlest.lower_square_polynomial",
+        "Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_valid",
+        "Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_verified",
+        "Papers.Rockel2026XiBlest.ArticleCalculations.lower_square_correspondence",
+        "Papers.Rockel2026XiBlest.ArticleCalculations.primitive_definition"
       ],
       "title": "Printed intermediate polynomial refuted; corrected calculation checked",
       "note": "In the original arXiv line the coefficient of r^5 is −1/5. The correct coefficient is −8/15, as the published IJAR version prints. Lean checks the correction and refutes the printed formula at r=1/2. The final coefficient formulas are separately proved.",
       "role": "refutation"
+    },
+    {
+      "label": "eq:primitives",
+      "declarations": [
+        "Papers.Rockel2026XiBlest.ArticleCalculations.primitive_definition"
+      ],
+      "note": "The F primitive has a typed LeanMirror definition, with a checked interpretation as the existing quadraticF definition. The other two primitives in this display are not certified by this link."
     }
   ],
   "definitions": {
@@ -235,7 +246,7 @@
       "label": "eq:clamped_h"
     }
   },
-  "verificationScope": "The original arXiv v1 article is reproduced without changing its text. Compiled counterparts are linked for the listed definitions, results and calculations. Two printed claims are explicitly refuted and their corrected versions are checked. The entire original proof text is not yet a certified LeanMirror proof document; external KKT theory, numerical tables and figures remain outside the formal scope.",
+  "verificationScope": "The original arXiv v1 article is reproduced without changing its text. Compiled counterparts are linked for the listed definitions, results and calculations. Two printed claims are explicitly refuted and their corrected versions are checked. The corrected lower-clamped square moment has a readable proof document whose definition, two intermediate evaluations, and conclusion are checked. The entire original proof text is not yet a certified LeanMirror proof document; external KKT theory, numerical tables and figures remain outside the formal scope.",
   "sourceDiscrepancies": [
     {
       "version": "arXiv v1, proof of Theorem 2.3",
@@ -249,5 +260,6 @@
       "evidence": "At the endpoints with C=M, the printed transformation gives C_0=M and C_1=W. Lean proves M is not concordance-below W, refuting the printed direction.",
       "verified_instead": "The final IJAR PDF Lemma 5(iii) reverses the order. Lean verifies all four claims of that corrected shuffling path; the exact region also has an independent proof."
     }
-  ]
+  ],
+  "proofDocumentNamespace": "Papers.Rockel2026XiBlest.ArticleCalculations"
 }

@@ -27,6 +27,14 @@ test('the full original article retains all results, proof environments, figures
   assert.match(html,/The first rectangle: the printed factorization and sign estimates/);
   assert.match(html,/Each step below is checked by Lean/);
   assert.match(html,/The second rectangle: nonnegativity and its exact equality set/);
+  assert.equal(Object.keys(data.documents).length,4);
+  assert.match(html,/The third rectangle: decrease in x and the edge minimum/);
+  assert.match(html,/The fourth rectangle: increase in z and the edge minimum/);
+  // The source proposition excludes w=1. The checked companion keeps that
+  // exact range even though the standalone nonnegativity lemmas extend to it.
+  for(const document of Object.values(data.documents)) {
+    assert.match(data.evidence[document.correspondence].type,/w < 1/);
+  }
 });
 
 test('changed source, source maps, figures and theorem evidence cannot pass publication',()=>{
@@ -107,6 +115,13 @@ test('the Chatterjee–Blest original retains its table, all panels and both exp
   assert.equal((html.match(/<img /g)??[]).length,4);assert.match(html,/class="article-table"/);
   assert.equal((html.match(/class="article-source-correction"/g)??[]).length,2);
   assert.match(html,/printed_lower_square_polynomial_false/);assert.match(html,/not_comonotonic_concordanceLE_countermonotonic/);
+  assert.equal(Object.keys(data.documents).length,1);
+  assert.match(html,/Corrected lower-clamped square moment: where the coefficient comes from/);
+  assert.match(html,/lower_square_correspondence/);
+  assert.match(html,/Definitions used in this calculation/);
+  const missingPrimitive=structuredClone(evidence);
+  delete missingPrimitive.evidence['Papers.Rockel2026XiBlest.ArticleCalculations.primitive_definition'];
+  assert.throws(()=>fullArticle({...inputs,evidence:missingPrimitive}),/Missing compiled/);
   assert.match(inputs.source,/r\^4 - \\frac\{r\^5\}\{5\}/);assert.match(inputs.source,/C_p\\geq_\{co\} C_/);
   assert.equal(data.article.references['eq:xi'].number,'2');assert.equal(data.article.references['eq:nu'].number,'3');
   assert.match(html,/href="#article-eq-xi"/);assert.match(html,/href="#article-eq-nu"/);
