@@ -277,6 +277,126 @@ theorem four_rectangles_correspondence : fourRectangles.goal.eval model () ↔ e
 theorem four_rectangles_verified : fourRectangles.goal.eval model () :=
   fourRectangles.sound model _ four_rectangles_valid () trivial
 
+-- An explicit definition of the union of the two support branches, with the
+-- additional horizontal segment only at w=1/2. It is not a theorem alias.
+def contactSetDefinition : Expr Symbol [real,real,real] prop :=
+  [math| w,x,z |- (x \le 1-w \land z=1-x) \lor
+    (1-w \le x \land z=x+w-1) \lor
+    (w=\frac{1}{2} \land \frac{1}{2} \le x \land z=\frac{1}{2})]
+
+def articleContact (w x z : ℝ) : Prop :=
+  (x ≤ 1-w ∧ z=1-x) ∨ (1-w ≤ x ∧ z=x+w-1) ∨
+    (w=1/2 ∧ 1/2 ≤ x ∧ z=1/2)
+
+theorem contact_set_definition (w x z : ℝ) :
+    contactSetDefinition.eval model (z,x,w,()) ↔ articleContact w x z := by
+  simp only [contactSetDefinition,Expr.eval,Var.get,model,Ty.denote,
+    Nat.cast_ofNat,Nat.cast_one,articleContact]
+
+-- The four local equality criteria imply the printed union. This lemma uses
+-- only the supplied criteria and the square's elementary geometry.
+private theorem contact_cover (w : ℝ) (hw : 1/2 ≤ w ∧ w < 1)
+    (hfirst : ∀ x z : ℝ, ((1-w ≤ x ∧ x ≤ 1) ∧ (0 ≤ z ∧ z ≤ w)) →
+      (deltaA w x z = 0 ↔ z=x+w-1 ∨ (x=1-w ∧ z=w) ∨ (w=1/2 ∧ z=w)))
+    (hsecond : ∀ x z : ℝ, ((0 ≤ x ∧ x ≤ 1-w) ∧ (w ≤ z ∧ z ≤ 1)) →
+      (deltaA w x z = 0 ↔ x+z=1))
+    (hthird : ∀ x z : ℝ, ((0 ≤ x ∧ x ≤ 1-w) ∧ (0 ≤ z ∧ z ≤ w)) →
+      (deltaA w x z = 0 ↔ x=1-w ∧ (z=0 ∨ z=w)))
+    (hfourth : ∀ x z : ℝ, ((1-w ≤ x ∧ x ≤ 1) ∧ (w ≤ z ∧ z ≤ 1)) →
+      (deltaA w x z = 0 ↔ z=w ∧ (x=1-w ∨ x=1 ∨ w=1/2))) :
+    ∀ x z : ℝ, ((0 ≤ x ∧ x ≤ 1) ∧ (0 ≤ z ∧ z ≤ 1)) →
+      (deltaA w x z = 0 ↔ articleContact w x z) := by
+  intro x z ⟨hx,hz⟩
+  unfold articleContact
+  by_cases hxl : x ≤ 1-w
+  · by_cases hzl : z ≤ w
+    · rw [hthird x z ⟨⟨hx.1,hxl⟩,⟨hz.1,hzl⟩⟩]
+      constructor
+      · rintro ⟨he,hz0|hzw⟩
+        · exact Or.inr (Or.inl ⟨by linarith,by linarith⟩)
+        · exact Or.inl ⟨hxl,by linarith⟩
+      · rintro (⟨ha,hb⟩|⟨ha,hb⟩|⟨ha,hb,hc⟩)
+        · exact ⟨by linarith,Or.inr (by linarith)⟩
+        · exact ⟨by linarith,Or.inl (by linarith)⟩
+        · exact ⟨by linarith,Or.inr (by linarith)⟩
+    · rw [hsecond x z ⟨⟨hx.1,hxl⟩,⟨(le_of_not_ge hzl),hz.2⟩⟩]
+      constructor
+      · intro he
+        exact Or.inl ⟨hxl,by linarith⟩
+      · rintro (⟨ha,hb⟩|⟨ha,hb⟩|⟨ha,hb,hc⟩) <;> linarith [hw.1]
+  · have hxr : 1-w ≤ x := le_of_not_ge hxl
+    by_cases hzl : z ≤ w
+    · rw [hfirst x z ⟨⟨hxr,hx.2⟩,⟨hz.1,hzl⟩⟩]
+      constructor
+      · rintro (he|⟨ha,hb⟩|⟨ha,hb⟩)
+        · exact Or.inr (Or.inl ⟨hxr,he⟩)
+        · exact Or.inl ⟨by linarith,by linarith⟩
+        · exact Or.inr (Or.inr ⟨ha,by linarith,hb.trans ha⟩)
+      · rintro (⟨ha,hb⟩|⟨ha,hb⟩|⟨ha,hb,hc⟩)
+        · exact Or.inr (Or.inl ⟨by linarith,by linarith⟩)
+        · exact Or.inl hb
+        · exact Or.inr (Or.inr ⟨ha,by linarith⟩)
+    · rw [hfourth x z ⟨⟨hxr,hx.2⟩,⟨(le_of_not_ge hzl),hz.2⟩⟩]
+      constructor
+      · rintro ⟨he,ha|ha|ha⟩
+        · exact Or.inl ⟨by linarith,by linarith⟩
+        · exact Or.inr (Or.inl ⟨hxr,by linarith⟩)
+        · exact Or.inr (Or.inr ⟨ha,by linarith,by linarith⟩)
+      · rintro (⟨ha,hb⟩|⟨ha,hb⟩|⟨ha,hb,hc⟩)
+        · exact ⟨by linarith,Or.inl (by linarith)⟩
+        · exact ⟨by linarith,Or.inr (Or.inl (by linarith))⟩
+        · exact ⟨by linarith,Or.inr (Or.inr ha)⟩
+
+def contactSet : Argument Symbol [] := [proof|
+  Fix w : real named "w";
+  Assume \frac{1}{2} \le w \land w < 1;
+  Have Forall x : real. Forall z : real.
+    ((1-w \le x \land x \le 1) \land (0 \le z \land z \le w)) \implies
+      (\delta(w,x,z)=0 \iff z=x+w-1 \lor (x=1-w \land z=w) \lor (w=\frac{1}{2} \land z=w));
+  Have Forall x : real. Forall z : real.
+    ((0 \le x \land x \le 1-w) \land (w \le z \land z \le 1)) \implies
+      (\delta(w,x,z)=0 \iff x+z=1);
+  Have Forall x : real. Forall z : real.
+    ((0 \le x \land x \le 1-w) \land (0 \le z \land z \le w)) \implies
+      (\delta(w,x,z)=0 \iff x=1-w \land (z=0 \lor z=w));
+  Have Forall x : real. Forall z : real.
+    ((1-w \le x \land x \le 1) \land (w \le z \land z \le 1)) \implies
+      (\delta(w,x,z)=0 \iff z=w \land (x=1-w \lor x=1 \lor w=\frac{1}{2}));
+  Conclude Forall x : real. Forall z : real.
+    ((0 \le x \land x \le 1) \land (0 \le z \land z \le 1)) \implies
+      (\delta(w,x,z)=0 \iff (x \le 1-w \land z=1-x) \lor
+        (1-w \le x \land z=x+w-1) \lor
+        (w=\frac{1}{2} \land \frac{1}{2} \le x \land z=\frac{1}{2}))]
+
+theorem contact_set_valid : contactSet.Valid model (fun _ => True) := by
+  simp only [contactSet,Argument.Valid,Expr.eval,Var.get,model,Ty.denote,
+    Nat.cast_ofNat,Nat.cast_zero,Nat.cast_one]
+  refine ⟨?_,?_,?_,?_,?_⟩
+  · rintro ⟨w,⟨⟩⟩ ⟨_,hw⟩ x z ⟨hx,hz⟩
+    exact graph_first_contact w x z hw.1 hw.2 hx hz
+  · rintro ⟨w,⟨⟩⟩ ⟨⟨_,hw⟩,_⟩ x z ⟨hx,hz⟩
+    exact (second_rectangle_correspondence.mp second_rectangle_verified w x z hw hx hz).2
+  · rintro ⟨w,⟨⟩⟩ ⟨⟨⟨_,hw⟩,_⟩,_⟩ x z ⟨hx,hz⟩
+    exact graph_third_contact w x z hw.1 hw.2 hx hz
+  · rintro ⟨w,⟨⟩⟩ ⟨⟨⟨⟨_,hw⟩,_⟩,_⟩,_⟩ x z ⟨hx,hz⟩
+    exact graph_fourth_contact w x z hw.1 hw.2 hx hz
+  · rintro ⟨w,⟨⟩⟩ h
+    exact contact_cover w h.1.1.1.1.2 h.1.1.1.2 h.1.1.2 h.1.2 h.2
+
+def existingContactSet : Prop := statement_of% paper_contactA
+
+theorem contact_set_correspondence : contactSet.goal.eval model () ↔ existingContactSet := by
+  simp only [contactSet,Argument.goal,Expr.eval,Var.get,model,Ty.denote,
+    Nat.cast_ofNat,Nat.cast_zero,Nat.cast_one,existingContactSet]
+  constructor
+  · intro h w x z hw hw1 hx hz
+    exact h w ⟨hw,hw1⟩ x z ⟨hx,hz⟩
+  · intro h w hw x z ⟨hx,hz⟩
+    exact h w x z hw.1 hw.2 hx hz
+
+theorem contact_set_verified : contactSet.goal.eval model () :=
+  contactSet.sound model _ contact_set_valid () trivial
+
 def vocabulary : Vocabulary Symbol where
   key _ := "graph-slack"
   typeLatex _ := "\\mathbb{R}"
@@ -327,6 +447,15 @@ def documents : Json := Json.mkObj [
     ("definition", .str ("\\Delta_w(x,z):=" ++ deltaDefinition.latex vocabulary ["z","x","w"] ++
       ".\\quad\\partial_z\\Delta_w(x,z)=d\\text{ means its derivative exists and equals }d"))
   ]),
+  (toString ``contact_set_valid,Json.mkObj [
+    ("checked",checked_document% (vocabulary) contact_set_valid),
+    ("title",.str "The exact contact set, including the special horizontal segment"),
+    ("note",.str "The local equality criteria follow from the printed factorizations and strict forms of the displayed derivative comparisons. The last two edges are factored to make their endpoint zeros explicit. The final step combines the four criteria, including w=1/2. It does not invoke the native contact-set proof. This checks the contact-set conclusion; it does not claim to reproduce every calculation word for word."),
+    ("correspondence",.str (toString ``contact_set_correspondence)),
+    ("verified",.str (toString ``contact_set_verified)),
+    ("definitionBridge",.str (toString ``contact_set_definition)),
+    ("definition",.str ("(x,z)\\in K_w\\quad\\Longleftrightarrow\\quad"++contactSetDefinition.latex vocabulary ["z","x","w"]))
+  ]),
   (toString ``four_rectangles_valid,Json.mkObj [
     ("checked",checked_document% (vocabulary) four_rectangles_valid),
     ("title",.str "Four rectangles cover the unit square"),
@@ -353,6 +482,10 @@ def documents : Json := Json.mkObj [
 #assert_lean_mirror_axioms fourth_rectangle_verified
 #assert_lean_mirror_axioms fourth_rectangle_correspondence
 #assert_lean_mirror_axioms scoped_dualA
+#assert_lean_mirror_axioms contact_set_valid
+#assert_lean_mirror_axioms contact_set_correspondence
+#assert_lean_mirror_axioms contact_set_verified
+#assert_lean_mirror_axioms contact_set_definition
 #assert_lean_mirror_axioms four_rectangles_valid
 #assert_lean_mirror_axioms four_rectangles_correspondence
 #assert_lean_mirror_axioms four_rectangles_verified

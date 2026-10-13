@@ -125,5 +125,136 @@ theorem graph_fourth_edge_minimum (w x : ℝ) (hw : 1/2 ≤ w) (_hw1 : w ≤ 1)
     · exact mul_nonneg (by linarith [ht.2]) (by linarith)
     · linarith [ht.1]
 
+-- The strict versions justify the printed assertion that no other contact
+-- points occur in the interiors of the last two rectangles.
+theorem graph_third_strict_comparison (w x z : ℝ) (hw : 1/2 ≤ w) (hw1 : w < 1)
+    (hx : x ∈ Ico 0 (1-w)) (hz : z ∈ Icc 0 w) :
+    deltaA w (1-w) z < deltaA w x z := by
+  have ha : StrictAntiOn (fun t => deltaA w t z) (Icc 0 (1-w)) := by
+    apply strictAntiOn_of_hasDerivWithinAt_neg (convex_Icc 0 (1-w))
+      (continuous_deltaA_x w z).continuousOn
+    · intro t ht
+      rw [interior_Icc] at ht
+      exact (graph_derivative_00 w t z (by linarith) ht.2).hasDerivWithinAt
+    · intro t ht
+      rw [interior_Icc] at ht
+      apply div_neg_of_neg_of_pos _ (by linarith)
+      apply mul_neg_of_neg_of_pos
+      · linarith [ht.2,hz.2]
+      · have hA : 0 ≤ w*(2*w-1) := mul_nonneg (by linarith) (by linarith)
+        have hB : 0 ≤ (3-2*w)*z := mul_nonneg (by linarith) hz.1
+        have hC : 0 < (3+2*w)*(1-w-t) := mul_pos (by linarith) (by linarith [ht.2])
+        nlinarith
+  exact ha ⟨hx.1,hx.2.le⟩ ⟨by linarith,le_rfl⟩ hx.2
+
+theorem graph_fourth_strict_comparison (w x z : ℝ) (hw : 1/2 ≤ w) (hw1 : w < 1)
+    (hx : x ∈ Icc (1-w) 1) (hz : z ∈ Ioc w 1) :
+    deltaA w x w < deltaA w x z := by
+  have hm : StrictMonoOn (fun t => deltaA w x t) (Icc w 1) := by
+    apply strictMonoOn_of_hasDerivWithinAt_pos (convex_Icc w 1)
+      (continuous_deltaA_z w x).continuousOn
+    · intro t ht
+      rw [interior_Icc] at ht
+      exact (graph_derivative_11 w x t (by linarith) ht.1).hasDerivWithinAt
+    · intro t ht
+      rw [interior_Icc] at ht
+      apply div_pos _ (by linarith)
+      apply mul_pos
+      · linarith [hx.1,ht.1]
+      · have hA : 0 < w*(2-w-x) := mul_pos (by linarith) (by linarith [hx.2])
+        have hB : 0 < (3-w)*(t-w) := mul_pos (by linarith) (by linarith [ht.1])
+        nlinarith
+  exact hm ⟨le_rfl,hw1.le⟩ ⟨hz.1.le,hz.2⟩ hz.1
+
+theorem graph_third_edge_factor (w z : ℝ) (hw : 1/2 ≤ w) (hz : z ≤ w) :
+    deltaA w (1-w) z = (1-w)*z^2*(w-z)/w := by
+  rw [graph_rectangle_10 w (1-w) z (by linarith) le_rfl hz]
+  ring
+
+theorem graph_fourth_edge_factor (w x : ℝ) (hw : 1/2 ≤ w) (hx : 1-w ≤ x) :
+    deltaA w x w = (1-x)^2*(2*w-1)*(x+w-1)/(2*w) := by
+  rw [graph_rectangle_10 w x w (by linarith) hx le_rfl]
+  ring
+
+theorem graph_first_contact (w x z : ℝ) (hw : 1/2 ≤ w) (hw1 : w < 1)
+    (hx : x ∈ Icc (1-w) 1) (hz : z ∈ Icc 0 w) :
+    deltaA w x z = 0 ↔ z = x+w-1 ∨
+      (x = 1-w ∧ z = w) ∨ (w = 1/2 ∧ z = w) := by
+  rw [graph_rectangle_10 w x z (by linarith) hx.1 hz.2,
+    div_eq_zero_iff,mul_eq_zero,sq_eq_zero_iff]
+  have hden : 2*w ≠ 0 := by linarith
+  simp only [hden,or_false]
+  have hA : 0 ≤ (2*w-1)*(x+w-1) := mul_nonneg (by linarith) (by linarith [hx.1])
+  have hB : 0 ≤ 2*(1-w)*(w-z) := mul_nonneg (by linarith) (by linarith [hz.2])
+  constructor
+  · rintro (hs|hf)
+    · exact Or.inl (by linarith)
+    · have hb : z = w := by nlinarith
+      have hp : (2*w-1)*(x+w-1) = 0 := by nlinarith
+      rcases mul_eq_zero.mp hp with ha|ha
+      · exact Or.inr (Or.inr ⟨by linarith,hb⟩)
+      · exact Or.inr (Or.inl ⟨by linarith,hb⟩)
+  · rintro (h|⟨h,hz⟩|⟨h,hz⟩)
+    · exact Or.inl (by linarith)
+    · right
+      rw [h,hz]
+      ring
+    · right
+      rw [hz,h]
+      norm_num
+
+theorem graph_third_contact (w x z : ℝ) (hw : 1/2 ≤ w) (hw1 : w < 1)
+    (hx : x ∈ Icc 0 (1-w)) (hz : z ∈ Icc 0 w) :
+    deltaA w x z = 0 ↔ x = 1-w ∧ (z = 0 ∨ z = w) := by
+  have he : deltaA w (1-w) z = 0 ↔ z = 0 ∨ z = w := by
+    rw [graph_third_edge_factor w z hw hz.2, div_eq_zero_iff, mul_eq_zero, mul_eq_zero]
+    have ha : 1-w ≠ 0 := by linarith
+    have hb : w ≠ 0 := by linarith
+    simp only [ha,hb,false_or,or_false,sq_eq_zero_iff,sub_eq_zero]
+    rw [eq_comm (a := w)]
+  constructor
+  · intro h
+    have hnonneg := (graph_third_endpoints w hw)
+    have hmin := graph_third_edge_minimum w z hw hw1.le hz
+    rw [hnonneg.1,hnonneg.2,min_self] at hmin
+    have hxe : x = 1-w := by
+      by_contra hne
+      have hs := graph_third_strict_comparison w x z hw hw1
+        ⟨hx.1,lt_of_le_of_ne hx.2 hne⟩ hz
+      linarith
+    exact ⟨hxe,he.mp (hxe ▸ h)⟩
+  · rintro ⟨rfl,hz⟩
+    exact he.mpr hz
+
+theorem graph_fourth_contact (w x z : ℝ) (hw : 1/2 ≤ w) (hw1 : w < 1)
+    (hx : x ∈ Icc (1-w) 1) (hz : z ∈ Icc w 1) :
+    deltaA w x z = 0 ↔ z = w ∧ (x = 1-w ∨ x = 1 ∨ w = 1/2) := by
+  have he : deltaA w x w = 0 ↔ x = 1-w ∨ x = 1 ∨ w = 1/2 := by
+    rw [graph_fourth_edge_factor w x hw hx.1,div_eq_zero_iff,mul_eq_zero,mul_eq_zero]
+    have hden : 2*w ≠ 0 := by linarith
+    simp only [hden,or_false,sq_eq_zero_iff]
+    constructor
+    · rintro ((h|h)|h)
+      · exact Or.inr (Or.inl (by linarith))
+      · exact Or.inr (Or.inr (by linarith))
+      · exact Or.inl (by linarith)
+    · rintro (h|h|h)
+      · exact Or.inr (by linarith)
+      · exact Or.inl (Or.inl (by linarith))
+      · exact Or.inl (Or.inr (by linarith))
+  constructor
+  · intro h
+    have hends := graph_fourth_endpoints w hw hw1.le
+    have hmin := graph_fourth_edge_minimum w x hw hw1.le hx
+    rw [hends.1,hends.2,min_self] at hmin
+    have hze : z = w := by
+      by_contra hne
+      have hs := graph_fourth_strict_comparison w x z hw hw1 hx
+        ⟨lt_of_le_of_ne hz.1 (Ne.symm hne),hz.2⟩
+      linarith
+    exact ⟨hze,he.mp (hze ▸ h)⟩
+  · rintro ⟨rfl,hx⟩
+    exact he.mpr hx
+
 end
 end Papers.Rockel2026ExactBlest.ArticleOriginalProof

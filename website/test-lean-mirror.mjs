@@ -27,7 +27,7 @@ test('the full original article retains all results, proof environments, figures
   assert.match(html,/The first rectangle: the printed factorization and sign estimates/);
   assert.match(html,/Each step below is checked by Lean/);
   assert.match(html,/The second rectangle: nonnegativity and its exact equality set/);
-  assert.equal(Object.keys(data.documents).length,5);
+  assert.equal(Object.keys(data.documents).length,6);
   assert.match(html,/The third rectangle: decrease in x and the edge minimum/);
   assert.match(html,/The fourth rectangle: increase in z and the edge minimum/);
   assert.match(html,/Four rectangles cover the unit square/);
@@ -39,11 +39,32 @@ test('the full original article retains all results, proof environments, figures
   const dependencies=data.evidence[ns+'four_rectangles_valid'].dependencies;
   assert(!dependencies.includes('Papers.Rockel2026ExactBlest.paper_dualA'));
   for(const rectangle of ['first','second','third','fourth'])assert(dependencies.includes(ns+rectangle+'_rectangle_verified'));
+  assert.match(html,/The exact contact set, including the special horizontal segment/);
+  const contact=data.documents[ns+'contact_set_valid'].checked.proof,contactSteps=[];
+  for(let node=contact;node;node=node.next)contactSteps.push(node.kind);
+  assert.deepEqual(contactSteps,['fix','assume','have','have','have','have','finish']);
+  const contactDeps=data.evidence[ns+'contact_set_valid'].dependencies;
+  assert(!contactDeps.includes('Papers.Rockel2026ExactBlest.paper_contactA'));
+  assert(contactDeps.includes(ns+'second_rectangle_verified'));
+  const original='Papers.Rockel2026ExactBlest.ArticleOriginalProof.';
+  for(const rectangle of ['first','third','fourth'])assert(contactDeps.includes(original+'graph_'+rectangle+'_contact'));
+  // The local proofs use the printed factorizations and strict derivative
+  // comparisons; none may quietly invoke the alternative native contact proof.
+  for(const name of ['graph_first_contact','graph_third_contact','graph_fourth_contact',
+      'graph_third_strict_comparison','graph_fourth_strict_comparison']) {
+    const record=data.evidence[original+name];
+    assert.match(record.type,/w < 1/);
+    assert(!record.dependencies.includes('Papers.Rockel2026ExactBlest.graph_contact_complete'));
+    assert(!record.dependencies.includes('Papers.Rockel2026ExactBlest.paper_contactA'));
+  }
+  assert(data.evidence[original+'graph_third_contact'].dependencies.includes(original+'graph_third_strict_comparison'));
+  assert(data.evidence[original+'graph_fourth_contact'].dependencies.includes(original+'graph_fourth_strict_comparison'));
   // The source proposition excludes w=1. The checked companion keeps that
   // exact range even though the standalone nonnegativity lemmas extend to it.
   for(const document of Object.values(data.documents)) {
     const scopedType=document.correspondence===ns+'four_rectangles_correspondence'
-      ? data.evidence[ns+'scoped_dualA'].type : data.evidence[document.correspondence].type;
+      ? data.evidence[ns+'scoped_dualA'].type : document.correspondence===ns+'contact_set_correspondence'
+      ? data.evidence['Papers.Rockel2026ExactBlest.paper_contactA'].type : data.evidence[document.correspondence].type;
     assert.match(scopedType,/w < 1/);
   }
 });

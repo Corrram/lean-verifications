@@ -106,7 +106,7 @@
         "LeanMirror.Expr.div",
         "LeanMirror.Expr.eq",
         "LeanMirror.Expr.eval",
-        "LeanMirror.Expr.eval.eq_19",
+        "LeanMirror.Expr.eval.eq_20",
         "LeanMirror.Expr.mul",
         "LeanMirror.Expr.nat",
         "LeanMirror.Expr.sub",

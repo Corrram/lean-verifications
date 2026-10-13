@@ -666,6 +666,38 @@
         "Papers.Rockel2026ExactBlest.ArticleCalculations.scoped_dualA"
       ],
       "note": "The four checked rectangle documents imply nonnegativity on the whole square. This composition checks the inequality part; the complete contact-set argument is not certified by it."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "For $w>\\frac12$, $\\Delta$ vanishes on this rectangle exactly on the line",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_first_contact"
+      ],
+      "note": "The first rectangle’s factorization gives its exact zero set, including the horizontal segment at w=1/2."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "On the final two rectangles, equality",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_third_strict_comparison",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_fourth_strict_comparison",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_third_edge_factor",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_fourth_edge_factor",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_third_contact",
+        "Papers.Rockel2026ExactBlest.ArticleOriginalProof.graph_fourth_contact"
+      ],
+      "note": "Strict versions of the displayed derivative comparisons exclude interior contact points; the edge factorizations identify all remaining zeros. The special case w=1/2 is retained."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "The claimed equality sets follow.",
+      "declarations": [
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.contact_set_valid",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.contact_set_correspondence",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.contact_set_verified",
+        "Papers.Rockel2026ExactBlest.ArticleCalculations.contact_set_definition"
+      ],
+      "note": "The four local equality criteria imply precisely the two branches, with the additional horizontal segment only at w=1/2. The checked argument derives this conclusion without reusing the native contact-set proof."
     }
   ],
   "definitions": {
@@ -694,6 +726,6 @@
       "label": "eq:Tw-def"
     }
   },
-  "verificationScope": "All original article content is reproduced. Compiled counterparts are attached to every labeled result. Corollary 3.2 has a fully checked proof document. The four rectangle calculations and their composition check the inequality in Proposition 4.3 on the exact article range 1/2≤w<1. The complete contact-set argument and exhaustive verification of every other literal proof step remain in progress.",
+  "verificationScope": "All original article content is reproduced. Compiled counterparts are attached to every labeled result. Corollary 3.2 has a fully checked proof document. The four rectangle calculations, their composition, and the equality-set argument check both conclusions of Proposition 4.3 on the article range 1/2≤w<1. The equality argument uses strict derivative comparisons and edge factorizations; it does not certify every printed calculation word for word. Exhaustive verification of the remaining literal proof steps is still in progress.",
   "sourceDate": "2026-09-23"
 }

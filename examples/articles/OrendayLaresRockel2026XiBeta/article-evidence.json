@@ -393,7 +393,7 @@
         "LeanMirror.Expr.app",
         "LeanMirror.Expr.eq",
         "LeanMirror.Expr.eval",
-        "LeanMirror.Expr.eval.eq_19",
+        "LeanMirror.Expr.eval.eq_20",
         "LeanMirror.Expr.ex",
         "LeanMirror.Expr.iff",
         "LeanMirror.Expr.le",
