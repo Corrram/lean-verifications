@@ -172,3 +172,8 @@ An optional `evidenceModule` names a module in the current paper namespace
 containing additional definition or statement bridges. It is compiled before
 the registry is exported. The subject-specific model stays downstream; the
 generic parser and renderer stay in the LeanMirror package.
+
+Article exports sort JSON keys and the axiom/dependency collections so field
+ordering cannot invalidate a cross-platform rebuild. Source hashes, theorem
+types and ordered proof steps remain exact. A freshness failure reports the
+first differing data field rather than just a generic stale-export message.

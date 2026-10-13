@@ -18,6 +18,28 @@ BASE_DIRECTORY = ROOT/'examples/paper-bridge'
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def canonical_evidence(records):
+    """Axiom and dependency collections are sets, not ordered proof steps."""
+    for record in records.values():
+        for field in ('axioms', 'dependencies'):
+            record[field] = sorted(record[field])
+    return records
+
+def first_difference(saved, fresh, path='$'):
+    if type(saved) is not type(fresh):return path, saved, fresh
+    if isinstance(saved, dict):
+        if saved.keys() != fresh.keys():return path+'.keys', sorted(saved), sorted(fresh)
+        for key in sorted(saved):
+            difference=first_difference(saved[key], fresh[key], path+'.'+key)
+            if difference:return difference
+    elif isinstance(saved, list):
+        if len(saved)!=len(fresh):return path+'.length', len(saved), len(fresh)
+        for i,(old,new) in enumerate(zip(saved,fresh)):
+            difference=first_difference(old,new,path+f'[{i}]')
+            if difference:return difference
+    elif saved!=fresh:return path,saved,fresh
+    return None
+
 def index_source(mapping):
     names=sorted({name for b in mapping['bindings'] for name in b['declarations']})
     if any(not re.fullmatch(r'[A-Za-z][A-Za-z0-9_.]*',name) for name in names):
@@ -76,13 +98,22 @@ def export_article(directory,check):
             exporter.write_text(f'import {namespace}\n\ndef main (args : List String) : IO Unit := do\n  let [destination] := args | throw (IO.userError \"expected output path\")\n  IO.FS.writeFile destination ((Lean.Json.mkObj [(\"evidence\", {namespace}.evidence), (\"documents\", {documents})]).pretty ++ \"\\n\")\n',encoding='utf-8')
         subprocess.run([LAKE,'env','lean','--run',str(exporter),str(fresh)],cwd=ROOT,check=True)
         compiled=json.loads(fresh.read_text(encoding='utf-8'))
-        evidence=compiled['evidence']
+        evidence=canonical_evidence(compiled['evidence'])
     data={'schemaVersion':1,'paperId':mapping['paperId'],'sourceSha256':source_hash,
           'mapSha256':digest(DIRECTORY/'article-map.json'),'assets':pinned,'evidence':evidence,
           'documents':compiled['documents']}
-    generated=json.dumps(data,ensure_ascii=False,indent=2)+'\n'
+    generated=json.dumps(data,ensure_ascii=False,indent=2,sort_keys=True)+'\n'
     if check:
         if not OUT.exists() or OUT.read_text(encoding='utf-8')!=generated:
+            if OUT.exists():
+                difference=first_difference(json.loads(OUT.read_text(encoding='utf-8')),data)
+                if difference:
+                    field,old,new=difference
+                    print('First changed article evidence field:',field,flush=True)
+                    print('Saved:',repr(old)[:400],flush=True)
+                    print('Fresh:',repr(new)[:400],flush=True)
+                else:
+                    print('Parsed evidence agrees; serialized field order differs.',flush=True)
             raise SystemExit('Stale full article evidence. Run python scripts/lean_mirror_article.py')
         print('Full article evidence and all original assets are fresh.')
     else:

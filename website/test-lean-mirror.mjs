@@ -146,6 +146,9 @@ test('the Chatterjee–Blomqvist reader retains the original title, numbering an
   assert.match(html,/href="#article-eq-beta-def"/);
   for(const label of ['tent','Lb','Ab'])assert.match(html,new RegExp('href="#article-eq-'+label+'"'));
   assert.equal(Object.keys(data.documents).length,2);
+  for(const document of Object.values(data.documents))assert.equal(document.presentation,'statement');
+  assert.match(html,/The mathematical statement and its correspondence are checked by Lean/);
+  assert.match(html,/Definitions used in this statement/);
   assert.match(html,/lower_bound_correspondence/);assert.match(html,/beta_definition/);
   assert.match(html,/exact_region_correspondence/);assert.match(html,/region_definition/);
   assert.match(html,/Exact region: checked mathematical statement/);

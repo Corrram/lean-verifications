@@ -111,6 +111,7 @@ def vocabulary : Vocabulary Symbol where
 def documents : Json := Json.mkObj [
   (toString ``lower_bound_document_valid, Json.mkObj [
     ("checked", checked_document% (vocabulary) lower_bound_document_valid),
+    ("presentation", .str "statement"),
     ("title", .str "The universal cubic inequality: checked statement correspondence"),
     ("note", .str "This one-step statement proof reuses the existing compiled lower-bound theorem. It verifies this inequality component of Theorem 1.1; it does not certify the article's printed proof of Proposition 4.1."),
     ("correspondence", .str (toString ``lower_bound_correspondence)),
@@ -120,6 +121,7 @@ def documents : Json := Json.mkObj [
   ]),
   (toString ``region_statement_valid, Json.mkObj [
     ("checked", checked_document% (vocabulary) region_statement_valid),
+    ("presentation", .str "statement"),
     ("title", .str "Exact region: checked mathematical statement"),
     ("note", .str "This is a statement certificate using the compiled region theorem. The correspondence proof uses only interpretation of the definitions and set extensionality. It does not certify the article's printed variational proof."),
     ("correspondence", .str (toString ``exact_region_correspondence)),
