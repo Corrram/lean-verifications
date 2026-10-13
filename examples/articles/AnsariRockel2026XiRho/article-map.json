@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "id": "xi-rho",
+  "paperId": "AnsariRockel2026XiRho",
+  "title": "The exact region and an inequality between Chatterjee's and Spearman's rank correlations",
+  "source": "source/xi-rho-region_arxiv.tex",
+  "bibliography": "source/xi-rho-region_arxiv.bbl",
+  "sourceURL": "https://arxiv.org/abs/2506.15897v3",
+  "sourceDate": "2026-05-19",
+  "evidenceModule": "Papers.AnsariRockel2026XiRho.ArticleDefinitions",
+  "proofDocumentNamespace": "Papers.AnsariRockel2026XiRho.ArticleDefinitions",
+  "bindings": [
+    {
+      "label": "frm_rho_integral",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.rho_definition"
+      ],
+      "note": "This bridge verifies the copula integral formula. The random-variable/Pearson definition is not certified by it."
+    },
+    {
+      "label": "repxicop",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.xi_definition",
+        "Papers.AnsariRockel2026XiRho.xi_derivative_formula"
+      ],
+      "note": "This bridge verifies the copula derivative integral, with derivatives interpreted almost everywhere. The random-variable definition in equation (2) is not certified by it."
+    },
+    {
+      "label": "thexirho",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.exact_region",
+        "Papers.AnsariRockel2026XiRho.attainable_region_convex",
+        "Papers.AnsariRockel2026XiRho.upper_boundary_unique",
+        "Papers.AnsariRockel2026XiRho.lower_boundary_unique",
+        "Papers.AnsariRockel2026XiRho.xi_zero_slice",
+        "Papers.AnsariRockel2026XiRho.xi_one_slice"
+      ],
+      "note": "These native results verify the region, convexity, boundary uniqueness and endpoint attainment. Their proofs do not certify all printed proof passages."
+    },
+    {
+      "label": "eqxirhoregion",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.exact_region",
+        "Papers.AnsariRockel2026XiRho.sharp_absolute_rho_bound",
+        "Papers.AnsariRockel2026XiRho.boundaryCopula_coefficients"
+      ]
+    },
+    {
+      "label": "eq:b_and_M",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.smallXiParameter_inverse",
+        "Papers.AnsariRockel2026XiRho.largeXiParameter_inverse",
+        "Papers.AnsariRockel2026XiRho.boundaryParameter_inverse",
+        "Papers.AnsariRockel2026XiRho.sourceBand_xi",
+        "Papers.AnsariRockel2026XiRho.sourceBand_rho"
+      ]
+    },
+    {
+      "label": "cor:max-rho-minus-xi",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.rho_sub_xi_le",
+        "Papers.AnsariRockel2026XiRho.rho_sub_xi_eq_iff",
+        "Papers.AnsariRockel2026XiRho.sharp_gap_attained",
+        "Papers.AnsariRockel2026XiRho.unitDiagonalBand_xi",
+        "Papers.AnsariRockel2026XiRho.unitDiagonalBand_rho"
+      ]
+    },
+    {
+      "label": "thm:rho_ge_xi",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.stochastic_xi_le_abs_rho",
+        "Papers.AnsariRockel2026XiRho.stochastic_xi_eq_abs_rho_iff",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.monotone_statement_valid",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.monotone_statement_verified",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.monotone_statement_correspondence",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.si_definition",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.sd_definition",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.benchmark_definitions"
+      ],
+      "note": "The independently parsed theorem includes the inequality and all equality cases. The displayed certificate is for the statement, not for the printed maximum-principle proof."
+    },
+    {
+      "label": "eqthm:rho_ge_xi",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.si_xi_le_rho",
+        "Papers.AnsariRockel2026XiRho.sd_xi_le_neg_rho",
+        "Papers.AnsariRockel2026XiRho.stochastic_xi_le_abs_rho"
+      ]
+    },
+    {
+      "label": "remmain",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.rho_derivative_formula",
+        "Papers.AnsariRockel2026XiRho.not_stochastically_monotone_of_abs_rho_lt_xi"
+      ],
+      "note": "Only the derivative representation and stochastic-monotonicity obstruction are covered. The regression interpretation and Markov-product/footrule identity are not covered."
+    },
+    {
+      "label": "reprhocopder",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.rho_derivative_formula",
+        "Papers.AnsariRockel2026XiRho.rho_conditionalCDF_formula"
+      ]
+    },
+    {
+      "label": "exPLOD",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.plodShuffle_cdf",
+        "Papers.AnsariRockel2026XiRho.plodShuffle_isPQD",
+        "Papers.AnsariRockel2026XiRho.plodShuffle_xi",
+        "Papers.AnsariRockel2026XiRho.plodShuffle_rho",
+        "Papers.AnsariRockel2026XiRho.plod_counterexample"
+      ],
+      "note": "The native example uses four quarter-width strips in order 0,2,1,3. The printed interval (1/4.1/2] is retained; its intended endpoints are interpreted as (1/4,1/2]."
+    },
+    {
+      "label": "lem:convexity_xi",
+      "declarations": [
+        "ProbabilityTheory.Copula.spearmanRho_mix",
+        "ProbabilityTheory.Copula.chatterjeeXi_mix_le"
+      ],
+      "note": "The native mix weights its first copula by the displayed parameter lambda."
+    },
+    {
+      "label": "eq:C_x",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_cdf_positive_parts",
+        "Papers.AnsariRockel2026XiRho.sourceBand_cdf_piecewise",
+        "Papers.AnsariRockel2026XiRho.sourceBand_cdf"
+      ],
+      "note": "This is the arXiv v3 formula, including its boundary correction. A different erroneous journal formula is not being substituted here."
+    },
+    {
+      "label": "eq:s_v",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBandIntercept_mean",
+        "Papers.AnsariRockel2026XiRho.sourceBand_eq_normalizedBand"
+      ]
+    },
+    {
+      "label": "defcopbneg",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_cdf",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_eq_response_reflection"
+      ]
+    },
+    {
+      "label": "lemCbcop",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_eq_normalizedBand",
+        "Papers.AnsariRockel2026XiRho.sourceBand_cdf",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_cdf"
+      ],
+      "note": "The positive and reflected negative constructions are actual copulas. The identification with the normalized family is checked."
+    },
+    {
+      "label": "thexirhooptimisation",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.normalizedBand_maximal_rho",
+        "Papers.AnsariRockel2026XiRho.normalizedBand_maximal_rho_eq_iff",
+        "Papers.AnsariRockel2026XiRho.explicit_band_support",
+        "Papers.AnsariRockel2026XiRho.xi_zero_slice",
+        "Papers.AnsariRockel2026XiRho.rho_extreme_implies_xi_one"
+      ],
+      "note": "The copula-facing optimality and uniqueness conclusions are covered. Correspondence with the entire preceding optimization problem over arbitrary measurable families h_v has not yet been certified."
+    },
+    {
+      "label": "remcopfam",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_conditionalCDF",
+        "Papers.AnsariRockel2026XiRho.sourceBand_derivative"
+      ],
+      "note": "The native conditional CDF has the exact clamped form, and its correspondence with the derivative holds almost everywhere; it does not assert classical differentiability at every boundary point."
+    },
+    {
+      "label": "h_v_clamped",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_conditionalCDF",
+        "Papers.AnsariRockel2026XiRho.sourceBand_derivative"
+      ]
+    },
+    {
+      "label": "propabscont",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_toMeasure_densityOpen",
+        "Papers.AnsariRockel2026XiRho.sourceBand_absolutelyContinuous",
+        "Papers.AnsariRockel2026XiRho.sourceBandDensityOpen_formula",
+        "Papers.AnsariRockel2026XiRho.sourceBandDensityOpen_ae_eq",
+        "Papers.AnsariRockel2026XiRho.sourceBand_support_set",
+        "Papers.AnsariRockel2026XiRho.sourceBand_support_convex"
+      ],
+      "note": "The density gives equality of measures and is defined on the open band; topological support is the closed band. Densities may differ on the null boundary."
+    },
+    {
+      "label": "eq:density_cb",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_toMeasure_densityOpen",
+        "Papers.AnsariRockel2026XiRho.sourceBandDensityOpen_formula"
+      ]
+    },
+    {
+      "label": "eqpropabscont",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_support_set",
+        "Papers.AnsariRockel2026XiRho.sourceBand_support_iff",
+        "Papers.AnsariRockel2026XiRho.sourceBand_support_convex"
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "quote": "is an asymmetric diagonal band copula family",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_not_exchangeable",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_not_exchangeable"
+      ],
+      "note": "This link covers the asymmetry assertion on both nonzero branches, not every other interpretation in Remark 2."
+    },
+    {
+      "label": "eq:diag_band",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_support_set",
+        "Papers.AnsariRockel2026XiRho.sourceBand_support_iff"
+      ],
+      "note": "The formal statement concerns closed topological support. It distinguishes this from the positive-density set."
+    },
+    {
+      "label": "proplimcase",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_tendstoUniformly_zero",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_tendstoUniformly_zero",
+        "Papers.AnsariRockel2026XiRho.sourceBand_tendstoUniformly_atTop",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_tendstoUniformly_atTop",
+        "Papers.AnsariRockel2026XiRho.sourceBand_independence_error",
+        "Papers.AnsariRockel2026XiRho.sourceBand_comonotonic_error",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_independence_error",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_countermonotonic_error"
+      ]
+    },
+    {
+      "label": "propdepprop",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_parameter_order",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_parameter_order",
+        "Papers.AnsariRockel2026XiRho.sourceBand_independence_order",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_independence_order",
+        "Papers.AnsariRockel2026XiRho.sourceBand_cross_sign_order",
+        "Papers.AnsariRockel2026XiRho.sourceBand_hasMTP2Density",
+        "Papers.AnsariRockel2026XiRho.sourceBandDensity_isMTP2",
+        "Papers.AnsariRockel2026XiRho.sourceBand_isSI"
+      ],
+      "note": "The negative parameter branch is represented by its positive magnitude, reversing the same-sign parameter comparison."
+    },
+    {
+      "label": "remsymm",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_radially_symmetric",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_cdf",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_coefficients",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_eq_response_reflection",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_isSD",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_conditionalCDF",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_toMeasure_density",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBandDensity_formula"
+      ],
+      "note": "Radial symmetry, reflection, rank formulas and the negative branch are covered. The abstract decreasing-rearrangement operation is not separately certified here."
+    },
+    {
+      "label": "propcfe",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.sourceBand_xi",
+        "Papers.AnsariRockel2026XiRho.sourceBand_rho",
+        "Papers.AnsariRockel2026XiRho.sourceBand_tau",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_coefficients",
+        "Papers.AnsariRockel2026XiRho.negativeSourceBand_tau",
+        "Papers.AnsariRockel2026XiRho.sourceBand_rank_triple",
+        "Papers.AnsariRockel2026XiRho.sourceBand_sampling"
+      ]
+    },
+    {
+      "label": "lem:fanlorentz_ineq",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.literal_lemma_refuted",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.endpoint_counterexample_valid",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.endpoint_counterexample_verified",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.endpoint_counterexample_correspondence",
+        "Papers.AnsariRockel2026XiRho.ArticleDefinitions.functional_definition"
+      ],
+      "note": "The literal pointwise equality alternatives are false. The checked endpoint counterexample below refutes them; the corrected almost-everywhere statement is linked separately.",
+      "role": "refutation"
+    },
+    {
+      "label": "lem:fanlorentz_ineq",
+      "declarations": [
+        "Papers.AnsariRockel2026XiRho.lemma8_bound",
+        "Papers.AnsariRockel2026XiRho.lemma8_equality"
+      ],
+      "note": "Corrected counterpart: equality alternatives hold almost everywhere, not at every t. This is a correction to the original statement, not a proof of its literal wording."
+    }
+  ],
+  "definitions": {
+    "\\xi": {
+      "label": "repxicop"
+    },
+    "\\rho": {
+      "label": "frm_rho_integral"
+    },
+    "M_x": {
+      "label": "eq:b_and_M"
+    },
+    "b_x": {
+      "label": "eq:b_and_M"
+    },
+    "C_b": {
+      "label": "eq:C_x"
+    },
+    "a_v": {
+      "label": "eq:s_v"
+    }
+  },
+  "sourceDiscrepancies": [
+    {
+      "version": "arXiv v3, Lemma 8",
+      "unverified_claim": "The equality alternatives in Lemma 8 are stated pointwise for every t in [0,1].",
+      "evidence": "Lean checks a decreasing function with h(0)=1 and h(t)=1/2 for t>0. Its mean is 1/2 and its functional is 1/4, but it is neither pointwise constant nor the displayed indicator.",
+      "verified_instead": "The integral bound and the equality classification modulo null sets are verified. The original text is preserved below, with a checked refutation attached to Lemma 8."
+    }
+  ],
+  "verificationScope": "The complete arXiv v3 source is retained, including all result blocks, proof order, figures and bibliography. Theorem 2 and the xi/rho definitions have independent typed encodings with checked correspondence. Native counterparts cover the main region and gap theorems, all five propositions, the PLOD example and selected remarks. Theorem 3 links cover actual-copula optimality, not a proved equivalence to the full optimization problem over measurable families. A five-step checked counterexample refutes Lemma 8’s literal pointwise equality classification; its corrected almost-everywhere counterpart is separately checked. The remaining rearrangement, optimization, maximum-principle and printed proof arguments, cited literature claims and numerical plots are not yet exhaustively certified. Native theorem proofs alone do not certify all printed proof steps."
+}

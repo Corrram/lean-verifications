@@ -223,3 +223,27 @@ claims and a conclusion. It checks affine footrule and beta, quadratic tau,
 the intermediate-value step and the attaining copula. Both endpoints must
 already have the same footrule and beta. This scoped argument does not certify
 their earlier construction or every other printed proof step.
+
+
+The Chatterjee–Spearman reader at `/lean-mirror/xi-rho/` preserves
+arXiv:2506.15897v3. Its twenty-two result blocks, fifteen proof environments,
+five figures containing eleven panels, three rank-calculation headings and
+fifty-one references retain their source order. Fifteen result blocks have
+compiled counterparts; some links cover only explicitly identified clauses.
+
+The copula formulas for xi and rho and the complete SI/SD statement of
+Theorem 2 have independently parsed encodings and checked correspondence.
+SI and SD use the concavity/convexity chord definitions. The statement
+certificate reuses the native theorem and does not certify the printed
+maximum-principle proof. Optimization links cover actual copulas, without
+claiming a checked correspondence with all preceding measurable-family
+constraints.
+
+Lemma 8's literal pointwise equality classification is refuted by a checked
+five-step counterexample: h(0)=1 and h(t)=1/2 for t>0. Its mean is 1/2 and its
+functional is 1/4, although it equals neither displayed alternative everywhere.
+The unchanged printed statement appears beside this counterexample and its
+corrected almost-everywhere counterpart. The arXiv v3 CDF already contains
+the boundary term omitted by the separate journal formula; this reader does
+not incorrectly flag that corrected arXiv formula as false. Exhaustive
+verification of the original proof steps remains in progress.

@@ -260,3 +260,42 @@ test('the joint-region reader checks the printed mixture argument with both endp
     assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
   }
 });
+
+
+test('the xi-rho reader preserves the article and distinguishes a refuted pointwise lemma from its corrected counterpart',()=>{
+  const directory=new URL('../examples/articles/AnsariRockel2026XiRho/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/xi-rho-region_arxiv.tex'),bibliography:read('source/xi-rho-region_arxiv.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,22);assert.equal(data.stats.linkedStatements,15);
+  assert.equal(data.stats.figures,5);assert.equal(data.article.bibliography.length,51);
+  assert.equal((html.match(/<img /g)||[]).length,11);
+  assert.equal((html.match(/class="article-figure-row"/g)||[]).length,7);
+  assert.equal((html.match(/class="article-proof"/g)||[]).length,(inputs.source.replace(/(?<!\\)%[^\n]*/g,'').match(/\\begin\{proof\}/g)||[]).length);
+  assert.equal((html.match(/<h5/g)||[]).length,3);
+  assert.equal(data.config.sourceDate,'2026-05-19');
+  assert.match(html,/Printed claim refuted/);assert.match(html,/literal_lemma_refuted/);
+  assert.match(inputs.source,/h\(t\)=v\$ for all/);
+  assert.match(html,/maximum-principle proof/);
+  assert.match(html,/entire preceding optimization problem over arbitrary measurable families/);
+  assert.match(html,/Why the equality alternatives in Lemma 8 must hold almost everywhere/);
+  for(const label of ['repxicop','frm-rho-integral','eq-b-and-M','eq-C-x','eq-s-v'])assert(html.includes('href="#article-'+label+'"'));
+  const ns='Papers.AnsariRockel2026XiRho.ArticleDefinitions.';
+  assert.equal(data.documents[ns+'monotone_statement_valid'].presentation,'statement');
+  const nodes=[];
+  for(let node=data.documents[ns+'endpoint_counterexample_valid'].checked.proof;node;node=node.next)nodes.push(node);
+  assert.deepEqual(nodes.map(n=>n.kind),['have','have','have','have','have','finish']);
+  assert.equal(nodes[5].formula.kind,'exists');
+  assert(data.evidence[ns+'literal_lemma_refuted'].type.includes('¬'));
+  // Interpreting the two independently parsed statements must not rely on their truth proofs.
+  assert(!data.evidence[ns+'monotone_statement_correspondence'].dependencies.some(n=>n.endsWith('.stochastic_xi_le_abs_rho')||n.endsWith('.stochastic_xi_eq_abs_rho_iff')));
+  assert(!data.evidence[ns+'endpoint_counterexample_correspondence'].dependencies.some(n=>n.endsWith('.pointwise_counterexample')));
+  const bindings=JSON.parse(inputs.mapping).bindings.filter(b=>b.label==='lem:fanlorentz_ineq');
+  assert.deepEqual(bindings.map(b=>b.role??'counterpart'),['refutation','counterpart']);
+  for(const certificate of ['xi_definition','rho_definition','sd_definition','literal_lemma_refuted','endpoint_counterexample_valid']){
+    const missing=structuredClone(evidence);delete missing.evidence[ns+certificate];
+    assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
+  }
+});
