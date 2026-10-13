@@ -1,0 +1,187 @@
+\begin{thebibliography}{10}
+
+\bibitem{ansarifuchs2022asimpleextension}
+Jonathan Ansari and Sebastian Fuchs.
+\newblock A simple extension of azadkia and chatterjee's rank correlation to a
+  vector of endogenous variables.
+\newblock {\em arXiv preprint arXiv:2212.01621}, 2022.
+
+\bibitem{ansari2025continuity}
+Jonathan Ansari and Sebastian Fuchs.
+\newblock On continuity of chatterjee's rank correlation and related dependence
+  measures.
+\newblock {\em arXiv preprint arXiv:2503.11390}, 2025.
+
+\bibitem{Ansari-Fuchs-2023}
+Jonathan Ansari, Patrick~B. Langthaler, Sebastian Fuchs, and Wolfgang
+  Trutschnig.
+\newblock Quantifying and estimating dependence via sensitivity of conditional
+  distributions.
+\newblock {\em arXiv preprint arXiv:2308.06168}, 2023.
+
+\bibitem{ansari2024empirical}
+Jonathan Ansari, Eva L{\"u}tkebohmert, and Marcus Rockel.
+\newblock An empirical study on new model-free multi-output variable selection
+  methods.
+\newblock In {\em International Conference on Soft Methods in Probability and
+  Statistics}, pages 9--17. Springer, 2024.
+
+\bibitem{ansari2024dependence}
+Jonathan Ansari and Marcus Rockel.
+\newblock Dependence properties of bivariate copula families.
+\newblock {\em Depend. Model.}, 12:36, 2024.
+\newblock Id/No 20240002.
+
+\bibitem{chatterjee2021}
+Mona Azadkia and Sourav Chatterjee.
+\newblock A simple measure of conditional dependence.
+\newblock {\em Ann. Stat.}, 49(6):3070--3102, 2021.
+
+\bibitem{chatterjee2020}
+Sourav Chatterjee.
+\newblock A new coefficient of correlation.
+\newblock {\em J. Am. Stat. Assoc.}, 116(536):2009--2022, 2021.
+
+\bibitem{cottin2014bernstein}
+Claudia Cottin and Dietmar Pfeifer.
+\newblock From {Bernstein} polynomials to {Bernstein} copulas.
+\newblock {\em J. Appl. Funct. Anal.}, 9(3-4):277--288, 2014.
+
+\bibitem{dette2013copula}
+Holger Dette, Karl~F. Siburg, and Pavel~A. Stoimenov.
+\newblock A copula-based non-parametric measure of regression dependence.
+\newblock {\em Scand. J. Stat.}, 40(1):21--41, 2013.
+
+\bibitem{durante2015typical}
+Fabrizio Durante, Juan Fern{\'a}ndez-S{\'a}nchez, and Wolfgang Trutschnig.
+\newblock A typical copula is singular.
+\newblock {\em J. Math. Anal. Appl.}, 430(1):517--527, 2015.
+
+\bibitem{Durante-2016}
+Fabrizio Durante and Carlo Sempi.
+\newblock {\em Principles of Copula Theory}.
+\newblock Boca Raton, FL: CRC Press, 2016.
+
+\bibitem{durrleman2000copulas}
+Valdo Durrleman, Ashkan Nikeghbali, and Thierry Roncalli.
+\newblock Copulas approximation and new families.
+\newblock {\em Available at SSRN 1032547}, 2000.
+
+\bibitem{fuchs2023total}
+S.~Fuchs and M.~Tschimpke.
+\newblock Total positivity of copulas from a {Markov} kernel perspective.
+\newblock {\em J. Math. Anal. Appl.}, 518(1):21, 2023.
+\newblock Id/No 126629.
+
+\bibitem{fuchs2024quantifying}
+Sebastian Fuchs.
+\newblock Quantifying directed dependence via dimension reduction.
+\newblock {\em J. Multivariate Anal.}, 201:21, 2024.
+
+\bibitem{huang2022kernel}
+Zhen Huang, Nabarun Deb, and Bodhisattva Sen.
+\newblock Kernel partial correlation coefficient---a measure of conditional
+  dependence.
+\newblock {\em Journal of Machine Learning Research}, 23(216):1--58, 2022.
+
+\bibitem{Joe-1997}
+Harry Joe.
+\newblock {\em Multivariate Models and Dependence Concepts}, volume~73 of {\em
+  Monogr. Stat. Appl. Probab.}
+\newblock London: Chapman {and} Hall, 1997.
+
+\bibitem{kuzmenko2020checkerboard}
+Viktor Kuzmenko, Romel Salam, and Stan Uryasev.
+\newblock Checkerboard copula defined by sums of random variables.
+\newblock {\em Depend. Model.}, 8:70--92, 2020.
+
+\bibitem{li1997approximation}
+X.~Li, P.~Mikusi{\'n}ski, H.~Sherwood, and M.~D. Taylor.
+\newblock On approximation of copulas.
+\newblock In {\em Distributions with given marginals and moment problems.
+  Proceedings of the 1996 conference, Prague, Czech Republic}, pages 107--116.
+  Dordrecht: Kluwer Academic Publishers, 1997.
+
+\bibitem{li1998strong}
+X.~Li, P.~Mikusi{\'n}ski, and M.~D. Taylor.
+\newblock Strong approximation of copulas.
+\newblock {\em J. Math. Anal. Appl.}, 225(2):608--623, 1998.
+
+\bibitem{mainik2015risk}
+Georg Mainik.
+\newblock Risk aggregation with empirical margins: Latin hypercubes, empirical
+  copulas, and convergence of sum distributions.
+\newblock {\em Journal of Multivariate Analysis}, 141:197--216, 2015.
+
+\bibitem{marshall2011inequalities}
+Albert~W. Marshall, Ingram Olkin, and Barry~C. Arnold.
+\newblock {\em Inequalities: theory of majorization and its applications}.
+\newblock Springer Ser. Stat. New York, NY: Springer, 2nd edition edition,
+  2011.
+
+\bibitem{mikusinski1992shuffles}
+P.~Mikusinski, H.~Sherwood, and M.~D. Taylor.
+\newblock Shuffles of {Min}.
+\newblock {\em Stochastica}, 13(1):61--74, 1992.
+
+\bibitem{Mikusinski-2010}
+Piotr {Mikusi\'nski} and Michael~D. {Taylor}.
+\newblock {Some approximations of \(n\)-copulas.}
+\newblock {\em {Metrika}}, 72(3):385--414, 2010.
+
+\bibitem{Mueller-Stoyan-2002}
+Alfred {M\"uller} and Dietrich {Stoyan}.
+\newblock {\em {Comparison Methods for Stochastic Models and Risks.}}
+\newblock Chichester: Wiley, 2002.
+
+\bibitem{Nelsen-2006}
+Roger~B. {Nelsen}.
+\newblock {\em {An Introduction to Copulas. 2nd ed.}}
+\newblock New York, NY: Springer, 2006.
+
+\bibitem{pfeifer2016new}
+Dietmar Pfeifer, Herv{\'e}~Awoumlac Tsatedem, Andreas M{\"a}ndle, and C{\^o}me
+  Girschig.
+\newblock New copulas based on general partitions-of-unity and their
+  applications to risk management.
+\newblock {\em Depend. Model.}, 4:123--140, 2016.
+
+\bibitem{sancetta2004bernstein}
+Alessio Sancetta and Stephen Satchell.
+\newblock The {Bernstein} copula and its applications to modeling and
+  approximations of multivariate distributions.
+\newblock {\em Econom. Theory}, 20(3):535--562, 2004.
+
+\bibitem{schreyer2017exact}
+Manuela Schreyer, Roland Paulin, and Wolfgang Trutschnig.
+\newblock On the exact region determined by {Kendall}'s {{\(\tau\)}} and
+  spearman's {{\(\rho\)}}.
+\newblock {\em J. R. Stat. Soc., Ser. B, Stat. Methodol.}, 79(2):613--633,
+  2017.
+
+\bibitem{sukeda2023minimum}
+Issey Sukeda and Tomonari Sei.
+\newblock On the minimum information checkerboard copula under fixed
+  {Kendall}'s {{\(\tau\)}}.
+\newblock {\em Stat. Pap.}, 66(1):39, 2025.
+\newblock Id/No 29.
+
+\bibitem{tschimpke2025revisiting}
+Marco Tschimpke, Manuela Schreyer, and Wolfgang Trutschnig.
+\newblock Revisiting the region determined by {Spearman}'s {{\(\rho\)}} and
+  {Spearman}'s footrule {{\(\phi\)}}.
+\newblock {\em J. Comput. Appl. Math.}, 457:18, 2025.
+\newblock Id/No 116259.
+
+\bibitem{weisstein2002beta}
+Eric~W Weisstein.
+\newblock Beta function.
+\newblock {\em https://mathworld. wolfram. com/}, 2002.
+
+\bibitem{zheng2011approximation}
+Yanting Zheng, Jingping Yang, and Jianhua~Z. Huang.
+\newblock Approximation of bivariate copulas by patched bivariate {Fr{\'e}chet}
+  copulas.
+\newblock {\em Insur. Math. Econ.}, 48(2):246--256, 2011.
+
+\end{thebibliography}

@@ -381,3 +381,42 @@ test('the rho-footrule reader preserves repeated source labels and checks the pr
     assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
   }
 });
+
+
+test('the approximation article retains its appendix page links and checks the printed finite arguments',()=>{
+  const directory=new URL('../examples/articles/Rockel2025Approximation/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/approximating_copulas.tex'),bibliography:read('article.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,11);assert.equal(data.stats.linkedStatements,10);
+  assert.equal(data.stats.figures,9);assert.equal((html.match(/<img /g)||[]).length,15);
+  assert.equal(data.article.bibliography.length,32);
+  assert.match(html,/25 May 2026/);assert.match(html,/Family-averaged RMSE/);
+  assert.match(html,/href="#article-eq-rho-integral"/);assert.match(html,/href="#article-eq-xi"/);
+  assert.match(html,/Theorem 4.2: the rectangular checkerboard bound/);
+  assert.match(html,/Lemma 5.1: the printed permutation sum proof/);
+  assert.match(html,/Theorem 4.5: the printed trace correction bound/);
+  assert.match(html,/not certify the printed Karamata proof/);
+  assert.match(html,/iid sample with continuous marginal CDFs/);
+  assert.match(html,/unit-cost comparison\/arithmetic schedule/);
+  for(const [label,page] of Object.entries(data.config.pageReferences)) {
+    const ref=data.article.references[label];
+    assert(html.includes(`href="#${ref.id}" title="Page in the published PDF">${page}</a>`));
+  }
+  assert.equal(Object.keys(data.documents).length,4);
+  const ns='Papers.Rockel2025Approximation.ArticleDefinitions.';
+  const kinds=name=>{const nodes=[];for(let n=data.documents[ns+name].checked.proof;n;n=n.next)nodes.push(n.kind);return nodes;};
+  assert.equal(data.documents[ns+'lower_statement_valid'].presentation,'statement');
+  assert.deepEqual(kinds('range_valid'),['fix','have','have','have','finish']);
+  assert.deepEqual(kinds('trace_valid'),['fix','have','have','have','finish']);
+  assert.deepEqual(kinds('permutation_valid'),['fix','have','have','have','have','have','finish']);
+  assert(!data.evidence[ns+'lower_correspondence'].dependencies.some(n=>n.endsWith('.checkerboard_xi_le_of_mtp2')));
+  assert(!data.evidence[ns+'range_valid'].dependencies.some(n=>n.endsWith('.checkerboardEstimator_mem')));
+  assert(!data.evidence[ns+'trace_valid'].dependencies.some(n=>n.endsWith('.checkerboardEstimator_correction_bounds')||n.endsWith('.cellMass_square_bound')));
+  for(const name of ['rho_definition','xi_definition','estimator_definition','permutation_valid','trace_valid','range_valid']){
+    const missing=structuredClone(evidence);delete missing.evidence[ns+name];
+    assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
+  }
+});

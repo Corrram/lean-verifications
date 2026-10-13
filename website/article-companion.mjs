@@ -40,6 +40,7 @@ export function renderFullArticle(data,{url,api,source,paperUrl}) {
     annotations:data.annotations,evidence:data.evidence,definitions:data.config.definitions,
     sourceURL:data.config.sourceURL??'https://arxiv.org/abs/2609.27634v1',
     sourceDate:data.config.sourceDate??'',
+    pageReferences:data.config.pageReferences??{},
     figureURL:image=>url(route+'images/'+data.figureAssets[image].filename),
     certificateURL:record=>api(record.module)+'#'+record.declaration,
     proofDetails:(b,items,m)=>items.filter(item=>data.documents[item.declaration]).map(item=>{

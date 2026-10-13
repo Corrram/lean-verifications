@@ -18,7 +18,7 @@ rev = "72a596ebd8c111cb11a046be0d5c5cd64a878954"
 [[require]]
 name = "lean-mirror"
 git = "https://github.com/Corrram/lean-mirror.git"
-rev = "0698236a5c8864909ad868c4b6908ac3299ebbd9"
+rev = "a254ad0b3f0532c73b9c4e442033c1a2fef34dce"
 
 [[lean_lib]]
 name = "Verification"

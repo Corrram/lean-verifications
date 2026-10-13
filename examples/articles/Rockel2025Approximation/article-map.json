@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "id": "copula-approximation",
+  "paperId": "Rockel2025Approximation",
+  "title": "Measures of association for approximating copulas",
+  "source": "source/approximating_copulas.tex",
+  "bibliography": "article.bbl",
+  "sourceURL": "https://arxiv.org/abs/2505.08045v2",
+  "sourceDate": "2026-05-25",
+  "evidenceModule": "Papers.Rockel2025Approximation.ArticleDefinitions",
+  "proofDocumentNamespace": "Papers.Rockel2025Approximation.ArticleDefinitions",
+  "bindings": [
+    {
+      "label": "eq:rho_integral",
+      "declarations": [
+        "Papers.Rockel2025Approximation.ArticleDefinitions.rho_definition"
+      ],
+      "note": "The printed double-integral definition is independently encoded and identified with the native Spearman coefficient."
+    },
+    {
+      "label": "eq:xi",
+      "declarations": [
+        "Papers.Rockel2025Approximation.ArticleDefinitions.xi_definition"
+      ],
+      "note": "The printed squared partial derivative is independently encoded. The bridge uses the almost-everywhere derivative representation for every bivariate copula."
+    },
+    {
+      "label": "eq:bernstein_copula",
+      "declarations": [
+        "Papers.Rockel2025Approximation.bernstein_cdf",
+        "Papers.Rockel2025Approximation.bernstein_uniform_error",
+        "Papers.Rockel2025Approximation.bernstein_uniform_convergence"
+      ],
+      "note": "The actual Bernstein construction has the printed CDF and deterministic uniform convergence. CDF convergence alone does not imply xi convergence."
+    },
+    {
+      "label": "eq:checkerboard_copula",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_cdf"
+      ]
+    },
+    {
+      "label": "eq:checkerboard_copula_2",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_cdf"
+      ]
+    },
+    {
+      "label": "frm:check_pi",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_cdf"
+      ]
+    },
+    {
+      "label": "eq:check_min_copula_2",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkMin_cdf"
+      ]
+    },
+    {
+      "label": "eq:check_min_copula",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkMin_cdf"
+      ]
+    },
+    {
+      "label": "frm:check_min",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkMin_cdf"
+      ]
+    },
+    {
+      "label": "eq:check_w_copula_2",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkW_cdf"
+      ]
+    },
+    {
+      "label": "frm:check_w",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkW_cdf"
+      ]
+    },
+    {
+      "label": "eq:delta_copula",
+      "declarations": [
+        "Papers.Rockel2025Approximation.patchwork_grid_interpolation",
+        "Papers.Rockel2025Approximation.patchwork_uniform_convergence"
+      ],
+      "note": "The actual arbitrary local fillings preserve grid values and converge uniformly in CDF. This is a compiled construction counterpart, not an independent encoding of every piecewise source definition."
+    },
+    {
+      "label": "lem:bernstein_measures_of_association",
+      "declarations": [
+        "Papers.Rockel2025Approximation.bernstein_all_coefficients",
+        "Papers.Rockel2025Approximation.bernstein_rho_grid",
+        "Papers.Rockel2025Approximation.bernstein_rho_frobenius",
+        "Papers.Rockel2025Approximation.bernstein_tau_trace",
+        "Papers.Rockel2025Approximation.bernstein_xi_trace",
+        "Papers.Rockel2025Approximation.bernstein_lower_tail",
+        "Papers.Rockel2025Approximation.bernstein_upper_tail"
+      ],
+      "note": "All three coefficient formulas and both zero tail coefficients have compiled counterparts, for every positive pair of degrees. Native degrees m+1,n+1 encode the source positive degrees; finite labels begin at zero. These links do not certify every printed appendix calculation."
+    },
+    {
+      "label": "prop:shuffle_measures",
+      "declarations": [
+        "Papers.Rockel2025Approximation.permutationShuffle_cdf",
+        "Papers.Rockel2025Approximation.permutationShuffle_rho",
+        "Papers.Rockel2025Approximation.permutationShuffle_tau",
+        "Papers.Rockel2025Approximation.permutationShuffle_xi",
+        "Papers.Rockel2025Approximation.permutationShuffle_lower_tail",
+        "Papers.Rockel2025Approximation.permutationShuffle_upper_tail"
+      ],
+      "note": "The native permutation uses Fin labels beginning at zero; the source labels begin at one. Both tail coefficients include their endpoint conditions."
+    },
+    {
+      "label": "lem:checkerboard_measures_of_association",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_rho",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_rho",
+        "Papers.Rockel2025Approximation.rectangular_checkW_rho",
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_tau",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_tau",
+        "Papers.Rockel2025Approximation.rectangular_checkW_tau",
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_xi",
+        "Papers.Rockel2025Approximation.rectangular_perfect_xi",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_xi",
+        "Papers.Rockel2025Approximation.rectangular_checkW_xi",
+        "Papers.Rockel2025Approximation.uniform_patchwork_xi_correction",
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_lower_tail",
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_upper_tail",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_lower_tail",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_upper_tail",
+        "Papers.Rockel2025Approximation.rectangular_checkW_lower_tail",
+        "Papers.Rockel2025Approximation.rectangular_checkW_upper_tail"
+      ],
+      "note": "The counterparts allow every positive rectangular grid, including the m/n xi correction and both endpoint tail formulas. Arbitrary local-perfect-dependence fillings are included. This result marker does not certify its complete printed proof."
+    },
+    {
+      "label": "itm:rho_checkerboard",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_rho",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_rho",
+        "Papers.Rockel2025Approximation.rectangular_checkW_rho"
+      ]
+    },
+    {
+      "label": "itm:tau_checkerboard",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_tau",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_tau",
+        "Papers.Rockel2025Approximation.rectangular_checkW_tau"
+      ]
+    },
+    {
+      "label": "itm:xi_checkerboard",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_checkerboard_xi",
+        "Papers.Rockel2025Approximation.rectangular_perfect_xi",
+        "Papers.Rockel2025Approximation.rectangular_checkMin_xi",
+        "Papers.Rockel2025Approximation.rectangular_checkW_xi",
+        "Papers.Rockel2025Approximation.uniform_patchwork_xi_correction"
+      ]
+    },
+    {
+      "label": "cor:xi_checkerboard",
+      "declarations": [
+        "Papers.Rockel2025Approximation.rectangular_xi_error_bound"
+      ],
+      "note": "The native error bound also covers arbitrary local copula fillings, so it includes the printed perfect-dependence subclass."
+    },
+    {
+      "label": "lem:karamata",
+      "declarations": [
+        "Papers.Rockel2025Approximation.majorization_sum_convex",
+        "Papers.Rockel2025Approximation.majorization_sum_sq"
+      ],
+      "note": "The native convex-sum theorem only needs the source b-sequence to be decreasing; the printed additional monotonicity of a is unnecessary. The source hypotheses imply those of this stronger counterpart. This marker is not a complete typed encoding of the source proof."
+    },
+    {
+      "label": "thm:xi_bounds",
+      "declarations": [
+        "Papers.Rockel2025Approximation.checkerboard_xi_le_of_mtp2",
+        "Papers.Rockel2025Approximation.mtp2_isCI",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.lower_correspondence",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.lower_verified",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.lower_statement_valid"
+      ],
+      "note": "The independent typed statement covers the actual checkerboard of C on every positive rectangular grid. The correspondence reorders hypotheses without using the proved inequality. The statement certificate does not certify the full printed smoothing proof."
+    },
+    {
+      "label": "ex:xi_checkerboard_not_lower_bound",
+      "declarations": [
+        "Papers.Rockel2025Approximation.example43"
+      ],
+      "note": "The actual 2-by-4 source matrix is a stochastically increasing copula with xi=1/16; its actual 2-by-2 checkerboard has xi=1/8."
+    },
+    {
+      "label": "ex:xi_bounds_counterexample_1",
+      "declarations": [
+        "Papers.Rockel2025Approximation.example44"
+      ],
+      "note": "The actual 4-by-4 source checkerboard is MTP2, with xi=5/8; its actual coarse check-min approximation has xi=7/16."
+    },
+    {
+      "label": "eq:xi_estimator",
+      "declarations": [
+        "Papers.Rockel2025Approximation.ArticleDefinitions.estimator_definition",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.xi_matrix_definition",
+        "Papers.Rockel2025Approximation.rankCopula_cellMass",
+        "Papers.Rockel2025Approximation.checkerboardEstimator_eq_average"
+      ],
+      "note": "The arithmetic trace formula has an independent typed encoding, and M_xi uses the actual strict-upper matrix. The rank-bin masses are computed from exact fractional interval overlaps. The matrix operations remain ordinary Lean Matrix operations, not a separately parsed matrix language."
+    },
+    {
+      "label": "thm:xi_estimator",
+      "declarations": [
+        "Papers.Rockel2025Approximation.realSampleCheckerboardEstimator_ae_tendsto",
+        "Papers.Rockel2025Approximation.sampleCheckerboardEstimator_ae_tendsto",
+        "Papers.Rockel2025Approximation.sampleRankCopula_ae_rate",
+        "Papers.Rockel2025Approximation.rankCopula_cellMass_four_slots",
+        "Papers.Rockel2025Approximation.checkerboardEstimatorWork_isBigO",
+        "Papers.Rockel2025Approximation.checkerboardEstimator_tendsto_iff",
+        "Papers.Rockel2025Approximation.checkerboardEstimator_correction_tendsto",
+        "Papers.Rockel2025Approximation.checkerboard_xi_tendsto_of_cdf_error"
+      ],
+      "note": "The consistency counterparts quantify an iid sample with continuous marginal CDFs and 0<kappa<=1/3, and prove almost-sure convergence of the actual rank-based estimator. The work bound concerns the specified unit-cost comparison/arithmetic schedule, not bit complexity. Complete proof-step coverage of this theorem is still in progress."
+    },
+    {
+      "label": "lem:perm_identities",
+      "declarations": [
+        "Papers.Rockel2025Approximation.ArticleDefinitions.permutation_valid",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.permutation_correspondence",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.permutation_verified",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.displacement_definition"
+      ],
+      "note": "The checked proof follows the original reindexing and algebraic expansions. Every positive size and every permutation are quantified, with an explicit one-based index conversion."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "This is the arithmetic average of the checkerboard and local-perfect-dependence formulas",
+      "declarations": [
+        "Papers.Rockel2025Approximation.ArticleDefinitions.range_valid",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.range_correspondence",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.range_verified"
+      ],
+      "note": "This checked calculation supplies the printed average and [0,1] conclusion using the two copula xi bounds. It does not use the existing estimator-range theorem."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "It remains to note that the local-perfect-dependence correction vanishes.",
+      "declarations": [
+        "Papers.Rockel2025Approximation.ArticleDefinitions.trace_valid",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.trace_correspondence",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.trace_verified",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.estimator_definition"
+      ],
+      "note": "The document checks the finite trace inequality displayed in this paragraph. Its vanishing limit and almost-sure sampling step are separate compiled counterparts; the entire paragraph is not yet certified by this document."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "We use the properties that for any permutation",
+      "declarations": [
+        "Papers.Rockel2025Approximation.ArticleDefinitions.permutation_valid",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.permutation_correspondence",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.permutation_verified",
+        "Papers.Rockel2025Approximation.ArticleDefinitions.displacement_definition"
+      ],
+      "note": "This checked calculation follows the finite-sum identities and both algebraic expansions in the original proof."
+    }
+  ],
+  "pageReferences": {
+    "proof:bernstein_measures_of_association": 18,
+    "proof:shuffle_measures": 22,
+    "proof:checkerboard_measures_of_association": 23
+  },
+  "pageReferenceProvenance": {
+    "sourceURL": "https://arxiv.org/pdf/2505.08045v2",
+    "sha256": "3909179b3f411539e2accf1243224d1132ce4c585bf9f952745132862f424433",
+    "note": "The three appendix page numbers and printed article date were inspected in the published PDF. The arXiv version stamp is 22 May 2026; the title page prints 25 May 2026. PDF pagination is presentation metadata, outside the Lean certificate."
+  },
+  "definitions": {
+    "\\rho": {
+      "label": "eq:rho_integral"
+    },
+    "\\xi": {
+      "label": "eq:xi"
+    },
+    "\\tau": {
+      "label": "eq:tau_integral"
+    },
+    "\\Delta": {
+      "label": "eq:delta_copula"
+    }
+  },
+  "verificationScope": "The full original arXiv v2 article is retained, with original theorem numbering, all nine figures and fifteen panels, the numerical simulation table, appendix proofs and bibliography. The source files are byte-for-byte pinned. Spearman rho and Chatterjee xi have independently encoded integral definitions and checked bridges; the estimator trace arithmetic and strict-upper-matrix formula are linked to their actual definitions. Theorem 4.2 has a typed statement certificate. The printed estimator average/range, the finite trace-correction inequality and the permutation-sum proof are checked proof documents. Matrix traces and finite sums use explicit ordinary Lean operations; a general independently parsed matrix/summation language remains future work. Other result markers expose compiled counterparts, with precise assumptions and scopes visible. Example 4.6 and simulation data remain original unverified numerical exposition. The sampling theorem requires iid samples and continuous marginal CDFs; the runtime statement uses a specified unit-cost work model. Historical claims, plotted data, floating-point experiments and every remaining literal proof step are not yet certified."
+}

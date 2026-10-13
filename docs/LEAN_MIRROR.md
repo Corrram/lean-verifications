@@ -301,3 +301,30 @@ records the source PDF, inspected browser rendering, both SHA-256 hashes,
 renderer version, page and resolution. Publication checks both files against
 the compiled asset manifest. These provenance checks detect changed assets;
 they do not certify numerical plots or the rendering software itself.
+
+
+The approximation reader at `/lean-mirror/copula-approximation/` preserves
+arXiv:2505.08045v2, including all eleven result blocks, nine figures with fifteen
+panels, the simulation table, appendix and thirty-two references. Ten result
+blocks have compiled counterparts. The numerical grid-choice example remains
+source exposition. Appendix page references retain the published PDF's page
+numbers and link to the corresponding proofs; their inspected provenance is
+recorded as presentation metadata in the source map.
+
+Spearman rho, Chatterjee xi and the estimator arithmetic have independent typed
+encodings and checked interpretation bridges. The rectangular MTP2 inequality
+has a typed statement certificate. The averaging/range argument, finite trace
+correction bound and permutation-sum proof have separate checked proof documents.
+The permutation document follows the printed first/second moment reindexing and
+algebraic expansions, explicitly converting native zero-based indices to the
+source labels `1,...,n`. Matrix traces and finite sums use actual Lean operations;
+their arithmetic is parsed, but there is not yet a general independent matrix
+or summation syntax. The trace certificate does not invoke the native correction
+bound, and the range certificate does not invoke the native estimator-range result.
+
+The native consistency theorem covers actual iid rank samples with continuous
+marginal CDFs and `0<kappa<=1/3`; the work bound covers a specified unit-cost
+comparison/arithmetic schedule. These are scoped compiled counterparts, distinct
+from exhaustive checking of every printed proof step. Plots, experiments,
+historical claims and the remaining proof passages retain their original text
+without a claim of complete formal verification.
