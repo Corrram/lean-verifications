@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "id": "rho-footrule",
+  "paperId": "AnsariRockel2026RhoFootrule",
+  "title": "The exact Spearman rho–footrule region via optimal transport with applications to finite rankings, mixability, and Chatterjee’s rank correlation",
+  "source": "source/Spearman_arXiv.tex",
+  "bibliography": "article.bbl",
+  "sourceURL": "https://arxiv.org/abs/2608.20176v1",
+  "sourceDate": "2026-08-20",
+  "evidenceModule": "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions",
+  "proofDocumentNamespace": "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions",
+  "referenceChoices": {
+    "eq:xi-rank-correlation-ratio": 2
+  },
+  "bindings": [
+    {
+      "label": "eq:defs",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.rho_definition",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.phi_definition"
+      ]
+    },
+    {
+      "label": "eq_rep_phi_rho",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.moment_representation"
+      ]
+    },
+    {
+      "label": "defmaxprob",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.sharp_upper_bound",
+        "Papers.AnsariRockel2026RhoFootrule.upper_boundary_attained",
+        "Papers.AnsariRockel2026RhoFootrule.upper_boundary_exists_unique"
+      ],
+      "note": "The scalar native boundary is proved to be the uniquely attained maximum at every footrule in the stated interval."
+    },
+    {
+      "label": "thm:main",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.sharp_upper_bound",
+        "Papers.AnsariRockel2026RhoFootrule.upper_boundary_attained",
+        "Papers.AnsariRockel2026RhoFootrule.upper_boundary_exists_unique",
+        "Papers.AnsariRockel2026RhoFootrule.right_boundary_closed",
+        "Papers.AnsariRockel2026RhoFootrule.left_boundary_closed",
+        "Papers.AnsariRockel2026RhoFootrule.boundary_value_unique"
+      ],
+      "note": "Compiled counterparts cover both arithmetic arc halves, maximum attainment and uniqueness. Their delta*sqrt(delta) notation differs from the printed delta^(3/2); this link is not an independent encoding of every word or of the entire printed proof."
+    },
+    {
+      "label": "eq:boundary",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.right_boundary_closed",
+        "Papers.AnsariRockel2026RhoFootrule.left_boundary_closed"
+      ],
+      "note": "The native arcs use delta=N(N+1)v^2 and their respective endpoint ell. The correction is written delta*sqrt(delta)."
+    },
+    {
+      "label": "cor:main",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.exact_region",
+        "Papers.AnsariRockel2026RhoFootrule.sharp_lower_bound",
+        "Papers.AnsariRockel2026RhoFootrule.lower_boundary_attained",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.lower_formula",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.lower_definition",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.region_correspondence",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.region_verified",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.region_statement_valid"
+      ],
+      "note": "The independently encoded statement uses the printed real power 3/2. Its normalization is checked on [-1/2,1]. The accompanying statement certificate does not certify every printed proof step."
+    },
+    {
+      "label": "eq_exactregion",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.exact_region",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.region_correspondence",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.lower_formula"
+      ]
+    },
+    {
+      "label": "rem:previous-curves",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.earlier_first_radical",
+        "Papers.AnsariRockel2026RhoFootrule.earlier_second_radical",
+        "Papers.AnsariRockel2026RhoFootrule.earlier_contact",
+        "Papers.AnsariRockel2026RhoFootrule.earlier_endpoint",
+        "Papers.AnsariRockel2026RhoFootrule.earlier_left_strict",
+        "Papers.AnsariRockel2026RhoFootrule.earlier_right_strict"
+      ],
+      "note": "These counterparts cover equality on the first two radical intervals, the contact points and endpoint, and strict improvement on both later line segments. Literature and historical priority are outside this check."
+    },
+    {
+      "label": "prop:sharp-CS",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.sharp_second_moment",
+        "Papers.AnsariRockel2026RhoFootrule.minimum_variance_attained",
+        "Papers.AnsariRockel2026RhoFootrule.minimum_variance_nonneg",
+        "Papers.AnsariRockel2026RhoFootrule.minimum_variance_zero_iff",
+        "Papers.AnsariRockel2026RhoFootrule.centered_sum_variance_bound"
+      ],
+      "note": "Copula-law statements supply the sharp bound and all attaining means; the final theorem transports the variance bound to measurable random vectors with uniform marginals. The printed proof is not a checked proof document."
+    },
+    {
+      "label": "def_Vmin",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.right_variance_closed",
+        "Papers.AnsariRockel2026RhoFootrule.left_variance_closed",
+        "Papers.AnsariRockel2026RhoFootrule.minimum_variance_nonneg",
+        "Papers.AnsariRockel2026RhoFootrule.minimum_variance_zero_iff"
+      ],
+      "note": "Native variance is defined by the proved upper boundary and evaluated on both arithmetic arc halves, including the nonnegative radical correction."
+    },
+    {
+      "label": "cor:rank-gap-variance",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.meanDistance_mem",
+        "Papers.AnsariRockel2026RhoFootrule.distanceVariance_eq",
+        "Papers.AnsariRockel2026RhoFootrule.sharp_variance_bounds",
+        "Papers.AnsariRockel2026RhoFootrule.maximum_variance_attained"
+      ]
+    },
+    {
+      "label": "rem:mean-variance-consequences",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.exact_mean_variance_region",
+        "Papers.AnsariRockel2026RhoFootrule.universal_variance_bounds",
+        "Papers.AnsariRockel2026RhoFootrule.maximumVariance_global_bound",
+        "Papers.AnsariRockel2026RhoFootrule.maximumVariance_at_maximizer",
+        "Papers.AnsariRockel2026RhoFootrule.universal_variance_maximum_attained"
+      ]
+    },
+    {
+      "label": "cor:permutation-costs",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.ranking_mean",
+        "Papers.AnsariRockel2026RhoFootrule.ranking_second_moment",
+        "Papers.AnsariRockel2026RhoFootrule.finite_ranking_bounds"
+      ],
+      "note": "The native permutation is on Fin(n+1), so the article population size is n+1. The normalized moments are D/(n+1)^2 and S/(n+1)^3."
+    },
+    {
+      "label": "eq:permutation-envelope",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.finite_ranking_bounds"
+      ]
+    },
+    {
+      "label": "eq:improved-cauchy-schwarz",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.finite_ranking_cauchy_correction",
+        "Papers.AnsariRockel2026RhoFootrule.ranking_cauchy_equality_iff",
+        "Papers.AnsariRockel2026RhoFootrule.ranking_contact_equality_exists_iff",
+        "Papers.AnsariRockel2026RhoFootrule.finite_ranking_strict_correction",
+        "Papers.AnsariRockel2026RhoFootrule.ranking_lower_asymptotic_sharp",
+        "Papers.AnsariRockel2026RhoFootrule.ranking_upper_asymptotic_sharp"
+      ],
+      "note": "Counterparts also prove the discrete equality criterion and asymptotic sharpness. They use a positive population size n+1."
+    },
+    {
+      "label": "lem:psi-mixability-centers",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.constant_displacement_iff",
+        "Papers.AnsariRockel2026RhoFootrule.centered_sum_law",
+        "Papers.AnsariRockel2026RhoFootrule.centered_sum_statistics"
+      ],
+      "note": "The native copula-law formulation uses Uprime=U-1/2 and Vprime=1/2-V. Their sum is U-V, with the centered uniform margins."
+    },
+    {
+      "label": "cor:distance-mixability",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.mixability_minimum",
+        "Papers.AnsariRockel2026RhoFootrule.mixability_infimum",
+        "Papers.AnsariRockel2026RhoFootrule.mixability_zero_iff",
+        "Papers.AnsariRockel2026RhoFootrule.centered_sum_law",
+        "Papers.AnsariRockel2026RhoFootrule.centered_sum_statistics",
+        "Papers.AnsariRockel2026RhoFootrule.centered_sum_variance_bound"
+      ],
+      "note": "The constrained infimum is attained by an actual copula; the reflection identifies its centered-sum statistics. These are compiled counterparts, not independent typed encodings of all the source random-variable definitions."
+    },
+    {
+      "label": "eq_uus",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.conditional_copies_cdf"
+      ],
+      "note": "The native construction is the genuine conditional-independent-copy copula. A separate equivalence to the full abstract Markov-product definition is not supplied."
+    },
+    {
+      "label": "eq_xi_phi",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.conditional_copies_coefficients"
+      ],
+      "note": "The theorem identifies both coefficients of the actual conditional-copy copula; the entire random-variable-to-copula translation is outside this binding."
+    },
+    {
+      "label": "cor:xi-rank-sobol",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.xi_correlationRatio_bounds"
+      ],
+      "note": "The native theorem is stated for the copula and its conditional-mean variance. This link does not yet independently formalize the passage from arbitrary continuously distributed (X,Y) to its copula."
+    },
+    {
+      "label": "eq:xi-rank-correlation-ratio",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.xi_correlationRatio_bounds"
+      ],
+      "note": "This is the introductory copy, equation (7), in the copula-law formulation.",
+      "occurrence": 1
+    },
+    {
+      "label": "eq:xi-rank-correlation-ratio",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.xi_correlationRatio_bounds"
+      ],
+      "note": "This is the theorem copy, equation (41), in the copula-law formulation.",
+      "occurrence": 2
+    },
+    {
+      "label": "ex_xi_eta",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.foldedExample_joint_law",
+        "Papers.AnsariRockel2026RhoFootrule.foldedExample_uniform_predictor",
+        "Papers.AnsariRockel2026RhoFootrule.foldedExample_conditionalCDF",
+        "Papers.AnsariRockel2026RhoFootrule.foldedExample_conditionalMean",
+        "Papers.AnsariRockel2026RhoFootrule.foldedExample_coefficients",
+        "Papers.AnsariRockel2026RhoFootrule.quarter_xi_zero_ratio_attained"
+      ]
+    },
+    {
+      "label": "ex:xi-eta-upper-not-sharp",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.correlationRatio_equality_iff",
+        "Papers.AnsariRockel2026RhoFootrule.quarter_xi_strict_bound",
+        "Papers.AnsariRockel2026RhoFootrule.correlationRatio_uniform_improvement",
+        "Papers.AnsariRockel2026RhoFootrule.quarter_xi_uniform_gap",
+        "Papers.AnsariRockel2026RhoFootrule.quarter_xi_uniform_separation",
+        "Papers.AnsariRockel2026RhoFootrule.quarter_xi_maximum"
+      ]
+    },
+    {
+      "label": "prop:xi-rank-sobol-inner",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.lower_inner_attained",
+        "Papers.AnsariRockel2026RhoFootrule.upper_inner_attained",
+        "Papers.AnsariRockel2026RhoFootrule.full_inner_enclosure",
+        "Papers.AnsariRockel2026RhoFootrule.upper_seeds_compact",
+        "Papers.AnsariRockel2026RhoFootrule.upper_seeds_projection",
+        "Papers.AnsariRockel2026RhoFootrule.upper_inner_concave",
+        "Papers.AnsariRockel2026RhoFootrule.inner_curve_order"
+      ],
+      "note": "The native region uses genuine copulas with the two directional coefficients. The original seed formulas have additional counterparts below; each printed construction proof still needs its own checked document."
+    },
+    {
+      "label": "def_eta_ell",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.lowerInnerRatio_formula",
+        "Papers.AnsariRockel2026RhoFootrule.lower_inner_attained",
+        "Papers.AnsariRockel2026RhoFootrule.partialReveal_coefficients"
+      ]
+    },
+    {
+      "label": "def_eta_u",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.upperInnerRatio_isGreatest",
+        "Papers.AnsariRockel2026RhoFootrule.upper_inner_attained",
+        "Papers.AnsariRockel2026RhoFootrule.upper_inner_concave",
+        "Papers.AnsariRockel2026RhoFootrule.upper_seeds_compact",
+        "Papers.AnsariRockel2026RhoFootrule.upper_seeds_projection"
+      ]
+    },
+    {
+      "label": "lem:moments",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.moment_representation"
+      ]
+    },
+    {
+      "label": "prop_C_x",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.boundary_coefficients",
+        "Papers.AnsariRockel2026RhoFootrule.right_boundary_closed",
+        "Papers.AnsariRockel2026RhoFootrule.left_boundary_closed"
+      ],
+      "note": "These are the coefficient formulas for the native arithmetic boundary construction. This binding does not separately identify every printed pair-measure description with that construction."
+    },
+    {
+      "label": "prop:rho-phi-Cx",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.boundary_optimizer_unique",
+        "Papers.AnsariRockel2026RhoFootrule.upper_boundary_exists_unique",
+        "Papers.AnsariRockel2026RhoFootrule.boundary_copula_junction"
+      ],
+      "note": "The native result includes nonsymmetric and singular competitors. It does not certify every preceding printed contact-set argument or independently match the source pair measures."
+    },
+    {
+      "kind": "paragraph",
+      "quote": "As \\(t\\) ranges over \\([0,1]\\)",
+      "declarations": [
+        "Papers.AnsariRockel2026RhoFootrule.fixed_footrule_intermediate",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.fibre_valid",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.fibre_correspondence",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.fibre_verified",
+        "Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.mixture_definition"
+      ],
+      "note": "The checked proof document covers the mixture argument with the endpoint copulas supplied. It does not certify their preceding construction or the later x=1 paragraph."
+    }
+  ],
+  "definitions": {
+    "\\varrho": {
+      "label": "eq:defs"
+    },
+    "\\phi": {
+      "label": "eq:defs"
+    },
+    "\\brho": {
+      "label": "defmaxprob"
+    },
+    "\\overline{\\varrho}": {
+      "label": "defmaxprob"
+    },
+    "\\underline{\\varrho}": {
+      "label": "cor:main"
+    },
+    "\\xi": {
+      "label": "eq_xi_DSS"
+    },
+    "\\eta": {
+      "label": "eq_rep_ccorr"
+    }
+  },
+  "verificationScope": "The complete arXiv v1 manuscript is retained, with original result numbers, proofs, figures, author affiliations and bibliography. The source repeats one equation label: both equations remain distinct, and cross-references explicitly select the second occurrence, matching the last source definition. Rho and footrule definitions and Corollary 1.2 have independent typed encodings; the printed lower-bound power 3/2 is proved equal to the native formula on its stated interval. The final mixture paragraph of Corollary 1.2 is a checked proof document with the endpoint copulas supplied. Other links expose actual compiled native theorem types and their scope; they do not certify every word or every printed proof step. The abstract pair-measure representation, general constrained Kantorovich duality, the full source-to-native identification of the boundary construction, arbitrary continuously distributed random-variable translations, external literature claims, and numerical plots remain outside the checked document coverage."
+}

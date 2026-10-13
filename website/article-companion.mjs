@@ -9,7 +9,7 @@ export function fullArticle({source,bibliography,mapping,evidence,assetBytes}) {
   for(const [name,checksum] of Object.entries(evidence.assets)) {
     if(!assetBytes[name]||hash(assetBytes[name])!==checksum)throw new Error(`Article asset changed: ${name}`);
   }
-  const article=parseArticle(source,bibliography);
+  const article=parseArticle(source,bibliography,{referenceChoices:config.referenceChoices});
   const annotations=resolveBindings(article,config.bindings);
   for(const items of Object.values(annotations))for(const item of items) {
     const record=evidence.evidence[item.declaration];

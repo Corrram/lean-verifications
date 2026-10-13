@@ -299,3 +299,38 @@ test('the xi-rho reader preserves the article and distinguishes a refuted pointw
     assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
   }
 });
+
+test('the rho-footrule reader preserves repeated source labels and checks the printed interpolation argument',()=>{
+  const directory=new URL('../examples/articles/AnsariRockel2026RhoFootrule/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/Spearman_arXiv.tex'),bibliography:read('article.bbl'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,40);assert.equal(data.stats.linkedStatements,16);
+  assert.equal(data.stats.figures,7);assert.equal(data.article.bibliography.length,37);
+  assert.equal((html.match(/<img /g)||[]).length,8);
+  assert.equal((html.match(/class="article-proof"/g)||[]).length,23);
+  assert.match(html,/20 August 2026/);assert.match(html,/Universität/);assert.match(html,/Straße/);
+  assert.match(html,/Source cross-reference notice/);
+  assert.deepEqual(data.article.duplicateReferences.map(d=>[d.label,d.choice,d.occurrences.map(o=>o.number)]),
+    [['eq:xi-rank-correlation-ratio',2,['7','41']]]);
+  for(const n of [1,2])assert(html.includes('id="article-eq-xi-rank-correlation-ratio-occurrence-'+n+'"'));
+  assert.match(html,/href="#article-defmaxprob"/);assert.match(html,/href="#article-cor-main"/);
+  assert.equal(data.stats.linkedProofPassages,1);
+  assert.match(html,/does not certify the preceding construction of the boundary copulas/);
+  const ns='Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions.';
+  assert.equal(data.documents[ns+'region_statement_valid'].presentation,'statement');
+  const nodes=[];
+  for(let node=data.documents[ns+'fibre_valid'].checked.proof;node;node=node.next)nodes.push(node);
+  assert.deepEqual(nodes.map(n=>n.kind),['fix','fix','fix','fix','assume','have','have','finish']);
+  assert.equal(nodes[5].formula.kind,'forall');assert.equal(nodes[6].formula.kind,'exists');
+  assert.equal(nodes[7].formula.kind,'exists');assert.equal(nodes[7].formula.type,'\\mathcal{C}');
+  for(const certificate of ['region_correspondence','fibre_valid','fibre_correspondence']){
+    assert(!data.evidence[ns+certificate].dependencies.some(n=>n.endsWith('.exact_region')||n.endsWith('.fixed_footrule_intermediate')));
+  }
+  for(const certificate of ['rho_definition','phi_definition','lower_formula','mixture_definition','fibre_valid']){
+    const missing=structuredClone(evidence);delete missing.evidence[ns+certificate];
+    assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
+  }
+});

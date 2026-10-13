@@ -247,3 +247,27 @@ corrected almost-everywhere counterpart. The arXiv v3 CDF already contains
 the boundary term omitted by the separate journal formula; this reader does
 not incorrectly flag that corrected arXiv formula as false. Exhaustive
 verification of the original proof steps remains in progress.
+
+The rho–footrule reader at `/lean-mirror/rho-footrule/` preserves
+arXiv:2608.20176v1: forty result blocks, twenty-three proof environments,
+seven figures containing eight panels, author affiliations and thirty-seven
+references. Sixteen result blocks have compiled counterparts with explicit
+scope notes. The repeated source label for equations (7) and (41) has distinct
+anchors and evidence links; ordinary cross-references explicitly select the
+second occurrence. The original source remains unchanged.
+
+Rho and footrule have independently parsed integral definitions. Corollary
+1.2 has an independent typed statement using the printed real power `3/2`.
+Its lower boundary is proved equal to the native cubed-square-root formula
+on `[-1/2,1]`; the interpretation bridge does not invoke the region theorem.
+The upper boundary retains the native scalar function, with separate links
+to its arithmetic arc formulas, attainment and uniqueness.
+
+An eight-node proof document checks Corollary 1.2's final mixture argument:
+four fixed quantities, the supplied endpoint hypotheses, coefficient
+affineness, the intermediate-value step and the final copula witness. Its
+validity proof does not invoke the existing interpolation or exact-region
+theorem. This does not certify the preceding endpoint construction, the
+later `x=1` paragraph, the abstract pair-measure and Kantorovich duality
+arguments, or every other printed proof step. Random-variable statements
+with only copula-law counterparts carry that limitation explicitly.

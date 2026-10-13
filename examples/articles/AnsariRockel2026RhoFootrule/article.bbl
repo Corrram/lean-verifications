@@ -1,0 +1,238 @@
+\begin{thebibliography}{37}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ansari and Fuchs(2025)]{ansari2025direct}
+Jonathan Ansari and Sebastian Fuchs.
+\newblock A direct extension of {Azadkia} \& {Chatterjee}'s rank correlation to
+  multi-response vectors.
+\newblock arXiv preprint arXiv:2212.01621v4, 2025.
+
+\bibitem[Ansari and Rockel(2026)]{ansari2026exact}
+Jonathan Ansari and Marcus Rockel.
+\newblock The exact region and an inequality between {Chatterjee}'s and
+  {Spearman}'s rank correlations.
+\newblock \emph{J. Multivariate Anal.}, 214:\penalty0 19, 2026.
+\newblock Id/No 105630.
+
+\bibitem[Ansari et~al.(2026)Ansari, Langthaler, Fuchs, and
+  Trutschnig]{ansari2026quantifying}
+Jonathan Ansari, Patrick~B. Langthaler, Sebastian Fuchs, and Wolfgang
+  Trutschnig.
+\newblock Quantifying and estimating dependence via sensitivity of conditional
+  distributions.
+\newblock \emph{Bernoulli}, 32\penalty0 (1):\penalty0 179--204, 2026.
+
+\bibitem[Azadkia and Chatterjee(2021)]{azadkia2021simple}
+Mona Azadkia and Sourav Chatterjee.
+\newblock A simple measure of conditional dependence.
+\newblock \emph{Ann. Stat.}, 49\penalty0 (6):\penalty0 3070--3102, 2021.
+
+\bibitem[Bignozzi and Puccetti(2015)]{bignozzi2015studying}
+Valeria Bignozzi and Giovanni Puccetti.
+\newblock Studying mixability with supermodular aggregating functions.
+\newblock \emph{Stat. Probab. Lett.}, 100:\penalty0 48--55, 2015.
+
+\bibitem[Chatterjee(2021)]{chatterjee2021new}
+Sourav Chatterjee.
+\newblock A new coefficient of correlation.
+\newblock \emph{J. Am. Stat. Assoc.}, 116\penalty0 (536):\penalty0 2009--2022,
+  2021.
+
+\bibitem[Chatterjee(2024)]{chatterjee2024survey}
+Sourav Chatterjee.
+\newblock A survey of some recent developments in measures of association.
+\newblock In \emph{Probability and stochastic processes. A volume in honour of
+  Rajeeva L. Karandikar}, pages 109--128. Singapore: Springer, 2024.
+
+\bibitem[Cl{\'e}men{\c c}on et~al.(2013)Cl{\'e}men{\c c}on, Depecker, and
+  Vayatis]{clemencon2013ranking}
+St{\'e}phan Cl{\'e}men{\c c}on, Marine Depecker, and Nicolas Vayatis.
+\newblock Ranking forests.
+\newblock \emph{J. Mach. Learn. Res.}, 14:\penalty0 39--73, 2013.
+
+\bibitem[Dette et~al.(2013)Dette, Siburg, and Stoimenov]{dette2013copula}
+Holger Dette, Karl~F. Siburg, and Pavel~A. Stoimenov.
+\newblock A copula-based non-parametric measure of regression dependence.
+\newblock \emph{Scand. J. Stat.}, 40\penalty0 (1):\penalty0 21--41, 2013.
+
+\bibitem[Diaconis and Graham(1977)]{diaconis1977spearman}
+Persi Diaconis and Ronald~L. Graham.
+\newblock Spearman's footrule as a measure of disarray.
+\newblock \emph{J. R. Stat. Soc., Ser. B}, 39\penalty0 (2):\penalty0 262--268,
+  1977.
+
+\bibitem[Durante and Sempi(2016)]{durante2016principles}
+Fabrizio Durante and Carlo Sempi.
+\newblock \emph{Principles of copula theory}.
+\newblock Boca Raton, FL: CRC Press, 2016.
+
+\bibitem[Fern{\'a}ndez~S{\'a}nchez and
+  Trutschnig(2016)]{fernandezsanchez2016members}
+Juan Fern{\'a}ndez~S{\'a}nchez and Wolfgang Trutschnig.
+\newblock Some members of the class of (quasi-)copulas with given diagonal from
+  the {Markov} kernel perspective.
+\newblock \emph{Commun. Stat., Theory Methods}, 45\penalty0 (5):\penalty0
+  1508--1526, 2016.
+
+\bibitem[Fuchs(2024)]{fuchs2024quantifying}
+Sebastian Fuchs.
+\newblock Quantifying directed dependence via dimension reduction.
+\newblock \emph{J. Multivariate Anal.}, 201:\penalty0 21, 2024.
+\newblock Id/No 105266.
+
+\bibitem[Gamboa et~al.(2022)Gamboa, Gremaud, Klein, and
+  Lagnoux]{gamboa2022global}
+Fabrice Gamboa, Pierre Gremaud, Thierry Klein, and Agn{\`e}s Lagnoux.
+\newblock Global sensitivity analysis: a novel generation of mighty estimators
+  based on rank statistics.
+\newblock \emph{Bernoulli}, 28\penalty0 (4):\penalty0 2345--2374, 2022.
+
+\bibitem[Genest et~al.(2010)Genest, Ne{\v s}lehov{\'a}, and
+  Ben~Ghorbal]{genest2010spearman}
+Christian Genest, Johanna Ne{\v s}lehov{\'a}, and Noomen Ben~Ghorbal.
+\newblock Spearman's footrule and {Gini}'s gamma: a review with complements.
+\newblock \emph{J. Nonparametr. Stat.}, 22\penalty0 (8):\penalty0 937--954,
+  2010.
+
+\bibitem[Huang et~al.(2022)Huang, Deb, and Sen]{huang2022kernel}
+Zhen Huang, Nabarun Deb, and Bodhisattva Sen.
+\newblock Kernel partial correlation coefficient -- a measure of conditional
+  dependence.
+\newblock \emph{J. Mach. Learn. Res.}, 23\penalty0 (216):\penalty0 1--58, 2022.
+
+\bibitem[Kokol~Bukov\v{s}ek and Moj\v{s}kerc(2022)]{kokolbukovsek2022exact}
+Damjana Kokol~Bukov\v{s}ek and Bla\v{z} Moj\v{s}kerc.
+\newblock On the exact region determined by {Spearman}'s footrule and {Gini}'s
+  gamma.
+\newblock \emph{J. Comput. Appl. Math.}, 410:\penalty0 114212, 2022.
+
+\bibitem[Kokol~Bukov\v{s}ek and Stopar(2023)]{kokolbukovsek2023exact}
+Damjana Kokol~Bukov\v{s}ek and Nik Stopar.
+\newblock On the exact regions determined by {Kendall}'s tau and other
+  concordance measures.
+\newblock \emph{Mediterr. J. Math.}, 20\penalty0 (3):\penalty0 147, 2023.
+
+\bibitem[Kokol~Bukov\v{s}ek and Stopar(2024)]{kokolbukovsek2024exact}
+Damjana Kokol~Bukov\v{s}ek and Nik Stopar.
+\newblock On the exact region determined by {Spearman}'s rho and {Spearman}'s
+  footrule.
+\newblock \emph{J. Comput. Appl. Math.}, 437:\penalty0 115463, 2024.
+
+\bibitem[Kokol~Bukov\v{s}ek et~al.(2021)Kokol~Bukov\v{s}ek, Ko\v{s}ir,
+  Moj\v{s}kerc, and Omladi\v{c}]{kokolbukovsek2021spearman}
+Damjana Kokol~Bukov\v{s}ek, Toma\v{z} Ko\v{s}ir, Bla\v{z} Moj\v{s}kerc, and
+  Matja\v{z} Omladi\v{c}.
+\newblock Spearman's footrule and {Gini}'s gamma: local bounds for bivariate
+  copulas and the exact region with respect to {Blomqvist}'s beta.
+\newblock \emph{J. Comput. Appl. Math.}, 390:\penalty0 113385, 2021.
+
+\bibitem[Mikusi\'nski et~al.(1992)Mikusi\'nski, Sherwood, and
+  Taylor]{mikusinski1992shuffles}
+Piotr Mikusi\'nski, Howard Sherwood, and Michael~D. Taylor.
+\newblock Shuffles of {Min}.
+\newblock \emph{Stochastica}, 13\penalty0 (1):\penalty0 61--74, 1992.
+
+\bibitem[M{\"u}ller and Stoyan(2002)]{muller2002comparison}
+Alfred M{\"u}ller and Dietrich Stoyan.
+\newblock \emph{Comparison methods for stochastic models and risks}.
+\newblock Wiley Ser. Probab. Stat. Chichester: Wiley, 2002.
+
+\bibitem[Nelsen(2006)]{nelsen2006introduction}
+Roger~B. Nelsen.
+\newblock \emph{An introduction to copulas}.
+\newblock Springer Ser. Stat. New York, NY: Springer, 2nd edition, 2006.
+
+\bibitem[Nelsen et~al.(2004)Nelsen, Quesada-Molina, Rodr\'{\i}guez-Lallena, and
+  \'Ubeda-Flores]{nelsen2004best}
+Roger~B. Nelsen, Jos\'e~Juan Quesada-Molina, Jos\'e~Antonio
+  Rodr\'{\i}guez-Lallena, and Manuel \'Ubeda-Flores.
+\newblock Best-possible bounds on sets of bivariate distribution functions.
+\newblock \emph{J. Multivariate Anal.}, 90\penalty0 (2):\penalty0 348--358,
+  2004.
+
+\bibitem[Puccetti and R{\"u}schendorf(2015)]{puccetti2015computation}
+Giovanni Puccetti and Ludger R{\"u}schendorf.
+\newblock Computation of sharp bounds on the expected value of a supermodular
+  function of risks with given marginals.
+\newblock \emph{Commun. Stat., Simul. Comput.}, 44\penalty0 (3):\penalty0
+  705--718, 2015.
+
+\bibitem[Rockel(2026{\natexlab{a}})]{rockel2026exact}
+Marcus Rockel.
+\newblock On the exact region between {Chatterjee}'s rank correlation and
+  {Spearman}'s footrule.
+\newblock \emph{J. Comput. Appl. Math.}, 485:\penalty0 19, 2026{\natexlab{a}}.
+\newblock Id/No 117466.
+
+\bibitem[Rockel(2026{\natexlab{b}})]{rockel2026kendall}
+Marcus Rockel.
+\newblock {Kendall} and {Spearman} bounds for {Chatterjee}'s rank correlation
+  under positive dependence.
+\newblock arXiv preprint arXiv:2606.22074, 2026{\natexlab{b}}.
+
+\bibitem[Schreyer et~al.(2017)Schreyer, Paulin, and
+  Trutschnig]{schreyer2017exact}
+Manuela Schreyer, Roland Paulin, and Wolfgang Trutschnig.
+\newblock On the exact region determined by {Kendall}'s $\tau$ and {Spearman}'s
+  $\rho$.
+\newblock \emph{J. R. Stat. Soc., Ser. B, Stat. Methodol.}, 79\penalty0
+  (2):\penalty0 613--633, 2017.
+
+\bibitem[Shih and Emura(2021)]{shih2021copula}
+Jia-Han Shih and Takeshi Emura.
+\newblock On the copula correlation ratio and its generalization.
+\newblock \emph{J. Multivariate Anal.}, 182:\penalty0 15, 2021.
+\newblock Id/No 104708.
+
+\bibitem[Strothmann et~al.(2024)Strothmann, Dette, and
+  Siburg]{strothmann2024rearranged}
+Christopher Strothmann, Holger Dette, and Karl~Friedrich Siburg.
+\newblock Rearranged dependence measures.
+\newblock \emph{Bernoulli}, 30\penalty0 (2):\penalty0 1055--1078, 2024.
+
+\bibitem[Sungur(2005)]{sungur2005note}
+Engin~A. Sungur.
+\newblock A note on directional dependence in regression setting.
+\newblock \emph{Commun. Stat., Theory Methods}, 34\penalty0 (9-10):\penalty0
+  1957--1965, 2005.
+
+\bibitem[Tschimpke et~al.(2025)Tschimpke, Schreyer, and
+  Trutschnig]{tschimpke2025revisiting}
+Marco Tschimpke, Manuela Schreyer, and Wolfgang Trutschnig.
+\newblock Revisiting the region determined by {Spearman}'s $\rho$ and
+  {Spearman}'s footrule $\phi$.
+\newblock \emph{J. Comput. Appl. Math.}, 457:\penalty0 116259, 2025.
+
+\bibitem[\'Ubeda-Flores(2008)]{ubedaflores2008best}
+Manuel \'Ubeda-Flores.
+\newblock On the best-possible upper bound on sets of copulas with given
+  diagonal sections.
+\newblock \emph{Soft Comput.}, 12\penalty0 (10):\penalty0 1019--1025, 2008.
+
+\bibitem[Villani(2009)]{villani2009optimal}
+C{\'e}dric Villani.
+\newblock \emph{Optimal transport. {Old} and new}, volume 338 of
+  \emph{Grundlehren Math. Wiss.}
+\newblock Berlin: Springer, 2009.
+
+\bibitem[Wang(2015)]{wang2015current}
+Ruodu Wang.
+\newblock Current open questions in complete mixability.
+\newblock \emph{Probab. Surv.}, 12:\penalty0 13--32, 2015.
+
+\bibitem[Wiesel(2022)]{wiesel2022measuring}
+Johannes C.~W. Wiesel.
+\newblock Measuring association with {Wasserstein} distances.
+\newblock \emph{Bernoulli}, 28\penalty0 (4):\penalty0 2816--2832, 2022.
+
+\bibitem[Zaev(2015)]{zaev2015monge}
+D.~A. Zaev.
+\newblock On the {Monge}--{Kantorovich} problem with additional linear
+  constraints.
+\newblock \emph{Math. Notes}, 98\penalty0 (5):\penalty0 725--741, 2015.
+
+\end{thebibliography}
