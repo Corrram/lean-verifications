@@ -4,6 +4,10 @@ description = "Paper-specific Lean 4 formalizations and reproducible research su
 license = "Apache-2.0"
 defaultTargets = ["Verification", "Papers"]
 
+# Larger compiler thread stacks avoid Windows crashes in deeply nested analysis terms.
+# This resource limit does not alter elaboration options or proof checking.
+weakLeanArgs = ["-s", "65536"]
+
 [leanOptions]
 autoImplicit = false
 relaxedAutoImplicit = false
@@ -18,7 +22,7 @@ rev = "72a596ebd8c111cb11a046be0d5c5cd64a878954"
 [[require]]
 name = "lean-mirror"
 git = "https://github.com/Corrram/lean-mirror.git"
-rev = "a254ad0b3f0532c73b9c4e442033c1a2fef34dce"
+rev = "b8e7b2fc05db9742a1d37170418b9b15b184142a"
 
 [[lean_lib]]
 name = "Verification"

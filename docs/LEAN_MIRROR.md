@@ -328,3 +328,28 @@ comparison/arithmetic schedule. These are scoped compiled counterparts, distinct
 from exhaustive checking of every printed proof step. Plots, experiments,
 historical claims and the remaining proof passages retain their original text
 without a claim of complete formal verification.
+
+## Dependence properties of bivariate copula families
+
+The reader at `/lean-mirror/copula-families/` preserves the complete arXiv v3
+article: eighteen numbered results, six tables, six figures with forty-four
+panels, the appendix proofs and sixty references. The printed date is 9 April
+2024; the arXiv version stamp is 6 April. Source files and figures remain
+byte-for-byte pinned. Third-level headings, table checkmarks and crosses, and
+separate captions within one figure float retain their source organization.
+
+The rho, xi, survival CDF and lower-orthant definitions have independent typed
+encodings and compiled bridges. Proposition 3.2(i) has a checked proof document
+following the survival identity, reindexing by 1-u and 1-v, and cancellation of
+the common affine term. It does not use the existing survival-order equivalence.
+The later CIS and Schur clauses have compiled counterparts but their printed
+proofs are not yet certified step by step.
+
+Table links collect the audited native family results. These are an index of
+compiled counterparts, not an independent encoding of every cell. Incorrect
+printed cells remain visible with the source discrepancy notices and checked
+corrections; the Nelsen 7 intermediate xi equality also has an explicit
+refutation. Four numbered results remain unbound, including the general
+elliptical proposition and the arbitrary-margin conditional-distribution
+definition. Numerical plots and all remaining literal proof passages are not
+certified.

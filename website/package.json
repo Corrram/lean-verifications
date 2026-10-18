@@ -5,7 +5,7 @@
   "scripts": {
     "build": "node build.mjs",
     "check": "node check.mjs",
-    "test": "node --test test-lean-mirror.mjs"
+    "test": "node --test test-*.mjs"
   },
   "engines": { "node": ">=22" },
   "dependencies": {

@@ -6,7 +6,7 @@ const identifier = /^[a-z][a-z0-9-]*$/;
 const declaration = /^[A-Za-z][A-Za-z0-9_.]*$/;
 
 // Paragraph breaks change layout only; every conjunct is retained in order.
-function theoremParagraphs(f, math) {
+export function theoremParagraphs(f, math) {
   if (f.kind !== 'forall' || f.body.kind !== 'and') return `<p>${formulaProse(f, math)}.</p>`;
   const flatten = node => node.kind === 'and' ? [...flatten(node.left), ...flatten(node.right)] : [node];
   const clauses = flatten(f.body);

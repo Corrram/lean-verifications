@@ -420,3 +420,34 @@ test('the approximation article retains its appendix page links and checks the p
     assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
   }
 });
+
+
+test('the copula families reader preserves six tables and checks the printed survival comparison',()=>{
+  const directory=new URL('../examples/articles/AnsariRockel2024/',import.meta.url);
+  const read=name=>fs.readFileSync(new URL(name,directory),'utf8');
+  const evidence=JSON.parse(read('article-evidence.json'));
+  const inputs={source:read('source/dep_mod_arxiv.tex'),bibliography:read('source/dep_mod_arxiv.tex'),mapping:read('article-map.json'),evidence,
+    assetBytes:Object.fromEntries(Object.keys(evidence.assets).map(name=>[name,fs.readFileSync(new URL(name,directory))]))};
+  const data=fullArticle(inputs),html=renderFullArticle(data,{...options,paperUrl:'/paper/'});
+  assert.equal(data.stats.statements,18);assert.equal(data.stats.linkedStatements,14);
+  assert.equal(data.stats.figures,6);assert.equal((html.match(/<img /g)||[]).length,44);
+  assert.equal(data.article.bibliography.length,60);
+  assert.match(html,/9 April 2024/);assert.match(html,/Proposition 3.2/);
+  assert.match(html,/does not independently parse or certify every printed cell/);
+  assert.match(html,/Printed claim refuted/);
+  assert.match(html,/Nelsen/);assert.match(html,/the printed survival-copula comparison/);
+  for(const label of ['frm-rho-integral','frm-xi-integral','frm-tau-integral'])assert(html.includes('href="#article-'+label+'"'));
+  for(const label of ['tab:copulas','tab:arch_overview','tab:arch_results','tab:non_arch_overview','tab:non_arch_results','tab:all_families_rho_and_tau']) {
+    assert(data.config.bindings.find(b=>b.label===label).declarations.length>0);
+  }
+  const ns='Papers.AnsariRockel2024.ArticleDefinitions.';
+  assert.equal(Object.keys(data.documents).length,1);
+  const nodes=[];for(let n=data.documents[ns+'survival_valid'].checked.proof;n;n=n.next)nodes.push(n.kind);
+  assert.deepEqual(nodes,['fix','fix','have','have','have','finish']);
+  for(const certificate of ['survival_valid','survival_correspondence'])assert(!data.evidence[ns+certificate].dependencies.some(n=>n.endsWith('.survival_lowerOrthant_iff')));
+  assert(data.evidence['Papers.AnsariRockel2024.nelsen7_printed_xi_identity_false_half'].type.includes('≠'));
+  for(const certificate of ['rho_definition','xi_definition','lower_definition','survival_definition','survival_valid']) {
+    const missing=structuredClone(evidence);delete missing.evidence[ns+certificate];
+    assert.throws(()=>fullArticle({...inputs,evidence:missing}),/Missing compiled/);
+  }
+});

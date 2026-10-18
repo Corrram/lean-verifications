@@ -8,6 +8,8 @@ import katex from 'katex';
 import { parse } from 'smol-toml';
 import { renderCompanion, validateCompanion } from './lean-mirror.mjs';
 import { fullArticle, renderFullArticle } from './article-companion.mjs';
+import { renderBlestReader } from './blest-reader.mjs';
+import { buildCompiledReader } from './compiled-reader.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -199,7 +201,7 @@ lake build</code></pre><h2>Cite this supplement</h2><p>Use the <a href="${repo}/
 }
 
 page('lean-mirror/', 'LeanMirror: readable mathematics, checked correspondence', `<article class="prose"><div class="eyebrow">A mathematical companion</div><h1>LeanMirror</h1><p class="lead">Readable mathematics with checked statements, definitions and proofs.</p><p>LeanMirror connects a precise statement and its definitions, written in familiar mathematical notation, to an existing Lean theorem. A compiled proof establishes their correspondence. A scoped proof document checks each intermediate step, while a comparison column preserves the original text. Terms lead directly to their definitions.</p><a class="mirror-example-link" href="${url(`lean-mirror/${companion.id}/`)}"><span class="eyebrow">Explore the first companion</span><h2>${esc(companion.title)}</h2><span>Read the complete Blest article with verification links →</span></a>${additionalArticles.map(({data})=>`<a class="mirror-example-link" href="${url(`lean-mirror/${data.config.id}/`)}"><span class="eyebrow">Full original article</span><h2>${esc(data.config.title)}</h2><span>Read the article with its verification map →</span></a>`).join('')}<h2>Ordinary mathematics, explicit meaning</h2><p>The companion keeps the original wording and notation wherever possible. Ambiguous phrases require a precise interpretation: for instance, “sharp” might mean that equality is attained at every value of a coefficient. The readable statement makes that interpretation visible.</p><h2>Proofs checked by Lean</h2><p>The controlled language has a mathematical interpretation in Lean. Definition correspondences and the equivalence with the target theorem are ordinary Lean proofs, checked by the kernel when compiled. The proof-document engine checks each assertion and derives its conclusion. Earlier results can be reused as compiled dependencies.</p><p>The current prototype supports a small language, including quantifiers, implication, arithmetic, integration, scoped assumptions, intermediate claims and existential choices. It applies to mathematics in general. The parser and presentation software remain an explicit trust boundary.</p><p><a href="${mirrorSource}README.md">Language, architecture, and extension guide ↗</a></p></article>`, { active: 'lean-mirror', label: 'LeanMirror', sourcePath: 'docs/LEAN_MIRROR.md' });
-page(`lean-mirror/${companion.id}/`, fullArticleData.article.title, renderFullArticle(fullArticleData, { url, api, source, paperUrl: url(`papers/${companion.paperId}/`) }), { active: 'lean-mirror', label: 'LeanMirror', sourcePath: 'examples/paper-bridge/source/article.tex' });
+write(`lean-mirror/${companion.id}/index.html`, renderBlestReader(fullArticleData, companion, { url, api, source, paperUrl: url(`papers/${companion.paperId}/`) }));
 page(`lean-mirror/${companion.id}/corollary-3-2/`, companion.title, renderCompanion(companion, { url, api, source, mirrorSource, sha }), { active: 'lean-mirror', label: 'LeanMirror', sourcePath: `Papers/${companion.paperId}/ArticleDocument.lean` });
 write(`lean-mirror/${companion.id}/companion.json`, read('examples/paper-bridge/blest-bound.json'));
 write(`lean-mirror/${companion.id}/companion.tex`, read('examples/paper-bridge/blest-bound.tex'));
@@ -212,6 +214,7 @@ write(`lean-mirror/${companion.id}/article.leanmirror.json`, JSON.stringify({
 }, null, 2));
 fs.cpSync(path.join(root, 'examples/paper-bridge/source/images'), path.join(out, `lean-mirror/${companion.id}/images`), { recursive: true });
 copyArticleFigures(fullArticleData,'examples/paper-bridge',`lean-mirror/${companion.id}/`);
+await buildCompiledReader({ root, out, url, api, route: `lean-mirror/${companion.id}/`, evidence: fullArticleEvidence });
 execFileSync(process.env.PYTHON || 'python', ['scripts/bundle_lean_mirror.py', path.join(out, `lean-mirror/${companion.id}/executable.zip`)], {cwd: root, stdio: 'inherit'});
 searchIndex.push({ title: `LeanMirror: ${fullArticleData.article.title}`, kind: 'Mathematical companion', url: url(`lean-mirror/${companion.id}/`), text: `${fullArticleData.article.title} nu rho eta Blest Spearman transpose rank weighting asymmetry copula transport dual certificate precise definitions equivalence ${companion.definitions.map((d) => d.title).join(' ')}` });
 

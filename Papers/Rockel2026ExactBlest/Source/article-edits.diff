@@ -1,0 +1,115 @@
+--- arXiv-v1/article.tex
++++ Source/article.tex
+@@ -107,30 +107,34 @@
+ From the boundary of an exact region one reads off the sharp inequalities between the two coefficients, and the dependence structures sitting on the boundary reveal what drives the coefficients furthest apart.
+ In this paper, we determine two exact regions for Blest's coefficient, one for each question.
+ 
+-To make this precise, let $\CC$ denote the class of bivariate copulas, that is, distribution functions on $[0,1]^2$ with uniform marginals, and we refer to \cite{nelsen2006introduction,durante2016principles} for background.
++To make this precise, let $\CC$ denote the class of bivariate copulas, that is, distribution functions on $[0,1]^2$ with uniform marginals.
++We refer to \cite{nelsen2006introduction,durante2016principles} for background.
+ The copulas $M(u,v)\coloneqq\min\{u,v\}$, $W(u,v)\coloneqq\max\{u+v-1,0\}$, and $\Pi(u,v)\coloneqq uv$ describe comonotonicity, countermonotonicity, and independence, respectively.
+ For a copula $C$, the population version of Blest's rank correlation is
+ \begin{equation}
+   \label{eq:nu-def}
+-  \nu(C)=24\int_0^1\!\int_0^1(1-u)\,C(u,v)\de u\de v-2,
++  \nu(C)\coloneqq24\int_0^1\!\int_0^1(1-u)\,C(u,v)\de u\de v-2,
+ \end{equation}
+-as given in \cite[Sec.~3]{genest2003blest}, a normalization that makes $\nu(M)=1$, $\nu(W)=-1$, and $\nu(\Pi)=0$.
+-Up to its additive normalizing constant, $\nu$ arises from Spearman's rho,
++as given in \cite[Sec.~3]{genest2003blest}.
++This normalization makes $\nu(M)=1$, $\nu(W)=-1$, and $\nu(\Pi)=0$.
++For a copula $C$, Spearman's rho is
+ \begin{equation}
+   \label{eq:rho-def}
+-  \rho(C)=12\int_0^1\!\int_0^1 C(u,v)\de u\de v-3,
++  \rho(C)\coloneqq12\int_0^1\!\int_0^1 C(u,v)\de u\de v-3,
+ \end{equation}
+-see \cite[Sec.~5.1.2]{nelsen2006introduction}, by replacing the uniform weight on the unit square with the density $2(1-u)$.
++see \cite[Sec.~5.1.2]{nelsen2006introduction}.
++Up to its additive normalizing constant, $\nu$ arises from $\rho$ by replacing the uniform weight on the unit square with the density $2(1-u)$.
+ This density is largest for small $u$, that is, for the leading ranks of the first variable.
+-Consequently, if $C^\top(u,v)\coloneqq C(v,u)$ denotes the transpose of $C$, then $\nu(C)$ generally differs from $\nu(C^\top)$, and $\nu$ is not a measure of concordance in the sense of Scarsini \cite{scarsini1984measures}.
++For a copula $C$, the transpose of $C$ is $C^\top(u,v)\coloneqq C(v,u)$, and the survival copula of $C$ is $\widehat C(u,v)\coloneqq u+v-1+C(1-u,1-v)$.
++Consequently, $\nu(C)$ generally differs from $\nu(C^\top)$, and $\nu$ is not a measure of concordance in the sense of Scarsini \cite{scarsini1984measures}.
+ Such a difference requires $C$ to be non-exchangeable, that is, $C\neq C^\top$, a property that Durante et al.~\cite{durante2010measures} quantify through measures of non-exchangeability.
+-To remove this dependence on the order of the variables, Genest and Plante \cite[Sec.~4]{genest2003blest} introduced the symmetrized coefficient
++To remove this dependence on the order of the variables, Genest and Plante \cite[Sec.~4]{genest2003blest} introduced a symmetrized coefficient, which emphasizes the leading ranks of both variables.
++For a copula $C$, the symmetrized coefficient is
+ \begin{equation}
+   \label{eq:eta-def}
+   \eta(C)\coloneqq\frac{\nu(C)+\nu(C^\top)}{2}
+-  =12\int_0^1\!\int_0^1(2-u-v)\,C(u,v)\de u\de v-2,
++  =12\int_0^1\!\int_0^1(2-u-v)\,C(u,v)\de u\de v-2.
+ \end{equation}
+-which emphasizes the leading ranks of both variables.
+ It is invariant under transposition but, as observed in \cite[Sec.~4]{genest2003blest}, still violates the reflection axiom of a measure of concordance.
+ Genest and Plante also derived the limiting distribution of the empirical version of $\nu$ and, through asymptotic efficiency calculations and simulations, assessed it and its symmetric variants as tests of independence.
+ 
+@@ -243,6 +247,7 @@
+ Both variables are uniform on $[0,1]$, and a large value of $X$ now signals a leading rank of the first variable.
+ The passage also reverses: every coupling $\gamma$ of two uniform random variables $(X,Z)$ determines one and only one copula in this way.
+ We may therefore identify $\CC$ with the set $\Gam$ of all such couplings, and we do so whenever convenient.
++For a probability measure $\gamma$ on $[0,1]^2$ with uniform marginals, the copula associated with $\gamma$ is $(u,v)\mapsto\gamma(\{(x,z)\in[0,1]^2:1-x\le u,\ 1-z\le v\})$.
+ The class $\CC$ is convex, see \cite[Thm.~1.4.5]{durante2016principles}, so mixtures of copulas are again copulas.
+ When $(X,Z)\sim\gamma$ for some $\gamma\in\Gam$, we write $\E_\gamma$ for the expectation, and we drop the subscript once the coupling is clear from the context.
+ Lebesgue measure on $[0,1]$ is denoted by $\mathrm{Leb}$.
+@@ -281,7 +286,8 @@
+ \end{proof}
+ 
+ Next to the transpose $C^\top$ from the introduction, two further transformations of a copula appear throughout, and the next lemma records how the coefficients react to them.
+-For $(U,V)\sim C$, the survival copula $\widehat C(u,v)\coloneqq u+v-1+C(1-u,1-v)$ is the copula of $(1-U,1-V)$, and the reflection $C^\perp(u,v)\coloneqq u-C(u,1-v)$ in the second argument is the copula of $(U,1-V)$.
++For a copula $C$, the reflection of $C$ in the second argument is $C^\perp(u,v)\coloneqq u-C(u,1-v)$.
++For $(U,V)\sim C$, the survival copula $\widehat C$ is the copula of $(1-U,1-V)$, and $C^\perp$ is the copula of $(U,1-V)$.
+ 
+ \begin{lemma}[Two symmetries]
+ \label{lem:symmetries}
+@@ -316,11 +322,14 @@
+ which can also be deduced from \cite[Sec.~4]{genest2003blest}.
+ The reflection that negates $(\rho,\nu)$ thus does not negate $(\eta,\nu)$, and in contrast to its $(\rho,\nu)$-counterpart, the $(\eta,\nu)$-region is not symmetric about the origin.
+ 
+-All explicit extremizers below come from a single construction: take a Borel measurable $T:[0,1]\to[0,1]$ that preserves Lebesgue measure, meaning $\mathrm{Leb}(T^{-1}(B))=\mathrm{Leb}(B)$ for every Borel set $B\subseteq[0,1]$, and let $X$ and $Z$ be uniformly distributed on $[0,1]$.
+-Two couplings result: $\gamma_T\in\Gam$, the law of $(X,T(X))$, and $\gamma^T\in\Gam$, the law of $(T(Z),Z)$, and their copulas are transposes of one another.
++All explicit extremizers below come from a single construction.
++For a Borel measurable $T:[0,1]\to[0,1]$, let $\gamma_T$ denote the law of $(X,T(X))$ for $X$ uniformly distributed on $[0,1]$.
++If, in addition, $T$ preserves Lebesgue measure, meaning $\mathrm{Leb}(T^{-1}(B))=\mathrm{Leb}(B)$ for every Borel set $B\subseteq[0,1]$, then two couplings result: $\gamma_T\in\Gam$ and $\gamma^T\in\Gam$, the law of $(T(Z),Z)$ for $Z$ uniformly distributed on $[0,1]$, and their copulas are transposes of one another.
+ Both couplings are singular, as $\gamma_T$ lives on the graph of $T$ read as a function of the first coordinate and $\gamma^T$ on the same graph read as a function of the second.
+ When a piecewise linear $T$ fails to be injective, the conditional distribution of $Z$ given $X$ under $\gamma^T$ may carry several atoms.
+ Changing $T$ at finitely many breakpoints does not change its copula, and the support figures show the closures of the linear pieces.
++We say that a copula $C$ is \emph{supported on the graph} of a Borel measurable $f:[0,1]\to[0,1]$ if $C(u,v)=\mathrm{Leb}(\{x\in[0,1]:x\le u,\ f(x)\le v\})$ for all $u,v\in[0,1]$.
++In other words, $C$ is then the copula of $(X,f(X))$ for $X$ uniformly distributed on $[0,1]$.
+ 
+ One tool remains: the rearrangement inequality of Hardy and Littlewood, see \cite[Ch.~X]{hardy1952inequalities}, in a probabilistic form that carries the equality case with it.
+ We know of no convenient reference for that case, so we include the short proof.
+@@ -383,7 +392,7 @@
+ \end{equation}
+ The three cases cover the whole interval, with the first contributing positive length only for $c<\frac12$ and the last only for $c>\frac12$.
+ Piecewise linear and Lebesgue measure preserving, the map $\zeta_c$ satisfies $\zeta_0=1-\mathrm{id}$, $\zeta_{1/2}(x)=|2x-1|$, and $\zeta_1=\mathrm{id}$.
+-Let $D_c$ denote the copula associated with the coupling $\gamma_{\zeta_c}$ from Section~\ref{sec:preliminaries}.
++For $c\in[0,1]$, let $D_c$ denote the copula associated with $\gamma_{\zeta_c}$ from Section~\ref{sec:preliminaries}.
+ Then $D_0=W$ and $D_1=M$, and for $0<c<1$, the support of $D_c$ in the original coordinates $(u,v)=(1-x,1-z)$ has its kink at the point $(c,1)$.
+ Three of these copulas appear in Figure~\ref{fig:rho-extremizers}, next to their survival copulas, which attain the lower boundary at the same value of $\rho$.
+ 
+@@ -415,7 +424,7 @@
+   \end{cases}
+   \end{aligned}
+ \end{equation}
+-Hence $c\mapsto\rho(D_c)$ increases bijectively from $[0,1]$ onto $[-1,1]$, and $\nu(D_c)=\Phi(\rho(D_c))$ for the function $\Phi$ in \eqref{eq:Phi-def}.
++Hence $c\mapsto\rho(D_c)$ increases bijectively from $[0,1]$ onto $[-1,1]$, and $\nu(D_c)=\Phi(\rho(D_c))$ for every $c\in[0,1]$.
+ \end{lemma}
+ 
+ \begin{proof}
+@@ -454,10 +463,10 @@
+ \begin{proof}
+ On $[-1,0]$, \eqref{eq:Phi-def} gives $\Phi(r)-r=r+1-\frac34(1+r)^{4/3}$, and its derivative $1-(1+r)^{1/3}$ is positive for $r<0$.
+ On $[0,1]$, $\Phi(r)-r=1-r-\frac34(1-r)^{4/3}$, and its derivative $(1-r)^{1/3}-1$ is negative for $r>0$.
+-Consequently $\Phi(r)-r\le\Phi(0)=\frac14$, with equality only at $r=0$.
+-Lemma~\ref{lem:rho-nu-values} matches $r=0$ with $c=\frac12$, so by Theorem~\ref{thm:rho-nu}, no copula other than $D_{1/2}$ attains the maximum.
+-Its coupling $\gamma_{\zeta_{1/2}}$ sits on the graph of $\zeta_{1/2}(x)=|2x-1|$ from \eqref{eq:Zc-def}, which becomes the graph of the tent map in the coordinates $(u,v)=(1-x,1-z)$.
+-For the minimum, \eqref{eq:survival-transform} sends $\nu-\rho$ to $\rho-\nu$, so only $\widehat{D_{1/2}}$ attains it: this is the copula of $(X,\zeta_{1/2}(X))$, supported on the graph of $u\mapsto|2u-1|$.
++Consequently $\Phi(r)-r\le\Phi(0)=\frac14$ for every $r\in[-1,1]$, with equality only at $r=0$.
++By Lemma~\ref{lem:rho-nu-values}, $\rho(D_{1/2})=0$, so by Theorem~\ref{thm:rho-nu}, no copula other than $D_{1/2}$ attains the maximum.
++By \eqref{eq:Zc-def}, $\zeta_{1/2}(x)=|2x-1|$ for every $x\in[0,1]$, so $D_{1/2}$ is supported on the graph of the tent map.
++For the minimum, the map $C\mapsto\widehat C$ sends $\nu-\rho$ to $\rho-\nu$ by \eqref{eq:survival-transform}, so only $\widehat{D_{1/2}}$ attains it, and $\widehat{D_{1/2}}$ is supported on the graph of $u\mapsto|2u-1|$.
+ \end{proof}
+ 
+ The region carries two symmetries worth recording.

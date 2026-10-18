@@ -32,6 +32,25 @@ with KaTeX and use locally served styles and fonts.
 
 ## Full build
 
+### Blest article reader
+
+The Blest page uses `website/blest-reader.mjs`. Its reading column retains the
+existing full-article rendering; `blest-reader.css` supplies paper typography and
+`blest-reader.js` opens the companion beside the selected passage. Symbols lead
+to definitions, and Corollary 3.2 includes its exported statement, proof, and
+recorded precision changes. Lean types and the exact original source have a
+separate tab. Without JavaScript, the inline verification details still work.
+
+This presentation uses the existing checked mathematical documents. It does not
+claim that the article has been migrated to the new source-compilation engine.
+
+For a focused local rebuild, without rebuilding other articles or native API
+documentation, run `node website/build-blest.mjs`. `SITE_BASE=/` prepares it for
+a server rooted at `dist`; the default base is `/lean-verifications/`. The page
+is at `lean-mirror/blest-spearman/`. This command checks pinned article inputs
+and renders saved proof exports; it does not rerun Lean. The full publication
+workflow below still performs proof and freshness checks.
+
 Use Linux (as in CI), Python 3.11+, Node.js 22+, elan, and a system C compiler
 (`cc`, typically installed with `build-essential` on Ubuntu). The doc-gen4
 dependencies build C bindings for SQLite and Unicode. The project's Lean-only
