@@ -4783,6 +4783,7 @@
    "\\forall x\\in \\mathbb{R},\\ \\forall y\\in \\mathbb{R},\\ \\Omega_{\\rho,\\gamma}(x)(y)\\Leftrightarrow (-1\\le y\\land y\\le 1)\\land -\\overline{\\rho}(-y)\\le x\\land x\\le \\overline{\\rho}(y)",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful":
    "∀ (x x x x_1 : ℝ),\n  -1 ≤ x_1 ∧ x_1 ≤ 1 →\n    (-1 ≤ -x_1 ∧ -x_1 ≤ 1) ∧ (-rhoBar (-x_1) ≤ x → -1 ≤ x_1 ∧ x_1 ≤ 1)",
@@ -4798,6 +4799,7 @@
    "\\operatorname{compact}(\\Omega_{\\rho,\\gamma})\\land \\operatorname{convex}(\\Omega_{\\rho,\\gamma})\\land \\operatorname{symmetric}(\\Omega_{\\rho,\\gamma})",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful": "True",
    "lean": "compact2 Omegarhogamma ∧\n  convex2 Omegarhogamma ∧\n    symm2 Omegarhogamma",
@@ -4811,6 +4813,7 @@
    "\\operatorname{continuous}(\\overline{\\rho})\\text{ on }\\{x:-1\\le x\\land x\\le 1\\}\\land \\operatorname{concave}(\\overline{\\rho})\\text{ on }\\{x:-1\\le x\\land x\\le 1\\}\\land \\operatorname{increasing}(\\overline{\\rho})\\text{ on }\\{x:-1\\le x\\land x\\le 1\\}",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful": "True",
    "lean":
@@ -4824,6 +4827,7 @@
    "reading": "\\overline{\\rho}(-1)=-1",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful": "-1 ≤ -1 ∧ -1 ≤ 1",
    "lean": "rhoBar (-1) = -1",
@@ -4836,6 +4840,7 @@
    "reading": "\\overline{\\rho}(1)=1",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful": "-1 ≤ 1 ∧ 1 ≤ 1",
    "lean": "rhoBar 1 = 1",
@@ -4849,6 +4854,7 @@
    "\\forall x\\in \\mathbb{R},\\ -1\\le x\\land x\\le g_*\\Rightarrow \\overline{\\rho}(x)=\\frac{144+420\\,x+(9+65\\,x)\\,{(6-10\\,x)}^{\\frac{1}{2}}}{500}",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful":
    "∀ (x : ℝ),\n  -1 ≤ x ∧ x ≤ gStar →\n    (-1 ≤ x ∧ x ≤ 1) ∧ (0 ≤ 6 - 10 * x ∧ ¬2 = 0) ∧ ¬500 = 0",
@@ -4864,6 +4870,7 @@
    "(\\iota x\\in \\mathbb{R}.\\ (\\exists z\\in [0,1]\\to [0,1]\\to \\mathbb{R},\\ \\mathcal{C}(z)\\land \\lvert \\rho(z)-\\gamma(z)\\rvert=x)\\land (\\forall y\\in \\mathbb{R},\\ (\\exists s\\in [0,1]\\to [0,1]\\to \\mathbb{R},\\ \\mathcal{C}(s)\\land \\lvert \\rho(s)-\\gamma(s)\\rvert=y)\\Rightarrow y\\le x))=\\Delta_0",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful":
    "(∀ (x : ℝ),\n    (∀ (x : ℝ) (x : I → I → ℝ),\n        copulas x →\n          copulas x ∧\n            copulas x) ∧\n      ((∃ x_1,\n          copulas x_1 ∧\n            |rho x_1 -\n                  gamma x_1| =\n              x) →\n        ∀ (x x : ℝ) (x : I → I → ℝ),\n          copulas x →\n            copulas x ∧\n              copulas x)) ∧\n  ∃ x,\n    ((∃ x_1,\n          copulas x_1 ∧\n            |rho x_1 -\n                  gamma x_1| =\n              x) ∧\n        ∀ (x_1 : ℝ),\n          (∃ x,\n              copulas x ∧\n                |rho x -\n                      gamma x| =\n                  x_1) →\n            x_1 ≤ x) ∧\n      ∀ (x_1 : ℝ),\n        ((∃ x,\n              copulas x ∧\n                |rho x -\n                      gamma x| =\n                  x_1) ∧\n            ∀ (x : ℝ),\n              (∃ x_2,\n                  copulas x_2 ∧\n                    |rho x_2 -\n                          gamma x_2| =\n                      x) →\n                x ≤ x_1) →\n          x_1 = x",
@@ -4879,6 +4886,7 @@
    "(\\forall x\\in \\mathbb{R},\\ (\\exists z\\in [0,1]\\to [0,1]\\to \\mathbb{R},\\ (\\mathcal{C}(z)\\land \\gamma(z)=0)\\land x=\\rho(z))\\Leftrightarrow -r_0\\le x\\land x\\le r_0)\\land (\\forall x\\in \\mathbb{R},\\ (\\exists z\\in [0,1]\\to [0,1]\\to \\mathbb{R},\\ (\\mathcal{C}(z)\\land \\rho(z)=0)\\land x=\\gamma(z))\\Leftrightarrow -g_0\\le x\\land x\\le g_0)",
    "rank": 0,
    "premises": [],
+   "note": "",
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
    "meaningful":
    "(∀ (x x : ℝ) (x : I → I → ℝ),\n    (copulas x →\n        copulas x) ∧\n      (copulas x ∧\n          gamma x = 0 →\n        copulas x)) ∧\n  ((∀ (x : ℝ),\n      (∃ x_1,\n          (copulas x_1 ∧\n              gamma x_1 = 0) ∧\n            x = rho x_1) ↔\n        -r0 ≤ x ∧\n          x ≤ r0) →\n    ∀ (x x : ℝ) (x : I → I → ℝ),\n      (copulas x →\n          copulas x) ∧\n        (copulas x ∧\n            rho x = 0 →\n          copulas x))",
