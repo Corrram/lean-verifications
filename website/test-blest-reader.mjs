@@ -22,7 +22,7 @@ test('reading column retains the complete existing article without rewriting pas
 
 test('side companion uses exported proofs and records the unverified source boundary',()=>{
   assert.match(html,/Statement, definitions &amp; proof checked|Statement, definitions & proof checked/);
-  assert.match(html,/not yet been migrated to LeanMirror/);
+  assert.match(html,/its checks concern the linked Lean propositions/);
   assert.match(html,/literal LaTeX source is not yet certified/);
   for(const d of companion.definitions)assert(html.includes(`data-definition="${d.key}"`));
   const metadata=JSON.parse(html.match(/<script id="reader-metadata" type="application\/json">([\s\S]*?)<\/script>/)[1]);
