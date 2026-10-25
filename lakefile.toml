@@ -23,7 +23,7 @@ rev = "72a596ebd8c111cb11a046be0d5c5cd64a878954"
 # Compiles the LaTeX sources in `Papers/*/Source` (formerly lean-mirror).
 name = "proofread"
 git = "https://github.com/Corrram/proofread.git"
-rev = "9c8ebccf9db0798970a4488c653e5ac77a05069c"
+rev = "e5c8725509c2b0d13f703e255ed6c5f4bca62fa3"
 
 [[lean_lib]]
 # The earlier companion engine (typed controlled language, proof trees and

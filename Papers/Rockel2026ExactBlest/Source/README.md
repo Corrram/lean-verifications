@@ -24,12 +24,12 @@ The certificate (`Certified.lean`) and `article.proofread.json` give the followi
 | Sentences | compiled | not compiled | prose | total |
 | --- | ---: | ---: | ---: | ---: |
 | text | 25 | 0 | 134 | 159 |
-| results | 23 | 0 | 25 | 48 |
+| results | 24 | 0 | 24 | 48 |
 | proofs | 6 | 5 | 133 | 144 |
-| all | 54 | 5 | 292 | 351 |
+| all | 55 | 5 | 291 | 351 |
 
 * **Definitions.** 37 definitions, each with a proof that it is well defined.
-* **Claims.** 47 claims (28 in statements of results, 12 proof steps, 7 in the running text), 47 verified: 15 derived in the text from the premises they cite (checked by the citation audit), 32 proved through the bridges from the companion development.
+* **Claims.** 48 claims (29 in statements of results, 12 proof steps, 7 in the running text), 48 verified: 15 derived in the text from the premises they cite (checked by the citation audit), 33 proved through the bridges from the companion development.
 * **Not compiled.** 5 sentences use a construction the grammar does not read yet. They assert nothing checked:
   * line 346 (proof): undefined symbol: \sup
   * line 659 (proof): unsupported construction
@@ -40,7 +40,6 @@ The certificate (`Certified.lean`) and `article.proofread.json` give the followi
   * lemma at line 258 (`lem:coupling`): 0 of 2 sentences compiled
   * lemma at line 341 (`lem:rearrangement`): 0 of 2 sentences compiled
   * lemma at line 597 (`lem:dual-certificate`): 0 of 6 sentences compiled
-  * corollary at line 874 (`cor:asymmetry`): 2 of 3 sentences compiled
   * corollary at line 922 (`cor:nu-transpose`): 2 of 4 sentences compiled
 * **Axioms.** `propext`, `Classical.choice`, `Quot.sound`.
 

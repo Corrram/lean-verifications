@@ -387,7 +387,16 @@ theorem gap_A34_transpose :
   linarith [gap_A34]
 
 theorem proof42 : obligation42 := by
-  refine ⟨by unfold meaningful42; definedness [copulas_A _], ⟨?_, ?_, ?_⟩, ?_, ?_⟩
+  refine ⟨by unfold meaningful42; definedness [copulas_transpose ‹_›], fun ε hε => ?_, fun ε hε => ?_⟩
+  · refine ⟨A threeQuarter, copulas_A _, ?_⟩
+    rw [gap_A34]
+    norm_num [hε]
+  · refine ⟨A threeQuarter, copulas_A _, ?_⟩
+    rw [nu_sub_nu_transpose _ (copulas_A _), gap_A34]
+    norm_num [hε]
+
+theorem proof43 : obligation43 := by
+  refine ⟨by unfold meaningful43; definedness [copulas_A _], ⟨?_, ?_, ?_⟩, ?_, ?_⟩
   · intro F hF; exact (abs_le.mp (gap_le F hF)).2
   · rw [threeQuarter_eq]; exact ⟨copulas_A _, gap_A34⟩
   · intro F hF h
@@ -398,8 +407,8 @@ theorem proof42 : obligation42 := by
   · rw [threeQuarter_eq, A_eq, eta_cdfOf, paperA_threeQuarter_values.1]; norm_num
   · rw [threeQuarter_eq, A_eq, nu_cdfOf, paperA_threeQuarter_values.2]
 
-theorem proof43 : obligation43 := by
-  refine ⟨by unfold meaningful43; definedness [copulas_A _, copulas_transpose (copulas_A _)], ?_, ⟨?_, ?_⟩, ?_⟩
+theorem proof44 : obligation44 := by
+  refine ⟨by unfold meaningful44; definedness [copulas_A _, copulas_transpose (copulas_A _)], ?_, ⟨?_, ?_⟩, ?_⟩
   · intro F hF; exact (abs_le.mp (gap_le F hF)).1
   · rw [threeQuarter_eq]; exact copulas_transpose (copulas_A _)
   · rw [threeQuarter_eq]; exact gap_A34_transpose
@@ -411,8 +420,8 @@ theorem proof43 : obligation43 := by
 
 /-! ## Corollary 4.6 -/
 
-theorem proof44 : obligation44 := by
-  refine ⟨by unfold meaningful44; definedness [], fun x hx => ?_⟩
+theorem proof45 : obligation45 := by
+  refine ⟨by unfold meaningful45; definedness [], fun x hx => ?_⟩
   rw [Lambda_eq x hx]
   exact Lambda_mapsTo ⟨hx.1, hx.2⟩
 
@@ -437,8 +446,8 @@ theorem lambda_inv_exu (x : ℝ) (hx : -1 ≤ x ∧ x ≤ 1) :
   rw [Lambda_eq y hy] at hyx
   exact Lambda_strictMonoOn.injOn ⟨hy.1, hy.2⟩ hm (hyx.trans (Lambda_LambdaInv x ⟨hx.1, hx.2⟩).symm)
 
-theorem proof45 : obligation45 := by
-  refine ⟨by unfold meaningful45; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩], ?_, ?_⟩
+theorem proof46 : obligation46 := by
+  refine ⟨by unfold meaningful46; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩], ?_, ?_⟩
   · intro x s
     constructor
     · rintro ⟨F, hF, hx, hs⟩
@@ -466,8 +475,8 @@ theorem proof45 : obligation45 := by
       rw [Upsilon_eq _ (mid_mem hx hs)]
       exact (gap_band_iff x s ⟨hx.1, hx.2⟩ ⟨hs.1, hs.2⟩).2 h
 
-theorem proof46 : obligation46 := by
-  refine ⟨by unfold meaningful46; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩],
+theorem proof47 : obligation47 := by
+  refine ⟨by unfold meaningful47; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩],
     fun n hn => ?_⟩
   have hn' : n ∈ Icc (-1 : ℝ) 1 := ⟨hn.1, hn.2⟩
   rw [Lambda_eq n hn, LambdaInv_art n hn]
