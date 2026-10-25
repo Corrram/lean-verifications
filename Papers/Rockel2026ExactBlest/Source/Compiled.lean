@@ -19,4 +19,4 @@ per section, named after its content), so that only those are relexed. -/
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0
 
-#proofread_article Papers.Rockel2026ExactBlest.Source "article.tex" "fnv1a64:9783c81c5bde7e10" with Proofread.UnitSquare.withCore
+#proofread_article Papers.Rockel2026ExactBlest.Source "article.tex" "fnv1a64:9b0e656a044666b9" with Proofread.UnitSquare.withCore

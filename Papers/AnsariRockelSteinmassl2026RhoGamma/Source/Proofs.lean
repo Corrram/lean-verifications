@@ -14,6 +14,7 @@ open Papers.AnsariRockelSteinmassl2026RhoGamma.Source Papers.AnsariRockelSteinma
 open Proofread MeasureTheory ProbabilityTheory Set
 open scoped unitInterval
 open Papers.AnsariRockelSteinmassl2026RhoGamma (region upperRho exact_region upperRho_endpoints
+  region_compact region_convex region_centrally_symmetric upperRho_continuous upperRho_concave upperRho_strictMono
   elementary_upper_boundary elementary_endpoint_constants abs_rho_sub_gamma_le maximal_discrepancy_attained
   zero_gamma_slice zero_rho_slice)
 
@@ -72,14 +73,32 @@ theorem proof0 : obligation0 := by
     exact ⟨⟨hg.1, hg.2⟩, h1, h2⟩
 
 theorem proof1 : obligation1 := by
-  refine ⟨by unfold meaningful1; norm_num, ?_⟩
-  unfold claim1
+  refine ⟨trivial, ?_, ?_, ?_⟩
+  · unfold Prelude.compact2; rw [Omega_set]; exact region_compact
+  · unfold Prelude.convex2; rw [Omega_set]; exact region_convex
+  · intro r g h
+    rw [Omega_iff] at h ⊢
+    exact region_centrally_symmetric h
+
+theorem rhoBar_eqOn : EqOn upperRho rhoBar (Icc (-1) 1) := fun g hg => (rhoBar_eq g ⟨hg.1, hg.2⟩).symm
+
+theorem proof2 : obligation2 := by
+  refine ⟨trivial, ?_, ?_, ?_⟩
+  · exact upperRho_continuous.congr rhoBar_eqOn.symm
+  · exact upperRho_concave.congr rhoBar_eqOn
+  · intro a ha b hb hab
+    rw [← rhoBar_eqOn ha, ← rhoBar_eqOn hb]
+    exact upperRho_strictMono ha hb hab
+
+theorem proof3 : obligation3 := by
+  refine ⟨by unfold meaningful3; norm_num, ?_⟩
+  unfold claim3
   rw [rhoBar_eq (-1) (by norm_num)]
   exact upperRho_endpoints.1
 
-theorem proof2 : obligation2 := by
-  refine ⟨by unfold meaningful2; norm_num, ?_⟩
-  unfold claim2
+theorem proof4 : obligation4 := by
+  refine ⟨by unfold meaningful4; norm_num, ?_⟩
+  unfold claim4
   rw [rhoBar_eq 1 (by norm_num)]
   exact upperRho_endpoints.2
 
@@ -92,9 +111,9 @@ theorem gStar_lt_one : gStar < 1 := by
   rw [div_lt_one (by norm_num)]
   nlinarith [Real.sq_sqrt (show (0 : ℝ) ≤ 3 by norm_num)]
 
-theorem proof3 : obligation3 := by
+theorem proof5 : obligation5 := by
   refine ⟨?_, fun g hg => ?_⟩
-  · unfold meaningful3
+  · unfold meaningful5
     intro g hg
     have := gStar_lt_one
     refine ⟨⟨hg.1, by linarith [hg.2]⟩, ⟨?_, by norm_num⟩, by norm_num⟩
@@ -127,9 +146,9 @@ theorem discrepancy_isMax :
   obtain ⟨K, rfl⟩ := (discrepancy_values_iff y).1 hy
   exact abs_rho_sub_gamma_le K
 
-theorem proof4 : obligation4 := by
+theorem proof6 : obligation6 := by
   refine ⟨?_, ?_⟩
-  · unfold meaningful4
+  · unfold meaningful6
     refine ⟨by definedness [], Delta0, discrepancy_isMax, ?_⟩
     rintro y ⟨hy, hmax⟩
     exact le_antisymm (discrepancy_isMax.2 y hy) (hmax _ discrepancy_isMax.1)
@@ -140,8 +159,8 @@ theorem proof4 : obligation4 := by
 
 /-! ## Corollary 2.4 -/
 
-theorem proof5 : obligation5 := by
-  refine ⟨by unfold meaningful5; definedness [], fun r => ?_, fun g => ?_⟩
+theorem proof7 : obligation7 := by
+  refine ⟨by unfold meaningful7; definedness [], fun r => ?_, fun g => ?_⟩
   · have h := zero_gamma_slice r
     rw [← Omega_iff] at h
     rw [r0_eq, ← abs_le]

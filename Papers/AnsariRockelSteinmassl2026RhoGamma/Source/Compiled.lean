@@ -11,4 +11,4 @@ probability on the unit square. The last string pins the article's contents. -/
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0
 
-#proofread_article Papers.AnsariRockelSteinmassl2026RhoGamma.Source "article.tex" "fnv1a64:9776be422f7dabdf" with Proofread.UnitSquare.withCore
+#proofread_article Papers.AnsariRockelSteinmassl2026RhoGamma.Source "article.tex" "fnv1a64:bd4d2a3b8ee36118" with Proofread.UnitSquare.withCore

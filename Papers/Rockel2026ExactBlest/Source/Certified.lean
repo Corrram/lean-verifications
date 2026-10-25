@@ -1,5 +1,6 @@
 import Papers.Rockel2026ExactBlest.Source.Steps
 import Papers.Rockel2026ExactBlest.Source.CompanionFamilies
+import Papers.Rockel2026ExactBlest.Source.Dual
 import Proofread.Certify
 
 /-! # The certified article

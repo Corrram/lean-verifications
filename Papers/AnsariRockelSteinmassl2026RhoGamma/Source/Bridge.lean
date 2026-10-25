@@ -4,6 +4,7 @@ import Papers.AnsariRockelSteinmassl2026RhoGamma.ElementaryArc
 import Papers.AnsariRockelSteinmassl2026RhoGamma.ElementaryEndpoints
 import Papers.AnsariRockelSteinmassl2026RhoGamma.SharpDiscrepancy
 import Papers.AnsariRockelSteinmassl2026RhoGamma.SignThresholds
+import Papers.AnsariRockelSteinmassl2026RhoGamma.BoundaryGeometry
 
 /-! # The article's definitions are the library's notions
 
@@ -73,6 +74,11 @@ theorem rhoBar_eq (g : ℝ) (hg : -1 ≤ g ∧ g ≤ 1) : rhoBar g = upperRho g 
   · exact upperRho_isMax g hg
   rintro y ⟨hy, hmax⟩
   exact le_antisymm (( upperRho_isMax g hg).2 y hy) (hmax _ (upperRho_isMax g hg).1)
+
+/-- `Ω_{ρ,γ}` as a set of points of the plane is the companion's `region`. -/
+theorem Omega_set : {p : ℝ × ℝ | Omegarhogamma p.1 p.2} = region := by
+  ext ⟨r, g⟩
+  exact Omega_iff r g
 
 /-! ## Radical constants -/
 

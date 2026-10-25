@@ -62,7 +62,7 @@
  The moment identities are recalled in Lemma~\ref{lem:representations}.
  For the concordance interpretation of Gini's gamma, see
  \citet{nelsen1998concordance}. The review by
-@@ -196,7 +198,8 @@
+@@ -196,16 +198,17 @@
      \max\{\rho(C):C\in\CC,\ \gamma(C)=G(\theta)\},
  \end{equation}
  and the copula $C_\theta$ from Definition~\ref{def:extremizers} realizes this
@@ -72,12 +72,13 @@
  \begin{equation}\label{eq:exact-region}
      \Om
      =
-@@ -204,8 +207,8 @@
+     \bigl\{(r,g):-1\le g\le1,\
      -\rhoup(-g)\le r\le\rhoup(g)\bigr\}.
  \end{equation}
- Moreover, the region is compact, convex and centrally symmetric, and
+-Moreover, the region is compact, convex and centrally symmetric, and
 -$\rhoup$ is continuous, concave and strictly increasing with
 -$\rhoup(\pm1)=\pm1$.
++Moreover, $\Om$ is compact, convex and centrally symmetric, and
 +$\rhoup$ is continuous, concave and strictly increasing.
 +Finally, $\rhoup(-1)=-1$ and $\rhoup(1)=1$.
  \end{theorem}

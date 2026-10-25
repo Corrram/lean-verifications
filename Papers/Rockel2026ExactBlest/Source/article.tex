@@ -531,16 +531,13 @@ For $b\in(0,\frac12]$, set $z_b\coloneqq\frac{b}{2(1-b)}\in(0,\frac12]$ and let 
 The first branch climbs from $1-b$ to $1$, the second descends from $1$ back to $1-b$, and the final branch covers $[0,1-b)$.
 Over $(1-b,1]$, the densities contributed by the first two branches, $\frac{1}{2(1-b)}$ and $\frac{1-2b}{2(1-b)}$, sum to one, so $R_b$ preserves Lebesgue measure.
 Under $\gamma^{R_b}$, the bottom fraction $1-b$ of the first variable is countermonotone with the top fraction of the second.
-Given a rank $X=x\in(1-b,1]$ in the leading fraction $b$ of the first variable, the conditional law of $Z$ carries two atoms:
+For $b\in(0,\frac12]$, set
 \begin{equation}
   \label{eq:Ba-branches}
-  \begin{aligned}
-  z_-(x)&\coloneqq\frac{x+b-1}{2(1-b)},
-  &\quad\text{with probability }&\frac{1}{2(1-b)},\\[0.4ex]
-  z_+(x)&\coloneqq\frac{1-b-(1-2b)x}{2(1-b)},
-  &\quad\text{with probability }&\frac{1-2b}{2(1-b)}.
-  \end{aligned}
+  z_-(x)\coloneqq\frac{x+b-1}{2(1-b)},\qquad
+  z_+(x)\coloneqq\frac{1-b-(1-2b)x}{2(1-b)}.
 \end{equation}
+Given a rank $X=x\in(1-b,1]$ in the leading fraction $b$ of the first variable, the conditional law of $Z$ carries the two atoms $z_-(x)$ and $z_+(x)$, with probabilities $\frac{1}{2(1-b)}$ and $\frac{1-2b}{2(1-b)}$.
 The two atoms are exactly the inverses of the first two pieces of $R_b$.
 At $b=\frac12$, the second branch carries no mass and $B_{1/2}=A_{1/2}$.
 In both families, the parameter is thus the leading fraction of the first variable that escapes the countermonotone pairing, and $\eta$ increases with it by Lemma~\ref{lem:eta-nu-values} below.
@@ -641,7 +638,7 @@ For $w\in[\frac12,1)$, set $\kappa_w\coloneqq\frac{3-2w}{2w}$, and define contin
   \end{gathered}
 \end{equation}
 These definitions align the derivatives of $\varphi_w$ and $\psi_w$ with the corresponding partial derivatives of $d_{\kappa_w}$ along both branches of $\gamma_{T_w}$.
-The support of $\gamma_{T_w}$ is
+For $w\in[\frac12,1)$, the support of $\gamma_{T_w}$ is
 \[
   S_w\coloneqq\{(x,1-x):0\le x\le1-w\}
        \cup\{(x,x+w-1):1-w\le x\le1\}.
@@ -717,7 +714,8 @@ The claimed equality sets follow.
 
 For the second regime, fix $b\in(0,\frac12)$ and put $\kappa_b\coloneqq\frac{2(1-b)}{b}$.
 No confusion with $\kappa_w$, $\varphi_w$, and $\psi_w$ can arise from this notation or from $\varphi_b$ and $\psi_b$ below, because $b<\frac12\le w$.
-Recall $z_b=\frac{b}{2(1-b)}$ and the branches $z_\mp$ from \eqref{eq:Ba-branches}, whose inverses are the first two pieces of $R_b$: $R_b^-(z)\coloneqq2(1-b)z+1-b$ on $[0,z_b]$ and $R_b^+(z)\coloneqq\frac{(1-b)(1-2z)}{1-2b}$ on $[z_b,b]$.
+Recall $z_b=\frac{b}{2(1-b)}$ and the branches $z_\mp$ from \eqref{eq:Ba-branches}, whose inverses are the first two pieces of $R_b$, on $[0,z_b]$ and on $[z_b,b]$.
+Set $R_b^-(z)\coloneqq2(1-b)z+1-b$ and $R_b^+(z)\coloneqq\frac{(1-b)(1-2z)}{1-2b}$.
 Let $\varphi_b,\psi_b:[0,1]\to\R$ be continuous, normalized by $\varphi_b(1-b)=0$ and $\psi_b(0)=0$, with derivatives
 \begin{equation}
   \label{eq:potential-B}

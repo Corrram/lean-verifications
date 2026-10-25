@@ -88,7 +88,7 @@ theorem defined13 : wellDefined13 := by
   intro f hf A hA
   exact hA.preimage (hf.prodMk measurable_id)
 
-theorem defined18 : wellDefined18 := by
+theorem defined19 : wellDefined19 := by
   intro w u
   have hu0 := u.2.1
   have hu1 := u.2.2
@@ -102,7 +102,7 @@ theorem defined18 : wellDefined18 := by
   · split_ifs <;> linarith
   · split_ifs <;> linarith
 
-theorem defined19 : wellDefined19 := by
+theorem defined20 : wellDefined20 := by
   intro w
   have hm := measurable_T w
   refine ⟨hm, ⟨probMeasure2_gamma hm, fun u => ?_, fun v => ?_⟩, hm⟩
@@ -112,13 +112,13 @@ theorem defined19 : wellDefined19 := by
     rw [show {t : I | T w t ≤ v} = T w ⁻¹' Set.Iic v from rfl, ← Measure.map_apply hm measurableSet_Iic,
       map_volume_T, unitInterval.volume_Iic, ENNReal.toReal_ofReal v.2.1]
 
-theorem defined20 : wellDefined20 := by
+theorem defined21 : wellDefined21 := by
   intro x hx
   have : (0 : ℝ) < 1 - x := by linarith [hx.2]
   positivity
 
-theorem defined21 : wellDefined21 := by
-  unfold wellDefined21
+theorem defined22 : wellDefined22 := by
+  unfold wellDefined22
   intro b hb t
   have ht0 := t.2.1
   have ht1 := t.2.2
@@ -168,8 +168,8 @@ theorem probMeasure2_gammaUpper {f : I → I} (hf : Measurable f) : UnitSquare.p
   rw [Measure.map_apply (by fun_prop : Measurable (fun t : I => (f t, t))) hA]
   rfl
 
-theorem defined22 : wellDefined22 := by
-  unfold wellDefined22
+theorem defined23 : wellDefined23 := by
+  unfold wellDefined23
   intro b hb
   have hm := measurable_R b
   have hd : ((∀ x : ℝ, 0 < x → ¬(2 : ℝ) = 0) ∧ 0 < b ∧ b ≤ 1 / 2) := ⟨fun _ _ => two_ne_zero, hb⟩
@@ -180,7 +180,7 @@ theorem defined22 : wellDefined22 := by
   · change ((volume : Measure I) {t | t ≤ v}).toReal = v
     rw [show {t : I | t ≤ v} = Set.Iic v from rfl, unitInterval.volume_Iic, ENNReal.toReal_ofReal v.2.1]
 
-theorem defined23 : wellDefined23 := by
+theorem defined35 : wellDefined35 := by
   intro x hx
   have : (0 : ℝ) < 1 - x := by linarith [hx.2]
   positivity
@@ -196,8 +196,8 @@ theorem lambda_exu (x : ℝ) (h : -1 < x ∧ x < -(7 / 8)) :
   subst this
   rfl
 
-theorem defined24 : wellDefined24 := by
-  unfold wellDefined24
+theorem defined36 : wellDefined36 := by
+  unfold wellDefined36
   definedness [lambda_exu _ ⟨‹_›, ‹_›⟩]
 
 /-! ## Theorem 1.2 -/
@@ -356,8 +356,8 @@ theorem nu_sub_nu_transpose (F : I → I → ℝ) (hF : copulas F) :
   rw [transpose_cdfOf, nu_cdfOf, nu_cdfOf, eta_cdfOf, Papers.Rockel2026ExactBlest.nu_transpose]
   ring
 
-theorem proof36 : obligation36 := by
-  refine ⟨by unfold meaningful36; definedness [copulas_transpose (by assumption)], fun F hF => ?_⟩
+theorem proof41 : obligation41 := by
+  refine ⟨by unfold meaningful41; definedness [copulas_transpose (by assumption)], fun F hF => ?_⟩
   refine ⟨gap_le F hF, ?_⟩
   rw [nu_sub_nu_transpose F hF, abs_mul, abs_two]
   constructor <;> intro h <;> linarith
@@ -386,8 +386,8 @@ theorem gap_A34_transpose :
   rw [eta_transpose_art (copulas_A _)]
   linarith [gap_A34]
 
-theorem proof37 : obligation37 := by
-  refine ⟨by unfold meaningful37; definedness [copulas_A _], ⟨?_, ?_, ?_⟩, ?_, ?_⟩
+theorem proof42 : obligation42 := by
+  refine ⟨by unfold meaningful42; definedness [copulas_A _], ⟨?_, ?_, ?_⟩, ?_, ?_⟩
   · intro F hF; exact (abs_le.mp (gap_le F hF)).2
   · rw [threeQuarter_eq]; exact ⟨copulas_A _, gap_A34⟩
   · intro F hF h
@@ -398,8 +398,8 @@ theorem proof37 : obligation37 := by
   · rw [threeQuarter_eq, A_eq, eta_cdfOf, paperA_threeQuarter_values.1]; norm_num
   · rw [threeQuarter_eq, A_eq, nu_cdfOf, paperA_threeQuarter_values.2]
 
-theorem proof38 : obligation38 := by
-  refine ⟨by unfold meaningful38; definedness [copulas_A _, copulas_transpose (copulas_A _)], ?_, ⟨?_, ?_⟩, ?_⟩
+theorem proof43 : obligation43 := by
+  refine ⟨by unfold meaningful43; definedness [copulas_A _, copulas_transpose (copulas_A _)], ?_, ⟨?_, ?_⟩, ?_⟩
   · intro F hF; exact (abs_le.mp (gap_le F hF)).1
   · rw [threeQuarter_eq]; exact copulas_transpose (copulas_A _)
   · rw [threeQuarter_eq]; exact gap_A34_transpose
@@ -411,8 +411,8 @@ theorem proof38 : obligation38 := by
 
 /-! ## Corollary 4.6 -/
 
-theorem proof39 : obligation39 := by
-  refine ⟨by unfold meaningful39; definedness [], fun x hx => ?_⟩
+theorem proof44 : obligation44 := by
+  refine ⟨by unfold meaningful44; definedness [], fun x hx => ?_⟩
   rw [Lambda_eq x hx]
   exact Lambda_mapsTo ⟨hx.1, hx.2⟩
 
@@ -437,8 +437,8 @@ theorem lambda_inv_exu (x : ℝ) (hx : -1 ≤ x ∧ x ≤ 1) :
   rw [Lambda_eq y hy] at hyx
   exact Lambda_strictMonoOn.injOn ⟨hy.1, hy.2⟩ hm (hyx.trans (Lambda_LambdaInv x ⟨hx.1, hx.2⟩).symm)
 
-theorem proof40 : obligation40 := by
-  refine ⟨by unfold meaningful40; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩], ?_, ?_⟩
+theorem proof45 : obligation45 := by
+  refine ⟨by unfold meaningful45; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩], ?_, ?_⟩
   · intro x s
     constructor
     · rintro ⟨F, hF, hx, hs⟩
@@ -466,8 +466,8 @@ theorem proof40 : obligation40 := by
       rw [Upsilon_eq _ (mid_mem hx hs)]
       exact (gap_band_iff x s ⟨hx.1, hx.2⟩ ⟨hs.1, hs.2⟩).2 h
 
-theorem proof41 : obligation41 := by
-  refine ⟨by unfold meaningful41; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩],
+theorem proof46 : obligation46 := by
+  refine ⟨by unfold meaningful46; definedness [copulas_transpose ‹_›, lambda_inv_exu _ ⟨‹_›, ‹_›⟩],
     fun n hn => ?_⟩
   have hn' : n ∈ Icc (-1 : ℝ) 1 := ⟨hn.1, hn.2⟩
   rw [Lambda_eq n hn, LambdaInv_art n hn]

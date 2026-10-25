@@ -13,7 +13,7 @@ folder's parent.
 | `Compiled.lean` | `#proofread_article`: the kernel compiles `article.tex`. |
 | `Article.lean` | `#proofread_semantics`: `rho`, `gamma`, `Omegarhogamma` (`Ω_{ρ,γ}`), `rhoBar` (`ρ̄(g) = max{ρ(C) : C ∈ 𝒞, γ(C) = g}`, a definite description), the constants `dStar`, `gStar`, `d0`, `Delta0`, `r0`, `g0`, and the claims `claimK` with their definedness conditions. |
 | `Bridge.lean` | `ρ` and `γ` are `spearmanRho` and `giniGamma` of the copula library, `Ω_{ρ,γ}` is `region`, `ρ̄` is `upperRho`, and the radical constants are the development's. |
-| `Proofs.lean` | Proofs of every compiled claim and every definition's well-definedness. |
+| `Proofs.lean` | Proofs of every compiled claim (Theorem 1.1: the region, its shape, the shape and endpoints of `ρ̄`; Corollaries 2.1 and 2.4, Proposition 2.3) and every definition's well-definedness. |
 | `Certified.lean` | `#proofread_certify`: the certificate, `verifiedK`, and the reports. |
 
 ## Coverage
@@ -23,29 +23,30 @@ The certificate (`Certified.lean`) and `article.proofread.json` give the followi
 | Sentences | compiled | not compiled | prose | total |
 | --- | ---: | ---: | ---: | ---: |
 | text | 5 | 1 | 178 | 184 |
-| results | 7 | 3 | 55 | 65 |
-| proofs | 0 | 4 | 167 | 171 |
-| all | 12 | 8 | 400 | 420 |
+| results | 9 | 3 | 53 | 65 |
+| proofs | 0 | 5 | 166 | 171 |
+| all | 14 | 9 | 397 | 420 |
 
 * **Definitions.** 11 definitions, each with a proof that it is well defined.
-* **Claims.** 6 claims (6 in statements of results, 0 proof steps, 0 in the running text), 6 verified: 6 proved through the bridges from the companion development.
-* **Not compiled.** 8 sentences use a construction the grammar does not read yet. They assert nothing checked:
+* **Claims.** 8 claims (8 in statements of results, 0 proof steps, 0 in the running text), 8 verified: 8 proved through the bridges from the companion development.
+* **Not compiled.** 9 sentences use a construction the grammar does not read yet. They assert nothing checked:
   * line 201 (theorem): undefined symbol: G
   * line 425 (text): undefined symbol: \delta
   * line 594 (remark): undefined symbol: G
   * line 740 (lemma): undefined symbol: \mathsf
+  * line 804 (proof): unsupported construction: '
   * line 1003 (proof): undefined symbol: y
   * line 1010 (proof): undefined symbol: a
   * line 1018 (proof): undefined symbol: x
   * line 1145 (proof): undefined symbol: t
 * **Results with sentences that are prose.** These sentences are shown in the reader but assert nothing checked:
-  * theorem at line 192 (`thm:main`): 2 of 6 sentences compiled
+  * theorem at line 192 (`thm:main`): 3 of 6 sentences compiled
   * corollary at line 514 (`cor:elementary`): 1 of 4 sentences compiled
   * proposition at line 603 (`prop:discrepancy`): 2 of 3 sentences compiled
   * corollary at line 631 (`cor:signs`): 2 of 4 sentences compiled
   * lemma at line 663 (`lem:representations`): 0 of 4 sentences compiled
   * lemma at line 703 (`lem:sign-attainment`): 0 of 1 sentences compiled
-  * lemma at line 738 (`lem:duality`): 0 of 5 sentences compiled
+  * lemma at line 738 (`lem:duality`): 1 of 5 sentences compiled
   * lemma at line 771 (`lem:input`): 0 of 1 sentences compiled
   * lemma at line 813 (`lem:halfshift-range`): 0 of 1 sentences compiled
   * lemma at line 838 (`lem:parameter-checks`): 0 of 1 sentences compiled
@@ -73,8 +74,9 @@ what it means, and none changes the mathematics:
 * In Corollary 2.4 the image sets name the class of their variable
   (`\{\rho(C):C\in\CC,\ \gamma(C)=0\}`).
 * Theorem 1.1 states the region equation in its own sentence ("It holds that
-  …") and the endpoint values as "$\overline\rho(-1)=-1$ and
-  $\overline\rho(1)=1$".
+  …"), names the region by its symbol ("Moreover, $\Omega_{\rho,\gamma}$ is
+  compact, convex and centrally symmetric, …"), and writes the endpoint values as
+  "$\overline\rho(-1)=-1$ and $\overline\rho(1)=1$".
 
 ## Check
 
