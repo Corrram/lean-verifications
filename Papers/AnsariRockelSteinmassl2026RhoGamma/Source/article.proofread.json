@@ -4808,7 +4808,7 @@
    "sentence": 39,
    "role": "statement",
    "reading":
-   "\\operatorname{continuous}(\\overline{\\rho})((x\\in \\mathbb{R}\\mapsto -1\\le x\\land x\\le 1))\\land \\operatorname{concave}(\\overline{\\rho})((x\\in \\mathbb{R}\\mapsto -1\\le x\\land x\\le 1))\\land \\operatorname{increasing}(\\overline{\\rho})((x\\in \\mathbb{R}\\mapsto -1\\le x\\land x\\le 1))",
+   "\\operatorname{continuous}(\\overline{\\rho})\\text{ on }\\{x:-1\\le x\\land x\\le 1\\}\\land \\operatorname{concave}(\\overline{\\rho})\\text{ on }\\{x:-1\\le x\\land x\\le 1\\}\\land \\operatorname{increasing}(\\overline{\\rho})\\text{ on }\\{x:-1\\le x\\land x\\le 1\\}",
    "rank": 0,
    "premises": [],
    "module": "Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs",
