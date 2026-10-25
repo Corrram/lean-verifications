@@ -186,7 +186,8 @@ and, on $(-1,-\frac34)$, parametrically by
   \Upsilon(e_b)\coloneqq\frac{b^3(6b^2-15b+8)}{8(1-b)^2},
   \qquad b\in\bigl(0,\tfrac12\bigr),\\[0.5ex]
   \text{where}\qquad
-  e_b\coloneqq-1+\frac{b^3(2b^2-9b+8)}{8(1-b)^2}.
+  e_b\coloneqq-1+\frac{b^3(2b^2-9b+8)}{8(1-b)^2},
+  \qquad b\in\bigl(0,\tfrac12\bigr].
   \end{gathered}
 \end{equation}
 The parametrization is well defined: $b\mapsto e_b$ increases bijectively from $(0,\frac12)$ onto $(-1,-\frac34)$ by Lemma~\ref{lem:eta-nu-values}, and at $e=-\frac34$ both formulas give the value $\frac18$, so $\Upsilon$ is continuous there.
@@ -324,7 +325,8 @@ The reflection that negates $(\rho,\nu)$ thus does not negate $(\eta,\nu)$, and 
 
 All explicit extremizers below come from a single construction.
 For a Borel measurable $T:[0,1]\to[0,1]$, let $\gamma_T$ denote the law of $(X,T(X))$ for $X$ uniformly distributed on $[0,1]$.
-If, in addition, $T$ preserves Lebesgue measure, meaning $\mathrm{Leb}(T^{-1}(B))=\mathrm{Leb}(B)$ for every Borel set $B\subseteq[0,1]$, then two couplings result: $\gamma_T\in\Gam$ and $\gamma^T\in\Gam$, the law of $(T(Z),Z)$ for $Z$ uniformly distributed on $[0,1]$, and their copulas are transposes of one another.
+For a Borel measurable $T:[0,1]\to[0,1]$, let $\gamma^T$ denote the law of $(T(Z),Z)$ for $Z$ uniformly distributed on $[0,1]$.
+If, in addition, $T$ preserves Lebesgue measure, meaning $\mathrm{Leb}(T^{-1}(B))=\mathrm{Leb}(B)$ for every Borel set $B\subseteq[0,1]$, then two couplings result: $\gamma_T\in\Gam$ and $\gamma^T\in\Gam$, and their copulas are transposes of one another.
 Both couplings are singular, as $\gamma_T$ lives on the graph of $T$ read as a function of the first coordinate and $\gamma^T$ on the same graph read as a function of the second.
 When a piecewise linear $T$ fails to be injective, the conditional distribution of $Z$ given $X$ under $\gamma^T$ may carry several atoms.
 Changing $T$ at finitely many breakpoints does not change its copula, and the support figures show the closures of the linear pieces.
@@ -503,7 +505,8 @@ Their contact sets pin down the optimizers uniquely, even in the regime where th
 \subsection{Extremal families}
 \label{sec:eta-families}
 
-The boundary is attained by two copula families, the first of which is indexed by $w\in[0,1]$: let $A_w$ be the copula associated with $\gamma_{T_w}$, where
+The boundary is attained by two copula families.
+For $w\in[0,1]$, let $A_w$ be the copula associated with $\gamma_{T_w}$, where $T_w:[0,1]\to[0,1]$ is given by
 \begin{equation}
   \label{eq:Tw-def}
   T_w(x)\coloneqq
@@ -515,7 +518,8 @@ The boundary is attained by two copula families, the first of which is indexed b
 Under $\gamma_{T_w}$, the leading fraction $w$ of the first variable moves comonotonically with the trailing fraction of the second, and the first variable's remaining bottom ranks are countermonotone with the second variable's top ranks.
 At the endpoints, $A_0=W$ and $A_1=M$.
 
-The second family is driven by a parameter $b\in(0,\frac12]$: set $z_b\coloneqq\frac{b}{2(1-b)}\in(0,\frac12]$ and let $B_b$ be the copula associated with $\gamma^{R_b}$, where
+The second family is driven by a parameter $b\in(0,\frac12]$.
+For $b\in(0,\frac12]$, set $z_b\coloneqq\frac{b}{2(1-b)}\in(0,\frac12]$ and let $B_b$ be the copula associated with $\gamma^{R_b}$, where $R_b:[0,1]\to[0,1]$ is given by
 \begin{equation*}
     R_b(z)\coloneqq
   \begin{cases}
@@ -875,7 +879,8 @@ Every copula $C\in\CC$ obeys
   \qquad\text{equivalently}\qquad
   \bigl|\nu(C)-\nu(C^\top)\bigr|\le\frac{27}{64}.
 \]
-Both constants are sharp: the maximum $\frac{27}{128}$ of $\nu-\eta$ is attained only by $A_{3/4}$, at which $(\eta,\nu)=(-\frac{5}{32},\frac{7}{128})$, and the minimum $-\frac{27}{128}$ only by $A_{3/4}^\top$.
+Both constants are sharp.
+The maximum $\frac{27}{128}$ of $\nu-\eta$ is attained only by $A_{3/4}$, at which $(\eta,\nu)=(-\frac{5}{32},\frac{7}{128})$, and the minimum $-\frac{27}{128}$ only by $A_{3/4}^\top$.
 \end{corollary}
 
 \begin{proof}

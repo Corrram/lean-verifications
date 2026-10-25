@@ -24,7 +24,7 @@ LAKE = os.environ.get("LAKE", str(_direct) if _direct.exists() else "lake")
 
 
 def engine():
-    path = ROOT / '.lake/packages/lean-mirror/scripts/mirror.py'
+    path = ROOT / 'scripts/companion_engine.py'
     spec = importlib.util.spec_from_file_location('lean_mirror_engine', path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -73,7 +73,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="reject a stale committed document")
     args = parser.parse_args()
-    run("build", "LeanMirror", "Papers.Rockel2026ExactBlest.ArticleDocument")
+    run("build", "Companion", "Papers.Rockel2026ExactBlest.ArticleDocument")
     mirror = engine()
     source = json.loads((OUTPUT.parent / 'source.json').read_text(encoding='utf-8'))
     excerpts = mirror.load_source(OUTPUT.parent, source)

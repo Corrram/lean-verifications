@@ -1,4 +1,4 @@
-import LeanMirror
+import Companion
 import Papers.Rockel2025Approximation.Main
 import Verification.StochasticRho
 import Copula.Rank.ConditionalDerivative
@@ -9,7 +9,7 @@ open ProbabilityTheory MeasureTheory Set Matrix
 open Copula
 open scoped unitInterval BigOperators
 namespace Papers.Rockel2025Approximation.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 abbrev permutation : Ty := .base "permutation"
 abbrev squareData : Ty := .base "squareData"
@@ -326,17 +326,17 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms permutation_valid
-#assert_lean_mirror_axioms permutation_correspondence
-#assert_lean_mirror_axioms displacement_definition
-#assert_lean_mirror_axioms rho_definition
-#assert_lean_mirror_axioms xi_definition
-#assert_lean_mirror_axioms estimator_definition
-#assert_lean_mirror_axioms xi_matrix_definition
-#assert_lean_mirror_axioms lower_correspondence
-#assert_lean_mirror_axioms lower_statement_valid
-#assert_lean_mirror_axioms range_valid
-#assert_lean_mirror_axioms range_correspondence
-#assert_lean_mirror_axioms trace_valid
-#assert_lean_mirror_axioms trace_correspondence
+#assert_companion_axioms permutation_valid
+#assert_companion_axioms permutation_correspondence
+#assert_companion_axioms displacement_definition
+#assert_companion_axioms rho_definition
+#assert_companion_axioms xi_definition
+#assert_companion_axioms estimator_definition
+#assert_companion_axioms xi_matrix_definition
+#assert_companion_axioms lower_correspondence
+#assert_companion_axioms lower_statement_valid
+#assert_companion_axioms range_valid
+#assert_companion_axioms range_correspondence
+#assert_companion_axioms trace_valid
+#assert_companion_axioms trace_correspondence
 end Papers.Rockel2025Approximation.ArticleDefinitions

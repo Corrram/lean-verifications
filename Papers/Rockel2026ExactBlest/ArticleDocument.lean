@@ -2,7 +2,7 @@ import Papers.Rockel2026ExactBlest.ArticleProof
 import Papers.Rockel2026ExactBlest.ArticlePresentation
 
 namespace Papers.Rockel2026ExactBlest.ArticleProof
-open Lean LeanMirror
+open Lean Companion
 
 private def call (name : String) (args : List String) :=
   if args.isEmpty then name else name ++ "(" ++ String.intercalate "," args ++ ")"
@@ -100,7 +100,7 @@ def fullCompanionJson : Except String Json := do
   let ordered ← definitionClosure cards (cards.map (·.key))
   return .obj <| (old.insert "document" documentJson).insert "definitions"
     (toJson (ordered.map DefinitionCard.toJson)) |>.insert "scope"
-      (.str "Corollary 3.2 in full: universal bound, both unique extremizers, attainment, and support graphs, with a checked version of its printed proof. Earlier results used in the proof are checked library dependencies; the rest of the article is not reproduced as a LeanMirror document.")
+      (.str "Corollary 3.2 in full: universal bound, both unique extremizers, attainment, and support graphs, with a checked version of its printed proof. Earlier results used in the proof are checked library dependencies; the rest of the article is not reproduced as a Companion document.")
     |>.insert "source" (.str "arXiv:2609.27634v1, Corollary 3.2 and its proof")
 
 end Papers.Rockel2026ExactBlest.ArticleProof

@@ -12,7 +12,7 @@
   },
   "sourceUrl": "https://arxiv.org/abs/2609.27634v1",
   "source": "arXiv:2609.27634v1, Corollary 3.2 and its proof",
-  "scope": "Corollary 3.2 in full: universal bound, both unique extremizers, attainment, and support graphs, with a checked version of its printed proof. Earlier results used in the proof are checked library dependencies; the rest of the article is not reproduced as a LeanMirror document.",
+  "scope": "Corollary 3.2 in full: universal bound, both unique extremizers, attainment, and support graphs, with a checked version of its printed proof. Earlier results used in the proof are checked library dependencies; the rest of the article is not reproduced as a Companion document.",
   "schemaVersion": 1,
   "paperId": "Rockel2026ExactBlest",
   "id": "blest-spearman",

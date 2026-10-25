@@ -1,8 +1,8 @@
-import LeanMirror
+import Companion
 import Papers.Rockel2026XiBlest.Main
 
 namespace Papers.Rockel2026XiBlest.ArticleCalculations
-open LeanMirror Ty Lean Verification
+open Companion Ty Lean Verification
 
 inductive Symbol : Ty → Type where
   | F : Symbol (real ⇒ₘ real ⇒ₘ real)
@@ -82,8 +82,8 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms primitive_definition
-#assert_lean_mirror_axioms lower_square_valid
-#assert_lean_mirror_axioms lower_square_verified
-#assert_lean_mirror_axioms lower_square_correspondence
+#assert_companion_axioms primitive_definition
+#assert_companion_axioms lower_square_valid
+#assert_companion_axioms lower_square_verified
+#assert_companion_axioms lower_square_correspondence
 end Papers.Rockel2026XiBlest.ArticleCalculations

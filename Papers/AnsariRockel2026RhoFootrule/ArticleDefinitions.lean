@@ -1,10 +1,10 @@
-import LeanMirror
+import Companion
 import Papers.AnsariRockel2026RhoFootrule.Main
 
 open ProbabilityTheory MeasureTheory Set
 open scoped unitInterval
 namespace Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 
 inductive Symbol : Ty → Type where
@@ -199,15 +199,15 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms rho_definition
-#assert_lean_mirror_axioms phi_definition
-#assert_lean_mirror_axioms lower_formula
-#assert_lean_mirror_axioms lower_definition
-#assert_lean_mirror_axioms region_correspondence
-#assert_lean_mirror_axioms region_verified
-#assert_lean_mirror_axioms region_statement_valid
-#assert_lean_mirror_axioms fibre_valid
-#assert_lean_mirror_axioms fibre_correspondence
-#assert_lean_mirror_axioms fibre_verified
-#assert_lean_mirror_axioms mixture_definition
+#assert_companion_axioms rho_definition
+#assert_companion_axioms phi_definition
+#assert_companion_axioms lower_formula
+#assert_companion_axioms lower_definition
+#assert_companion_axioms region_correspondence
+#assert_companion_axioms region_verified
+#assert_companion_axioms region_statement_valid
+#assert_companion_axioms fibre_valid
+#assert_companion_axioms fibre_correspondence
+#assert_companion_axioms fibre_verified
+#assert_companion_axioms mixture_definition
 end Papers.AnsariRockel2026RhoFootrule.ArticleDefinitions

@@ -1,9 +1,9 @@
-import LeanMirror
+import Companion
 import Papers.OrendayLaresRockel2026XiBeta.Main
 
 open ProbabilityTheory
 namespace Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 
 inductive Symbol : Ty → Type where
@@ -131,12 +131,12 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms beta_definition
-#assert_lean_mirror_axioms region_definition
-#assert_lean_mirror_axioms exact_region_correspondence
-#assert_lean_mirror_axioms exact_region_verified
-#assert_lean_mirror_axioms region_statement_valid
-#assert_lean_mirror_axioms lower_bound_correspondence
-#assert_lean_mirror_axioms lower_bound_verified
-#assert_lean_mirror_axioms lower_bound_document_valid
+#assert_companion_axioms beta_definition
+#assert_companion_axioms region_definition
+#assert_companion_axioms exact_region_correspondence
+#assert_companion_axioms exact_region_verified
+#assert_companion_axioms region_statement_valid
+#assert_companion_axioms lower_bound_correspondence
+#assert_companion_axioms lower_bound_verified
+#assert_companion_axioms lower_bound_document_valid
 end Papers.OrendayLaresRockel2026XiBeta.ArticleDefinitions

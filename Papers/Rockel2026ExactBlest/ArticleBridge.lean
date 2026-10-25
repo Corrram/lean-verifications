@@ -1,4 +1,4 @@
-import LeanMirror
+import Companion
 import Papers.Rockel2026ExactBlest.ExactBlest
 
 /-! # An article-facing certificate for the inequality in Corollary 3.2
@@ -12,7 +12,7 @@ The existing theorem instead quantifies over the bundled `Copula 2` type.
 
 namespace Papers.Rockel2026ExactBlest.ArticleBridge
 
-open LeanMirror MeasureTheory ProbabilityTheory
+open Companion MeasureTheory ProbabilityTheory
 open scoped unitInterval
 
 abbrev law : Ty := .base "Law"
@@ -179,17 +179,17 @@ theorem certificate : Certificate articleModel articleStatement LeanStatement :=
 
 theorem article_verified : articleStatement.eval articleModel () := certificate.proved
 
-#assert_lean_mirror_axioms copula_definition_equiv
-#assert_lean_mirror_axioms lower_rectangle_eq
-#assert_lean_mirror_axioms cdf_rectangle_formula
-#assert_lean_mirror_axioms cdf_definition_eq
-#assert_lean_mirror_axioms rho_definition_eq
-#assert_lean_mirror_axioms nu_definition_eq
-#assert_lean_mirror_axioms fromLean_toLean
-#assert_lean_mirror_axioms toLean_fromLean
-#assert_lean_mirror_axioms bound_correspondence
-#assert_lean_mirror_axioms statement_equivalence
-#assert_lean_mirror_axioms certificate
-#assert_lean_mirror_axioms article_verified
+#assert_companion_axioms copula_definition_equiv
+#assert_companion_axioms lower_rectangle_eq
+#assert_companion_axioms cdf_rectangle_formula
+#assert_companion_axioms cdf_definition_eq
+#assert_companion_axioms rho_definition_eq
+#assert_companion_axioms nu_definition_eq
+#assert_companion_axioms fromLean_toLean
+#assert_companion_axioms toLean_fromLean
+#assert_companion_axioms bound_correspondence
+#assert_companion_axioms statement_equivalence
+#assert_companion_axioms certificate
+#assert_companion_axioms article_verified
 
 end Papers.Rockel2026ExactBlest.ArticleBridge

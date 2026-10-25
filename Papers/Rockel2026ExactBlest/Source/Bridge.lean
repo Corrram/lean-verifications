@@ -1,6 +1,8 @@
 import Papers.Rockel2026ExactBlest.Source.Article
+import Papers.Common.UnitSquareCopula
 import Papers.Rockel2026ExactBlest.ExactBlestPaperParams
-import Mathlib
+import Papers.Rockel2026ExactBlest.ExactBlestTransposeRegion
+import Papers.Rockel2026ExactBlest.ExactBlestEtaUniqueness
 
 /-! # The article's definitions are the library's notions
 
@@ -14,101 +16,29 @@ so the companion's results apply to the article's statements without any
 choice of interpretation. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Bridge
-open Papers.Rockel2026ExactBlest.Source LeanMirror.Tex MeasureTheory ProbabilityTheory
+open Papers.Rockel2026ExactBlest.Source Proofread MeasureTheory ProbabilityTheory
 open scoped unitInterval
 
-/-- The distribution function of a library copula, on `[0,1]^2`. -/
-noncomputable def cdfOf (K : Copula 2) : I → I → ℝ := fun u v => K.cdf ![u, v]
-
-theorem cdfOf_injective : Function.Injective cdfOf := by
-  intro K L h
-  apply Copula.ext_cdf
-  intro x
-  have hx : x = ![x 0, x 1] := by funext i; fin_cases i <;> rfl
-  rw [hx]
-  exact congrFun (congrFun h (x 0)) (x 1)
-
-theorem iic_one : Set.Iic (1 : I) = Set.univ := Set.eq_univ_of_forall fun x => x.2.2
-
-theorem pair_preimage_iic (u v : I) :
-    (MeasurableEquiv.finTwoArrow : (Fin 2 → I) ≃ᵐ I × I) ⁻¹' (Set.Iic u ×ˢ Set.Iic v) = Set.Iic ![u, v] := by
-  ext x
-  simp [MeasurableEquiv.finTwoArrow, Pi.le_def, Fin.forall_fin_two]
-
-theorem pair_symm_preimage_iic (u v : I) :
-    (MeasurableEquiv.finTwoArrow : (Fin 2 → I) ≃ᵐ I × I).symm ⁻¹' Set.Iic ![u, v] = Set.Iic u ×ˢ Set.Iic v := by
-  ext p
-  simp [MeasurableEquiv.finTwoArrow, Pi.le_def, Fin.forall_fin_two, Prod.le_def]
+export Papers.Common (cdfOf cdfOf_injective continuous_cdfOf integrable_section continuous_integral
+  integrable_integral integrable_of_continuous reflectUnit)
 
 /-- Library copulas give article copulas. -/
-theorem copulas_cdfOf (K : Copula 2) : copulas (cdfOf K) := by
-  let e : (Fin 2 → I) ≃ᵐ I × I := MeasurableEquiv.finTwoArrow
-  refine ⟨⟨K.toMeasure.map e, inferInstance, fun u v => ?_⟩, fun u => ?_, fun v => ?_⟩
-  · rw [Measure.map_apply e.measurable (measurableSet_Iic.prod measurableSet_Iic), pair_preimage_iic]
-    rfl
-  · exact Copula.cdf_two_one_right K u
-  · exact Copula.cdf_two_one_left K v
+theorem copulas_cdfOf (K : Copula 2) : copulas (cdfOf K) := Papers.Common.isCopula_cdfOf K
 
 /-- Article copulas are library copulas. -/
-theorem exists_of_copulas {F : I → I → ℝ} (hF : copulas F) : ∃ K : Copula 2, F = cdfOf K := by
-  obtain ⟨⟨μ, hμ, hrect⟩, hu, hv⟩ := hF
-  let e : (Fin 2 → I) ≃ᵐ I × I := MeasurableEquiv.finTwoArrow
-  have hrectE : ∀ u v : I, μ (Set.Iic u ×ˢ Set.Iic v) = ENNReal.ofReal (F u v) := by
-    intro u v; rw [hrect, ENNReal.ofReal_toReal (measure_ne_top _ _)]
-  have marg0 : (μ.map e.symm).map (fun x => x 0) = (volume : Measure I) := by
-    rw [Measure.map_map (measurable_pi_apply 0) e.symm.measurable]
-    apply Measure.ext_of_Iic
-    intro a
-    rw [Measure.map_apply ((measurable_pi_apply 0).comp e.symm.measurable) measurableSet_Iic,
-      unitInterval.volume_Iic]
-    have : ((fun x : Fin 2 → I => x 0) ∘ e.symm) ⁻¹' Set.Iic a = Set.Iic a ×ˢ Set.Iic 1 := by
-      ext p; simp [e, MeasurableEquiv.finTwoArrow, iic_one]
-    rw [this, hrectE, hu]
-  have marg1 : (μ.map e.symm).map (fun x => x 1) = (volume : Measure I) := by
-    rw [Measure.map_map (measurable_pi_apply 1) e.symm.measurable]
-    apply Measure.ext_of_Iic
-    intro a
-    rw [Measure.map_apply ((measurable_pi_apply 1).comp e.symm.measurable) measurableSet_Iic,
-      unitInterval.volume_Iic]
-    have : ((fun x : Fin 2 → I => x 1) ∘ e.symm) ⁻¹' Set.Iic a = Set.Iic 1 ×ˢ Set.Iic a := by
-      ext p; simp [e, MeasurableEquiv.finTwoArrow, iic_one]
-    rw [this, hrectE, hv]
-  have marg : ∀ i : Fin 2, (μ.map e.symm).map (fun x => x i) = (volume : Measure I) := by
-    intro i; fin_cases i
-    · exact marg0
-    · exact marg1
-  refine ⟨⟨⟨μ.map e.symm, inferInstance⟩, marg⟩, ?_⟩
-  funext u v
-  change F u v = (μ.map e.symm).real (Set.Iic ![u, v])
-  rw [map_measureReal_apply e.symm.measurable measurableSet_Iic, pair_symm_preimage_iic, measureReal_def,
-    hrect]
+theorem exists_of_copulas {F : I → I → ℝ} (hF : copulas F) : ∃ K : Copula 2, F = cdfOf K :=
+  Papers.Common.exists_cdfOf hF
 
 theorem copulas_iff (F : I → I → ℝ) : copulas F ↔ ∃ K : Copula 2, F = cdfOf K :=
   ⟨exists_of_copulas, fun ⟨K, h⟩ => h ▸ copulas_cdfOf K⟩
 
 /-! ## Coefficients -/
 
-theorem rho_cdfOf (K : Copula 2) : rho (cdfOf K) = K.spearmanRho := by
-  change 12 * (∫ v : I, ∫ u : I, K.cdf ![u, v]) - 3 = K.spearmanRho
-  rw [K.spearmanRho_eq_integral_cdf, Copula.toMeasure_independence]
-  have hm := ((volume_preserving_finTwoArrow I).symm MeasurableEquiv.finTwoArrow).integral_comp
-    MeasurableEquiv.finTwoArrow.symm.measurableEmbedding K.cdf
-  have hi : Integrable (fun p : I × I => K.cdf ![p.1, p.2]) ((volume : Measure I).prod volume) :=
-    (K.continuous_cdf.comp (by fun_prop)).integrable_of_hasCompactSupport
-      (HasCompactSupport.of_compactSpace _)
-  congr 2
-  change (∫ v : I, ∫ u : I, K.cdf ![u, v]) = ∫ x : Fin 2 → I, K.cdf x
-  rw [← hm]
-  exact (integral_prod_symm _ hi).symm
+theorem rho_cdfOf (K : Copula 2) : rho (cdfOf K) = K.spearmanRho := Papers.Common.spearmanRho_cdfOf K
 
 theorem nu_cdfOf (K : Copula 2) : nu (cdfOf K) = Papers.Rockel2026XiBlest.blestNu K := by
   change 24 * (∫ v : I, ∫ u : I, (1 - (u : ℝ)) * K.cdf ![u, v]) - 2 = _
   exact (Papers.Rockel2026XiBlest.blest_integral_formula K).symm
-
-theorem reflectUnit (w : I) : Set.projIcc (0 : ℝ) 1 zero_le_one (1 - (w : ℝ)) = σ w := by
-  apply Subtype.ext
-  rw [Set.coe_projIcc, unitInterval.coe_symm_eq, min_eq_right (by linarith [w.2.1]),
-    max_eq_right (by linarith [w.2.2])]
 
 theorem transpose_cdfOf (K : Copula 2) : transpose (cdfOf K) = cdfOf K.transpose := by
   funext u v

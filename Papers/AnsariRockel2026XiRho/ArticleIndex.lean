@@ -1,9 +1,9 @@
-import LeanMirror.Article
+import Companion.Article
 import Papers.AnsariRockel2026XiRho.ArticleDefinitions
 
 -- Generated registry: each entry extracts and audits an actual theorem.
 namespace Papers.AnsariRockel2026XiRho.ArticleIndex
-open Lean LeanMirror
+open Lean Companion
 def evidence : Json := Json.mkObj [
   ("Papers.AnsariRockel2026XiRho.ArticleDefinitions.benchmark_definitions", checked_native% Papers.AnsariRockel2026XiRho.ArticleDefinitions.benchmark_definitions),
   ("Papers.AnsariRockel2026XiRho.ArticleDefinitions.endpoint_counterexample_correspondence", checked_native% Papers.AnsariRockel2026XiRho.ArticleDefinitions.endpoint_counterexample_correspondence),

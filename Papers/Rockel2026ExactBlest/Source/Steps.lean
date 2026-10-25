@@ -1,5 +1,7 @@
 import Papers.Rockel2026ExactBlest.Source.Article
-import Mathlib
+import Mathlib.Tactic
+import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+import Mathlib.Analysis.Calculus.MeanValue
 
 /-! # The proof of Corollary 3.2, sentence by sentence
 
@@ -10,11 +12,11 @@ earlier sentences of the same proof. `obligationK` is generated from the
 article; this file only supplies the reasoning between sentences.
 
 This module imports nothing but the compiled article (and through it Mathlib),
-so it cannot use the paper's companion Lean results; `#mirror_certify` audits
+so it cannot use the paper's companion Lean results; `#proofread_certify` audits
 this as well. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Proofs
-open Papers.Rockel2026ExactBlest.Source LeanMirror.Tex MeasureTheory
+open Papers.Rockel2026ExactBlest.Source Proofread MeasureTheory
 open scoped unitInterval
 
 /-- The point `1/2` of `[0,1]`, as the article's `D_{1/2}` writes it. -/
@@ -112,7 +114,7 @@ theorem survival_graph (f : I → I) (hf : Measurable f)
 
 /-! ## The sentences of the proof -/
 
-theorem proof14 : obligation14 := by
+theorem proof17 : obligation17 := by
   intro _ _
   refine ⟨fun x hx => ⟨⟨hx.1, by linarith [hx.2]⟩, by norm_num, by linarith [hx.1], by norm_num⟩,
     fun x hx => ?_⟩
@@ -139,7 +141,7 @@ theorem hasDerivAt_right (x : ℝ) :
   norm_num
   ring
 
-theorem proof15 : obligation15 := by
+theorem proof18 : obligation18 := by
   intro _ _ _
   refine ⟨fun x hx => ⟨⟨fun y hy => ⟨by norm_num, by linarith [hy.1], by norm_num⟩,
       by linarith [hx.1], by norm_num⟩, fun _ _ => ⟨by linarith [hx.1], by norm_num⟩⟩,
@@ -148,7 +150,7 @@ theorem proof15 : obligation15 := by
     Real.rpow_lt_one (by linarith [hx.1]) (by linarith) (by norm_num)
   linarith
 
-theorem proof16 : obligation16 := by
+theorem proof19 : obligation19 := by
   intro _ _ _ _
   refine ⟨fun x hx => ⟨⟨by linarith [hx.1], hx.2⟩, by norm_num, by linarith [hx.2], by norm_num⟩,
     fun x hx => ?_⟩
@@ -161,7 +163,7 @@ theorem proof16 : obligation16 := by
   · rw [ite_eq_right h, ite_eq_left hx]
     ring
 
-theorem proof17 : obligation17 := by
+theorem proof20 : obligation20 := by
   intro _ _ _ _ _
   refine ⟨fun x hx => ⟨⟨fun y hy => ⟨by norm_num, by linarith [hy.2], by norm_num⟩,
       by linarith [hx.2], by norm_num⟩, fun _ _ => ⟨by linarith [hx.2], by norm_num⟩⟩,
@@ -170,36 +172,36 @@ theorem proof17 : obligation17 := by
     Real.rpow_lt_one (by linarith [hx.2]) (by linarith) (by norm_num)
   linarith
 
-theorem proof18 : obligation18 := by
+theorem proof21 : obligation21 := by
   intro_premises
-  unfold claim14 at c14
-  unfold claim15 at c15
-  unfold claim16 at c16
   unfold claim17 at c17
+  unfold claim18 at c18
+  unfold claim19 at c19
+  unfold claim20 at c20
   set g : ℝ → ℝ := fun y => y + 1 - 3 / 4 * (1 + y) ^ (4 / 3 : ℝ) with hg
   set h : ℝ → ℝ := fun y => 1 - y - 3 / 4 * (1 - y) ^ (4 / 3 : ℝ) with hh
   have gmono : StrictMonoOn g (Set.Icc (-1) 0) := by
     apply strictMonoOn_of_hasDerivWithinAt_pos (convex_Icc _ _) (f' := fun y => 1 - (1 + y) ^ (1 / 3 : ℝ))
     · intro y hy
-      exact (c15 y hy).1.continuousWithinAt
+      exact (c18 y hy).1.continuousWithinAt
     · intro y hy
       rw [interior_Icc] at hy ⊢
-      exact (c15 y (Set.Ioo_subset_Icc_self hy)).1.mono Set.Ioo_subset_Icc_self
+      exact (c18 y (Set.Ioo_subset_Icc_self hy)).1.mono Set.Ioo_subset_Icc_self
     · intro y hy
       rw [interior_Icc] at hy
-      exact (c15 y (Set.Ioo_subset_Icc_self hy)).2 hy.2
+      exact (c18 y (Set.Ioo_subset_Icc_self hy)).2 hy.2
   have hanti : StrictAntiOn h (Set.Icc 0 1) := by
     apply strictAntiOn_of_hasDerivWithinAt_neg (convex_Icc _ _) (f' := fun y => (1 - y) ^ (1 / 3 : ℝ) - 1)
     · intro y hy
-      exact (c17 y hy).1.continuousWithinAt
+      exact (c20 y hy).1.continuousWithinAt
     · intro y hy
       rw [interior_Icc] at hy ⊢
-      exact (c17 y (Set.Ioo_subset_Icc_self hy)).1.mono Set.Ioo_subset_Icc_self
+      exact (c20 y (Set.Ioo_subset_Icc_self hy)).1.mono Set.Ioo_subset_Icc_self
     · intro y hy
       rw [interior_Icc] at hy
-      exact (c17 y (Set.Ioo_subset_Icc_self hy)).2 hy.1
+      exact (c20 y (Set.Ioo_subset_Icc_self hy)).2 hy.1
   have hPhi0 : Phi 0 = 1 / 4 := by
-    have := c14 0 ⟨by norm_num, le_refl 0⟩
+    have := c17 0 ⟨by norm_num, le_refl 0⟩
     norm_num at this
     linarith
   have g0 : g 0 = 1 / 4 := by simp [hg]; norm_num
@@ -210,52 +212,52 @@ theorem proof18 : obligation18 := by
     fun _ => ⟨hx, by norm_num, by norm_num⟩⟩, fun x hx => ?_⟩
   rcases le_total x 0 with hx0 | hx0
   · have mx : x ∈ Set.Icc (-1 : ℝ) 0 := ⟨hx.1, hx0⟩
-    have e : Phi x - x = g x := c14 x mx
+    have e : Phi x - x = g x := c17 x mx
     refine ⟨⟨?_, hPhi0⟩, fun heq => ?_⟩
     · rw [e, hPhi0, ← g0]
       exact gmono.monotoneOn mx m0 hx0
     · rw [e, hPhi0, ← g0] at heq
       exact gmono.injOn mx m0 heq
   · have mx : x ∈ Set.Icc (0 : ℝ) 1 := ⟨hx0, hx.2⟩
-    have e : Phi x - x = h x := c16 x mx
+    have e : Phi x - x = h x := c19 x mx
     refine ⟨⟨?_, hPhi0⟩, fun heq => ?_⟩
     · rw [e, hPhi0, ← h0]
       exact hanti.antitoneOn m0' mx hx0
     · rw [e, hPhi0, ← h0] at heq
       exact hanti.injOn mx m0' heq
 
-theorem proof19 : obligation19 := by
+theorem proof22 : obligation22 := by
   intro_premises
-  refine ⟨⟨⟨by norm_num, by norm_num, by norm_num⟩, (m10 _).1, by norm_num, by norm_num, by norm_num⟩, ?_⟩
-  unfold claim19
-  unfold claim8 at c8
-  rw [(c8 _).1, coe_half]
+  refine ⟨⟨⟨by norm_num, by norm_num, by norm_num⟩, (m13 _).1, by norm_num, by norm_num, by norm_num⟩, ?_⟩
+  unfold claim22
+  unfold claim11 at c11
+  rw [(c11 _).1, coe_half]
   norm_num
 
-theorem proof20 : obligation20 := by
+theorem proof23 : obligation23 := by
   intro_premises
   unfold claim3 at c3
   unfold claim4 at c4
-  unfold claim10 at c10
-  unfold claim18 at c18
-  unfold claim19 at c19
-  have hD := m19.2.1
+  unfold claim13 at c13
+  unfold claim21 at c21
+  unfold claim22 at c22
+  have hD := m22.2.1
   refine ⟨fun C hC => ⟨⟨⟨hC, hC⟩, by norm_num⟩, fun _ => ⟨by norm_num, by norm_num, by norm_num⟩⟩, ?_⟩
   intro C hC hgap
   obtain ⟨⟨hr, -⟩, -, hup⟩ := (c3 (rho C) (nu C)).1 ⟨C, hC, rfl, rfl⟩
-  have h18 := c18 (rho C) hr
+  have h18 := c21 (rho C) hr
   have hPhi0 : Phi 0 = 1 / 4 := h18.1.2
   have hr0 : rho C = 0 := h18.2 (by linarith [h18.1.1])
   obtain ⟨C0, -, -, -, huniq, -⟩ := c4 0 ⟨by norm_num, by norm_num⟩
   have e1 : C = C0 := huniq C hC hr0 (by rw [hPhi0]; linarith)
-  have e2 : D half = C0 := huniq _ hD c19 (by rw [c10, c19])
+  have e2 : D half = C0 := huniq _ hD c22 (by rw [c13, c22])
   rw [e1, e2]
 
-theorem proof21 : obligation21 := by
+theorem proof24 : obligation24 := by
   intro_premises
   refine ⟨fun _ => ⟨by norm_num, by norm_num, by norm_num⟩, fun x => ?_⟩
-  unfold claim7 at c7
-  have hz := c7 half x
+  unfold claim10 at c10
+  have hz := c10 half x
   rw [coe_half] at hz
   have hx0 := x.2.1
   have hx1 := x.2.2
@@ -277,13 +279,13 @@ theorem proof21 : obligation21 := by
     rw [abs_le]
     constructor <;> norm_num <;> linarith
 
-theorem proof22 : obligation22 := by
+theorem proof25 : obligation25 := by
   intro_premises
-  have hD := m19.2.1
+  have hD := m22.2.1
   refine ⟨⟨measurable_tentMap, ⟨by norm_num, by norm_num, by norm_num⟩, hD, by norm_num, by norm_num,
     by norm_num⟩, ?_⟩
-  unfold claim21 at c21
-  unfold claim22 supportedOnTheGraph
+  unfold claim24 at c24
+  unfold claim25 supportedOnTheGraph
   intro u v
   simp only [D, copulaAssociatedWith, gamma, Leb, Prelude.leb]
   congr 1
@@ -293,7 +295,7 @@ theorem proof22 : obligation22 := by
   rw [← unitInterval.measurePreserving_symm.measure_preimage hS.nullMeasurableSet]
   congr 1
   ext t
-  simp only [Set.mem_ofPred_eq, Set.mem_preimage, unitInterval.coe_symm_eq, c21 t, tentMap]
+  simp only [Set.mem_ofPred_eq, Set.mem_preimage, unitInterval.coe_symm_eq, c24 t, tentMap]
   have ht0 := t.2.1
   have ht1 := t.2.2
   have hmin : min (2 * (1 - (t : ℝ))) (2 - 2 * (1 - (t : ℝ))) ≤ 1 := by
@@ -307,44 +309,44 @@ theorem proof22 : obligation22 := by
     · rw [abs_of_nonneg (by linarith), min_eq_left (by linarith)]; ring
   rw [e]
 
-theorem proof23 : obligation23 := by
+theorem proof26 : obligation26 := by
   intro_premises
-  unfold claim5 at c5
-  unfold meaningful5 at m5
-  refine ⟨fun C hC => ⟨⟨⟨hC, (m5 C hC).1.1.2.1, hC⟩, hC, (m5 C hC).1.1.2.1, hC⟩, hC, hC⟩, ?_⟩
+  unfold claim8 at c8
+  unfold meaningful8 at m8
+  refine ⟨fun C hC => ⟨⟨⟨hC, (m8 C hC).1.1.2.1, hC⟩, hC, (m8 C hC).1.1.2.1, hC⟩, hC, hC⟩, ?_⟩
   intro C hC
-  obtain ⟨h1, h2, -⟩ := c5 C hC
+  obtain ⟨h1, h2, -⟩ := c8 C hC
   rw [h1, h2]
   ring
 
-theorem proof24 : obligation24 := by
+theorem proof27 : obligation27 := by
   intro_premises
-  unfold claim10 at c10
-  unfold claim18 at c18
-  unfold claim19 at c19
-  unfold claim20 at c20
+  unfold claim13 at c13
+  unfold claim21 at c21
+  unfold claim22 at c22
   unfold claim23 at c23
-  unfold meaningful5 at m5
-  have hD := m19.2.1
-  have hS : copulas (survival (D half)) := (m5 _ hD).1.1.2.1
-  have hPhi0 : Phi 0 = 1 / 4 := (c18 0 ⟨by norm_num, by norm_num⟩).1.2
-  have hgap : nu (D half) - rho (D half) = 1 / 4 := by rw [c10, c19, hPhi0]; norm_num
+  unfold claim26 at c26
+  unfold meaningful8 at m8
+  have hD := m22.2.1
+  have hS : copulas (survival (D half)) := (m8 _ hD).1.1.2.1
+  have hPhi0 : Phi 0 = 1 / 4 := (c21 0 ⟨by norm_num, by norm_num⟩).1.2
+  have hgap : nu (D half) - rho (D half) = 1 / 4 := by rw [c13, c22, hPhi0]; norm_num
   have hh : (¬(2 : ℝ) = 0 ∧ (0 : ℝ) ≤ 1 / 2 ∧ (1 / 2 : ℝ) ≤ 1) := ⟨by norm_num, by norm_num, by norm_num⟩
-  refine ⟨by unfold meaningful24; definedness [], ?_⟩
-  refine ⟨⟨hS, by rw [c23 _ hD, ← neg_sub, hgap]⟩, fun C hC hmin => ?_⟩
-  have hCS : copulas (survival C) := (m5 C hC).1.1.2.1
-  have e : survival C = D half := c20 _ hCS (by rw [c23 C hC, ← neg_sub, hmin]; norm_num)
+  refine ⟨by unfold meaningful27; definedness [], ?_⟩
+  refine ⟨⟨hS, by rw [c26 _ hD, ← neg_sub, hgap]⟩, fun C hC hmin => ?_⟩
+  have hCS : copulas (survival C) := (m8 C hC).1.1.2.1
+  have e : survival C = D half := c23 _ hCS (by rw [c26 C hC, ← neg_sub, hmin]; norm_num)
   rw [← survival_survival C, e]
 
-theorem proof25 : obligation25 := by
+theorem proof28 : obligation28 := by
   intro_premises
-  unfold meaningful5 at m5
-  unfold claim21 at c21
-  have hD := m19.2.1
-  have hS : copulas (survival (D half)) := (m5 _ hD).1.1.2.1
+  unfold meaningful8 at m8
+  unfold claim24 at c24
+  have hD := m22.2.1
+  have hS : copulas (survival (D half)) := (m8 _ hD).1.1.2.1
   have hh : (¬(2 : ℝ) = 0 ∧ (0 : ℝ) ≤ 1 / 2 ∧ (1 / 2 : ℝ) ≤ 1) := ⟨by norm_num, by norm_num, by norm_num⟩
   refine ⟨⟨abs_bounds, measurable_absMap, ⟨⟨hh, hD, hh⟩, hS, hh, hD, hh⟩, abs_bounds⟩, ?_⟩
-  unfold claim25 supportedOnTheGraph
+  unfold claim28 supportedOnTheGraph
   intro u v
   set f : I → I := fun x => Set.projIcc (0 : ℝ) 1 zero_le_one |2 * (x : ℝ) - 1| with hf
   have hfv : ∀ x : I, (f x : ℝ) = |2 * (x : ℝ) - 1| := fun x =>
@@ -376,7 +378,7 @@ theorem proof25 : obligation25 := by
   have key := survival_graph f measurable_absMap hlaw hnull u v
   simp only [Leb, Prelude.leb]
   rw [← key]
-  simp only [survival, D, copulaAssociatedWith, gamma, Prelude.leb, coe_reflect, c21]
+  simp only [survival, D, copulaAssociatedWith, gamma, Prelude.leb, coe_reflect, c24]
   congr 3
   ext t
   simp only [Set.mem_ofPred_eq, hfv]
@@ -387,37 +389,37 @@ theorem proof25 : obligation25 := by
 /-! ## The statement, from the proof -/
 
 /-- The bound `|ν(C) - ρ(C)| ≤ 1/4`, from Theorem 1.1 and the first sentences. -/
-theorem gap_bounds (h3 : claim3) (h18 : claim18) (C : I → I → ℝ) (hC : copulas C) :
+theorem gap_bounds (h3 : claim3) (h18 : claim21) (C : I → I → ℝ) (hC : copulas C) :
     -(1 / 4) ≤ nu C - rho C ∧ nu C - rho C ≤ 1 / 4 := by
   unfold claim3 at h3
-  unfold claim18 at h18
+  unfold claim21 at h18
   obtain ⟨⟨hr, -⟩, hlo, hup⟩ := (h3 (rho C) (nu C)).1 ⟨C, hC, rfl, rfl⟩
   have h := (h18 (rho C) hr).1
   constructor <;> linarith [h.1, h.2]
 
-theorem proof11 : obligation11 := by
+theorem proof14 : obligation14 := by
   intro_premises
   refine ⟨fun C hC => ⟨⟨hC, hC⟩, by norm_num⟩, fun C hC => ?_⟩
-  exact abs_le.mpr (gap_bounds c3 c18 C hC)
+  exact abs_le.mpr (gap_bounds c3 c21 C hC)
 
-theorem proof12 : obligation12 := by
+theorem proof15 : obligation15 := by
   intro_premises
-  have hD := m19.2.1
-  unfold claim10 at c10
-  unfold claim18 at c18
-  unfold claim19 at c19
-  have hPhi0 : Phi 0 = 1 / 4 := (c18 0 ⟨by norm_num, by norm_num⟩).1.2
-  have hgap : nu (D half) - rho (D half) = 1 / 4 := by rw [c10, c19, hPhi0]; norm_num
-  refine ⟨by unfold meaningful12; definedness [measurable_tentMap], ?_⟩
-  exact ⟨⟨fun C hC => (gap_bounds c3 c18 C hC).2, ⟨hD, hgap⟩, c20⟩, c19, c22⟩
+  have hD := m22.2.1
+  unfold claim13 at c13
+  unfold claim21 at c21
+  unfold claim22 at c22
+  have hPhi0 : Phi 0 = 1 / 4 := (c21 0 ⟨by norm_num, by norm_num⟩).1.2
+  have hgap : nu (D half) - rho (D half) = 1 / 4 := by rw [c13, c22, hPhi0]; norm_num
+  refine ⟨by unfold meaningful15; definedness [measurable_tentMap], ?_⟩
+  exact ⟨⟨fun C hC => (gap_bounds c3 c21 C hC).2, ⟨hD, hgap⟩, c23⟩, c22, c25⟩
 
-theorem proof13 : obligation13 := by
+theorem proof16 : obligation16 := by
   intro_premises
-  have hD := m19.2.1
-  unfold meaningful5 at m5
-  have hS : copulas (survival (D half)) := (m5 _ hD).1.1.2.1
-  unfold claim24 at c24
-  refine ⟨by unfold meaningful13; definedness [measurable_absMap, (abs_bounds _).2], ?_⟩
-  exact ⟨⟨fun C hC => (gap_bounds c3 c18 C hC).1, c24.1, c24.2⟩, c25⟩
+  have hD := m22.2.1
+  unfold meaningful8 at m8
+  have hS : copulas (survival (D half)) := (m8 _ hD).1.1.2.1
+  unfold claim27 at c27
+  refine ⟨by unfold meaningful16; definedness [measurable_absMap, (abs_bounds _).2], ?_⟩
+  exact ⟨⟨fun C hC => (gap_bounds c3 c21 C hC).1, c27.1, c27.2⟩, c28⟩
 
 end Papers.Rockel2026ExactBlest.Source.Proofs

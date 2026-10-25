@@ -1,10 +1,10 @@
-import LeanMirror
+import Companion
 import Papers.AnsariRockel2026XiRho.Main
 
 open MeasureTheory ProbabilityTheory Set
 open scoped unitInterval
 namespace Papers.AnsariRockel2026XiRho.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 abbrev curve : Ty := .base "curve"
 
@@ -305,14 +305,14 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms xi_definition
-#assert_lean_mirror_axioms rho_definition
-#assert_lean_mirror_axioms si_definition
-#assert_lean_mirror_axioms sd_definition
-#assert_lean_mirror_axioms benchmark_definitions
-#assert_lean_mirror_axioms monotone_statement_valid
-#assert_lean_mirror_axioms monotone_statement_correspondence
-#assert_lean_mirror_axioms endpoint_counterexample_valid
-#assert_lean_mirror_axioms endpoint_counterexample_correspondence
-#assert_lean_mirror_axioms literal_lemma_refuted
+#assert_companion_axioms xi_definition
+#assert_companion_axioms rho_definition
+#assert_companion_axioms si_definition
+#assert_companion_axioms sd_definition
+#assert_companion_axioms benchmark_definitions
+#assert_companion_axioms monotone_statement_valid
+#assert_companion_axioms monotone_statement_correspondence
+#assert_companion_axioms endpoint_counterexample_valid
+#assert_companion_axioms endpoint_counterexample_correspondence
+#assert_companion_axioms literal_lemma_refuted
 end Papers.AnsariRockel2026XiRho.ArticleDefinitions

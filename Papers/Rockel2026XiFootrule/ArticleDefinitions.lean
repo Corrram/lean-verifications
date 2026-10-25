@@ -1,11 +1,11 @@
-import LeanMirror
+import Companion
 import Papers.Rockel2026XiFootrule.Main
 
 open ProbabilityTheory MeasureTheory
 open scoped unitInterval
 
 namespace Papers.Rockel2026XiFootrule.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 
 inductive Symbol : Ty → Type where
@@ -175,15 +175,15 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms footrule_definition
-#assert_lean_mirror_axioms xi_definition
-#assert_lean_mirror_axioms frechet_definition
-#assert_lean_mirror_axioms upper_correspondence
-#assert_lean_mirror_axioms upper_verified
-#assert_lean_mirror_axioms upper_statement_valid
-#assert_lean_mirror_axioms cubic_definition
-#assert_lean_mirror_axioms different_definition
-#assert_lean_mirror_axioms cubic_counterexample_valid
-#assert_lean_mirror_axioms cubic_counterexample_correspondence
-#assert_lean_mirror_axioms cubic_counterexample_verified
+#assert_companion_axioms footrule_definition
+#assert_companion_axioms xi_definition
+#assert_companion_axioms frechet_definition
+#assert_companion_axioms upper_correspondence
+#assert_companion_axioms upper_verified
+#assert_companion_axioms upper_statement_valid
+#assert_companion_axioms cubic_definition
+#assert_companion_axioms different_definition
+#assert_companion_axioms cubic_counterexample_valid
+#assert_companion_axioms cubic_counterexample_correspondence
+#assert_companion_axioms cubic_counterexample_verified
 end Papers.Rockel2026XiFootrule.ArticleDefinitions

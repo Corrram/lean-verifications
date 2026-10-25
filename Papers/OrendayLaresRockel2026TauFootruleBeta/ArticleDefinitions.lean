@@ -1,11 +1,11 @@
-import LeanMirror
+import Companion
 import Papers.OrendayLaresRockel2026TauFootruleBeta.Main
 
 open ProbabilityTheory MeasureTheory Set
 open scoped unitInterval
 
 namespace Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 
 inductive Symbol : Ty → Type where
@@ -219,16 +219,16 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms tau_definition
-#assert_lean_mirror_axioms phi_definition
-#assert_lean_mirror_axioms beta_definition
-#assert_lean_mirror_axioms q_definition
-#assert_lean_mirror_axioms boundary_definitions
-#assert_lean_mirror_axioms region_correspondence
-#assert_lean_mirror_axioms region_verified
-#assert_lean_mirror_axioms region_statement_valid
-#assert_lean_mirror_axioms fibre_valid
-#assert_lean_mirror_axioms fibre_correspondence
-#assert_lean_mirror_axioms fibre_verified
-#assert_lean_mirror_axioms mixture_definition
+#assert_companion_axioms tau_definition
+#assert_companion_axioms phi_definition
+#assert_companion_axioms beta_definition
+#assert_companion_axioms q_definition
+#assert_companion_axioms boundary_definitions
+#assert_companion_axioms region_correspondence
+#assert_companion_axioms region_verified
+#assert_companion_axioms region_statement_valid
+#assert_companion_axioms fibre_valid
+#assert_companion_axioms fibre_correspondence
+#assert_companion_axioms fibre_verified
+#assert_companion_axioms mixture_definition
 end Papers.OrendayLaresRockel2026TauFootruleBeta.ArticleDefinitions

@@ -9,7 +9,7 @@ proof of Corollary 3.2 cites (`Steps.lean`). -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Proofs
 open Papers.Rockel2026ExactBlest.Source Papers.Rockel2026ExactBlest.Source.Bridge
-open LeanMirror.Tex MeasureTheory ProbabilityTheory
+open Proofread MeasureTheory ProbabilityTheory
 open Papers.Rockel2026ExactBlest (paperD paperD_values paperD_on_boundary paperD_strictMono
   paperD_parameter_exists_unique paper_rho_upper_unique paper_rho_lower_unique rho_fibre_complete
   rhoBoundary rhoBoundary_neg nu_survival eta_survival quadraticRank quadraticRank_uniform paperZeta_formula)
@@ -29,25 +29,7 @@ theorem copulas_reflection {F : I → I → ℝ} (hF : copulas F) : copulas (ref
   obtain ⟨K, rfl⟩ := exists_of_copulas hF
   rw [reflection_cdfOf]; exact copulas_cdfOf _
 
-theorem continuous_cdfOf (K : Copula 2) : Continuous (fun p : I × I => cdfOf K p.1 p.2) :=
-  K.continuous_cdf.comp (by fun_prop)
-
-theorem integrable_section {h : I → I → ℝ} (hc : Continuous (fun p : I × I => h p.1 p.2)) (v : I) :
-    Prelude.integrable (fun u => h u v) :=
-  (hc.comp (Continuous.prodMk continuous_id continuous_const)).integrable_of_hasCompactSupport
-    (HasCompactSupport.of_compactSpace _)
-
-theorem continuous_integral {h : I → I → ℝ} (hc : Continuous (fun p : I × I => h p.1 p.2)) :
-    Continuous (fun v : I => ∫ u : I, h u v) := by
-  have := continuous_parametric_integral_of_continuous (μ := (volume : Measure I))
-    (f := fun v u => h u v) (hc.comp continuous_swap) (s := Set.univ) isCompact_univ
-  simpa only [Measure.restrict_univ] using this
-
-theorem integrable_integral {h : I → I → ℝ} (hc : Continuous (fun p : I × I => h p.1 p.2)) :
-    Prelude.integrable (fun v => ∫ u : I, h u v) :=
-  (continuous_integral hc).integrable_of_hasCompactSupport (HasCompactSupport.of_compactSpace _)
-
-theorem probMeasure2_gamma {f : I → I} (hf : Measurable f) : Prelude.probMeasure2 (gamma f) := by
+theorem probMeasure2_gamma {f : I → I} (hf : Measurable f) : UnitSquare.probMeasure2 (gamma f) := by
   refine ⟨(volume : Measure I).map (fun t => (t, f t)), inferInstance, fun A hA => ?_⟩
   rw [Measure.map_apply (by fun_prop : Measurable (fun t : I => (t, f t))) hA]
   rfl
@@ -61,7 +43,7 @@ theorem leb_le_one (A : I → Prop) : Prelude.leb A ≤ 1 := by
 
 theorem defined0 : wellDefined0 := trivial
 theorem defined3 : wellDefined3 := trivial
-theorem defined8 : wellDefined8 := trivial
+theorem defined10 : wellDefined10 := trivial
 
 theorem defined1 : wellDefined1 := by
   intro F hF
@@ -97,32 +79,32 @@ theorem defined6 : wellDefined6 := by
     · exact hx.1
     · by_contra hp; exact hn ⟨le_of_lt (lt_of_not_ge hp), hx.2⟩
 
-theorem defined7 : wellDefined7 := by
+theorem defined9 : wellDefined9 := by
   intro _ _ u v
   exact (measurableSet_le (f := fun p : I × I => 1 - (p.1 : ℝ)) (g := fun _ => (u : ℝ)) (by fun_prop)
     measurable_const).inter
     (measurableSet_le (f := fun p : I × I => 1 - (p.2 : ℝ)) (g := fun _ => (v : ℝ)) (by fun_prop)
       measurable_const)
 
-theorem defined9 : wellDefined9 := by
+theorem defined11 : wellDefined11 := by
   intro F _ _ v
   exact ⟨by linarith [v.2.2], by linarith [v.2.1]⟩
 
-theorem defined10 : wellDefined10 := by
+theorem defined12 : wellDefined12 := by
   intro f hf A hA
   exact hA.preimage (measurable_id.prodMk hf)
 
-theorem defined11 : wellDefined11 := by
+theorem defined14 : wellDefined14 := by
   intro F _ f hf u v
   exact (measurableSet_le measurable_subtype_coe measurable_const).inter
     (measurableSet_le (measurable_subtype_coe.comp hf) measurable_const)
 
-theorem defined12 : wellDefined12 := by
+theorem defined15 : wellDefined15 := by
   intro c x
   refine ⟨measurableSet_le (f := fun t : I => |(t : ℝ) + c - 1|) (g := fun _ => |(x : ℝ) + c - 1|)
     (by fun_prop) measurable_const, ENNReal.toReal_nonneg, leb_le_one _⟩
 
-theorem defined13 : wellDefined13 := by
+theorem defined16 : wellDefined16 := by
   intro c
   have hm := measurable_zeta c
   refine ⟨hm, ⟨probMeasure2_gamma hm, fun u => ?_, fun v => ?_⟩, hm⟩
@@ -133,7 +115,7 @@ theorem defined13 : wellDefined13 := by
       (quadraticRank_uniform _).measure_preimage measurableSet_Iic.nullMeasurableSet,
       unitInterval.volume_Iic, ENNReal.toReal_ofReal v.2.1]
 
-theorem defined14 : wellDefined14 := by
+theorem defined17 : wellDefined17 := by
   intro x
   have h0 := x.2.1
   have h1 := x.2.2
@@ -230,21 +212,21 @@ theorem proof4 : obligation4 := by
     rw [nu_cdfOf, Phi_eq r hr] at h2
     rw [paper_rho_lower_unique c K (by rw [h1, hc]) (by rw [h2, h1])]
 
-theorem proof5 : obligation5 := by
-  refine ⟨by unfold meaningful5; definedness [copulas_survival (by assumption)], fun F hF => ?_⟩
+theorem proof8 : obligation8 := by
+  refine ⟨by unfold meaningful8; definedness [copulas_survival (by assumption)], fun F hF => ?_⟩
   obtain ⟨K, rfl⟩ := exists_of_copulas hF
   rw [survival_cdfOf, rho_cdfOf, rho_cdfOf, nu_cdfOf, nu_cdfOf, eta_cdfOf, eta_cdfOf,
     Copula.spearmanRho_survivalCopula, nu_survival, eta_survival]
   exact ⟨rfl, rfl, rfl⟩
 
-theorem proof6 : obligation6 := by
-  refine ⟨by unfold meaningful6; definedness [copulas_reflection (by assumption)], fun F hF => ?_⟩
+theorem proof9 : obligation9 := by
+  refine ⟨by unfold meaningful9; definedness [copulas_reflection (by assumption)], fun F hF => ?_⟩
   obtain ⟨K, rfl⟩ := exists_of_copulas hF
   rw [reflection_cdfOf, rho_cdfOf, rho_cdfOf, nu_cdfOf, nu_cdfOf, Copula.spearmanRho_reflect_second,
     Papers.Rockel2026XiBlest.blest_reflect_second]
   exact ⟨rfl, rfl⟩
 
-theorem proof7 : obligation7 := by
+theorem proof10 : obligation10 := by
   refine ⟨fun c v => ⟨measurableSet_le (f := fun t : I => |(t : ℝ) + c - 1|)
     (g := fun _ => |(v : ℝ) + c - 1|) (by fun_prop) measurable_const, ?_, ?_⟩, fun c v => ?_⟩
   · intro h1
@@ -285,7 +267,7 @@ theorem proof7 : obligation7 := by
           · rw [min_eq_left hm, abs_le]; constructor <;> linarith
           · rw [min_eq_right hm, abs_le]; constructor <;> linarith
 
-theorem proof8 : obligation8 := by
+theorem proof11 : obligation11 := by
   refine ⟨fun c => ⟨⟨copulas_D c, by norm_num, fun h1 h2 => ?_, fun h1 => ⟨by norm_num, fun h2 _ => ?_⟩⟩,
     fun _ => ⟨copulas_D c, by norm_num, fun h1 h2 => ?_, fun h1 => ⟨by norm_num, fun h2 _ => ?_⟩⟩⟩,
     fun c => ?_⟩
@@ -302,7 +284,7 @@ theorem proof8 : obligation8 := by
     · have h' : (1 / 2 : ℝ) ≤ c := le_of_lt (lt_of_not_ge h)
       rw [ite_eq_right h, ite_eq_right h, ite_eq_right h, ite_eq_right h, ite_eq_left h', ite_eq_left h']; exact ⟨rfl, rfl⟩
 
-theorem proof9 : obligation9 := by
+theorem proof12 : obligation12 := by
   refine ⟨⟨fun _ c => copulas_D c, fun _ => ⟨fun _ _ _ => ⟨fun c => copulas_D c, fun c => copulas_D c⟩,
     fun _ _ _ _ c => copulas_D c⟩⟩, ?_, ?_, ?_⟩
   · intro c
@@ -315,7 +297,7 @@ theorem proof9 : obligation9 := by
     obtain ⟨c, hc, -⟩ := paperD_parameter_exists_unique r ⟨hr.1, hr.2⟩
     exact ⟨c, by rw [D_eq, rho_cdfOf, hc]⟩
 
-theorem proof10 : obligation10 := by
+theorem proof13 : obligation13 := by
   have hr : ∀ c : I, -1 ≤ rho (D c) ∧ rho (D c) ≤ 1 := fun c => by
     rw [D_eq, rho_cdfOf]; exact Copula.spearmanRho_mem_Icc _
   refine ⟨fun c => ⟨copulas_D c, copulas_D c, hr c, copulas_D c⟩, fun c => ?_⟩

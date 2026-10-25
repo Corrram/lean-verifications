@@ -2,7 +2,7 @@ name = "lean-verifications"
 version = "0.1.0"
 description = "Paper-specific Lean 4 formalizations and reproducible research supplements"
 license = "Apache-2.0"
-defaultTargets = ["Verification", "Papers"]
+defaultTargets = ["Companion", "Verification", "Papers"]
 
 # Larger compiler thread stacks avoid Windows crashes in deeply nested analysis terms.
 # This resource limit does not alter elaboration options or proof checking.
@@ -20,9 +20,16 @@ git = "https://github.com/Corrram/copula.git"
 rev = "72a596ebd8c111cb11a046be0d5c5cd64a878954"
 
 [[require]]
-name = "lean-mirror"
-git = "https://github.com/Corrram/lean-mirror.git"
-rev = "b8e7b2fc05db9742a1d37170418b9b15b184142a"
+# Compiles the LaTeX sources in `Papers/*/Source` (formerly lean-mirror).
+name = "proofread"
+git = "https://github.com/Corrram/proofread.git"
+rev = "44e83ac2fc8e6c48f35805c33c86197d8ddafcfd"
+
+[[lean_lib]]
+# The earlier companion engine (typed controlled language, proof trees and
+# article evidence), kept for the existing paper companions.
+name = "Companion"
+globs = ["Companion.*"]
 
 [[lean_lib]]
 name = "Verification"

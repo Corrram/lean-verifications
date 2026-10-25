@@ -40,6 +40,11 @@ jobs:
         run: |
           python scripts/test_check_verification.py
           python scripts/check_verification.py
+      - name: Every claim of the articles compiled by Proofread is verified
+        run: |
+          for report in Papers/*/Source/article.proofread.json; do
+            python .lake/packages/proofread/scripts/proofread_diagnostics.py "$report" --verified
+          done
       - name: Compile LeanMirror certificates and check companion freshness
         run: |
           python scripts/test_lean_mirror.py
@@ -96,7 +101,7 @@ jobs:
         working-directory: website
         run: |
           npm ci
-          npm ci --prefix ../.lake/packages/lean-mirror
+          npm ci --prefix ../.lake/packages/proofread
           npm test
           npm run build
           npm run check

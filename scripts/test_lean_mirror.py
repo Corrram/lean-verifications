@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LAKE = os.environ.get("LAKE", "lake")
 PRELUDE = r"""import Papers.Rockel2026ExactBlest.ArticleBridge
 import Papers.Rockel2026ExactBlest.ArticleProof
-open LeanMirror Papers.Rockel2026ExactBlest.ArticleBridge
+open Companion Papers.Rockel2026ExactBlest.ArticleBridge
 open ClaimSymbol
 """
 
@@ -70,18 +70,18 @@ theorem bad (C : Law) (h : IsCopula C) : changed.eval coefficientModel (C, ()) =
     "nonstandard axiom": (r"""
 axiom fabricated : False
 theorem bad : True := False.elim fabricated
-#assert_lean_mirror_axioms bad
+#assert_companion_axioms bad
 """, "nonstandard axiom fabricated"),
     "unfinished proof": (r"""
 theorem bad : False := by sorry
-#assert_lean_mirror_axioms bad
+#assert_companion_axioms bad
 """, "nonstandard axiom sorryAx"),
 }
 
 
 def main() -> None:
-    subprocess.run([LAKE, "build", "LeanMirror.Tests",
-                    "LeanMirror.DocumentTests", "Papers.Rockel2026ExactBlest.ArticleDocument"], cwd=ROOT, check=True)
+    subprocess.run([LAKE, "build", "Companion.Tests",
+                    "Companion.DocumentTests", "Papers.Rockel2026ExactBlest.ArticleDocument"], cwd=ROOT, check=True)
     temp_root = ROOT / ".lake" / "lean-mirror-tests"
     temp_root.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=temp_root) as tmp:

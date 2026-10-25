@@ -1,5 +1,5 @@
 import katex from 'katex';
-import { formulaProse, proofHTML, sourceHTML, validateDocument } from '../.lake/packages/lean-mirror/reader/render.mjs';
+import { formulaProse, proofHTML, sourceHTML, validateDocument } from './companion/render.mjs';
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const identifier = /^[a-z][a-z0-9-]*$/;

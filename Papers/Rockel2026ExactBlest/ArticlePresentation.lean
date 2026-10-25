@@ -3,7 +3,7 @@ import Papers.Rockel2026ExactBlest.ArticleBridge
 /-! Presentation of the checked syntax trees. No proof dependencies are rendered. -/
 
 namespace Papers.Rockel2026ExactBlest.ArticleBridge
-open LeanMirror
+open Companion
 
 private def applyNotation (name : String) (args : List String) : String :=
   if args.isEmpty then name else name ++ "\\left(" ++ String.intercalate "," args ++ "\\right)"
@@ -103,7 +103,7 @@ def latexDocument : Except String String := do
     "\\setlength{\\parindent}{0pt}\n\\setlength{\\parskip}{5pt}\n" ++
     "\\newtheorem*{checkedtheorem}{Theorem}\n\\begin{document}\n" ++
     "{\\Large\\bfseries A readable theorem with a Lean certificate}\\par\n" ++
-    "{\\color{gray}LeanMirror prototype $\\cdot$ Blest--Spearman bound}\\par\n\n" ++
+    "{\\color{gray}Companion prototype $\\cdot$ Blest--Spearman bound}\\par\n\n" ++
     "\\begin{checkedtheorem}\n" ++ articleStatement.theoremLatex claimVocabulary ++
     "\\end{checkedtheorem}\n" ++
     "This is the universal inequality from Corollary~3.2 of " ++
@@ -123,7 +123,7 @@ def latexDocument : Except String String := do
 def certificateReport : Except String String := do
   let cards ← selectedDefinitions
   return String.intercalate "\n" <| [
-    "LeanMirror: Blest--Spearman inequality",
+    "Companion: Blest--Spearman inequality",
     "Source: arXiv:2609.27634v1, Corollary 3.2 (inequality only)",
     "Target: " ++ toString ``Papers.Rockel2026ExactBlest.nu_rho_bound,
     "Equivalence: " ++ toString ``statement_equivalence,

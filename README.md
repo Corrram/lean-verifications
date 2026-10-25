@@ -16,6 +16,19 @@ formulas for every straight permutation shuffle and all equal diagonal grids. Ea
 and pending work. CI checks the maps and rejects nonstandard axioms behind every
 declaration advertised as verified.
 
+## Articles compiled from their LaTeX source
+
+Two articles are also checked directly from their LaTeX source with
+[Proofread](https://github.com/Corrram/proofread): the kernel compiles the
+`.tex` file, states every definition and claim as Lean, and certifies each claim
+from the results it cites or through the paper's development.
+[Rockel2026ExactBlest/Source](Papers/Rockel2026ExactBlest/Source/README.md)
+(Theorems 1.1 and 1.2, Corollary 3.2 sentence by sentence, Lemma 4.1,
+Corollaries 4.5 and 4.6) and
+[AnsariRockelSteinmassl2026RhoGamma/Source](Papers/AnsariRockelSteinmassl2026RhoGamma/Source/README.md)
+(Theorem 1.1, Corollaries 2.1 and 2.4, Proposition 2.3). Each folder lists the
+edits the conventions asked for (`article-edits.diff`).
+
 ## Handbook and Lean reference
 
 The [LeanMirror companion](docs/LEAN_MIRROR.md) demonstrates readable

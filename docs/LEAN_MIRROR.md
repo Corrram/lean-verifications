@@ -1,9 +1,14 @@
 # LeanMirror mathematical companions
 
-[LeanMirror](https://github.com/Corrram/lean-mirror) supplies a reusable language
-for precise mathematical statements, their interpretation in Lean, and their
-readable presentation. This repository consumes the exact Git commit pinned in
-`lakefile.toml` and `lake-manifest.json`.
+> The LaTeX-compiled sources (`Papers/*/Source`) now use
+> [Proofread](https://github.com/Corrram/proofread), the successor of the
+> LeanMirror TeX pipeline, pinned in `lakefile.toml` and `lake-manifest.json`.
+> The companion engine described below (typed controlled language, proof
+> documents and article evidence) lives in this repository as the `Companion`
+> library.
+
+The companion engine supplies a language for precise mathematical statements,
+their interpretation in Lean, and their readable presentation.
 
 The main reader reproduces the **complete original article** from
 [arXiv:2609.27634v1](https://arxiv.org/abs/2609.27634v1), preserving its order,

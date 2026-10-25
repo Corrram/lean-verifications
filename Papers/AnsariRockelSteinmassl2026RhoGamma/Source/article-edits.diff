@@ -1,0 +1,139 @@
+--- arXiv-v1/rho-gamma.tex
++++ Source/article.tex
+@@ -84,37 +84,39 @@
+ 
+ Classical rank correlations quantify the degree of positive or negative dependence between two random variables. Their possible values are linked, although neither
+ their magnitudes nor their signs must coincide. To understand their interplay, it is important to determine their exact region, which provides all pairs of values that can be attained simultaneously. 
+-In this paper, we determine the exact region
+-\begin{equation}\label{eq:region-def}
+-    \Om\coloneqq\{(\rho(C),\gamma(C)):C\in\CC\}.
+-\end{equation}
+-between Spearman's rho and Gini's gamma. Our main result, Theorem \ref{thm:main} resolves the remaining problem of the pairwise comparison of classical rank correlations including these two coefficients as well as Kendall's tau, Blomqvist's beta,
++In this paper, we determine the exact region between Spearman's rho and Gini's gamma.
++Our main result, Theorem \ref{thm:main} resolves the remaining problem of the pairwise comparison of classical rank correlations including these two coefficients as well as Kendall's tau, Blomqvist's beta,
+ and Spearman's footrule; see Table \ref{tab:literature} for an overview.
+ 
+-Let $\CC$ denote the class of bivariate copulas. By continuity and convexity arguments, the problem \eqref{eq:region-def} reduces to finding the
+-greatest Spearman's rho compatible with any fixed value of Gini's
+-gamma, i.e., to solve the maximization problem 
+-\begin{align}\label{def_optim_problem}
+-    \rhoup(g)\coloneqq\max\{\rho(C):C\in\CC,\ \gamma(C)=g\},
+-    \qquad -1\le g\le1.
+-\end{align}
+-Recall that for a bivariate copula \(C\), Spearman's rho and \(\gamma\) Gini's gamma are defined by
++Let $\CC$ denote the class of bivariate copulas.
++For a copula $C$, Spearman's rho and Gini's gamma are
++\begin{equation}\label{eq:defs}
++    \rho(C)\coloneqq12\int_0^1\!\int_0^1C(u,v)\de u\de v-3,
++    \qquad
++    \gamma(C)\coloneqq4\int_0^1\bigl\{C(u,u)+C(u,1-u)\bigr\}\de u-2.
++\end{equation}
++These representations are given in \citet[Section~5.1]{nelsen2006introduction} and
++\citet[Section~2]{bukovsek2021spearman}.
++In terms of a pair of random variables $(U,V)\sim C$, they read
+ \begin{equation}\label{eq:intro-rank-moments}
+     \rho(C)=\operatorname{Cor}(U,V)=12\,\E[UV]-3,
+     \qquad
+-    \gamma(C)=2\,\E\bigl[|U+V-1|-|U-V|\bigr], \qquad (U,V)\sim C.
++    \gamma(C)=2\,\E\bigl[|U+V-1|-|U-V|\bigr].
+ \end{equation}
+ Thus rho is the product-moment correlation between the uniform ranks, while
+ gamma contrasts their absolute deviations from the antidiagonal and the
+-diagonal. Written directly in terms of the copula, these quantities admit the representation
+-\begin{equation}\label{eq:defs}
+-\begin{aligned}
+-    \rho(C)&=12\int_{\I^2}C(u,v)\de u\de v-3, \quad
+-    \gamma(C)=4\int_0^1\bigl\{C(u,u)+C(u,1-u)\bigr\}\de u-2,
+-\end{aligned}
++diagonal.
++The exact region between Spearman's rho and Gini's gamma is
++\begin{equation}\label{eq:region-def}
++    \Om\coloneqq\{(\rho(C),\gamma(C)):C\in\CC\}.
+ \end{equation}
+-see \citet[Section~5.1]{nelsen2006introduction} and
+-\citet[Section~2]{bukovsek2021spearman}.
++By continuity and convexity arguments, the problem \eqref{eq:region-def} reduces to finding the
++greatest Spearman's rho compatible with any fixed value of Gini's
++gamma, that is, to solving a maximization problem.
++For $g\in[-1,1]$, set
++\begin{align}\label{def_optim_problem}
++    \rhoup(g)\coloneqq\max\{\rho(C):C\in\CC,\ \gamma(C)=g\}.
++\end{align}
+ The moment identities are recalled in Lemma~\ref{lem:representations}.
+ For the concordance interpretation of Gini's gamma, see
+ \citet{nelsen1998concordance}. The review by
+@@ -196,7 +198,8 @@
+     \max\{\rho(C):C\in\CC,\ \gamma(C)=G(\theta)\},
+ \end{equation}
+ and the copula $C_\theta$ from Definition~\ref{def:extremizers} realizes this
+-maximum. Consequently, $\rhoup(G(\theta))=P(\theta)$, and
++maximum. Consequently, $\rhoup(G(\theta))=P(\theta)$.
++It holds that
+ \begin{equation}\label{eq:exact-region}
+     \Om
+     =
+@@ -204,8 +207,8 @@
+     -\rhoup(-g)\le r\le\rhoup(g)\bigr\}.
+ \end{equation}
+ Moreover, the region is compact, convex and centrally symmetric, and
+-$\rhoup$ is continuous, concave and strictly increasing with
+-$\rhoup(\pm1)=\pm1$.
++$\rhoup$ is continuous, concave and strictly increasing.
++Finally, $\rhoup(-1)=-1$ and $\rhoup(1)=1$.
+ \end{theorem}
+ 
+ In Figure~\ref{fig:region}, gamma is placed on the horizontal axis and rho on
+@@ -498,11 +501,12 @@
+ \label{fig:extremizers}
+ \end{figure}
+ 
+-For the elementary branch, define
++Two constants describe the elementary branch.
++Define
+ \begin{equation}\label{eq:junction}
+-d_*=\frac{12-2\sqrt3}{33}=0.2586\ldots,
++d_*\coloneqq\frac{12-2\sqrt3}{33}\approx0.2586,
+ \qquad
+-g_*=\frac{173-16\sqrt3}{363}=0.4002\ldots.
++g_*\coloneqq\frac{173-16\sqrt3}{363}\approx0.4002.
+ \end{equation}
+ 
+ \begin{samepage}
+@@ -598,13 +602,13 @@
+ \begin{proposition}[Largest discrepancy]\label{prop:discrepancy}
+ Define
+ \begin{equation}\label{eq:discrepancy-constant}
+-d_0=\frac{14-2\sqrt{10}}{39}=0.1968\dots,
++d_0\coloneqq\frac{14-2\sqrt{10}}{39}\approx0.1968,
+ \qquad
+ \Delta_0
+-=
++\coloneqq
+ \frac{1064+160\sqrt{10}}{4563}
+-=
+-0.34406\ldots.
++\approx
++0.34406.
+ \end{equation}
+ Then
+ \begin{equation}\label{eq:discrepancy}
+@@ -626,15 +630,15 @@
+ \begin{corollary}[Sign thresholds]\label{cor:signs}
+ Set
+ \begin{equation}\label{eq:thresholds}
+-r_0=\frac{144+9\sqrt6}{500}=0.33209\ldots,
++r_0\coloneqq\frac{144+9\sqrt6}{500}\approx0.33209,
+ \qquad
+-g_0=\frac{72-3\sqrt{69}}{169}=0.27858\ldots.
++g_0\coloneqq\frac{72-3\sqrt{69}}{169}\approx0.27858.
+ \end{equation}
+ Then
+ \begin{equation}\label{eq:zero-sections}
+-\{\rho(C):\gamma(C)=0\}=[-r_0,r_0],
++\{\rho(C):C\in\CC,\ \gamma(C)=0\}=[-r_0,r_0],
+ \qquad
+-\{\gamma(C):\rho(C)=0\}=[-g_0,g_0].
++\{\gamma(C):C\in\CC,\ \rho(C)=0\}=[-g_0,g_0].
+ \end{equation}
+ It follows that $\gamma(C)$ and $\rho(C)$ share a sign whenever
+ $|\rho(C)|>r_0$, and that $\rho(C)$ and $\gamma(C)$ share a sign whenever

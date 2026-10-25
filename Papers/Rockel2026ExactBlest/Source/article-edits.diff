@@ -45,7 +45,17 @@
  It is invariant under transposition but, as observed in \cite[Sec.~4]{genest2003blest}, still violates the reflection axiom of a measure of concordance.
  Genest and Plante also derived the limiting distribution of the empirical version of $\nu$ and, through asymptotic efficiency calculations and simulations, assessed it and its symmetric variants as tests of independence.
  
-@@ -243,6 +247,7 @@
+@@ -182,7 +186,8 @@
+   \Upsilon(e_b)\coloneqq\frac{b^3(6b^2-15b+8)}{8(1-b)^2},
+   \qquad b\in\bigl(0,\tfrac12\bigr),\\[0.5ex]
+   \text{where}\qquad
+-  e_b\coloneqq-1+\frac{b^3(2b^2-9b+8)}{8(1-b)^2}.
++  e_b\coloneqq-1+\frac{b^3(2b^2-9b+8)}{8(1-b)^2},
++  \qquad b\in\bigl(0,\tfrac12\bigr].
+   \end{gathered}
+ \end{equation}
+ The parametrization is well defined: $b\mapsto e_b$ increases bijectively from $(0,\frac12)$ onto $(-1,-\frac34)$ by Lemma~\ref{lem:eta-nu-values}, and at $e=-\frac34$ both formulas give the value $\frac18$, so $\Upsilon$ is continuous there.
+@@ -243,6 +248,7 @@
  Both variables are uniform on $[0,1]$, and a large value of $X$ now signals a leading rank of the first variable.
  The passage also reverses: every coupling $\gamma$ of two uniform random variables $(X,Z)$ determines one and only one copula in this way.
  We may therefore identify $\CC$ with the set $\Gam$ of all such couplings, and we do so whenever convenient.
@@ -53,7 +63,7 @@
  The class $\CC$ is convex, see \cite[Thm.~1.4.5]{durante2016principles}, so mixtures of copulas are again copulas.
  When $(X,Z)\sim\gamma$ for some $\gamma\in\Gam$, we write $\E_\gamma$ for the expectation, and we drop the subscript once the coupling is clear from the context.
  Lebesgue measure on $[0,1]$ is denoted by $\mathrm{Leb}$.
-@@ -281,7 +286,8 @@
+@@ -281,7 +287,8 @@
  \end{proof}
  
  Next to the transpose $C^\top$ from the introduction, two further transformations of a copula appear throughout, and the next lemma records how the coefficients react to them.
@@ -63,7 +73,7 @@
  
  \begin{lemma}[Two symmetries]
  \label{lem:symmetries}
-@@ -316,11 +322,14 @@
+@@ -316,11 +323,15 @@
  which can also be deduced from \cite[Sec.~4]{genest2003blest}.
  The reflection that negates $(\rho,\nu)$ thus does not negate $(\eta,\nu)$, and in contrast to its $(\rho,\nu)$-counterpart, the $(\eta,\nu)$-region is not symmetric about the origin.
  
@@ -71,7 +81,8 @@
 -Two couplings result: $\gamma_T\in\Gam$, the law of $(X,T(X))$, and $\gamma^T\in\Gam$, the law of $(T(Z),Z)$, and their copulas are transposes of one another.
 +All explicit extremizers below come from a single construction.
 +For a Borel measurable $T:[0,1]\to[0,1]$, let $\gamma_T$ denote the law of $(X,T(X))$ for $X$ uniformly distributed on $[0,1]$.
-+If, in addition, $T$ preserves Lebesgue measure, meaning $\mathrm{Leb}(T^{-1}(B))=\mathrm{Leb}(B)$ for every Borel set $B\subseteq[0,1]$, then two couplings result: $\gamma_T\in\Gam$ and $\gamma^T\in\Gam$, the law of $(T(Z),Z)$ for $Z$ uniformly distributed on $[0,1]$, and their copulas are transposes of one another.
++For a Borel measurable $T:[0,1]\to[0,1]$, let $\gamma^T$ denote the law of $(T(Z),Z)$ for $Z$ uniformly distributed on $[0,1]$.
++If, in addition, $T$ preserves Lebesgue measure, meaning $\mathrm{Leb}(T^{-1}(B))=\mathrm{Leb}(B)$ for every Borel set $B\subseteq[0,1]$, then two couplings result: $\gamma_T\in\Gam$ and $\gamma^T\in\Gam$, and their copulas are transposes of one another.
  Both couplings are singular, as $\gamma_T$ lives on the graph of $T$ read as a function of the first coordinate and $\gamma^T$ on the same graph read as a function of the second.
  When a piecewise linear $T$ fails to be injective, the conditional distribution of $Z$ given $X$ under $\gamma^T$ may carry several atoms.
  Changing $T$ at finitely many breakpoints does not change its copula, and the support figures show the closures of the linear pieces.
@@ -80,7 +91,7 @@
  
  One tool remains: the rearrangement inequality of Hardy and Littlewood, see \cite[Ch.~X]{hardy1952inequalities}, in a probabilistic form that carries the equality case with it.
  We know of no convenient reference for that case, so we include the short proof.
-@@ -383,7 +392,7 @@
+@@ -383,7 +394,7 @@
  \end{equation}
  The three cases cover the whole interval, with the first contributing positive length only for $c<\frac12$ and the last only for $c>\frac12$.
  Piecewise linear and Lebesgue measure preserving, the map $\zeta_c$ satisfies $\zeta_0=1-\mathrm{id}$, $\zeta_{1/2}(x)=|2x-1|$, and $\zeta_1=\mathrm{id}$.
@@ -89,7 +100,7 @@
  Then $D_0=W$ and $D_1=M$, and for $0<c<1$, the support of $D_c$ in the original coordinates $(u,v)=(1-x,1-z)$ has its kink at the point $(c,1)$.
  Three of these copulas appear in Figure~\ref{fig:rho-extremizers}, next to their survival copulas, which attain the lower boundary at the same value of $\rho$.
  
-@@ -415,7 +424,7 @@
+@@ -415,7 +426,7 @@
    \end{cases}
    \end{aligned}
  \end{equation}
@@ -98,7 +109,7 @@
  \end{lemma}
  
  \begin{proof}
-@@ -454,10 +463,10 @@
+@@ -454,10 +465,10 @@
  \begin{proof}
  On $[-1,0]$, \eqref{eq:Phi-def} gives $\Phi(r)-r=r+1-\frac34(1+r)^{4/3}$, and its derivative $1-(1+r)^{1/3}$ is positive for $r<0$.
  On $[0,1]$, $\Phi(r)-r=1-r-\frac34(1-r)^{4/3}$, and its derivative $(1-r)^{1/3}-1$ is negative for $r>0$.
@@ -113,3 +124,33 @@
  \end{proof}
  
  The region carries two symmetries worth recording.
+@@ -494,7 +505,8 @@
+ \subsection{Extremal families}
+ \label{sec:eta-families}
+ 
+-The boundary is attained by two copula families, the first of which is indexed by $w\in[0,1]$: let $A_w$ be the copula associated with $\gamma_{T_w}$, where
++The boundary is attained by two copula families.
++For $w\in[0,1]$, let $A_w$ be the copula associated with $\gamma_{T_w}$, where $T_w:[0,1]\to[0,1]$ is given by
+ \begin{equation}
+   \label{eq:Tw-def}
+   T_w(x)\coloneqq
+@@ -506,7 +518,8 @@
+ Under $\gamma_{T_w}$, the leading fraction $w$ of the first variable moves comonotonically with the trailing fraction of the second, and the first variable's remaining bottom ranks are countermonotone with the second variable's top ranks.
+ At the endpoints, $A_0=W$ and $A_1=M$.
+ 
+-The second family is driven by a parameter $b\in(0,\frac12]$: set $z_b\coloneqq\frac{b}{2(1-b)}\in(0,\frac12]$ and let $B_b$ be the copula associated with $\gamma^{R_b}$, where
++The second family is driven by a parameter $b\in(0,\frac12]$.
++For $b\in(0,\frac12]$, set $z_b\coloneqq\frac{b}{2(1-b)}\in(0,\frac12]$ and let $B_b$ be the copula associated with $\gamma^{R_b}$, where $R_b:[0,1]\to[0,1]$ is given by
+ \begin{equation*}
+     R_b(z)\coloneqq
+   \begin{cases}
+@@ -866,7 +879,8 @@
+   \qquad\text{equivalently}\qquad
+   \bigl|\nu(C)-\nu(C^\top)\bigr|\le\frac{27}{64}.
+ \]
+-Both constants are sharp: the maximum $\frac{27}{128}$ of $\nu-\eta$ is attained only by $A_{3/4}$, at which $(\eta,\nu)=(-\frac{5}{32},\frac{7}{128})$, and the minimum $-\frac{27}{128}$ only by $A_{3/4}^\top$.
++Both constants are sharp.
++The maximum $\frac{27}{128}$ of $\nu-\eta$ is attained only by $A_{3/4}$, at which $(\eta,\nu)=(-\frac{5}{32},\frac{7}{128})$, and the minimum $-\frac{27}{128}$ only by $A_{3/4}^\top$.
+ \end{corollary}
+ 
+ \begin{proof}

@@ -20,8 +20,8 @@ const sha = process.env.SOURCE_SHA || execFileSync('git', ['rev-parse', 'HEAD'],
 if (!/^[a-f0-9]{40}$/.test(sha)) throw new Error('SOURCE_SHA must be a full commit SHA');
 const repo = 'https://github.com/Corrram/lean-verifications';
 const source = `${repo}/blob/${sha}/`;
-const mirrorRevision = parse(fs.readFileSync(path.join(root, 'lakefile.toml'), 'utf8')).require.find((p) => p.name === 'lean-mirror').rev;
-const mirrorSource = `https://github.com/Corrram/lean-mirror/blob/${mirrorRevision}/`;
+const mirrorRevision = parse(fs.readFileSync(path.join(root, 'lakefile.toml'), 'utf8')).require.find((p) => p.name === 'proofread').rev;
+const mirrorSource = `https://github.com/Corrram/proofread/blob/${mirrorRevision}/`;
 const url = (p = '') => base + p;
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -225,6 +225,11 @@ for(const {directory,evidence,data} of additionalArticles) {
   write(route+'source.json',read(directory+'/source.json'));
   write(route+'article.leanmirror.json',JSON.stringify({...evidence,source:read(directory+'/'+data.config.source),bibliography:read(directory+'/'+data.config.bibliography),mapping:data.config},null,2));
   copyArticleFigures(data,directory,route);
+  // the article as Proofread compiles it, when the paper has a certified source
+  if(fs.existsSync(path.join(root,'Papers',data.config.paperId,'Source','article.tex')))
+    await buildCompiledReader({root,out,url,api,route,evidence,paperId:data.config.paperId,example:directory,
+      bibliography:data.config.bibliography,title:`${data.config.title}, compiled from its source`,
+      sourceURL:data.config.sourceURL??''});
   execFileSync(process.env.PYTHON||'python',['scripts/bundle_lean_mirror.py',path.join(out,route,'executable.zip')],{cwd:root,stdio:'inherit'});
   searchIndex.push({title:`LeanMirror: ${data.config.title}`,kind:'Mathematical companion',url:url(route),text:data.config.title+' '+data.config.verificationScope});
 }
@@ -238,7 +243,7 @@ fs.cpSync(path.join(here, 'node_modules/katex/dist'), path.join(out, 'assets/kat
 fs.copyFileSync(path.join(here, 'node_modules/katex/LICENSE'), path.join(out, 'assets/katex/LICENSE'));
 write('search-index.json', JSON.stringify(searchIndex));
 write('.nojekyll', '');
-write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', leanMirror: mirrorRevision, fullArticles: [{ id: companion.id, stats: fullArticleData.stats, declarations: Object.keys(fullArticleData.evidence) },...additionalArticles.map(({data})=>({id:data.config.id,stats:data.stats,declarations:Object.keys(data.evidence)}))], companions: [{ id: companion.id, declarations: [companion.target, companion.equivalence, companion.verified, ...companion.document.results.flatMap(r => [r.certificate, r.correspondence, r.verified]), ...companion.definitions.map((d) => d.bridge).filter((b) => !b.startsWith('Foundation:'))] }], articles: papers.map(({ id, verification_status, verified_declarations, version_warning, source_discrepancies }) => ({ id, verification_status, verified_declarations, version_warning: version_warning || null, source_discrepancies: source_discrepancies || [] })) }, null, 2));
+write('build-info.json', JSON.stringify({ commit: sha, lean: read('lean-toolchain').trim(), docGen4: 'a6521b2d0c93dcdf2d640089f95548df5dd8bf46', proofread: mirrorRevision, fullArticles: [{ id: companion.id, stats: fullArticleData.stats, declarations: Object.keys(fullArticleData.evidence) },...additionalArticles.map(({data})=>({id:data.config.id,stats:data.stats,declarations:Object.keys(data.evidence)}))], companions: [{ id: companion.id, declarations: [companion.target, companion.equivalence, companion.verified, ...companion.document.results.flatMap(r => [r.certificate, r.correspondence, r.verified]), ...companion.definitions.map((d) => d.bridge).filter((b) => !b.startsWith('Foundation:'))] }], articles: papers.map(({ id, verification_status, verified_declarations, version_warning, source_discrepancies }) => ({ id, verification_status, verified_declarations, version_warning: version_warning || null, source_discrepancies: source_discrepancies || [] })) }, null, 2));
 const docs = path.join(root, 'docbuild/.lake/build/doc');
 if (fs.existsSync(path.join(docs, 'index.html'))) {
   fs.cpSync(docs, path.join(out, 'api'), { recursive: true });

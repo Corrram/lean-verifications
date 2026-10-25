@@ -2,7 +2,7 @@ import Papers.Rockel2026ExactBlest.ArticleCalculus
 import Papers.Rockel2026ExactBlest.ArticleBridge
 
 namespace Papers.Rockel2026ExactBlest.ArticleProof
-open LeanMirror MeasureTheory ProbabilityTheory Set
+open Companion MeasureTheory ProbabilityTheory Set
 open Papers.Rockel2026XiBlest
 open scoped unitInterval
 open Ty
@@ -246,15 +246,15 @@ theorem existing_correspondence : NativeStatement ↔ ExistingCorollary := by
 theorem full_correspondence : corollaryProof.goal.eval model () ↔ ExistingCorollary :=
   corollary_correspondence.trans existing_correspondence
 
-#assert_lean_mirror_axioms corollary_valid
-#assert_lean_mirror_axioms corollary_correspondence
-#assert_lean_mirror_axioms full_correspondence
-#assert_lean_mirror_axioms left_definition
-#assert_lean_mirror_axioms phi_definition
-#assert_lean_mirror_axioms right_definition
-#assert_lean_mirror_axioms tent_definition
-#assert_lean_mirror_axioms vee_definition
-#assert_lean_mirror_axioms survival_definition
-#assert_lean_mirror_axioms extremizer_definition
-#assert_lean_mirror_axioms corollary_verified
+#assert_companion_axioms corollary_valid
+#assert_companion_axioms corollary_correspondence
+#assert_companion_axioms full_correspondence
+#assert_companion_axioms left_definition
+#assert_companion_axioms phi_definition
+#assert_companion_axioms right_definition
+#assert_companion_axioms tent_definition
+#assert_companion_axioms vee_definition
+#assert_companion_axioms survival_definition
+#assert_companion_axioms extremizer_definition
+#assert_companion_axioms corollary_verified
 end Papers.Rockel2026ExactBlest.ArticleProof

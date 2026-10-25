@@ -1,7 +1,7 @@
 import Papers.Rockel2026ExactBlest.ArticleRectangleCalculus
 
 namespace Papers.Rockel2026ExactBlest.ArticleCalculations
-open LeanMirror Ty Lean
+open Companion Ty Lean
 open ArticleOriginalProof
 
 inductive Symbol : Ty → Type where
@@ -467,26 +467,26 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms second_rectangle_valid
-#assert_lean_mirror_axioms second_rectangle_verified
-#assert_lean_mirror_axioms second_rectangle_correspondence
-#assert_lean_mirror_axioms factor_definition
-#assert_lean_mirror_axioms first_rectangle_valid
-#assert_lean_mirror_axioms first_rectangle_verified
-#assert_lean_mirror_axioms first_rectangle_correspondence
-#assert_lean_mirror_axioms delta_definition
-#assert_lean_mirror_axioms third_rectangle_valid
-#assert_lean_mirror_axioms third_rectangle_verified
-#assert_lean_mirror_axioms third_rectangle_correspondence
-#assert_lean_mirror_axioms fourth_rectangle_valid
-#assert_lean_mirror_axioms fourth_rectangle_verified
-#assert_lean_mirror_axioms fourth_rectangle_correspondence
-#assert_lean_mirror_axioms scoped_dualA
-#assert_lean_mirror_axioms contact_set_valid
-#assert_lean_mirror_axioms contact_set_correspondence
-#assert_lean_mirror_axioms contact_set_verified
-#assert_lean_mirror_axioms contact_set_definition
-#assert_lean_mirror_axioms four_rectangles_valid
-#assert_lean_mirror_axioms four_rectangles_correspondence
-#assert_lean_mirror_axioms four_rectangles_verified
+#assert_companion_axioms second_rectangle_valid
+#assert_companion_axioms second_rectangle_verified
+#assert_companion_axioms second_rectangle_correspondence
+#assert_companion_axioms factor_definition
+#assert_companion_axioms first_rectangle_valid
+#assert_companion_axioms first_rectangle_verified
+#assert_companion_axioms first_rectangle_correspondence
+#assert_companion_axioms delta_definition
+#assert_companion_axioms third_rectangle_valid
+#assert_companion_axioms third_rectangle_verified
+#assert_companion_axioms third_rectangle_correspondence
+#assert_companion_axioms fourth_rectangle_valid
+#assert_companion_axioms fourth_rectangle_verified
+#assert_companion_axioms fourth_rectangle_correspondence
+#assert_companion_axioms scoped_dualA
+#assert_companion_axioms contact_set_valid
+#assert_companion_axioms contact_set_correspondence
+#assert_companion_axioms contact_set_verified
+#assert_companion_axioms contact_set_definition
+#assert_companion_axioms four_rectangles_valid
+#assert_companion_axioms four_rectangles_correspondence
+#assert_companion_axioms four_rectangles_verified
 end Papers.Rockel2026ExactBlest.ArticleCalculations

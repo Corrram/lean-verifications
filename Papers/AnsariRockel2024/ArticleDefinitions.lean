@@ -1,4 +1,4 @@
-import LeanMirror
+import Companion
 import Papers.AnsariRockel2024.Main
 import Verification.StochasticRho
 import Copula.Rank.ConditionalDerivative
@@ -7,7 +7,7 @@ open ProbabilityTheory MeasureTheory Set Matrix
 open Copula
 open scoped unitInterval
 namespace Papers.AnsariRockel2024.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 inductive Symbol : Ty → Type where
   | rho : Symbol (copula ⇒ₘ real)
@@ -129,10 +129,10 @@ def documents : Json := Json.mkObj [
     ("definition",.str ("\\widehat{C}(u,v):="++survivalDefinition.latex vocabulary ["u","v","C"]))
   ])
 ]
-#assert_lean_mirror_axioms rho_definition
-#assert_lean_mirror_axioms xi_definition
-#assert_lean_mirror_axioms survival_definition
-#assert_lean_mirror_axioms lower_definition
-#assert_lean_mirror_axioms survival_valid
-#assert_lean_mirror_axioms survival_correspondence
+#assert_companion_axioms rho_definition
+#assert_companion_axioms xi_definition
+#assert_companion_axioms survival_definition
+#assert_companion_axioms lower_definition
+#assert_companion_axioms survival_valid
+#assert_companion_axioms survival_correspondence
 end Papers.AnsariRockel2024.ArticleDefinitions

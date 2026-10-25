@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
-import {articleBlocks,parseArticle,renderArticle,resolveBindings} from '../.lake/packages/lean-mirror/reader/article.mjs';
-import {resolveFigureAssets} from '../.lake/packages/lean-mirror/reader/figures.mjs';
-import {escape,proofHTML,formulaProse,validateDocument} from '../.lake/packages/lean-mirror/reader/render.mjs';
+import {articleBlocks,parseArticle,renderArticle,resolveBindings} from './companion/article.mjs';
+import {resolveFigureAssets} from './companion/figures.mjs';
+import {escape,proofHTML,formulaProse,validateDocument} from './companion/render.mjs';
 
 const hash=text=>createHash('sha256').update(text).digest('hex');
 export function fullArticle({source,bibliography,mapping,evidence,assetBytes}) {

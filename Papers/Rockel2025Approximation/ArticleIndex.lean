@@ -1,9 +1,9 @@
-import LeanMirror.Article
+import Companion.Article
 import Papers.Rockel2025Approximation.ArticleDefinitions
 
 -- Generated registry: each entry extracts and audits an actual theorem.
 namespace Papers.Rockel2025Approximation.ArticleIndex
-open Lean LeanMirror
+open Lean Companion
 def evidence : Json := Json.mkObj [
   ("Papers.Rockel2025Approximation.ArticleDefinitions.displacement_definition", checked_native% Papers.Rockel2025Approximation.ArticleDefinitions.displacement_definition),
   ("Papers.Rockel2025Approximation.ArticleDefinitions.estimator_definition", checked_native% Papers.Rockel2025Approximation.ArticleDefinitions.estimator_definition),

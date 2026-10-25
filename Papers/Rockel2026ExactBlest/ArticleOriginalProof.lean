@@ -396,18 +396,18 @@ theorem random_middle_anchor (b : ℝ) (hb0 : 0 < b) (hb : b < 1/2) :
   have hd : 1-b ≠ 0 := by linarith
   field_simp; ring
 
-#assert_lean_mirror_axioms graph_rectangle_10
-#assert_lean_mirror_axioms coupling_nu_moment
-#assert_lean_mirror_axioms coupling_rho_moment
-#assert_lean_mirror_axioms coupling_transpose_moment
-#assert_lean_mirror_axioms coupling_eta_moment
-#assert_lean_mirror_axioms rho_support_moment
-#assert_lean_mirror_axioms graph_rectangle_01
-#assert_lean_mirror_axioms graph_second_factor
-#assert_lean_mirror_axioms graph_first_factor
-#assert_lean_mirror_axioms random_rectangle_10
-#assert_lean_mirror_axioms random_rectangle_11
-#assert_lean_mirror_axioms random_rectangle_02
+#assert_companion_axioms graph_rectangle_10
+#assert_companion_axioms coupling_nu_moment
+#assert_companion_axioms coupling_rho_moment
+#assert_companion_axioms coupling_transpose_moment
+#assert_companion_axioms coupling_eta_moment
+#assert_companion_axioms rho_support_moment
+#assert_companion_axioms graph_rectangle_01
+#assert_companion_axioms graph_second_factor
+#assert_companion_axioms graph_first_factor
+#assert_companion_axioms random_rectangle_10
+#assert_companion_axioms random_rectangle_11
+#assert_companion_axioms random_rectangle_02
 
 end
 end Papers.Rockel2026ExactBlest.ArticleOriginalProof

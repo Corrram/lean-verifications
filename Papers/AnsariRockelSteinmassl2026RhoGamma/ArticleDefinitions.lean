@@ -1,11 +1,11 @@
-import LeanMirror
+import Companion
 import Papers.AnsariRockelSteinmassl2026RhoGamma.Main
 import Verification.StochasticRho
 
 open ProbabilityTheory MeasureTheory Set
 open scoped unitInterval
 namespace Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions
-open LeanMirror Ty Lean
+open Companion Ty Lean
 abbrev copula : Ty := .base "copula"
 
 inductive Symbol : Ty → Type where
@@ -265,17 +265,17 @@ def documents : Json := Json.mkObj [
   ])
 ]
 
-#assert_lean_mirror_axioms rho_definition
-#assert_lean_mirror_axioms gamma_definition
-#assert_lean_mirror_axioms intro_zero_endpoint_incompatible
-#assert_lean_mirror_axioms splitting_definitions
-#assert_lean_mirror_axioms coordinate_definitions
-#assert_lean_mirror_axioms upper_definition
-#assert_lean_mirror_axioms region_correspondence
-#assert_lean_mirror_axioms region_verified
-#assert_lean_mirror_axioms region_statement_valid
-#assert_lean_mirror_axioms strict_valid
-#assert_lean_mirror_axioms strict_correspondence
-#assert_lean_mirror_axioms strict_verified
-#assert_lean_mirror_axioms mixture_definition
+#assert_companion_axioms rho_definition
+#assert_companion_axioms gamma_definition
+#assert_companion_axioms intro_zero_endpoint_incompatible
+#assert_companion_axioms splitting_definitions
+#assert_companion_axioms coordinate_definitions
+#assert_companion_axioms upper_definition
+#assert_companion_axioms region_correspondence
+#assert_companion_axioms region_verified
+#assert_companion_axioms region_statement_valid
+#assert_companion_axioms strict_valid
+#assert_companion_axioms strict_correspondence
+#assert_companion_axioms strict_verified
+#assert_companion_axioms mixture_definition
 end Papers.AnsariRockelSteinmassl2026RhoGamma.ArticleDefinitions

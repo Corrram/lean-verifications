@@ -1,8 +1,8 @@
 import katex from 'katex';
 import {renderFullArticle} from './article-companion.mjs';
 import {theoremParagraphs, validateCompanion} from './lean-mirror.mjs';
-import {articleBlocks} from '../.lake/packages/lean-mirror/reader/article.mjs';
-import {escape, proofHTML} from '../.lake/packages/lean-mirror/reader/render.mjs';
+import {articleBlocks} from './companion/article.mjs';
+import {escape, proofHTML} from './companion/render.mjs';
 
 // The reading column is the existing source-faithful article renderer. All new
 // mathematics comes from the existing exported companion, never UI copy.

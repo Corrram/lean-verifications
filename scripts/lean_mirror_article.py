@@ -76,11 +76,11 @@ def index_source(mapping):
         raise ValueError('Invalid article evidence module')
     imported_module=evidence_module or document_namespace or f'Papers.{paper_id}.'+('ArticleCalculations' if paper_id=='Rockel2026ExactBlest' else 'Main')
     namespace=f'Papers.{paper_id}.ArticleIndex'
-    lines=['import LeanMirror.Article',
+    lines=['import Companion.Article',
            f'import {imported_module}',
            '', '-- Generated registry: each entry extracts and audits an actual theorem.',
            f'namespace {namespace}',
-           'open Lean LeanMirror',
+           'open Lean Companion',
            'def evidence : Json := Json.mkObj [']
     lines += [f'  ("{name}", checked_native% {name})'+(',' if i<len(names)-1 else '') for i,name in enumerate(names)]
     lines+= [']', f'end {namespace}', '']
