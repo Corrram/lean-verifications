@@ -42,20 +42,21 @@ theorem xi_definition (C : Copula 2) : xiDefinition.eval model (C,())=C.chatterj
 
 
 def survivalDefinition : Expr Symbol [unit,unit,copula] real :=
-  [math| C v u |- \real{u}+\real{v}-1+\cdf(C,\reflect(u),\reflect(v))]
+  [math| C, v, u |- \real{u}+\real{v}-1+\cdf(C,\reflect(u),\reflect(v))]
 theorem survival_definition (C : Copula 2) (u v : I) :
     survivalDefinition.eval model (u,v,C,())=C.survivalCopula.cdf ![u,v] := by
   simpa only [survivalDefinition,Expr.eval,Var.get,model,Ty.denote,Nat.cast_one] using
     (C.cdf_survivalCopula u v).symm
 
-def lowerDefinition : Expr Symbol [copula,copula] prop := [math| E D |-
+def lowerDefinition : Expr Symbol [copula,copula] prop := [math| E, D |-
   Forall u : unit. Forall v : unit. \cdf(D,u,v) \le \cdf(E,u,v)]
 theorem lower_definition (D E : Copula 2) : lowerDefinition.eval model (D,E,()) ↔ D.LowerOrthantLE E := by
   simp only [lowerDefinition,Expr.eval,Var.get,model,Ty.denote,Copula.LowerOrthantLE]
   constructor
   · intro h z
-    have hz : z=![z 0,z 1] := by ext i; fin_cases i <;> rfl
-    simpa only [hz] using h (z 0) (z 1)
+    have hz : ![z 0,z 1]=z := by ext i; fin_cases i <;> rfl
+    have hzz := h (z 0) (z 1)
+    rwa [hz] at hzz
   · intro h u v
     exact h ![u,v]
 
