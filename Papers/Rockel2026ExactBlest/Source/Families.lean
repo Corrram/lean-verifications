@@ -15,7 +15,7 @@ Each identification is proved, so the companion's results apply to the
 article's statements without any choice of interpretation. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Bridge
-open Papers.Rockel2026ExactBlest.Source Proofread MeasureTheory ProbabilityTheory Set
+open Papers.Rockel2026ExactBlest.Source Leanify MeasureTheory ProbabilityTheory Set
 open scoped unitInterval
 open Papers.Rockel2026ExactBlest (paperA paperB paperEtaB paperUpsB paperNB paperNuB etaGap graphRank
   randomRank paperR paperR_formula paperT_formula paperA_graph_law paperB_graph_law measurable_graphRank

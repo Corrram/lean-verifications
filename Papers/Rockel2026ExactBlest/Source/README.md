@@ -2,24 +2,24 @@
 
 `article.tex` is the article *Rank weighting and asymmetry in Blest's rank
 correlation: two exact regions* (arXiv:2609.27634v1), with the local edits
-listed below. [Proofread](https://github.com/Corrram/proofread) compiles this
+listed below. [Leanify](https://github.com/Corrram/leanify) compiles this
 file in Lean: its definitions, statements and proof sentences, as written. No
 separate formal statement is written by hand.
 
 | File | Role |
 | --- | --- |
-| `Compiled.lean` | `#proofread_article`. The kernel proves `compiled : compileArticle vocab source = some doc` from the file's contents, with the core vocabulary and the vocabulary of probability on the unit square. `LexCache/` holds the lexing certificates of the article's sections (written by `proofread prepare`), so that an edit relexes only its own section. |
-| `Article.lean` | `#proofread_semantics`. Every definition (`nu`, `rho`, `Phi`, `Upsilon`, `D`, `A`, `B`, `Lambda`, …), claim (`claimK`) and definedness condition (`meaningfulK`, `wellDefinedI`) is stated as Lean, and kernel `rfl` theorems tie each one to `doc`. The command also generates the proof obligations `obligationK`. |
+| `Compiled.lean` | `#leanify_article`. The kernel proves `compiled : compileArticle vocab source = some doc` from the file's contents, with the core vocabulary and the vocabulary of probability on the unit square. `LexCache/` holds the lexing certificates of the article's sections (written by `leanify prepare`), so that an edit relexes only its own section. |
+| `Article.lean` | `#leanify_semantics`. Every definition (`nu`, `rho`, `Phi`, `Upsilon`, `D`, `A`, `B`, `Lambda`, …), claim (`claimK`) and definedness condition (`meaningfulK`, `wellDefinedI`) is stated as Lean, and kernel `rfl` theorems tie each one to `doc`. The command also generates the proof obligations `obligationK`. |
 | `Steps.lean` | The proof of Corollary 3.2, sentence by sentence (claims 17–28), and its statement (claims 14–16), each derived from exactly the premises the text cites. This module imports only the compiled article and Mathlib. |
 | `Bridge.lean`, `Families.lean` | Proved identifications of the article's definitions with the copula library and the companion development: `copulas_iff`, `rho_cdfOf`, `nu_cdfOf`, `eta_cdfOf`, `D_eq`, `A_eq`, `B_eq`, `B_half`, `Phi_eq`, `Upsilon_eq`, `Lambda_eq`, …. The generic part (copulas of the vocabulary are library copulas) is `Papers/Common/UnitSquareCopula.lean`. |
 | `Companion.lean`, `CompanionFamilies.lean` | The results the article states without a compiled proof (Theorems 1.1 and 1.2, Lemmas 2.2, 3.1 and 4.1, Corollaries 4.5 and 4.6, the displayed formulas) and the well-definedness of all definitions, proved through the bridges. |
 | `Potentials.lean`, `Dual.lean` | The cost `d_κ`, the parameters `κ_w`, `κ_b` and the potentials `φ_w, ψ_w, φ_b, ψ_b` of Section 4.2, which the article defines by a value and a piecewise derivative (read as `φ(x) = φ(a) + ∫_a^x φ'`), are the companion's potentials, by the fundamental theorem of calculus on each piece (`Papers/Common/Calculus.lean`). `Dual.lean` proves Propositions 4.3 and 4.4 from them. |
-| `Certified.lean` | `#proofread_certify`. The kernel checks `certificate`. The citation audit rejects any proof sentence whose justification uses a result it does not cite. The command exports `verifiedK : meaningfulK ∧ claimK` and writes `article.proofread.json` and `article.proofread.tex`. |
-| `article.proofread.json` | The per-sentence status read by the website reader (`…/compiled/`) and by `proofread_diagnostics.py`. |
+| `Certified.lean` | `#leanify_certify`. The kernel checks `certificate`. The citation audit rejects any proof sentence whose justification uses a result it does not cite. The command exports `verifiedK : meaningfulK ∧ claimK` and writes `article.leanify.json` and `article.leanify.tex`. |
+| `article.leanify.json` | The per-sentence status read by the website reader (`…/compiled/`) and by `leanify_diagnostics.py`. |
 
 ## Coverage
 
-The certificate (`Certified.lean`) and `article.proofread.json` give the following coverage.
+The certificate (`Certified.lean`) and `article.leanify.json` give the following coverage.
 
 | Sentences | compiled | not compiled | prose | total |
 | --- | ---: | ---: | ---: | ---: |
@@ -83,6 +83,6 @@ what it means, and none changes the mathematics:
 
 ```sh
 lake build Papers.Rockel2026ExactBlest.Source.Certified
-python .lake/packages/proofread/scripts/proofread_diagnostics.py Papers/Rockel2026ExactBlest/Source/article.proofread.json --prose
-lake exe proofread check Papers/Rockel2026ExactBlest/Source/article.tex --vocab unitsquare --claims
+python .lake/packages/leanify/scripts/leanify_diagnostics.py Papers/Rockel2026ExactBlest/Source/article.leanify.json --prose
+lake exe leanify check Papers/Rockel2026ExactBlest/Source/article.tex --vocab unitsquare --claims
 ```

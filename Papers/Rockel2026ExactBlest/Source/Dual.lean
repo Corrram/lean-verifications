@@ -11,7 +11,7 @@ not restrict these proofs. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Proofs
 open Papers.Rockel2026ExactBlest.Source Papers.Rockel2026ExactBlest.Source.Bridge
-open Proofread MeasureTheory Set
+open Leanify MeasureTheory Set
 open scoped unitInterval
 open Papers.Rockel2026ExactBlest (paper_dualA paper_contactA paper_dualB paper_contactB)
 

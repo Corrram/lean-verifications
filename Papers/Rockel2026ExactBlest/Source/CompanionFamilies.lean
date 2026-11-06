@@ -12,7 +12,7 @@ so the citation audit does not restrict these proofs. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Proofs
 open Papers.Rockel2026ExactBlest.Source Papers.Rockel2026ExactBlest.Source.Bridge
-open Proofread MeasureTheory ProbabilityTheory Set
+open Leanify MeasureTheory ProbabilityTheory Set
 open scoped unitInterval
 open Papers.Rockel2026ExactBlest (paperA paperB paperEtaB paperUpsB etaGap etaGap_mem eta_fibre_displayed
   paper_eta_graph_extremizers paper_eta_random_extremizers eta_bottom_unique paperA_zero eta_paperA nu_paperA

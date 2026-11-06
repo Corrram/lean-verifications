@@ -1,6 +1,6 @@
 import Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Compiled
-import Proofread.Readable
-import Proofread.Library.UnitSquareModel
+import Leanify.Readable
+import Leanify.Library.UnitSquareModel
 
 /-! # Readable definitions and claims of the compiled article
 
@@ -12,4 +12,4 @@ Lean constants tied to the compiled document by kernel-checked `rfl` theorems. -
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0
 
-#proofread_semantics Papers.AnsariRockelSteinmassl2026RhoGamma.Source "article.tex" with Proofread.UnitSquare.model
+#leanify_semantics Papers.AnsariRockelSteinmassl2026RhoGamma.Source "article.tex" with Leanify.UnitSquare.model

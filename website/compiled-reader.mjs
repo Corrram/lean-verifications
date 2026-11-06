@@ -1,6 +1,6 @@
-// Articles as Proofread compiles them: one source text, rendered with the status
+// Articles as Leanify compiles them: one source text, rendered with the status
 // of every sentence from the kernel-checked certificate
-// (Papers/<paper>/Source, `article.proofread.json`).
+// (Papers/<paper>/Source, `article.leanify.json`).
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
@@ -13,13 +13,13 @@ import {pathToFileURL} from 'node:url';
 export async function buildCompiledReader({root, out, url, api, route, evidence, paperId = 'Rockel2026ExactBlest',
     example = 'examples/paper-bridge', bibliography = 'source/exact-blest-regions.bbl',
     title = 'Blest’s rank correlation, compiled from its source', sourceURL = 'https://arxiv.org/abs/2609.27634v1'}) {
-  const reader = path.join(root, '.lake/packages/proofread/reader');
+  const reader = path.join(root, '.lake/packages/leanify/reader');
   if (!fs.existsSync(path.join(reader, 'reader.mjs'))) {
-    console.warn('Skipping the compiled-source reader: the pinned proofread package has no reader/reader.mjs');
+    console.warn('Skipping the compiled-source reader: the pinned leanify package has no reader/reader.mjs');
     return null;
   }
   const dir = path.join(root, 'Papers', paperId, 'Source');
-  const reportPath = path.join(dir, 'article.proofread.json');
+  const reportPath = path.join(dir, 'article.leanify.json');
   if (!fs.existsSync(reportPath)) {
     console.warn(`Skipping the compiled-source reader of ${paperId}: build Papers.${paperId}.Source.Certified first`);
     return null;
@@ -39,10 +39,10 @@ export async function buildCompiledReader({root, out, url, api, route, evidence,
     title, source, bibliography: bbl, report, config,
     figureURL: image => url(route + 'images/' + figures[image].filename),
     sourceURL, sourceDate: config.sourceDate ?? '',
-    assets: {icon: url('assets/favicon.svg'), styles: [url('assets/katex/katex.min.css'), url('assets/style.css'), url('assets/proofread-reader.css')],
-      script: url('assets/proofread-reader.js')},
+    assets: {icon: url('assets/favicon.svg'), styles: [url('assets/katex/katex.min.css'), url('assets/style.css'), url('assets/leanify-reader.css')],
+      script: url('assets/leanify-reader.js')},
     links: [{href: url(route), label: 'Article + companion'}, {href: url(page + 'article.tex'), label: 'Compiled source'},
-      {href: url(page + 'article.proofread.json'), label: 'Certificate report'}],
+      {href: url(page + 'article.leanify.json'), label: 'Certificate report'}],
     declarationURL: (name, module) => module ? api(module) + '#' + name : null,
     intro: `This page renders <code>Papers/${paperId}/Source/article.tex</code>, the text that the Lean kernel compiles. ` +
       'Every symbol it uses is defined earlier in the article. Each marker reports what the certificate checked for its sentence: ' +
@@ -52,9 +52,9 @@ export async function buildCompiledReader({root, out, url, api, route, evidence,
   fs.mkdirSync(destination, {recursive: true});
   fs.writeFileSync(path.join(destination, 'index.html'), html);
   fs.copyFileSync(path.join(dir, 'article.tex'), path.join(destination, 'article.tex'));
-  fs.copyFileSync(reportPath, path.join(destination, 'article.proofread.json'));
+  fs.copyFileSync(reportPath, path.join(destination, 'article.leanify.json'));
   fs.mkdirSync(path.join(out, 'assets'), {recursive: true});
-  fs.copyFileSync(path.join(reader, 'reader.css'), path.join(out, 'assets/proofread-reader.css'));
-  fs.copyFileSync(path.join(reader, 'reader.js'), path.join(out, 'assets/proofread-reader.js'));
+  fs.copyFileSync(path.join(reader, 'reader.css'), path.join(out, 'assets/leanify-reader.css'));
+  fs.copyFileSync(path.join(reader, 'reader.js'), path.join(out, 'assets/leanify-reader.js'));
   return {report, page};
 }

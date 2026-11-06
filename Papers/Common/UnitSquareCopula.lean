@@ -1,4 +1,4 @@
-import Proofread.Library.UnitSquareModel
+import Leanify.Library.UnitSquareModel
 import Copula.CDF.Extensionality
 import Copula.Dependence.Basic
 import Copula.Independence
@@ -8,16 +8,16 @@ import Copula.Reflection.Bivariate
 
 /-! # Copulas of the unit-square vocabulary are library copulas
 
-An article compiled with `Proofread.UnitSquare.withCore` speaks of functions
+An article compiled with `Leanify.UnitSquare.withCore` speaks of functions
 `F : I → I → ℝ` that are distribution functions on `[0,1]^2` with uniform
-marginals (`Proofread.UnitSquare.distFn2 F ∧ dfUniformMarginals F`). These are
+marginals (`Leanify.UnitSquare.distFn2 F ∧ dfUniformMarginals F`). These are
 exactly the distribution functions `cdfOf K` of the copula library's `Copula 2`.
 The theorems here are proved once and used by every compiled article:
 `isCopula_cdfOf`, `exists_cdfOf`, and the integral forms of Spearman's rho and
 Gini's gamma. -/
 
 namespace Papers.Common
-open MeasureTheory ProbabilityTheory Proofread
+open MeasureTheory ProbabilityTheory Leanify
 open scoped unitInterval
 
 /-- The distribution function of a library copula, on `[0,1]^2`. -/

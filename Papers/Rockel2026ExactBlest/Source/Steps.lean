@@ -12,11 +12,11 @@ earlier sentences of the same proof. `obligationK` is generated from the
 article; this file only supplies the reasoning between sentences.
 
 This module imports nothing but the compiled article (and through it Mathlib),
-so it cannot use the paper's companion Lean results; `#proofread_certify` audits
+so it cannot use the paper's companion Lean results; `#leanify_certify` audits
 this as well. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Proofs
-open Papers.Rockel2026ExactBlest.Source Proofread MeasureTheory
+open Papers.Rockel2026ExactBlest.Source Leanify MeasureTheory
 open scoped unitInterval
 
 /-- The point `1/2` of `[0,1]`, as the article's `D_{1/2}` writes it. -/

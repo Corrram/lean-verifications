@@ -4040,7 +4040,7 @@
    "sentence": 22,
    "name": "copulas",
    "module": "Papers.Rockel2026ExactBlest.Source.Companion",
-   "lean": "fun x => Proofread.UnitSquare.distFn2 x ∧ Proofread.UnitSquare.dfUniformMarginals x",
+   "lean": "fun x => Leanify.UnitSquare.distFn2 x ∧ Leanify.UnitSquare.dfUniformMarginals x",
    "key": "\\mathcal{C}",
    "justification": "Papers.Rockel2026ExactBlest.Source.Proofs.defined0",
    "index": 0},
@@ -4126,7 +4126,7 @@
    "justification": "Papers.Rockel2026ExactBlest.Source.Proofs.defined8",
    "index": 8},
   {"wellDefined":
-   "∀ (x : (I → I → Prop) → ℝ),\n  Proofread.UnitSquare.probMeasure2 x ∧ Proofread.UnitSquare.measUniformMarginals x →\n    ∀ (x x_1 : I), measurableSet2 fun x_2 x_3 => 1 - ↑x_2 ≤ ↑x ∧ 1 - ↑x_3 ≤ ↑x_1",
+   "∀ (x : (I → I → Prop) → ℝ),\n  Leanify.UnitSquare.probMeasure2 x ∧ Leanify.UnitSquare.measUniformMarginals x →\n    ∀ (x x_1 : I), measurableSet2 fun x_2 x_3 => 1 - ↑x_2 ≤ ↑x ∧ 1 - ↑x_3 ≤ ↑x_1",
    "symbol": "\\text{copula associated with}",
    "sentence": 76,
    "name": "copulaAssociatedWith",
@@ -4194,7 +4194,7 @@
    "justification": "Papers.Rockel2026ExactBlest.Source.Proofs.defined15",
    "index": 15},
   {"wellDefined":
-   "∀ (x : I),\n  Measurable (zeta x) ∧\n    (Proofread.UnitSquare.probMeasure2\n          (gamma (zeta x)) ∧\n        Proofread.UnitSquare.measUniformMarginals\n          (gamma (zeta x))) ∧\n      Measurable (zeta x)",
+   "∀ (x : I),\n  Measurable (zeta x) ∧\n    (Leanify.UnitSquare.probMeasure2\n          (gamma (zeta x)) ∧\n        Leanify.UnitSquare.measUniformMarginals\n          (gamma (zeta x))) ∧\n      Measurable (zeta x)",
    "symbol": "D",
    "sentence": 130,
    "name": "D",
@@ -4233,7 +4233,7 @@
    "justification": "Papers.Rockel2026ExactBlest.Source.Proofs.defined19",
    "index": 19},
   {"wellDefined":
-   "∀ (x : I),\n  Measurable (T x) ∧\n    (Proofread.UnitSquare.probMeasure2\n          (gamma (T x)) ∧\n        Proofread.UnitSquare.measUniformMarginals\n          (gamma (T x))) ∧\n      Measurable (T x)",
+   "∀ (x : I),\n  Measurable (T x) ∧\n    (Leanify.UnitSquare.probMeasure2\n          (gamma (T x)) ∧\n        Leanify.UnitSquare.measUniformMarginals\n          (gamma (T x))) ∧\n      Measurable (T x)",
    "symbol": "A",
    "sentence": 176,
    "name": "A",
@@ -4263,7 +4263,7 @@
    "justification": "Papers.Rockel2026ExactBlest.Source.Proofs.defined22",
    "index": 22},
   {"wellDefined":
-   "∀ (x : ℝ),\n  0 < x ∧ x ≤ 1 / 2 →\n    (((∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2) ∧\n        Measurable (R x) ∧ (∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2) ∧\n      (Proofread.UnitSquare.probMeasure2\n            (gammaUpper (R x)) ∧\n          Proofread.UnitSquare.measUniformMarginals\n            (gammaUpper (R x))) ∧\n        ((∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2) ∧\n          Measurable (R x) ∧ (∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2",
+   "∀ (x : ℝ),\n  0 < x ∧ x ≤ 1 / 2 →\n    (((∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2) ∧\n        Measurable (R x) ∧ (∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2) ∧\n      (Leanify.UnitSquare.probMeasure2\n            (gammaUpper (R x)) ∧\n          Leanify.UnitSquare.measUniformMarginals\n            (gammaUpper (R x))) ∧\n        ((∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2) ∧\n          Measurable (R x) ∧ (∀ (x : ℝ), 0 < x → ¬2 = 0) ∧ 0 < x ∧ x ≤ 1 / 2",
    "symbol": "B",
    "sentence": 180,
    "name": "B",

@@ -2,7 +2,7 @@
 
 `article.tex` is the article *The exact region determined by Spearman's rho and
 Gini's gamma* (arXiv:2609.19890v1), with the local edits listed below.
-[Proofread](https://github.com/Corrram/proofread) compiles this file in Lean;
+[Leanify](https://github.com/Corrram/leanify) compiles this file in Lean;
 no separate formal statement is written by hand. This is the second article
 compiled this way, after `Papers/Rockel2026ExactBlest/Source`. Its main
 statements are verified through the existing development of the paper in this
@@ -10,15 +10,15 @@ folder's parent.
 
 | File | Role |
 | --- | --- |
-| `Compiled.lean` | `#proofread_article`: the kernel compiles `article.tex`. |
-| `Article.lean` | `#proofread_semantics`: `rho`, `gamma`, `Omegarhogamma` (`Ω_{ρ,γ}`), `rhoBar` (`ρ̄(g) = max{ρ(C) : C ∈ 𝒞, γ(C) = g}`, a definite description), the constants `dStar`, `gStar`, `d0`, `Delta0`, `r0`, `g0`, and the claims `claimK` with their definedness conditions. |
+| `Compiled.lean` | `#leanify_article`: the kernel compiles `article.tex`. |
+| `Article.lean` | `#leanify_semantics`: `rho`, `gamma`, `Omegarhogamma` (`Ω_{ρ,γ}`), `rhoBar` (`ρ̄(g) = max{ρ(C) : C ∈ 𝒞, γ(C) = g}`, a definite description), the constants `dStar`, `gStar`, `d0`, `Delta0`, `r0`, `g0`, and the claims `claimK` with their definedness conditions. |
 | `Bridge.lean` | `ρ` and `γ` are `spearmanRho` and `giniGamma` of the copula library, `Ω_{ρ,γ}` is `region`, `ρ̄` is `upperRho`, and the radical constants are the development's. |
 | `Proofs.lean` | Proofs of every compiled claim (Theorem 1.1: the region, its shape, the shape and endpoints of `ρ̄`; Corollaries 2.1 and 2.4, Proposition 2.3) and every definition's well-definedness. |
-| `Certified.lean` | `#proofread_certify`: the certificate, `verifiedK`, and the reports. |
+| `Certified.lean` | `#leanify_certify`: the certificate, `verifiedK`, and the reports. |
 
 ## Coverage
 
-The certificate (`Certified.lean`) and `article.proofread.json` give the following coverage.
+The certificate (`Certified.lean`) and `article.leanify.json` give the following coverage.
 
 | Sentences | compiled | not compiled | prose | total |
 | --- | ---: | ---: | ---: | ---: |
@@ -82,5 +82,5 @@ what it means, and none changes the mathematics:
 
 ```sh
 lake build Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Certified
-lake exe proofread check Papers/AnsariRockelSteinmassl2026RhoGamma/Source/article.tex --vocab unitsquare --claims
+lake exe leanify check Papers/AnsariRockelSteinmassl2026RhoGamma/Source/article.tex --vocab unitsquare --claims
 ```

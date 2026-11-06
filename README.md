@@ -19,7 +19,7 @@ declaration advertised as verified.
 ## Articles compiled from their LaTeX source
 
 Two articles are also checked directly from their LaTeX source with
-[Proofread](https://github.com/Corrram/proofread): the kernel compiles the
+[Leanify](https://github.com/Corrram/leanify): the kernel compiles the
 `.tex` file, states every definition and claim as Lean, and certifies each claim
 from the results it cites or through the paper's development.
 [Rockel2026ExactBlest/Source](Papers/Rockel2026ExactBlest/Source/README.md)

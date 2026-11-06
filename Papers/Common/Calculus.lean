@@ -4,7 +4,7 @@ import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 
 An article may define a function by its value at one point and its derivative,
 given piecewise on open intervals (`φ(a) = 0`, `φ'(x) = …` for `0 < x < a` and
-for `a < x < 1`). Proofread reads this as `φ(x) = ∫_a^x φ'`. The two lemmas here
+for `a < x < 1`). Leanify reads this as `φ(x) = ∫_a^x φ'`. The two lemmas here
 evaluate such integrals one piece at a time: on a piece, the integrand agrees
 with a continuous function, which is the derivative of a known antiderivative. -/
 

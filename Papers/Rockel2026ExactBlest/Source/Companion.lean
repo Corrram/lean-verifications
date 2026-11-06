@@ -9,7 +9,7 @@ proof of Corollary 3.2 cites (`Steps.lean`). -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Proofs
 open Papers.Rockel2026ExactBlest.Source Papers.Rockel2026ExactBlest.Source.Bridge
-open Proofread MeasureTheory ProbabilityTheory
+open Leanify MeasureTheory ProbabilityTheory
 open Papers.Rockel2026ExactBlest (paperD paperD_values paperD_on_boundary paperD_strictMono
   paperD_parameter_exists_unique paper_rho_upper_unique paper_rho_lower_unique rho_fibre_complete
   rhoBoundary rhoBoundary_neg nu_survival eta_survival quadraticRank quadraticRank_uniform paperZeta_formula)

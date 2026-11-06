@@ -11,7 +11,7 @@ these proofs. -/
 
 namespace Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Proofs
 open Papers.AnsariRockelSteinmassl2026RhoGamma.Source Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Bridge
-open Proofread MeasureTheory ProbabilityTheory Set
+open Leanify MeasureTheory ProbabilityTheory Set
 open scoped unitInterval
 open Papers.AnsariRockelSteinmassl2026RhoGamma (region upperRho exact_region upperRho_endpoints
   region_compact region_convex region_centrally_symmetric upperRho_continuous upperRho_concave upperRho_strictMono

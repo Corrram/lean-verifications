@@ -16,7 +16,7 @@ so the companion's results apply to the article's statements without any
 choice of interpretation. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Bridge
-open Papers.Rockel2026ExactBlest.Source Proofread MeasureTheory ProbabilityTheory
+open Papers.Rockel2026ExactBlest.Source Leanify MeasureTheory ProbabilityTheory
 open scoped unitInterval
 
 export Papers.Common (cdfOf cdfOf_injective continuous_cdfOf integrable_section continuous_integral

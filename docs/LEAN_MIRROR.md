@@ -1,7 +1,7 @@
 # LeanMirror mathematical companions
 
 > The LaTeX-compiled sources (`Papers/*/Source`) now use
-> [Proofread](https://github.com/Corrram/proofread), the successor of the
+> [Leanify](https://github.com/Corrram/leanify), the successor of the
 > LeanMirror TeX pipeline, pinned in `lakefile.toml` and `lake-manifest.json`.
 > The companion engine described below (typed controlled language, proof
 > documents and article evidence) lives in this repository as the `Companion`

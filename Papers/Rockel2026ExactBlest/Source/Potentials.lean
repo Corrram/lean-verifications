@@ -5,14 +5,14 @@ import Papers.Common.Calculus
 
 The article defines the cost `d_κ`, the parameters `κ_w`, `κ_b`, the branches
 `z_∓` and pieces `R_b^∓`, and the potentials `φ_w, ψ_w, φ_b, ψ_b` by their value
-at one point and their piecewise derivative. Proofread reads such a definition as
+at one point and their piecewise derivative. Leanify reads such a definition as
 `φ(x) = φ(a) + ∫_a^x φ'`. This file evaluates these integrals piece by piece with
 the fundamental theorem of calculus: each potential is the companion's
 (`paperPhiA`, `paperPsiA`, `paperPhiB`, `paperPsiB`), whose derivatives the
 companion proves. The support `S_w` is the companion's contact set. -/
 
 namespace Papers.Rockel2026ExactBlest.Source.Bridge
-open Papers.Rockel2026ExactBlest.Source Proofread MeasureTheory Set
+open Papers.Rockel2026ExactBlest.Source Leanify MeasureTheory Set
 open scoped unitInterval
 open Papers.Common (intervalIntegrable_piece integral_piece intervalIntegrable_two_pieces
   integral_two_pieces intervalIntegrable_three_pieces integral_three_pieces)

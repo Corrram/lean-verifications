@@ -15,7 +15,7 @@ library copulas `K : Copula 2`; its `ρ` and `γ` are `K.spearmanRho` and
 constants. Each identification is proved. -/
 
 namespace Papers.AnsariRockelSteinmassl2026RhoGamma.Source.Bridge
-open Papers.AnsariRockelSteinmassl2026RhoGamma.Source Proofread MeasureTheory ProbabilityTheory
+open Papers.AnsariRockelSteinmassl2026RhoGamma.Source Leanify MeasureTheory ProbabilityTheory
 open scoped unitInterval
 open Papers.AnsariRockelSteinmassl2026RhoGamma (region upperRho sharp_upper_bound upper_boundary_attained)
 
